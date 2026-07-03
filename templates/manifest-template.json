@@ -1,0 +1,55 @@
+{
+  "schema_version": "0.2",
+  "experiment_id": "short-stable-id",
+  "title": "Human-readable title",
+  "goal": "Short user-facing goal",
+  "created_at": "ISO timestamp",
+  "budget": {
+    "max_iters": 15,
+    "patience": 4,
+    "cost_limit": null,
+    "wall_time_limit_sec": 3600
+  },
+  "artifact_scope": {
+    "roots": ["."],
+    "allow_edit": ["experiment-loop/**"],
+    "deny": [".env", "secrets/**", "**/*credential*"]
+  },
+  "scorecard": [
+    {"id": "clarity", "label": "Visual clarity", "weight": 1},
+    {"id": "correctness", "label": "Correctness", "weight": 1}
+  ],
+  "scorers": [
+    {
+      "id": "quality",
+      "type": "llm_rubric",
+      "judge_panel": "default_panel",
+      "weight": 1
+    }
+  ],
+  "judge_panels": [
+    {
+      "id": "default_panel",
+      "blind": true,
+      "flip_pairwise_order": true,
+      "aggregation": "median_with_dissent",
+      "judges": [
+        {"id": "fast-critic", "role": "obvious defects"},
+        {"id": "deep-critic", "role": "correctness and tradeoffs"},
+        {"id": "style-critic", "role": "subjective style/presentation"}
+      ]
+    }
+  ],
+  "governance": {
+    "self_editing": {
+      "requires_user_approval": true,
+      "proposal_required": true,
+      "approved_proposal_id": null
+    }
+  },
+  "tracks": [],
+  "iterations": [],
+  "best": null,
+  "rules": [],
+  "synthesis": ""
+}

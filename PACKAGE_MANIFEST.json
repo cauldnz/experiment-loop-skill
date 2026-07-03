@@ -1,0 +1,21 @@
+{
+  "package": "experiment-loop-skill-share",
+  "skill": "experiment-loop",
+  "source": "Curated from the approved experiment-loop skill after proposals 002/003/004 were applied.",
+  "source_commit": "6fa1559b178ed8a2009aa3aea573b924f559ddc2",
+  "description": "Shareable package for the experiment-loop skill, including install scripts, templates, and manifest schema reference.",
+  "dependencies": {
+    "required": [],
+    "optional_per_experiment": [
+      "Python",
+      "Node.js",
+      "Blender",
+      "ImageMagick",
+      "cloud CLIs"
+    ]
+  },
+  "notes": [
+    "No experiment artifacts, GIFs, Azure resources, credentials, or local user paths are included.",
+    "The skill includes a human-review gate for durable changes to skills, rubrics, judge policy, and reusable instructions."
+  ]
+}
