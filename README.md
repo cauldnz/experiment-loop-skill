@@ -59,6 +59,10 @@ They do not overwrite an existing skill unless `-Force` / `--force` is provided.
 
 The skill itself has no runtime package dependencies. Individual experiments may need tools such as Python, Node.js, Blender, ImageMagick, cloud CLIs, test runners, or domain-specific tooling.
 
+## License
+
+MIT. See `LICENSE`.
+
 ## Governance
 
 This skill includes a human-review gate. If an experiment proposes changes to the skill itself, a rubric, judge policy, approval policy, or reusable agent instruction, the change must be written as a proposal and explicitly approved before it is applied.
