@@ -2,12 +2,14 @@
 <rect width="760" height="420" fill="#fbfbf7"/>
 <text x="28" y="34" font-family="Segoe UI, Arial" font-size="22" font-weight="700" fill="#111827">Wider cable-dock cradle</text>
 <text x="28" y="58" font-family="Segoe UI, Arial" font-size="13" fill="#475569">Footprint 6708.0 mm2; stability ratio 0.812; material proxy 162.87</text>
-<g transform="translate(350 270)">
-<polygon points="-180,45 105,45 180,-8 -105,-8" fill="#dbeafe" stroke="#475569" stroke-width="2"/>
-<polygon points="-105,-8 180,-8 180,-160 -105,-160" fill="#bfdbfe" stroke="#475569" stroke-width="2"/>
-<rect x="-52" y="-128" width="104" height="108" rx="10" fill="#334155" opacity="0.16" stroke="#334155"/>
-<polygon points="-180,45 105,45 118,14 -166,14" fill="#93c5fd" stroke="#475569" stroke-width="2"/>
-<path d="M -12 58 C -6 42, -4 28, 0 14 C 4 2, 9 -8, 18 -20" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
-</g>
+<text x="28" y="78" font-family="Segoe UI, Arial" font-size="13" fill="#475569">Dimensions: W 86 mm x D 78 mm x H 96 mm; lip 13 mm; cable 16 mm; braces no</text>
+<polygon points="308.2,285.7 536.1,285.7 451.8,321.6 223.9,321.6" fill="#dbeafe" stroke="#475569" stroke-width="2"/>
+<polygon points="232.6,317.9 460.5,317.9 451.8,139.1 223.9,139.1" fill="#bfdbfe" stroke="#475569" stroke-width="2"/>
+<polygon points="288.8,287.8 410.7,287.8 410.7,152.5 288.8,152.5" fill="#1f293326" stroke="#33415599" stroke-width="1"/>
+<polygon points="308.2,285.7 400.9,285.7 400.9,259.1 308.2,259.1" fill="#93c5fd" stroke="#475569" stroke-width="2"/>
+<polygon points="443.3,285.7 536.1,285.7 536.1,259.1 443.3,259.1" fill="#93c5fd" stroke="#475569" stroke-width="2"/>
+<path d="M 435.1 294.5 L 423.2 271.9 L 350.8 271.0" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+<line x1="54" y1="352" x2="214" y2="352" stroke="#94a3b8" stroke-width="2"/>
+<text x="54" y="370" font-family="Segoe UI, Arial" font-size="12" fill="#475569">W 86 / D 78 / H 96</text>
 <text x="28" y="388" font-family="Segoe UI, Arial" font-size="13" fill="#475569">Included artifacts: CadQuery STEP, CadQuery SVG projection, concept SVG preview, metrics, panel notes</text>
 </svg>

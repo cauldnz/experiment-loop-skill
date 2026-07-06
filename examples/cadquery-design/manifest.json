@@ -144,7 +144,7 @@
           "kind": "image",
           "label": "Preview SVG",
           "path": "generative-design/loop-01-minimal-cradle/preview.svg",
-          "sha256": "a87bafe74b7e03cd91dc44f0c339e21149289185b20c692ac091cad6e2d277d5"
+          "sha256": "c69fc67d750632fd2d472f78ceee19055e09ec83af55783179871c9f6c724f99"
         },
         {
           "kind": "data",
@@ -245,7 +245,7 @@
           "kind": "image",
           "label": "Preview SVG",
           "path": "generative-design/loop-02-cable-dock/preview.svg",
-          "sha256": "415fd7698d763f04b80898a84fcd7c4efab7d4b7f3176524c5dcda72391b69d3"
+          "sha256": "47cda269fbefaa1106fbb8f1543d4adf8211d64eba0c902ed3c6597ebb1117ee"
         },
         {
           "kind": "data",
@@ -344,7 +344,7 @@
           "kind": "image",
           "label": "Preview SVG",
           "path": "bracing-run/loop-01-compact-braced/preview.svg",
-          "sha256": "979c4deb26363c43f740268c9aa653f3c11e2d7388f939404ef89bfd8537b963"
+          "sha256": "edcaf255d29ed4ea2c1378e635cb2f4df8c16fefad08a782c292298c3abc85e0"
         },
         {
           "kind": "data",
@@ -445,7 +445,7 @@
           "kind": "image",
           "label": "Preview SVG",
           "path": "bracing-run/loop-02-printable-braced-cable/preview.svg",
-          "sha256": "0c499e44f472b97634030a34153887bb91f7da6a456cfa731077e86568521b76"
+          "sha256": "9bd8579bc0cf3fdf2802a1468a1730c15c0d880eb88b6e4ba76d565fc7798e26"
         },
         {
           "kind": "data",
@@ -548,7 +548,7 @@
           "kind": "image",
           "label": "Preview SVG",
           "path": "synthesis/loop-03-braced-synthesis/preview.svg",
-          "sha256": "7e362ebe956f516f8751d4e3085e4a0338f4a5b3171f025e83006fe142297cf0"
+          "sha256": "42ae35ed20503705192d72bfab0a297dd6daa2809f65345ceb45c4f2a5b6b0c4"
         },
         {
           "kind": "data",
@@ -653,7 +653,7 @@
           "kind": "image",
           "label": "Preview SVG",
           "path": "synthesis/loop-04-refined-hybrid/preview.svg",
-          "sha256": "58b595da0c2941bc1518bd0f1d36c04a8562b8d0db1ef99196223f39c5da9f55"
+          "sha256": "092e82c441240d34d3238c036c003ac3fc1106ce5c91c61231d6db412055bd1d"
         },
         {
           "kind": "data",

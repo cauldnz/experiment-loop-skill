@@ -2,14 +2,16 @@
 <rect width="760" height="420" fill="#fbfbf7"/>
 <text x="28" y="34" font-family="Segoe UI, Arial" font-size="22" font-weight="700" fill="#111827">Braced cable-access run</text>
 <text x="28" y="58" font-family="Segoe UI, Arial" font-size="13" fill="#475569">Footprint 6216.0 mm2; stability ratio 0.787; material proxy 142.47</text>
-<g transform="translate(350 270)">
-<polygon points="-180,45 105,45 180,-8 -105,-8" fill="#dbeafe" stroke="#475569" stroke-width="2"/>
-<polygon points="-105,-8 180,-8 180,-160 -105,-160" fill="#bfdbfe" stroke="#475569" stroke-width="2"/>
-<rect x="-52" y="-128" width="104" height="108" rx="10" fill="#334155" opacity="0.16" stroke="#334155"/>
-<polygon points="-180,45 105,45 118,14 -166,14" fill="#93c5fd" stroke="#475569" stroke-width="2"/>
-<path d="M -12 58 C -6 42, -4 28, 0 14 C 4 2, 9 -8, 18 -20" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
-<polygon points="-150,32 -118,32 -118,-105" fill="#60a5fa" stroke="#475569" stroke-width="2"/>
-<polygon points="118,32 150,32 150,-105" fill="#60a5fa" stroke="#475569" stroke-width="2"/>
-</g>
+<text x="28" y="78" font-family="Segoe UI, Arial" font-size="13" fill="#475569">Dimensions: W 84 mm x D 74 mm x H 94 mm; lip 12 mm; cable 14 mm; braces yes</text>
+<polygon points="308.7,288.7 531.3,288.7 451.3,322.7 228.7,322.7" fill="#dbeafe" stroke="#475569" stroke-width="2"/>
+<polygon points="236.3,319.5 458.9,319.5 451.3,142.3 228.7,142.3" fill="#bfdbfe" stroke="#475569" stroke-width="2"/>
+<polygon points="289.9,289.4 411.8,289.4 411.8,156.2 289.9,156.2" fill="#1f293326" stroke="#33415599" stroke-width="1"/>
+<polygon points="308.7,288.7 401.4,288.7 401.4,264.1 308.7,264.1" fill="#93c5fd" stroke="#475569" stroke-width="2"/>
+<polygon points="438.5,288.7 531.3,288.7 531.3,264.1 438.5,264.1" fill="#93c5fd" stroke="#475569" stroke-width="2"/>
+<path d="M 432.9 295.5 L 421.0 275.9 L 351.9 272.6" fill="none" stroke="#2563eb" stroke-width="5" stroke-linecap="round"/>
+<polygon points="313.1,297.0 260.1,319.5 260.1,207.7" fill="#60a5fa" stroke="#475569" stroke-width="2"/>
+<polygon points="488.0,297.0 435.0,319.5 435.0,207.7" fill="#60a5fa" stroke="#475569" stroke-width="2"/>
+<line x1="54" y1="352" x2="214" y2="352" stroke="#94a3b8" stroke-width="2"/>
+<text x="54" y="370" font-family="Segoe UI, Arial" font-size="12" fill="#475569">W 84 / D 74 / H 94</text>
 <text x="28" y="388" font-family="Segoe UI, Arial" font-size="13" fill="#475569">Included artifacts: CadQuery STEP, CadQuery SVG projection, concept SVG preview, metrics, panel notes</text>
 </svg>

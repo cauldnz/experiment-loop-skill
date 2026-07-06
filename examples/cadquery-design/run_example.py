@@ -234,27 +234,75 @@ def weighted_score(scores: dict[str, float]) -> float:
 
 def write_preview_svg(params: dict[str, object], path: Path, title: str) -> None:
     m = metrics(params)
+    width = float(params["width"])
+    depth = float(params["depth"])
+    base_t = float(params["base_thickness"])
+    back_h = float(params["back_height"])
+    back_t = float(params["back_thickness"])
+    lip_h = float(params["lip_height"])
+    lip_d = float(params["lip_depth"])
+    cable_w = float(params["cable_channel_width"])
+    side_braces = bool(params["side_braces"])
+
+    w = width / 2
+    d = depth / 2
+    origin_x = 380
+    origin_y = 318
+    scale = 2.65
+
+    def project(x: float, y: float, z: float) -> tuple[float, float]:
+        return (
+            origin_x + (x * scale) - (y * 1.08),
+            origin_y + (y * 0.46) - (z * 2.05),
+        )
+
+    def points(values: list[tuple[float, float, float]]) -> str:
+        return " ".join(f"{project(x, y, z)[0]:.1f},{project(x, y, z)[1]:.1f}" for x, y, z in values)
+
+    def polygon(values: list[tuple[float, float, float]], fill: str, stroke: str = "#475569", stroke_width: int = 2) -> str:
+        return f"<polygon points=\"{points(values)}\" fill=\"{fill}\" stroke=\"{stroke}\" stroke-width=\"{stroke_width}\"/>"
+
+    def path_line(values: list[tuple[float, float, float]], stroke: str, stroke_width: int = 4) -> str:
+        projected = [project(*value) for value in values]
+        commands = " ".join(("M" if index == 0 else "L") + f" {x:.1f} {y:.1f}" for index, (x, y) in enumerate(projected))
+        return f"<path d=\"{commands}\" fill=\"none\" stroke=\"{stroke}\" stroke-width=\"{stroke_width}\" stroke-linecap=\"round\"/>"
+
+    phone_w = min(46, width - 22)
+    phone_bottom = base_t + 14
+    phone_top = min(back_h - 9, phone_bottom + 68)
+    brace_h = back_h * 0.58
+    front_y = -d + lip_d + 8
+    back_y = d - back_t
+    gap = cable_w / 2 if cable_w else 0
+    lip_segments = [(-w, -gap), (gap, w)] if cable_w else [(-w, w)]
+
     parts = [
         "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"760\" height=\"420\" viewBox=\"0 0 760 420\">",
         "<rect width=\"760\" height=\"420\" fill=\"#fbfbf7\"/>",
         f"<text x=\"28\" y=\"34\" font-family=\"Segoe UI, Arial\" font-size=\"22\" font-weight=\"700\" fill=\"#111827\">{html.escape(title)}</text>",
         f"<text x=\"28\" y=\"58\" font-family=\"Segoe UI, Arial\" font-size=\"13\" fill=\"#475569\">Footprint {m['footprint_mm2']} mm2; stability ratio {m['stability_ratio']}; material proxy {m['material_proxy']}</text>",
-        "<g transform=\"translate(350 270)\">",
-        "<polygon points=\"-180,45 105,45 180,-8 -105,-8\" fill=\"#dbeafe\" stroke=\"#475569\" stroke-width=\"2\"/>",
-        "<polygon points=\"-105,-8 180,-8 180,-160 -105,-160\" fill=\"#bfdbfe\" stroke=\"#475569\" stroke-width=\"2\"/>",
-        "<rect x=\"-52\" y=\"-128\" width=\"104\" height=\"108\" rx=\"10\" fill=\"#334155\" opacity=\"0.16\" stroke=\"#334155\"/>",
-        "<polygon points=\"-180,45 105,45 118,14 -166,14\" fill=\"#93c5fd\" stroke=\"#475569\" stroke-width=\"2\"/>",
+        f"<text x=\"28\" y=\"78\" font-family=\"Segoe UI, Arial\" font-size=\"13\" fill=\"#475569\">Dimensions: W {width:.0f} mm x D {depth:.0f} mm x H {back_h:.0f} mm; lip {lip_h:.0f} mm; cable {cable_w:.0f} mm; braces {'yes' if side_braces else 'no'}</text>",
+        polygon([(-w, -d, base_t), (w, -d, base_t), (w, d, base_t), (-w, d, base_t)], "#dbeafe"),
+        polygon([(-w, d - back_t, base_t), (w, d - back_t, base_t), (w, d, back_h), (-w, d, back_h)], "#bfdbfe"),
+        polygon([(-phone_w / 2, d - back_t - 3, phone_bottom), (phone_w / 2, d - back_t - 3, phone_bottom), (phone_w / 2, d - back_t - 3, phone_top), (-phone_w / 2, d - back_t - 3, phone_top)], "#1f293326", "#33415599", 1),
     ]
-    if params["cable_channel_width"]:
-        parts.append("<path d=\"M -12 58 C -6 42, -4 28, 0 14 C 4 2, 9 -8, 18 -20\" fill=\"none\" stroke=\"#2563eb\" stroke-width=\"5\" stroke-linecap=\"round\"/>")
-    if params["side_braces"]:
-        parts.append("<polygon points=\"-150,32 -118,32 -118,-105\" fill=\"#60a5fa\" stroke=\"#475569\" stroke-width=\"2\"/>")
-        parts.append("<polygon points=\"118,32 150,32 150,-105\" fill=\"#60a5fa\" stroke=\"#475569\" stroke-width=\"2\"/>")
-    parts.extend(["</g>", "</svg>"])
-    parts.insert(
-        -1,
+
+    for x0, x1 in lip_segments:
+        parts.append(polygon([(x0, -d, base_t), (x1, -d, base_t), (x1, -d, base_t + lip_h), (x0, -d, base_t + lip_h)], "#93c5fd"))
+
+    if cable_w:
+        parts.append(path_line([(0, -d - 12, 0), (0, -d - 1, base_t + lip_h / 2), (0, d - back_t - 4, phone_bottom + 8)], "#2563eb", 5))
+
+    if side_braces:
+        parts.append(polygon([(-w + 9, front_y, base_t), (-w + 9, back_y, base_t), (-w + 9, back_y, base_t + brace_h)], "#60a5fa"))
+        parts.append(polygon([(w - 9, front_y, base_t), (w - 9, back_y, base_t), (w - 9, back_y, base_t + brace_h)], "#60a5fa"))
+
+    parts.extend([
+        "<line x1=\"54\" y1=\"352\" x2=\"214\" y2=\"352\" stroke=\"#94a3b8\" stroke-width=\"2\"/>",
+        f"<text x=\"54\" y=\"370\" font-family=\"Segoe UI, Arial\" font-size=\"12\" fill=\"#475569\">W {width:.0f} / D {depth:.0f} / H {back_h:.0f}</text>",
         "<text x=\"28\" y=\"388\" font-family=\"Segoe UI, Arial\" font-size=\"13\" fill=\"#475569\">Included artifacts: CadQuery STEP, CadQuery SVG projection, concept SVG preview, metrics, panel notes</text>",
-    )
+        "</svg>",
+    ])
     path.write_text("\n".join(parts), encoding="utf-8")
 
 
@@ -452,6 +500,8 @@ a { color: #1d4ed8; }
 select { padding: 8px 10px; border-radius: 8px; border: 1px solid #a8a29e; }
 .cards { display: grid; gap: 18px; }
 .card img { width: 100%; max-width: 760px; border: 1px solid #d6d3d1; border-radius: 10px; background: #fff; }
+.artifact-previews { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; align-items: start; }
+.artifact-preview-title { margin: 0 0 6px; color: #57534e; font-size: 13px; font-weight: 700; }
 .meta { color: #57534e; font-size: 14px; }
 .pill { display: inline-block; padding: 4px 9px; border-radius: 999px; background: #dbeafe; color: #1e40af; font-size: 12px; margin-right: 6px; }
 .new_best { background: #dcfce7; color: #166534; }
@@ -577,15 +627,20 @@ function render() {
     .filter(i => (d === 'all' || i.decision === d) && (t === 'all' || i.track_id === t))
     .map(i => {
       const art = primaryArtifact(i);
+      const projection = (i.artifacts || []).find(a => a.label === 'CadQuery projection SVG');
       const step = (i.artifacts || []).find(a => a.label === 'CadQuery STEP');
       const parents = i.parent_ids && i.parent_ids.length ? i.parent_ids : (i.parent_id ? [i.parent_id] : ['root']);
       const artifacts = (i.artifacts || []).map(a => `<tr><td>${esc(a.kind)}</td><td>${esc(a.label)}</td><td><a href="${esc(a.path)}">${esc(a.path)}</a></td><td><code>${esc((a.sha256 || '').slice(0, 16))}</code></td></tr>`).join('');
       const scores = (i.scores || []).map(s => `<tr><td>${esc(s.scorer_id)}</td><td>${esc(s.type)}</td><td>${esc(s.value)}</td><td><pre>${esc(JSON.stringify(s.per_criterion || {}, null, 2))}</pre></td></tr>`).join('');
+      const previewCards = [art, projection && (!art || projection.path !== art.path) ? projection : null]
+        .filter(Boolean)
+        .map(a => `<div class="artifact-preview"><p class="artifact-preview-title">${esc(a.label)}</p><img src="${esc(a.path)}" alt="${esc(a.label)}"></div>`)
+        .join('');
       return `<article class="card">
         <h2>${esc(i.id)} ${i.id === bestId ? '*' : ''}</h2>
         <p><span class="pill ${esc(i.decision)}">${esc(i.decision)}</span><span class="pill">${esc(i.track_id)}</span><span class="pill">run: ${esc(i.experiment_run || i.track_id)}</span><span class="pill">parents: ${esc(parents.join(', '))}</span></p>
         <p>${esc(i.hypothesis)}</p>
-        ${art ? `<img src="${esc(art.path)}" alt="${esc(art.label)}">` : ''}
+        ${previewCards ? `<div class="artifact-previews">${previewCards}</div>` : ''}
         ${step ? `<p class="meta">STEP artifact: <a href="${esc(step.path)}">${esc(step.path)}</a></p>` : ''}
         <h3>Lesson</h3><pre>${esc(i.lesson.trigger)}\nAction: ${esc(i.lesson.action)}\nEvidence: ${esc(i.lesson.evidence)}\nConfidence: ${esc(i.lesson.confidence)}</pre>
         <details open>
