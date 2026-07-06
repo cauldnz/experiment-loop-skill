@@ -1,4 +1,4 @@
-# Judge: fast-critic for loop-03-braced-synthesis
+# Judge: fast-critic for loop-02-printable-braced-cable
 
 ## Evidence inspected
 - `preview.svg`
@@ -9,4 +9,4 @@
 - cable_access: 5.0 — cable affordance is clear.
 
 ## Rationale
-Cross-run braced cable synthesis is a strong candidate for quick comprehension.
+Braced cable-access run is a strong candidate for quick comprehension.

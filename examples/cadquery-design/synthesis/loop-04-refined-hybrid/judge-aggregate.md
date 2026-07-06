@@ -1,7 +1,7 @@
-# Judge: aggregate for loop-02-cable-dock
+# Judge: aggregate for loop-04-refined-hybrid
 
 ## What changed
-- Run A tests whether cable access and a wider footprint improve utility enough to offset visual bulk.
+- A second synthesis loop can build on both source experiments and the first hybrid to reduce footprint without losing stability or cable usability.
 
 ## Evidence inspected
 - `preview.svg`
@@ -13,10 +13,10 @@
 ## Scores
 - stability: 5.0
 - cable_access: 5.0
-- printability: 4.3
-- visual_clarity: 4.2
-- desk_fit: 3.99
-- weighted_total: 4.57
+- printability: 4.7
+- visual_clarity: 4.6
+- desk_fit: 4.93
+- weighted_total: 4.86
 
 ## Judge mode
 - panel, with objective gates used as supporting evidence.
@@ -27,10 +27,10 @@
 - dissent / disagreement: none material; both critics agree this is `new_best`.
 
 ## What improved
-- Keep cable clearance but remove bulk with side braces and a slimmer base.
+- Stop: the refined hybrid is the best cross-run synthesis candidate while keeping all objective gates green.
 
 ## What failed / regressed
 - No material regression versus the previous champion.
 
 ## Next hypothesis
-- Keep cable clearance but remove bulk with side braces and a slimmer base.
+- Stop: the refined hybrid is the best cross-run synthesis candidate while keeping all objective gates green.

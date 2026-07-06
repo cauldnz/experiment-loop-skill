@@ -1,0 +1,34 @@
+{
+  "parameters": {
+    "width": 68,
+    "depth": 56,
+    "base_thickness": 6,
+    "back_height": 80,
+    "back_thickness": 7,
+    "lip_height": 10,
+    "lip_depth": 9,
+    "side_braces": true,
+    "cable_channel_width": 0
+  },
+  "metrics": {
+    "footprint_mm2": 3808.0,
+    "stability_ratio": 0.7,
+    "material_proxy": 77.68,
+    "cable_channel_width_mm": 0.0,
+    "objective_gates": {
+      "base_depth_at_least_60mm": false,
+      "back_height_at_least_85mm": false,
+      "footprint_under_7000mm2": true,
+      "cable_channel_if_claimed": true
+    },
+    "objective_gate_pass": false
+  },
+  "qualitative_scores": {
+    "stability": 4.99,
+    "cable_access": 2.2,
+    "printability": 4.7,
+    "visual_clarity": 4.6,
+    "desk_fit": 5.0
+  },
+  "weighted_total": 3.0
+}

@@ -1,7 +1,7 @@
-# Judge: aggregate for loop-02-cable-dock
+# Judge: aggregate for loop-02-printable-braced-cable
 
 ## What changed
-- Run A tests whether cable access and a wider footprint improve utility enough to offset visual bulk.
+- Run B adds the charging cut-out to the braced concept, trading a little desk footprint for a more complete functional candidate.
 
 ## Evidence inspected
 - `preview.svg`
@@ -13,10 +13,10 @@
 ## Scores
 - stability: 5.0
 - cable_access: 5.0
-- printability: 4.3
-- visual_clarity: 4.2
-- desk_fit: 3.99
-- weighted_total: 4.57
+- printability: 4.7
+- visual_clarity: 4.6
+- desk_fit: 4.32
+- weighted_total: 4.77
 
 ## Judge mode
 - panel, with objective gates used as supporting evidence.
@@ -27,10 +27,10 @@
 - dissent / disagreement: none material; both critics agree this is `new_best`.
 
 ## What improved
-- Keep cable clearance but remove bulk with side braces and a slimmer base.
+- Synthesize Run A's cable affordance with Run B's side-braced stability into a cross-run hybrid.
 
 ## What failed / regressed
 - No material regression versus the previous champion.
 
 ## Next hypothesis
-- Keep cable clearance but remove bulk with side braces and a slimmer base.
+- Synthesize Run A's cable affordance with Run B's side-braced stability into a cross-run hybrid.

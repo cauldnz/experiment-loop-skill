@@ -1,7 +1,7 @@
 # Judge: aggregate for loop-01-minimal-cradle
 
 ## What changed
-- A simple cradle will be visually clear and easy to print, but may miss cable and stability needs.
+- Run A starts with the smallest obvious cradle to establish a clear, printable baseline.
 
 ## Evidence inspected
 - `preview.svg`

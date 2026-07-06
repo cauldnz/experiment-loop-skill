@@ -1,7 +1,7 @@
 # Judge: aggregate for loop-03-braced-synthesis
 
 ## What changed
-- Side braces can preserve stability and cable access while reducing the visual bulk of the cable-dock variant.
+- The synthesis experiment combines Run A's cable-dock affordance with Run B's side-braced stability to make a less bulky hybrid.
 
 ## Evidence inspected
 - `preview.svg`
@@ -27,10 +27,10 @@
 - dissent / disagreement: none material; both critics agree this is `new_best`.
 
 ## What improved
-- Stop: synthesis best balances usability, printable simplicity, and visual clarity.
+- Refine the hybrid by trimming footprint while preserving the cable channel and brace support.
 
 ## What failed / regressed
 - No material regression versus the previous champion.
 
 ## Next hypothesis
-- Stop: synthesis best balances usability, printable simplicity, and visual clarity.
+- Refine the hybrid by trimming footprint while preserving the cable channel and brace support.

@@ -3,7 +3,7 @@
 ```text
 Use the experiment-loop skill.
 
-Goal: Generate a compact parametric phone stand and cable dock that could plausibly be 3D printed.
+Goal: Generate a compact parametric phone stand and cable dock that could plausibly be 3D printed. Demonstrate two separate experiment runs and a third synthesis experiment that builds from both.
 
 Scorecard:
 - stability: broad enough base, sensible support height, low tip risk
@@ -17,6 +17,8 @@ Judging mode:
 - Use an independent qualitative panel for champion selection.
 
 Topology:
-- Run three design loops: minimal cradle, cable-focused variant, braced synthesis.
-- Produce CadQuery STEP files, preview images, metrics, judge notes, a manifest, and a local viewer.
+- Run A: utility-cradle path with two loops.
+- Run B: printable-bracing path with two loops.
+- Run C: cross-run synthesis path with two loops that uses both Run A and Run B finals as parents.
+- Produce CadQuery STEP files, SVG previews, metrics, judge notes, a manifest, and a local viewer with graph lineage, metadata/provenance drawers, and raw JSON.
 ```

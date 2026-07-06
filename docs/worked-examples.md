@@ -28,7 +28,7 @@ python run_example.py
 
 Path: `examples\cadquery-design`
 
-This example explores a small parametric phone stand and cable dock. It produces real CadQuery STEP files, CadQuery SVG projections, and lightweight concept SVG previews. Objective gates check coarse physical constraints, but champion selection depends on qualitative design judgement.
+This example explores a small parametric phone stand and cable dock. It produces real CadQuery STEP files, CadQuery SVG projections, and lightweight concept SVG previews. Objective gates check coarse physical constraints, but champion selection depends on qualitative design judgement. It also demonstrates two independent experiment runs followed by a cross-run synthesis experiment with multi-parent graph lineage.
 
 Open:
 

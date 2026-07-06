@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="760" height="420" viewBox="0 0 760 420">
 <rect width="760" height="420" fill="#fbfbf7"/>
-<text x="28" y="34" font-family="Segoe UI, Arial" font-size="22" font-weight="700" fill="#111827">Cross-run braced cable synthesis</text>
-<text x="28" y="58" font-family="Segoe UI, Arial" font-size="13" fill="#475569">Footprint 5904.0 mm2; stability ratio 0.766; material proxy 135.32</text>
+<text x="28" y="34" font-family="Segoe UI, Arial" font-size="22" font-weight="700" fill="#111827">Braced cable-access run</text>
+<text x="28" y="58" font-family="Segoe UI, Arial" font-size="13" fill="#475569">Footprint 6216.0 mm2; stability ratio 0.787; material proxy 142.47</text>
 <g transform="translate(350 270)">
 <polygon points="-180,45 105,45 180,-8 -105,-8" fill="#dbeafe" stroke="#475569" stroke-width="2"/>
 <polygon points="-105,-8 180,-8 180,-160 -105,-160" fill="#bfdbfe" stroke="#475569" stroke-width="2"/>

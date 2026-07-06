@@ -18,7 +18,11 @@ DESIGNS = [
         "id": "loop-01-minimal-cradle",
         "title": "Minimal upright cradle",
         "track": "generative-design",
-        "hypothesis": "A simple cradle will be visually clear and easy to print, but may miss cable and stability needs.",
+        "experiment_run": "run-a-utility-cradle",
+        "source_runs": ["run-a-utility-cradle"],
+        "parent_id": None,
+        "parent_ids": [],
+        "hypothesis": "Run A starts with the smallest obvious cradle to establish a clear, printable baseline.",
         "params": {
             "width": 72,
             "depth": 64,
@@ -36,7 +40,11 @@ DESIGNS = [
         "id": "loop-02-cable-dock",
         "title": "Wider cable-dock cradle",
         "track": "generative-design",
-        "hypothesis": "A cable channel and wider base should improve utility, but may look heavy.",
+        "experiment_run": "run-a-utility-cradle",
+        "source_runs": ["run-a-utility-cradle"],
+        "parent_id": "loop-01-minimal-cradle",
+        "parent_ids": ["loop-01-minimal-cradle"],
+        "hypothesis": "Run A tests whether cable access and a wider footprint improve utility enough to offset visual bulk.",
         "params": {
             "width": 86,
             "depth": 78,
@@ -51,10 +59,58 @@ DESIGNS = [
         "next": "Keep cable clearance but remove bulk with side braces and a slimmer base.",
     },
     {
+        "id": "loop-01-compact-braced",
+        "title": "Compact braced printability run",
+        "track": "bracing-run",
+        "experiment_run": "run-b-printable-bracing",
+        "source_runs": ["run-b-printable-bracing"],
+        "parent_id": None,
+        "parent_ids": [],
+        "hypothesis": "Run B explores whether triangular side braces can make a compact stand feel stable without first solving cable access.",
+        "params": {
+            "width": 68,
+            "depth": 56,
+            "base_thickness": 6,
+            "back_height": 80,
+            "back_thickness": 7,
+            "lip_height": 10,
+            "lip_depth": 9,
+            "side_braces": True,
+            "cable_channel_width": 0,
+        },
+        "next": "Add cable access to the braced compact concept and check whether the footprint remains acceptable.",
+    },
+    {
+        "id": "loop-02-printable-braced-cable",
+        "title": "Braced cable-access run",
+        "track": "bracing-run",
+        "experiment_run": "run-b-printable-bracing",
+        "source_runs": ["run-b-printable-bracing"],
+        "parent_id": "loop-01-compact-braced",
+        "parent_ids": ["loop-01-compact-braced"],
+        "hypothesis": "Run B adds the charging cut-out to the braced concept, trading a little desk footprint for a more complete functional candidate.",
+        "params": {
+            "width": 84,
+            "depth": 74,
+            "base_thickness": 6,
+            "back_height": 94,
+            "back_thickness": 7,
+            "lip_height": 12,
+            "lip_depth": 10,
+            "side_braces": True,
+            "cable_channel_width": 14,
+        },
+        "next": "Synthesize Run A's cable affordance with Run B's side-braced stability into a cross-run hybrid.",
+    },
+    {
         "id": "loop-03-braced-synthesis",
-        "title": "Braced lightweight synthesis",
+        "title": "Cross-run braced cable synthesis",
         "track": "synthesis",
-        "hypothesis": "Side braces can preserve stability and cable access while reducing the visual bulk of the cable-dock variant.",
+        "experiment_run": "run-c-cross-run-synthesis",
+        "source_runs": ["run-a-utility-cradle", "run-b-printable-bracing"],
+        "parent_id": "loop-02-cable-dock",
+        "parent_ids": ["loop-02-cable-dock", "loop-02-printable-braced-cable"],
+        "hypothesis": "The synthesis experiment combines Run A's cable-dock affordance with Run B's side-braced stability to make a less bulky hybrid.",
         "params": {
             "width": 82,
             "depth": 72,
@@ -66,7 +122,29 @@ DESIGNS = [
             "side_braces": True,
             "cable_channel_width": 16,
         },
-        "next": "Stop: synthesis best balances usability, printable simplicity, and visual clarity.",
+        "next": "Refine the hybrid by trimming footprint while preserving the cable channel and brace support.",
+    },
+    {
+        "id": "loop-04-refined-hybrid",
+        "title": "Refined cross-run champion",
+        "track": "synthesis",
+        "experiment_run": "run-c-cross-run-synthesis",
+        "source_runs": ["run-a-utility-cradle", "run-b-printable-bracing", "run-c-cross-run-synthesis"],
+        "parent_id": "loop-03-braced-synthesis",
+        "parent_ids": ["loop-03-braced-synthesis", "loop-02-cable-dock", "loop-02-printable-braced-cable"],
+        "hypothesis": "A second synthesis loop can build on both source experiments and the first hybrid to reduce footprint without losing stability or cable usability.",
+        "params": {
+            "width": 78,
+            "depth": 68,
+            "base_thickness": 6,
+            "back_height": 92,
+            "back_thickness": 7,
+            "lip_height": 12,
+            "lip_depth": 10,
+            "side_braces": True,
+            "cable_channel_width": 16,
+        },
+        "next": "Stop: the refined hybrid is the best cross-run synthesis candidate while keeping all objective gates green.",
     },
 ]
 
@@ -468,8 +546,11 @@ function renderGraph() {
   const lines = [];
   const nodes = [];
   for (const node of nodeById.values()) {
-    const parent = node.iteration.parent_id ? nodeById.get(node.iteration.parent_id) : null;
-    if (parent) lines.push(`<line x1="${parent.x + 72}" y1="${parent.y}" x2="${node.x - 72}" y2="${node.y}" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>`);
+    const parentIds = node.iteration.parent_ids || (node.iteration.parent_id ? [node.iteration.parent_id] : []);
+    for (const parentId of parentIds) {
+      const parent = nodeById.get(parentId);
+      if (parent) lines.push(`<line x1="${parent.x + 72}" y1="${parent.y}" x2="${node.x - 72}" y2="${node.y}" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>`);
+    }
     const score = scoreFor(node.iteration);
     nodes.push(`<g>
       <rect x="${node.x - 74}" y="${node.y - 34}" width="148" height="68" rx="12" fill="#fff" stroke="${color(node.iteration.decision)}" stroke-width="3"/>
@@ -497,11 +578,12 @@ function render() {
     .map(i => {
       const art = primaryArtifact(i);
       const step = (i.artifacts || []).find(a => a.label === 'CadQuery STEP');
+      const parents = i.parent_ids && i.parent_ids.length ? i.parent_ids : (i.parent_id ? [i.parent_id] : ['root']);
       const artifacts = (i.artifacts || []).map(a => `<tr><td>${esc(a.kind)}</td><td>${esc(a.label)}</td><td><a href="${esc(a.path)}">${esc(a.path)}</a></td><td><code>${esc((a.sha256 || '').slice(0, 16))}</code></td></tr>`).join('');
       const scores = (i.scores || []).map(s => `<tr><td>${esc(s.scorer_id)}</td><td>${esc(s.type)}</td><td>${esc(s.value)}</td><td><pre>${esc(JSON.stringify(s.per_criterion || {}, null, 2))}</pre></td></tr>`).join('');
       return `<article class="card">
         <h2>${esc(i.id)} ${i.id === bestId ? '*' : ''}</h2>
-        <p><span class="pill ${esc(i.decision)}">${esc(i.decision)}</span><span class="pill">${esc(i.track_id)}</span><span class="pill">parent: ${esc(i.parent_id || 'root')}</span></p>
+        <p><span class="pill ${esc(i.decision)}">${esc(i.decision)}</span><span class="pill">${esc(i.track_id)}</span><span class="pill">run: ${esc(i.experiment_run || i.track_id)}</span><span class="pill">parents: ${esc(parents.join(', '))}</span></p>
         <p>${esc(i.hypothesis)}</p>
         ${art ? `<img src="${esc(art.path)}" alt="${esc(art.label)}">` : ''}
         ${step ? `<p class="meta">STEP artifact: <a href="${esc(step.path)}">${esc(step.path)}</a></p>` : ''}
@@ -542,7 +624,6 @@ def main() -> None:
     best_score = -1.0
     best_id = ""
     iterations = []
-    previous_id = None
 
     for design in DESIGNS:
         loop_dir = ROOT / design["track"] / design["id"]
@@ -584,7 +665,10 @@ def main() -> None:
             {
                 "id": design["id"],
                 "track_id": design["track"],
-                "parent_id": previous_id,
+                "experiment_run": design["experiment_run"],
+                "source_runs": design["source_runs"],
+                "parent_id": design["parent_id"],
+                "parent_ids": design["parent_ids"],
                 "hypothesis": design["hypothesis"],
                 "commands": {
                     "build": "Generate CadQuery CSG model from deterministic parameters.",
@@ -617,21 +701,20 @@ def main() -> None:
                     "confidence": "high" if decision == "new_best" else "medium",
                 },
                 "decision": decision,
-                "stop_reason": "Qualitative synthesis reached the best weighted score." if design["id"] == "loop-03-braced-synthesis" else None,
+                "stop_reason": "Cross-run synthesis reached the best weighted score." if design["id"] == "loop-04-refined-hybrid" else None,
             }
         )
-        previous_id = design["id"]
 
     manifest = {
         "schema_version": "0.2",
         "experiment_id": "cadquery-design-worked-example",
         "title": "CadQuery Phone Stand Worked Example",
-        "goal": "Explore a compact printable phone stand with cable access using CAD artifacts and qualitative design judging.",
+        "goal": "Run two independent CadQuery phone-stand experiments, then synthesize their best lessons into a third cross-run experiment.",
         "created_at": "2026-07-03T00:00:00Z",
-        "budget": {"max_iters": 3, "patience": 1, "cost_limit": None, "wall_time_limit_sec": 120},
+        "budget": {"max_iters": 6, "patience": 1, "cost_limit": None, "wall_time_limit_sec": 180},
         "artifact_scope": {
             "roots": ["."],
-            "allow_edit": ["generative-design/**", "synthesis/**", "manifest.json", "viewer.html"],
+            "allow_edit": ["generative-design/**", "bracing-run/**", "synthesis/**", "manifest.json", "viewer.html"],
             "deny": [".env", "secrets/**", "**/*credential*"],
         },
         "scorecard": [
@@ -678,20 +761,25 @@ def main() -> None:
         "tracks": [
             {
                 "id": "generative-design",
-                "label": "Generative design variants",
-                "hypothesis": "Parametric CAD variants can expose stability, cable, and visual tradeoffs quickly.",
+                "label": "Run A - utility cradle",
+                "hypothesis": "A conventional cradle path can optimize cable access and obvious usability.",
+            },
+            {
+                "id": "bracing-run",
+                "label": "Run B - printable bracing",
+                "hypothesis": "A separate bracing-first path can optimize stability and printability before synthesis.",
             },
             {
                 "id": "synthesis",
-                "label": "Braced synthesis",
-                "hypothesis": "Combining cable access with side braces can keep the design useful without making it bulky.",
+                "label": "Run C - cross-run synthesis",
+                "hypothesis": "A third experiment can build from both Run A and Run B rather than continuing only one lineage.",
             },
         ],
         "iterations": iterations,
         "best": {
             "iteration_id": best_id,
             "score": best_score,
-            "why": "Best qualitative panel score while passing all objective gates.",
+            "why": "Best qualitative panel score while passing all objective gates and combining lessons from both source runs.",
         },
         "rules": [
             {
@@ -700,7 +788,7 @@ def main() -> None:
                 "confidence": "high",
             }
         ],
-        "synthesis": "The minimal cradle was clear but lacked cable utility. The cable-dock variant improved function but became bulky. The braced synthesis kept cable clearance, improved visual clarity, and stayed compact enough to win the panel score.",
+        "synthesis": "Run A proved the value of a visible cable dock but became visually heavy. Run B proved side braces could preserve stability and printability, but needed the utility affordance from Run A. Run C synthesized both branches, then refined the hybrid to reduce footprint while keeping the cable channel and brace support.",
     }
     (ROOT / "manifest.json").write_text(json.dumps(manifest, indent=2), encoding="utf-8")
     (ROOT / "viewer.html").write_text(viewer_html(manifest), encoding="utf-8")
