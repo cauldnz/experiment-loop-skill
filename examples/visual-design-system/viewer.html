@@ -1,0 +1,832 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SVG Visual Design System Worked Example</title>
+<style>
+body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f7f7fb; color: #172033; }
+header { background: #0b1020; color: white; padding: 30px 38px; }
+main { padding: 24px 38px 54px; }
+a { color: #0f766e; }
+.summary, .card { background: white; border: 1px solid #dde3ee; border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(15,23,42,.07); }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); gap: 18px; margin: 18px 0; }
+.controls { display: flex; gap: 12px; align-items: center; margin: 18px 0; flex-wrap: wrap; }
+select { padding: 8px 10px; border-radius: 8px; border: 1px solid #b8c2d6; }
+.cards { display: grid; gap: 18px; }
+.artifact-previews { display: grid; gap: 12px; }
+.artifact-preview-title { margin: 0 0 6px; color: #5b6475; font-size: 13px; font-weight: 750; }
+.card img { width: 100%; max-width: 960px; border: 1px solid #dde3ee; border-radius: 14px; background: #fff; }
+.meta { color: #5b6475; font-size: 14px; }
+.pill { display: inline-block; padding: 4px 9px; border-radius: 999px; background: #ccfbf1; color: #115e59; font-size: 12px; margin-right: 6px; }
+.new_best { background: #dcfce7; color: #166534; }
+.reject, .failed { background: #fee2e2; color: #991b1b; }
+.keep_for_synthesis { background: #fef3c7; color: #92400e; }
+.needs_human_review { background: #ede9fe; color: #5b21b6; }
+pre { white-space: pre-wrap; overflow: auto; background: #f8fafc; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; }
+table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+td, th { border-bottom: 1px solid #e2e8f0; padding: 8px; text-align: left; vertical-align: top; }
+summary { cursor: pointer; font-weight: 750; }
+.graph-wrap { overflow-x: auto; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc; }
+#graph { min-width: 1080px; width: 100%; height: 330px; display: block; }
+.timeline { display: grid; gap: 8px; }
+.bar-row { display: grid; grid-template-columns: 230px 1fr 52px; gap: 10px; align-items: center; }
+.bar-track { height: 14px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
+.bar { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #14b8a6, #f97316); }
+.json-panel { max-height: 520px; }
+@media (max-width: 960px) { .grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>SVG Visual Design System Worked Example</h1>
+  <p>Run two independent SVG visual design experiments, then synthesize their best lessons into a polished event-card system.</p>
+</header>
+<main>
+  <section class="summary">
+    <div><strong>Best</strong><br><span id="best"></span></div>
+    <div><strong>Iterations</strong><br><span id="iterationCount"></span></div>
+    <div><strong>Tracks</strong><br><span id="trackCount"></span></div>
+    <div><strong>Judging</strong><br><span id="scorerSummary"></span></div>
+  </section>
+  <section class="grid">
+    <div class="card">
+      <h2>Experiment graph</h2>
+      <p class="meta">Lineage comes from <code>parent_ids</code>; colors show decisions and the star marks the champion.</p>
+      <div class="graph-wrap"><svg id="graph" role="img" aria-label="Experiment lineage graph"></svg></div>
+    </div>
+    <div class="card">
+      <h2>Score timeline</h2>
+      <div class="timeline" id="timeline"></div>
+    </div>
+  </section>
+  <section class="card">
+    <h2>Scorecard</h2>
+    <table><tbody id="scorecard"></tbody></table>
+  </section>
+  <div class="controls">
+    <label>Decision <select id="decision"><option value="all">all</option></select></label>
+    <label>Track <select id="track"><option value="all">all</option></select></label>
+  </div>
+  <section class="cards" id="cards"></section>
+  <details class="card">
+    <summary>Raw manifest JSON</summary>
+    <pre class="json-panel" id="manifestJson"></pre>
+  </details>
+</main>
+<script>
+const manifest = {
+  "schema_version": "0.2",
+  "experiment_id": "visual-design-system-worked-example",
+  "title": "SVG Visual Design System Worked Example",
+  "goal": "Run two independent SVG visual design experiments, then synthesize their best lessons into a polished event-card system.",
+  "created_at": "2026-07-06T00:00:00Z",
+  "budget": {
+    "max_iters": 6,
+    "patience": 1,
+    "cost_limit": null,
+    "wall_time_limit_sec": 60
+  },
+  "artifact_scope": {
+    "roots": [
+      "."
+    ],
+    "allow_edit": [
+      "editorial-run/**",
+      "visual-language-run/**",
+      "synthesis/**",
+      "manifest.json",
+      "viewer.html"
+    ],
+    "deny": [
+      ".env",
+      "secrets/**",
+      "**/*credential*"
+    ]
+  },
+  "scorecard": [
+    {
+      "id": "visual_hierarchy",
+      "label": "Visual hierarchy",
+      "weight": 1.4
+    },
+    {
+      "id": "brand_distinctiveness",
+      "label": "Brand distinctiveness",
+      "weight": 1.1
+    },
+    {
+      "id": "information_clarity",
+      "label": "Information clarity",
+      "weight": 1.2
+    },
+    {
+      "id": "system_coherence",
+      "label": "Reusable system coherence",
+      "weight": 1.0
+    },
+    {
+      "id": "polish",
+      "label": "Production polish",
+      "weight": 1.3
+    }
+  ],
+  "scorers": [
+    {
+      "id": "svg-validity",
+      "type": "objective_command",
+      "command": "python run_example.py",
+      "primary": true,
+      "weight": 1
+    },
+    {
+      "id": "design-panel",
+      "type": "llm_rubric",
+      "judge_panel": "design-panel",
+      "weight": 2
+    }
+  ],
+  "judge_panels": [
+    {
+      "id": "design-panel",
+      "blind": false,
+      "flip_pairwise_order": false,
+      "aggregation": "weighted_mean_with_dissent",
+      "judges": [
+        {
+          "id": "fast-critic",
+          "role": "scan path, readability, and CTA clarity"
+        },
+        {
+          "id": "design-critic",
+          "role": "brand identity, component reuse, and visual polish"
+        }
+      ]
+    }
+  ],
+  "governance": {
+    "self_editing": {
+      "requires_user_approval": true,
+      "proposal_required": true,
+      "approved_proposal_id": null
+    }
+  },
+  "tracks": [
+    {
+      "id": "editorial-run",
+      "label": "Run A - editorial clarity",
+      "hypothesis": "A typographic route can optimize hierarchy and information clarity."
+    },
+    {
+      "id": "visual-language-run",
+      "label": "Run B - visual language",
+      "hypothesis": "A generative visual route can optimize distinctiveness and energy."
+    },
+    {
+      "id": "synthesis",
+      "label": "Run C - cross-run synthesis",
+      "hypothesis": "A synthesis run can combine editorial clarity with distinctive signal motifs."
+    }
+  ],
+  "iterations": [
+    {
+      "id": "loop-01-editorial-poster",
+      "track_id": "editorial-run",
+      "experiment_run": "run-a-editorial-clarity",
+      "source_runs": [
+        "run-a-editorial-clarity"
+      ],
+      "parent_id": null,
+      "parent_ids": [],
+      "hypothesis": "Run A starts with bold editorial typography to make the event promise instantly clear.",
+      "commands": {
+        "build": "Generate SVG card and design tokens from deterministic design parameters.",
+        "run": "python run_example.py",
+        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Card SVG",
+          "path": "editorial-run/loop-01-editorial-poster/card.svg",
+          "sha256": "bd8b68f3bd78e97d52adec1b033c6a3ac003bb69bf050faef5a398d16b4518eb"
+        },
+        {
+          "kind": "data",
+          "label": "Design tokens",
+          "path": "editorial-run/loop-01-editorial-poster/tokens.json",
+          "sha256": "509ef65fbb9a02569226561a7d3141af4d8273fa0f00d13e97c4424ec9a0ed60"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-fast-critic.md",
+          "path": "editorial-run/loop-01-editorial-poster/judge-fast-critic.md",
+          "sha256": "7ee640118a760305fa1602964b63128b09eef540b01c2a0ef05941226c3a7dac"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-design-critic.md",
+          "path": "editorial-run/loop-01-editorial-poster/judge-design-critic.md",
+          "sha256": "d1dd069e0f34b7f91610f697e4cba3d7eb0214e60f393ddfeed3e6ff0a3cb12b"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-aggregate.md",
+          "path": "editorial-run/loop-01-editorial-poster/judge-aggregate.md",
+          "sha256": "70d03a37b8c6e1d544e9838aab4e4ca9692c01bc1d9c530fd8367ba3b865c453"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "svg-validity",
+          "type": "objective_command",
+          "value": 5,
+          "per_criterion": {
+            "svg_parses": true,
+            "has_tokens": true,
+            "has_card": true
+          },
+          "notes": "SVG parses and required artifacts exist."
+        },
+        {
+          "scorer_id": "design-panel",
+          "type": "llm_rubric",
+          "judge_panel": "design-panel",
+          "value": 3.89,
+          "per_criterion": {
+            "visual_hierarchy": 4.4,
+            "brand_distinctiveness": 3.6,
+            "information_clarity": 3.9,
+            "system_coherence": 3.6,
+            "polish": 3.8
+          },
+          "notes": "Aggregated from fast-critic and design-critic judge notes."
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "Run A starts with bold editorial typography to make the event promise instantly clear.",
+        "action": "Add reusable modules for agenda, proof points, and call to action.",
+        "evidence": "editorial-run/loop-01-editorial-poster/card.svg, tokens.json, and panel notes",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": null
+    },
+    {
+      "id": "loop-02-editorial-system",
+      "track_id": "editorial-run",
+      "experiment_run": "run-a-editorial-clarity",
+      "source_runs": [
+        "run-a-editorial-clarity"
+      ],
+      "parent_id": "loop-01-editorial-poster",
+      "parent_ids": [
+        "loop-01-editorial-poster"
+      ],
+      "hypothesis": "Run A improves by turning the poster into reusable information modules without losing typographic hierarchy.",
+      "commands": {
+        "build": "Generate SVG card and design tokens from deterministic design parameters.",
+        "run": "python run_example.py",
+        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Card SVG",
+          "path": "editorial-run/loop-02-editorial-system/card.svg",
+          "sha256": "2943499fb4c51a72a9cb446f8aa00374c19a1f4610d4941cf8a3a1bbf4cf20fb"
+        },
+        {
+          "kind": "data",
+          "label": "Design tokens",
+          "path": "editorial-run/loop-02-editorial-system/tokens.json",
+          "sha256": "ed39cfed4c9d31f2c7fcfee6e1989583ce8b888473852118f8c986e700cbff18"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-fast-critic.md",
+          "path": "editorial-run/loop-02-editorial-system/judge-fast-critic.md",
+          "sha256": "7339d62bf55287282052caeac564a66dd16745432fe618cf70a1e562b77704ce"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-design-critic.md",
+          "path": "editorial-run/loop-02-editorial-system/judge-design-critic.md",
+          "sha256": "7d3e09064aee272fd7ae4f8d6c6b9602c81bc11abdc95c520054b8f30dd2f133"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-aggregate.md",
+          "path": "editorial-run/loop-02-editorial-system/judge-aggregate.md",
+          "sha256": "c4cc90a7ac00072cf614793b1d5cb4454051a84f6ac70c6f036f16558ff127df"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "svg-validity",
+          "type": "objective_command",
+          "value": 5,
+          "per_criterion": {
+            "svg_parses": true,
+            "has_tokens": true,
+            "has_card": true
+          },
+          "notes": "SVG parses and required artifacts exist."
+        },
+        {
+          "scorer_id": "design-panel",
+          "type": "llm_rubric",
+          "judge_panel": "design-panel",
+          "value": 4.32,
+          "per_criterion": {
+            "visual_hierarchy": 4.7,
+            "brand_distinctiveness": 3.9,
+            "information_clarity": 4.6,
+            "system_coherence": 4.2,
+            "polish": 4.1
+          },
+          "notes": "Aggregated from fast-critic and design-critic judge notes."
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "Run A improves by turning the poster into reusable information modules without losing typographic hierarchy.",
+        "action": "Borrow a stronger visual motif from the independent visual-language run.",
+        "evidence": "editorial-run/loop-02-editorial-system/card.svg, tokens.json, and panel notes",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": null
+    },
+    {
+      "id": "loop-01-orbital-identity",
+      "track_id": "visual-language-run",
+      "experiment_run": "run-b-visual-language",
+      "source_runs": [
+        "run-b-visual-language"
+      ],
+      "parent_id": null,
+      "parent_ids": [],
+      "hypothesis": "Run B starts with an energetic orbital motif to create a memorable identity, even if information hierarchy is weaker.",
+      "commands": {
+        "build": "Generate SVG card and design tokens from deterministic design parameters.",
+        "run": "python run_example.py",
+        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Card SVG",
+          "path": "visual-language-run/loop-01-orbital-identity/card.svg",
+          "sha256": "2dea81a42412e802dd43235780e8b1c1865bd8d93e7f25645b86084cea7f4d68"
+        },
+        {
+          "kind": "data",
+          "label": "Design tokens",
+          "path": "visual-language-run/loop-01-orbital-identity/tokens.json",
+          "sha256": "c41e960460f28b83e59562732a7f95af98bb91439e8c373402a208b76437f0e5"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-fast-critic.md",
+          "path": "visual-language-run/loop-01-orbital-identity/judge-fast-critic.md",
+          "sha256": "be8869c95d9b102282f945dec600d7eaa50bbab3da5c72bf989be676592b304c"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-design-critic.md",
+          "path": "visual-language-run/loop-01-orbital-identity/judge-design-critic.md",
+          "sha256": "ebaaa801599fad8f780a012dd900931a7dd92bbf53013cd88ed1b0151859d11b"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-aggregate.md",
+          "path": "visual-language-run/loop-01-orbital-identity/judge-aggregate.md",
+          "sha256": "37df0a33f9d88f601e4f6557832a88575389a22f90bcf06090cc9d00c86a43d1"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "svg-validity",
+          "type": "objective_command",
+          "value": 5,
+          "per_criterion": {
+            "svg_parses": true,
+            "has_tokens": true,
+            "has_card": true
+          },
+          "notes": "SVG parses and required artifacts exist."
+        },
+        {
+          "scorer_id": "design-panel",
+          "type": "llm_rubric",
+          "judge_panel": "design-panel",
+          "value": 3.86,
+          "per_criterion": {
+            "visual_hierarchy": 3.5,
+            "brand_distinctiveness": 4.8,
+            "information_clarity": 3.3,
+            "system_coherence": 3.8,
+            "polish": 4.0
+          },
+          "notes": "Aggregated from fast-critic and design-critic judge notes."
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "Run B starts with an energetic orbital motif to create a memorable identity, even if information hierarchy is weaker.",
+        "action": "Turn the energy into a more structured ribbon system so details are easier to read.",
+        "evidence": "visual-language-run/loop-01-orbital-identity/card.svg, tokens.json, and panel notes",
+        "confidence": "medium"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": null
+    },
+    {
+      "id": "loop-02-signal-ribbon-system",
+      "track_id": "visual-language-run",
+      "experiment_run": "run-b-visual-language",
+      "source_runs": [
+        "run-b-visual-language"
+      ],
+      "parent_id": "loop-01-orbital-identity",
+      "parent_ids": [
+        "loop-01-orbital-identity"
+      ],
+      "hypothesis": "Run B improves by organizing the orbital energy into reusable signal ribbons and better detail blocks.",
+      "commands": {
+        "build": "Generate SVG card and design tokens from deterministic design parameters.",
+        "run": "python run_example.py",
+        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Card SVG",
+          "path": "visual-language-run/loop-02-signal-ribbon-system/card.svg",
+          "sha256": "4fd31d4f64d7dce7febeb6760ddac0fe66baa443d759f86f7c1a31907f1b7fdd"
+        },
+        {
+          "kind": "data",
+          "label": "Design tokens",
+          "path": "visual-language-run/loop-02-signal-ribbon-system/tokens.json",
+          "sha256": "0431a7a3dcdee9968edc1566f695d30d0ec55e2c5f8acd09b73dbf5322f5171c"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-fast-critic.md",
+          "path": "visual-language-run/loop-02-signal-ribbon-system/judge-fast-critic.md",
+          "sha256": "e9befbf2d1ba4a7563ce9559a2e055bea493581ae6f1ee3db25dccf79e734397"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-design-critic.md",
+          "path": "visual-language-run/loop-02-signal-ribbon-system/judge-design-critic.md",
+          "sha256": "59a816657956882ad41d41f5179fc112968f9997ce1cf913f932f12122b5e392"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-aggregate.md",
+          "path": "visual-language-run/loop-02-signal-ribbon-system/judge-aggregate.md",
+          "sha256": "5348c73bf8254da5f62a5de2fda896ce0018ecde0c0e1d9c49a518f14f23b0c7"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "svg-validity",
+          "type": "objective_command",
+          "value": 5,
+          "per_criterion": {
+            "svg_parses": true,
+            "has_tokens": true,
+            "has_card": true
+          },
+          "notes": "SVG parses and required artifacts exist."
+        },
+        {
+          "scorer_id": "design-panel",
+          "type": "llm_rubric",
+          "judge_panel": "design-panel",
+          "value": 4.24,
+          "per_criterion": {
+            "visual_hierarchy": 4.0,
+            "brand_distinctiveness": 4.7,
+            "information_clarity": 4.0,
+            "system_coherence": 4.4,
+            "polish": 4.2
+          },
+          "notes": "Aggregated from fast-critic and design-critic judge notes."
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "Run B improves by organizing the orbital energy into reusable signal ribbons and better detail blocks.",
+        "action": "Synthesize the ribbon motif with Run A's stronger editorial hierarchy.",
+        "evidence": "visual-language-run/loop-02-signal-ribbon-system/card.svg, tokens.json, and panel notes",
+        "confidence": "medium"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": null
+    },
+    {
+      "id": "loop-03-cross-run-synthesis",
+      "track_id": "synthesis",
+      "experiment_run": "run-c-cross-run-synthesis",
+      "source_runs": [
+        "run-a-editorial-clarity",
+        "run-b-visual-language"
+      ],
+      "parent_id": "loop-02-editorial-system",
+      "parent_ids": [
+        "loop-02-editorial-system",
+        "loop-02-signal-ribbon-system"
+      ],
+      "hypothesis": "The synthesis experiment combines Run A's hierarchy with Run B's signal ribbons to get both clarity and distinctiveness.",
+      "commands": {
+        "build": "Generate SVG card and design tokens from deterministic design parameters.",
+        "run": "python run_example.py",
+        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Card SVG",
+          "path": "synthesis/loop-03-cross-run-synthesis/card.svg",
+          "sha256": "88b570decd25ff6e85f9c7f137ccf05c319a6b45c8ec51ffc24270d62eb628ca"
+        },
+        {
+          "kind": "data",
+          "label": "Design tokens",
+          "path": "synthesis/loop-03-cross-run-synthesis/tokens.json",
+          "sha256": "eac9a92b9e664ba04054a169d44d75d0687f2b39fdcffd7a9a1fc6185bab4428"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-fast-critic.md",
+          "path": "synthesis/loop-03-cross-run-synthesis/judge-fast-critic.md",
+          "sha256": "f7c38c6a83672c6dd5236305e15199275126efc14af685c714115c7bec36eb78"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-design-critic.md",
+          "path": "synthesis/loop-03-cross-run-synthesis/judge-design-critic.md",
+          "sha256": "d750db67f33be41f3b85e28d5270eb684ade2dd2b6f7b498b3630b21e2ba900d"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-aggregate.md",
+          "path": "synthesis/loop-03-cross-run-synthesis/judge-aggregate.md",
+          "sha256": "609744859cfba0d57bcf83a56ae1ffdffa3baf2332df37e898672bb02cff5b0b"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "svg-validity",
+          "type": "objective_command",
+          "value": 5,
+          "per_criterion": {
+            "svg_parses": true,
+            "has_tokens": true,
+            "has_card": true
+          },
+          "notes": "SVG parses and required artifacts exist."
+        },
+        {
+          "scorer_id": "design-panel",
+          "type": "llm_rubric",
+          "judge_panel": "design-panel",
+          "value": 4.54,
+          "per_criterion": {
+            "visual_hierarchy": 4.6,
+            "brand_distinctiveness": 4.6,
+            "information_clarity": 4.5,
+            "system_coherence": 4.6,
+            "polish": 4.4
+          },
+          "notes": "Aggregated from fast-critic and design-critic judge notes."
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "The synthesis experiment combines Run A's hierarchy with Run B's signal ribbons to get both clarity and distinctiveness.",
+        "action": "Polish spacing, contrast, component rhythm, and CTA treatment.",
+        "evidence": "synthesis/loop-03-cross-run-synthesis/card.svg, tokens.json, and panel notes",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": null
+    },
+    {
+      "id": "loop-04-production-polish",
+      "track_id": "synthesis",
+      "experiment_run": "run-c-cross-run-synthesis",
+      "source_runs": [
+        "run-a-editorial-clarity",
+        "run-b-visual-language",
+        "run-c-cross-run-synthesis"
+      ],
+      "parent_id": "loop-03-cross-run-synthesis",
+      "parent_ids": [
+        "loop-03-cross-run-synthesis",
+        "loop-02-editorial-system",
+        "loop-02-signal-ribbon-system"
+      ],
+      "hypothesis": "A final synthesis loop can make the hybrid feel production-ready while preserving the source-run strengths.",
+      "commands": {
+        "build": "Generate SVG card and design tokens from deterministic design parameters.",
+        "run": "python run_example.py",
+        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Card SVG",
+          "path": "synthesis/loop-04-production-polish/card.svg",
+          "sha256": "cca72e3ba6a781200dcce9f5928706d2d73fd361788012c548cce49f3a33aec5"
+        },
+        {
+          "kind": "data",
+          "label": "Design tokens",
+          "path": "synthesis/loop-04-production-polish/tokens.json",
+          "sha256": "c12f2685295c580ffcddcf72a6b735ae07e719de4312a4bc6cc6b14ba9b4ec96"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-fast-critic.md",
+          "path": "synthesis/loop-04-production-polish/judge-fast-critic.md",
+          "sha256": "e199b57e833ebe8b5a015481222bd47e5563848041dd2df32c008def8ec315ba"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-design-critic.md",
+          "path": "synthesis/loop-04-production-polish/judge-design-critic.md",
+          "sha256": "c84a99919b86ec15a0a87fcd3f1534048ff20870a59aad71e1d7293cff03eec2"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-aggregate.md",
+          "path": "synthesis/loop-04-production-polish/judge-aggregate.md",
+          "sha256": "d5938a15afa489bf228c513092084d67fd2d3a251115a2492f2a5d6ce5b64f50"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "svg-validity",
+          "type": "objective_command",
+          "value": 5,
+          "per_criterion": {
+            "svg_parses": true,
+            "has_tokens": true,
+            "has_card": true
+          },
+          "notes": "SVG parses and required artifacts exist."
+        },
+        {
+          "scorer_id": "design-panel",
+          "type": "llm_rubric",
+          "judge_panel": "design-panel",
+          "value": 4.86,
+          "per_criterion": {
+            "visual_hierarchy": 4.9,
+            "brand_distinctiveness": 4.8,
+            "information_clarity": 4.8,
+            "system_coherence": 4.9,
+            "polish": 4.9
+          },
+          "notes": "Aggregated from fast-critic and design-critic judge notes."
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "A final synthesis loop can make the hybrid feel production-ready while preserving the source-run strengths.",
+        "action": "Stop: the final card has the clearest hierarchy, strongest reusable system, and most polished composition.",
+        "evidence": "synthesis/loop-04-production-polish/card.svg, tokens.json, and panel notes",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": "Cross-run synthesis reached production-polish target."
+    }
+  ],
+  "best": {
+    "iteration_id": "loop-04-production-polish",
+    "score": 4.86,
+    "why": "Best panel score while passing SVG validity gates and combining both source-run strengths."
+  },
+  "rules": [
+    {
+      "trigger": "Qualitative visual work still needs auditable artifacts.",
+      "action": "Commit the generated SVG, tokens, judge notes, manifest, and viewer so the design can be inspected without rerunning.",
+      "confidence": "high"
+    }
+  ],
+  "synthesis": "Run A provided the strongest hierarchy and information clarity. Run B provided a more distinctive visual language. Run C combined the editorial card system with signal ribbons, then polished spacing, contrast, and component rhythm into the final champion."
+};
+const bestId = manifest.best && manifest.best.iteration_id;
+const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
+const scoreFor = iteration => {
+  const preferred = (iteration.scores || []).find(score => score.scorer_id === 'design-panel' && typeof score.value === 'number');
+  const numeric = preferred || (iteration.scores || []).find(score => typeof score.value === 'number');
+  return numeric ? numeric.value : null;
+};
+const primaryArtifact = iteration => (iteration.artifacts || []).find(a => a.label === 'Card SVG') || (iteration.artifacts || []).find(a => a.kind === 'image');
+document.getElementById('best').textContent = manifest.best ? `${manifest.best.iteration_id} - score ${manifest.best.score} (${manifest.best.why})` : 'none';
+document.getElementById('iterationCount').textContent = manifest.iterations.length;
+document.getElementById('trackCount').textContent = manifest.tracks.map(t => t.label || t.id).join(', ');
+document.getElementById('scorerSummary').textContent = (manifest.scorers || []).map(s => `${s.id} (${s.type}${s.primary ? ', primary' : ''})`).join('; ') || 'none';
+document.getElementById('manifestJson').textContent = JSON.stringify(manifest, null, 2);
+document.getElementById('scorecard').innerHTML = manifest.scorecard.map(c => `<tr><th>${esc(c.label)}</th><td>weight ${esc(c.weight)}</td><td><code>${esc(c.id)}</code></td></tr>`).join('');
+for (const value of [...new Set(manifest.iterations.map(i => i.decision))]) decision.insertAdjacentHTML('beforeend', `<option value="${esc(value)}">${esc(value)}</option>`);
+for (const value of manifest.tracks.map(t => t.id)) track.insertAdjacentHTML('beforeend', `<option value="${esc(value)}">${esc(value)}</option>`);
+function renderGraph() {
+  const tracks = manifest.tracks.map(t => t.id);
+  const nodeById = new Map();
+  const width = Math.max(1080, manifest.iterations.length * 210 + 160);
+  const height = Math.max(300, tracks.length * 92 + 92);
+  manifest.iterations.forEach((iteration, index) => nodeById.set(iteration.id, { iteration, x: 96 + index * 205, y: 62 + Math.max(0, tracks.indexOf(iteration.track_id)) * 92 }));
+  const color = decision => ({ new_best: '#16a34a', keep_for_synthesis: '#d97706', reject: '#dc2626', failed: '#991b1b', needs_human_review: '#7c3aed' }[decision] || '#2563eb');
+  const lines = [];
+  const nodes = [];
+  for (const node of nodeById.values()) {
+    const parentIds = node.iteration.parent_ids || (node.iteration.parent_id ? [node.iteration.parent_id] : []);
+    for (const parentId of parentIds) {
+      const parent = nodeById.get(parentId);
+      if (parent) lines.push(`<line x1="${parent.x + 72}" y1="${parent.y}" x2="${node.x - 72}" y2="${node.y}" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>`);
+    }
+    const score = scoreFor(node.iteration);
+    nodes.push(`<g>
+      <rect x="${node.x - 74}" y="${node.y - 34}" width="148" height="68" rx="12" fill="#fff" stroke="${color(node.iteration.decision)}" stroke-width="3"/>
+      <text x="${node.x}" y="${node.y - 12}" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">${esc(node.iteration.id.replace(/^loop-/, ''))}</text>
+      <text x="${node.x}" y="${node.y + 7}" text-anchor="middle" font-size="11" fill="#5b6475">${esc(node.iteration.track_id)}</text>
+      <text x="${node.x}" y="${node.y + 24}" text-anchor="middle" font-size="11" fill="#5b6475">${score === null ? 'no score' : `score ${score}`}${node.iteration.id === bestId ? ' *' : ''}</text>
+    </g>`);
+  }
+  graph.setAttribute('viewBox', `0 0 ${width} ${height}`);
+  graph.innerHTML = `<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>${lines.join('')}${nodes.join('')}`;
+}
+function renderTimeline() {
+  const maxScore = Math.max(5, ...manifest.iterations.map(i => scoreFor(i) || 0));
+  timeline.innerHTML = manifest.iterations.map(i => {
+    const score = scoreFor(i) || 0;
+    const width = Math.max(2, Math.round(score / maxScore * 100));
+    return `<div class="bar-row"><div><code>${esc(i.id)}</code></div><div class="bar-track"><div class="bar" style="width:${width}%"></div></div><div>${esc(score)}</div></div>`;
+  }).join('');
+}
+function render() {
+  const d = decision.value;
+  const t = track.value;
+  cards.innerHTML = manifest.iterations
+    .filter(i => (d === 'all' || i.decision === d) && (t === 'all' || i.track_id === t))
+    .map(i => {
+      const art = primaryArtifact(i);
+      const tokens = (i.artifacts || []).find(a => a.label === 'Design tokens');
+      const parents = i.parent_ids && i.parent_ids.length ? i.parent_ids : (i.parent_id ? [i.parent_id] : ['root']);
+      const artifacts = (i.artifacts || []).map(a => `<tr><td>${esc(a.kind)}</td><td>${esc(a.label)}</td><td><a href="${esc(a.path)}">${esc(a.path)}</a></td><td><code>${esc((a.sha256 || '').slice(0, 16))}</code></td></tr>`).join('');
+      const scores = (i.scores || []).map(s => `<tr><td>${esc(s.scorer_id)}</td><td>${esc(s.type)}</td><td>${esc(s.value)}</td><td><pre>${esc(JSON.stringify(s.per_criterion || {}, null, 2))}</pre></td></tr>`).join('');
+      return `<article class="card">
+        <h2>${esc(i.id)} ${i.id === bestId ? '*' : ''}</h2>
+        <p><span class="pill ${esc(i.decision)}">${esc(i.decision)}</span><span class="pill">${esc(i.track_id)}</span><span class="pill">run: ${esc(i.experiment_run || i.track_id)}</span><span class="pill">parents: ${esc(parents.join(', '))}</span></p>
+        <p>${esc(i.hypothesis)}</p>
+        ${art ? `<div class="artifact-previews"><p class="artifact-preview-title">${esc(art.label)}</p><img src="${esc(art.path)}" alt="${esc(art.label)}"></div>` : ''}
+        ${tokens ? `<p class="meta">Tokens: <a href="${esc(tokens.path)}">${esc(tokens.path)}</a></p>` : ''}
+        <h3>Lesson</h3><pre>${esc(i.lesson.trigger)}
+Action: ${esc(i.lesson.action)}
+Evidence: ${esc(i.lesson.evidence)}
+Confidence: ${esc(i.lesson.confidence)}</pre>
+        <details open>
+          <summary>Metadata and provenance</summary>
+          <table><tbody>
+            <tr><th>Build</th><td>${esc(i.commands.build)}</td></tr>
+            <tr><th>Run</th><td>${esc(i.commands.run)}</td></tr>
+            <tr><th>Judge</th><td>${esc(i.commands.judge)}</td></tr>
+            <tr><th>Changed files</th><td>${esc((i.changed_files || []).join(', '))}</td></tr>
+            <tr><th>Stop reason</th><td>${esc(i.stop_reason || '')}</td></tr>
+          </tbody></table>
+          <h4>Artifacts</h4><table><thead><tr><th>Kind</th><th>Label</th><th>Path</th><th>SHA-256</th></tr></thead><tbody>${artifacts}</tbody></table>
+          <h4>Scores</h4><table><thead><tr><th>Scorer</th><th>Type</th><th>Value</th><th>Per criterion</th></tr></thead><tbody>${scores}</tbody></table>
+          <h4>Raw iteration JSON</h4><pre>${esc(JSON.stringify(i, null, 2))}</pre>
+        </details>
+      </article>`;
+    }).join('');
+}
+decision.addEventListener('change', render);
+track.addEventListener('change', render);
+renderGraph();
+renderTimeline();
+render();
+</script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "id": "loop-02-gemini-wall-corner",
+  "title": "Meet at the corner",
+  "model_source": "gemini-3.1-pro-preview",
+  "source_models": [
+    "gemini-3.1-pro-preview"
+  ],
+  "concept": "Anthropomorphized walls meet at a corner, which is both architectural geometry and a meeting place.",
+  "joke": {
+    "en": "What did one wall say to the other wall? I'll meet you at the corner.",
+    "fr": "Que dit un mur à un autre mur ? « On se retrouve au coin. »",
+    "es": "¿Qué le dice una pared a otra pared? « Nos vemos en la esquina. »",
+    "ja": "ひとつの壁がもうひとつの壁に何と言った？「角で待ち合わせよう。」"
+  }
+}

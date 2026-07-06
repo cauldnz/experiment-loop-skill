@@ -62,10 +62,13 @@ They do not overwrite an existing skill unless `-Force` / `--force` is provided.
 │   │   ├── manifest.json
 │   │   ├── viewer.html
 │   │   └── run_example.py
-│   └── cadquery-design
+│   ├── visual-design-system
+│   │   ├── manifest.json
+│   │   ├── viewer.html
+│   │   └── run_example.py
+│   └── multilingual-dad-joke
 │       ├── manifest.json
 │       ├── viewer.html
-│       ├── requirements.txt
 │       └── run_example.py
 └── scripts
     ├── install.ps1
@@ -78,18 +81,19 @@ They do not overwrite an existing skill unless `-Force` / `--force` is provided.
 - Read `docs\concepts.md` for the mental model.
 - Read `docs\judging.md` to choose objective, qualitative, or panel judging.
 - Read `docs\viewer.md` to understand the expected inspection UI.
-- Read `docs\worked-examples.md` for the two completed examples.
+- Read `docs\worked-examples.md` for the completed examples.
 
 ## Worked examples
 
 | Example | What it demonstrates | Inspect without rerunning | Rerun command |
 | --- | --- | --- | --- |
 | `examples\route-optimizer` | Quantitative judging with objective metrics | Open `viewer.html` | `python run_example.py` |
-| `examples\cadquery-design` | Qualitative design judging with CadQuery STEP artifacts | Open `viewer.html` | `pip install -r requirements.txt`; `python run_example.py` |
+| `examples\visual-design-system` | Qualitative SVG design judging with cross-run synthesis | Open `viewer.html` | `python run_example.py` |
+| `examples\multilingual-dad-joke` | Language-only optimization with multi-model generator and judge panels | Open `viewer.html` | `python run_example.py` |
 
 ## Dependencies
 
-The skill itself has no runtime package dependencies. The route worked example uses only the Python standard library. The CadQuery worked example uses CadQuery when rerun, but its completed STEP files, SVG previews, manifests, judge notes, and viewer are already included for offline inspection.
+The skill itself has no runtime package dependencies. The committed worked examples use only the Python standard library when rerun, and their generated artifacts, manifests, judge notes, and viewers are already included for offline inspection.
 
 ## License
 

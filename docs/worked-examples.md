@@ -1,8 +1,8 @@
 # Worked examples
 
-This repository includes two completed experiment runs. They are intentionally small enough to read, rerun, and adapt.
+This repository includes three completed experiment runs. They are intentionally small enough to read, rerun, and adapt.
 
-Both examples are self-contained for review: generated artifacts, judge notes, `manifest.json`, and `viewer.html` are committed. Rerunning is optional.
+All examples are self-contained for review: generated artifacts, judge notes, `manifest.json`, and `viewer.html` are committed. Rerunning is optional.
 
 ## Quantitative: route optimizer
 
@@ -24,30 +24,42 @@ Set-Location examples\route-optimizer
 python run_example.py
 ```
 
-## Qualitative: CadQuery phone stand
+## Qualitative: SVG visual design system
 
-Path: `examples\cadquery-design`
+Path: `examples\visual-design-system`
 
-This example explores a small parametric phone stand and cable dock. It produces real CadQuery STEP files, CadQuery SVG projections, and lightweight concept SVG previews. Objective gates check coarse physical constraints, but champion selection depends on qualitative design judgement. It also demonstrates two independent experiment runs followed by a cross-run synthesis experiment with multi-parent graph lineage.
+This example explores a browser-native event-card design system. It produces SVG cards, design tokens, and judge notes. Objective gates check SVG validity, but champion selection depends on qualitative design judgement. It demonstrates two independent design runs followed by a cross-run synthesis experiment with multi-parent graph lineage.
 
 Open:
 
-- `examples\cadquery-design\README.md` for the story;
-- `examples\cadquery-design\prompt.md` for the kickoff prompt;
-- `examples\cadquery-design\manifest.json` for the source of truth;
-- `examples\cadquery-design\viewer.html` for the inspection UI.
+- `examples\visual-design-system\README.md` for the story;
+- `examples\visual-design-system\prompt.md` for the kickoff prompt;
+- `examples\visual-design-system\manifest.json` for the source of truth;
+- `examples\visual-design-system\viewer.html` for the inspection UI.
 
 Rerun:
 
 ```powershell
-Set-Location examples\cadquery-design
+Set-Location examples\visual-design-system
 python run_example.py
 ```
 
-CadQuery is required for STEP and projection export.
+## Language: multilingual dad joke
 
-Install rerun dependencies from inside the example folder:
+Path: `examples\multilingual-dad-joke`
+
+This example creates a wholesome dad joke that works in English, French, Spanish, and Japanese. It demonstrates a multi-model experiment panel where GPT-style, Gemini-style, and Claude-style generator tracks compete, then a multi-model judge panel preserves dissent before a synthesis loop polishes the winner.
+
+Open:
+
+- `examples\multilingual-dad-joke\README.md` for the story;
+- `examples\multilingual-dad-joke\prompt.md` for the kickoff prompt;
+- `examples\multilingual-dad-joke\manifest.json` for the source of truth;
+- `examples\multilingual-dad-joke\viewer.html` for the inspection UI.
+
+Rerun:
 
 ```powershell
-pip install -r requirements.txt
+Set-Location examples\multilingual-dad-joke
+python run_example.py
 ```

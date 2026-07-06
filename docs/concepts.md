@@ -21,6 +21,12 @@ A track is a focused line of attack with one hypothesis. Examples:
 
 Tracks should write to separate folders so agents do not overwrite each other.
 
+## Experiment panel
+
+An experiment panel is a set of independent generators trying the same target from different strategies, agents, or models. For example, one language run can ask GPT, Gemini, and Claude-backed tracks to propose separate joke candidates before a synthesis pass compares their strengths.
+
+Do not confuse this with a judge panel. An experiment panel creates candidates; a judge panel scores candidates. A rigorous run can use both.
+
 ## Loop
 
 One build -> run -> observe -> judge -> improve cycle. Each loop should produce artifacts, metrics or logs, judge notes, and a manifest entry.

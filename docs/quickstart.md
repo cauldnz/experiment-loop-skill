@@ -63,4 +63,5 @@ Open the generated `viewer.html` directly in a browser. It should show the loop 
 For complete examples, see:
 
 - `examples\route-optimizer` for quantitative judging;
-- `examples\cadquery-design` for qualitative design judging with CAD artifacts.
+- `examples\visual-design-system` for qualitative design judging with SVG artifacts;
+- `examples\multilingual-dad-joke` for language optimization with multi-model experiment and judge panels.
