@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="520" viewBox="0 0 760 520">
+<rect width="760" height="520" fill="#fbfbf7"/>
+<text x="32" y="34" font-family="Segoe UI, Arial" font-size="22" font-weight="700" fill="#1f2933">Deterministic multi-start 2-opt synthesis</text>
+<text x="32" y="58" font-family="Segoe UI, Arial" font-size="14" fill="#52606d">Distance: 307.18; valid: true</text>
+<polyline points="380.0,260.0 170.1,143.5 301.3,110.2 412.8,168.5 498.1,101.9 589.9,226.7 544.0,293.3 642.4,368.2 471.8,393.1 327.5,418.1 150.4,405.6 235.7,334.9 380.0,260.0" fill="none" stroke="#2563eb" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" opacity="0.88"/>
+<circle cx="380.0" cy="260.0" r="11" fill="#dc2626" stroke="#ffffff" stroke-width="3"/>
+<text x="392.0" y="250.0" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">0. Depot</text>
+<circle cx="170.1" cy="143.5" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="182.1" y="133.5" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">1. Museum</text>
+<circle cx="301.3" cy="110.2" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="313.3" y="100.2" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">2. Clinic</text>
+<circle cx="412.8" cy="168.5" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="424.8" y="158.5" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">3. Library</text>
+<circle cx="498.1" cy="101.9" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="510.1" y="91.9" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">4. School</text>
+<circle cx="589.9" cy="226.7" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="601.9" y="216.7" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">5. Market</text>
+<circle cx="544.0" cy="293.3" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="556.0" y="283.3" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">6. Gallery</text>
+<circle cx="642.4" cy="368.2" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="654.4" y="358.2" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">7. Harbor</text>
+<circle cx="471.8" cy="393.1" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="483.8" y="383.1" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">8. Stadium</text>
+<circle cx="327.5" cy="418.1" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="339.5" y="408.1" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">9. Garden</text>
+<circle cx="150.4" cy="405.6" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="162.4" y="395.6" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">10. Station</text>
+<circle cx="235.7" cy="334.9" r="8" fill="#111827" stroke="#ffffff" stroke-width="3"/>
+<text x="247.7" y="324.9" font-family="Segoe UI, Arial" font-size="12" fill="#1f2933">11. Bakery</text>
+</svg>

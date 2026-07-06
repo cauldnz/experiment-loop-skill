@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Route Optimizer Worked Example</title>
+<style>
+body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f5f7fa; color: #1f2933; }
+header { background: #111827; color: white; padding: 28px 36px; }
+main { padding: 24px 36px 48px; }
+.summary, .card { background: white; border: 1px solid #d9e2ec; border-radius: 14px; padding: 18px; box-shadow: 0 8px 24px rgba(15,23,42,.06); }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; }
+.controls { display: flex; gap: 12px; align-items: center; margin: 18px 0; flex-wrap: wrap; }
+select { padding: 8px 10px; border-radius: 8px; border: 1px solid #bcccdc; }
+.cards { display: grid; gap: 18px; }
+.card img { width: 100%; max-width: 760px; border: 1px solid #d9e2ec; border-radius: 10px; background: #fff; }
+.meta { color: #52606d; font-size: 14px; }
+.pill { display: inline-block; padding: 4px 9px; border-radius: 999px; background: #e0f2fe; color: #075985; font-size: 12px; margin-right: 6px; }
+.new_best { background: #dcfce7; color: #166534; }
+.reject { background: #fee2e2; color: #991b1b; }
+pre { white-space: pre-wrap; background: #f8fafc; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; }
+table { border-collapse: collapse; width: 100%; margin-top: 10px; }
+td, th { border-bottom: 1px solid #e2e8f0; padding: 8px; text-align: left; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Route Optimizer Worked Example</h1>
+  <p>Minimize a deterministic delivery route while preserving validity and reproducibility.</p>
+</header>
+<main>
+  <section class="summary">
+    <div><strong>Best</strong><br><span id="best"></span></div>
+    <div><strong>Iterations</strong><br>4</div>
+    <div><strong>Judging</strong><br>Objective command primary</div>
+  </section>
+  <section class="card">
+    <h2>Scorecard</h2>
+    <table><tbody id="scorecard"></tbody></table>
+  </section>
+  <div class="controls">
+    <label>Decision <select id="decision"><option value="all">all</option></select></label>
+    <label>Track <select id="track"><option value="all">all</option></select></label>
+  </div>
+  <section class="cards" id="cards"></section>
+</main>
+<script>
+const manifest = {
+  "schema_version": "0.2",
+  "experiment_id": "route-optimizer-worked-example",
+  "title": "Route Optimizer Worked Example",
+  "goal": "Minimize a deterministic delivery route while preserving validity and reproducibility.",
+  "created_at": "2026-07-03T00:00:00Z",
+  "budget": {
+    "max_iters": 4,
+    "patience": 1,
+    "cost_limit": null,
+    "wall_time_limit_sec": 60
+  },
+  "artifact_scope": {
+    "roots": [
+      "."
+    ],
+    "allow_edit": [
+      "quantitative-search/**",
+      "synthesis/**",
+      "manifest.json",
+      "viewer.html"
+    ],
+    "deny": [
+      ".env",
+      "secrets/**",
+      "**/*credential*"
+    ]
+  },
+  "scorecard": [
+    {
+      "id": "route_length",
+      "label": "Route length",
+      "weight": 3
+    },
+    {
+      "id": "validity",
+      "label": "Visits every stop exactly once",
+      "weight": 3
+    },
+    {
+      "id": "reproducibility",
+      "label": "Deterministic and rerunnable",
+      "weight": 1
+    },
+    {
+      "id": "explainability",
+      "label": "Artifacts explain the improvement",
+      "weight": 1
+    }
+  ],
+  "scorers": [
+    {
+      "id": "route-metrics",
+      "type": "objective_command",
+      "command": "python run_example.py",
+      "primary": true,
+      "weight": 3
+    }
+  ],
+  "judge_panels": [],
+  "governance": {
+    "self_editing": {
+      "requires_user_approval": true,
+      "proposal_required": true,
+      "approved_proposal_id": null
+    }
+  },
+  "tracks": [
+    {
+      "id": "quantitative-search",
+      "label": "Quantitative route search",
+      "hypothesis": "Simple deterministic heuristics can rapidly improve a route when objective distance is measurable."
+    },
+    {
+      "id": "synthesis",
+      "label": "Synthesis and robustness check",
+      "hypothesis": "Deterministic restarts test whether the local-search champion is robust."
+    }
+  ],
+  "iterations": [
+    {
+      "id": "loop-01-baseline-order",
+      "track_id": "quantitative-search",
+      "parent_id": null,
+      "hypothesis": "A baseline route establishes the objective distance to beat.",
+      "commands": {
+        "build": "Select deterministic route-construction or route-improvement variant.",
+        "run": "python run_example.py",
+        "judge": "Read metrics.json; enforce validity gate; compare route_length to champion."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Route SVG",
+          "path": "quantitative-search/loop-01-baseline-order/route.svg",
+          "sha256": "df2e353e495741db21cdb49d852fd2869b23166fb445546608e273dacfcfbe31"
+        },
+        {
+          "kind": "data",
+          "label": "Metrics JSON",
+          "path": "quantitative-search/loop-01-baseline-order/metrics.json",
+          "sha256": "6c958298b2abbe02d8525a911ce486593fe317bcc56288821ceb17e1505710db"
+        },
+        {
+          "kind": "markdown",
+          "label": "Judge note",
+          "path": "quantitative-search/loop-01-baseline-order/judge.md",
+          "sha256": "f20ddc51328a4a7d598bb4a997b8bb8a4bca4d192f281194989988ce214560d1"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "route-metrics",
+          "type": "objective_command",
+          "value": 2.0,
+          "per_criterion": {
+            "route_length": 423.88,
+            "validity": 5,
+            "reproducibility": 5,
+            "explainability": 4.5
+          },
+          "notes": "No regression; objective distance improved.",
+          "raw": {
+            "distance": 423.88,
+            "valid": true,
+            "elapsed_ms": 1.559,
+            "improvement_pct": 0.0,
+            "route": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9,
+              10,
+              11,
+              0
+            ],
+            "route_names": [
+              "Depot",
+              "Museum",
+              "Bakery",
+              "Clinic",
+              "Library",
+              "School",
+              "Market",
+              "Harbor",
+              "Stadium",
+              "Garden",
+              "Station",
+              "Gallery",
+              "Depot"
+            ],
+            "regression_note": "No regression; objective distance improved."
+          }
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "A baseline route establishes the objective distance to beat.",
+        "action": "Try a greedy construction heuristic that chooses the nearest unvisited stop.",
+        "evidence": "quantitative-search/loop-01-baseline-order/route.svg and metrics.json",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": null
+    },
+    {
+      "id": "loop-02-nearest-neighbor",
+      "track_id": "quantitative-search",
+      "parent_id": "loop-01-baseline-order",
+      "hypothesis": "Choosing the nearest unvisited stop should cut obvious cross-town jumps.",
+      "commands": {
+        "build": "Select deterministic route-construction or route-improvement variant.",
+        "run": "python run_example.py",
+        "judge": "Read metrics.json; enforce validity gate; compare route_length to champion."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Route SVG",
+          "path": "quantitative-search/loop-02-nearest-neighbor/route.svg",
+          "sha256": "a4664b240aa452aa42aaef16d360d399dd2026bd2d9ab67ffcf23b048a04c31b"
+        },
+        {
+          "kind": "data",
+          "label": "Metrics JSON",
+          "path": "quantitative-search/loop-02-nearest-neighbor/metrics.json",
+          "sha256": "56cefb52cc9e879678352a44e494bc8e332cc7ce498855274b3e7996d81cab54"
+        },
+        {
+          "kind": "markdown",
+          "label": "Judge note",
+          "path": "quantitative-search/loop-02-nearest-neighbor/judge.md",
+          "sha256": "c2d7052163a38224b343d0227bf637275a2f85cb4e558fce17609c7b7509f57f"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "route-metrics",
+          "type": "objective_command",
+          "value": 3.99,
+          "per_criterion": {
+            "route_length": 339.73,
+            "validity": 5,
+            "reproducibility": 5,
+            "explainability": 4.5
+          },
+          "notes": "No regression; objective distance improved.",
+          "raw": {
+            "distance": 339.73,
+            "valid": true,
+            "elapsed_ms": 0.306,
+            "improvement_pct": 19.85,
+            "route": [
+              0,
+              4,
+              5,
+              3,
+              1,
+              2,
+              10,
+              9,
+              8,
+              11,
+              6,
+              7,
+              0
+            ],
+            "route_names": [
+              "Depot",
+              "Library",
+              "School",
+              "Clinic",
+              "Museum",
+              "Bakery",
+              "Station",
+              "Garden",
+              "Stadium",
+              "Gallery",
+              "Market",
+              "Harbor",
+              "Depot"
+            ],
+            "regression_note": "No regression; objective distance improved."
+          }
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "Choosing the nearest unvisited stop should cut obvious cross-town jumps.",
+        "action": "Apply local edge swaps to remove route crossings left by the greedy heuristic.",
+        "evidence": "quantitative-search/loop-02-nearest-neighbor/route.svg and metrics.json",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": null
+    },
+    {
+      "id": "loop-03-two-opt",
+      "track_id": "quantitative-search",
+      "parent_id": "loop-02-nearest-neighbor",
+      "hypothesis": "2-opt should shorten the route by reversing crossed or inefficient segments.",
+      "commands": {
+        "build": "Select deterministic route-construction or route-improvement variant.",
+        "run": "python run_example.py",
+        "judge": "Read metrics.json; enforce validity gate; compare route_length to champion."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Route SVG",
+          "path": "quantitative-search/loop-03-two-opt/route.svg",
+          "sha256": "188c47ef6ee0078c22631236ba803251e030729577053bd70646f7db102864c8"
+        },
+        {
+          "kind": "data",
+          "label": "Metrics JSON",
+          "path": "quantitative-search/loop-03-two-opt/metrics.json",
+          "sha256": "8e160198a0b637138e9b530066edcfe04b759fdbc18e38ab5554044e017cc5bc"
+        },
+        {
+          "kind": "markdown",
+          "label": "Judge note",
+          "path": "quantitative-search/loop-03-two-opt/judge.md",
+          "sha256": "d65cf6efb76c8de59797bd2ae7e44395e8c47a0f87b6229ef634f885e6cde458"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "route-metrics",
+          "type": "objective_command",
+          "value": 3.99,
+          "per_criterion": {
+            "route_length": 339.73,
+            "validity": 5,
+            "reproducibility": 5,
+            "explainability": 4.5
+          },
+          "notes": "Valid but did not improve the current champion.",
+          "raw": {
+            "distance": 339.73,
+            "valid": true,
+            "elapsed_ms": 0.936,
+            "improvement_pct": 19.85,
+            "route": [
+              0,
+              4,
+              5,
+              3,
+              1,
+              2,
+              10,
+              9,
+              8,
+              11,
+              6,
+              7,
+              0
+            ],
+            "route_names": [
+              "Depot",
+              "Library",
+              "School",
+              "Clinic",
+              "Museum",
+              "Bakery",
+              "Station",
+              "Garden",
+              "Stadium",
+              "Gallery",
+              "Market",
+              "Harbor",
+              "Depot"
+            ],
+            "regression_note": "Valid but did not improve the current champion."
+          }
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "2-opt should shorten the route by reversing crossed or inefficient segments.",
+        "action": "Use deterministic restarts to check whether the local optimum is robust.",
+        "evidence": "quantitative-search/loop-03-two-opt/route.svg and metrics.json",
+        "confidence": "high"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": null
+    },
+    {
+      "id": "loop-04-multistart-synthesis",
+      "track_id": "synthesis",
+      "parent_id": "loop-03-two-opt",
+      "hypothesis": "Multiple deterministic starts should avoid over-trusting one local optimum.",
+      "commands": {
+        "build": "Select deterministic route-construction or route-improvement variant.",
+        "run": "python run_example.py",
+        "judge": "Read metrics.json; enforce validity gate; compare route_length to champion."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Route SVG",
+          "path": "synthesis/loop-04-multistart-synthesis/route.svg",
+          "sha256": "22b037cb156116761303f62db7d83e007f1f723f7d7befd60e988259229fb2e6"
+        },
+        {
+          "kind": "data",
+          "label": "Metrics JSON",
+          "path": "synthesis/loop-04-multistart-synthesis/metrics.json",
+          "sha256": "d2af06bbdaf59706563e5388f4a7535a24dadd2f203195afefa79dd7cb11c225"
+        },
+        {
+          "kind": "markdown",
+          "label": "Judge note",
+          "path": "synthesis/loop-04-multistart-synthesis/judge.md",
+          "sha256": "3230d007ed7953cb0bf9b8815ca7fc21e9ad8e6dafaadb30a6bfde20e05b5f90"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "route-metrics",
+          "type": "objective_command",
+          "value": 4.75,
+          "per_criterion": {
+            "route_length": 307.18,
+            "validity": 5,
+            "reproducibility": 5,
+            "explainability": 4.5
+          },
+          "notes": "No regression; objective distance improved.",
+          "raw": {
+            "distance": 307.18,
+            "valid": true,
+            "elapsed_ms": 0.526,
+            "improvement_pct": 27.53,
+            "route": [
+              0,
+              1,
+              3,
+              4,
+              5,
+              6,
+              11,
+              7,
+              8,
+              9,
+              10,
+              2,
+              0
+            ],
+            "route_names": [
+              "Depot",
+              "Museum",
+              "Clinic",
+              "Library",
+              "School",
+              "Market",
+              "Gallery",
+              "Harbor",
+              "Stadium",
+              "Garden",
+              "Station",
+              "Bakery",
+              "Depot"
+            ],
+            "regression_note": "No regression; objective distance improved.",
+            "starts": 36,
+            "best_start_length": 339.73,
+            "median_final_length": 321.82
+          }
+        }
+      ],
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "Multiple deterministic starts should avoid over-trusting one local optimum.",
+        "action": "Stop: deterministic restarts did not find a shorter valid route than the current champion.",
+        "evidence": "synthesis/loop-04-multistart-synthesis/route.svg and metrics.json",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": "Patience exhausted: no deterministic restart beat 2-opt champion."
+    }
+  ],
+  "best": {
+    "iteration_id": "loop-04-multistart-synthesis",
+    "score": 4.75,
+    "why": "Shortest valid route at 307.18 units."
+  },
+  "rules": [
+    {
+      "trigger": "A primary objective metric exists.",
+      "action": "Use it as a gate before qualitative explanation.",
+      "confidence": "high"
+    }
+  ],
+  "synthesis": "Nearest-neighbor removed obvious waste, 2-opt made the largest objective improvement, and deterministic restarts confirmed the champion rather than replacing it."
+};
+document.getElementById('best').textContent = `${manifest.best.iteration_id} — score ${manifest.best.score} (${manifest.best.why})`;
+document.getElementById('scorecard').innerHTML = manifest.scorecard.map(c => `<tr><th>${c.label}</th><td>weight ${c.weight}</td></tr>`).join('');
+for (const value of [...new Set(manifest.iterations.map(i => i.decision))]) {
+  decision.insertAdjacentHTML('beforeend', `<option value="${value}">${value}</option>`);
+}
+for (const value of manifest.tracks.map(t => t.id)) {
+  track.insertAdjacentHTML('beforeend', `<option value="${value}">${value}</option>`);
+}
+function render() {
+  const d = decision.value;
+  const t = track.value;
+  cards.innerHTML = manifest.iterations
+    .filter(i => (d === 'all' || i.decision === d) && (t === 'all' || i.track_id === t))
+    .map(i => {
+      const art = i.artifacts.find(a => a.kind === 'image');
+      const metric = i.scores.find(s => s.scorer_id === 'route-metrics');
+      return `<article class="card">
+        <h2>${i.id}</h2>
+        <p><span class="pill ${i.decision}">${i.decision}</span><span class="pill">${i.track_id}</span></p>
+        <p>${i.hypothesis}</p>
+        <p class="meta">Distance: ${metric.raw.distance}; improvement: ${metric.raw.improvement_pct}%; route: ${metric.raw.route_names.join(' -> ')}</p>
+        ${art ? `<img src="${art.path}" alt="${art.label}">` : ''}
+        <h3>Lesson</h3><pre>${i.lesson.trigger}\nAction: ${i.lesson.action}\nEvidence: ${i.lesson.evidence}\nConfidence: ${i.lesson.confidence}</pre>
+        <h3>Commands</h3><pre>run: ${i.commands.run}\njudge: ${i.commands.judge}</pre>
+      </article>`;
+    }).join('');
+}
+decision.addEventListener('change', render);
+track.addEventListener('change', render);
+render();
+</script>
+</body>
+</html>
