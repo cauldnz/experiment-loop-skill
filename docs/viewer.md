@@ -8,11 +8,14 @@ Include:
 
 - goal and scorecard;
 - current champion and why it won;
+- experiment graph or lineage view based on `parent_id`;
 - loop timeline;
 - score progression;
 - per-loop artifacts;
 - judge notes;
 - command provenance;
+- per-loop metadata/provenance drawers;
+- raw manifest JSON for audit and reuse;
 - filters for track and decision;
 - regression warnings or rejected loops.
 

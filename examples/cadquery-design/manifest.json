@@ -121,7 +121,7 @@
           "kind": "cad",
           "label": "CadQuery STEP",
           "path": "generative-design/loop-01-minimal-cradle/model.step",
-          "sha256": "ac6faa3dff121b922a07dfa0620a51bfe8bb3769689a41aef5e324ec2e379e84"
+          "sha256": "e31d08de4b2de79639f706e5408315cf8261daba7b423dbd68815ae8b1a98590"
         },
         {
           "kind": "image",
@@ -215,7 +215,7 @@
           "kind": "cad",
           "label": "CadQuery STEP",
           "path": "generative-design/loop-02-cable-dock/model.step",
-          "sha256": "02b94a2c2d69c3c90518688849518d129af01bba536ed2ea277953ef5dd05914"
+          "sha256": "aee2be6deda4c47f1e714d21cee4bfc78ea89b04fdb444727507cf6fc14f8707"
         },
         {
           "kind": "image",
@@ -309,7 +309,7 @@
           "kind": "cad",
           "label": "CadQuery STEP",
           "path": "synthesis/loop-03-braced-synthesis/model.step",
-          "sha256": "1d319cf52315b64b05f96845a24532d18f4acfeb02323ebebded89e242b8fc95"
+          "sha256": "7eda4ad41dff63f4739dc9c18438a79208cf0eb3e6b656d8a3ca84a70548139d"
         },
         {
           "kind": "image",

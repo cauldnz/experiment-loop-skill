@@ -99,7 +99,7 @@
           "kind": "data",
           "label": "Metrics JSON",
           "path": "quantitative-search/loop-01-baseline-order/metrics.json",
-          "sha256": "6c958298b2abbe02d8525a911ce486593fe317bcc56288821ceb17e1505710db"
+          "sha256": "a2967ccfb232118a103a7d9c2f2100dc70901b35475041a40d064e3413b7baca"
         },
         {
           "kind": "markdown",
@@ -123,7 +123,6 @@
           "raw": {
             "distance": 423.88,
             "valid": true,
-            "elapsed_ms": 1.559,
             "improvement_pct": 0.0,
             "route": [
               0,
@@ -192,7 +191,7 @@
           "kind": "data",
           "label": "Metrics JSON",
           "path": "quantitative-search/loop-02-nearest-neighbor/metrics.json",
-          "sha256": "56cefb52cc9e879678352a44e494bc8e332cc7ce498855274b3e7996d81cab54"
+          "sha256": "ecb62c2b8049fc6f69711ea99e45714cfe9a5c94737e76a35a6ab0ff72f0df17"
         },
         {
           "kind": "markdown",
@@ -216,7 +215,6 @@
           "raw": {
             "distance": 339.73,
             "valid": true,
-            "elapsed_ms": 0.306,
             "improvement_pct": 19.85,
             "route": [
               0,
@@ -285,7 +283,7 @@
           "kind": "data",
           "label": "Metrics JSON",
           "path": "quantitative-search/loop-03-two-opt/metrics.json",
-          "sha256": "8e160198a0b637138e9b530066edcfe04b759fdbc18e38ab5554044e017cc5bc"
+          "sha256": "235bf4db0059cb001a7b15f6427abb88e2ab75dab6702c8db821268836b492b1"
         },
         {
           "kind": "markdown",
@@ -309,7 +307,6 @@
           "raw": {
             "distance": 339.73,
             "valid": true,
-            "elapsed_ms": 0.936,
             "improvement_pct": 19.85,
             "route": [
               0,
@@ -378,7 +375,7 @@
           "kind": "data",
           "label": "Metrics JSON",
           "path": "synthesis/loop-04-multistart-synthesis/metrics.json",
-          "sha256": "d2af06bbdaf59706563e5388f4a7535a24dadd2f203195afefa79dd7cb11c225"
+          "sha256": "290fe93c3e839f7192533ef9b20bf26e058630322c5720cea9bdf733319324b0"
         },
         {
           "kind": "markdown",
@@ -402,7 +399,6 @@
           "raw": {
             "distance": 307.18,
             "valid": true,
-            "elapsed_ms": 0.526,
             "improvement_pct": 27.53,
             "route": [
               0,
