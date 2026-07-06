@@ -26,14 +26,14 @@
 <text x="622" y="352" font-family="Segoe UI, Arial, sans-serif" font-size="15" fill="#0f172a" opacity="0.76">Studio 3 + remote</text>
 <rect x="622" y="378" width="112" height="34" rx="17" fill="#2dd4bf"/>
 <text x="644" y="400" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" fill="#0f172a">JOIN RUN</text>
-<rect x="372" y="346" width="178" height="32" rx="16" fill="#ffffff" opacity="0.12"/>
-<text x="388" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" fill="#f59e0b">01</text>
-<text x="424" y="368" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#f8fafc">Frame goal</text>
-<rect x="372" y="390" width="178" height="32" rx="16" fill="#ffffff" opacity="0.12"/>
-<text x="388" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" fill="#f59e0b">02</text>
-<text x="424" y="412" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#f8fafc">Run variants</text>
-<rect x="372" y="434" width="178" height="32" rx="16" fill="#ffffff" opacity="0.12"/>
-<text x="388" y="456" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" fill="#f59e0b">03</text>
-<text x="424" y="456" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#f8fafc">Synthesize</text>
+<rect x="88" y="402" width="136" height="32" rx="16" fill="#ffffff" opacity="0.12"/>
+<text x="104" y="424" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" fill="#f59e0b">01</text>
+<text x="140" y="424" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#f8fafc">Frame goal</text>
+<rect x="236" y="402" width="136" height="32" rx="16" fill="#ffffff" opacity="0.12"/>
+<text x="252" y="424" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" fill="#f59e0b">02</text>
+<text x="288" y="424" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#f8fafc">Run variants</text>
+<rect x="384" y="402" width="136" height="32" rx="16" fill="#ffffff" opacity="0.12"/>
+<text x="400" y="424" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="800" fill="#f59e0b">03</text>
+<text x="436" y="424" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#f8fafc">Synthesize</text>
 <text x="86" y="456" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" fill="#ccfbf1">VARIANT / EDITORIAL PLUS SIGNAL SYNTHESIS</text>
 </svg>

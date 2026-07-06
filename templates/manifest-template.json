@@ -21,6 +21,13 @@
   ],
   "scorers": [
     {
+      "id": "artifact-quality-gate",
+      "type": "objective_command",
+      "command": "replace with a reproducible artifact-quality check when available",
+      "primary": true,
+      "weight": 1
+    },
+    {
       "id": "quality",
       "type": "llm_rubric",
       "judge_panel": "default_panel",
@@ -47,8 +54,39 @@
       "approved_proposal_id": null
     }
   },
-  "tracks": [],
-  "iterations": [],
+  "tracks": [
+    {
+      "id": "example-track",
+      "label": "Example track",
+      "hypothesis": "What this track is trying to improve."
+    }
+  ],
+  "iterations": [
+    {
+      "id": "loop-001",
+      "track_id": "example-track",
+      "parent_id": null,
+      "hypothesis": "What this loop is testing.",
+      "commands": {
+        "build": "Build or edit the candidate.",
+        "run": "Run/render/test the candidate.",
+        "judge": "Score the candidate against the scorecard."
+      },
+      "artifacts": [],
+      "scores": [],
+      "prompt": {
+        "track_prompt": "Prompt or instruction sent to the generator for this loop.",
+        "input_feedback": "Prior judge notes, parent evidence, or human feedback used as input.",
+        "judge_feedback": "Condensed feedback returned by judges for this loop.",
+        "next_prompt": "Next hypothesis or prompt that should drive the following loop."
+      },
+      "quality_gates": {},
+      "changed_files": [],
+      "lesson": {},
+      "decision": "needs_human_review",
+      "stop_reason": null
+    }
+  ],
   "best": null,
   "rules": [],
   "synthesis": ""

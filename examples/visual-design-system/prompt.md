@@ -11,14 +11,16 @@ Scorecard:
 - information_clarity: practical event details are legible and not buried
 - system_coherence: colors, type scale, shapes, and components feel reusable
 - polish: spacing, contrast, composition, and details feel production-ready
+- layout_quality: elements do not overlap, controls and body copy have clear whitespace, and visual polish does not hide readability defects
 
 Judging mode:
 - Use objective checks for artifact existence and SVG validity.
-- Use an independent qualitative panel for champion selection.
+- Use objective layout-quality checks so visual overlaps block champion promotion.
+- Use an independent qualitative panel, including a layout critic, for champion selection.
 
 Topology:
 - Run A: editorial typography path with two loops.
 - Run B: generative visual-language path with two loops.
-- Run C: cross-run synthesis path with two loops that uses both Run A and Run B finals as parents.
-- Produce SVG cards, design tokens, judge notes, a manifest, and a local viewer with graph lineage, metadata/provenance drawers, and raw JSON.
+- Run C: cross-run synthesis path with three loops that uses both Run A and Run B finals as parents, rejects an overlapping production-polish loop, then repairs it.
+- Produce SVG cards, design tokens, layout-quality metrics, judge notes, prompt/feedback history, a manifest, and a local viewer with graph lineage, metadata/provenance drawers, and raw JSON.
 ```

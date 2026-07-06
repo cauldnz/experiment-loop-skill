@@ -1,0 +1,62 @@
+{
+  "passes_layout_gate": false,
+  "score": 1.8,
+  "checked_boxes": [
+    {
+      "id": "body-copy",
+      "x": 88.0,
+      "y": 298.0,
+      "w": 470.0,
+      "h": 66.0
+    },
+    {
+      "id": "detail-panel",
+      "x": 596.0,
+      "y": 250.0,
+      "w": 270.0,
+      "h": 178.0
+    },
+    {
+      "id": "variant-caption",
+      "x": 86.0,
+      "y": 442.0,
+      "w": 360.0,
+      "h": 24.0
+    },
+    {
+      "id": "process-chip-1",
+      "x": 372.0,
+      "y": 326.0,
+      "w": 178.0,
+      "h": 32.0
+    },
+    {
+      "id": "process-chip-2",
+      "x": 372.0,
+      "y": 370.0,
+      "w": 178.0,
+      "h": 32.0
+    },
+    {
+      "id": "process-chip-3",
+      "x": 372.0,
+      "y": 414.0,
+      "w": 178.0,
+      "h": 32.0
+    }
+  ],
+  "collisions": [
+    {
+      "a": "body-copy",
+      "b": "process-chip-1"
+    },
+    {
+      "a": "body-copy",
+      "b": "process-chip-2"
+    },
+    {
+      "a": "variant-caption",
+      "b": "process-chip-3"
+    }
+  ]
+}

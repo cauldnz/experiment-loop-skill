@@ -6,7 +6,7 @@
 ## Evidence inspected
 - `card.svg`
 - `tokens.json`
-- independent fast/design critic notes
+- independent fast/design/layout critic notes
 
 ## Scores
 - visual_hierarchy: 4.6
@@ -14,15 +14,17 @@
 - information_clarity: 4.5
 - system_coherence: 4.6
 - polish: 4.4
-- weighted_total: 4.54
+- layout_quality: 4.2
+- weighted_total: 4.47
 
 ## Judge mode
-- panel, with objective SVG validity checks as supporting gates.
+- panel, with objective SVG validity and layout-overlap checks as supporting gates.
 
 ## Panel notes
 - fast-critic: focused on scan path, event detail clarity, and CTA visibility.
 - design-critic: focused on identity, component reuse, and visual finish.
-- dissent / disagreement: none material; both critics agree this is `new_best`.
+- layout-critic: focused on element collisions, whitespace, and whether the card is visually usable.
+- dissent / disagreement: none material; critics agree this is `new_best`.
 
 ## What improved
 - Polish spacing, contrast, component rhythm, and CTA treatment.

@@ -328,6 +328,12 @@ look like this:
           "notes": "Cleaner framing, but contrast is low."
         }
       ],
+      "prompt": {
+        "track_prompt": "Prompt or instruction sent to the generator for this loop.",
+        "input_feedback": "Prior judge notes, parent evidence, or human feedback used as input.",
+        "judge_feedback": "Condensed feedback returned by judges for this loop.",
+        "next_prompt": "Next hypothesis or prompt that should drive the following loop."
+      },
       "changed_files": ["renderer.py"],
       "lesson": {
         "trigger": "Head clipped in preview.",
@@ -367,6 +373,8 @@ Every loop entry should include:
 - `commands.judge`
 - `artifacts[]`
 - `scores[]`
+- `prompt.track_prompt`, `prompt.input_feedback`, `prompt.judge_feedback`, and
+  `prompt.next_prompt` where a loop is prompt-, agent-, or feedback-driven
 - `changed_files[]`
 - `lesson`
 - `decision`
@@ -504,6 +512,19 @@ If no independent judge is run, mark the loop `keep_for_synthesis` or
 `needs_human_review`, not `new_best`, unless the user explicitly accepts that
 reduced rigor for the run.
 
+#### Visual-quality gate
+
+For visual, UX, design, animation, and presentation artifacts, do not treat
+"file exists", "SVG parses", or "render command succeeded" as sufficient visual
+quality evidence.
+
+Include an objective or semi-objective visual-quality gate where practical. The
+gate should inspect real artifacts for overlap, clipping, unreadable text,
+hidden controls, broken layout, missing frames, broken transparency, or other
+visible defects. If the gate fails, the iteration cannot become champion unless
+the user explicitly overrides it. Record the gate output as an artifact or
+manifest field so the viewer can show why the iteration was rejected.
+
 ### 8. Use subagents deliberately
 
 When using background agents, give each one:
@@ -578,6 +599,10 @@ Viewer requirements:
 - command/provenance drawer;
 - artifact metadata where available: hash, dimensions, duration, frame count,
   and exact evidence sent to judges;
+- prompt and feedback chain for each iteration: original/track prompt, parent or
+  human feedback used as input, judge feedback, and next prompt;
+- visual-quality gate output for visual work, including rejected overlap,
+  clipping, readability, or broken-layout defects;
 - filters by track, scorer, judge, status, decision, and `new_best`;
 - "why this won" summary and regression warnings;
 - side-by-side comparison;

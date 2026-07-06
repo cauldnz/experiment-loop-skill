@@ -65,6 +65,18 @@
           "commands": {"type": "object"},
           "artifacts": {"type": "array", "items": {"$ref": "#/$defs/artifact"}},
           "scores": {"type": "array", "items": {"type": "object"}},
+          "prompt": {
+            "type": "object",
+            "properties": {
+              "track_prompt": {"type": "string"},
+              "input_feedback": {"type": "string"},
+              "judge_feedback": {"type": "string"},
+              "next_prompt": {"type": "string"}
+            },
+            "additionalProperties": true
+          },
+          "quality_gates": {"type": "object"},
+          "layout_quality": {"type": "object"},
           "changed_files": {"type": "array", "items": {"type": "string"}},
           "lesson": {"type": "object"},
           "decision": {

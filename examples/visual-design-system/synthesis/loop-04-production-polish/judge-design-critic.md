@@ -6,8 +6,8 @@
 
 ## Scores
 - brand_distinctiveness: 4.8 - memorable visual language.
-- system_coherence: 4.9 - reusable components and token consistency.
-- polish: 4.9 - spacing, rhythm, and production finish.
+- system_coherence: 4.4 - reusable components and token consistency.
+- polish: 3.4 - spacing, rhythm, and production finish.
 
 ## Rationale
-The design balances identity and system reuse well.
+The design contributes a useful direction for synthesis.

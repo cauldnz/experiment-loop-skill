@@ -13,8 +13,10 @@ Include:
 - score progression;
 - per-loop artifacts;
 - judge notes;
+- prompt and feedback chain for each iteration: generator prompt, parent or human feedback, judge feedback, and next prompt;
 - command provenance;
 - per-loop metadata/provenance drawers;
+- visual-quality gate output for visual/UX/design artifacts, including overlap, clipping, readability, or broken-layout failures;
 - raw manifest JSON for audit and reuse;
 - filters for track and decision;
 - regression warnings or rejected loops.
@@ -33,6 +35,8 @@ When reviewing a finished experiment, check:
 2. loops marked `reject` or `failed`;
 3. the lesson attached to each `new_best`;
 4. dissenting judge comments;
-5. whether all referenced artifacts exist.
+5. the prompt/feedback chain that caused each loop to change;
+6. visual-quality gate failures for rejected visual artifacts;
+7. whether all referenced artifacts exist.
 
 The examples in this repository each include a generated `viewer.html` so users can inspect a completed run without rerunning it.

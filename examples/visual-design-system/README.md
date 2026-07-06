@@ -12,11 +12,11 @@ Design a polished, reusable visual identity for a fictional "Loop Lab" workshop 
 
 1. Run A: an editorial/typographic path that optimizes hierarchy and clarity.
 2. Run B: a generative visual-language path that optimizes distinctiveness and energy.
-3. Run C: a cross-run synthesis path that combines Run A's clarity with Run B's visual language, then polishes the result.
+3. Run C: a cross-run synthesis path that combines Run A's clarity with Run B's visual language, rejects a polished-but-overlapping layout, then repairs it.
 
 ## Why this is a good qualitative example
 
-The output is visual and subjective, but the run still records evidence: every loop has an SVG artifact, design tokens, objective SVG checks, independent judge notes, scores, lineage metadata, and a manifest. The synthesis loops use multiple parents so the graph shows how one experiment can build on two earlier runs.
+The output is visual and subjective, but the run still records evidence: every loop has an SVG artifact, design tokens, objective SVG and layout-quality checks, independent judge notes, scores, prompt/feedback history, lineage metadata, and a manifest. The synthesis loops use multiple parents so the graph shows how one experiment can build on two earlier runs.
 
 ## Inspect the completed run
 
@@ -24,11 +24,13 @@ Open `viewer.html` in a browser, or read `manifest.json` directly. Each loop fol
 
 - `card.svg`
 - `tokens.json`
+- `layout-quality.json`
 - `judge-fast-critic.md`
 - `judge-design-critic.md`
+- `judge-layout-critic.md`
 - `judge-aggregate.md`
 
-The viewer includes the experiment graph, score timeline, per-loop metadata/provenance, artifact inventory, raw iteration JSON, and raw manifest JSON.
+The viewer includes the experiment graph, score timeline, prompt/feedback chain, layout-quality gate output, per-loop metadata/provenance, artifact inventory, raw iteration JSON, and raw manifest JSON.
 
 ## Rerun
 

@@ -28,7 +28,7 @@ python run_example.py
 
 Path: `examples\visual-design-system`
 
-This example explores a browser-native event-card design system. It produces SVG cards, design tokens, and judge notes. Objective gates check SVG validity, but champion selection depends on qualitative design judgement. It demonstrates two independent design runs followed by a cross-run synthesis experiment with multi-parent graph lineage.
+This example explores a browser-native event-card design system. It produces SVG cards, design tokens, layout-quality metrics, and judge notes. Objective gates check SVG validity and visual overlap, while champion selection also depends on qualitative design judgement. It demonstrates two independent design runs followed by a cross-run synthesis experiment with multi-parent graph lineage.
 
 Open:
 

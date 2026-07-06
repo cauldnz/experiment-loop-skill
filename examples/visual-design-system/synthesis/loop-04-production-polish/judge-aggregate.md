@@ -6,29 +6,31 @@
 ## Evidence inspected
 - `card.svg`
 - `tokens.json`
-- independent fast/design critic notes
+- independent fast/design/layout critic notes
 
 ## Scores
-- visual_hierarchy: 4.9
+- visual_hierarchy: 4.2
 - brand_distinctiveness: 4.8
-- information_clarity: 4.8
-- system_coherence: 4.9
-- polish: 4.9
-- weighted_total: 4.86
+- information_clarity: 3.6
+- system_coherence: 4.4
+- polish: 3.4
+- layout_quality: 2.2
+- weighted_total: 3.68
 
 ## Judge mode
-- panel, with objective SVG validity checks as supporting gates.
+- panel, with objective SVG validity and layout-overlap checks as supporting gates.
 
 ## Panel notes
 - fast-critic: focused on scan path, event detail clarity, and CTA visibility.
 - design-critic: focused on identity, component reuse, and visual finish.
-- dissent / disagreement: none material; both critics agree this is `new_best`.
+- layout-critic: focused on element collisions, whitespace, and whether the card is visually usable.
+- dissent / disagreement: layout critic blocks champion promotion because body-copy over process-chip-1, body-copy over process-chip-2, variant-caption over process-chip-3
 
 ## What improved
-- Stop: the final card has the clearest hierarchy, strongest reusable system, and most polished composition.
+- Reject as champion: the process chips collide with body copy, so add an explicit layout-quality gate and reposition the system chips.
 
 ## What failed / regressed
-- No material regression versus the previous champion.
+- Did not beat the current champion, but remains useful synthesis input.
 
 ## Next hypothesis
-- Stop: the final card has the clearest hierarchy, strongest reusable system, and most polished composition.
+- Reject as champion: the process chips collide with body copy, so add an explicit layout-quality gate and reposition the system chips.

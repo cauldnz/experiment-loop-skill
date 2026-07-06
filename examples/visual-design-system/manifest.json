@@ -5,7 +5,7 @@
   "goal": "Run two independent SVG visual design experiments, then synthesize their best lessons into a polished event-card system.",
   "created_at": "2026-07-06T00:00:00Z",
   "budget": {
-    "max_iters": 6,
+    "max_iters": 7,
     "patience": 1,
     "cost_limit": null,
     "wall_time_limit_sec": 60
@@ -52,6 +52,11 @@
       "id": "polish",
       "label": "Production polish",
       "weight": 1.3
+    },
+    {
+      "id": "layout_quality",
+      "label": "Layout quality and non-overlap",
+      "weight": 1.5
     }
   ],
   "scorers": [
@@ -61,6 +66,13 @@
       "command": "python run_example.py",
       "primary": true,
       "weight": 1
+    },
+    {
+      "id": "layout-quality",
+      "type": "objective_command",
+      "command": "python run_example.py",
+      "primary": true,
+      "weight": 2
     },
     {
       "id": "design-panel",
@@ -83,6 +95,10 @@
         {
           "id": "design-critic",
           "role": "brand identity, component reuse, and visual polish"
+        },
+        {
+          "id": "layout-critic",
+          "role": "element collisions, whitespace, and visual usability"
         }
       ]
     }
@@ -125,38 +141,50 @@
       "commands": {
         "build": "Generate SVG card and design tokens from deterministic design parameters.",
         "run": "python run_example.py",
-        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+        "judge": "Validate SVG and layout quality, then aggregate independent qualitative judge notes."
       },
       "artifacts": [
         {
           "kind": "image",
           "label": "Card SVG",
           "path": "editorial-run/loop-01-editorial-poster/card.svg",
-          "sha256": "bd8b68f3bd78e97d52adec1b033c6a3ac003bb69bf050faef5a398d16b4518eb"
+          "sha256": "dd65921c6e227a0d35ce6cd6991ad0728321927ce73effe7173653a4b1baa1b7"
         },
         {
           "kind": "data",
           "label": "Design tokens",
           "path": "editorial-run/loop-01-editorial-poster/tokens.json",
-          "sha256": "509ef65fbb9a02569226561a7d3141af4d8273fa0f00d13e97c4424ec9a0ed60"
+          "sha256": "fba94bc22835fac3944c5430c0f9b0dbbbe1dc8c54b7a6d9951bfdac826d6435"
+        },
+        {
+          "kind": "data",
+          "label": "Layout quality metrics",
+          "path": "editorial-run/loop-01-editorial-poster/layout-quality.json",
+          "sha256": "64b5b21cf213f7b2d3c856845e938c036587caf7cb00a638b3fff22d594c58ba"
         },
         {
           "kind": "markdown",
           "label": "judge-fast-critic.md",
           "path": "editorial-run/loop-01-editorial-poster/judge-fast-critic.md",
-          "sha256": "7ee640118a760305fa1602964b63128b09eef540b01c2a0ef05941226c3a7dac"
+          "sha256": "5f971cc630011b522981fab8b0e31cc09bf0cd74c551584d905aee3572e4efe8"
         },
         {
           "kind": "markdown",
           "label": "judge-design-critic.md",
           "path": "editorial-run/loop-01-editorial-poster/judge-design-critic.md",
-          "sha256": "d1dd069e0f34b7f91610f697e4cba3d7eb0214e60f393ddfeed3e6ff0a3cb12b"
+          "sha256": "bc43f00d92c495c10170b0d28372afd26fcfde75ac6270e71204d4115da3ac1a"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-layout-critic.md",
+          "path": "editorial-run/loop-01-editorial-poster/judge-layout-critic.md",
+          "sha256": "cbc795d46b367b79ce65f22affbb46f9ddf075c893fc59ecf49b68470f657c67"
         },
         {
           "kind": "markdown",
           "label": "judge-aggregate.md",
           "path": "editorial-run/loop-01-editorial-poster/judge-aggregate.md",
-          "sha256": "70d03a37b8c6e1d544e9838aab4e4ca9692c01bc1d9c530fd8367ba3b865c453"
+          "sha256": "efb2adc963797b5494c5840b863c62e8231aa249b4daa474b4eb53cdf8477a9a"
         }
       ],
       "scores": [
@@ -172,6 +200,16 @@
           "notes": "SVG parses and required artifacts exist."
         },
         {
+          "scorer_id": "layout-quality",
+          "type": "objective_command",
+          "value": 5.0,
+          "per_criterion": {
+            "passes_layout_gate": true,
+            "collisions": []
+          },
+          "notes": "No layout collisions detected."
+        },
+        {
           "scorer_id": "design-panel",
           "type": "llm_rubric",
           "judge_panel": "design-panel",
@@ -181,11 +219,46 @@
             "brand_distinctiveness": 3.6,
             "information_clarity": 3.9,
             "system_coherence": 3.6,
-            "polish": 3.8
+            "polish": 3.8,
+            "layout_quality": 3.9
           },
-          "notes": "Aggregated from fast-critic and design-critic judge notes."
+          "notes": "Aggregated from fast-critic, design-critic, and layout-critic judge notes."
         }
       ],
+      "prompt": {
+        "track_prompt": "Create the next SVG event-card candidate for run-a-editorial-clarity. Optimize the scorecard while preserving this track's hypothesis: Run A starts with bold editorial typography to make the event promise instantly clear.",
+        "input_feedback": "Parent evidence: none - first loop in this run. Use prior judge notes and artifacts as constraints; do not overwrite another track's visual direction.",
+        "judge_feedback": "Decision: new_best. Layout gate: pass; collisions: none. Next recommendation: Add reusable modules for agenda, proof points, and call to action.",
+        "next_prompt": "Add reusable modules for agenda, proof points, and call to action."
+      },
+      "layout_quality": {
+        "passes_layout_gate": true,
+        "score": 5.0,
+        "checked_boxes": [
+          {
+            "id": "body-copy",
+            "x": 88.0,
+            "y": 326.0,
+            "w": 470.0,
+            "h": 66.0
+          },
+          {
+            "id": "detail-panel",
+            "x": 614.0,
+            "y": 250.0,
+            "w": 240.0,
+            "h": 178.0
+          },
+          {
+            "id": "variant-caption",
+            "x": 86.0,
+            "y": 442.0,
+            "w": 360.0,
+            "h": 24.0
+          }
+        ],
+        "collisions": []
+      },
       "changed_files": [
         "run_example.py"
       ],
@@ -213,38 +286,50 @@
       "commands": {
         "build": "Generate SVG card and design tokens from deterministic design parameters.",
         "run": "python run_example.py",
-        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+        "judge": "Validate SVG and layout quality, then aggregate independent qualitative judge notes."
       },
       "artifacts": [
         {
           "kind": "image",
           "label": "Card SVG",
           "path": "editorial-run/loop-02-editorial-system/card.svg",
-          "sha256": "2943499fb4c51a72a9cb446f8aa00374c19a1f4610d4941cf8a3a1bbf4cf20fb"
+          "sha256": "090d2e2efab958cd2714581af3ca128e5dd86dfff0f13acef31245bfd453c751"
         },
         {
           "kind": "data",
           "label": "Design tokens",
           "path": "editorial-run/loop-02-editorial-system/tokens.json",
-          "sha256": "ed39cfed4c9d31f2c7fcfee6e1989583ce8b888473852118f8c986e700cbff18"
+          "sha256": "4b61f3cdbb48acdfd2d0db9c9cd96063a8796611d96e81f154524de5374e0d55"
+        },
+        {
+          "kind": "data",
+          "label": "Layout quality metrics",
+          "path": "editorial-run/loop-02-editorial-system/layout-quality.json",
+          "sha256": "07cd89b9ca2a1a84351b98db06323725dad978a1b564aed0487891e583475ce9"
         },
         {
           "kind": "markdown",
           "label": "judge-fast-critic.md",
           "path": "editorial-run/loop-02-editorial-system/judge-fast-critic.md",
-          "sha256": "7339d62bf55287282052caeac564a66dd16745432fe618cf70a1e562b77704ce"
+          "sha256": "cd9340a820c740fd081cdb18a2db63407a9d5df44d4a23c39809fe490cbc429b"
         },
         {
           "kind": "markdown",
           "label": "judge-design-critic.md",
           "path": "editorial-run/loop-02-editorial-system/judge-design-critic.md",
-          "sha256": "7d3e09064aee272fd7ae4f8d6c6b9602c81bc11abdc95c520054b8f30dd2f133"
+          "sha256": "4242cd5591d4a29084276a0f45e0eef868886cc450250a0c9a39d51b31739dd5"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-layout-critic.md",
+          "path": "editorial-run/loop-02-editorial-system/judge-layout-critic.md",
+          "sha256": "e4f4093fadefa45d7e724ab3a6deb05da8d1608451b232421f591e552aa77887"
         },
         {
           "kind": "markdown",
           "label": "judge-aggregate.md",
           "path": "editorial-run/loop-02-editorial-system/judge-aggregate.md",
-          "sha256": "c4cc90a7ac00072cf614793b1d5cb4454051a84f6ac70c6f036f16558ff127df"
+          "sha256": "0cac4237cf1b6d8cd60adabea7d2d155b3766814c56c1e3097f589f8e7390fdc"
         }
       ],
       "scores": [
@@ -260,6 +345,16 @@
           "notes": "SVG parses and required artifacts exist."
         },
         {
+          "scorer_id": "layout-quality",
+          "type": "objective_command",
+          "value": 5.0,
+          "per_criterion": {
+            "passes_layout_gate": true,
+            "collisions": []
+          },
+          "notes": "No layout collisions detected."
+        },
+        {
           "scorer_id": "design-panel",
           "type": "llm_rubric",
           "judge_panel": "design-panel",
@@ -269,11 +364,67 @@
             "brand_distinctiveness": 3.9,
             "information_clarity": 4.6,
             "system_coherence": 4.2,
-            "polish": 4.1
+            "polish": 4.1,
+            "layout_quality": 4.3
           },
-          "notes": "Aggregated from fast-critic and design-critic judge notes."
+          "notes": "Aggregated from fast-critic, design-critic, and layout-critic judge notes."
         }
       ],
+      "prompt": {
+        "track_prompt": "Create the next SVG event-card candidate for run-a-editorial-clarity. Optimize the scorecard while preserving this track's hypothesis: Run A improves by turning the poster into reusable information modules without losing typographic hierarchy.",
+        "input_feedback": "Parent evidence: loop-01-editorial-poster. Use prior judge notes and artifacts as constraints; do not overwrite another track's visual direction.",
+        "judge_feedback": "Decision: new_best. Layout gate: pass; collisions: none. Next recommendation: Borrow a stronger visual motif from the independent visual-language run.",
+        "next_prompt": "Borrow a stronger visual motif from the independent visual-language run."
+      },
+      "layout_quality": {
+        "passes_layout_gate": true,
+        "score": 5.0,
+        "checked_boxes": [
+          {
+            "id": "body-copy",
+            "x": 88.0,
+            "y": 298.0,
+            "w": 470.0,
+            "h": 66.0
+          },
+          {
+            "id": "detail-panel",
+            "x": 596.0,
+            "y": 250.0,
+            "w": 270.0,
+            "h": 178.0
+          },
+          {
+            "id": "variant-caption",
+            "x": 86.0,
+            "y": 442.0,
+            "w": 360.0,
+            "h": 24.0
+          },
+          {
+            "id": "process-chip-1",
+            "x": 88.0,
+            "y": 402.0,
+            "w": 136.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-2",
+            "x": 236.0,
+            "y": 402.0,
+            "w": 136.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-3",
+            "x": 384.0,
+            "y": 402.0,
+            "w": 136.0,
+            "h": 32.0
+          }
+        ],
+        "collisions": []
+      },
       "changed_files": [
         "run_example.py"
       ],
@@ -299,38 +450,50 @@
       "commands": {
         "build": "Generate SVG card and design tokens from deterministic design parameters.",
         "run": "python run_example.py",
-        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+        "judge": "Validate SVG and layout quality, then aggregate independent qualitative judge notes."
       },
       "artifacts": [
         {
           "kind": "image",
           "label": "Card SVG",
           "path": "visual-language-run/loop-01-orbital-identity/card.svg",
-          "sha256": "2dea81a42412e802dd43235780e8b1c1865bd8d93e7f25645b86084cea7f4d68"
+          "sha256": "af0d41dadcefdbab4359bb219639af42d26822a7d345974d1c47669793a15bed"
         },
         {
           "kind": "data",
           "label": "Design tokens",
           "path": "visual-language-run/loop-01-orbital-identity/tokens.json",
-          "sha256": "c41e960460f28b83e59562732a7f95af98bb91439e8c373402a208b76437f0e5"
+          "sha256": "cd7a42e6b0f9fd43d33499f2379d47a771631aea1544ad4daeb1b2074af1088d"
+        },
+        {
+          "kind": "data",
+          "label": "Layout quality metrics",
+          "path": "visual-language-run/loop-01-orbital-identity/layout-quality.json",
+          "sha256": "64b5b21cf213f7b2d3c856845e938c036587caf7cb00a638b3fff22d594c58ba"
         },
         {
           "kind": "markdown",
           "label": "judge-fast-critic.md",
           "path": "visual-language-run/loop-01-orbital-identity/judge-fast-critic.md",
-          "sha256": "be8869c95d9b102282f945dec600d7eaa50bbab3da5c72bf989be676592b304c"
+          "sha256": "c584d0a8b77fcead8d8f9722ff50c56165d3e49dd40a0bb7087b2c140fd5dfc8"
         },
         {
           "kind": "markdown",
           "label": "judge-design-critic.md",
           "path": "visual-language-run/loop-01-orbital-identity/judge-design-critic.md",
-          "sha256": "ebaaa801599fad8f780a012dd900931a7dd92bbf53013cd88ed1b0151859d11b"
+          "sha256": "cf35a822c0bfff2ab163461a1b2ff88097a890b5543ba1bbfc9e974ef9f1db60"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-layout-critic.md",
+          "path": "visual-language-run/loop-01-orbital-identity/judge-layout-critic.md",
+          "sha256": "029f8e4213b78d0550cdfbc5074a108c8b6c3a14f4adb94476378ef484b0e993"
         },
         {
           "kind": "markdown",
           "label": "judge-aggregate.md",
           "path": "visual-language-run/loop-01-orbital-identity/judge-aggregate.md",
-          "sha256": "37df0a33f9d88f601e4f6557832a88575389a22f90bcf06090cc9d00c86a43d1"
+          "sha256": "e13b28c6d64f7c95b1cd907e665bf0715f6512434e0dcafb142243005edc2c51"
         }
       ],
       "scores": [
@@ -346,20 +509,65 @@
           "notes": "SVG parses and required artifacts exist."
         },
         {
+          "scorer_id": "layout-quality",
+          "type": "objective_command",
+          "value": 5.0,
+          "per_criterion": {
+            "passes_layout_gate": true,
+            "collisions": []
+          },
+          "notes": "No layout collisions detected."
+        },
+        {
           "scorer_id": "design-panel",
           "type": "llm_rubric",
           "judge_panel": "design-panel",
-          "value": 3.86,
+          "value": 3.83,
           "per_criterion": {
             "visual_hierarchy": 3.5,
             "brand_distinctiveness": 4.8,
             "information_clarity": 3.3,
             "system_coherence": 3.8,
-            "polish": 4.0
+            "polish": 4.0,
+            "layout_quality": 3.7
           },
-          "notes": "Aggregated from fast-critic and design-critic judge notes."
+          "notes": "Aggregated from fast-critic, design-critic, and layout-critic judge notes."
         }
       ],
+      "prompt": {
+        "track_prompt": "Create the next SVG event-card candidate for run-b-visual-language. Optimize the scorecard while preserving this track's hypothesis: Run B starts with an energetic orbital motif to create a memorable identity, even if information hierarchy is weaker.",
+        "input_feedback": "Parent evidence: none - first loop in this run. Use prior judge notes and artifacts as constraints; do not overwrite another track's visual direction.",
+        "judge_feedback": "Decision: keep_for_synthesis. Layout gate: pass; collisions: none. Next recommendation: Turn the energy into a more structured ribbon system so details are easier to read.",
+        "next_prompt": "Turn the energy into a more structured ribbon system so details are easier to read."
+      },
+      "layout_quality": {
+        "passes_layout_gate": true,
+        "score": 5.0,
+        "checked_boxes": [
+          {
+            "id": "body-copy",
+            "x": 88.0,
+            "y": 326.0,
+            "w": 470.0,
+            "h": 66.0
+          },
+          {
+            "id": "detail-panel",
+            "x": 614.0,
+            "y": 250.0,
+            "w": 240.0,
+            "h": 178.0
+          },
+          {
+            "id": "variant-caption",
+            "x": 86.0,
+            "y": 442.0,
+            "w": 360.0,
+            "h": 24.0
+          }
+        ],
+        "collisions": []
+      },
       "changed_files": [
         "run_example.py"
       ],
@@ -387,38 +595,50 @@
       "commands": {
         "build": "Generate SVG card and design tokens from deterministic design parameters.",
         "run": "python run_example.py",
-        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+        "judge": "Validate SVG and layout quality, then aggregate independent qualitative judge notes."
       },
       "artifacts": [
         {
           "kind": "image",
           "label": "Card SVG",
           "path": "visual-language-run/loop-02-signal-ribbon-system/card.svg",
-          "sha256": "4fd31d4f64d7dce7febeb6760ddac0fe66baa443d759f86f7c1a31907f1b7fdd"
+          "sha256": "71cd2682ce449c799d2118c1bc339e37f3fdab37a001494ba306bbf4f221b2c3"
         },
         {
           "kind": "data",
           "label": "Design tokens",
           "path": "visual-language-run/loop-02-signal-ribbon-system/tokens.json",
-          "sha256": "0431a7a3dcdee9968edc1566f695d30d0ec55e2c5f8acd09b73dbf5322f5171c"
+          "sha256": "73934ff8bb14f6d7d6ea1a4570433edcb77b5b44ca34959256997074c66aa8db"
+        },
+        {
+          "kind": "data",
+          "label": "Layout quality metrics",
+          "path": "visual-language-run/loop-02-signal-ribbon-system/layout-quality.json",
+          "sha256": "07cd89b9ca2a1a84351b98db06323725dad978a1b564aed0487891e583475ce9"
         },
         {
           "kind": "markdown",
           "label": "judge-fast-critic.md",
           "path": "visual-language-run/loop-02-signal-ribbon-system/judge-fast-critic.md",
-          "sha256": "e9befbf2d1ba4a7563ce9559a2e055bea493581ae6f1ee3db25dccf79e734397"
+          "sha256": "52adb6d41e1a18d11a72885a48e413c3f4371afadeac8c5d4c3c4f1643fa0711"
         },
         {
           "kind": "markdown",
           "label": "judge-design-critic.md",
           "path": "visual-language-run/loop-02-signal-ribbon-system/judge-design-critic.md",
-          "sha256": "59a816657956882ad41d41f5179fc112968f9997ce1cf913f932f12122b5e392"
+          "sha256": "85d534685dbdfe703ec818926f3621194f0883976fa1de8c0d285b87f15857a4"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-layout-critic.md",
+          "path": "visual-language-run/loop-02-signal-ribbon-system/judge-layout-critic.md",
+          "sha256": "f7c37bf09e31bf04c430fd4904ca2500eaf9f2b0105a89d00b63d548e7c69a96"
         },
         {
           "kind": "markdown",
           "label": "judge-aggregate.md",
           "path": "visual-language-run/loop-02-signal-ribbon-system/judge-aggregate.md",
-          "sha256": "5348c73bf8254da5f62a5de2fda896ce0018ecde0c0e1d9c49a518f14f23b0c7"
+          "sha256": "a67b67d299cde56ec4cc7d2f051164edb366476b4cf40286bd435de768834739"
         }
       ],
       "scores": [
@@ -434,20 +654,86 @@
           "notes": "SVG parses and required artifacts exist."
         },
         {
+          "scorer_id": "layout-quality",
+          "type": "objective_command",
+          "value": 5.0,
+          "per_criterion": {
+            "passes_layout_gate": true,
+            "collisions": []
+          },
+          "notes": "No layout collisions detected."
+        },
+        {
           "scorer_id": "design-panel",
           "type": "llm_rubric",
           "judge_panel": "design-panel",
-          "value": 4.24,
+          "value": 4.23,
           "per_criterion": {
             "visual_hierarchy": 4.0,
             "brand_distinctiveness": 4.7,
             "information_clarity": 4.0,
             "system_coherence": 4.4,
-            "polish": 4.2
+            "polish": 4.2,
+            "layout_quality": 4.2
           },
-          "notes": "Aggregated from fast-critic and design-critic judge notes."
+          "notes": "Aggregated from fast-critic, design-critic, and layout-critic judge notes."
         }
       ],
+      "prompt": {
+        "track_prompt": "Create the next SVG event-card candidate for run-b-visual-language. Optimize the scorecard while preserving this track's hypothesis: Run B improves by organizing the orbital energy into reusable signal ribbons and better detail blocks.",
+        "input_feedback": "Parent evidence: loop-01-orbital-identity. Use prior judge notes and artifacts as constraints; do not overwrite another track's visual direction.",
+        "judge_feedback": "Decision: keep_for_synthesis. Layout gate: pass; collisions: none. Next recommendation: Synthesize the ribbon motif with Run A's stronger editorial hierarchy.",
+        "next_prompt": "Synthesize the ribbon motif with Run A's stronger editorial hierarchy."
+      },
+      "layout_quality": {
+        "passes_layout_gate": true,
+        "score": 5.0,
+        "checked_boxes": [
+          {
+            "id": "body-copy",
+            "x": 88.0,
+            "y": 298.0,
+            "w": 470.0,
+            "h": 66.0
+          },
+          {
+            "id": "detail-panel",
+            "x": 596.0,
+            "y": 250.0,
+            "w": 270.0,
+            "h": 178.0
+          },
+          {
+            "id": "variant-caption",
+            "x": 86.0,
+            "y": 442.0,
+            "w": 360.0,
+            "h": 24.0
+          },
+          {
+            "id": "process-chip-1",
+            "x": 88.0,
+            "y": 402.0,
+            "w": 136.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-2",
+            "x": 236.0,
+            "y": 402.0,
+            "w": 136.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-3",
+            "x": 384.0,
+            "y": 402.0,
+            "w": 136.0,
+            "h": 32.0
+          }
+        ],
+        "collisions": []
+      },
       "changed_files": [
         "run_example.py"
       ],
@@ -477,38 +763,50 @@
       "commands": {
         "build": "Generate SVG card and design tokens from deterministic design parameters.",
         "run": "python run_example.py",
-        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+        "judge": "Validate SVG and layout quality, then aggregate independent qualitative judge notes."
       },
       "artifacts": [
         {
           "kind": "image",
           "label": "Card SVG",
           "path": "synthesis/loop-03-cross-run-synthesis/card.svg",
-          "sha256": "88b570decd25ff6e85f9c7f137ccf05c319a6b45c8ec51ffc24270d62eb628ca"
+          "sha256": "c34f65c37d342c9c6d8d73944e47a4fd93fa367cbb0fdef476fd490288372d6b"
         },
         {
           "kind": "data",
           "label": "Design tokens",
           "path": "synthesis/loop-03-cross-run-synthesis/tokens.json",
-          "sha256": "eac9a92b9e664ba04054a169d44d75d0687f2b39fdcffd7a9a1fc6185bab4428"
+          "sha256": "cfe72d66fb07b0e44da58f6277e1c763b9a85ab7f759955656300593d3880149"
+        },
+        {
+          "kind": "data",
+          "label": "Layout quality metrics",
+          "path": "synthesis/loop-03-cross-run-synthesis/layout-quality.json",
+          "sha256": "07cd89b9ca2a1a84351b98db06323725dad978a1b564aed0487891e583475ce9"
         },
         {
           "kind": "markdown",
           "label": "judge-fast-critic.md",
           "path": "synthesis/loop-03-cross-run-synthesis/judge-fast-critic.md",
-          "sha256": "f7c38c6a83672c6dd5236305e15199275126efc14af685c714115c7bec36eb78"
+          "sha256": "5552d497c93780ff97e0dd54058f436e718c805394d619cdb908a6e8258ed365"
         },
         {
           "kind": "markdown",
           "label": "judge-design-critic.md",
           "path": "synthesis/loop-03-cross-run-synthesis/judge-design-critic.md",
-          "sha256": "d750db67f33be41f3b85e28d5270eb684ade2dd2b6f7b498b3630b21e2ba900d"
+          "sha256": "9c482e826d8933fc5ad91ef331517ff6c33249d8f07ddfed9cfc161b30ecdbdc"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-layout-critic.md",
+          "path": "synthesis/loop-03-cross-run-synthesis/judge-layout-critic.md",
+          "sha256": "213e5bdd8211fa06fad2574431d141b7b785d91172bfcf72c2fce41544a2d4e0"
         },
         {
           "kind": "markdown",
           "label": "judge-aggregate.md",
           "path": "synthesis/loop-03-cross-run-synthesis/judge-aggregate.md",
-          "sha256": "609744859cfba0d57bcf83a56ae1ffdffa3baf2332df37e898672bb02cff5b0b"
+          "sha256": "ab6ac82067cced34b7542dd87bd7eecf53fe28aa6de6d4fa5d33f7abd7c1da8e"
         }
       ],
       "scores": [
@@ -524,20 +822,86 @@
           "notes": "SVG parses and required artifacts exist."
         },
         {
+          "scorer_id": "layout-quality",
+          "type": "objective_command",
+          "value": 5.0,
+          "per_criterion": {
+            "passes_layout_gate": true,
+            "collisions": []
+          },
+          "notes": "No layout collisions detected."
+        },
+        {
           "scorer_id": "design-panel",
           "type": "llm_rubric",
           "judge_panel": "design-panel",
-          "value": 4.54,
+          "value": 4.47,
           "per_criterion": {
             "visual_hierarchy": 4.6,
             "brand_distinctiveness": 4.6,
             "information_clarity": 4.5,
             "system_coherence": 4.6,
-            "polish": 4.4
+            "polish": 4.4,
+            "layout_quality": 4.2
           },
-          "notes": "Aggregated from fast-critic and design-critic judge notes."
+          "notes": "Aggregated from fast-critic, design-critic, and layout-critic judge notes."
         }
       ],
+      "prompt": {
+        "track_prompt": "Create the next SVG event-card candidate for run-c-cross-run-synthesis. Optimize the scorecard while preserving this track's hypothesis: The synthesis experiment combines Run A's hierarchy with Run B's signal ribbons to get both clarity and distinctiveness.",
+        "input_feedback": "Parent evidence: loop-02-editorial-system, loop-02-signal-ribbon-system. Use prior judge notes and artifacts as constraints; do not overwrite another track's visual direction.",
+        "judge_feedback": "Decision: new_best. Layout gate: pass; collisions: none. Next recommendation: Polish spacing, contrast, component rhythm, and CTA treatment.",
+        "next_prompt": "Polish spacing, contrast, component rhythm, and CTA treatment."
+      },
+      "layout_quality": {
+        "passes_layout_gate": true,
+        "score": 5.0,
+        "checked_boxes": [
+          {
+            "id": "body-copy",
+            "x": 88.0,
+            "y": 298.0,
+            "w": 470.0,
+            "h": 66.0
+          },
+          {
+            "id": "detail-panel",
+            "x": 596.0,
+            "y": 250.0,
+            "w": 270.0,
+            "h": 178.0
+          },
+          {
+            "id": "variant-caption",
+            "x": 86.0,
+            "y": 442.0,
+            "w": 360.0,
+            "h": 24.0
+          },
+          {
+            "id": "process-chip-1",
+            "x": 88.0,
+            "y": 402.0,
+            "w": 136.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-2",
+            "x": 236.0,
+            "y": 402.0,
+            "w": 136.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-3",
+            "x": 384.0,
+            "y": 402.0,
+            "w": 136.0,
+            "h": 32.0
+          }
+        ],
+        "collisions": []
+      },
       "changed_files": [
         "run_example.py"
       ],
@@ -569,38 +933,50 @@
       "commands": {
         "build": "Generate SVG card and design tokens from deterministic design parameters.",
         "run": "python run_example.py",
-        "judge": "Validate SVG, then aggregate independent qualitative judge notes."
+        "judge": "Validate SVG and layout quality, then aggregate independent qualitative judge notes."
       },
       "artifacts": [
         {
           "kind": "image",
           "label": "Card SVG",
           "path": "synthesis/loop-04-production-polish/card.svg",
-          "sha256": "cca72e3ba6a781200dcce9f5928706d2d73fd361788012c548cce49f3a33aec5"
+          "sha256": "53f797c9a897b7611630a513f4f8cd23850cd73460cb7712098731d32c8b07d1"
         },
         {
           "kind": "data",
           "label": "Design tokens",
           "path": "synthesis/loop-04-production-polish/tokens.json",
-          "sha256": "c12f2685295c580ffcddcf72a6b735ae07e719de4312a4bc6cc6b14ba9b4ec96"
+          "sha256": "e983fc26b55a497e110a4546e8e2eac2fce6769b9ff9e4375f663ca697047328"
+        },
+        {
+          "kind": "data",
+          "label": "Layout quality metrics",
+          "path": "synthesis/loop-04-production-polish/layout-quality.json",
+          "sha256": "b9e2f830e3cc50047295e2294d2c503a4f7889bcc312c6c23b9b0292a3968b33"
         },
         {
           "kind": "markdown",
           "label": "judge-fast-critic.md",
           "path": "synthesis/loop-04-production-polish/judge-fast-critic.md",
-          "sha256": "e199b57e833ebe8b5a015481222bd47e5563848041dd2df32c008def8ec315ba"
+          "sha256": "b2ad3c4212154e88d02ad6b9f345e4b9d84356058fd3f09ea9a3dcd47844977c"
         },
         {
           "kind": "markdown",
           "label": "judge-design-critic.md",
           "path": "synthesis/loop-04-production-polish/judge-design-critic.md",
-          "sha256": "c84a99919b86ec15a0a87fcd3f1534048ff20870a59aad71e1d7293cff03eec2"
+          "sha256": "2ebe3722d22f61887d292f9731bd3e095507ba1838b0bb4b15027a245791e1dc"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-layout-critic.md",
+          "path": "synthesis/loop-04-production-polish/judge-layout-critic.md",
+          "sha256": "76e03c87a25090011ef9cc264ebb483cb3499707cb4f2160682fc3f6036126ca"
         },
         {
           "kind": "markdown",
           "label": "judge-aggregate.md",
           "path": "synthesis/loop-04-production-polish/judge-aggregate.md",
-          "sha256": "d5938a15afa489bf228c513092084d67fd2d3a251115a2492f2a5d6ce5b64f50"
+          "sha256": "68a1385a9e0da5c229eea3414fe8c310982635a90e7865d7966316301bfa9275"
         }
       ],
       "scores": [
@@ -616,44 +992,310 @@
           "notes": "SVG parses and required artifacts exist."
         },
         {
+          "scorer_id": "layout-quality",
+          "type": "objective_command",
+          "value": 1.8,
+          "per_criterion": {
+            "passes_layout_gate": false,
+            "collisions": [
+              {
+                "a": "body-copy",
+                "b": "process-chip-1"
+              },
+              {
+                "a": "body-copy",
+                "b": "process-chip-2"
+              },
+              {
+                "a": "variant-caption",
+                "b": "process-chip-3"
+              }
+            ]
+          },
+          "notes": "Layout collisions block champion promotion."
+        },
+        {
           "scorer_id": "design-panel",
           "type": "llm_rubric",
           "judge_panel": "design-panel",
-          "value": 4.86,
+          "value": 3.68,
           "per_criterion": {
-            "visual_hierarchy": 4.9,
+            "visual_hierarchy": 4.2,
             "brand_distinctiveness": 4.8,
-            "information_clarity": 4.8,
-            "system_coherence": 4.9,
-            "polish": 4.9
+            "information_clarity": 3.6,
+            "system_coherence": 4.4,
+            "polish": 3.4,
+            "layout_quality": 2.2
           },
-          "notes": "Aggregated from fast-critic and design-critic judge notes."
+          "notes": "Aggregated from fast-critic, design-critic, and layout-critic judge notes."
         }
       ],
+      "prompt": {
+        "track_prompt": "Create the next SVG event-card candidate for run-c-cross-run-synthesis. Optimize the scorecard while preserving this track's hypothesis: A final synthesis loop can make the hybrid feel production-ready while preserving the source-run strengths.",
+        "input_feedback": "Parent evidence: loop-03-cross-run-synthesis, loop-02-editorial-system, loop-02-signal-ribbon-system. Use prior judge notes and artifacts as constraints; do not overwrite another track's visual direction.",
+        "judge_feedback": "Decision: reject. Layout gate: fail; collisions: body-copy over process-chip-1, body-copy over process-chip-2, variant-caption over process-chip-3. Next recommendation: Reject as champion: the process chips collide with body copy, so add an explicit layout-quality gate and reposition the system chips.",
+        "next_prompt": "Reject as champion: the process chips collide with body copy, so add an explicit layout-quality gate and reposition the system chips."
+      },
+      "layout_quality": {
+        "passes_layout_gate": false,
+        "score": 1.8,
+        "checked_boxes": [
+          {
+            "id": "body-copy",
+            "x": 88.0,
+            "y": 298.0,
+            "w": 470.0,
+            "h": 66.0
+          },
+          {
+            "id": "detail-panel",
+            "x": 596.0,
+            "y": 250.0,
+            "w": 270.0,
+            "h": 178.0
+          },
+          {
+            "id": "variant-caption",
+            "x": 86.0,
+            "y": 442.0,
+            "w": 360.0,
+            "h": 24.0
+          },
+          {
+            "id": "process-chip-1",
+            "x": 372.0,
+            "y": 326.0,
+            "w": 178.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-2",
+            "x": 372.0,
+            "y": 370.0,
+            "w": 178.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-3",
+            "x": 372.0,
+            "y": 414.0,
+            "w": 178.0,
+            "h": 32.0
+          }
+        ],
+        "collisions": [
+          {
+            "a": "body-copy",
+            "b": "process-chip-1"
+          },
+          {
+            "a": "body-copy",
+            "b": "process-chip-2"
+          },
+          {
+            "a": "variant-caption",
+            "b": "process-chip-3"
+          }
+        ]
+      },
       "changed_files": [
         "run_example.py"
       ],
       "lesson": {
         "trigger": "A final synthesis loop can make the hybrid feel production-ready while preserving the source-run strengths.",
-        "action": "Stop: the final card has the clearest hierarchy, strongest reusable system, and most polished composition.",
+        "action": "Reject as champion: the process chips collide with body copy, so add an explicit layout-quality gate and reposition the system chips.",
         "evidence": "synthesis/loop-04-production-polish/card.svg, tokens.json, and panel notes",
+        "confidence": "low"
+      },
+      "decision": "reject",
+      "stop_reason": "Rejected because the layout-quality gate detected overlapping process chips and body copy."
+    },
+    {
+      "id": "loop-05-layout-quality-fix",
+      "track_id": "synthesis",
+      "experiment_run": "run-c-cross-run-synthesis",
+      "source_runs": [
+        "run-a-editorial-clarity",
+        "run-b-visual-language",
+        "run-c-cross-run-synthesis"
+      ],
+      "parent_id": "loop-04-production-polish",
+      "parent_ids": [
+        "loop-04-production-polish",
+        "loop-03-cross-run-synthesis"
+      ],
+      "hypothesis": "A visual-quality gate should reject element collisions, then a repaired layout can keep the synthesis strengths without overlapping content.",
+      "commands": {
+        "build": "Generate SVG card and design tokens from deterministic design parameters.",
+        "run": "python run_example.py",
+        "judge": "Validate SVG and layout quality, then aggregate independent qualitative judge notes."
+      },
+      "artifacts": [
+        {
+          "kind": "image",
+          "label": "Card SVG",
+          "path": "synthesis/loop-05-layout-quality-fix/card.svg",
+          "sha256": "e91b12ec90e716b33342b078ab18a39437dcd757f3df3555c692b7de762dbb45"
+        },
+        {
+          "kind": "data",
+          "label": "Design tokens",
+          "path": "synthesis/loop-05-layout-quality-fix/tokens.json",
+          "sha256": "8aa0a89de675464b667b4aaa0a5e78653703d77efafac94eadce703f555111c6"
+        },
+        {
+          "kind": "data",
+          "label": "Layout quality metrics",
+          "path": "synthesis/loop-05-layout-quality-fix/layout-quality.json",
+          "sha256": "4f2ffd8a51df203441abd92a3c14bb2110a5f0aa52e180bc800c52be94d762cf"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-fast-critic.md",
+          "path": "synthesis/loop-05-layout-quality-fix/judge-fast-critic.md",
+          "sha256": "ffa424c16cf5dcc47838188fcd3a7fa382aaf678c82027ff4e5ca84a0c598352"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-design-critic.md",
+          "path": "synthesis/loop-05-layout-quality-fix/judge-design-critic.md",
+          "sha256": "cf2dad0dcc7192f2903fe6fe10c9f9d7460f6716140f18dcf71c8a4d79792d33"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-layout-critic.md",
+          "path": "synthesis/loop-05-layout-quality-fix/judge-layout-critic.md",
+          "sha256": "cbc395588defff513aae39cf38bac608e54db9acb2aeb57909be529c98b900ba"
+        },
+        {
+          "kind": "markdown",
+          "label": "judge-aggregate.md",
+          "path": "synthesis/loop-05-layout-quality-fix/judge-aggregate.md",
+          "sha256": "92aa58a2a994ee377c761465be250d9d8fcc8500f31787328c66c49f612efdeb"
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "svg-validity",
+          "type": "objective_command",
+          "value": 5,
+          "per_criterion": {
+            "svg_parses": true,
+            "has_tokens": true,
+            "has_card": true
+          },
+          "notes": "SVG parses and required artifacts exist."
+        },
+        {
+          "scorer_id": "layout-quality",
+          "type": "objective_command",
+          "value": 5.0,
+          "per_criterion": {
+            "passes_layout_gate": true,
+            "collisions": []
+          },
+          "notes": "No layout collisions detected."
+        },
+        {
+          "scorer_id": "design-panel",
+          "type": "llm_rubric",
+          "judge_panel": "design-panel",
+          "value": 4.82,
+          "per_criterion": {
+            "visual_hierarchy": 4.8,
+            "brand_distinctiveness": 4.7,
+            "information_clarity": 4.9,
+            "system_coherence": 4.8,
+            "polish": 4.8,
+            "layout_quality": 4.9
+          },
+          "notes": "Aggregated from fast-critic, design-critic, and layout-critic judge notes."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Create the next SVG event-card candidate for run-c-cross-run-synthesis. Optimize the scorecard while preserving this track's hypothesis: A visual-quality gate should reject element collisions, then a repaired layout can keep the synthesis strengths without overlapping content.",
+        "input_feedback": "Parent evidence: loop-04-production-polish, loop-03-cross-run-synthesis. Use prior judge notes and artifacts as constraints; do not overwrite another track's visual direction.",
+        "judge_feedback": "Decision: new_best. Layout gate: pass; collisions: none. Next recommendation: Stop: the final card keeps the signal motif, moves process chips into clear whitespace, and passes the layout-quality gate.",
+        "next_prompt": "Stop: the final card keeps the signal motif, moves process chips into clear whitespace, and passes the layout-quality gate."
+      },
+      "layout_quality": {
+        "passes_layout_gate": true,
+        "score": 5.0,
+        "checked_boxes": [
+          {
+            "id": "body-copy",
+            "x": 88.0,
+            "y": 298.0,
+            "w": 470.0,
+            "h": 66.0
+          },
+          {
+            "id": "detail-panel",
+            "x": 596.0,
+            "y": 250.0,
+            "w": 270.0,
+            "h": 178.0
+          },
+          {
+            "id": "variant-caption",
+            "x": 86.0,
+            "y": 442.0,
+            "w": 360.0,
+            "h": 24.0
+          },
+          {
+            "id": "process-chip-1",
+            "x": 88.0,
+            "y": 395.0,
+            "w": 136.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-2",
+            "x": 236.0,
+            "y": 395.0,
+            "w": 136.0,
+            "h": 32.0
+          },
+          {
+            "id": "process-chip-3",
+            "x": 384.0,
+            "y": 395.0,
+            "w": 136.0,
+            "h": 32.0
+          }
+        ],
+        "collisions": []
+      },
+      "changed_files": [
+        "run_example.py"
+      ],
+      "lesson": {
+        "trigger": "A visual-quality gate should reject element collisions, then a repaired layout can keep the synthesis strengths without overlapping content.",
+        "action": "Stop: the final card keeps the signal motif, moves process chips into clear whitespace, and passes the layout-quality gate.",
+        "evidence": "synthesis/loop-05-layout-quality-fix/card.svg, tokens.json, and panel notes",
         "confidence": "high"
       },
       "decision": "new_best",
-      "stop_reason": "Cross-run synthesis reached production-polish target."
+      "stop_reason": "Cross-run synthesis reached production-polish target without layout collisions."
     }
   ],
   "best": {
-    "iteration_id": "loop-04-production-polish",
-    "score": 4.86,
-    "why": "Best panel score while passing SVG validity gates and combining both source-run strengths."
+    "iteration_id": "loop-05-layout-quality-fix",
+    "score": 4.82,
+    "why": "Best panel score while passing SVG validity and layout-quality gates."
   },
   "rules": [
     {
       "trigger": "Qualitative visual work still needs auditable artifacts.",
       "action": "Commit the generated SVG, tokens, judge notes, manifest, and viewer so the design can be inspected without rerunning.",
       "confidence": "high"
+    },
+    {
+      "trigger": "A visually valid SVG can still be a poor design if elements overlap.",
+      "action": "Add a layout-quality gate and show prompt/feedback history so rejected visual decisions remain visible.",
+      "confidence": "high"
     }
   ],
-  "synthesis": "Run A provided the strongest hierarchy and information clarity. Run B provided a more distinctive visual language. Run C combined the editorial card system with signal ribbons, then polished spacing, contrast, and component rhythm into the final champion."
+  "synthesis": "Run A provided the strongest hierarchy and information clarity. Run B provided a more distinctive visual language. Run C combined the editorial card system with signal ribbons. The first production polish loop looked attractive but failed the new layout-quality gate because process chips overlapped the body copy. The final loop moved those chips into clear whitespace and became the champion."
 }

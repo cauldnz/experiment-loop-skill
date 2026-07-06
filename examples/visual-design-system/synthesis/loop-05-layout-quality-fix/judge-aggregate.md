@@ -1,7 +1,7 @@
-# Judge: aggregate for loop-01-editorial-poster
+# Judge: aggregate for loop-05-layout-quality-fix
 
 ## What changed
-- Run A starts with bold editorial typography to make the event promise instantly clear.
+- A visual-quality gate should reject element collisions, then a repaired layout can keep the synthesis strengths without overlapping content.
 
 ## Evidence inspected
 - `card.svg`
@@ -9,13 +9,13 @@
 - independent fast/design/layout critic notes
 
 ## Scores
-- visual_hierarchy: 4.4
-- brand_distinctiveness: 3.6
-- information_clarity: 3.9
-- system_coherence: 3.6
-- polish: 3.8
-- layout_quality: 3.9
-- weighted_total: 3.89
+- visual_hierarchy: 4.8
+- brand_distinctiveness: 4.7
+- information_clarity: 4.9
+- system_coherence: 4.8
+- polish: 4.8
+- layout_quality: 4.9
+- weighted_total: 4.82
 
 ## Judge mode
 - panel, with objective SVG validity and layout-overlap checks as supporting gates.
@@ -27,10 +27,10 @@
 - dissent / disagreement: none material; critics agree this is `new_best`.
 
 ## What improved
-- Add reusable modules for agenda, proof points, and call to action.
+- Stop: the final card keeps the signal motif, moves process chips into clear whitespace, and passes the layout-quality gate.
 
 ## What failed / regressed
 - No material regression versus the previous champion.
 
 ## Next hypothesis
-- Add reusable modules for agenda, proof points, and call to action.
+- Stop: the final card keeps the signal motif, moves process chips into clear whitespace, and passes the layout-quality gate.
