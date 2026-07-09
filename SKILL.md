@@ -440,6 +440,30 @@ If no independent judge is run, mark the loop `keep_for_synthesis` or
 `needs_human_review`, not `new_best`, unless the user explicitly accepts that
 reduced rigor for the run.
 
+#### Navigation-based judging for interactive artifacts
+
+When the artifact under judgement is *interactive* — a viewer, dashboard, SPA,
+prototype, or any UI with tabs, filters, keyboard controls, or deep-links — a
+static screenshot is not sufficient evidence. Judges must **operate** the
+artifact and score from observed behaviour, not appearance alone.
+
+Each judge (or a shared navigation harness that every judge runs) should:
+
+- exercise every discoverable control (click each tab, select each filter
+  option, toggle each checkbox);
+- record, per interaction, whether the view actually changed;
+- keyboard-operate the primary control group (focus, Arrow keys, Enter/Space);
+- round-trip any URL-hash / deep-link view state;
+- capture a screenshot per interaction state plus a transcript of
+  actions → outcomes and any console errors.
+
+Score interactivity, hierarchy, and robustness from that transcript, citing the
+concrete interaction observed. A control that is visibly present but does nothing
+(a nav link that only scrolls, a dead filter, a non-operable tablist) is a defect,
+not something to credit from a screenshot. Prefer a shared, reproducible
+navigation harness so every judge exercises the same states and the evidence is
+auditable.
+
 #### Visual-quality gate
 
 For visual, UX, design, animation, and presentation artifacts, do not treat
@@ -537,6 +561,29 @@ Viewer requirements:
 - finals gallery;
 - missing artifacts shown gracefully;
 - clear hill-climb narrative.
+
+For interactive viewers (tabs, filters, deep-links), additionally:
+
+- every interactive control must verifiably change the view — no dead controls
+  (e.g. a nav link that only scrolls, or a filter that never re-renders);
+- the primary control group must be keyboard-operable (roving focus, Arrow/Home/
+  End, Enter/Space) with a visible focus ring and `prefers-reduced-motion`
+  respected;
+- view state that matters should be addressable via URL hash (e.g. `#tab=panel`)
+  so a specific view is shareable and reproducible;
+- ship a deterministic generator (`<build> --data DIR --out FILE`, timestamps read
+  from the data, no wall-clock, no network) plus a companion smoke test, so the
+  viewer rebuilds byte-identically and degrades gracefully on malformed input;
+- surface auditable validation diagnostics — to stderr and as an embedded HTML
+  comment — when input is missing or malformed, instead of rendering silently.
+
+Gate the viewer with a small objective check before judging: self-contained
+(no CDN), embedded data parses, JavaScript parses (`node --check`), internal links
+resolve, no animation without a reduced-motion guard, and — when the generator is
+parameterized — determinism (build twice, byte-identical) and robustness (builds
+against a degraded fixture without crashing). Record the gate output as an
+artifact so the viewer can show why a candidate passed or failed. Judges then
+operate the viewer per §7's navigation-based judging.
 
 If the environment blocks browser rendering, still create the HTML and provide
 the file path.
