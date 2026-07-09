@@ -13,6 +13,8 @@ This repository is self-contained for review: the worked examples include comple
 - Runs build -> execute/render/test -> judge -> improve loops.
 - Captures artifacts, judge notes, metadata, and manifest entries.
 - Compares variants against a champion.
+- Judges interactive artifacts by navigating them (operating tabs, filters, keyboard, and deep-links), not by screenshots alone.
+- Gates viewers with an objective check (self-contained, parses, accessible, deterministic, robust) before judging.
 - Synthesizes the best lessons into a final pass.
 - Produces a local viewer for inspecting the hill-climb.
 - Gates durable changes to skills, rubrics, judge policy, and reusable workflow instructions behind explicit human approval.
@@ -48,10 +50,12 @@ They do not overwrite an existing skill unless `-Force` / `--force` is provided.
 │   ├── concepts.md
 │   ├── judging.md
 │   ├── quickstart.md
+│   ├── self-testing.md
 │   ├── viewer.md
 │   └── worked-examples.md
 ├── references
-│   └── manifest-schema-v0.2.json
+│   ├── manifest-schema-v0.2.json
+│   └── validate_manifest.py
 ├── templates
 │   ├── judge-note-template.md
 │   ├── manifest-template.json
@@ -71,8 +75,11 @@ They do not overwrite an existing skill unless `-Force` / `--force` is provided.
 │       ├── viewer.html
 │       └── run_example.py
 └── scripts
+    ├── check_viewer.py
     ├── install.ps1
-    └── install.sh
+    ├── install.sh
+    ├── navigate.mjs
+    └── skill_selftest.py
 ```
 
 ## Start here
