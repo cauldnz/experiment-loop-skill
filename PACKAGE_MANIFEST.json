@@ -1,7 +1,7 @@
 {
   "package": "experiment-loop-skill-share",
   "skill": "experiment-loop",
-  "source": "Curated from the approved experiment-loop skill after proposals 002/003/004/005/006/007 were applied.",
+  "source": "Curated from the approved experiment-loop skill after proposals 002/003/004/005/006/007/008/009 were applied.",
   "source_commit": "6fa1559b178ed8a2009aa3aea573b924f559ddc2",
   "description": "Shareable package for the experiment-loop skill, including install scripts, templates, manifest schema reference, documentation, and completed worked examples.",
   "dependencies": {
@@ -18,6 +18,7 @@
     "No private experiment artifacts, GIFs, Azure resources, credentials, or local user paths are included.",
     "The worked examples include generated local artifacts so they can be inspected without rerunning.",
     "The skill includes a human-review gate for durable changes to skills, rubrics, judge policy, and reusable instructions.",
-    "Ships references/validate_manifest.py (a blocking schema-conformance evidence gate) and scripts/skill_selftest.py (a regression self-test over shipped examples)."
+    "Ships references/validate_manifest.py (a blocking schema-conformance evidence gate) and scripts/skill_selftest.py (a regression self-test over shipped examples).",
+    "Ships scripts/check_viewer.py (an objective viewer gate: self-contained/embedded-JSON/JS-parse/link-integrity/a11y static checks, plus optional determinism and robustness checks) and scripts/navigate.mjs (a Playwright/Edge navigation harness for operating interactive viewers during navigation-based judging)."
   ]
 }

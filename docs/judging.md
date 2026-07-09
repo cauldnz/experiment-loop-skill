@@ -21,6 +21,22 @@ Use qualitative judges for taste, clarity, UX, style, usefulness, and design tra
 
 For subjective work, avoid self-approval. A generator can propose that a loop is promising, but an independent judge or panel should confirm before promotion to `new_best`.
 
+## Navigation-based judging for interactive artifacts
+
+When the artifact is *interactive* — a viewer, dashboard, SPA, prototype, or any UI with tabs, filters, keyboard controls, or deep-links — a static screenshot is not sufficient evidence. Judges must **operate** the artifact and score from observed behaviour, not appearance.
+
+Each judge, or a shared navigation harness that every judge runs, should:
+
+- exercise every discoverable control (click each tab, select each filter option, toggle each checkbox);
+- record, per interaction, whether the view actually changed;
+- keyboard-operate the primary control group (focus, Arrow keys, Enter/Space);
+- round-trip any URL-hash / deep-link view state;
+- capture a screenshot per interaction state plus a transcript of actions to outcomes and any console errors.
+
+Score interactivity, hierarchy, and robustness from that transcript, citing the concrete interaction observed. A control that is visibly present but does nothing — a nav link that only scrolls, a dead filter, a non-operable tablist — is a defect, not something to credit from a screenshot. Prefer a shared, reproducible harness so every judge exercises the same states and the evidence is auditable.
+
+`scripts/navigate.mjs` is a reference harness: `node scripts/navigate.mjs --viewer viewer.html --out nav/`. It drives the locally installed Edge via `playwright-core`, discovers and exercises controls, tests keyboard operability and hash deep-links, and writes `transcript.json`, per-state screenshots, and `report.md` for the judges to inspect.
+
 ## Panel judging
 
 Use a small panel when the output is subjective or high-value. A practical default is three judges:
