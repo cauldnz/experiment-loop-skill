@@ -223,133 +223,46 @@ fine.
 
 ### 6. Record a manifest
 
-Maintain a JSON manifest so the viewer can be generated. The manifest should
-look like this:
+Maintain a JSON manifest so the viewer can be generated. Keep every field below;
+values are shortened here for readability. A full commented example lives in
+`references/manifest-schema-v0.2.json` and the `examples/` runs.
 
 ```json
 {
   "schema_version": "0.2",
   "experiment_id": "short-stable-id",
-  "title": "Human-readable title",
-  "goal": "Short user-facing goal",
-  "created_at": "ISO timestamp",
-  "budget": {
-    "max_iters": 15,
-    "patience": 4,
-    "cost_limit": null,
-    "wall_time_limit_sec": 3600
-  },
-  "artifact_scope": {
-    "roots": ["."],
-    "allow_edit": ["experiment-loop/**"],
-    "deny": [".env", "secrets/**", "**/*credential*"]
-  },
-  "scorecard": [
-    {"id": "clarity", "label": "Visual clarity", "weight": 1},
-    {"id": "correctness", "label": "Correctness", "weight": 1}
-  ],
+  "title": "...", "goal": "...", "created_at": "ISO timestamp",
+  "budget": {"max_iters": 15, "patience": 4, "cost_limit": null, "wall_time_limit_sec": 3600},
+  "artifact_scope": {"roots": ["."], "allow_edit": ["experiment-loop/**"], "deny": [".env", "secrets/**", "**/*credential*"]},
+  "scorecard": [{"id": "clarity", "label": "Visual clarity", "weight": 1}],
   "scorers": [
-    {
-      "id": "tests",
-      "type": "objective_command",
-      "command": "npm test",
-      "primary": true,
-      "weight": 1
-    },
-    {
-      "id": "quality",
-      "type": "llm_rubric",
-      "judge_panel": "default_panel",
-      "weight": 1
-    },
-    {
-      "id": "pairwise",
-      "type": "pairwise_judge",
-      "judge_panel": "default_panel",
-      "weight": 1
-    },
-    {
-      "id": "human",
-      "type": "human_review",
-      "weight": 2
-    }
+    {"id": "tests", "type": "objective_command", "command": "npm test", "primary": true, "weight": 1},
+    {"id": "quality", "type": "llm_rubric", "judge_panel": "default_panel", "weight": 1},
+    {"id": "pairwise", "type": "pairwise_judge", "judge_panel": "default_panel", "weight": 1},
+    {"id": "human", "type": "human_review", "weight": 2}
   ],
-  "judge_panels": [
-    {
-      "id": "default_panel",
-      "blind": true,
-      "flip_pairwise_order": true,
-      "aggregation": "median_with_dissent",
-      "judges": [
-        {"id": "fast-critic", "role": "obvious defects"},
-        {"id": "deep-critic", "role": "correctness and tradeoffs"},
-        {"id": "style-critic", "role": "subjective style/presentation"}
-      ]
-    }
-  ],
-  "governance": {
-    "self_editing": {
-      "requires_user_approval": true,
-      "proposal_required": true,
-      "approved_proposal_id": null
-    }
-  },
-  "tracks": [
-    {
-      "id": "presentation",
-      "label": "Presentation",
-      "hypothesis": "Cleaner framing and export polish will improve perceived quality."
-    }
-  ],
-  "iterations": [
-    {
-      "id": "loop-001",
-      "track_id": "presentation",
-      "parent_id": null,
-      "hypothesis": "Widening the camera will reduce clipping.",
-      "commands": {
-        "build": "edit renderer",
-        "run": "render preview",
-        "judge": "judge with default_panel"
-      },
-      "artifacts": [
-        {
-          "kind": "image",
-          "label": "Contact sheet",
-          "path": "track-presentation/loop-001/contact.png",
-          "sha256": "..."
-        }
-      ],
-      "scores": [
-        {
-          "scorer_id": "quality",
-          "value": 3.8,
-          "per_criterion": {"clarity": 4, "style": 3.5},
-          "notes": "Cleaner framing, but contrast is low."
-        }
-      ],
-      "prompt": {
-        "track_prompt": "Prompt or instruction sent to the generator for this loop.",
-        "input_feedback": "Prior judge notes, parent evidence, or human feedback used as input.",
-        "judge_feedback": "Condensed feedback returned by judges for this loop.",
-        "next_prompt": "Next hypothesis or prompt that should drive the following loop."
-      },
-      "changed_files": ["renderer.py"],
-      "lesson": {
-        "trigger": "Head clipped in preview.",
-        "action": "Increase orthographic scale.",
-        "evidence": "Loop-001 contact sheet.",
-        "confidence": "medium"
-      },
-      "decision": "keep_for_synthesis",
-      "stop_reason": null
-    }
-  ],
-  "best": {
-    "iteration_id": "loop-001",
-    "score": 3.8,
-    "why": "Best clarity so far."
-  },
+  "judge_panels": [{
+    "id": "default_panel", "blind": true, "flip_pairwise_order": true, "aggregation": "median_with_dissent",
+    "judges": [
+      {"id": "fast-critic", "role": "obvious defects"},
+      {"id": "deep-critic", "role": "correctness and tradeoffs"},
+      {"id": "style-critic", "role": "subjective style/presentation"}
+    ]
+  }],
+  "governance": {"self_editing": {"requires_user_approval": true, "proposal_required": true, "approved_proposal_id": null}},
+  "tracks": [{"id": "presentation", "label": "Presentation", "hypothesis": "..."}],
+  "iterations": [{
+    "id": "loop-001", "track_id": "presentation", "parent_id": null,
+    "hypothesis": "Widening the camera will reduce clipping.",
+    "commands": {"build": "edit renderer", "run": "render preview", "judge": "judge with default_panel"},
+    "artifacts": [{"kind": "image", "label": "Contact sheet", "path": "track-presentation/loop-001/contact.png", "sha256": "..."}],
+    "scores": [{"scorer_id": "quality", "value": 3.8, "per_criterion": {"clarity": 4, "style": 3.5}, "notes": "..."}],
+    "prompt": {"track_prompt": "...", "input_feedback": "...", "judge_feedback": "...", "next_prompt": "..."},
+    "changed_files": ["renderer.py"],
+    "lesson": {"trigger": "...", "action": "...", "evidence": "...", "confidence": "medium"},
+    "decision": "keep_for_synthesis", "stop_reason": null
+  }],
+  "best": {"iteration_id": "loop-001", "score": 3.8, "why": "Best clarity so far."},
   "rules": [],
   "synthesis": ""
 }
@@ -403,12 +316,27 @@ The fragment should contain the track definition and that agent's loop entries
 using the same schema as the top-level manifest. The orchestrator owns merging
 fragments into `manifest.json`.
 
-After merging, validate before reporting done:
+After merging, validate before reporting done. Run the bundled validator; treat
+it as a **blocking evidence gate**:
+
+```
+python references/validate_manifest.py experiment-loop/manifest.json
+```
+
+It checks that:
 
 1. `manifest.json` parses as JSON.
-2. The viewer's embedded manifest, if any, parses as JSON or valid JavaScript.
-3. Newly added artifact paths and GIF `contact_path` values exist.
-4. Viewer JavaScript syntax parses when a local JS runtime is available.
+2. The manifest conforms to schema v0.2: required top-level keys are present,
+   `schema_version` is `0.2`, and every iteration carries its required fields with
+   a `decision` from the allowed enum. (Do not rely on JSON parsing alone —
+   parse-ability is not schema conformance.)
+3. Referenced artifact paths, including GIF `contact_path` values, exist on disk.
+4. The viewer's embedded manifest, if any, parses.
+5. A sibling `viewer.html` is present for visual or multi-loop runs.
+
+If the validator exits non-zero the run is **not done**: fix the manifest and
+re-run until it passes. A failed primary objective scorer (this validator, tests,
+or a metric gate) blocks champion promotion unless the user explicitly overrides.
 
 Use a safe JSON embedding method rather than regex replacement strings that can
 interpret path backslashes.
@@ -700,6 +628,25 @@ Rules:
 - After applying an approved proposal, record the applied file paths and a short
   result note in the manifest.
 
+### 12. Self-test durable skill changes
+
+When the experiment target is this skill, a rubric, judge policy, or another
+reusable instruction, do not trust that a change is an improvement — measure it.
+Before writing the proposal above, run the current skill and the proposed skill
+over a small **external, version-pinned** benchmark (at least one each of:
+code/quantitative, visual, writing, and a governance check) plus objective
+validators, and compare the quality of the runs they produce — not opinions about
+the diff. The benchmark and its rubric must live outside the skill so a change
+cannot weaken its own test. Confirm shipped examples still validate:
+
+```
+python scripts/skill_selftest.py
+```
+
+Attach the benchmark comparison and self-test result to the proposal as evidence;
+a change that does not beat the current skill should not be proposed as an
+improvement. See `docs/self-testing.md` for the full method.
+
 ## Default output contract
 
 At the end, report:
@@ -718,66 +665,22 @@ manifest.
 
 ### Visual artifacts
 
-Use contact sheets at every loop. Contact sheets make judging much faster than
-opening many frames.
-
-Recommended artifacts:
-
-- `loop-01/contact.png`
-- `loop-01/sample.gif`
-- `loop-01/judge.md`
-- `final/output.gif`
-
-Judge for:
-
-- composition,
-- style match,
-- readability,
-- defects/regressions,
-- motion/timing if animated.
+Use contact sheets every loop — they make judging much faster than opening many
+frames. Artifacts: `loop-01/contact.png`, `loop-01/sample.gif`, `loop-01/judge.md`,
+`final/output.gif`. Judge for composition, style match, readability,
+defects/regressions, and motion/timing if animated.
 
 ### Code artifacts
 
-Use tests and benchmarks as the main evidence.
-
-Recommended artifacts:
-
-- test output,
-- benchmark output,
-- logs,
-- screenshots for UI,
-- diff summary,
-- judge note.
-
-Judge for:
-
-- correctness,
-- coverage,
-- simplicity,
-- maintainability,
-- performance,
-- error handling.
+Use tests and benchmarks as the main evidence. Artifacts: test output, benchmark
+output, logs, screenshots for UI, diff summary, judge note. Judge for correctness,
+coverage, simplicity, maintainability, performance, and error handling.
 
 ### Writing or prompt artifacts
 
-Use versioned drafts and rubric scoring.
-
-Recommended artifacts:
-
-- draft files,
-- rubric notes,
-- examples of pass/fail cases,
-- judge note,
-- final draft.
-
-Judge for:
-
-- audience fit,
-- clarity,
-- completeness,
-- accuracy,
-- tone/style,
-- concise expression.
+Use versioned drafts and rubric scoring. Artifacts: draft files, rubric notes,
+pass/fail examples, judge note, final draft. Judge for audience fit, clarity,
+completeness, accuracy, tone/style, and concise expression.
 
 ## Anti-patterns
 
