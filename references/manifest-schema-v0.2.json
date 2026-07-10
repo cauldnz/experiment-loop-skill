@@ -56,7 +56,7 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["id", "track_id", "hypothesis", "commands", "artifacts", "scores", "decision"],
+        "required": ["id", "track_id", "parent_id", "hypothesis", "commands", "artifacts", "scores", "changed_files", "lesson", "decision"],
         "properties": {
           "id": {"type": "string"},
           "track_id": {"type": "string"},
