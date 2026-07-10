@@ -70,7 +70,11 @@ They do not overwrite an existing skill unless `-Force` / `--force` is provided.
 │   │   ├── manifest.json
 │   │   ├── viewer.html
 │   │   └── run_example.py
-│   └── multilingual-dad-joke
+│   ├── multilingual-dad-joke
+│   │   ├── manifest.json
+│   │   ├── viewer.html
+│   │   └── run_example.py
+│   └── messy-csv-parser
 │       ├── manifest.json
 │       ├── viewer.html
 │       └── run_example.py
@@ -97,6 +101,7 @@ They do not overwrite an existing skill unless `-Force` / `--force` is provided.
 | `examples\route-optimizer` | Quantitative judging with objective metrics | Open `viewer.html` | `python run_example.py` |
 | `examples\visual-design-system` | Qualitative SVG design judging with cross-run synthesis | Open `viewer.html` | `python run_example.py` |
 | `examples\multilingual-dad-joke` | Language-only optimization with multi-model generator and judge panels | Open `viewer.html` | `python run_example.py` |
+| `examples\messy-csv-parser` | Objective test-driven architecture bake-off with a dead-end reject and synthesis | Open `viewer.html` | `python run_example.py` |
 
 ## Dependencies
 

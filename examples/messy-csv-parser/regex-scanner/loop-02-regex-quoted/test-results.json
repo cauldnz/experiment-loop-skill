@@ -1,0 +1,56 @@
+{
+  "loop_id": "loop-02-regex-quoted",
+  "correctness": {
+    "pass": 13,
+    "total": 15,
+    "failed": [
+      "quoted_newline",
+      "vendor_multiline"
+    ],
+    "per_sample": {
+      "simple": true,
+      "trailing_newline": true,
+      "crlf": true,
+      "quoted_comma": true,
+      "quoted_newline": false,
+      "doubled_quote": true,
+      "vendor_multiline": false,
+      "empty_fields": true,
+      "quoted_empty": true,
+      "ragged_short": true,
+      "bom": true,
+      "comment_line": true,
+      "blank_lines": true,
+      "ws_unquoted_trim": true,
+      "ws_quoted_preserve": true
+    }
+  },
+  "robustness": {
+    "pass": 0,
+    "total": 3,
+    "failed": [
+      "bare_quote_in_unquoted",
+      "text_after_close_quote",
+      "unterminated_quote"
+    ],
+    "per_case": {
+      "unterminated_quote": false,
+      "text_after_close_quote": false,
+      "bare_quote_in_unquoted": false
+    }
+  },
+  "constraint": {
+    "forbids_import_csv": true,
+    "ok": true
+  },
+  "core_samples_pass": false,
+  "scorecard": {
+    "correctness": 4.33,
+    "robustness": 0.0,
+    "error_clarity": 2.0,
+    "maintainability": 2.5,
+    "constraint_adherence": 5
+  },
+  "value": 3.03,
+  "decision": "reject"
+}
