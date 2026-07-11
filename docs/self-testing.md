@@ -32,6 +32,15 @@ tells you to measure anything else: by the quality of the runs it produces.
    python scripts/skill_selftest.py
    ```
 
+   Validate each run's manifest against schema v0.2 with the bundled validator,
+   too. It prefers a real JSON Schema check against
+   `references/manifest-schema-v0.2.json` when `jsonschema` is importable and
+   falls back to stdlib structural checks otherwise:
+
+   ```
+   python references/validate_manifest.py <run>/manifest.json
+   ```
+
 5. **Gate the proposal on evidence.** Attach the benchmark comparison and the
    self-test result to the proposal. A change that does not beat the current skill
    on the benchmark should not be proposed as an improvement.

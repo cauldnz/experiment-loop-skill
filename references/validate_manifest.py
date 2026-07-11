@@ -15,6 +15,11 @@ Checks performed:
   6. if a sibling viewer.html exists, any embedded manifest JSON parses
   7. a sibling viewer.html is present for visual or multi-loop runs
 
+Schema conformance (checks 2-4) prefers a real JSON Schema validator: when the
+`jsonschema` package is importable it validates against the bundled
+`references/manifest-schema-v0.2.json`; otherwise it falls back to the stdlib
+structural checks. The script stays dependency-free either way.
+
 Exit code 0 = pass, 1 = fail. Use --json for a machine-readable report.
 """
 from __future__ import annotations
@@ -41,6 +46,79 @@ def _fail(rep, msg):
     rep["errors"].append(msg)
 
 
+def _jsonschema_errors(data, rep):
+    """Validate ``data`` against the bundled v0.2 JSON Schema using the optional
+    ``jsonschema`` package. Returns a list of error strings if the validator ran
+    (possibly empty), or ``None`` if jsonschema / the schema file is unavailable
+    so the caller can fall back to the structural checks."""
+    try:
+        import jsonschema  # optional; keeps this script dependency-free by default
+    except Exception:
+        return None
+    schema_path = Path(__file__).resolve().parent / "manifest-schema-v0.2.json"
+    try:
+        schema = json.loads(schema_path.read_text(encoding="utf-8"))
+    except Exception as exc:
+        rep["warnings"].append(f"schema file unusable ({exc}); used structural checks")
+        return None
+    try:
+        validator_cls = jsonschema.validators.validator_for(schema)
+        validator_cls.check_schema(schema)
+        validator = validator_cls(schema)
+    except Exception as exc:
+        rep["warnings"].append(f"jsonschema unusable ({exc}); used structural checks")
+        return None
+    errors = []
+    for err in sorted(validator.iter_errors(data), key=lambda e: list(e.path)):
+        loc = "/".join(str(p) for p in err.path) or "<root>"
+        errors.append(f"schema[{loc}]: {err.message}")
+    return errors
+
+
+def _schema_conformance(data, rep):
+    """Gate on schema conformance, preferring jsonschema and falling back to the
+    stdlib structural checks. Structural report booleans are always populated so
+    the --json report shape is stable regardless of which engine gated the run.
+    Returns the engine actually used ("jsonschema" or "structural")."""
+    iters = data.get("iterations")
+    iterations = iters if isinstance(iters, list) else []
+
+    missing_top = [k for k in REQUIRED_TOP if k not in data]
+    rep["checks"]["top_level_keys"] = not missing_top
+
+    structural = []
+    if missing_top:
+        structural.append(f"missing required top-level keys: {missing_top}")
+    if data.get("schema_version") != "0.2":
+        structural.append(f"schema_version must be '0.2' (got {data.get('schema_version')!r})")
+    if not isinstance(iters, list) and iters is not None:
+        structural.append("iterations must be an array")
+    iterations_valid = True
+    for i, it in enumerate(iterations):
+        if not isinstance(it, dict):
+            structural.append(f"iteration[{i}] is not an object")
+            iterations_valid = False
+            continue
+        miss = [k for k in REQUIRED_ITER if k not in it]
+        if miss:
+            structural.append(f"iteration '{it.get('id', i)}' missing fields: {miss}")
+            iterations_valid = False
+        dec = it.get("decision")
+        if dec is not None and dec not in DECISION_ENUM:
+            structural.append(f"iteration '{it.get('id', i)}' has invalid decision {dec!r}")
+            iterations_valid = False
+    rep["checks"]["iterations_valid"] = iterations_valid
+
+    schema_errors = _jsonschema_errors(data, rep)
+    if schema_errors is None:
+        for msg in structural:
+            _fail(rep, msg)
+        return "structural"
+    for msg in schema_errors:
+        _fail(rep, msg)
+    return "jsonschema"
+
+
 def validate(manifest_path: Path, strict_viewer: bool = False) -> dict:
     rep = _report()
     manifest_path = Path(manifest_path)
@@ -61,34 +139,14 @@ def validate(manifest_path: Path, strict_viewer: bool = False) -> dict:
         _fail(rep, "manifest root must be a JSON object")
         return rep
 
-    # 2. required top-level keys + schema version
-    missing = [k for k in REQUIRED_TOP if k not in data]
-    if missing:
-        _fail(rep, f"missing required top-level keys: {missing}")
-    if data.get("schema_version") != "0.2":
-        _fail(rep, f"schema_version must be '0.2' (got {data.get('schema_version')!r})")
-    rep["checks"]["top_level_keys"] = not missing
+    # 2-4. schema conformance: prefer a real JSON Schema validator against
+    # references/manifest-schema-v0.2.json when `jsonschema` is importable;
+    # otherwise fall back to the stdlib structural checks.
+    rep["checks"]["schema_engine"] = _schema_conformance(data, rep)
 
-    # 3 + 4. iterations
     iterations = data.get("iterations", [])
     if not isinstance(iterations, list):
-        _fail(rep, "iterations must be an array")
         iterations = []
-    iter_problems = 0
-    for i, it in enumerate(iterations):
-        if not isinstance(it, dict):
-            _fail(rep, f"iteration[{i}] is not an object")
-            iter_problems += 1
-            continue
-        miss = [k for k in REQUIRED_ITER if k not in it]
-        if miss:
-            _fail(rep, f"iteration '{it.get('id', i)}' missing fields: {miss}")
-            iter_problems += 1
-        dec = it.get("decision")
-        if dec is not None and dec not in DECISION_ENUM:
-            _fail(rep, f"iteration '{it.get('id', i)}' has invalid decision {dec!r}")
-            iter_problems += 1
-    rep["checks"]["iterations_valid"] = iter_problems == 0
     rep["checks"]["iteration_count"] = len(iterations)
 
     # 5. artifact path existence
