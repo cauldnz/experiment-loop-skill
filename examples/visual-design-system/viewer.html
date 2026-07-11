@@ -5,40 +5,58 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SVG Visual Design System Worked Example</title>
 <style>
-body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f7f7fb; color: #172033; }
-header { background: #0b1020; color: white; padding: 30px 38px; }
-main { padding: 24px 38px 54px; }
-a { color: #0f766e; }
-.summary, .card { background: white; border: 1px solid #dde3ee; border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(15,23,42,.07); }
-.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; }
-.grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); gap: 18px; margin: 18px 0; }
-.controls { display: flex; gap: 12px; align-items: center; margin: 18px 0; flex-wrap: wrap; }
-select { padding: 8px 10px; border-radius: 8px; border: 1px solid #b8c2d6; }
-.cards { display: grid; gap: 18px; }
-.artifact-previews { display: grid; gap: 12px; }
-.artifact-preview-title { margin: 0 0 6px; color: #5b6475; font-size: 13px; font-weight: 750; }
-.card img { width: 100%; max-width: 960px; border: 1px solid #dde3ee; border-radius: 14px; background: #fff; }
-.meta { color: #5b6475; font-size: 14px; }
-.prompt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
-.prompt-box { border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc; padding: 12px; }
-.prompt-box pre { margin: 8px 0 0; background: #fff; }
-.pill { display: inline-block; padding: 4px 9px; border-radius: 999px; background: #ccfbf1; color: #115e59; font-size: 12px; margin-right: 6px; }
-.new_best { background: #dcfce7; color: #166534; }
-.reject, .failed { background: #fee2e2; color: #991b1b; }
-.keep_for_synthesis { background: #fef3c7; color: #92400e; }
-.needs_human_review { background: #ede9fe; color: #5b21b6; }
-pre { white-space: pre-wrap; overflow: auto; background: #f8fafc; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; }
-table { border-collapse: collapse; width: 100%; margin-top: 10px; }
-td, th { border-bottom: 1px solid #e2e8f0; padding: 8px; text-align: left; vertical-align: top; }
-summary { cursor: pointer; font-weight: 750; }
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { font-family: "Segoe UI", system-ui, Arial, sans-serif; margin: 0; background: #f4f6fb; color: #1f2933; }
+header { background: #0f172a; color: #fff; padding: 26px 34px; }
+header h1 { margin: 0 0 6px; font-size: 22px; }
+header p { margin: 0; color: #cbd5e1; max-width: 70ch; }
+main { padding: 20px 34px 56px; }
+nav.tabs { display: flex; flex-wrap: wrap; gap: 4px; border-bottom: 2px solid #d9e2ec; margin: 18px 0 22px; }
+.tab { appearance: none; border: 0; background: transparent; font: inherit; color: #475569; padding: 10px 16px; cursor: pointer; border-radius: 8px 8px 0 0; position: relative; transition: color .15s ease, background .15s ease; }
+.tab:hover { background: #e8eefc; }
+.tab[aria-selected="true"] { color: #1d4ed8; font-weight: 700; }
+.tab[aria-selected="true"]::after { content: ""; position: absolute; left: 8px; right: 8px; bottom: -2px; height: 3px; background: #1d4ed8; border-radius: 3px; }
+.tab:focus-visible { outline: 3px solid #93c5fd; outline-offset: 2px; }
+[role="tabpanel"][hidden] { display: none; }
+.card { background: #fff; border: 1px solid #d9e2ec; border-radius: 14px; padding: 18px 20px; box-shadow: 0 8px 24px rgba(15,23,42,.06); margin-bottom: 18px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.stat { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 12px 14px; }
+.stat .k { color: #64748b; font-size: 12px; text-transform: uppercase; letter-spacing: .04em; }
+.stat .v { font-size: 16px; font-weight: 600; margin-top: 4px; }
+table { border-collapse: collapse; width: 100%; margin-top: 8px; }
+td, th { border-bottom: 1px solid #e2e8f0; padding: 8px 10px; text-align: left; vertical-align: top; font-size: 14px; }
+th { color: #475569; }
+code { font-family: "Cascadia Code", Consolas, monospace; font-size: 13px; background: #eef2ff; padding: 1px 5px; border-radius: 5px; }
+.pill { display: inline-block; padding: 3px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; margin: 0 6px 6px 0; background: #e0f2fe; color: #075985; }
+.pill.new_best { background: #dcfce7; color: #166534; }
+.pill.reject { background: #fee2e2; color: #991b1b; }
+.pill.keep_for_synthesis { background: #fef3c7; color: #92400e; }
+.pill.needs_human_review { background: #ede9fe; color: #5b21b6; }
+.pill.failed { background: #fee2e2; color: #991b1b; }
+.pill.core { background: #ede9fe; color: #5b21b6; }
+.loop { border-left: 5px solid #2563eb; }
+.loop.new_best { border-left-color: #16a34a; }
+.loop.reject { border-left-color: #dc2626; }
+.loop.failed { border-left-color: #dc2626; }
+.loop.keep_for_synthesis { border-left-color: #d97706; }
+.loop.needs_human_review { border-left-color: #7c3aed; }
+.meta { color: #52606d; font-size: 13px; }
+.bars { display: grid; gap: 6px; margin-top: 8px; }
+.bar-row { display: grid; grid-template-columns: 180px 1fr 84px; gap: 10px; align-items: center; font-size: 13px; }
+.bar-track { height: 12px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
+.bar-fill { height: 100%; background: #2563eb; border-radius: 999px; }
 .graph-wrap { overflow-x: auto; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc; }
-#graph { min-width: 1080px; width: 100%; height: 330px; display: block; }
-.timeline { display: grid; gap: 8px; }
-.bar-row { display: grid; grid-template-columns: 230px 1fr 52px; gap: 10px; align-items: center; }
-.bar-track { height: 14px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
-.bar { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #14b8a6, #f97316); }
-.json-panel { max-height: 520px; }
-@media (max-width: 960px) { .grid { grid-template-columns: 1fr; } }
+#graph { min-width: 780px; width: 100%; height: 300px; display: block; }
+.arts { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); margin-top: 6px; }
+figure.art { margin: 0; }
+figure.art img { width: 100%; border: 1px solid #d9e2ec; border-radius: 10px; background: #fff; }
+figure.art figcaption { margin-top: 4px; }
+pre { white-space: pre-wrap; overflow: auto; background: #f8fafc; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; font-size: 12px; }
+summary { cursor: pointer; font-weight: 600; }
+a { color: #1d4ed8; }
+.diag { background: #fef2f2; border: 1px solid #fecaca; color: #991b1b; border-radius: 10px; padding: 10px 14px; margin: 12px 0; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
 </style>
 </head>
 <body>
@@ -47,39 +65,56 @@ summary { cursor: pointer; font-weight: 750; }
   <p>Run two independent SVG visual design experiments, then synthesize their best lessons into a polished event-card system.</p>
 </header>
 <main>
-  <section class="summary">
-    <div><strong>Best</strong><br><span id="best"></span></div>
-    <div><strong>Iterations</strong><br><span id="iterationCount"></span></div>
-    <div><strong>Tracks</strong><br><span id="trackCount"></span></div>
-    <div><strong>Judging</strong><br><span id="scorerSummary"></span></div>
+  <div id="diagnostic"></div>
+  <nav class="tabs" role="tablist" aria-label="Experiment views">
+    <button class="tab" role="tab" id="tab-overview" aria-controls="panel-overview" data-tab="overview">Overview</button>
+    <button class="tab" role="tab" id="tab-lineage" aria-controls="panel-lineage" data-tab="lineage">Tracks &amp; lineage</button>
+    <button class="tab" role="tab" id="tab-loops" aria-controls="panel-loops" data-tab="loops">Loops</button>
+  </nav>
+
+  <section role="tabpanel" id="panel-overview" aria-labelledby="tab-overview" tabindex="0">
+    <div class="card">
+      <h2>Summary</h2>
+      <div class="grid">
+        <div class="stat"><div class="k">Champion</div><div class="v" id="best"></div></div>
+        <div class="stat"><div class="k">Loops</div><div class="v" id="loopCount"></div></div>
+        <div class="stat"><div class="k">Tracks</div><div class="v" id="trackCount"></div></div>
+        <div class="stat"><div class="k">Judging</div><div class="v" id="judgeSummary"></div></div>
+      </div>
+    </div>
+    <div class="card">
+      <h2>Scorecard</h2>
+      <table><thead><tr><th>Criterion</th><th>Weight</th><th>Scored by</th></tr></thead><tbody id="scorecard"></tbody></table>
+    </div>
+    <div class="card">
+      <h2>Scorers</h2>
+      <table><thead><tr><th>Scorer</th><th>Type</th><th>Command</th></tr></thead><tbody id="scorers"></tbody></table>
+    </div>
+    <div class="card">
+      <h2>Synthesis</h2>
+      <p id="synthesis" class="meta"></p>
+      <table id="rules"><thead><tr><th>Trigger</th><th>Action</th></tr></thead><tbody></tbody></table>
+    </div>
   </section>
-  <section class="grid">
+
+  <section role="tabpanel" id="panel-lineage" aria-labelledby="tab-lineage" tabindex="0" hidden>
     <div class="card">
       <h2>Experiment graph</h2>
-      <p class="meta">Lineage comes from <code>parent_ids</code>; colors show decisions and the star marks the champion.</p>
+      <p class="meta">Lineage comes from each loop's <code>parent_id</code>. Colours mark decisions (green = new_best, amber = keep_for_synthesis, red = reject/failed, violet = needs_human_review) and the star marks the champion.</p>
       <div class="graph-wrap"><svg id="graph" role="img" aria-label="Experiment lineage graph"></svg></div>
     </div>
     <div class="card">
       <h2>Score timeline</h2>
-      <div class="timeline" id="timeline"></div>
+      <div class="bars" id="timeline"></div>
     </div>
   </section>
-  <section class="card">
-    <h2>Scorecard</h2>
-    <table><tbody id="scorecard"></tbody></table>
+
+  <section role="tabpanel" id="panel-loops" aria-labelledby="tab-loops" tabindex="0" hidden>
+    <div id="loops"></div>
   </section>
-  <div class="controls">
-    <label>Decision <select id="decision"><option value="all">all</option></select></label>
-    <label>Track <select id="track"><option value="all">all</option></select></label>
-  </div>
-  <section class="cards" id="cards"></section>
-  <details class="card">
-    <summary>Raw manifest JSON</summary>
-    <pre class="json-panel" id="manifestJson"></pre>
-  </details>
 </main>
-<script>
-const manifest = {
+
+<script type="application/json" id="manifest-data">{
   "schema_version": "0.2",
   "experiment_id": "visual-design-system-worked-example",
   "title": "SVG Visual Design System Worked Example",
@@ -1379,108 +1414,197 @@ const manifest = {
     }
   ],
   "synthesis": "Run A provided the strongest hierarchy and information clarity. Run B provided a more distinctive visual language. Run C combined the editorial card system with signal ribbons. The first production polish loop looked attractive but failed the new layout-quality gate because process chips overlapped the body copy. The final loop moved those chips into clear whitespace and became the champion."
-};
-const bestId = manifest.best && manifest.best.iteration_id;
-const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-const scoreFor = iteration => {
-  const preferred = (iteration.scores || []).find(score => score.scorer_id === 'design-panel' && typeof score.value === 'number');
-  const numeric = preferred || (iteration.scores || []).find(score => typeof score.value === 'number');
-  return numeric ? numeric.value : null;
-};
-const primaryArtifact = iteration => (iteration.artifacts || []).find(a => a.label === 'Card SVG') || (iteration.artifacts || []).find(a => a.kind === 'image');
-document.getElementById('best').textContent = manifest.best ? `${manifest.best.iteration_id} - score ${manifest.best.score} (${manifest.best.why})` : 'none';
-document.getElementById('iterationCount').textContent = manifest.iterations.length;
-document.getElementById('trackCount').textContent = manifest.tracks.map(t => t.label || t.id).join(', ');
-document.getElementById('scorerSummary').textContent = (manifest.scorers || []).map(s => `${s.id} (${s.type}${s.primary ? ', primary' : ''})`).join('; ') || 'none';
-document.getElementById('manifestJson').textContent = JSON.stringify(manifest, null, 2);
-document.getElementById('scorecard').innerHTML = manifest.scorecard.map(c => `<tr><th>${esc(c.label)}</th><td>weight ${esc(c.weight)}</td><td><code>${esc(c.id)}</code></td></tr>`).join('');
-for (const value of [...new Set(manifest.iterations.map(i => i.decision))]) decision.insertAdjacentHTML('beforeend', `<option value="${esc(value)}">${esc(value)}</option>`);
-for (const value of manifest.tracks.map(t => t.id)) track.insertAdjacentHTML('beforeend', `<option value="${esc(value)}">${esc(value)}</option>`);
-function renderGraph() {
-  const tracks = manifest.tracks.map(t => t.id);
-  const nodeById = new Map();
-  const width = Math.max(1080, manifest.iterations.length * 210 + 160);
-  const height = Math.max(300, tracks.length * 92 + 92);
-  manifest.iterations.forEach((iteration, index) => nodeById.set(iteration.id, { iteration, x: 96 + index * 205, y: 62 + Math.max(0, tracks.indexOf(iteration.track_id)) * 92 }));
-  const color = decision => ({ new_best: '#16a34a', keep_for_synthesis: '#d97706', reject: '#dc2626', failed: '#991b1b', needs_human_review: '#7c3aed' }[decision] || '#2563eb');
-  const lines = [];
-  const nodes = [];
-  for (const node of nodeById.values()) {
-    const parentIds = node.iteration.parent_ids || (node.iteration.parent_id ? [node.iteration.parent_id] : []);
-    for (const parentId of parentIds) {
-      const parent = nodeById.get(parentId);
-      if (parent) lines.push(`<line x1="${parent.x + 72}" y1="${parent.y}" x2="${node.x - 72}" y2="${node.y}" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>`);
-    }
-    const score = scoreFor(node.iteration);
-    nodes.push(`<g>
-      <rect x="${node.x - 74}" y="${node.y - 34}" width="148" height="68" rx="12" fill="#fff" stroke="${color(node.iteration.decision)}" stroke-width="3"/>
-      <text x="${node.x}" y="${node.y - 12}" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">${esc(node.iteration.id.replace(/^loop-/, ''))}</text>
-      <text x="${node.x}" y="${node.y + 7}" text-anchor="middle" font-size="11" fill="#5b6475">${esc(node.iteration.track_id)}</text>
-      <text x="${node.x}" y="${node.y + 24}" text-anchor="middle" font-size="11" fill="#5b6475">${score === null ? 'no score' : `score ${score}`}${node.iteration.id === bestId ? ' *' : ''}</text>
-    </g>`);
+}</script>
+<script>
+(function () {
+  "use strict";
+  var raw = document.getElementById("manifest-data").textContent;
+  var manifest = {};
+  try { manifest = JSON.parse(raw) || {}; } catch (e) { manifest = {}; }
+
+  var esc = function (v) {
+    return String(v == null ? "" : v).replace(/[&<>"']/g, function (ch) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[ch];
+    });
+  };
+  var byId = function (id) { return document.getElementById(id); };
+  var iterations = Array.isArray(manifest.iterations) ? manifest.iterations : [];
+  var tracks = Array.isArray(manifest.tracks) ? manifest.tracks : [];
+  var bestId = manifest.best && manifest.best.iteration_id;
+
+  if (!iterations.length) {
+    var d = byId("diagnostic");
+    if (d) { d.innerHTML = '<div class="diag">No experiment data found in this viewer. The manifest was missing, empty, or malformed.</div>'; }
   }
-  graph.setAttribute('viewBox', `0 0 ${width} ${height}`);
-  graph.innerHTML = `<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>${lines.join('')}${nodes.join('')}`;
-}
-function renderTimeline() {
-  const maxScore = Math.max(5, ...manifest.iterations.map(i => scoreFor(i) || 0));
-  timeline.innerHTML = manifest.iterations.map(i => {
-    const score = scoreFor(i) || 0;
-    const width = Math.max(2, Math.round(score / maxScore * 100));
-    return `<div class="bar-row"><div><code>${esc(i.id)}</code></div><div class="bar-track"><div class="bar" style="width:${width}%"></div></div><div>${esc(score)}</div></div>`;
-  }).join('');
-}
-function render() {
-  const d = decision.value;
-  const t = track.value;
-  cards.innerHTML = manifest.iterations
-    .filter(i => (d === 'all' || i.decision === d) && (t === 'all' || i.track_id === t))
-    .map(i => {
-      const art = primaryArtifact(i);
-      const tokens = (i.artifacts || []).find(a => a.label === 'Design tokens');
-      const parents = i.parent_ids && i.parent_ids.length ? i.parent_ids : (i.parent_id ? [i.parent_id] : ['root']);
-      const artifacts = (i.artifacts || []).map(a => `<tr><td>${esc(a.kind)}</td><td>${esc(a.label)}</td><td><a href="${esc(a.path)}">${esc(a.path)}</a></td><td><code>${esc((a.sha256 || '').slice(0, 16))}</code></td></tr>`).join('');
-      const scores = (i.scores || []).map(s => `<tr><td>${esc(s.scorer_id)}</td><td>${esc(s.type)}</td><td>${esc(s.value)}</td><td><pre>${esc(JSON.stringify(s.per_criterion || {}, null, 2))}</pre></td></tr>`).join('');
-      return `<article class="card">
-        <h2>${esc(i.id)} ${i.id === bestId ? '*' : ''}</h2>
-        <p><span class="pill ${esc(i.decision)}">${esc(i.decision)}</span><span class="pill">${esc(i.track_id)}</span><span class="pill">run: ${esc(i.experiment_run || i.track_id)}</span><span class="pill">parents: ${esc(parents.join(', '))}</span></p>
-        <p>${esc(i.hypothesis)}</p>
-        ${art ? `<div class="artifact-previews"><p class="artifact-preview-title">${esc(art.label)}</p><img src="${esc(art.path)}" alt="${esc(art.label)}"></div>` : ''}
-        ${tokens ? `<p class="meta">Tokens: <a href="${esc(tokens.path)}">${esc(tokens.path)}</a></p>` : ''}
-        <h3>Lesson</h3><pre>${esc(i.lesson.trigger)}
-Action: ${esc(i.lesson.action)}
-Evidence: ${esc(i.lesson.evidence)}
-Confidence: ${esc(i.lesson.confidence)}</pre>
-        <details open>
-          <summary>Metadata and provenance</summary>
-          <table><tbody>
-            <tr><th>Build</th><td>${esc(i.commands.build)}</td></tr>
-            <tr><th>Run</th><td>${esc(i.commands.run)}</td></tr>
-            <tr><th>Judge</th><td>${esc(i.commands.judge)}</td></tr>
-            <tr><th>Changed files</th><td>${esc((i.changed_files || []).join(', '))}</td></tr>
-            <tr><th>Stop reason</th><td>${esc(i.stop_reason || '')}</td></tr>
-          </tbody></table>
-          <h4>Prompt and feedback chain</h4>
-          <div class="prompt-grid">
-            <div class="prompt-box"><strong>Prompt sent to generator</strong><pre>${esc((i.prompt || {}).track_prompt || '')}</pre></div>
-            <div class="prompt-box"><strong>Feedback / parent context</strong><pre>${esc((i.prompt || {}).input_feedback || '')}</pre></div>
-            <div class="prompt-box"><strong>Judge feedback</strong><pre>${esc((i.prompt || {}).judge_feedback || '')}</pre></div>
-            <div class="prompt-box"><strong>Next prompt</strong><pre>${esc((i.prompt || {}).next_prompt || '')}</pre></div>
-          </div>
-          <h4>Layout quality gate</h4>
-          <pre>${esc(JSON.stringify(i.layout_quality || {}, null, 2))}</pre>
-          <h4>Artifacts</h4><table><thead><tr><th>Kind</th><th>Label</th><th>Path</th><th>SHA-256</th></tr></thead><tbody>${artifacts}</tbody></table>
-          <h4>Scores</h4><table><thead><tr><th>Scorer</th><th>Type</th><th>Value</th><th>Per criterion</th></tr></thead><tbody>${scores}</tbody></table>
-          <h4>Raw iteration JSON</h4><pre>${esc(JSON.stringify(i, null, 2))}</pre>
-        </details>
-      </article>`;
-    }).join('');
-}
-decision.addEventListener('change', render);
-track.addEventListener('change', render);
-renderGraph();
-renderTimeline();
-render();
+
+  var scoreFor = function (it) {
+    var s = (it.scores || []).filter(function (x) { return typeof x.value === "number"; });
+    return s.length ? s[s.length - 1].value : null;
+  };
+  var critOf = function (it) {
+    var arr = it.scores || [];
+    for (var k = 0; k < arr.length; k++) {
+      var pc = arr[k].per_criterion;
+      if (pc && typeof pc === "object" && Object.keys(pc).length) {
+        return { scorer: arr[k].scorer_id || "", pc: pc };
+      }
+    }
+    return { scorer: "", pc: {} };
+  };
+
+  // ---- Overview ----
+  if (byId("best")) byId("best").textContent = manifest.best ? (manifest.best.iteration_id + " (score " + manifest.best.score + ")") : "none";
+  if (byId("loopCount")) byId("loopCount").textContent = String(iterations.length);
+  if (byId("trackCount")) byId("trackCount").textContent = tracks.map(function (t) { return t.label || t.id; }).join(", ") || "none";
+  if (byId("judgeSummary")) {
+    var jp = manifest.judge_panels || [];
+    if (!jp.length) { byId("judgeSummary").textContent = "objective only"; }
+    else {
+      var p = jp[0];
+      byId("judgeSummary").textContent = p.mode ? (p.mode + " judge") : ((p.judges && p.judges.length) ? (p.judges.length + "-model panel") : "judge panel");
+    }
+  }
+  if (byId("scorecard")) {
+    byId("scorecard").innerHTML = (manifest.scorecard || []).map(function (c) {
+      return "<tr><th>" + esc(c.label) + "</th><td>" + esc(c.weight) + "</td><td>" + esc(c.scored_by || "") + "</td></tr>";
+    }).join("");
+  }
+  if (byId("scorers")) {
+    byId("scorers").innerHTML = (manifest.scorers || []).map(function (s) {
+      return "<tr><td>" + esc(s.id) + (s.primary ? ' <span class="pill core">primary</span>' : "") + "</td><td>" + esc(s.type) + "</td><td><code>" + esc(s.command || "") + "</code></td></tr>";
+    }).join("");
+  }
+  if (byId("synthesis")) byId("synthesis").textContent = manifest.synthesis || "";
+  if (byId("rules")) {
+    var rb = byId("rules").querySelector("tbody");
+    if (rb) rb.innerHTML = (manifest.rules || []).map(function (r) {
+      return "<tr><td>" + esc(r.trigger) + "</td><td>" + esc(r.action) + "</td></tr>";
+    }).join("");
+  }
+
+  // ---- Lineage graph ----
+  function renderGraph() {
+    var g = byId("graph");
+    if (!g) return;
+    var trackIds = tracks.map(function (t) { return t.id; });
+    var nodeById = {};
+    var width = Math.max(760, iterations.length * 210 + 140);
+    var height = Math.max(220, trackIds.length * 108 + 96);
+    iterations.forEach(function (it, i) {
+      var ti = Math.max(0, trackIds.indexOf(it.track_id));
+      nodeById[it.id] = { it: it, x: 100 + i * 200, y: 66 + ti * 108 };
+    });
+    var color = function (dec) {
+      return { new_best: "#16a34a", keep_for_synthesis: "#d97706", reject: "#dc2626", failed: "#dc2626", needs_human_review: "#7c3aed" }[dec] || "#2563eb";
+    };
+    var lines = [], nodes = [];
+    Object.keys(nodeById).forEach(function (id) {
+      var node = nodeById[id];
+      var parent = node.it.parent_id ? nodeById[node.it.parent_id] : null;
+      if (parent) {
+        lines.push('<line x1="' + (parent.x + 70) + '" y1="' + parent.y + '" x2="' + (node.x - 70) + '" y2="' + node.y + '" stroke="#64748b" stroke-width="2" marker-end="url(#arw)"/>');
+      }
+      var sc = scoreFor(node.it);
+      var label = esc(node.it.id.replace(/^loop-/, ""));
+      nodes.push('<g><rect x="' + (node.x - 72) + '" y="' + (node.y - 34) + '" width="144" height="68" rx="12" fill="#fff" stroke="' + color(node.it.decision) + '" stroke-width="3"/>' +
+        '<text x="' + node.x + '" y="' + (node.y - 12) + '" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">' + label + (node.it.id === bestId ? " ★" : "") + "</text>" +
+        '<text x="' + node.x + '" y="' + (node.y + 6) + '" text-anchor="middle" font-size="11" fill="#475569">' + esc(node.it.decision) + "</text>" +
+        '<text x="' + node.x + '" y="' + (node.y + 23) + '" text-anchor="middle" font-size="11" fill="#475569">' + (sc == null ? "no score" : "score " + sc) + "</text></g>");
+    });
+    g.setAttribute("viewBox", "0 0 " + width + " " + height);
+    g.innerHTML = '<defs><marker id="arw" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>' + lines.join("") + nodes.join("");
+  }
+  function renderTimeline() {
+    var t = byId("timeline");
+    if (!t) return;
+    var maxV = Math.max.apply(null, [5].concat(iterations.map(function (i) { return scoreFor(i) || 0; })));
+    t.innerHTML = iterations.map(function (i) {
+      var v = scoreFor(i) || 0;
+      var w = Math.max(2, Math.round(v / maxV * 100));
+      return '<div class="bar-row"><div><code>' + esc(i.id.replace(/^loop-/, "")) + '</code></div><div class="bar-track"><div class="bar-fill" style="width:' + w + '%"></div></div><div>' + esc(v) + " / 5</div></div>";
+    }).join("");
+  }
+
+  // ---- Loops ----
+  function renderLoops() {
+    var host = byId("loops");
+    if (!host) return;
+    host.innerHTML = iterations.map(function (i) {
+      var crit = critOf(i);
+      var pc = crit.pc;
+      var scoreRows = (i.scores || []).map(function (s) {
+        return "<tr><td>" + esc(s.scorer_id) + "</td><td>" + esc(s.value) + "</td><td>" + esc(s.notes || "") + "</td></tr>";
+      }).join("");
+      var critRows = Object.keys(pc).map(function (k) {
+        return "<tr><td>" + esc(k) + "</td><td>" + esc(pc[k]) + "</td></tr>";
+      }).join("");
+      var imgs = (i.artifacts || []).filter(function (a) { return a.kind === "image"; }).map(function (a) {
+        return '<figure class="art"><img src="' + esc(a.path) + '" alt="' + esc(a.label) + '" loading="lazy"><figcaption class="meta">' + esc(a.label) + "</figcaption></figure>";
+      }).join("");
+      var links = (i.artifacts || []).map(function (a) {
+        return '<a href="' + esc(a.path) + '">' + esc(a.label) + " (" + esc(a.kind) + ")</a>";
+      }).join(" &middot; ");
+      var lesson = i.lesson || {};
+      var lessonText = lesson.trigger ? (lesson.trigger + "\nAction: " + (lesson.action || "") + "\nEvidence: " + (lesson.evidence || "") + "\nConfidence: " + (lesson.confidence || "")) : "";
+      return '<div class="card loop ' + esc(i.decision) + '">' +
+        "<h2>" + esc(i.id) + (i.id === bestId ? " ★" : "") + "</h2>" +
+        '<p><span class="pill ' + esc(i.decision) + '">' + esc(i.decision) + '</span><span class="pill">' + esc(i.track_id) + '</span><span class="pill">parent: ' + esc(i.parent_id || "root") + '</span><span class="pill">value ' + esc(scoreFor(i)) + "</span></p>" +
+        "<p>" + esc(i.hypothesis) + "</p>" +
+        "<table><thead><tr><th>Scorer</th><th>Value</th><th>Notes</th></tr></thead><tbody>" + scoreRows + "</tbody></table>" +
+        (critRows ? ("<h3>Criteria (" + esc(crit.scorer) + ")</h3><table><thead><tr><th>Criterion</th><th>Score</th></tr></thead><tbody>" + critRows + "</tbody></table>") : "") +
+        (imgs ? ('<h3>Artifacts</h3><div class="arts">' + imgs + "</div>") : "") +
+        '<p class="meta">Files: ' + links + "</p>" +
+        "<h3>Lesson</h3><pre>" + esc(lessonText) + "</pre>" +
+        "<details><summary>Raw loop JSON</summary><pre>" + esc(JSON.stringify(i, null, 2)) + "</pre></details>" +
+        "</div>";
+    }).join("");
+  }
+
+  renderGraph();
+  renderTimeline();
+  renderLoops();
+
+  // ---- Keyboard-operable tabs + hash deep-links ----
+  var tabs = Array.prototype.slice.call(document.querySelectorAll('[role="tab"]'));
+  var names = tabs.map(function (t) { return t.getAttribute("data-tab"); });
+
+  function activate(name, focusTab) {
+    if (names.indexOf(name) === -1) name = names[0];
+    tabs.forEach(function (tab) {
+      var on = tab.getAttribute("data-tab") === name;
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+      tab.setAttribute("tabindex", on ? "0" : "-1");
+      var panel = byId(tab.getAttribute("aria-controls"));
+      if (panel) { if (on) { panel.removeAttribute("hidden"); } else { panel.setAttribute("hidden", ""); } }
+      if (on && focusTab) tab.focus();
+    });
+    if (("#tab=" + name) !== location.hash) {
+      try { history.replaceState(null, "", "#tab=" + name); } catch (e) { location.hash = "tab=" + name; }
+    }
+  }
+
+  tabs.forEach(function (tab, idx) {
+    tab.addEventListener("click", function () { activate(tab.getAttribute("data-tab"), false); });
+    tab.addEventListener("keydown", function (ev) {
+      var i = idx;
+      if (ev.key === "ArrowRight" || ev.key === "ArrowDown") { i = (idx + 1) % tabs.length; }
+      else if (ev.key === "ArrowLeft" || ev.key === "ArrowUp") { i = (idx - 1 + tabs.length) % tabs.length; }
+      else if (ev.key === "Home") { i = 0; }
+      else if (ev.key === "End") { i = tabs.length - 1; }
+      else if (ev.key === "Enter" || ev.key === " ") { activate(tab.getAttribute("data-tab"), true); ev.preventDefault(); return; }
+      else { return; }
+      ev.preventDefault();
+      activate(tabs[i].getAttribute("data-tab"), true);
+    });
+  });
+
+  function fromHash() {
+    var m = /tab=([a-z]+)/.exec(location.hash || "");
+    return m ? m[1] : names[0];
+  }
+  window.addEventListener("hashchange", function () { activate(fromHash(), false); });
+  activate(fromHash(), false);
+})();
 </script>
 </body>
 </html>

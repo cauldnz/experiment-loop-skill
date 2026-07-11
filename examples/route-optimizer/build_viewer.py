@@ -1,9 +1,40 @@
-<!doctype html>
+#!/usr/bin/env python3
+"""Deterministic, manifest-driven viewer generator for a worked example.
+
+This is the ``<build> --data DIR --out FILE`` generator that ``run_example.py``
+uses to emit ``viewer.html``, and that ``scripts/check_viewer.py`` drives for the
+determinism and robustness checks (see SKILL.md sec 9). It is a pure function of
+the manifest: no wall-clock, no randomness, no network, so building twice is
+byte-identical. It degrades gracefully — a missing, empty, or malformed
+``manifest.json`` still yields a parseable page with a visible diagnostic
+instead of crashing.
+
+The renderer is generic over the v0.2 manifest schema
+(``references/manifest-schema-v0.2.json``): it reads ``tracks``, ``iterations``
+(with ``decision``/``parent_id``/``scores``/``artifacts``/``lesson``),
+``scorecard``, ``scorers``, ``judge_panels``, ``best``, ``rules`` and
+``synthesis``, so the same file works across the worked examples.
+
+Usage:
+    python build_viewer.py --data DIR --out FILE
+    # DIR must contain manifest.json; FILE is the viewer written out.
+
+Standard library only.
+"""
+from __future__ import annotations
+
+import argparse
+import json
+import sys
+from pathlib import Path
+
+
+_TEMPLATE = """<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Route Optimizer Worked Example</title>
+<title>__TITLE__</title>
 <style>
 :root { color-scheme: light; }
 * { box-sizing: border-box; }
@@ -61,8 +92,8 @@ a { color: #1d4ed8; }
 </head>
 <body>
 <header>
-  <h1>Route Optimizer Worked Example</h1>
-  <p>Minimize a deterministic delivery route while preserving validity and reproducibility.</p>
+  <h1>__TITLE__</h1>
+  <p>__GOAL__</p>
 </header>
 <main>
   <div id="diagnostic"></div>
@@ -114,472 +145,7 @@ a { color: #1d4ed8; }
   </section>
 </main>
 
-<script type="application/json" id="manifest-data">{
-  "schema_version": "0.2",
-  "experiment_id": "route-optimizer-worked-example",
-  "title": "Route Optimizer Worked Example",
-  "goal": "Minimize a deterministic delivery route while preserving validity and reproducibility.",
-  "created_at": "2026-07-03T00:00:00Z",
-  "budget": {
-    "max_iters": 4,
-    "patience": 1,
-    "cost_limit": null,
-    "wall_time_limit_sec": 60
-  },
-  "artifact_scope": {
-    "roots": [
-      "."
-    ],
-    "allow_edit": [
-      "quantitative-search/**",
-      "synthesis/**",
-      "manifest.json",
-      "viewer.html"
-    ],
-    "deny": [
-      ".env",
-      "secrets/**",
-      "**/*credential*"
-    ]
-  },
-  "scorecard": [
-    {
-      "id": "route_length",
-      "label": "Route length",
-      "weight": 3
-    },
-    {
-      "id": "validity",
-      "label": "Visits every stop exactly once",
-      "weight": 3
-    },
-    {
-      "id": "reproducibility",
-      "label": "Deterministic and rerunnable",
-      "weight": 1
-    },
-    {
-      "id": "explainability",
-      "label": "Artifacts explain the improvement",
-      "weight": 1
-    }
-  ],
-  "scorers": [
-    {
-      "id": "route-metrics",
-      "type": "objective_command",
-      "command": "python run_example.py",
-      "primary": true,
-      "weight": 3
-    }
-  ],
-  "judge_panels": [],
-  "governance": {
-    "self_editing": {
-      "requires_user_approval": true,
-      "proposal_required": true,
-      "approved_proposal_id": null
-    }
-  },
-  "tracks": [
-    {
-      "id": "quantitative-search",
-      "label": "Quantitative route search",
-      "hypothesis": "Simple deterministic heuristics can rapidly improve a route when objective distance is measurable."
-    },
-    {
-      "id": "synthesis",
-      "label": "Synthesis and robustness check",
-      "hypothesis": "Deterministic restarts test whether the local-search champion is robust."
-    }
-  ],
-  "iterations": [
-    {
-      "id": "loop-01-baseline-order",
-      "track_id": "quantitative-search",
-      "parent_id": null,
-      "hypothesis": "A baseline route establishes the objective distance to beat.",
-      "commands": {
-        "build": "Select deterministic route-construction or route-improvement variant.",
-        "run": "python run_example.py",
-        "judge": "Read metrics.json; enforce validity gate; compare route_length to champion."
-      },
-      "artifacts": [
-        {
-          "kind": "image",
-          "label": "Route SVG",
-          "path": "quantitative-search/loop-01-baseline-order/route.svg",
-          "sha256": "df2e353e495741db21cdb49d852fd2869b23166fb445546608e273dacfcfbe31"
-        },
-        {
-          "kind": "data",
-          "label": "Metrics JSON",
-          "path": "quantitative-search/loop-01-baseline-order/metrics.json",
-          "sha256": "a2967ccfb232118a103a7d9c2f2100dc70901b35475041a40d064e3413b7baca"
-        },
-        {
-          "kind": "markdown",
-          "label": "Judge note",
-          "path": "quantitative-search/loop-01-baseline-order/judge.md",
-          "sha256": "f20ddc51328a4a7d598bb4a997b8bb8a4bca4d192f281194989988ce214560d1"
-        }
-      ],
-      "scores": [
-        {
-          "scorer_id": "route-metrics",
-          "type": "objective_command",
-          "value": 2.0,
-          "per_criterion": {
-            "route_length": 423.88,
-            "validity": 5,
-            "reproducibility": 5,
-            "explainability": 4.5
-          },
-          "notes": "No regression; objective distance improved.",
-          "raw": {
-            "distance": 423.88,
-            "valid": true,
-            "improvement_pct": 0.0,
-            "route": [
-              0,
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              0
-            ],
-            "route_names": [
-              "Depot",
-              "Museum",
-              "Bakery",
-              "Clinic",
-              "Library",
-              "School",
-              "Market",
-              "Harbor",
-              "Stadium",
-              "Garden",
-              "Station",
-              "Gallery",
-              "Depot"
-            ],
-            "regression_note": "No regression; objective distance improved."
-          }
-        }
-      ],
-      "changed_files": [
-        "run_example.py"
-      ],
-      "lesson": {
-        "trigger": "A baseline route establishes the objective distance to beat.",
-        "action": "Try a greedy construction heuristic that chooses the nearest unvisited stop.",
-        "evidence": "quantitative-search/loop-01-baseline-order/route.svg and metrics.json",
-        "confidence": "high"
-      },
-      "decision": "new_best",
-      "stop_reason": null
-    },
-    {
-      "id": "loop-02-nearest-neighbor",
-      "track_id": "quantitative-search",
-      "parent_id": "loop-01-baseline-order",
-      "hypothesis": "Choosing the nearest unvisited stop should cut obvious cross-town jumps.",
-      "commands": {
-        "build": "Select deterministic route-construction or route-improvement variant.",
-        "run": "python run_example.py",
-        "judge": "Read metrics.json; enforce validity gate; compare route_length to champion."
-      },
-      "artifacts": [
-        {
-          "kind": "image",
-          "label": "Route SVG",
-          "path": "quantitative-search/loop-02-nearest-neighbor/route.svg",
-          "sha256": "a4664b240aa452aa42aaef16d360d399dd2026bd2d9ab67ffcf23b048a04c31b"
-        },
-        {
-          "kind": "data",
-          "label": "Metrics JSON",
-          "path": "quantitative-search/loop-02-nearest-neighbor/metrics.json",
-          "sha256": "ecb62c2b8049fc6f69711ea99e45714cfe9a5c94737e76a35a6ab0ff72f0df17"
-        },
-        {
-          "kind": "markdown",
-          "label": "Judge note",
-          "path": "quantitative-search/loop-02-nearest-neighbor/judge.md",
-          "sha256": "c2d7052163a38224b343d0227bf637275a2f85cb4e558fce17609c7b7509f57f"
-        }
-      ],
-      "scores": [
-        {
-          "scorer_id": "route-metrics",
-          "type": "objective_command",
-          "value": 3.99,
-          "per_criterion": {
-            "route_length": 339.73,
-            "validity": 5,
-            "reproducibility": 5,
-            "explainability": 4.5
-          },
-          "notes": "No regression; objective distance improved.",
-          "raw": {
-            "distance": 339.73,
-            "valid": true,
-            "improvement_pct": 19.85,
-            "route": [
-              0,
-              4,
-              5,
-              3,
-              1,
-              2,
-              10,
-              9,
-              8,
-              11,
-              6,
-              7,
-              0
-            ],
-            "route_names": [
-              "Depot",
-              "Library",
-              "School",
-              "Clinic",
-              "Museum",
-              "Bakery",
-              "Station",
-              "Garden",
-              "Stadium",
-              "Gallery",
-              "Market",
-              "Harbor",
-              "Depot"
-            ],
-            "regression_note": "No regression; objective distance improved."
-          }
-        }
-      ],
-      "changed_files": [
-        "run_example.py"
-      ],
-      "lesson": {
-        "trigger": "Choosing the nearest unvisited stop should cut obvious cross-town jumps.",
-        "action": "Apply local edge swaps to remove route crossings left by the greedy heuristic.",
-        "evidence": "quantitative-search/loop-02-nearest-neighbor/route.svg and metrics.json",
-        "confidence": "high"
-      },
-      "decision": "new_best",
-      "stop_reason": null
-    },
-    {
-      "id": "loop-03-two-opt",
-      "track_id": "quantitative-search",
-      "parent_id": "loop-02-nearest-neighbor",
-      "hypothesis": "2-opt should shorten the route by reversing crossed or inefficient segments.",
-      "commands": {
-        "build": "Select deterministic route-construction or route-improvement variant.",
-        "run": "python run_example.py",
-        "judge": "Read metrics.json; enforce validity gate; compare route_length to champion."
-      },
-      "artifacts": [
-        {
-          "kind": "image",
-          "label": "Route SVG",
-          "path": "quantitative-search/loop-03-two-opt/route.svg",
-          "sha256": "188c47ef6ee0078c22631236ba803251e030729577053bd70646f7db102864c8"
-        },
-        {
-          "kind": "data",
-          "label": "Metrics JSON",
-          "path": "quantitative-search/loop-03-two-opt/metrics.json",
-          "sha256": "235bf4db0059cb001a7b15f6427abb88e2ab75dab6702c8db821268836b492b1"
-        },
-        {
-          "kind": "markdown",
-          "label": "Judge note",
-          "path": "quantitative-search/loop-03-two-opt/judge.md",
-          "sha256": "d65cf6efb76c8de59797bd2ae7e44395e8c47a0f87b6229ef634f885e6cde458"
-        }
-      ],
-      "scores": [
-        {
-          "scorer_id": "route-metrics",
-          "type": "objective_command",
-          "value": 3.99,
-          "per_criterion": {
-            "route_length": 339.73,
-            "validity": 5,
-            "reproducibility": 5,
-            "explainability": 4.5
-          },
-          "notes": "Valid but did not improve the current champion.",
-          "raw": {
-            "distance": 339.73,
-            "valid": true,
-            "improvement_pct": 19.85,
-            "route": [
-              0,
-              4,
-              5,
-              3,
-              1,
-              2,
-              10,
-              9,
-              8,
-              11,
-              6,
-              7,
-              0
-            ],
-            "route_names": [
-              "Depot",
-              "Library",
-              "School",
-              "Clinic",
-              "Museum",
-              "Bakery",
-              "Station",
-              "Garden",
-              "Stadium",
-              "Gallery",
-              "Market",
-              "Harbor",
-              "Depot"
-            ],
-            "regression_note": "Valid but did not improve the current champion."
-          }
-        }
-      ],
-      "changed_files": [
-        "run_example.py"
-      ],
-      "lesson": {
-        "trigger": "2-opt should shorten the route by reversing crossed or inefficient segments.",
-        "action": "Use deterministic restarts to check whether the local optimum is robust.",
-        "evidence": "quantitative-search/loop-03-two-opt/route.svg and metrics.json",
-        "confidence": "high"
-      },
-      "decision": "keep_for_synthesis",
-      "stop_reason": null
-    },
-    {
-      "id": "loop-04-multistart-synthesis",
-      "track_id": "synthesis",
-      "parent_id": "loop-03-two-opt",
-      "hypothesis": "Multiple deterministic starts should avoid over-trusting one local optimum.",
-      "commands": {
-        "build": "Select deterministic route-construction or route-improvement variant.",
-        "run": "python run_example.py",
-        "judge": "Read metrics.json; enforce validity gate; compare route_length to champion."
-      },
-      "artifacts": [
-        {
-          "kind": "image",
-          "label": "Route SVG",
-          "path": "synthesis/loop-04-multistart-synthesis/route.svg",
-          "sha256": "22b037cb156116761303f62db7d83e007f1f723f7d7befd60e988259229fb2e6"
-        },
-        {
-          "kind": "data",
-          "label": "Metrics JSON",
-          "path": "synthesis/loop-04-multistart-synthesis/metrics.json",
-          "sha256": "290fe93c3e839f7192533ef9b20bf26e058630322c5720cea9bdf733319324b0"
-        },
-        {
-          "kind": "markdown",
-          "label": "Judge note",
-          "path": "synthesis/loop-04-multistart-synthesis/judge.md",
-          "sha256": "3230d007ed7953cb0bf9b8815ca7fc21e9ad8e6dafaadb30a6bfde20e05b5f90"
-        }
-      ],
-      "scores": [
-        {
-          "scorer_id": "route-metrics",
-          "type": "objective_command",
-          "value": 4.75,
-          "per_criterion": {
-            "route_length": 307.18,
-            "validity": 5,
-            "reproducibility": 5,
-            "explainability": 4.5
-          },
-          "notes": "No regression; objective distance improved.",
-          "raw": {
-            "distance": 307.18,
-            "valid": true,
-            "improvement_pct": 27.53,
-            "route": [
-              0,
-              1,
-              3,
-              4,
-              5,
-              6,
-              11,
-              7,
-              8,
-              9,
-              10,
-              2,
-              0
-            ],
-            "route_names": [
-              "Depot",
-              "Museum",
-              "Clinic",
-              "Library",
-              "School",
-              "Market",
-              "Gallery",
-              "Harbor",
-              "Stadium",
-              "Garden",
-              "Station",
-              "Bakery",
-              "Depot"
-            ],
-            "regression_note": "No regression; objective distance improved.",
-            "starts": 36,
-            "best_start_length": 339.73,
-            "median_final_length": 321.82
-          }
-        }
-      ],
-      "changed_files": [
-        "run_example.py"
-      ],
-      "lesson": {
-        "trigger": "Multiple deterministic starts should avoid over-trusting one local optimum.",
-        "action": "Stop: deterministic restarts did not find a shorter valid route than the current champion.",
-        "evidence": "synthesis/loop-04-multistart-synthesis/route.svg and metrics.json",
-        "confidence": "high"
-      },
-      "decision": "new_best",
-      "stop_reason": "Patience exhausted: no deterministic restart beat 2-opt champion."
-    }
-  ],
-  "best": {
-    "iteration_id": "loop-04-multistart-synthesis",
-    "score": 4.75,
-    "why": "Shortest valid route at 307.18 units."
-  },
-  "rules": [
-    {
-      "trigger": "A primary objective metric exists.",
-      "action": "Use it as a gate before qualitative explanation.",
-      "confidence": "high"
-    }
-  ],
-  "synthesis": "Nearest-neighbor removed obvious waste, 2-opt made the largest objective improvement, and deterministic restarts confirmed the champion rather than replacing it."
-}</script>
+<script type="application/json" id="manifest-data">__MANIFEST_JSON__</script>
 <script>
 (function () {
   "use strict";
@@ -672,7 +238,7 @@ a { color: #1d4ed8; }
       var sc = scoreFor(node.it);
       var label = esc(node.it.id.replace(/^loop-/, ""));
       nodes.push('<g><rect x="' + (node.x - 72) + '" y="' + (node.y - 34) + '" width="144" height="68" rx="12" fill="#fff" stroke="' + color(node.it.decision) + '" stroke-width="3"/>' +
-        '<text x="' + node.x + '" y="' + (node.y - 12) + '" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">' + label + (node.it.id === bestId ? " ★" : "") + "</text>" +
+        '<text x="' + node.x + '" y="' + (node.y - 12) + '" text-anchor="middle" font-size="11.5" font-weight="700" fill="#0f172a">' + label + (node.it.id === bestId ? " \u2605" : "") + "</text>" +
         '<text x="' + node.x + '" y="' + (node.y + 6) + '" text-anchor="middle" font-size="11" fill="#475569">' + esc(node.it.decision) + "</text>" +
         '<text x="' + node.x + '" y="' + (node.y + 23) + '" text-anchor="middle" font-size="11" fill="#475569">' + (sc == null ? "no score" : "score " + sc) + "</text></g>");
     });
@@ -710,9 +276,9 @@ a { color: #1d4ed8; }
         return '<a href="' + esc(a.path) + '">' + esc(a.label) + " (" + esc(a.kind) + ")</a>";
       }).join(" &middot; ");
       var lesson = i.lesson || {};
-      var lessonText = lesson.trigger ? (lesson.trigger + "\nAction: " + (lesson.action || "") + "\nEvidence: " + (lesson.evidence || "") + "\nConfidence: " + (lesson.confidence || "")) : "";
+      var lessonText = lesson.trigger ? (lesson.trigger + "\\nAction: " + (lesson.action || "") + "\\nEvidence: " + (lesson.evidence || "") + "\\nConfidence: " + (lesson.confidence || "")) : "";
       return '<div class="card loop ' + esc(i.decision) + '">' +
-        "<h2>" + esc(i.id) + (i.id === bestId ? " ★" : "") + "</h2>" +
+        "<h2>" + esc(i.id) + (i.id === bestId ? " \u2605" : "") + "</h2>" +
         '<p><span class="pill ' + esc(i.decision) + '">' + esc(i.decision) + '</span><span class="pill">' + esc(i.track_id) + '</span><span class="pill">parent: ' + esc(i.parent_id || "root") + '</span><span class="pill">value ' + esc(scoreFor(i)) + "</span></p>" +
         "<p>" + esc(i.hypothesis) + "</p>" +
         "<table><thead><tr><th>Scorer</th><th>Value</th><th>Notes</th></tr></thead><tbody>" + scoreRows + "</tbody></table>" +
@@ -773,3 +339,68 @@ a { color: #1d4ed8; }
 </script>
 </body>
 </html>
+"""
+
+
+def render_viewer(manifest: dict, diagnostic: str = "") -> str:
+    """Render the viewer HTML for a manifest. Pure and deterministic."""
+    if not isinstance(manifest, dict):
+        manifest = {}
+    title = str(manifest.get("title") or "Experiment viewer")
+    goal = str(manifest.get("goal") or "")
+    data = json.dumps(manifest, indent=2, ensure_ascii=False).replace("</", "<\\/")
+    html_out = (
+        _TEMPLATE
+        .replace("__TITLE__", _escape(title))
+        .replace("__GOAL__", _escape(goal))
+        .replace("__MANIFEST_JSON__", data)
+    )
+    if diagnostic:
+        html_out = html_out.replace("<body>", "<body>\n<!-- diagnostic: " + _escape(diagnostic) + " -->", 1)
+    return html_out
+
+
+def _escape(text: str) -> str:
+    return (
+        text.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;")
+        .replace('"', "&quot;").replace("'", "&#39;")
+    )
+
+
+def main(argv: list[str] | None = None) -> int:
+    ap = argparse.ArgumentParser(description="Render an experiment viewer from a manifest.")
+    ap.add_argument("--data", required=True, help="directory containing manifest.json")
+    ap.add_argument("--out", required=True, help="output viewer.html path")
+    args = ap.parse_args(argv)
+
+    data_dir = Path(args.data)
+    manifest_path = data_dir / "manifest.json"
+    diagnostic = ""
+    manifest: dict = {}
+    if not manifest_path.exists():
+        diagnostic = f"manifest.json not found in {data_dir}"
+        print(diagnostic, file=sys.stderr)
+    else:
+        text = manifest_path.read_text(encoding="utf-8")
+        if not text.strip():
+            diagnostic = "manifest.json is empty"
+            print(diagnostic, file=sys.stderr)
+        else:
+            try:
+                loaded = json.loads(text)
+                manifest = loaded if isinstance(loaded, dict) else {}
+                if not isinstance(loaded, dict):
+                    diagnostic = "manifest.json is not a JSON object"
+                    print(diagnostic, file=sys.stderr)
+            except json.JSONDecodeError as exc:
+                diagnostic = f"manifest.json did not parse: {exc}"
+                print(diagnostic, file=sys.stderr)
+
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    out_path.write_text(render_viewer(manifest, diagnostic), encoding="utf-8", newline="\n")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

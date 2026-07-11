@@ -3,11 +3,15 @@ from __future__ import annotations
 import hashlib
 import html
 import json
+import sys
 from pathlib import Path
 from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT))
+
+import build_viewer  # noqa: E402  (local module, single source of truth for viewer.html)
 
 
 VARIANTS = [
@@ -426,199 +430,6 @@ Detected collisions: {collision_summary}.
     write_text_lf(loop_dir / "judge-aggregate.md", aggregate)
 
 
-def viewer_html(manifest: dict[str, object]) -> str:
-    data = json.dumps(manifest, indent=2).replace("</", "<\\/")
-    template = """<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>__TITLE__</title>
-<style>
-body { font-family: Segoe UI, Arial, sans-serif; margin: 0; background: #f7f7fb; color: #172033; }
-header { background: #0b1020; color: white; padding: 30px 38px; }
-main { padding: 24px 38px 54px; }
-a { color: #0f766e; }
-.summary, .card { background: white; border: 1px solid #dde3ee; border-radius: 16px; padding: 18px; box-shadow: 0 10px 30px rgba(15,23,42,.07); }
-.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin-bottom: 20px; }
-.grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr); gap: 18px; margin: 18px 0; }
-.controls { display: flex; gap: 12px; align-items: center; margin: 18px 0; flex-wrap: wrap; }
-select { padding: 8px 10px; border-radius: 8px; border: 1px solid #b8c2d6; }
-.cards { display: grid; gap: 18px; }
-.artifact-previews { display: grid; gap: 12px; }
-.artifact-preview-title { margin: 0 0 6px; color: #5b6475; font-size: 13px; font-weight: 750; }
-.card img { width: 100%; max-width: 960px; border: 1px solid #dde3ee; border-radius: 14px; background: #fff; }
-.meta { color: #5b6475; font-size: 14px; }
-.prompt-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
-.prompt-box { border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc; padding: 12px; }
-.prompt-box pre { margin: 8px 0 0; background: #fff; }
-.pill { display: inline-block; padding: 4px 9px; border-radius: 999px; background: #ccfbf1; color: #115e59; font-size: 12px; margin-right: 6px; }
-.new_best { background: #dcfce7; color: #166534; }
-.reject, .failed { background: #fee2e2; color: #991b1b; }
-.keep_for_synthesis { background: #fef3c7; color: #92400e; }
-.needs_human_review { background: #ede9fe; color: #5b21b6; }
-pre { white-space: pre-wrap; overflow: auto; background: #f8fafc; padding: 12px; border-radius: 10px; border: 1px solid #e2e8f0; }
-table { border-collapse: collapse; width: 100%; margin-top: 10px; }
-td, th { border-bottom: 1px solid #e2e8f0; padding: 8px; text-align: left; vertical-align: top; }
-summary { cursor: pointer; font-weight: 750; }
-.graph-wrap { overflow-x: auto; border: 1px solid #e2e8f0; border-radius: 12px; background: #f8fafc; }
-#graph { min-width: 1080px; width: 100%; height: 330px; display: block; }
-.timeline { display: grid; gap: 8px; }
-.bar-row { display: grid; grid-template-columns: 230px 1fr 52px; gap: 10px; align-items: center; }
-.bar-track { height: 14px; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
-.bar { height: 100%; border-radius: 999px; background: linear-gradient(90deg, #14b8a6, #f97316); }
-.json-panel { max-height: 520px; }
-@media (max-width: 960px) { .grid { grid-template-columns: 1fr; } }
-</style>
-</head>
-<body>
-<header>
-  <h1>__TITLE__</h1>
-  <p>__GOAL__</p>
-</header>
-<main>
-  <section class="summary">
-    <div><strong>Best</strong><br><span id="best"></span></div>
-    <div><strong>Iterations</strong><br><span id="iterationCount"></span></div>
-    <div><strong>Tracks</strong><br><span id="trackCount"></span></div>
-    <div><strong>Judging</strong><br><span id="scorerSummary"></span></div>
-  </section>
-  <section class="grid">
-    <div class="card">
-      <h2>Experiment graph</h2>
-      <p class="meta">Lineage comes from <code>parent_ids</code>; colors show decisions and the star marks the champion.</p>
-      <div class="graph-wrap"><svg id="graph" role="img" aria-label="Experiment lineage graph"></svg></div>
-    </div>
-    <div class="card">
-      <h2>Score timeline</h2>
-      <div class="timeline" id="timeline"></div>
-    </div>
-  </section>
-  <section class="card">
-    <h2>Scorecard</h2>
-    <table><tbody id="scorecard"></tbody></table>
-  </section>
-  <div class="controls">
-    <label>Decision <select id="decision"><option value="all">all</option></select></label>
-    <label>Track <select id="track"><option value="all">all</option></select></label>
-  </div>
-  <section class="cards" id="cards"></section>
-  <details class="card">
-    <summary>Raw manifest JSON</summary>
-    <pre class="json-panel" id="manifestJson"></pre>
-  </details>
-</main>
-<script>
-const manifest = __MANIFEST_JSON__;
-const bestId = manifest.best && manifest.best.iteration_id;
-const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
-const scoreFor = iteration => {
-  const preferred = (iteration.scores || []).find(score => score.scorer_id === 'design-panel' && typeof score.value === 'number');
-  const numeric = preferred || (iteration.scores || []).find(score => typeof score.value === 'number');
-  return numeric ? numeric.value : null;
-};
-const primaryArtifact = iteration => (iteration.artifacts || []).find(a => a.label === 'Card SVG') || (iteration.artifacts || []).find(a => a.kind === 'image');
-document.getElementById('best').textContent = manifest.best ? `${manifest.best.iteration_id} - score ${manifest.best.score} (${manifest.best.why})` : 'none';
-document.getElementById('iterationCount').textContent = manifest.iterations.length;
-document.getElementById('trackCount').textContent = manifest.tracks.map(t => t.label || t.id).join(', ');
-document.getElementById('scorerSummary').textContent = (manifest.scorers || []).map(s => `${s.id} (${s.type}${s.primary ? ', primary' : ''})`).join('; ') || 'none';
-document.getElementById('manifestJson').textContent = JSON.stringify(manifest, null, 2);
-document.getElementById('scorecard').innerHTML = manifest.scorecard.map(c => `<tr><th>${esc(c.label)}</th><td>weight ${esc(c.weight)}</td><td><code>${esc(c.id)}</code></td></tr>`).join('');
-for (const value of [...new Set(manifest.iterations.map(i => i.decision))]) decision.insertAdjacentHTML('beforeend', `<option value="${esc(value)}">${esc(value)}</option>`);
-for (const value of manifest.tracks.map(t => t.id)) track.insertAdjacentHTML('beforeend', `<option value="${esc(value)}">${esc(value)}</option>`);
-function renderGraph() {
-  const tracks = manifest.tracks.map(t => t.id);
-  const nodeById = new Map();
-  const width = Math.max(1080, manifest.iterations.length * 210 + 160);
-  const height = Math.max(300, tracks.length * 92 + 92);
-  manifest.iterations.forEach((iteration, index) => nodeById.set(iteration.id, { iteration, x: 96 + index * 205, y: 62 + Math.max(0, tracks.indexOf(iteration.track_id)) * 92 }));
-  const color = decision => ({ new_best: '#16a34a', keep_for_synthesis: '#d97706', reject: '#dc2626', failed: '#991b1b', needs_human_review: '#7c3aed' }[decision] || '#2563eb');
-  const lines = [];
-  const nodes = [];
-  for (const node of nodeById.values()) {
-    const parentIds = node.iteration.parent_ids || (node.iteration.parent_id ? [node.iteration.parent_id] : []);
-    for (const parentId of parentIds) {
-      const parent = nodeById.get(parentId);
-      if (parent) lines.push(`<line x1="${parent.x + 72}" y1="${parent.y}" x2="${node.x - 72}" y2="${node.y}" stroke="#64748b" stroke-width="2" marker-end="url(#arrow)"/>`);
-    }
-    const score = scoreFor(node.iteration);
-    nodes.push(`<g>
-      <rect x="${node.x - 74}" y="${node.y - 34}" width="148" height="68" rx="12" fill="#fff" stroke="${color(node.iteration.decision)}" stroke-width="3"/>
-      <text x="${node.x}" y="${node.y - 12}" text-anchor="middle" font-size="12" font-weight="700" fill="#0f172a">${esc(node.iteration.id.replace(/^loop-/, ''))}</text>
-      <text x="${node.x}" y="${node.y + 7}" text-anchor="middle" font-size="11" fill="#5b6475">${esc(node.iteration.track_id)}</text>
-      <text x="${node.x}" y="${node.y + 24}" text-anchor="middle" font-size="11" fill="#5b6475">${score === null ? 'no score' : `score ${score}`}${node.iteration.id === bestId ? ' *' : ''}</text>
-    </g>`);
-  }
-  graph.setAttribute('viewBox', `0 0 ${width} ${height}`);
-  graph.innerHTML = `<defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#64748b"/></marker></defs>${lines.join('')}${nodes.join('')}`;
-}
-function renderTimeline() {
-  const maxScore = Math.max(5, ...manifest.iterations.map(i => scoreFor(i) || 0));
-  timeline.innerHTML = manifest.iterations.map(i => {
-    const score = scoreFor(i) || 0;
-    const width = Math.max(2, Math.round(score / maxScore * 100));
-    return `<div class="bar-row"><div><code>${esc(i.id)}</code></div><div class="bar-track"><div class="bar" style="width:${width}%"></div></div><div>${esc(score)}</div></div>`;
-  }).join('');
-}
-function render() {
-  const d = decision.value;
-  const t = track.value;
-  cards.innerHTML = manifest.iterations
-    .filter(i => (d === 'all' || i.decision === d) && (t === 'all' || i.track_id === t))
-    .map(i => {
-      const art = primaryArtifact(i);
-      const tokens = (i.artifacts || []).find(a => a.label === 'Design tokens');
-      const parents = i.parent_ids && i.parent_ids.length ? i.parent_ids : (i.parent_id ? [i.parent_id] : ['root']);
-      const artifacts = (i.artifacts || []).map(a => `<tr><td>${esc(a.kind)}</td><td>${esc(a.label)}</td><td><a href="${esc(a.path)}">${esc(a.path)}</a></td><td><code>${esc((a.sha256 || '').slice(0, 16))}</code></td></tr>`).join('');
-      const scores = (i.scores || []).map(s => `<tr><td>${esc(s.scorer_id)}</td><td>${esc(s.type)}</td><td>${esc(s.value)}</td><td><pre>${esc(JSON.stringify(s.per_criterion || {}, null, 2))}</pre></td></tr>`).join('');
-      return `<article class="card">
-        <h2>${esc(i.id)} ${i.id === bestId ? '*' : ''}</h2>
-        <p><span class="pill ${esc(i.decision)}">${esc(i.decision)}</span><span class="pill">${esc(i.track_id)}</span><span class="pill">run: ${esc(i.experiment_run || i.track_id)}</span><span class="pill">parents: ${esc(parents.join(', '))}</span></p>
-        <p>${esc(i.hypothesis)}</p>
-        ${art ? `<div class="artifact-previews"><p class="artifact-preview-title">${esc(art.label)}</p><img src="${esc(art.path)}" alt="${esc(art.label)}"></div>` : ''}
-        ${tokens ? `<p class="meta">Tokens: <a href="${esc(tokens.path)}">${esc(tokens.path)}</a></p>` : ''}
-        <h3>Lesson</h3><pre>${esc(i.lesson.trigger)}\nAction: ${esc(i.lesson.action)}\nEvidence: ${esc(i.lesson.evidence)}\nConfidence: ${esc(i.lesson.confidence)}</pre>
-        <details open>
-          <summary>Metadata and provenance</summary>
-          <table><tbody>
-            <tr><th>Build</th><td>${esc(i.commands.build)}</td></tr>
-            <tr><th>Run</th><td>${esc(i.commands.run)}</td></tr>
-            <tr><th>Judge</th><td>${esc(i.commands.judge)}</td></tr>
-            <tr><th>Changed files</th><td>${esc((i.changed_files || []).join(', '))}</td></tr>
-            <tr><th>Stop reason</th><td>${esc(i.stop_reason || '')}</td></tr>
-          </tbody></table>
-          <h4>Prompt and feedback chain</h4>
-          <div class="prompt-grid">
-            <div class="prompt-box"><strong>Prompt sent to generator</strong><pre>${esc((i.prompt || {}).track_prompt || '')}</pre></div>
-            <div class="prompt-box"><strong>Feedback / parent context</strong><pre>${esc((i.prompt || {}).input_feedback || '')}</pre></div>
-            <div class="prompt-box"><strong>Judge feedback</strong><pre>${esc((i.prompt || {}).judge_feedback || '')}</pre></div>
-            <div class="prompt-box"><strong>Next prompt</strong><pre>${esc((i.prompt || {}).next_prompt || '')}</pre></div>
-          </div>
-          <h4>Layout quality gate</h4>
-          <pre>${esc(JSON.stringify(i.layout_quality || {}, null, 2))}</pre>
-          <h4>Artifacts</h4><table><thead><tr><th>Kind</th><th>Label</th><th>Path</th><th>SHA-256</th></tr></thead><tbody>${artifacts}</tbody></table>
-          <h4>Scores</h4><table><thead><tr><th>Scorer</th><th>Type</th><th>Value</th><th>Per criterion</th></tr></thead><tbody>${scores}</tbody></table>
-          <h4>Raw iteration JSON</h4><pre>${esc(JSON.stringify(i, null, 2))}</pre>
-        </details>
-      </article>`;
-    }).join('');
-}
-decision.addEventListener('change', render);
-track.addEventListener('change', render);
-renderGraph();
-renderTimeline();
-render();
-</script>
-</body>
-</html>
-"""
-    return (
-        template.replace("__TITLE__", html.escape(str(manifest["title"])))
-        .replace("__GOAL__", html.escape(str(manifest["goal"])))
-        .replace("__MANIFEST_JSON__", data)
-    )
-
-
 def main() -> None:
     best_score = -1.0
     best_id = ""
@@ -776,7 +587,7 @@ def main() -> None:
         "synthesis": "Run A provided the strongest hierarchy and information clarity. Run B provided a more distinctive visual language. Run C combined the editorial card system with signal ribbons. The first production polish loop looked attractive but failed the new layout-quality gate because process chips overlapped the body copy. The final loop moved those chips into clear whitespace and became the champion.",
     }
     write_text_lf(ROOT / "manifest.json", json.dumps(manifest, indent=2))
-    write_text_lf(ROOT / "viewer.html", viewer_html(manifest))
+    write_text_lf(ROOT / "viewer.html", build_viewer.render_viewer(manifest))
     print(f"Best design: {best_id} at score {best_score}")
 
 
