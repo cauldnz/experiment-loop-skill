@@ -1,0 +1,49 @@
+{
+  "loop_id": "loop-03-merged",
+  "correctness": {
+    "pass": 15,
+    "total": 15,
+    "failed": [],
+    "per_sample": {
+      "simple": true,
+      "trailing_newline": true,
+      "crlf": true,
+      "quoted_comma": true,
+      "quoted_newline": true,
+      "doubled_quote": true,
+      "vendor_multiline": true,
+      "empty_fields": true,
+      "quoted_empty": true,
+      "ragged_short": true,
+      "bom": true,
+      "comment_line": true,
+      "blank_lines": true,
+      "ws_unquoted_trim": true,
+      "ws_quoted_preserve": true
+    }
+  },
+  "robustness": {
+    "pass": 3,
+    "total": 3,
+    "failed": [],
+    "per_case": {
+      "unterminated_quote": true,
+      "text_after_close_quote": true,
+      "bare_quote_in_unquoted": true
+    }
+  },
+  "constraint": {
+    "forbids_import_csv": true,
+    "ok": true
+  },
+  "core_samples_pass": true,
+  "scorecard": {
+    "correctness": 5.0,
+    "robustness": 5.0,
+    "error_clarity": 4.5,
+    "maintainability": 4.5,
+    "constraint_adherence": 5
+  },
+  "value": 4.83,
+  "decision": "new_best"
+}

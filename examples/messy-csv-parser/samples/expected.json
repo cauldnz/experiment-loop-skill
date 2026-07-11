@@ -1,0 +1,133 @@
+{
+  "simple": [
+    [
+      "a",
+      "b",
+      "c"
+    ],
+    [
+      "1",
+      "2",
+      "3"
+    ]
+  ],
+  "trailing_newline": [
+    [
+      "x",
+      "y"
+    ]
+  ],
+  "crlf": [
+    [
+      "a",
+      "b"
+    ],
+    [
+      "1",
+      "2"
+    ]
+  ],
+  "quoted_comma": [
+    [
+      "Smith, John",
+      "42"
+    ]
+  ],
+  "quoted_newline": [
+    [
+      "line one\nline two",
+      "tail"
+    ]
+  ],
+  "doubled_quote": [
+    [
+      "She said \"hi\"",
+      "ok"
+    ]
+  ],
+  "vendor_multiline": [
+    [
+      "sku",
+      "note"
+    ],
+    [
+      "A-1",
+      "ships in 2, maybe 3 days"
+    ],
+    [
+      "B-2",
+      "line1\nline2"
+    ],
+    [
+      "C-3",
+      "says \"ok\""
+    ]
+  ],
+  "empty_fields": [
+    [
+      "a",
+      "",
+      "c"
+    ]
+  ],
+  "quoted_empty": [
+    [
+      "",
+      "x"
+    ]
+  ],
+  "ragged_short": [
+    [
+      "a",
+      "b",
+      "c"
+    ],
+    [
+      "1",
+      "2"
+    ]
+  ],
+  "bom": [
+    [
+      "name",
+      "city"
+    ],
+    [
+      "Ada",
+      "London"
+    ]
+  ],
+  "comment_line": [
+    [
+      "name",
+      "city"
+    ],
+    [
+      "Ada",
+      "London"
+    ]
+  ],
+  "blank_lines": [
+    [
+      "a",
+      "b"
+    ],
+    [
+      "c",
+      "d"
+    ]
+  ],
+  "ws_unquoted_trim": [
+    [
+      "a",
+      "b",
+      "c"
+    ]
+  ],
+  "ws_quoted_preserve": [
+    [
+      "  pad  ",
+      "x"
+    ]
+  ]
+}
