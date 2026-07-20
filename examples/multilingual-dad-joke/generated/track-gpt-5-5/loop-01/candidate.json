@@ -1,0 +1,29 @@
+{
+  "mechanism": "Anthropomorphized echo-as-secret-keeper: an echo is imagined as someone trusted with secrets, but its literal physical nature is to repeat sounds. The reveal uses a universal property rather than homophones or culture-specific wordplay.",
+  "languages": {
+    "en": {
+      "setup": "Why is an echo bad at keeping secrets?",
+      "punchline": "Because it repeats everything.",
+      "combined": "Why is an echo bad at keeping secrets? Because it repeats everything.",
+      "portability_notes": "Relies on the universal behavior of echoes repeating sounds; no English-only pun."
+    },
+    "fr": {
+      "setup": "Pourquoi l’écho garde-t-il mal les secrets ?",
+      "punchline": "Parce qu’il répète tout.",
+      "combined": "Pourquoi l’écho garde-t-il mal les secrets ? Parce qu’il répète tout.",
+      "portability_notes": "Uses natural French phrasing and the same literal repeat mechanism."
+    },
+    "es": {
+      "setup": "¿Por qué el eco guarda tan mal los secretos?",
+      "punchline": "Porque lo repite todo.",
+      "combined": "¿Por qué el eco guarda tan mal los secretos? Porque lo repite todo.",
+      "portability_notes": "Uses standard inverted punctuation and the same echo-repeats-everything reveal."
+    },
+    "ja": {
+      "setup": "どうしてこだまは秘密を守るのが苦手なの？",
+      "punchline": "何でも繰り返してしまうから。",
+      "combined": "どうしてこだまは秘密を守るのが苦手なの？ 何でも繰り返してしまうから。",
+      "portability_notes": "Uses Japanese script and a natural phrasing for being bad at keeping secrets; the joke remains the repeat behavior."
+    }
+  }
+}

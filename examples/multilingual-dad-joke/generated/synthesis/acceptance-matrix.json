@@ -1,0 +1,95 @@
+{
+  "synthesis_track_id": "synthesis",
+  "model_id": "gpt-5.6-sol",
+  "sources_inspected": {
+    "parent_track_loops": [
+      "track-gpt-5-5/loop-01",
+      "track-gpt-5-5/loop-02",
+      "track-gemini-3-1-pro-preview/loop-01",
+      "track-gemini-3-1-pro-preview/loop-02",
+      "track-claude-sonnet-5/loop-01",
+      "track-claude-sonnet-5/loop-02"
+    ],
+    "panel_score_files": [
+      "panel/judge-claude-opus-4-8/scores.json",
+      "panel/judge-gpt-5-6-terra/scores.json",
+      "panel/judge-gemini-3-1-pro-preview/scores.json"
+    ]
+  },
+  "parents": [
+    {
+      "parent_track_id": "track-gpt-5-5",
+      "parent_iteration_id": "track-gpt-5-5-loop-02",
+      "lessons_accepted": [
+        {
+          "lesson": "Prefer a concrete, visually obvious physical property over translated wordplay or an added social metaphor.",
+          "evidence": "Loop 01’s echo was judged portable but mild; loop 02’s self-critique says a physical object failing at an ordinary task is more portable. Panel judges also described shadow and echo as gentle observations.",
+          "how_applied": "Selected adjacent walls physically meeting at a corner, so the comic reveal is visible geometry rather than grammar."
+        },
+        {
+          "lesson": "Use everyday native vocabulary instead of technically correct but register-marked terms.",
+          "evidence": "Loop 01 flagged Japanese こだま as less everyday; loop 02 improved to common 影 and 隠れる.",
+          "how_applied": "Used ordinary wall/corner phrases and separately optimized Spanish rincón and colloquial Japanese 壁が隣の壁に何て言う."
+        }
+      ],
+      "lessons_rejected": [
+        {
+          "lesson": "Carry the shadow/follows-someone candidate into synthesis.",
+          "evidence": "The three blind rankings placed A third, fourth, and third; panel feedback repeatedly called its payoff mild or more riddle-like than groan-inducing.",
+          "why": "It is exceptionally portable, but the majority-preferred wall mechanism has a sharper Q&A reveal and stronger dad-joke groan."
+        }
+      ]
+    },
+    {
+      "parent_track_id": "track-gemini-3-1-pro-preview",
+      "parent_iteration_id": "track-gemini-3-1-pro-preview-loop-02",
+      "lessons_accepted": [
+        {
+          "lesson": "Combine a classic Q&A rhythm with personification grounded in universal geometry.",
+          "evidence": "Loop 01 identified the eyebrow narrative’s weaker interactive rhythm; loop 02 moved to walls/corner. Claude and Terra both ranked C first for its compact classic structure.",
+          "how_applied": "Retained the walls/corner engine but rewrote every language instead of copying the parent text."
+        },
+        {
+          "lesson": "Visual mechanisms deserve serious weight even when they are not Q&A jokes.",
+          "evidence": "Gemini’s blind judge ranked F first and called it a perfect visual dad joke; the other judges also treated F as a strong contender.",
+          "how_applied": "Required the revised wall punchline to remain immediately visual, not merely idiomatic."
+        }
+      ],
+      "lessons_rejected": [
+        {
+          "lesson": "Treat the loop-02 translations as already perfect.",
+          "evidence": "The generator self-scored translation naturalness 5/5, but Claude flagged Spanish esquina versus inner rincón, and Terra flagged stilted Japanese wall counting plus unnecessary quotation marks.",
+          "why": "Independent panel evidence identified concrete seams; synthesis changes Spanish to rincón and rewrites Japanese without numeric counting or quotation marks."
+        },
+        {
+          "lesson": "Replace the wall mechanism with the eyebrow wording unchanged.",
+          "evidence": "Gemini preferred F, but Claude and Terra preferred C; both noted F’s longer narrative, and Terra noted looser pun-like wording in French and Spanish.",
+          "why": "The dissent is preserved, but C offers the better majority-supported balance of brevity and classic groan once its translation seams are repaired."
+        }
+      ]
+    },
+    {
+      "parent_track_id": "track-claude-sonnet-5",
+      "parent_iteration_id": "track-claude-sonnet-5-loop-02",
+      "lessons_accepted": [
+        {
+          "lesson": "Audit the exact idiomatic and grammatical trigger in every target language rather than trusting semantic translation.",
+          "evidence": "Loop 01 exposed avoir faim/tener hambre and the full Japanese hunger clause; loop 02’s durable lesson explicitly requires per-language grammatical auditing.",
+          "how_applied": "Audited corner vocabulary by function: Spanish uses inner-corner rincón, while Japanese uses a colloquial neighbor-wall setup and no copied quote punctuation."
+        }
+      ],
+      "lessons_rejected": [
+        {
+          "lesson": "A shared copular adjective makes the tired/name joke naturally equivalent.",
+          "evidence": "All three panel judges rejected E: Claude called the adjective-as-name forms odd and Japanese a failure; Terra called the replies literal calques; Gemini said the mechanism does not work naturally in Spanish or Japanese.",
+          "why": "Matching surface grammar does not create a native comic license to treat an adjective or predicate as a name."
+        },
+        {
+          "lesson": "Accept the parent’s loop-02 provisional 5/5 naturalness claim.",
+          "evidence": "The blind panel specifically identified “Salut Fatigué,” “Hola Cansado,” and “はじめまして疲れた” as unnatural or calque-like.",
+          "why": "Independent evaluation outweighs generator self-scoring; only the audit discipline, not the candidate, transfers to synthesis."
+        }
+      ]
+    }
+  ]
+}

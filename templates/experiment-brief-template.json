@@ -1,0 +1,155 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "short-stable-id",
+  "title": "Human-readable Experiment title",
+  "revision": 1,
+  "status": "draft",
+  "supersedes_revision": null,
+  "target": {
+    "repository_root": ".",
+    "setup_root": ".experiments/short-stable-id/setup",
+    "generated_root": ".experiments/short-stable-id/generated"
+  },
+  "problem": {
+    "statement": "The problem to solve.",
+    "artifact": "The Artifact the Experiment will improve.",
+    "audience": "The people who will use or judge the result.",
+    "optimization_target": "What the Experiment should maximize or minimize.",
+    "success_definition": "A concise definition of a credible successful result."
+  },
+  "invariants": [
+    {
+      "id": "correctness",
+      "statement": "Behavior covered by the baseline correctness suite must not regress.",
+      "applies_to": "all_candidates",
+      "blocking": true,
+      "verification": {
+        "type": "objective_command",
+        "source": "Existing repository tests",
+        "procedure": "Run the targeted correctness command and require a zero exit code."
+      }
+    }
+  ],
+  "optimization_variables": [
+    {
+      "id": "implementation",
+      "description": "The implementation strategy may change.",
+      "allowed_change": "Change files inside the approved Experiment scope only."
+    }
+  ],
+  "scorecard": [
+    {
+      "id": "quality",
+      "label": "Primary quality score",
+      "direction": "maximize",
+      "primary": true,
+      "weight": 2,
+      "gate": false,
+      "measurement": "Independent rubric score with evidence."
+    },
+    {
+      "id": "correctness",
+      "label": "Correctness gate",
+      "direction": "maximize",
+      "primary": false,
+      "weight": 1,
+      "gate": true,
+      "measurement": "1 when the targeted correctness command passes, otherwise 0."
+    }
+  ],
+  "scorers": [
+    {
+      "id": "correctness-command",
+      "type": "objective_command",
+      "criterion_ids": ["correctness"],
+      "primary": true,
+      "command": "replace-with-existing-targeted-command"
+    },
+    {
+      "id": "independent-panel",
+      "type": "llm_rubric",
+      "criterion_ids": ["quality"],
+      "primary": false,
+      "judge_panel": "quality-panel"
+    }
+  ],
+  "topology": {
+    "mode": "parallel_then_synthesis",
+    "tracks": [
+      {
+        "id": "approach-a",
+        "hypothesis": "A focused first approach will improve the primary criterion.",
+        "model_role": "generator-a",
+        "allowed_change_scope": "Approved Experiment files only."
+      },
+      {
+        "id": "approach-b",
+        "hypothesis": "An independent second approach will expose different tradeoffs.",
+        "model_role": "generator-b",
+        "allowed_change_scope": "Approved Experiment files only."
+      }
+    ],
+    "synthesis_required": true,
+    "synthesis_model_role": "synthesizer",
+    "minimum_loops_per_track": 2
+  },
+  "models": [
+    {
+      "role": "generator-a",
+      "primary_model_id": "replace-with-model-id",
+      "allowed_fallback_model_ids": []
+    },
+    {
+      "role": "generator-b",
+      "primary_model_id": "replace-with-model-id",
+      "allowed_fallback_model_ids": []
+    },
+    {
+      "role": "synthesizer",
+      "primary_model_id": "replace-with-model-id",
+      "allowed_fallback_model_ids": []
+    }
+  ],
+  "evidence": {
+    "baseline": "Run the approved preflight command and retain its result.",
+    "preflight_commands": ["replace-with-safe-existing-command"],
+    "required_artifacts": [
+      "Candidate Artifact",
+      "objective results",
+      "independent judge notes",
+      "prompt and feedback history"
+    ],
+    "viewer_required": true,
+    "navigation_evidence_required": true,
+    "evidence_gate_required": true
+  },
+  "autonomy": {
+    "mode": "interactive",
+    "allowed_paths": [".experiments/short-stable-id/**"],
+    "denied_paths": [".env", "secrets/**", "**/*credential*"],
+    "max_wall_time_minutes": 60,
+    "max_iterations": 8,
+    "stop_conditions": [
+      "Every blocking gate passes and the iteration budget is exhausted or convergence is reached."
+    ],
+    "pause_conditions": [
+      "A required action falls outside the approved path or risk envelope."
+    ],
+    "prohibited_actions": [
+      "Do not expose credentials, bypass security controls, or deploy without approval."
+    ]
+  },
+  "risks": {
+    "external_users": false,
+    "deployment": false,
+    "telemetry": false,
+    "external_services": false,
+    "sensitive_data": false,
+    "controls": {}
+  },
+  "setup_review": {
+    "critic_model_id": "replace-with-independent-model-id",
+    "status": "needs_revision",
+    "unresolved_findings": ["Replace template placeholders with verified values."]
+  }
+}

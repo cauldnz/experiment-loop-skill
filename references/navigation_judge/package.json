@@ -1,0 +1,16 @@
+{
+  "name": "experiment-loop-navigation-judge",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "install-browser": "playwright install chromium",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "playwright": "1.61.1"
+  }
+}

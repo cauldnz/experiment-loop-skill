@@ -1,0 +1,8 @@
+# synthesis demo vendor export -- do not edit by hand
+
+a,b,c
+1,"Doe, John","line one
+line two"
+
+  x  ,"quote ""inside"" text"  ,y
+ragged,row

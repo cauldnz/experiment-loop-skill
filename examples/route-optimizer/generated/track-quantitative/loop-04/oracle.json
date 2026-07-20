@@ -1,0 +1,25 @@
+{
+  "solver": "Held-Karp dynamic programming",
+  "proof_scope": "Exhaustive dynamic programming over all stop subsets and endpoints",
+  "state_count": 24576,
+  "optimal_route": [
+    "Central Depot",
+    "Indigo Pharmacy",
+    "Garnet Hotel",
+    "Amber Bakery",
+    "Elm Market",
+    "Cedar Clinic",
+    "Harbor Cafe",
+    "Juniper Park",
+    "Linden Post",
+    "Dahlia School",
+    "Fossil Museum",
+    "Birch Library",
+    "Kestrel Theater",
+    "Central Depot"
+  ],
+  "optimal_length_km": 37.576644306,
+  "candidate_length_km": 37.576644306,
+  "optimality_gap_km": -0.0,
+  "candidate_is_globally_optimal": true
+}

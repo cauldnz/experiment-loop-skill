@@ -1,0 +1,65 @@
+{
+  "track": "generative",
+  "iterations": [
+    {
+      "id": "generative-01",
+      "lineage": [],
+      "model_id": "gemini-3.1-pro-preview",
+      "artifacts": {
+        "svg": "track-generative/loop-01/card.svg",
+        "tokens": "track-generative/loop-01/tokens.json",
+        "layout_metrics": "track-generative/loop-01/layout-metrics.json",
+        "prompt_chain": "track-generative/loop-01/prompt-chain.json",
+        "self_review": "track-generative/loop-01/self-review.md"
+      },
+      "subjective_score": 2,
+      "objective_gate_scores": {
+        "parse_success": true,
+        "overlap_free": false,
+        "contrast_pass": true
+      },
+      "prompts": {
+        "system": "Build a reusable fictional Loop Lab workshop event-card SVG system.",
+        "user": "Create standalone valid accessible 1200x630 card.svg with required title/date/time/venue/CTA. Visual language: distinctive modular loops / phase-shifted signal paths."
+      },
+      "outcomes": {
+        "objective_pass": false,
+        "changed_files": 5
+      },
+      "lesson": "Phase-shifted signal paths that span the entire canvas can interfere heavily with text readability.",
+      "decision": "keep_for_synthesis",
+      "stop_reason": "Failed overlap check, requires layout iteration."
+    },
+    {
+      "id": "generative-02",
+      "lineage": [
+        "generative-01"
+      ],
+      "model_id": "gemini-3.1-pro-preview",
+      "artifacts": {
+        "svg": "track-generative/loop-02/card.svg",
+        "tokens": "track-generative/loop-02/tokens.json",
+        "layout_metrics": "track-generative/loop-02/layout-metrics.json",
+        "prompt_chain": "track-generative/loop-02/prompt-chain.json",
+        "self_review": "track-generative/loop-02/self-review.md"
+      },
+      "subjective_score": 5,
+      "objective_gate_scores": {
+        "parse_success": true,
+        "overlap_free": true,
+        "contrast_pass": true
+      },
+      "prompts": {
+        "system": "Build a reusable fictional Loop Lab workshop event-card SVG system.",
+        "user": "Shift the visual language elements to the right hemisphere of the card to avoid overlapping with text. Extend the system by adding a 'Track' module/badge."
+      },
+      "outcomes": {
+        "objective_pass": true,
+        "changed_files": 5
+      },
+      "lesson": "Zoning text and visual elements into strict left/right hemispheres prevents overlap and creates a cleaner UI.",
+      "decision": "keep_for_synthesis",
+      "stop_reason": "All checks passed, objective met."
+    }
+  ]
+}

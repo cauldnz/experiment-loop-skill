@@ -1,0 +1,69 @@
+{
+  "scorer_id": "native-script-completeness",
+  "required_languages": [
+    "en",
+    "fr",
+    "es",
+    "ja"
+  ],
+  "candidate_count": 8,
+  "pass": true,
+  "checks": [
+    {
+      "path": "C:/repos/chrisauld_microsoft/ai-strategy/copilot-worktrees/experiment-loop-skill/chrisauld-microsoft-bookish-system/.regeneration-6ydsfscu/multilingual-dad-joke/workspace/generated/synthesis/loop-01/candidate.json",
+      "pass": true,
+      "missing_languages": [],
+      "empty_languages": [],
+      "japanese_script_present": true
+    },
+    {
+      "path": "C:/repos/chrisauld_microsoft/ai-strategy/copilot-worktrees/experiment-loop-skill/chrisauld-microsoft-bookish-system/.regeneration-6ydsfscu/multilingual-dad-joke/workspace/generated/synthesis/loop-02/candidate.json",
+      "pass": true,
+      "missing_languages": [],
+      "empty_languages": [],
+      "japanese_script_present": true
+    },
+    {
+      "path": "C:/repos/chrisauld_microsoft/ai-strategy/copilot-worktrees/experiment-loop-skill/chrisauld-microsoft-bookish-system/.regeneration-6ydsfscu/multilingual-dad-joke/workspace/generated/track-claude-sonnet-5/loop-01/candidate.json",
+      "pass": true,
+      "missing_languages": [],
+      "empty_languages": [],
+      "japanese_script_present": true
+    },
+    {
+      "path": "C:/repos/chrisauld_microsoft/ai-strategy/copilot-worktrees/experiment-loop-skill/chrisauld-microsoft-bookish-system/.regeneration-6ydsfscu/multilingual-dad-joke/workspace/generated/track-claude-sonnet-5/loop-02/candidate.json",
+      "pass": true,
+      "missing_languages": [],
+      "empty_languages": [],
+      "japanese_script_present": true
+    },
+    {
+      "path": "C:/repos/chrisauld_microsoft/ai-strategy/copilot-worktrees/experiment-loop-skill/chrisauld-microsoft-bookish-system/.regeneration-6ydsfscu/multilingual-dad-joke/workspace/generated/track-gemini-3-1-pro-preview/loop-01/candidate.json",
+      "pass": true,
+      "missing_languages": [],
+      "empty_languages": [],
+      "japanese_script_present": true
+    },
+    {
+      "path": "C:/repos/chrisauld_microsoft/ai-strategy/copilot-worktrees/experiment-loop-skill/chrisauld-microsoft-bookish-system/.regeneration-6ydsfscu/multilingual-dad-joke/workspace/generated/track-gemini-3-1-pro-preview/loop-02/candidate.json",
+      "pass": true,
+      "missing_languages": [],
+      "empty_languages": [],
+      "japanese_script_present": true
+    },
+    {
+      "path": "C:/repos/chrisauld_microsoft/ai-strategy/copilot-worktrees/experiment-loop-skill/chrisauld-microsoft-bookish-system/.regeneration-6ydsfscu/multilingual-dad-joke/workspace/generated/track-gpt-5-5/loop-01/candidate.json",
+      "pass": true,
+      "missing_languages": [],
+      "empty_languages": [],
+      "japanese_script_present": true
+    },
+    {
+      "path": "C:/repos/chrisauld_microsoft/ai-strategy/copilot-worktrees/experiment-loop-skill/chrisauld-microsoft-bookish-system/.regeneration-6ydsfscu/multilingual-dad-joke/workspace/generated/track-gpt-5-5/loop-02/candidate.json",
+      "pass": true,
+      "missing_languages": [],
+      "empty_languages": [],
+      "japanese_script_present": true
+    }
+  ]
+}

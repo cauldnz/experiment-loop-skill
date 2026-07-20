@@ -1,0 +1,296 @@
+{
+  "round": "panel-final",
+  "aggregation": "equal-weight mean with first-place votes and dissent preserved",
+  "candidate_key": {
+    "P": "track-gemini-3-1-pro-preview-loop-01",
+    "Q": "synthesis-loop-01",
+    "R": "track-gemini-3-1-pro-preview-loop-02",
+    "S": "synthesis-loop-02"
+  },
+  "judge_models": [
+    {
+      "judge_id": "final-judge-claude-opus-4-8",
+      "model_id": "claude-opus-4.8"
+    },
+    {
+      "judge_id": "final-judge-gpt-5-6-terra",
+      "model_id": "gpt-5.6-terra"
+    },
+    {
+      "judge_id": "final-judge-gemini-3-1-pro-preview",
+      "model_id": "gemini-3.1-pro-preview"
+    }
+  ],
+  "candidates": {
+    "track-gemini-3-1-pro-preview-loop-01": {
+      "blind_label": "P",
+      "scores": {
+        "cross_language_equivalence": 5.0,
+        "dad_joke_groan": 5.0,
+        "brevity": 3.667,
+        "cultural_portability": 5.0,
+        "translation_naturalness": 4.667
+      },
+      "overall_mean": 4.667,
+      "completeness_gate": "pass",
+      "first_place_votes": [
+        "final-judge-claude-opus-4-8",
+        "final-judge-gemini-3-1-pro-preview"
+      ],
+      "judges": [
+        {
+          "judge_id": "final-judge-claude-opus-4-8",
+          "model_id": "claude-opus-4.8",
+          "scores": {
+            "cross_language_equivalence": 5,
+            "dad_joke_groan": 5,
+            "brevity": 4,
+            "cultural_portability": 5,
+            "translation_naturalness": 5
+          },
+          "mean": 4.8,
+          "completeness_gate": "pass",
+          "rationale": "The mechanism is a purely visual gag: raised eyebrows read as a 'surprised' face. Because the humor rides on a universally shared facial expression rather than a language-bound pun, the joke is perfectly equivalent across EN/FR/ES/JA with zero translation drift. All four languages are present with native scripts, each reads idiomatically, and the JA rendering with quoted dialogue is natural. Strong, classic dad-joke groan.",
+          "defects": [
+            "Setup is a full sentence, marginally longer than the wall jokes, so brevity is very good but not maximal.",
+            "Slightly more familiar/well-worn than the wall variants, but this aids the groan rather than harming it."
+          ],
+          "recommendation": "champion"
+        },
+        {
+          "judge_id": "final-judge-gpt-5-6-terra",
+          "model_id": "gpt-5.6-terra",
+          "scores": {
+            "cross_language_equivalence": 5,
+            "dad_joke_groan": 5,
+            "brevity": 3,
+            "cultural_portability": 5,
+            "translation_naturalness": 4
+          },
+          "mean": 4.4,
+          "completeness_gate": "pass",
+          "rationale": "The facial-expression reversal is immediately legible and carries cleanly across all four versions; it is the strongest standalone groaner.",
+          "defects": "The setup is materially longer than the wall jokes, and the French and Spanish formulations are a little more explanatory than the crisp English original.",
+          "recommendation": "Strong runner-up; prefer when joke strength matters more than compactness."
+        },
+        {
+          "judge_id": "final-judge-gemini-3-1-pro-preview",
+          "model_id": "gemini-3.1-pro-preview",
+          "scores": {
+            "cross_language_equivalence": 5,
+            "dad_joke_groan": 5,
+            "brevity": 4,
+            "cultural_portability": 5,
+            "translation_naturalness": 5
+          },
+          "mean": 4.8,
+          "completeness_gate": true,
+          "rationale": "The eyebrows joke is a brilliant visual gag. Surprise (raised eyebrows) is biologically universal, making this joke translate flawlessly without relying on linguistic puns or homophones. It retains the classic dad joke 'groan' in every language.",
+          "defects": "Slightly longer than a pure Q&A format, but justified by the narrative necessity.",
+          "recommendation": "Winner"
+        }
+      ]
+    },
+    "synthesis-loop-01": {
+      "blind_label": "Q",
+      "scores": {
+        "cross_language_equivalence": 4.0,
+        "dad_joke_groan": 4.0,
+        "brevity": 4.0,
+        "cultural_portability": 4.667,
+        "translation_naturalness": 4.0
+      },
+      "overall_mean": 4.133,
+      "completeness_gate": "pass",
+      "first_place_votes": [],
+      "judges": [
+        {
+          "judge_id": "final-judge-claude-opus-4-8",
+          "model_id": "claude-opus-4.8",
+          "scores": {
+            "cross_language_equivalence": 4,
+            "dad_joke_groan": 4,
+            "brevity": 4,
+            "cultural_portability": 4,
+            "translation_naturalness": 4
+          },
+          "mean": 4.2,
+          "completeness_gate": "pass",
+          "rationale": "Essentially equivalent to S in mechanism and quality; uses 'rincón' (correct interior corner) in ES and natural 'au coin' in FR, with a natural JA line. The corner pun works across all four languages and all native scripts are present.",
+          "defects": [
+            "EN setup 'the wall next to it' is slightly wordier than S's 'the other', costing a point on brevity.",
+            "Same 'rincón' vs meeting-connotation tradeoff as S: geometrically right but less idiomatic as a rendezvous phrase."
+          ],
+          "recommendation": "finalist"
+        },
+        {
+          "judge_id": "final-judge-gpt-5-6-terra",
+          "model_id": "gpt-5.6-terra",
+          "scores": {
+            "cross_language_equivalence": 4,
+            "dad_joke_groan": 4,
+            "brevity": 4,
+            "cultural_portability": 5,
+            "translation_naturalness": 4
+          },
+          "mean": 4.2,
+          "completeness_gate": "pass",
+          "rationale": "Explicitly identifying the adjacent wall makes the geometric premise clear and culturally portable in every language.",
+          "defects": "The longer question dilutes its payoff. The Japanese and the Spanish rincón wording leave slightly more room for a room-corner reading than the English.",
+          "recommendation": "Good, but not the most economical wall formulation."
+        },
+        {
+          "judge_id": "final-judge-gemini-3-1-pro-preview",
+          "model_id": "gemini-3.1-pro-preview",
+          "scores": {
+            "cross_language_equivalence": 4,
+            "dad_joke_groan": 4,
+            "brevity": 4,
+            "cultural_portability": 5,
+            "translation_naturalness": 4
+          },
+          "mean": 4.2,
+          "completeness_gate": true,
+          "rationale": "A solid structural approach to the wall joke. However, 'wall next to it' feels slightly overly literal and clunky compared to typical joke setups.",
+          "defects": "Phrasing in English is a bit stiff ('the wall next to it'). Spanish 'rincón' is technically an inside corner, while 'esquina' is often preferred for meetings.",
+          "recommendation": "Runner-up"
+        }
+      ]
+    },
+    "track-gemini-3-1-pro-preview-loop-02": {
+      "blind_label": "R",
+      "scores": {
+        "cross_language_equivalence": 4.0,
+        "dad_joke_groan": 4.333,
+        "brevity": 4.0,
+        "cultural_portability": 4.667,
+        "translation_naturalness": 3.0
+      },
+      "overall_mean": 4.0,
+      "completeness_gate": "pass",
+      "first_place_votes": [],
+      "judges": [
+        {
+          "judge_id": "final-judge-claude-opus-4-8",
+          "model_id": "claude-opus-4.8",
+          "scores": {
+            "cross_language_equivalence": 4,
+            "dad_joke_groan": 4,
+            "brevity": 4,
+            "cultural_portability": 4,
+            "translation_naturalness": 3
+          },
+          "mean": 3.8,
+          "completeness_gate": "pass",
+          "rationale": "Same corner mechanism, and its ES choice 'esquina' actually carries the human 'let's meet at the corner' connotation better than rincón. However the JA setup ('一つの壁がもう一つの壁に何て言った？') is literal and clunky compared with Q/S, dragging down naturalness.",
+          "defects": [
+            "JA phrasing is stilted and wordier than the sibling variants.",
+            "'esquina' improves the meeting connotation but is the exterior/street corner, a slight geometric mismatch with walls meeting.",
+            "Overall the least polished of the three wall variants."
+          ],
+          "recommendation": "eliminate"
+        },
+        {
+          "judge_id": "final-judge-gpt-5-6-terra",
+          "model_id": "gpt-5.6-terra",
+          "scores": {
+            "cross_language_equivalence": 4,
+            "dad_joke_groan": 5,
+            "brevity": 4,
+            "cultural_portability": 5,
+            "translation_naturalness": 3
+          },
+          "mean": 4.2,
+          "completeness_gate": "pass",
+          "rationale": "This is the familiar canonical wall-joke structure, with a dependable mild groan and a universal spatial mechanism.",
+          "defects": "The Japanese setup is noticeably literal and cumbersome; the unspecified ‘other’ wall is less geometrically explicit. Naturalness is therefore uneven.",
+          "recommendation": "Tie on mean with Q, but place below Q on translation polish."
+        },
+        {
+          "judge_id": "final-judge-gemini-3-1-pro-preview",
+          "model_id": "gemini-3.1-pro-preview",
+          "scores": {
+            "cross_language_equivalence": 4,
+            "dad_joke_groan": 4,
+            "brevity": 4,
+            "cultural_portability": 5,
+            "translation_naturalness": 3
+          },
+          "mean": 4.0,
+          "completeness_gate": true,
+          "rationale": "The classic English setup, but the Japanese translation is too literal and stiff ('一つの壁がもう一つの壁に' reads awkwardly like a textbook translation rather than a joke setup).",
+          "defects": "Translation naturalness in Japanese suffers from being too rigidly literal to the English source.",
+          "recommendation": "Bottom half"
+        }
+      ]
+    },
+    "synthesis-loop-02": {
+      "blind_label": "S",
+      "scores": {
+        "cross_language_equivalence": 4.333,
+        "dad_joke_groan": 4.0,
+        "brevity": 5.0,
+        "cultural_portability": 4.667,
+        "translation_naturalness": 4.333
+      },
+      "overall_mean": 4.467,
+      "completeness_gate": "pass",
+      "first_place_votes": [
+        "final-judge-gpt-5-6-terra"
+      ],
+      "judges": [
+        {
+          "judge_id": "final-judge-claude-opus-4-8",
+          "model_id": "claude-opus-4.8",
+          "scores": {
+            "cross_language_equivalence": 4,
+            "dad_joke_groan": 4,
+            "brevity": 5,
+            "cultural_portability": 4,
+            "translation_naturalness": 4
+          },
+          "mean": 4.2,
+          "completeness_gate": "pass",
+          "rationale": "The most compact of the three wall variants. Present-tense phrasing is consistent, the EN setup ('one wall...the other') is canonical, and the JA ('壁が隣の壁に何て言う？／角で会おう！') is tight and natural. The corner pun ports cleanly. ES uses 'rincón', the geometrically correct interior corner where two walls meet.",
+          "defects": [
+            "'rincón' is geometrically accurate but is not the idiomatic Spanish phrase for people arranging to meet ('nos vemos en la esquina'), so the human 'let's meet' double meaning is slightly muted.",
+            "Groan is mild/cute rather than a strong facepalm."
+          ],
+          "recommendation": "finalist"
+        },
+        {
+          "judge_id": "final-judge-gpt-5-6-terra",
+          "model_id": "gpt-5.6-terra",
+          "scores": {
+            "cross_language_equivalence": 5,
+            "dad_joke_groan": 4,
+            "brevity": 5,
+            "cultural_portability": 5,
+            "translation_naturalness": 5
+          },
+          "mean": 4.8,
+          "completeness_gate": "pass",
+          "rationale": "The concise adjacent-wall setup preserves the visual-geometric logic, and each language reads naturally without extra explanation.",
+          "defects": "Its familiar formula earns a gentler groan than P’s more vivid visual reversal; Spanish rincón remains slightly less spatially exact than esquina, though it is idiomatic here.",
+          "recommendation": "Winner: best overall balance of brevity, naturalness, and cross-language fidelity."
+        },
+        {
+          "judge_id": "final-judge-gemini-3-1-pro-preview",
+          "model_id": "gemini-3.1-pro-preview",
+          "scores": {
+            "cross_language_equivalence": 4,
+            "dad_joke_groan": 4,
+            "brevity": 5,
+            "cultural_portability": 5,
+            "translation_naturalness": 4
+          },
+          "mean": 4.4,
+          "completeness_gate": true,
+          "rationale": "The most compact and natural version of the wall joke across the board. The Japanese setup is much more colloquial and appropriate for a riddle/joke.",
+          "defects": "Spanish 'rincón' vs 'esquina' debate remains. The English present tense ('What does one wall say') is slightly less traditional than 'What did'.",
+          "recommendation": "Strong contender"
+        }
+      ]
+    }
+  }
+}

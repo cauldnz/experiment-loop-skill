@@ -1,0 +1,8 @@
+{
+  "iteration": "synthesis-03",
+  "model_id": "gpt-5.6-sol",
+  "track_prompt": "Repair synthesis-02's context drift without changing its validated width-aware layout system. The primary headline is immutable: 'Designing with Feedback Loops'. Keep long-title stress content only in the separately labelled variants fixture.",
+  "input_feedback": "Human review found that synthesis-02 unexpectedly changed the final Champion headline to 'Facilitating Cross-Functional Decision-Making'. The prior prompt requested a three-line stress-test display event but did not distinguish the primary candidate from the stress fixture.",
+  "judge_feedback": "Objective context-fidelity evidence now passes: the primary card uses 'Designing with Feedback Loops', while the long three-line title remains available only in variants.svg. The synthesis-02 metadata, contrast, safe-zone, and routing-module repairs are retained.",
+  "next_prompt": "Independent judges must confirm that restoring canonical copy preserves hierarchy and polish. Future Loops must carry immutable brief fields verbatim and keep stress fixtures secondary."
+}

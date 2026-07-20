@@ -1,0 +1,217 @@
+{
+  "schema_version": "1.1",
+  "track": {
+    "id": "synthesis",
+    "label": "Synthesis (keep winning architecture, selectively incorporate proven helpers)",
+    "hypothesis": "Keeping the independent-judge-selected character-state-machine architecture verbatim, reconciling the strongest compatible objective evidence from both Tracks into one runnable suite, and incorporating only narrowly-proven architecture-neutral helpers from the rejected Track (while explicitly rejecting its scanner-duplicating regex/offset pipeline) yields a champion that is at least as correct as either finalist and clearer in its public error/misuse API, with no forbidden csv import.",
+    "final_decision": "Promote synthesis-loop-02: 97/97 objective tests pass, all blocking core samples pass, forbidden-import scan passes, zero regression vs loop-01."
+  },
+  "model_id": "claude-opus-4.8",
+  "prompt_chain": [
+    "line-regex-loop-02 (rejected parent): line-oriented/regex parser, 38/38 tests, rejected architecture but source of the non-string TypeError guard idea.",
+    "track-state-machine-loop-02 (winning parent): character-state-machine parser, 53/53 tests, selected base by gpt-5.6-terra (4.940 vs 4.745).",
+    "synthesis-loop-01: keep winning architecture; reconcile shared+winning suites locally; incorporate non-string guard; union-test for bugs.",
+    "synthesis-loop-02: from loop-01 evidence, add behavior-safe ParseError.reason and pin the deliberate Unicode-whitespace behavior; add fixtures; promote to final."
+  ],
+  "iterations": [
+    {
+      "id": "synthesis-loop-01",
+      "track_id": "synthesis",
+      "parent_ids": ["line-regex-loop-02", "track-state-machine-loop-02"],
+      "model_id": "claude-opus-4.8",
+      "hypothesis": "Preserving the winning state machine verbatim, committing one runnable union suite (winning 53 + local shared bakeoff 31), and adding only the rejected Track's non-string boundary guard will keep correctness at 5/5 while improving misuse diagnostics, without touching the architecture or importing csv.",
+      "outcome": "87/87 objective tests pass (53 winning-suite verbatim + 31 local shared bakeoff + 3 non-string guard); all 3 blocking core samples pass; forbidden-import scan passes. Union testing found no functional bug but surfaced an under-specified edge (Unicode-whitespace-only lines are data in the winner, ignorable in the rejected Track) that is a deliberate, self-consistent winner choice affecting no hard gate.",
+      "commands": {
+        "build": "Author generated/synthesis/loop-01/parser.py (winning state machine verbatim + non-string parse() guard) and test_parser.py (winning suite verbatim + inlined shared bakeoff cases + guard regression).",
+        "run": "cd generated\\synthesis\\loop-01 && python test_parser.py",
+        "judge": "Self-assessment against the 5-criterion weighted scorecard in judge.md plus a union-testing/review probe and forbidden-import scan; objective tests dominate."
+      },
+      "artifacts": [
+        {
+          "id": "synthesis-loop-01-parser",
+          "kind": "python-source",
+          "role": "primary-output",
+          "label": "loop-01 parser.py",
+          "path": "generated/synthesis/loop-01/parser.py",
+          "sha256": "1cacafd4954f651c1625bd3432a52004f7f71a76689db86caef0bec75ce27539",
+          "presentation": {"mode": "code", "featured": false, "primary": true, "caption": "Winning state machine kept verbatim plus the incorporated non-string boundary guard.", "comparison_key": "parser-snapshot"}
+        },
+        {
+          "id": "synthesis-loop-01-tests",
+          "kind": "python-source",
+          "role": "test-suite",
+          "label": "loop-01 test_parser.py",
+          "path": "generated/synthesis/loop-01/test_parser.py",
+          "sha256": "478286acda2693b21a8eb3d198e6086842fa72dbb5bafd5a53938fc78501d75a",
+          "presentation": {"mode": "code", "featured": false, "primary": false, "caption": "87 tests: winning suite verbatim + local shared bakeoff (24 valid + 7 error) + non-string guard."}
+        },
+        {
+          "id": "synthesis-loop-01-result",
+          "kind": "test-log",
+          "role": "objective-evidence",
+          "label": "loop-01 test-result.txt",
+          "path": "generated/synthesis/loop-01/test-result.txt",
+          "sha256": "fd3d471ec12d28e25381f296214192dd627778d657c0221fa30be1ad002d4212",
+          "presentation": {"mode": "log", "featured": false, "primary": false, "caption": "Full transcript, counts (87/87), forbidden-import scan, and union-testing finding."}
+        }
+      ],
+      "scores": [
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "correctness", "value": 5, "notes": "87/87 objective tests pass incl. all 3 blocking samples and the full local shared suite."},
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "robustness", "value": 5, "notes": "Winning adversarial coverage + shared bakeoff + non-string boundary all committed and green."},
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "error_clarity", "value": 5, "notes": "ParseError reports line/column/row/field; misuse now yields an actionable TypeError."},
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "maintainability", "value": 4, "notes": "Scanner + per-state handlers; not 5 because handlers still mutate shared machine state."},
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "constraint_adherence", "value": 5, "notes": "No csv/pandas/third-party import; named-state character state machine preserved."}
+      ],
+      "prompt": {
+        "track_prompt": "Run the synthesis Track: keep the winning character-state-machine architecture, reconcile the strongest compatible test/API evidence from both Tracks, incorporate only narrowly-proven architecture-compatible helpers, never import csv, preserve the public API and dialect rules. loop-01: establish a fresh synthesis candidate and run the state-machine suite plus a synthesis-local copy of the shared suite. Multi-parent lineage [line-regex-loop-02, track-state-machine-loop-02].",
+        "input_feedback": "Winning base = track-state-machine-loop-02 (53/53, Scanner + per-state handlers, ParseError with line/col/row/field). Rejected = line-regex-loop-02 (38/38, ValueError-based ParseError, offset/regex pipeline, non-string guard). Independent gpt-5.6-terra judge: winner 4.940 vs 4.745, proven_helpers_for_synthesis = [] because the regex offset/record pipeline would duplicate the scanner.",
+        "judge_feedback": "87/87 pass; blocking samples pass; forbidden-import scan pass; weighted 4.85. Accepted exactly one helper (non-string guard, evidence cited); rejected the regex/offset pipeline and the ValueError re-base. Union testing found no functional bug; surfaced a deliberate Unicode-whitespace edge.",
+        "next_prompt": "loop-02: improve only from this loop's real evidence with behavior-safe changes and dedicated regression tests -- expose ParseError.reason and pin the deliberate ASCII-only whitespace behavior; add runnable fixtures; do not manufacture a failure."
+      },
+      "quality_gates": {"core_samples": "pass", "objective_tests": "pass", "forbidden_import_scan": "pass"},
+      "changed_files": [
+        "generated/synthesis/loop-01/parser.py",
+        "generated/synthesis/loop-01/test_parser.py",
+        "generated/synthesis/loop-01/test-result.txt",
+        "generated/synthesis/loop-01/judge.md",
+        "generated/synthesis/loop-01/metadata.json",
+        "generated/synthesis/loop-01/prompt-history.md"
+      ],
+      "lesson": {
+        "trigger": "The independent judge recorded zero architecture-compatible helpers from the rejected Track, yet the rejected Track carried a small, proven, architecture-neutral API idea (non-string guard) not covered by the shared suite.",
+        "action": "Incorporate only the boundary-level guard (with cited evidence) and reject the scanner-duplicating regex/offset pipeline; commit the union of both Tracks' objective evidence locally to prove shared-suite compatibility.",
+        "evidence": "87/87 pass; the non-string guard converts an opaque internal TypeError from slicing None into an actionable 'text must be str'; union testing revealed only an under-specified (not incorrect) Unicode-whitespace edge.",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": null
+    },
+    {
+      "id": "synthesis-loop-02",
+      "track_id": "synthesis",
+      "parent_ids": ["synthesis-loop-01"],
+      "model_id": "claude-opus-4.8",
+      "hypothesis": "Because loop-01 found no functional bug, two measured behavior-safe changes driven by loop-01 evidence -- exposing ParseError.reason and pinning the winner's deliberate ASCII-only whitespace behavior -- will raise API/documentation clarity with zero regression, and runnable fixtures will demonstrate the champion end-to-end.",
+      "outcome": "97/97 objective tests pass (87 inherited + 4 ParseError.reason + 3 Unicode-whitespace pinning + 3 fixture loading). Zero regression: loop-01's unmodified 87-test suite passes against loop-02's parser.py. All blocking core samples pass; forbidden-import scan passes. Message text and existing ParseError attributes are unchanged; the only runtime-visible addition is the .reason attribute.",
+      "commands": {
+        "build": "Copy loop-01 parser/tests to loop-02; add self.reason to ParseError; add TestParseErrorReasonAttribute, TestUnicodeWhitespacePinned, and TestFixtures; author fixtures/sample.csv and two malformed fixtures.",
+        "run": "cd generated\\synthesis\\loop-02 && python test_parser.py",
+        "judge": "Self-assessment in judge.md plus an explicit zero-regression re-run of loop-01's unmodified suite against loop-02's parser.py and a forbidden-import scan."
+      },
+      "artifacts": [
+        {
+          "id": "synthesis-loop-02-parser",
+          "kind": "python-source",
+          "role": "primary-output",
+          "label": "loop-02 parser.py (synthesis champion)",
+          "path": "generated/synthesis/loop-02/parser.py",
+          "sha256": "8e5d76be27af670d91f4dff20120c6e877579c9ddeb0f6e5c3938f2b419d6ece",
+          "presentation": {"mode": "code", "featured": true, "primary": true, "caption": "Synthesis champion: winning state machine + non-string guard + additive ParseError.reason.", "alt_text": "Python source implementing the character-state-machine CSV parser with a Scanner, per-state handlers, and a ParseError exposing reason/line/col/row/field.", "comparison_key": "parser-snapshot"}
+        },
+        {
+          "id": "synthesis-loop-02-tests",
+          "kind": "python-source",
+          "role": "test-suite",
+          "label": "loop-02 test_parser.py",
+          "path": "generated/synthesis/loop-02/test_parser.py",
+          "sha256": "1389192a7aa14a0a6ef88de8e07ea60b15b1713de8cc45e81c5bef048dd160c7",
+          "presentation": {"mode": "code", "featured": false, "primary": false, "caption": "97 tests: 87 inherited union suite + reason + Unicode-whitespace-pinning + fixture tests."}
+        },
+        {
+          "id": "synthesis-loop-02-result",
+          "kind": "test-log",
+          "role": "objective-evidence",
+          "label": "loop-02 test-result.txt",
+          "path": "generated/synthesis/loop-02/test-result.txt",
+          "sha256": "625e7e8ca2115600816143d97001e455501fb67396b55ddf611a777b7ba4ff60",
+          "presentation": {"mode": "log", "featured": true, "primary": false, "caption": "Full transcript, counts (97/97), zero-regression check (87/87), and forbidden-import scan."}
+        },
+        {
+          "id": "synthesis-loop-02-fixture-sample",
+          "kind": "fixture",
+          "role": "sample-input",
+          "label": "loop-02 fixtures/sample.csv",
+          "path": "generated/synthesis/loop-02/fixtures/sample.csv",
+          "sha256": "32ac5b77c6a4dbad6b544e86262d257017f9d629b3167badc31891ea0642960d",
+          "presentation": {"mode": "text", "featured": false, "primary": false, "caption": "Valid messy fixture: comment/blank lines, quoted comma, embedded newline, doubled quote, trimmed padding, ragged row."}
+        },
+        {
+          "id": "synthesis-loop-02-fixture-unterminated",
+          "kind": "fixture",
+          "role": "sample-input",
+          "label": "loop-02 fixtures/malformed_unterminated_quote.csv",
+          "path": "generated/synthesis/loop-02/fixtures/malformed_unterminated_quote.csv",
+          "sha256": "57894c2dd146b765085f7c5f6e6e33a3275b11d87b058b5f4b998b5827923c04",
+          "presentation": {"mode": "text", "featured": false, "primary": false, "caption": "Malformed fixture: unterminated quoted field."}
+        },
+        {
+          "id": "synthesis-loop-02-fixture-quote-in-unquoted",
+          "kind": "fixture",
+          "role": "sample-input",
+          "label": "loop-02 fixtures/malformed_quote_in_unquoted.csv",
+          "path": "generated/synthesis/loop-02/fixtures/malformed_quote_in_unquoted.csv",
+          "sha256": "5b6e436d9a0a0910e2452968ece76a7b2475b6ae5d9ed2ab68b33bff98bd8568",
+          "presentation": {"mode": "text", "featured": false, "primary": false, "caption": "Malformed fixture: quote inside an unquoted field."}
+        },
+        {
+          "id": "synthesis-final-parser",
+          "kind": "python-source",
+          "role": "champion-output",
+          "label": "final/parser.py (promoted champion)",
+          "path": "generated/synthesis/final/parser.py",
+          "sha256": "8e5d76be27af670d91f4dff20120c6e877579c9ddeb0f6e5c3938f2b419d6ece",
+          "presentation": {"mode": "code", "featured": true, "primary": true, "caption": "Champion parser.py copied verbatim from loop-02 into final/ (identical SHA-256).", "alt_text": "Final promoted synthesis CSV parser source, identical to loop-02.", "comparison_key": "parser-snapshot"}
+        },
+        {
+          "id": "synthesis-final-readme",
+          "kind": "markdown",
+          "role": "documentation",
+          "label": "final/README.md",
+          "path": "generated/synthesis/final/README.md",
+          "sha256": "1c6e79c3f61849d3525743b104e329c652b989842ddb87fe0570777f17993f8f",
+          "presentation": {"mode": "markdown", "featured": false, "primary": false, "caption": "API, dialect rules, and run command for the champion."}
+        }
+      ],
+      "scores": [
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "correctness", "value": 5, "notes": "97/97 pass incl. all blocking samples; zero regression vs loop-01."},
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "robustness", "value": 5, "notes": "Under-specified Unicode-whitespace edge pinned; fixtures exercised end-to-end."},
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "error_clarity", "value": 5, "notes": "ParseError.reason adds programmatic access to the cause on top of line/column/row/field."},
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "maintainability", "value": 4, "notes": "Same clean Scanner + per-state design; handlers still mutate shared state (documented future work)."},
+        {"scorer_id": "self-judge-synthesis", "criterion_id": "constraint_adherence", "value": 5, "notes": "No csv/pandas/third-party import; architecture unchanged."}
+      ],
+      "prompt": {
+        "track_prompt": "loop-02: improve only from actual loop-01 evidence (a real gap found by union testing/review, error/API clarity, or maintainability); if no functional bug exists, make a measured, behavior-safe improvement with a dedicated regression test. parent_ids [synthesis-loop-01]. Do not manufacture failures. Include runnable sample fixtures under loop-02/fixtures. Keep the winning architecture; never import csv; preserve the public API and dialect rules.",
+        "input_feedback": "loop-01: 87/87 pass, no functional bug. Evidence: (1) the winner exposes structured line/col/row/field but not the bare cause; (2) union testing surfaced a deliberate, untested Unicode-whitespace edge.",
+        "judge_feedback": "97/97 pass; two behavior-safe improvements with dedicated regression tests (ParseError.reason; Unicode-whitespace pinning). Zero regression proven (87/87). All hard gates green; weighted 4.85. Champion.",
+        "next_prompt": "No loop-03 (plan = two Loops). If maintainability becomes decisive, reshape each _step_* handler into a pure (state, char) -> (new_state, actions) function; otherwise acquire real vendor fixtures to resolve the Unicode-whitespace question against ground truth."
+      },
+      "quality_gates": {"core_samples": "pass", "objective_tests": "pass", "forbidden_import_scan": "pass"},
+      "changed_files": [
+        "generated/synthesis/loop-02/parser.py",
+        "generated/synthesis/loop-02/test_parser.py",
+        "generated/synthesis/loop-02/test-result.txt",
+        "generated/synthesis/loop-02/judge.md",
+        "generated/synthesis/loop-02/metadata.json",
+        "generated/synthesis/loop-02/prompt-history.md",
+        "generated/synthesis/loop-02/fixtures/sample.csv",
+        "generated/synthesis/loop-02/fixtures/malformed_unterminated_quote.csv",
+        "generated/synthesis/loop-02/fixtures/malformed_quote_in_unquoted.csv",
+        "generated/synthesis/final/parser.py",
+        "generated/synthesis/final/test_parser.py",
+        "generated/synthesis/final/test-result.txt",
+        "generated/synthesis/final/README.md",
+        "generated/synthesis/final/fixtures/sample.csv",
+        "generated/synthesis/final/fixtures/malformed_unterminated_quote.csv",
+        "generated/synthesis/final/fixtures/malformed_quote_in_unquoted.csv"
+      ],
+      "lesson": {
+        "trigger": "loop-01 found no functional defect, so an improvement had to be genuinely additive rather than a manufactured bug fix.",
+        "action": "Expose ParseError.reason (message and other attributes unchanged) and commit regression tests pinning the winner's deliberate ASCII-only whitespace behavior, plus runnable fixtures.",
+        "evidence": "97/97 pass and a zero-regression re-run of loop-01's unmodified 87-test suite against loop-02's parser.py confirmed no observable behavior change beyond the new attribute.",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": "Synthesis Track plan called for exactly two Loops; loop-02 delivered two measured, behavior-safe, evidence-driven improvements with zero regression and all hard gates green. Promoted to final/ as the synthesis champion."
+    }
+  ]
+}

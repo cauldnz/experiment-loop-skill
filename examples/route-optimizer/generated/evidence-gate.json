@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "detail": {},
+      "name": "manifest_parse",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "schema_version": "1.1"
+      },
+      "name": "manifest_schema",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "champion": "loop-004",
+        "loops": 4,
+        "tracks": 1
+      },
+      "name": "manifest_semantics",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "checked": 21
+      },
+      "name": "artifact_integrity",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 249509
+      },
+      "name": "viewer_present",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 249509,
+        "sha256": "016c8ba96ec68311b3310a3e65050a8b8060f09ccaa405f6cb8151cab595723a"
+      },
+      "name": "viewer_determinism",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "checks": [
+          "self_contained",
+          "embedded_json",
+          "javascript",
+          "links",
+          "accessibility"
+        ]
+      },
+      "name": "viewer_static",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "browser": {
+          "name": "chromium",
+          "playwright": "1.61.1",
+          "version": "149.0.7827.55"
+        },
+        "viewer_sha256": "016c8ba96ec68311b3310a3e65050a8b8060f09ccaa405f6cb8151cab595723a"
+      },
+      "name": "navigation_evidence",
+      "required": true,
+      "status": "pass"
+    }
+  ],
+  "run_dir": "C:\\repos\\chrisauld_microsoft\\ai-strategy\\copilot-worktrees\\experiment-loop-skill\\chrisauld-microsoft-bookish-system\\.regeneration-93rnb3vm\\route-optimizer\\workspace\\generated",
+  "schema_version": "1.0",
+  "status": "pass"
+}

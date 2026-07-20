@@ -1,0 +1,36 @@
+{
+  "id": "synthesis-loop-01-candidate",
+  "mechanism": "Two adjacent walls are personified as making plans to meet at the corner where they physically join. The groan comes from a literal geometric fact presented as an ordinary rendezvous, not from language-specific wordplay.",
+  "languages": {
+    "en": {
+      "setup": "What did one wall say to the wall next to it?",
+      "punchline": "Let’s meet at the corner!",
+      "combined": "What did one wall say to the wall next to it? Let’s meet at the corner!",
+      "portability_notes": "Makes adjacency explicit and preserves the physical/rendezvous double reading."
+    },
+    "fr": {
+      "setup": "Qu’est-ce qu’un mur a dit au mur d’à côté ?",
+      "punchline": "On se retrouve au coin !",
+      "combined": "Qu’est-ce qu’un mur a dit au mur d’à côté ? On se retrouve au coin !",
+      "portability_notes": "Uses idiomatic conversational French; au coin supports a meeting place and a wall corner."
+    },
+    "es": {
+      "setup": "¿Qué le dijo una pared a la de al lado?",
+      "punchline": "¡Nos vemos en el rincón!",
+      "combined": "¿Qué le dijo una pared a la de al lado? ¡Nos vemos en el rincón!",
+      "portability_notes": "Uses rincón for the inner corner formed by walls, directly repairing the panel-noted esquina seam."
+    },
+    "ja": {
+      "setup": "壁が隣の壁に何て言った？",
+      "punchline": "角で会おう！",
+      "combined": "壁が隣の壁に何て言った？ 角で会おう！",
+      "portability_notes": "Uses 隣の壁 instead of stilted numeric wall counting and removes the parent’s unnecessary quotation marks."
+    }
+  },
+  "revision_from": [
+    "track-gpt-5-5-loop-02",
+    "track-gemini-3-1-pro-preview-loop-02",
+    "track-claude-sonnet-5-loop-02"
+  ],
+  "revision_reason": "Fresh majority-led synthesis: retain Gemini’s universal wall geometry, apply GPT’s concrete-physical lesson and Claude’s per-language idiom audit, change Spanish esquina to inner-corner rincón, and rewrite Japanese without numeric wall counting or quotation marks."
+}

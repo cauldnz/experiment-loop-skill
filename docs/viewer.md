@@ -1,66 +1,72 @@
 # Viewer
 
-The viewer is the handoff artifact for an experiment. It should work by opening `viewer.html` directly from disk and should not need external CDN resources.
+The Viewer is the standalone, offline handoff for every Experiment. Open
+`viewer.html` directly from disk; it has no runtime network dependency.
 
-## Minimum useful viewer
+## Core experience
 
-Include:
+The shared Viewer has three fixed views:
 
-- goal and scorecard;
-- current champion and why it won;
-- experiment graph or lineage view based on `parent_id`;
-- loop timeline;
-- score progression;
-- per-loop artifacts;
-- judge notes;
-- prompt and feedback chain for each iteration: generator prompt, parent or human feedback, judge feedback, and next prompt;
-- command provenance;
-- per-loop metadata/provenance drawers;
-- visual-quality gate output for visual/UX/design artifacts, including overlap, clipping, readability, or broken-layout failures;
-- raw manifest JSON for audit and reuse;
-- filters for track and decision;
-- regression warnings or rejected loops.
+1. **Overview** explains the Problem, shows the Champion and featured Artifact,
+   tells the authored milestone journey, and links every winning reason or
+   caveat to evidence. The exact original Experiment Prompt is directly
+   inspectable.
+2. **Topology** renders Tracks as horizontal swimlanes and each Track's Loops
+   left-to-right, with directed `parent_ids` edges and synthesis convergence.
+   Selecting a Loop centers it and opens a collapsible inspector with the primary
+   Artifact, metrics, gate state, judge feedback, lesson, and full
+   prompt/feedback chain. Pan, pointer-centered zoom, Fit, reset, minimap,
+   maximize, and URL-persisted viewport state support large graphs.
+3. **Compare** shows Experiment-wide metric progression and compares any two
+   Loops, defaulting to the earliest Loop and Champion.
 
-## Interactive viewers
+Raw Manifest and generation fields are advanced evidence. They render as
+structured, searchable UI rather than default JSON dumps.
 
-If the viewer is interactive (tabs, filters, deep-links), it must also:
+## Artifact presentation
 
-- make every interactive control verifiably change the view — no dead controls (e.g. a nav link that only scrolls, or a filter that never re-renders);
-- keep the primary control group keyboard-operable (roving focus, Arrow/Home/End, Enter/Space) with a visible focus ring and `prefers-reduced-motion` respected;
-- address view state that matters via URL hash (e.g. `#tab=panel`) so a specific view is shareable and reproducible;
-- ship a deterministic generator (`<build> --data DIR --out FILE`, timestamps read from the data, no wall-clock, no network) plus a companion smoke test, so the viewer rebuilds byte-identically and degrades gracefully on malformed input;
-- surface auditable validation diagnostics — to stderr and as an embedded HTML comment — when input is missing or malformed, instead of rendering silently.
+Manifest v1.1 declares each Artifact's role, presentation mode, primary and
+featured state, comparison key, caption, and alternative text. The renderer:
 
-Judges then operate the interactive viewer per `docs/judging.md` (navigation-based judging) rather than scoring it from screenshots.
+- path-confines files to the Experiment data directory;
+- verifies declared SHA-256 hashes before embedding;
+- caps each preview at 1 MB and all previews at 8 MB;
+- embeds image/SVG, table, JSON, text, code, log, and explicit
+  `interactive_html` presentations;
+- runs interactive HTML only in a sandboxed iframe without same-origin access;
+- falls back to a visible diagnostic and original-file link.
 
-## Objective viewer gate
+## Interaction contract
 
-Gate the viewer with a small objective check before judging. `scripts/check_viewer.py` is a reference gate:
+Every control is represented by the embedded interaction contract. View state
+uses a composite hash such as `#view=topology&loop=loop-003`. The pinned
+Playwright judge exercises:
+
+- primary navigation and deep links;
+- the graph's single Tab stop, keyboard selection, centered deep links, pan,
+  pointer-centered zoom, Fit/reset, minimap, inspector, and maximize controls;
+- Loop filters and complete All Loops list;
+- Compare selectors;
+- theme selection;
+- evidence disclosures and Manifest search;
+- full-screen Artifact dialogs, focus containment, and focus restoration.
+
+The Viewer respects reduced motion and makes the All Loops list the primary
+Topology representation on narrow screens.
+
+## Required generation and gates
+
+Every Experiment ships `build_viewer.py --data DIR --out FILE`. The adapter uses
+`references.viewer_renderer`; a local `ViewerProfile` may add only curated
+optional panels.
+
+Run Navigation Evidence, then the blocking Evidence Gate:
 
 ```text
-python scripts/check_viewer.py --viewer viewer.html [--json]
-python scripts/check_viewer.py --viewer viewer.html \
-    --build "node build.mjs" --data data/ --degraded fixtures/ --json
+node references/navigation_judge/cli.mjs --viewer <run>/viewer.html --out <run>
+python <experiment-loop-skill>/scripts/run_evidence_gate.py <run>
 ```
 
-Static checks (always): `self_contained` (no CDN/network refs), `embedded_json` (data blocks parse), `js_parse` (every inline script passes `node --check`), `link_integrity` (local links resolve), and `a11y_static` (`<html lang>`, non-empty `<title>`, a landmark/role, and a reduced-motion guard when animation is used). When `--build` is supplied it also checks `determinism` (building twice is byte-identical) and `robustness` (building against a degraded fixture exits cleanly and still parses). Record the gate output as an artifact so the viewer can show why a candidate passed or failed. The gate needs `node` for the JavaScript parse check; otherwise it is Python standard library only.
-
-## Artifact paths
-
-Use relative paths in `manifest.json` so the viewer works after the folder is moved or cloned.
-
-For generated HTML, embed manifest data with a safe JSON serialization method. Avoid string replacement approaches that can corrupt Windows backslashes.
-
-## What to inspect
-
-When reviewing a finished experiment, check:
-
-1. the champion artifact;
-2. loops marked `reject` or `failed`;
-3. the lesson attached to each `new_best`;
-4. dissenting judge comments;
-5. the prompt/feedback chain that caused each loop to change;
-6. visual-quality gate failures for rejected visual artifacts;
-7. whether all referenced artifacts exist.
-
-The examples in this repository each include a generated `viewer.html` so users can inspect a completed run without rerunning it.
+The Evidence Gate validates Manifest v1.1 schema and semantics, Artifact
+integrity and presentation, deterministic Viewer regeneration, static
+HTML/JavaScript/accessibility checks, and fresh passing Navigation Evidence.

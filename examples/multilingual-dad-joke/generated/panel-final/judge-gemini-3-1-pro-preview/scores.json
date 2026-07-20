@@ -1,0 +1,82 @@
+{
+  "judge_id": "final-judge-gemini-3-1-pro-preview",
+  "model_id": "gemini-3.1-pro-preview",
+  "blind": true,
+  "round": "championship",
+  "criteria": [
+    "cross_language_equivalence",
+    "dad_joke_groan",
+    "brevity",
+    "cultural_portability",
+    "translation_naturalness"
+  ],
+  "candidates": [
+    {
+      "label": "P",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 5,
+        "brevity": 4,
+        "cultural_portability": 5,
+        "translation_naturalness": 5
+      },
+      "mean": 4.8,
+      "completeness_gate": true,
+      "rationale": "The eyebrows joke is a brilliant visual gag. Surprise (raised eyebrows) is biologically universal, making this joke translate flawlessly without relying on linguistic puns or homophones. It retains the classic dad joke 'groan' in every language.",
+      "defects": "Slightly longer than a pure Q&A format, but justified by the narrative necessity.",
+      "recommendation": "Winner"
+    },
+    {
+      "label": "Q",
+      "scores": {
+        "cross_language_equivalence": 4,
+        "dad_joke_groan": 4,
+        "brevity": 4,
+        "cultural_portability": 5,
+        "translation_naturalness": 4
+      },
+      "mean": 4.2,
+      "completeness_gate": true,
+      "rationale": "A solid structural approach to the wall joke. However, 'wall next to it' feels slightly overly literal and clunky compared to typical joke setups.",
+      "defects": "Phrasing in English is a bit stiff ('the wall next to it'). Spanish 'rincón' is technically an inside corner, while 'esquina' is often preferred for meetings.",
+      "recommendation": "Runner-up"
+    },
+    {
+      "label": "R",
+      "scores": {
+        "cross_language_equivalence": 4,
+        "dad_joke_groan": 4,
+        "brevity": 4,
+        "cultural_portability": 5,
+        "translation_naturalness": 3
+      },
+      "mean": 4.0,
+      "completeness_gate": true,
+      "rationale": "The classic English setup, but the Japanese translation is too literal and stiff ('一つの壁がもう一つの壁に' reads awkwardly like a textbook translation rather than a joke setup).",
+      "defects": "Translation naturalness in Japanese suffers from being too rigidly literal to the English source.",
+      "recommendation": "Bottom half"
+    },
+    {
+      "label": "S",
+      "scores": {
+        "cross_language_equivalence": 4,
+        "dad_joke_groan": 4,
+        "brevity": 5,
+        "cultural_portability": 5,
+        "translation_naturalness": 4
+      },
+      "mean": 4.4,
+      "completeness_gate": true,
+      "rationale": "The most compact and natural version of the wall joke across the board. The Japanese setup is much more colloquial and appropriate for a riddle/joke.",
+      "defects": "Spanish 'rincón' vs 'esquina' debate remains. The English present tense ('What does one wall say') is slightly less traditional than 'What did'.",
+      "recommendation": "Strong contender"
+    }
+  ],
+  "ranking": [
+    "P",
+    "S",
+    "Q",
+    "R"
+  ],
+  "panel_note": "Candidate P is a masterclass in cross-cultural humor because it relies on a universal human physiological response (raised eyebrows = surprise) rather than a wordplay pun. The wall jokes (Q, R, S) are classic, but translation highlights nuances like inside/outside corners (rincón/esquina) that slightly weaken the uniformity of the punchline."
+}

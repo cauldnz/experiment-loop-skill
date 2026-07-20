@@ -1,0 +1,70 @@
+{
+  "loop_id": "synthesis-loop-02",
+  "track_id": "synthesis",
+  "track_label": "Synthesis (keep winning architecture, selectively incorporate proven helpers)",
+  "model_id": "claude-opus-4.8",
+  "role": "synthesis-generator",
+  "parent_ids": ["synthesis-loop-01"],
+  "date": "2026-07-20",
+  "files": {
+    "parser": "parser.py",
+    "tests": "test_parser.py",
+    "test_result": "test-result.txt",
+    "judge": "judge.md",
+    "fixtures": ["fixtures/sample.csv", "fixtures/malformed_unterminated_quote.csv", "fixtures/malformed_quote_in_unquoted.csv"]
+  },
+  "test_command": "python test_parser.py",
+  "test_counts": {
+    "total": 97,
+    "passed": 97,
+    "failed": 0,
+    "errors": 0,
+    "composition": {
+      "inherited_loop01_union_suite": 87,
+      "parse_error_reason_regression": 4,
+      "unicode_whitespace_pinning": 3,
+      "fixture_loading": 3
+    }
+  },
+  "regression_check_against_loop_01_tests": {
+    "command": "loop-01's unmodified test_parser.py run against loop-02's parser.py in a throwaway subdir",
+    "total": 87,
+    "passed": 87,
+    "failed": 0
+  },
+  "blocking_core_samples": {
+    "embedded_comma": "pass",
+    "embedded_newline": "pass",
+    "doubled_quote_escaping": "pass"
+  },
+  "gates": {
+    "core_samples": "pass",
+    "objective_tests": "pass",
+    "forbidden_import_scan": "pass"
+  },
+  "no_csv_import_verified": true,
+  "improvements_from_loop01_evidence": [
+    {
+      "type": "error_api_clarity",
+      "change": "ParseError now exposes a .reason attribute (bare cause); message text and all other attributes unchanged",
+      "behavior_safe": true,
+      "regression_test": "TestParseErrorReasonAttribute"
+    },
+    {
+      "type": "coverage_documentation_gap",
+      "change": "Committed regression tests pinning the winner's deliberate ASCII-only structural-whitespace behavior for Unicode-whitespace-only lines (surfaced by loop-01 union testing); no behavior change",
+      "behavior_safe": true,
+      "regression_test": "TestUnicodeWhitespacePinned"
+    }
+  ],
+  "scores_0_to_5": {
+    "correctness": 5,
+    "robustness": 5,
+    "error_clarity": 5,
+    "maintainability": 4,
+    "constraint_adherence": 5
+  },
+  "weighted_total": 4.85,
+  "decision": "new_best",
+  "stop_reason": "Synthesis Track plan called for exactly two Loops. loop-02 made two measured, behavior-safe improvements driven by loop-01 evidence (ParseError.reason and pinned Unicode-whitespace behavior) with zero regression and all hard gates green; promoted to final/ as synthesis champion."
+}

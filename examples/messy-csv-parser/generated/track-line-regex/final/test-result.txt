@@ -1,0 +1,50 @@
+COMMAND: python test_parser.py
+
+test_balanced_quote_in_unquoted_field_is_classified (__main__.MalformedInputTests.test_balanced_quote_in_unquoted_field_is_classified) ... ok
+test_bom_away_from_offset_zero (__main__.MalformedInputTests.test_bom_away_from_offset_zero) ... ok
+test_bom_inside_quoted_field (__main__.MalformedInputTests.test_bom_inside_quoted_field) ... ok
+test_bom_on_later_comment_line (__main__.MalformedInputTests.test_bom_on_later_comment_line) ... ok
+test_hash_after_closing_quote_is_not_a_comment (__main__.MalformedInputTests.test_hash_after_closing_quote_is_not_a_comment) ... ok
+test_junk_after_closing_quote_has_precise_location (__main__.MalformedInputTests.test_junk_after_closing_quote_has_precise_location) ... ok
+test_junk_after_closing_quote_with_padding (__main__.MalformedInputTests.test_junk_after_closing_quote_with_padding) ... ok
+test_leading_spaces_before_bom_are_not_offset_zero (__main__.MalformedInputTests.test_leading_spaces_before_bom_are_not_offset_zero) ... ok
+test_multiline_junk_location_uses_physical_source (__main__.MalformedInputTests.test_multiline_junk_location_uses_physical_source) ... ok
+test_multiple_junk_reports_first_offender (__main__.MalformedInputTests.test_multiple_junk_reports_first_offender) ... ok
+test_no_csv_import_in_source (__main__.MalformedInputTests.test_no_csv_import_in_source) ... ok
+test_parse_error_is_public_exception (__main__.MalformedInputTests.test_parse_error_is_public_exception) ... ok
+test_quote_after_unquoted_padding_is_rejected_at_quote (__main__.MalformedInputTests.test_quote_after_unquoted_padding_is_rejected_at_quote) ... ok
+test_quote_in_unquoted_field (__main__.MalformedInputTests.test_quote_in_unquoted_field) ... ok
+test_second_bom_is_rejected (__main__.MalformedInputTests.test_second_bom_is_rejected) ... ok
+test_tab_after_closing_quote_is_allowed (__main__.MalformedInputTests.test_tab_after_closing_quote_is_allowed) ... ok
+test_type_error_for_non_string (__main__.MalformedInputTests.test_type_error_for_non_string) ... ok
+test_unterminated_quote_after_crlf_reports_opening (__main__.MalformedInputTests.test_unterminated_quote_after_crlf_reports_opening) ... ok
+test_unterminated_quote_reports_opening (__main__.MalformedInputTests.test_unterminated_quote_reports_opening) ... ok
+test_bom_comments_and_blank_lines (__main__.ValidInputTests.test_bom_comments_and_blank_lines) ... ok
+test_comment_and_blank_looking_lines_inside_quotes (__main__.ValidInputTests.test_comment_and_blank_looking_lines_inside_quotes) ... ok
+test_comments_only_produce_no_rows (__main__.ValidInputTests.test_comments_only_produce_no_rows) ... ok
+test_cr_only_physical_lines (__main__.ValidInputTests.test_cr_only_physical_lines) ... ok
+test_doubled_quote_core_gate (__main__.ValidInputTests.test_doubled_quote_core_gate) ... ok
+test_embedded_cr_is_normalized (__main__.ValidInputTests.test_embedded_cr_is_normalized) ... ok
+test_embedded_crlf_is_normalized (__main__.ValidInputTests.test_embedded_crlf_is_normalized) ... ok
+test_embedded_lf_core_gate (__main__.ValidInputTests.test_embedded_lf_core_gate) ... ok
+test_empty_fields_and_trailing_comma (__main__.ValidInputTests.test_empty_fields_and_trailing_comma) ... ok
+test_empty_quoted_field_with_padding (__main__.ValidInputTests.test_empty_quoted_field_with_padding) ... ok
+test_fixture_with_comments_and_multiline_field (__main__.ValidInputTests.test_fixture_with_comments_and_multiline_field) ... ok
+test_hash_is_data_after_field_starts (__main__.ValidInputTests.test_hash_is_data_after_field_starts) ... ok
+test_mixed_record_newline_spellings (__main__.ValidInputTests.test_mixed_record_newline_spellings) ... ok
+test_non_ascii_whitespace_blank_and_comment_lines (__main__.ValidInputTests.test_non_ascii_whitespace_blank_and_comment_lines) ... ok
+test_quoted_comma_core_gate (__main__.ValidInputTests.test_quoted_comma_core_gate) ... ok
+test_ragged_rows (__main__.ValidInputTests.test_ragged_rows) ... ok
+test_spaces_around_quoted_token (__main__.ValidInputTests.test_spaces_around_quoted_token) ... ok
+test_trimming_and_quoted_preservation (__main__.ValidInputTests.test_trimming_and_quoted_preservation) ... ok
+test_unicode_data_is_preserved (__main__.ValidInputTests.test_unicode_data_is_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 0.012s
+
+OK
+
+COUNTS: run=38 passed=38 failed=0 errors=0
+CORE_GATES: embedded_comma=pass embedded_newline=pass doubled_quote=pass
+OBJECTIVE_GATE: pass
+FORBIDDEN_IMPORT_SCAN: pass

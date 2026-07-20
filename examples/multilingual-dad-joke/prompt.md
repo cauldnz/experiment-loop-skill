@@ -1,26 +1,20 @@
-# Prompt used for this worked example
-
-```text
 Use the experiment-loop skill.
 
-Goal: Create the perfect wholesome dad joke that works equally well in English, French, Spanish, and Japanese. Prefer a universal comic mechanism that survives translation over English-only wordplay.
+Create the best wholesome dad joke that works naturally in English, French,
+Spanish, and Japanese. Prefer a universal comic mechanism that survives
+translation over English-only wordplay.
 
-Scorecard:
-- cross_language_equivalence: the same joke mechanic survives in all four languages
-- dad_joke_groan: it has the harmless groan/reversal quality of a dad joke
-- brevity: the joke is short enough to tell aloud
-- cultural_portability: it does not depend on one culture's idioms or local references
-- translation_naturalness: each language reads naturally, not like a forced translation
+Score cross-language equivalence, dad-joke groan, brevity, cultural portability,
+and translation naturalness. A blocking objective completeness scorer requires
+all four languages in native script.
 
-Judging mode:
-- Use an objective text-completeness gate for all four languages.
-- Use a multi-model judge panel for qualitative scoring.
-- Preserve dissent rather than flattening it away.
+Run three independent generator Tracks: `gpt-5.5`,
+`gemini-3.1-pro-preview`, and `claude-sonnet-5`. Each Track must produce and
+improve a candidate rather than stopping after one attempt. Judge candidates
+with a blind panel of `claude-opus-4.8`, `gpt-5.6-terra`, and
+`gemini-3.1-pro-preview`, preserving dissent. Use `gpt-5.6-sol` for a synthesis
+Track that explicitly accepts or rejects lessons from all three parents.
 
-Topology:
-- Run A: GPT-style generator candidate.
-- Run B: Gemini-style generator candidate.
-- Run C: Claude-style generator candidate.
-- Run D: synthesis loop that uses the candidates and judge dissent as parents.
-- Produce multilingual joke drafts, candidate JSON, judge notes, a manifest, and a local viewer with graph lineage, metadata/provenance drawers, raw iteration JSON, and raw manifest JSON.
-```
+Produce multilingual drafts, structured candidate Artifacts, judge notes,
+complete prompt/feedback history, and a Manifest v1.1. Record the actual model
+ID for every generator, judge, synthesis role, and Loop.

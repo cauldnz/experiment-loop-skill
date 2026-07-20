@@ -1,0 +1,32 @@
+{
+  "id": "track-claude-sonnet-5-loop-02-candidate",
+  "mechanism": "A child states a feeling using an 'I am [state]' construction. The dad deliberately mishears/reinterprets the feeling-word as if it were the child's given name, and responds with the culture's standard first-introduction greeting, introducing himself as 'Dad'. The comic engine is a universal category-confusion (mistaking a description for an identity), not a sound-based pun, so it is rebuilt natively in each language using that language's own idiomatic 'to be [state]' phrasing and its own self-introduction formula, keeping setup/reveal/effect aligned across all four languages.",
+  "languages": {
+    "en": {
+      "setup": "Dad, I'm tired.",
+      "punchline": "Hi Tired, I'm Dad.",
+      "combined": "Dad, I'm tired. / Hi Tired, I'm Dad.",
+      "portability_notes": "Uses 'to be' + adjective ('I'm tired'), the same grammatical shape used natively by French (être fatigué) and Spanish (estar cansado), so the mock-name substitution lands the same way in all three."
+    },
+    "fr": {
+      "setup": "Papa, je suis fatigué.",
+      "punchline": "Salut Fatigué, moi c'est Papa.",
+      "combined": "Papa, je suis fatigué. / Salut Fatigué, moi c'est Papa.",
+      "portability_notes": "French naturally uses 'être fatigué' (to be tired), matching the English adjective-after-copula shape, so 'Fatigué' substitutes for a name exactly as 'Tired' does in English. 'Moi c'est Papa' is the natural, idiomatic French self-introduction formula (more natural here than a literal 'je suis Papa')."
+    },
+    "es": {
+      "setup": "Papá, estoy cansado.",
+      "punchline": "Hola Cansado, soy Papá.",
+      "combined": "Papá, estoy cansado. / Hola Cansado, soy Papá.",
+      "portability_notes": "Spanish uses 'estar cansado' (to be tired), the same predicate-adjective shape as English and French, so 'Cansado' works as a mock name the same way. 'Hola X, soy Papá' mirrors the natural Spanish self-introduction pattern."
+    },
+    "ja": {
+      "setup": "パパ、疲れたよ。",
+      "punchline": "はじめまして疲れた、パパだよ。",
+      "combined": "パパ、疲れたよ。 / はじめまして疲れた、パパだよ。",
+      "portability_notes": "疲れた (tsukareta, 'got tired'/'I'm tired') is a single predicate word, so it substitutes naturally for a name the same way the adjectives do in the other three languages. はじめまして is the standard phrase used specifically upon a first self-introduction, so treating '疲れた' as the just-introduced name and replying with はじめまして...だよ reproduces the same mock-introduction beat, not a bolted-on clause as in loop 01."
+    }
+  },
+  "revision_from": "track-claude-sonnet-5-loop-01-candidate",
+  "revision_reason": "Replaced anchor feeling-word 'hungry' (avoir faim / tener hambre, a possession+noun construction in French/Spanish) with 'tired' (être fatigué / estar cansado, a to-be+adjective construction in French/Spanish, matching English 'I'm tired'), so the name-mock-introduction mechanism keeps the same grammatical shape and comic beat across all four languages, and reworked the Japanese line to read as a natural exchange rather than a clunky bolted-on clause."
+}

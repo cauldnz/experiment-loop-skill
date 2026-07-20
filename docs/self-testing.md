@@ -25,21 +25,28 @@ tells you to measure anything else: by the quality of the runs it produces.
 3. **Compare induced run quality**, not the diff prose: outcome metric, evidence
    completeness, judging rigor, and governance adherence.
 
-4. **Regression self-test.** Confirm the shipped worked examples still validate
-   after your change:
+4. **Regenerate the examples at a deliberate release checkpoint.** An Example
+   Prompt is maintained source; its `generated/` directory is a disposable
+   snapshot. Batch related skill changes, then manually regenerate every Example
+   once through Copilot CLI:
 
    ```
-   python scripts/skill_selftest.py
+   python scripts/regenerate_examples.py
    ```
 
-   Validate each run's manifest against schema v0.2 with the bundled validator,
-   too. It prefers a real JSON Schema check against
-   `references/manifest-schema-v0.2.json` when `jsonschema` is importable and
-   falls back to stdlib structural checks otherwise:
+   Regeneration stages every run in isolation, records exact skill/prompt/model
+   provenance, runs Navigation Evidence and the Evidence Gate, and promotes the
+   batch only when every example passes. Ordinary pull-request CI intentionally
+   does not regenerate Examples or fail because snapshots are stale. At the
+   release checkpoint, check committed snapshots with:
 
    ```
-   python references/validate_manifest.py <run>/manifest.json
+   python scripts/check_example_freshness.py
+   python scripts/ci_validate_examples.py
    ```
+
+   The manually dispatched `Validate and publish examples (manual)` workflow
+   runs the same release checks and can optionally publish GitHub Pages.
 
 5. **Gate the proposal on evidence.** Attach the benchmark comparison and the
    self-test result to the proposal. A change that does not beat the current skill

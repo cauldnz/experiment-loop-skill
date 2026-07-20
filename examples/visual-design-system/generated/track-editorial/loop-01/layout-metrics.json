@@ -1,0 +1,97 @@
+{
+  "loop": "loop-01",
+  "artifact": "card.svg",
+  "canvas": { "width": 1200, "height": 630, "viewBox": "0 0 1200 630" },
+  "methodology_note": "No headless browser/font-rendering engine was available in this environment, so text bounding boxes are estimated analytically from the declared font metrics rather than measured from rasterized output: width = (avg glyph width factor x font-size x char count) + letter-spacing x (char count - 1), where avg glyph width factor = 0.55 for both the serif and sans stacks used here (a standard approximation for mixed-case Latin text at these weights). Vertical extent uses ascent = 0.8 x font-size above the baseline and a conservative descent = 0.25 x font-size below the baseline for any text containing lowercase letters (applied even when the specific glyphs used may lack descenders, to avoid under-counting), or 0.05 x font-size for all-caps/tabular text. All coordinates below are otherwise exact, since they come directly from the SVG source (rects, lines, and text x/y attributes), not estimates.",
+  "svg_parse": {
+    "status": "valid",
+    "parser": "python xml.etree.ElementTree",
+    "notes": "Well-formed XML, single root <svg>, viewBox present, no external href/@import/script references."
+  },
+  "elements": [
+    { "id": "bg-rect", "type": "rect", "bbox": [0, 0, 1200, 630] },
+    { "id": "frame-rect", "type": "rect-stroke-only", "bbox": [24, 24, 1176, 606] },
+    { "id": "logo-mark", "type": "rect+text", "bbox": [80, 56, 120, 96] },
+    { "id": "kicker-text", "type": "text", "content": "LOOP LAB WORKSHOP SERIES", "bbox": [136, 67.6, 431.1, 82.9] },
+    { "id": "edition-tag", "type": "text", "content": "EDITION 014", "bbox": [1013.2, 69.2, 1120, 82.8] },
+    { "id": "header-rule", "type": "line", "bbox": [80, 111.25, 1120, 112.75] },
+    { "id": "title-line-1", "type": "text", "content": "Systems Thinking", "bbox": [80, 170.8, 643.2, 238] },
+    { "id": "title-line-2", "type": "text", "content": "for Product Teams", "bbox": [80, 246.8, 678.4, 314] },
+    { "id": "title-rule", "type": "line", "bbox": [80, 339.25, 1120, 340.75] },
+    { "id": "label-date", "type": "text", "content": "DATE", "bbox": [80, 367.2, 121.2, 380.8] },
+    { "id": "label-time", "type": "text", "content": "TIME", "bbox": [440, 367.2, 481.2, 380.8] },
+    { "id": "label-venue", "type": "text", "content": "VENUE", "bbox": [800, 367.2, 852, 380.8] },
+    { "id": "divider-1", "type": "line", "bbox": [419.25, 364, 420.75, 440] },
+    { "id": "divider-2", "type": "line", "bbox": [779.25, 364, 780.75, 440] },
+    { "id": "value-date", "type": "text", "content": "Oct 14, 2026", "bbox": [80, 404, 278, 435.5] },
+    { "id": "value-time", "type": "text", "content": "9:30\u201311:30 AM", "bbox": [440, 404, 654.5, 435.5] },
+    { "id": "value-venue", "type": "text", "content": "The Loft, Bldg 4", "bbox": [800, 404, 1064, 435.5] },
+    { "id": "bottom-rule", "type": "line", "bbox": [80, 479.25, 1120, 480.75] },
+    { "id": "microcopy", "type": "text", "content": "Only 40 seats \u00b7 loop-lab.dev/systems", "bbox": [80, 517.2, 396.8, 534] },
+    { "id": "cta-button", "type": "rect", "bbox": [860, 500, 1120, 564] },
+    { "id": "cta-text", "type": "text", "content": "REGISTER NOW \u2192", "bbox": [895.55, 522.4, 1084.45, 541.1] },
+    { "id": "brand-rhythm-mark", "type": "3x rect", "bbox": [576, 582, 624, 588] }
+  ],
+  "overlap_checks": [
+    { "pair": ["logo-mark", "kicker-text"], "gap_px": 16, "overlap": false },
+    { "pair": ["kicker-text", "edition-tag"], "gap_px": 582.1, "overlap": false },
+    { "pair": ["logo-mark", "header-rule"], "gap_px": 15.25, "overlap": false },
+    { "pair": ["kicker-text", "header-rule"], "gap_px": 28.35, "overlap": false },
+    { "pair": ["header-rule", "title-line-1"], "gap_px": 58.05, "overlap": false },
+    { "pair": ["title-line-1", "title-line-2"], "gap_px": 8.8, "overlap": false },
+    { "pair": ["title-line-2", "title-rule"], "gap_px": 25.25, "overlap": false },
+    { "pair": ["title-rule", "label-date"], "gap_px": 26.45, "overlap": false },
+    { "pair": ["label-date", "value-date"], "gap_px": 23.2, "overlap": false },
+    { "pair": ["value-date", "divider-1"], "gap_px": 141.25, "overlap": false },
+    { "pair": ["value-time", "divider-1"], "gap_px": 19.25, "overlap": false },
+    { "pair": ["value-time", "divider-2"], "gap_px": 125.25, "overlap": false },
+    { "pair": ["value-venue", "divider-2"], "gap_px": 19.25, "overlap": false },
+    { "pair": ["value-venue", "value-time"], "gap_px": 145.5, "overlap": false },
+    { "pair": ["value-date", "bottom-rule"], "gap_px": 43.75, "overlap": false },
+    { "pair": ["bottom-rule", "microcopy"], "gap_px": 36.45, "overlap": false },
+    { "pair": ["bottom-rule", "cta-button"], "gap_px": 19.25, "overlap": false },
+    { "pair": ["microcopy", "cta-button"], "gap_px": 463.2, "overlap": false, "note": "microcopy occupies bottom-left (x 80-396.8), CTA occupies bottom-right (x 860-1120); horizontally disjoint" },
+    { "pair": ["cta-button", "cta-text"], "overlap": "contained", "note": "cta-text bbox [895.55,522.4,1084.45,541.1] is fully inside cta-button bbox [860,500,1120,564] with >=22px padding on every side" },
+    { "pair": ["cta-button", "brand-rhythm-mark"], "gap_px": 0, "overlap": false, "note": "disjoint on both axes: mark is at y 582-588 (below cta-button bottom 564) and x 576-624 (left of cta-button left edge 860)" }
+  ],
+  "overlap_summary": { "any_overlap_detected": false, "pairs_checked": 19 },
+  "clipping_checks": [
+    { "id": "frame-rect", "within_canvas": true },
+    { "id": "cta-button", "within_canvas": true, "note": "right edge at x=1120, 80px inside canvas right edge (1200) and 56px inside frame right edge (1176)" },
+    { "id": "title-line-2", "within_canvas": true, "note": "widest text element, right edge at x=678.4, well inside content right margin (1120) and canvas (1200)" },
+    { "id": "brand-rhythm-mark", "within_canvas": true, "note": "bottom edge at y=588, inside frame bottom (606) and canvas (630)" },
+    { "id": "all_text_elements", "within_canvas": true, "note": "maximum computed text right-edge across all rows is 1084.45 (cta-text); minimum left-edge is 80 (content margin); no bbox exceeds [0,1200] horizontally or [0,630] vertically" }
+  ],
+  "clipping_summary": { "any_clipping_detected": false },
+  "contrast_checks": [
+    { "pair": "ink (#1B1F33) text on paper (#F8F4EC)", "ratio": 14.83, "wcag_aa_normal_required": 4.5, "pass": true, "used_by": ["title-line-1", "title-line-2", "value-date", "value-time", "value-venue"] },
+    { "pair": "ink.muted (#A39C8C) text on paper (#F8F4EC)", "ratio": 2.49, "wcag_aa_normal_required": 4.5, "wcag_aa_large_required": 3.0, "pass": false, "used_by": ["label-date", "label-time", "label-venue", "edition-tag", "microcopy"], "defect": "ink.muted token is far below both the normal-text (4.5:1) and large-text (3:1) AA thresholds; text is legible only under high ambient contrast and fails accessibility gate." },
+    { "pair": "accent (#B5432E) text on paper (#F8F4EC)", "ratio": 5.03, "wcag_aa_normal_required": 4.5, "pass": true, "used_by": ["kicker-text"] },
+    { "pair": "on-ink (#FFFFFF) text on ink (#1B1F33) fill", "ratio": 16.27, "wcag_aa_normal_required": 4.5, "pass": true, "used_by": ["cta-text"] }
+  ],
+  "contrast_summary": { "all_pass": false, "failing_pairs": 1, "failing_text_nodes": 5 },
+  "required_content_checks": {
+    "title": { "present": true, "text": "Systems Thinking / for Product Teams" },
+    "date": { "present": true, "text": "Oct 14, 2026" },
+    "time": { "present": true, "text": "9:30\u201311:30 AM" },
+    "venue": { "present": true, "text": "The Loft, Bldg 4" },
+    "cta": { "present": true, "text": "REGISTER NOW \u2192" },
+    "all_required_present": true
+  },
+  "minimum_font_size_px": 16,
+  "minimum_font_size_pass": true,
+  "unreadable_text_check": {
+    "status": "conditional_fail",
+    "note": "No text is clipped, rotated, or overset. However, the 5 text nodes rendered in ink.muted are effectively unreadable in normal viewing conditions due to the contrast failure above; readability is coupled to the contrast defect rather than a separate geometric issue."
+  },
+  "overall_gates": {
+    "svg_parses": "pass",
+    "no_overlap": "pass",
+    "no_clipping": "pass",
+    "readable_text": "fail",
+    "accessible_contrast": "fail",
+    "required_content_present": "pass"
+  },
+  "overall_pass": false,
+  "overall_summary": "Loop-01 establishes a coherent editorial grid with no geometric defects (no overlap, no clipping, all required content present, minimum font size 16px), but the ink.muted caption/label color fails WCAG AA contrast against the paper background (2.49:1 vs. 4.5:1 required), affecting 5 text nodes: the three metadata labels, the edition tag, and the microcopy line. This is the single objective defect carried into loop-02."
+}

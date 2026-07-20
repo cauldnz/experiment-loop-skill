@@ -1,0 +1,432 @@
+{
+  "schema_version": "1.1",
+  "fragment_type": "manifest-v1.1-track-fragment",
+  "note": "Synthesis-track fragment only. Iteration objects conform to Manifest v1.1; document-level experiment, scorer, champion, and story fields remain the parent orchestrator's merge responsibility.",
+  "track": {
+    "id": "track-synthesis",
+    "label": "Synthesis",
+    "hypothesis": "Editorial-02's hierarchy, explicit metadata, accessibility discipline, and variant-ready system can govern generative-02's distinctive modular routing language; measured protected zones and contrast-safe actions can preserve both clarity and brand character.",
+    "final_decision": "needs_human_review"
+  },
+  "model_provenance": {
+    "role": "synthesis-generator",
+    "model_id": "gpt-5.6-sol",
+    "iterations": ["synthesis-01", "synthesis-02"]
+  },
+  "panel_evidence_preserved": {
+    "sources": [
+      "judges/opus/parents/summary.json",
+      "judges/gemini/parents/summary.json",
+      "judges/terra/parents/summary.json",
+      "judges/opus/parents/editorial-02.md",
+      "judges/opus/parents/generative-02.md",
+      "judges/gemini/parents/editorial-02.md",
+      "judges/gemini/parents/generative-02.md",
+      "judges/terra/parents/editorial-02.md",
+      "judges/terra/parents/generative-02.md"
+    ],
+    "dissent": "Gemini preferred generative-02 for memorable, digitally native brand impact; Opus and Terra preferred editorial-02 on whole-brief hierarchy, clarity, objective rigor, and proven variant behavior. Synthesis assigns brand expression to the routing module and information behavior to the editorial system rather than erasing either view."
+  },
+  "iterations": [
+    {
+      "id": "synthesis-01",
+      "track_id": "track-synthesis",
+      "parent_ids": ["editorial-02", "generative-02"],
+      "model_id": "gpt-5.6-sol",
+      "hypothesis": "A protected two-zone composition can combine editorial-02's title-first typography, explicit metadata, and production token model with generative-02's modular loop/routing panel while repairing the parent's CTA contrast and title/panel boundary defects.",
+      "outcome": "Produced a standalone display card and a three-variant compact system sheet. Parent defects were repaired: white CTA text on #173B57 measures 11.67:1, and the rendered title retains 68.738px to the panel versus the parent's approximately 24px intrusion. A real Inkscape render then exposed a new compact-system defect: 'HUB A + WEB' extended 3.358px beyond its card, so the no-clipping/layout-containment gate failed and the weakness was handed to synthesis-02.",
+      "commands": {
+        "build": "Author generated/track-synthesis/loop-01/card.svg and variants.svg; define production color, typography, spacing, radii, layout, state, constraint, and event-variant tokens in tokens.json.",
+        "run": "Parse SVG/XML and JSON with Python; render both SVGs at 1200x630 with Inkscape; inspect card-preview.png and variants-preview.png; measure hybridVenueValue with Inkscape --query-id; recompute WCAG contrast from raw hex.",
+        "judge": "Provisional evidence-led self-observation against the shared scorecard and objective gates, preserving Opus/Gemini/Terra parent dissent; no independent synthesis panel was run."
+      },
+      "artifacts": [
+        {
+          "id": "synthesis-01-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Synthesis 01 display event card",
+          "path": "track-synthesis/loop-01/card.svg",
+          "sha256": "539b890672dd824a8ae19952f59fd2741ee04c2089bbd0ef16571a7ed3bd6773",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "Editorial hierarchy with a protected modular routing panel; both independently detected generative parent defects repaired.",
+            "alt_text": "Cream Loop Lab event card for Designing with Feedback Loops, with a large navy serif title and explicit event details on the left, a dark modular loop-routing illustration on the right, and a dark blue Register Now button.",
+            "comparison_key": "synthesis-card"
+          }
+        },
+        {
+          "id": "synthesis-01-variants",
+          "kind": "svg",
+          "role": "variant-system-sheet",
+          "label": "Synthesis 01 three-variant system sheet",
+          "path": "track-synthesis/loop-01/variants.svg",
+          "sha256": "2d4d841934ed6a452286231c1f11e86995e06e24fa4244cc739e7e03b3b10e38",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": false,
+            "caption": "Three compact event variants sharing tokens and components; the hybrid venue visibly oversets its card and becomes Loop 02's repair target.",
+            "alt_text": "System sheet with in-person, hybrid, and virtual Loop Lab cards. Each uses editorial titles, explicit metadata, dark routing diagrams, and register buttons; the hybrid venue text extends beyond its card.",
+            "comparison_key": "synthesis-variants"
+          }
+        },
+        {
+          "id": "synthesis-01-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "Synthesis 01 production design tokens",
+          "path": "track-synthesis/loop-01/tokens.json",
+          "sha256": "70aede5b9a1bd0b852cdd056c71e85653e3c0d638f70e69af283b9548a449d6d",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Color, typography, spacing, radii, layouts, component states, content constraints, and three event variants."
+          }
+        },
+        {
+          "id": "synthesis-01-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "Synthesis 01 objective layout evidence",
+          "path": "track-synthesis/loop-01/layout-metrics.json",
+          "sha256": "67e81e4d7acab718b299b03a950964d2c21a25aab3e95cdb207e8f996717a7d1",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Major bounding boxes, contrast computations, parent repairs, safe-zone measurements, parse/content/accessibility checks, and the observed overset failure."
+          }
+        },
+        {
+          "id": "synthesis-01-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "Synthesis 01 prompt and feedback chain",
+          "path": "track-synthesis/loop-01/prompt-chain.json",
+          "sha256": "751f87b916c58cf1316d8d2fd8db2819dd5b031f75f28b0d66e232bae375ff83",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Complete synthesis prompt, parent-panel input, rendered observation, and Loop 02 repair prompt."
+          }
+        },
+        {
+          "id": "synthesis-01-notes",
+          "kind": "markdown",
+          "role": "synthesis-notes",
+          "label": "Synthesis 01 evidence decisions",
+          "path": "track-synthesis/loop-01/synthesis-notes.md",
+          "sha256": "1591e33b5861d8ef4003994226501ea0236ce078caf7f13a871112aad64925aa",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Accepted/rejected parent learnings, panel dissent, strengths, measured defect, and next hypothesis."
+          }
+        },
+        {
+          "id": "synthesis-01-card-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "Synthesis 01 rendered card",
+          "path": "track-synthesis/loop-01/card-preview.png",
+          "sha256": "47243868e092e64363bd5820d18b35303f178e60c8f4ca1bc2c14c97a1dea347",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape render at 1200x630 used for visual observation."
+          },
+          "dimensions": {"width": 1200, "height": 630}
+        },
+        {
+          "id": "synthesis-01-variants-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "Synthesis 01 rendered variants",
+          "path": "track-synthesis/loop-01/variants-preview.png",
+          "sha256": "c7749b2e213d2493431d66ab20d562dcc604d8efb818c31824700e751b8fe7ed",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape render that exposed the compact hybrid venue overset."
+          },
+          "dimensions": {"width": 1200, "height": 630}
+        }
+      ],
+      "scores": [
+        {"scorer_id": "provisional-self-review", "criterion_id": "visual_hierarchy", "value": 4.6, "notes": "Title-first editorial reading order is clear and the separate routing panel is subordinate but distinctive."},
+        {"scorer_id": "provisional-self-review", "criterion_id": "brand_distinctiveness", "value": 4.8, "notes": "The modular signal panel preserves the parent panel's strongest brand contribution."},
+        {"scorer_id": "provisional-self-review", "criterion_id": "information_clarity", "value": 4.2, "notes": "Main card is explicit and legible, but the rendered hybrid compact venue escapes its card."},
+        {"scorer_id": "provisional-self-review", "criterion_id": "system_coherence", "value": 4.4, "notes": "Three variants and production tokens are present, but the compact metadata budget is disproven by a real variant."},
+        {"scorer_id": "provisional-self-review", "criterion_id": "production_polish", "value": 3.8, "notes": "Parent defects are repaired, but the compact venue overset is a visible production defect."},
+        {"scorer_id": "objective-gates", "criterion_id": "svg_valid", "value": 1, "notes": "Both SVGs parse, use exact 1200x630 viewBoxes, contain accessible names/descriptions, and have no external assets/scripts."},
+        {"scorer_id": "objective-gates", "criterion_id": "layout_quality", "value": 0, "notes": "Fail: compact hybrid venue right edge x=779.358 exceeds card edge x=776 by 3.358px."}
+      ],
+      "provisional_subjective_scores": {
+        "status": "generator_provisional_only",
+        "visual_hierarchy": 4.6,
+        "brand_distinctiveness": 4.8,
+        "information_clarity": 4.2,
+        "system_coherence": 4.4,
+        "production_polish": 3.8
+      },
+      "objective_gate_scores": {
+        "svg_valid": 1,
+        "layout_quality": 0,
+        "parent_cta_contrast_repair": 1,
+        "parent_title_safe_zone_repair": 1
+      },
+      "prompt": {
+        "track_prompt": "Synthesize editorial-02 and generative-02 into a polished reusable Loop Lab SVG event-card system. Preserve editorial hierarchy, typography, grid discipline, accessibility, and real variant tokens; preserve generative modular loop/signal-path distinctiveness. Repair the independently detected CTA contrast and title/panel intrusion defects. Produce standalone card.svg, a three-variant system sheet, tokens, objective metrics, and explicit evidence-led synthesis notes.",
+        "input_feedback": "The parent panel split. Opus and Terra ranked editorial-02 first because hierarchy, information clarity, contrast, and variant-ready tokens were more complete; Gemini preferred generative-02 because the modular routing panel was the most memorable and brand-appropriate image. All agreed the generative language was distinctive. Opus independently found two metric defects hidden by the generative self-review: white on #3B82F6 is 3.68:1, not 4.5:1, and the title may extend about 24px into the panel. Editorial-02 also retained fixed badge-width and long-content boundary risks.",
+        "judge_feedback": "Provisional synthesis observation after real Inkscape rendering: Loop 01 combines an editorial title/metadata/CTA reading order with a protected right routing module. Both parent defects are repaired: CTA contrast is 11.67:1 and the rendered title ends at x=691.262 before the panel at x=760, a measured 68.738px safe zone. However, variants-preview.png reveals a new concrete defect: compact variant 02's venue 'HUB A + WEB' escapes the card. Inkscape measures the text bbox right edge at x=779.358, 3.358px beyond the card's outer edge x=776. The no-clipping/layout-containment gate therefore fails. The compact fixed three-column model is not resilient even at its published 11-character venue budget.",
+        "next_prompt": "Keep Loop 01's protected zones, contrast-safe CTA, and signal-path language. Materially repair the observed compact venue overset with width-aware metadata cells that wrap/stack flexible content. Also render a stress-test display event with a three-line title, long venue, and longer delivery label; add explicit title-density tiers and content-driven badge width rules; remeasure every major bbox, contrast pair, and safe zone without reducing hierarchy."
+      },
+      "quality_gates": {
+        "exact_canvas_and_viewbox": "pass",
+        "svg_xml_parse": "pass",
+        "accessible_metadata": "pass",
+        "required_content_present": "pass",
+        "minimum_font_size": "pass",
+        "no_unintended_overlap": "pass",
+        "no_clipping": "fail",
+        "accessible_contrast": "pass",
+        "title_panel_safe_zone": "pass",
+        "three_reusable_variants": "pass"
+      },
+      "gates": {
+        "visual_quality": {"status": "fail", "evidence": "variants-preview.png and Inkscape hybridVenueValue bbox"},
+        "parent_defect_repairs": {"cta_contrast": "pass", "title_panel_separation": "pass"},
+        "independent_subjective_review": "not_run"
+      },
+      "changed_files": [
+        "track-synthesis/loop-01/card.svg",
+        "track-synthesis/loop-01/variants.svg",
+        "track-synthesis/loop-01/tokens.json",
+        "track-synthesis/loop-01/layout-metrics.json",
+        "track-synthesis/loop-01/prompt-chain.json",
+        "track-synthesis/loop-01/synthesis-notes.md",
+        "track-synthesis/loop-01/card-preview.png",
+        "track-synthesis/loop-01/variants-preview.png"
+      ],
+      "lesson": {
+        "trigger": "Rendered compact hybrid venue exceeded its card boundary even though the character-count estimate predicted fit.",
+        "action": "Use rendered text measurement and give flexible venue content a full-width metadata row instead of trusting fixed character budgets.",
+        "evidence": "Inkscape bbox right x=779.358 versus compact card right x=776; variants-preview.png visibly shows the overset.",
+        "confidence": "high"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": "Loop 01 closed after its real render exposed a measurable compact metadata defect; that evidence became synthesis-02's required repair."
+    },
+    {
+      "id": "synthesis-02",
+      "track_id": "track-synthesis",
+      "parent_ids": ["synthesis-01"],
+      "model_id": "gpt-5.6-sol",
+      "hypothesis": "Width-aware metadata rows, named title-density tiers, and content-driven badge widths can repair synthesis-01's measured compact overset and prove long-content resilience without weakening hierarchy, CTA contrast, or the title/module safe zone.",
+      "outcome": "Materially changed both display and compact metadata to pair DATE/TIME and give VENUE a full-width row; added standard/dense title tiers and content-driven badge rules. The longer stress venue ends with 82.761px remaining, versus Loop 01's 3.358px overrun. A three-line title, 'INNOVATION HUB + ONLINE', and 'HYBRID + REMOTE' badge coexist. Actual rendered title-to-panel separation is 111.516px; CTA contrast remains 11.67:1. All objective gates pass; subjective decision remains pending independent review.",
+      "commands": {
+        "build": "Author generated/track-synthesis/loop-02/card.svg and variants.svg from synthesis-01; replace fixed compact metadata columns with paired DATE/TIME plus full-width VENUE; add dense title and content-driven badge tokens.",
+        "run": "Parse all SVG/XML and JSON with Python; render both SVGs at 1200x630 with Inkscape; query title, major groups, and all flexible venue bboxes with Inkscape --query-id; recompute WCAG contrast; verify PNG dimensions with ImageMagick.",
+        "judge": "Provisional evidence-led self-observation against the same scorecard and objective gates; compare the measured Loop 01 overrun to Loop 02 remaining space. Independent panel intentionally not simulated."
+      },
+      "artifacts": [
+        {
+          "id": "synthesis-02-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Synthesis 02 long-content display card",
+          "path": "track-synthesis/loop-02/card.svg",
+          "sha256": "0598a21eaf2f74dd3664f527a4435eea5c1b4e3e9231dbf0ae4d535c79bb8d59",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "Density-aware final synthesis card proving a three-line title, long venue, long badge, protected routing module, and contrast-safe CTA.",
+            "alt_text": "Cream Loop Lab card for Facilitating Cross-Functional Decision-Making. A large three-line navy serif title and adaptive event details sit left; a dark paired-loop routing diagram sits right; a dark blue Register Now button sits below.",
+            "comparison_key": "synthesis-card"
+          }
+        },
+        {
+          "id": "synthesis-02-variants",
+          "kind": "svg",
+          "role": "variant-system-sheet",
+          "label": "Synthesis 02 resilient three-variant system sheet",
+          "path": "track-synthesis/loop-02/variants.svg",
+          "sha256": "aedcaaa48509d9199b289b47c52ffb9885bfb3c53fc8c2141707c830bc1b9c1c",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": false,
+            "caption": "Three density-aware variants with full-width venue rows; all rendered text remains inside component boundaries.",
+            "alt_text": "System sheet with hybrid plus remote, in-person, and virtual Loop Lab cards. The first uses a three-line title and long venue; all three retain clear metadata, routing illustrations, and register buttons without overset.",
+            "comparison_key": "synthesis-variants"
+          }
+        },
+        {
+          "id": "synthesis-02-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "Synthesis 02 production design tokens",
+          "path": "track-synthesis/loop-02/tokens.json",
+          "sha256": "e26b18a902aef081f96aea188cb7617494ff3e3b4ba7a528eb1945447beb7a17",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": true,
+            "primary": false,
+            "caption": "Versioned token model with density tiers, width-aware metadata, content-driven badges, action states, constraints, and three stress-tested variants.",
+            "alt_text": "JSON design tokens for the final Loop Lab system, including colors, typography, spacing, radii, layouts, component states, density tiers, overflow rules, and event variants.",
+            "comparison_key": "synthesis-tokens"
+          }
+        },
+        {
+          "id": "synthesis-02-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "Synthesis 02 objective layout evidence",
+          "path": "track-synthesis/loop-02/layout-metrics.json",
+          "sha256": "3f9e55936fe121970453352b58d55c093738f23ee55997ec56443cadaf1f7d0d",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Rendered major bboxes, all contrast checks, safe zones, repaired parent and Loop 01 defects, required content, and complete passing gate set."
+          }
+        },
+        {
+          "id": "synthesis-02-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "Synthesis 02 prompt and feedback chain",
+          "path": "track-synthesis/loop-02/prompt-chain.json",
+          "sha256": "e796ac4ad091e6af8d91a545c1c55e0cf7dbd5231ad7bab333b3d908750f537d",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Complete Loop 02 input defect, repair prompt, measured outcome, and independent-review next step."
+          }
+        },
+        {
+          "id": "synthesis-02-notes",
+          "kind": "markdown",
+          "role": "synthesis-notes",
+          "label": "Synthesis 02 evidence decisions",
+          "path": "track-synthesis/loop-02/synthesis-notes.md",
+          "sha256": "2dd5a77b9ca01f92f42841aba10c0afb0beca2eb94d7486849ecc2fdd03aaa90",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Retained parent strengths, rejected fixed layouts, preserved dissent, remaining limits, and the localization hypothesis."
+          }
+        },
+        {
+          "id": "synthesis-02-card-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "Synthesis 02 rendered card",
+          "path": "track-synthesis/loop-02/card-preview.png",
+          "sha256": "0414c80c949cad65a8823ce2631ad0fdfd6f002695eded19cc932b89a33632f9",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape render at 1200x630 used for visual observation."
+          },
+          "dimensions": {"width": 1200, "height": 630}
+        },
+        {
+          "id": "synthesis-02-variants-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "Synthesis 02 rendered variants",
+          "path": "track-synthesis/loop-02/variants-preview.png",
+          "sha256": "951cd3fcaa82bae42c86c778f390bc1ad3185092f16a18956ab609867fa7b2cf",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape render proving repaired venue containment across all three variants."
+          },
+          "dimensions": {"width": 1200, "height": 630}
+        }
+      ],
+      "scores": [
+        {"scorer_id": "provisional-self-review", "criterion_id": "visual_hierarchy", "value": 4.7, "notes": "Dense three-line title remains unequivocally first; adaptive metadata and CTA retain clear descending order."},
+        {"scorer_id": "provisional-self-review", "criterion_id": "brand_distinctiveness", "value": 4.8, "notes": "Modular routing language remains prominent and varied without entering live text."},
+        {"scorer_id": "provisional-self-review", "criterion_id": "information_clarity", "value": 4.8, "notes": "Explicit labels and a full-width venue row keep long content readable in display and compact forms."},
+        {"scorer_id": "provisional-self-review", "criterion_id": "system_coherence", "value": 5.0, "notes": "Named density tiers, width selection rules, component states, and three stress-tested variants form a reusable system."},
+        {"scorer_id": "provisional-self-review", "criterion_id": "production_polish", "value": 4.7, "notes": "All objective gates pass with rendered measurements; independent subjective review and localization testing remain outstanding."},
+        {"scorer_id": "objective-gates", "criterion_id": "svg_valid", "value": 1, "notes": "Both standalone SVGs parse, use exact 1200x630 viewBoxes, include accessible names/descriptions, and contain no external assets/scripts."},
+        {"scorer_id": "objective-gates", "criterion_id": "layout_quality", "value": 1, "notes": "All gates pass: rendered containment, non-overlap, contrast, safe zone, required content, font floor, and three variants."}
+      ],
+      "provisional_subjective_scores": {
+        "status": "generator_provisional_only_pending_independent_panel",
+        "visual_hierarchy": 4.7,
+        "brand_distinctiveness": 4.8,
+        "information_clarity": 4.8,
+        "system_coherence": 5.0,
+        "production_polish": 4.7
+      },
+      "objective_gate_scores": {
+        "svg_valid": 1,
+        "layout_quality": 1,
+        "loop_01_overset_repair": 1,
+        "parent_cta_contrast_repair": 1,
+        "parent_title_safe_zone_repair": 1,
+        "long_content_stress_case": 1
+      },
+      "prompt": {
+        "track_prompt": "Improve synthesis-01 without weakening its editorial hierarchy, protected signal-module brand language, contrast-safe CTA, or measured title/panel firewall. React to real rendered evidence, not a hypothetical defect.",
+        "input_feedback": "Inkscape rendering of synthesis-01 exposed compact hybrid venue overset: 'HUB A + WEB' measured [670.505,290.46,779.358,301.285] while its compact card ended at x=776. The fixed three-column compact metadata component failed its own published 11-character budget. Parent evidence also retained fixed badge-width and long-title capacity risks.",
+        "judge_feedback": "Provisional self-observation after Inkscape render and rendered-bbox queries: the metadata repair is material and measurable. The stress venue 'INNOVATION HUB + ONLINE' ends at x=289.239 with 82.761px before the inner card edge; two additional long venues retain 111.94px or more. A real three-line title, long venue, and 'HYBRID + REMOTE' badge coexist without overlap. The actual title right edge is x=640.484, leaving 111.516px to the routing panel, and CTA contrast remains 11.67:1. All objective gates now pass. Subjective promotion remains unavailable until an independent panel inspects the two rendered previews.",
+        "next_prompt": "Independent panel review should compare synthesis-01 and synthesis-02 previews for hierarchy, brand distinctiveness, information clarity, system coherence, and production polish. If another loop were authorized later, test localization and bidirectional text, because current resilience evidence covers English content lengths but not translated expansion or RTL ordering."
+      },
+      "quality_gates": {
+        "exact_canvas_and_viewbox": "pass",
+        "svg_xml_parse": "pass",
+        "accessible_metadata": "pass",
+        "required_content_present": "pass",
+        "minimum_font_size": "pass",
+        "no_unintended_overlap": "pass",
+        "no_clipping_or_component_overset": "pass",
+        "accessible_contrast": "pass",
+        "title_panel_safe_zone": "pass",
+        "three_reusable_variants": "pass",
+        "long_content_stress_case": "pass"
+      },
+      "gates": {
+        "visual_quality": {"status": "pass", "evidence": "card-preview.png, variants-preview.png, and rendered Inkscape bboxes"},
+        "parent_defect_repairs": {"cta_contrast": "pass", "title_panel_separation": "pass"},
+        "loop_01_defect_repair": {"compact_venue_containment": "pass"},
+        "independent_subjective_review": "not_run"
+      },
+      "changed_files": [
+        "track-synthesis/loop-02/card.svg",
+        "track-synthesis/loop-02/variants.svg",
+        "track-synthesis/loop-02/tokens.json",
+        "track-synthesis/loop-02/layout-metrics.json",
+        "track-synthesis/loop-02/prompt-chain.json",
+        "track-synthesis/loop-02/synthesis-notes.md",
+        "track-synthesis/loop-02/card-preview.png",
+        "track-synthesis/loop-02/variants-preview.png"
+      ],
+      "lesson": {
+        "trigger": "A real rendered compact field overflowed despite an estimated character budget.",
+        "action": "Promote flexible content to a measured full-width row and define density/width-selection rules instead of shrinking or substituting the content.",
+        "evidence": "Loop 01 overrun 3.358px; Loop 02 longer stress venue retains 82.761px, with all three venue bboxes inside their inner frames.",
+        "confidence": "high"
+      },
+      "decision": "needs_human_review",
+      "stop_reason": "Exactly two synthesis loops completed; all objective gates pass, but independent panel review is required before any subjective promotion."
+    }
+  ]
+}

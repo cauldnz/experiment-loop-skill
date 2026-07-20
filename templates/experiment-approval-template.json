@@ -1,0 +1,11 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "short-stable-id",
+  "brief_revision": 1,
+  "brief_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "status": "approved",
+  "approved_at": "2026-01-01T00:00:00Z",
+  "approval_source": "explicit_human_confirmation",
+  "notes": "Replace hashes and timestamp only after explicit approval."
+}

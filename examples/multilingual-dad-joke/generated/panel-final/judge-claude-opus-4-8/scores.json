@@ -1,0 +1,90 @@
+{
+  "judge_id": "final-judge-claude-opus-4-8",
+  "model_id": "claude-opus-4.8",
+  "blind": true,
+  "round": "championship",
+  "criteria": [
+    "cross_language_equivalence",
+    "dad_joke_groan",
+    "brevity",
+    "cultural_portability",
+    "translation_naturalness"
+  ],
+  "candidates": [
+    {
+      "label": "P",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 5,
+        "brevity": 4,
+        "cultural_portability": 5,
+        "translation_naturalness": 5
+      },
+      "mean": 4.8,
+      "completeness_gate": "pass",
+      "rationale": "The mechanism is a purely visual gag: raised eyebrows read as a 'surprised' face. Because the humor rides on a universally shared facial expression rather than a language-bound pun, the joke is perfectly equivalent across EN/FR/ES/JA with zero translation drift. All four languages are present with native scripts, each reads idiomatically, and the JA rendering with quoted dialogue is natural. Strong, classic dad-joke groan.",
+      "defects": [
+        "Setup is a full sentence, marginally longer than the wall jokes, so brevity is very good but not maximal.",
+        "Slightly more familiar/well-worn than the wall variants, but this aids the groan rather than harming it."
+      ],
+      "recommendation": "champion"
+    },
+    {
+      "label": "S",
+      "scores": {
+        "cross_language_equivalence": 4,
+        "dad_joke_groan": 4,
+        "brevity": 5,
+        "cultural_portability": 4,
+        "translation_naturalness": 4
+      },
+      "mean": 4.2,
+      "completeness_gate": "pass",
+      "rationale": "The most compact of the three wall variants. Present-tense phrasing is consistent, the EN setup ('one wall...the other') is canonical, and the JA ('壁が隣の壁に何て言う？／角で会おう！') is tight and natural. The corner pun ports cleanly. ES uses 'rincón', the geometrically correct interior corner where two walls meet.",
+      "defects": [
+        "'rincón' is geometrically accurate but is not the idiomatic Spanish phrase for people arranging to meet ('nos vemos en la esquina'), so the human 'let's meet' double meaning is slightly muted.",
+        "Groan is mild/cute rather than a strong facepalm."
+      ],
+      "recommendation": "finalist"
+    },
+    {
+      "label": "Q",
+      "scores": {
+        "cross_language_equivalence": 4,
+        "dad_joke_groan": 4,
+        "brevity": 4,
+        "cultural_portability": 4,
+        "translation_naturalness": 4
+      },
+      "mean": 4.2,
+      "completeness_gate": "pass",
+      "rationale": "Essentially equivalent to S in mechanism and quality; uses 'rincón' (correct interior corner) in ES and natural 'au coin' in FR, with a natural JA line. The corner pun works across all four languages and all native scripts are present.",
+      "defects": [
+        "EN setup 'the wall next to it' is slightly wordier than S's 'the other', costing a point on brevity.",
+        "Same 'rincón' vs meeting-connotation tradeoff as S: geometrically right but less idiomatic as a rendezvous phrase."
+      ],
+      "recommendation": "finalist"
+    },
+    {
+      "label": "R",
+      "scores": {
+        "cross_language_equivalence": 4,
+        "dad_joke_groan": 4,
+        "brevity": 4,
+        "cultural_portability": 4,
+        "translation_naturalness": 3
+      },
+      "mean": 3.8,
+      "completeness_gate": "pass",
+      "rationale": "Same corner mechanism, and its ES choice 'esquina' actually carries the human 'let's meet at the corner' connotation better than rincón. However the JA setup ('一つの壁がもう一つの壁に何て言った？') is literal and clunky compared with Q/S, dragging down naturalness.",
+      "defects": [
+        "JA phrasing is stilted and wordier than the sibling variants.",
+        "'esquina' improves the meeting connotation but is the exterior/street corner, a slight geometric mismatch with walls meeting.",
+        "Overall the least polished of the three wall variants."
+      ],
+      "recommendation": "eliminate"
+    }
+  ],
+  "ranking": ["P", "S", "Q", "R"],
+  "panel_note": "All four finalists pass the completeness gate: every language is present with correct native script. P is the clear champion because its mechanism is a visual gag (raised eyebrows = surprise) that requires no linguistic pun, giving it flawless cross-language equivalence and portability — an inherent structural advantage over the wall jokes, whose humor depends on how each language renders 'corner'. Dissent-worthy tradeoff among the wall variants: the Spanish punchline forces a choice between 'rincón' (Q/S — geometrically correct interior corner where walls meet, but weak as a human 'let's meet' phrase) and 'esquina' (R — idiomatic for people meeting, but the exterior/street corner, a slight geometric mismatch). A judge weighting punchline idiom over geometric precision could rank R above Q/S. S and Q are statistically tied at 4.2; S is ranked above Q only on marginally tighter EN/JA phrasing."
+}

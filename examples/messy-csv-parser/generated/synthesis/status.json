@@ -1,0 +1,81 @@
+{
+  "track_id": "synthesis",
+  "track_label": "Synthesis (keep winning architecture, selectively incorporate proven helpers)",
+  "role": "synthesis",
+  "model_id": "claude-opus-4.8",
+  "status": "complete",
+  "loops_planned": 2,
+  "loops_completed": 2,
+  "parent_tracks": {
+    "winning_base": "track-state-machine (loop-02)",
+    "rejected": "line-regex (loop-02)"
+  },
+  "independent_judge": {
+    "model_id": "gpt-5.6-terra",
+    "winner_track_id": "track-state-machine",
+    "weighted_totals": {"track-state-machine": 4.94, "line-regex": 4.745}
+  },
+  "loops": [
+    {
+      "id": "synthesis-loop-01",
+      "path": "generated/synthesis/loop-01",
+      "parent_ids": ["line-regex-loop-02", "track-state-machine-loop-02"],
+      "tests": {"total": 87, "passed": 87, "failed": 0},
+      "weighted_total": 4.85,
+      "decision": "new_best"
+    },
+    {
+      "id": "synthesis-loop-02",
+      "path": "generated/synthesis/loop-02",
+      "parent_ids": ["synthesis-loop-01"],
+      "tests": {"total": 97, "passed": 97, "failed": 0},
+      "regression_vs_loop_01": {"total": 87, "passed": 87, "failed": 0},
+      "weighted_total": 4.85,
+      "decision": "new_best"
+    }
+  ],
+  "champion_iteration_id": "synthesis-loop-02",
+  "final_snapshot_path": "generated/synthesis/final",
+  "blocking_core_samples": {
+    "embedded_comma": "pass",
+    "embedded_newline": "pass",
+    "doubled_quote_escaping": "pass"
+  },
+  "gates": {
+    "core_samples": "pass",
+    "objective_tests": "pass",
+    "forbidden_import_scan": "pass"
+  },
+  "no_csv_import_verified": true,
+  "final_scores_0_to_5": {
+    "correctness": 5,
+    "robustness": 5,
+    "error_clarity": 5,
+    "maintainability": 4,
+    "constraint_adherence": 5
+  },
+  "accepted_helper": "non-string input guard: parse() raises TypeError('text must be str') (evidence: track-line-regex/final/parser.py lines 161-162 + test_type_error_for_non_string)",
+  "rejected_helpers": [
+    "regex/offset pipeline (_physical_lines/_logical_records/_FIELD/source_offsets) -- duplicates scanner/state responsibilities",
+    "re-basing ParseError onto ValueError -- not objectively required; winner's Exception base + structured attributes is a stable contract"
+  ],
+  "known_caveats": [
+    "Self-judged synthesis loops (judge.md); objective tests are authoritative and green. Scores are provisional qualitative estimates.",
+    "maintainability capped at 4/5: per-state handlers still mutate shared _Machine instance state (documented next experiment).",
+    "Unicode-whitespace-only lines are treated as data (winner is ASCII-only for structural whitespace); this is a deliberate, now-pinned choice for an under-specified requirement -- real vendor fixtures could resolve it against ground truth.",
+    "Line/column positions are counted per Python str code point (parse() accepts an already-decoded str), not per UTF-16 unit or UTF-8 byte."
+  ],
+  "artifact_paths": {
+    "loop_01_parser": "generated/synthesis/loop-01/parser.py",
+    "loop_01_tests": "generated/synthesis/loop-01/test_parser.py",
+    "loop_02_parser": "generated/synthesis/loop-02/parser.py",
+    "loop_02_tests": "generated/synthesis/loop-02/test_parser.py",
+    "final_parser": "generated/synthesis/final/parser.py",
+    "final_tests": "generated/synthesis/final/test_parser.py",
+    "final_readme": "generated/synthesis/final/README.md",
+    "final_fixtures_dir": "generated/synthesis/final/fixtures",
+    "synthesis_report": "generated/synthesis/synthesis-report.md",
+    "manifest_fragment": "generated/synthesis/manifest-fragment.json"
+  },
+  "stop_reason": "Exactly two synthesis Loops completed; loop-02 is champion with 97/97 tests, zero regression, and all hard gates (core_samples, objective_tests, forbidden_import_scan) passing."
+}

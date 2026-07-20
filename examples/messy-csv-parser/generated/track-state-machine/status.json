@@ -1,0 +1,57 @@
+{
+  "track_id": "track-state-machine",
+  "track_label": "Character-state-machine architecture",
+  "model_id": "claude-sonnet-5",
+  "status": "complete",
+  "loops_planned": 2,
+  "loops_completed": 2,
+  "loops": [
+    {
+      "id": "loop-01",
+      "path": "generated/track-state-machine/loop-01",
+      "tests": {"total": 30, "passed": 30, "failed": 0},
+      "decision": "keep_for_synthesis"
+    },
+    {
+      "id": "loop-02",
+      "path": "generated/track-state-machine/loop-02",
+      "tests": {"total": 53, "passed": 53, "failed": 0},
+      "decision": "new_best"
+    }
+  ],
+  "blocking_core_samples": {
+    "embedded_comma": "pass",
+    "embedded_newline": "pass",
+    "doubled_quote_escaping": "pass"
+  },
+  "gates": {
+    "core_samples": "pass",
+    "objective_tests": "pass"
+  },
+  "no_csv_import_verified": true,
+  "final_snapshot_path": "generated/track-state-machine/final",
+  "final_scores_0_to_5": {
+    "correctness": 5,
+    "robustness": 5,
+    "error_clarity": 5,
+    "maintainability": 4,
+    "constraint_adherence": 5
+  },
+  "regression_verified": "loop-01's original, unmodified test_parser.py (30 tests) passes against loop-02's parser.py with zero changes required.",
+  "known_caveats": [
+    "Self-judged only (judge.md in each loop); an independent judge (per the parent experiment prompt, gpt-5.6-terra) has not yet reviewed this Track -- objective tests dominate and are already recorded, but maintainability/error_clarity self-scores are provisional.",
+    "maintainability capped at 4/5 in loop-02: the per-state handler methods still mutate shared _Machine instance state rather than being pure functions; documented as a possible loop-03/synthesis follow-up, not pursued here because the Track's plan called for exactly two Loops.",
+    "Column/line positions are counted per Python str code point (not per UTF-16 code unit or raw UTF-8 byte), which is appropriate given parse() accepts an already-decoded str, but is worth noting for anyone comparing positions against a byte-oriented tool.",
+    "This artifact only covers the track-state-machine Track; the sibling line-oriented/regex Track and the cross-Track synthesis are out of scope for this writable subtree."
+  ],
+  "artifact_paths": {
+    "loop_01_parser": "generated/track-state-machine/loop-01/parser.py",
+    "loop_01_tests": "generated/track-state-machine/loop-01/test_parser.py",
+    "loop_02_parser": "generated/track-state-machine/loop-02/parser.py",
+    "loop_02_tests": "generated/track-state-machine/loop-02/test_parser.py",
+    "final_parser": "generated/track-state-machine/final/parser.py",
+    "final_tests": "generated/track-state-machine/final/test_parser.py",
+    "final_fixtures_dir": "generated/track-state-machine/final/fixtures",
+    "manifest_fragment": "generated/track-state-machine/manifest-fragment.json"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "track_id": "line-regex",
+  "state": "complete",
+  "model_id": "gpt-5.6-sol",
+  "loops_completed": 2,
+  "current_loop": 2,
+  "champion_iteration_id": "line-regex-loop-02",
+  "latest_artifact": "final/parser.py",
+  "latest_score": 4.85,
+  "tests": {
+    "loop_01": {
+      "run": 18,
+      "passed": 17,
+      "failed": 1
+    },
+    "loop_02": {
+      "run": 38,
+      "passed": 38,
+      "failed": 0
+    },
+    "final_verification": {
+      "run": 38,
+      "passed": 38,
+      "failed": 0
+    }
+  },
+  "quality_gates": {
+    "core_samples": "pass",
+    "objective_tests": "pass",
+    "forbidden_import_scan": "pass"
+  },
+  "blocker": null,
+  "stop_reason": "Exactly two sequential loops completed; loop 02 and the final copy pass all 38 tests."
+}

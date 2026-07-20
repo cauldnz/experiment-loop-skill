@@ -1,0 +1,8 @@
+# exported vendor data
+
+vendor,description,amount
+ACME,"line one
+# retained
+
+line four"," 42 "
+tail,yes

@@ -1,0 +1,118 @@
+synthesis final -- champion verification (promoted from synthesis-loop-02)
+==================================================================
+
+Environment: Windows, Python 3.14.4
+
+### Command: python test_parser.py
+
+test_empty_input_returns_no_rows (__main__.TestBasicShapeAndAPI.test_empty_input_returns_no_rows) ... ok
+test_no_trailing_newline (__main__.TestBasicShapeAndAPI.test_no_trailing_newline) ... ok
+test_simple_two_row (__main__.TestBasicShapeAndAPI.test_simple_two_row) ... ok
+test_all_blank_and_comment_file_produces_no_rows (__main__.TestBomCommentsBlanks.test_all_blank_and_comment_file_produces_no_rows) ... ok
+test_blank_lines_ignored (__main__.TestBomCommentsBlanks.test_blank_lines_ignored) ... ok
+test_bom_at_start_is_stripped (__main__.TestBomCommentsBlanks.test_bom_at_start_is_stripped) ... ok
+test_bom_comments_and_blanks_combined (__main__.TestBomCommentsBlanks.test_bom_comments_and_blanks_combined) ... ok
+test_comment_immediately_after_bom_no_blank_line (__main__.TestBomCommentsBlanks.test_comment_immediately_after_bom_no_blank_line) ... ok
+test_comment_lines_ignored (__main__.TestBomCommentsBlanks.test_comment_lines_ignored) ... ok
+test_comment_only_file_produces_no_rows (__main__.TestBomCommentsBlanks.test_comment_only_file_produces_no_rows) ... ok
+test_comment_with_no_trailing_newline_at_eof (__main__.TestBomCommentsBlanks.test_comment_with_no_trailing_newline_at_eof) ... ok
+test_hash_not_at_start_of_line_is_literal (__main__.TestBomCommentsBlanks.test_hash_not_at_start_of_line_is_literal) ... ok
+test_core_doubled_quote_escaping (__main__.TestCoreBlockingSamples.test_core_doubled_quote_escaping) ... ok
+test_core_embedded_comma (__main__.TestCoreBlockingSamples.test_core_embedded_comma) ... ok
+test_core_embedded_newline (__main__.TestCoreBlockingSamples.test_core_embedded_newline) ... ok
+test_cr_only_physical_lines (__main__.TestCrOnlyLines.test_cr_only_physical_lines) ... ok
+test_mixed_crlf_and_lf_row_separators (__main__.TestCrOnlyLines.test_mixed_crlf_and_lf_row_separators) ... ok
+test_malformed_quote_in_unquoted_fixture_raises (__main__.TestFixtures.test_malformed_quote_in_unquoted_fixture_raises) ... ok
+test_malformed_unterminated_quote_fixture_raises (__main__.TestFixtures.test_malformed_unterminated_quote_fixture_raises) ... ok
+test_sample_fixture_parses (__main__.TestFixtures.test_sample_fixture_parses) ... ok
+test_bom_as_last_character_of_file_raises (__main__.TestMalformedInputs.test_bom_as_last_character_of_file_raises) ... ok
+test_bom_away_from_start_raises_with_position (__main__.TestMalformedInputs.test_bom_away_from_start_raises_with_position) ... ok
+test_bom_inside_comment_line_raises (__main__.TestMalformedInputs.test_bom_inside_comment_line_raises) ... ok
+test_bom_inside_unquoted_field_raises (__main__.TestMalformedInputs.test_bom_inside_unquoted_field_raises) ... ok
+test_error_message_mentions_line_and_column_words (__main__.TestMalformedInputs.test_error_message_mentions_line_and_column_words) ... ok
+test_error_message_mentions_row_and_field_words (__main__.TestMalformedInputs.test_error_message_mentions_row_and_field_words) ... ok
+test_multiline_quoted_field_error_position_tracks_embedded_newlines (__main__.TestMalformedInputs.test_multiline_quoted_field_error_position_tracks_embedded_newlines) ... ok
+test_non_whitespace_after_closing_quote_raises_with_position (__main__.TestMalformedInputs.test_non_whitespace_after_closing_quote_raises_with_position) ... ok
+test_quote_in_unquoted_field_raises_with_position (__main__.TestMalformedInputs.test_quote_in_unquoted_field_raises_with_position) ... ok
+test_quote_in_unquoted_field_reports_row_and_field (__main__.TestMalformedInputs.test_quote_in_unquoted_field_reports_row_and_field) ... ok
+test_still_open_field_after_quote_then_comma_inside_quotes (__main__.TestMalformedInputs.test_still_open_field_after_quote_then_comma_inside_quotes) ... ok
+test_unterminated_quote_after_odd_trailing_quotes (__main__.TestMalformedInputs.test_unterminated_quote_after_odd_trailing_quotes) ... ok
+test_unterminated_quote_raises_with_open_position (__main__.TestMalformedInputs.test_unterminated_quote_raises_with_open_position) ... ok
+test_source_does_not_import_csv (__main__.TestNoStdlibCsvImport.test_source_does_not_import_csv) ... ok
+test_bytes_raises_type_error (__main__.TestNonStringInput.test_bytes_raises_type_error) ... ok
+test_list_raises_type_error (__main__.TestNonStringInput.test_list_raises_type_error) ... ok
+test_none_raises_type_error (__main__.TestNonStringInput.test_none_raises_type_error) ... ok
+test_existing_attributes_unchanged (__main__.TestParseErrorReasonAttribute.test_existing_attributes_unchanged) ... ok
+test_reason_exposed_for_bom (__main__.TestParseErrorReasonAttribute.test_reason_exposed_for_bom) ... ok
+test_reason_exposed_for_quote_in_unquoted (__main__.TestParseErrorReasonAttribute.test_reason_exposed_for_quote_in_unquoted) ... ok
+test_reason_exposed_for_unterminated_quote (__main__.TestParseErrorReasonAttribute.test_reason_exposed_for_unterminated_quote) ... ok
+test_comment_and_blank_look_alikes_retained_inside_quotes (__main__.TestQuotedFields.test_comment_and_blank_look_alikes_retained_inside_quotes) ... ok
+test_doubled_quote_escape (__main__.TestQuotedFields.test_doubled_quote_escape) ... ok
+test_embedded_bare_cr_normalized (__main__.TestQuotedFields.test_embedded_bare_cr_normalized) ... ok
+test_embedded_crlf_normalized (__main__.TestQuotedFields.test_embedded_crlf_normalized) ... ok
+test_embedded_lf (__main__.TestQuotedFields.test_embedded_lf) ... ok
+test_empty_quoted_pair (__main__.TestQuotedFields.test_empty_quoted_pair) ... ok
+test_quote_immediately_reopened_yields_literal_quote_field (__main__.TestQuotedFields.test_quote_immediately_reopened_yields_literal_quote_field) ... ok
+test_quoted_comma (__main__.TestQuotedFields.test_quoted_comma) ... ok
+test_quoted_field_flush_at_eof_without_trailing_delimiter (__main__.TestQuotedFields.test_quoted_field_flush_at_eof_without_trailing_delimiter) ... ok
+test_quoted_field_padding_spaces_trimmed_outside_quotes (__main__.TestQuotedFields.test_quoted_field_padding_spaces_trimmed_outside_quotes) ... ok
+test_quoted_field_preserves_interior_whitespace (__main__.TestQuotedFields.test_quoted_field_preserves_interior_whitespace) ... ok
+test_quoted_field_then_eof_right_after_comma (__main__.TestQuotedFields.test_quoted_field_then_eof_right_after_comma) ... ok
+test_empty_fields_and_trailing_comma (__main__.TestRaggedRowsAndEmptyFields.test_empty_fields_and_trailing_comma) ... ok
+test_leading_comma_produces_empty_first_field (__main__.TestRaggedRowsAndEmptyFields.test_leading_comma_produces_empty_first_field) ... ok
+test_lone_comma_row (__main__.TestRaggedRowsAndEmptyFields.test_lone_comma_row) ... ok
+test_many_ragged_rows (__main__.TestRaggedRowsAndEmptyFields.test_many_ragged_rows) ... ok
+test_ragged_rows_preserved (__main__.TestRaggedRowsAndEmptyFields.test_ragged_rows_preserved) ... ok
+test_shared_error_interior_bom (__main__.TestSharedBakeoffSuite.test_shared_error_interior_bom) ... ok
+test_shared_error_junk_after_quote (__main__.TestSharedBakeoffSuite.test_shared_error_junk_after_quote) ... ok
+test_shared_error_junk_second_crlf (__main__.TestSharedBakeoffSuite.test_shared_error_junk_second_crlf) ... ok
+test_shared_error_junk_second_lf (__main__.TestSharedBakeoffSuite.test_shared_error_junk_second_lf) ... ok
+test_shared_error_quote_in_unquoted (__main__.TestSharedBakeoffSuite.test_shared_error_quote_in_unquoted) ... ok
+test_shared_error_second_bom (__main__.TestSharedBakeoffSuite.test_shared_error_second_bom) ... ok
+test_shared_error_unterminated (__main__.TestSharedBakeoffSuite.test_shared_error_unterminated) ... ok
+test_shared_valid_ascii_padding (__main__.TestSharedBakeoffSuite.test_shared_valid_ascii_padding) ... ok
+test_shared_valid_bare_cr_normalized (__main__.TestSharedBakeoffSuite.test_shared_valid_bare_cr_normalized) ... ok
+test_shared_valid_blank_inside_quote (__main__.TestSharedBakeoffSuite.test_shared_valid_blank_inside_quote) ... ok
+test_shared_valid_blank_only_input (__main__.TestSharedBakeoffSuite.test_shared_valid_blank_only_input) ... ok
+test_shared_valid_blocking_doubled_quote (__main__.TestSharedBakeoffSuite.test_shared_valid_blocking_doubled_quote) ... ok
+test_shared_valid_blocking_embedded_crlf (__main__.TestSharedBakeoffSuite.test_shared_valid_blocking_embedded_crlf) ... ok
+test_shared_valid_blocking_embedded_lf (__main__.TestSharedBakeoffSuite.test_shared_valid_blocking_embedded_lf) ... ok
+test_shared_valid_blocking_quoted_comma (__main__.TestSharedBakeoffSuite.test_shared_valid_blocking_quoted_comma) ... ok
+test_shared_valid_bom_comments_blanks (__main__.TestSharedBakeoffSuite.test_shared_valid_bom_comments_blanks) ... ok
+test_shared_valid_comment_at_eof (__main__.TestSharedBakeoffSuite.test_shared_valid_comment_at_eof) ... ok
+test_shared_valid_comment_inside_quote (__main__.TestSharedBakeoffSuite.test_shared_valid_comment_inside_quote) ... ok
+test_shared_valid_data_without_final_newline (__main__.TestSharedBakeoffSuite.test_shared_valid_data_without_final_newline) ... ok
+test_shared_valid_empty_fields (__main__.TestSharedBakeoffSuite.test_shared_valid_empty_fields) ... ok
+test_shared_valid_empty_input (__main__.TestSharedBakeoffSuite.test_shared_valid_empty_input) ... ok
+test_shared_valid_four_quotes (__main__.TestSharedBakeoffSuite.test_shared_valid_four_quotes) ... ok
+test_shared_valid_hash_in_later_field (__main__.TestSharedBakeoffSuite.test_shared_valid_hash_in_later_field) ... ok
+test_shared_valid_mixed_newlines (__main__.TestSharedBakeoffSuite.test_shared_valid_mixed_newlines) ... ok
+test_shared_valid_multiline_doubled_quote (__main__.TestSharedBakeoffSuite.test_shared_valid_multiline_doubled_quote) ... ok
+test_shared_valid_padded_comment (__main__.TestSharedBakeoffSuite.test_shared_valid_padded_comment) ... ok
+test_shared_valid_padded_quoted_field (__main__.TestSharedBakeoffSuite.test_shared_valid_padded_quoted_field) ... ok
+test_shared_valid_quoted_empty (__main__.TestSharedBakeoffSuite.test_shared_valid_quoted_empty) ... ok
+test_shared_valid_quoted_hash_is_data (__main__.TestSharedBakeoffSuite.test_shared_valid_quoted_hash_is_data) ... ok
+test_shared_valid_ragged_rows (__main__.TestSharedBakeoffSuite.test_shared_valid_ragged_rows) ... ok
+test_shared_valid_unicode_not_padding (__main__.TestSharedBakeoffSuite.test_shared_valid_unicode_not_padding) ... ok
+test_non_trim_whitespace_chars_preserved_in_unquoted_field (__main__.TestTrimming.test_non_trim_whitespace_chars_preserved_in_unquoted_field) ... ok
+test_unquoted_all_whitespace_field_becomes_empty (__main__.TestTrimming.test_unquoted_all_whitespace_field_becomes_empty) ... ok
+test_unquoted_surrounding_whitespace_trimmed (__main__.TestTrimming.test_unquoted_surrounding_whitespace_trimmed) ... ok
+test_unquoted_tabs_only_field_becomes_empty (__main__.TestTrimming.test_unquoted_tabs_only_field_becomes_empty) ... ok
+test_unicode_content_preserved (__main__.TestUnicode.test_unicode_content_preserved) ... ok
+test_ascii_whitespace_only_line_is_still_blank (__main__.TestUnicodeWhitespacePinned.test_ascii_whitespace_only_line_is_still_blank) ... ok
+test_nbsp_only_line_is_a_data_row (__main__.TestUnicodeWhitespacePinned.test_nbsp_only_line_is_a_data_row) ... ok
+test_unicode_space_before_hash_is_literal_not_comment (__main__.TestUnicodeWhitespacePinned.test_unicode_space_before_hash_is_literal_not_comment) ... ok
+
+----------------------------------------------------------------------
+Ran 97 tests in 0.008s
+
+OK
+
+### forbidden-import scan
+(no matches -- forbidden_import_scan: PASS)
+
+### Summary
+  Ran 97 tests, OK (0 failed, 0 errors)
+  blocking core samples: PASS (embedded comma, embedded newline, doubled quote)
+  forbidden_import_scan: PASS
+

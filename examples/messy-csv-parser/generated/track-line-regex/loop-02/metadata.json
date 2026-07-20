@@ -1,0 +1,29 @@
+{
+  "iteration_id": "line-regex-loop-02",
+  "track_id": "line-regex",
+  "parent_ids": [
+    "line-regex-loop-01"
+  ],
+  "model_id": "gpt-5.6-sol",
+  "architecture": "regex physical-line splitting and tokenization with line-local structural quote validation and source-offset mapping",
+  "command": "python test_parser.py",
+  "tests": {
+    "run": 38,
+    "passed": 38,
+    "failed": 0,
+    "errors": 0
+  },
+  "blocking_core_samples": {
+    "embedded_comma": "pass",
+    "embedded_newline": "pass",
+    "doubled_quote": "pass"
+  },
+  "quality_gates": {
+    "core_samples": "pass",
+    "objective_tests": "pass",
+    "forbidden_import_scan": "pass"
+  },
+  "weighted_score": 4.85,
+  "decision": "new_best",
+  "observed_improvement": "precise structural error classification and physical coordinates, including after normalized CRLF content"
+}

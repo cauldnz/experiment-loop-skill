@@ -1,0 +1,9 @@
+{
+  "schema": "loop-lab-context-fidelity/1.0",
+  "expected_primary_title": "Designing with Feedback Loops",
+  "actual_primary_title": "Designing with Feedback Loops",
+  "source": "Human review after synthesis-02",
+  "stress_fixture_separated": true,
+  "stress_fixture_visibly_labeled": true,
+  "status": "pass"
+}

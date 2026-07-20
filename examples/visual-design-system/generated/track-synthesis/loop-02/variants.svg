@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630"
+     role="img" aria-labelledby="sheetTitle sheetDesc">
+  <title id="sheetTitle">Loop Lab resilient event-card system — three workshop variants</title>
+  <desc id="sheetDesc">Three compact Loop Lab cards using shared editorial, metadata, call-to-action, badge, and modular routing components. Flexible venue fields receive a full-width row, and one card stress-tests a three-line title, long venue, and long delivery badge.</desc>
+  <defs>
+    <style>
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .sans { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="630" fill="#0F1426"/>
+  <text x="32" y="34" class="sans" font-size="16" font-weight="700" letter-spacing="2"
+        fill="#FFFFFF">LOOP LAB / RESILIENT EVENT-CARD SYSTEM</text>
+  <text x="1168" y="34" class="sans" font-size="13" letter-spacing="1.2"
+        fill="#BFD9DD" text-anchor="end">DENSITY-AWARE · 3 VARIANTS</text>
+  <line x1="32" y1="52" x2="1168" y2="52" stroke="#39405A" stroke-width="1"/>
+
+  <!-- Variant 01: long-content stress test -->
+  <g id="variant-stress-test">
+    <rect id="stressCard" x="32" y="72" width="352" height="530" rx="16" fill="#F6F1E8"/>
+    <rect x="44" y="84" width="328" height="506" rx="10" fill="none" stroke="#171C32" stroke-width="1"/>
+    <rect x="56" y="102" width="34" height="34" rx="6" fill="#171C32"/>
+    <text x="73" y="125" class="sans" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">LL</text>
+    <text x="102" y="123" class="sans" font-size="13" font-weight="700" letter-spacing="1.2"
+          fill="#006E70">WORKSHOP 024</text>
+    <rect x="222" y="104" width="138" height="28" rx="14" fill="#006E70"/>
+    <text x="291" y="123" class="sans" font-size="13" font-weight="700" letter-spacing="0.3"
+          fill="#FFFFFF" text-anchor="middle">HYBRID + REMOTE</text>
+    <line x1="56" y1="150" x2="360" y2="150" stroke="#BDB6AA"/>
+    <rect x="56" y="168" width="5" height="80" fill="#006E70"/>
+    <g class="serif" font-size="22" font-weight="700" fill="#171C32">
+      <text x="74" y="187">FACILITATING</text>
+      <text x="74" y="214">CROSS-FUNCTIONAL</text>
+      <text x="74" y="241">DECISION-MAKING</text>
+    </g>
+    <g class="sans" font-size="13" font-weight="700" fill="#5E5D58">
+      <text x="56" y="273">DATE</text><text x="180" y="273">TIME</text><text x="56" y="315">VENUE</text>
+    </g>
+    <g class="serif" font-size="15" font-weight="700" fill="#171C32">
+      <text x="56" y="294">NOV 19</text><text x="180" y="294">13:00–16:30</text>
+      <text id="stressVenueValue" x="56" y="338">INNOVATION HUB + ONLINE</text>
+    </g>
+    <g>
+      <rect x="56" y="356" width="304" height="124" rx="14" fill="#171C32"/>
+      <path d="M74 392 C120 392 128 438 174 438 S228 392 342 392" stroke="#2CB8B8" stroke-width="4" fill="none" stroke-dasharray="9 6"/>
+      <circle cx="164" cy="417" r="42" fill="none" stroke="#2CB8B8" stroke-width="6"/>
+      <circle cx="238" cy="417" r="42" fill="none" stroke="#5965D8" stroke-width="5"/>
+      <path d="M164 375 C186 405 212 430 238 375" stroke="#D65A42" stroke-width="4" fill="none"/>
+      <circle cx="122" cy="417" r="5" fill="#FFFFFF"/><circle cx="206" cy="417" r="5" fill="#FFFFFF"/><circle cx="280" cy="417" r="5" fill="#FFFFFF"/>
+    </g>
+    <rect x="56" y="502" width="176" height="48" rx="8" fill="#173B57"/>
+    <text x="144" y="532" class="sans" font-size="14" font-weight="700" letter-spacing="1"
+          fill="#FFFFFF" text-anchor="middle">REGISTER →</text>
+    <text x="360" y="530" class="sans" font-size="13" font-weight="700" fill="#5E5D58" text-anchor="end">72 SEATS</text>
+  </g>
+
+  <!-- Variant 02: in-person -->
+  <g id="variant-in-person">
+    <rect x="424" y="72" width="352" height="530" rx="16" fill="#F6F1E8"/>
+    <rect x="436" y="84" width="328" height="506" rx="10" fill="none" stroke="#171C32" stroke-width="1"/>
+    <rect x="448" y="102" width="34" height="34" rx="6" fill="#171C32"/>
+    <text x="465" y="125" class="sans" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">LL</text>
+    <text x="494" y="123" class="sans" font-size="13" font-weight="700" letter-spacing="1.2"
+          fill="#9F3424">WORKSHOP 025</text>
+    <rect x="662" y="104" width="90" height="28" rx="14" fill="#9F3424"/>
+    <text x="707" y="123" class="sans" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">IN PERSON</text>
+    <line x1="448" y1="150" x2="752" y2="150" stroke="#BDB6AA"/>
+    <rect x="448" y="168" width="5" height="70" fill="#9F3424"/>
+    <text x="466" y="191" class="serif" font-size="27" font-weight="700" fill="#171C32">PROTOTYPING</text>
+    <text x="466" y="226" class="serif" font-size="27" font-weight="700" fill="#171C32">IN PUBLIC</text>
+    <g class="sans" font-size="13" font-weight="700" fill="#5E5D58">
+      <text x="448" y="273">DATE</text><text x="572" y="273">TIME</text><text x="448" y="315">VENUE</text>
+    </g>
+    <g class="serif" font-size="15" font-weight="700" fill="#171C32">
+      <text x="448" y="294">DEC 04</text><text x="572" y="294">10:00–13:00</text>
+      <text id="inPersonVenueValue" x="448" y="338">THE LOFT, BUILDING 4</text>
+    </g>
+    <g>
+      <rect x="448" y="356" width="304" height="124" rx="14" fill="#171C32"/>
+      <path d="M466 418 H734" stroke="#2CB8B8" stroke-width="3" stroke-dasharray="9 6"/>
+      <circle cx="566" cy="418" r="44" fill="none" stroke="#2CB8B8" stroke-width="7"/>
+      <circle cx="648" cy="418" r="34" fill="none" stroke="#D65A42" stroke-width="5"/>
+      <circle cx="522" cy="418" r="5" fill="#FFFFFF"/><circle cx="610" cy="418" r="5" fill="#FFFFFF"/><circle cx="682" cy="418" r="5" fill="#FFFFFF"/>
+    </g>
+    <rect x="448" y="502" width="176" height="48" rx="8" fill="#173B57"/>
+    <text x="536" y="532" class="sans" font-size="14" font-weight="700" letter-spacing="1"
+          fill="#FFFFFF" text-anchor="middle">REGISTER →</text>
+    <text x="752" y="530" class="sans" font-size="13" font-weight="700" fill="#5E5D58" text-anchor="end">36 SEATS</text>
+  </g>
+
+  <!-- Variant 03: virtual -->
+  <g id="variant-virtual">
+    <rect x="816" y="72" width="352" height="530" rx="16" fill="#F6F1E8"/>
+    <rect x="828" y="84" width="328" height="506" rx="10" fill="none" stroke="#171C32" stroke-width="1"/>
+    <rect x="840" y="102" width="34" height="34" rx="6" fill="#171C32"/>
+    <text x="857" y="125" class="sans" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">LL</text>
+    <text x="886" y="123" class="sans" font-size="13" font-weight="700" letter-spacing="1.2"
+          fill="#4452B8">WORKSHOP 026</text>
+    <rect x="1048" y="104" width="96" height="28" rx="14" fill="#4452B8"/>
+    <text x="1096" y="123" class="sans" font-size="13" font-weight="700" fill="#FFFFFF" text-anchor="middle">VIRTUAL</text>
+    <line x1="840" y1="150" x2="1144" y2="150" stroke="#BDB6AA"/>
+    <rect x="840" y="168" width="5" height="70" fill="#4452B8"/>
+    <text x="858" y="191" class="serif" font-size="27" font-weight="700" fill="#171C32">DISTRIBUTED</text>
+    <text x="858" y="226" class="serif" font-size="27" font-weight="700" fill="#171C32">DECISION SYSTEMS</text>
+    <g class="sans" font-size="13" font-weight="700" fill="#5E5D58">
+      <text x="840" y="273">DATE</text><text x="964" y="273">TIME</text><text x="840" y="315">VENUE</text>
+    </g>
+    <g class="serif" font-size="15" font-weight="700" fill="#171C32">
+      <text x="840" y="294">JAN 14</text><text x="964" y="294">16:00–18:00</text>
+      <text id="virtualVenueValue" x="840" y="338">GLOBAL ONLINE STUDIO</text>
+    </g>
+    <g>
+      <rect x="840" y="356" width="304" height="124" rx="14" fill="#171C32"/>
+      <path d="M858 418 H1126" stroke="#5965D8" stroke-width="3" stroke-dasharray="9 6"/>
+      <circle cx="946" cy="418" r="44" fill="none" stroke="#5965D8" stroke-width="7"/>
+      <circle cx="1042" cy="418" r="40" fill="none" stroke="#2CB8B8" stroke-width="5" stroke-dasharray="10 7"/>
+      <path d="M946 374 C972 446 1016 446 1042 378" fill="none" stroke="#D65A42" stroke-width="4"/>
+      <circle cx="902" cy="418" r="5" fill="#FFFFFF"/><circle cx="990" cy="418" r="5" fill="#FFFFFF"/><circle cx="1082" cy="418" r="5" fill="#FFFFFF"/>
+    </g>
+    <rect x="840" y="502" width="176" height="48" rx="8" fill="#173B57"/>
+    <text x="928" y="532" class="sans" font-size="14" font-weight="700" letter-spacing="1"
+          fill="#FFFFFF" text-anchor="middle">REGISTER →</text>
+    <text x="1144" y="530" class="sans" font-size="13" font-weight="700" fill="#5E5D58" text-anchor="end">OPEN ACCESS</text>
+  </g>
+</svg>

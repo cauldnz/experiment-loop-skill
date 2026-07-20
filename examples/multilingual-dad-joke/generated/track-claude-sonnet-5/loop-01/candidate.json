@@ -1,0 +1,30 @@
+{
+  "id": "track-claude-sonnet-5-loop-01-candidate",
+  "mechanism": "A child states a feeling using an 'I am [state]' construction. The dad deliberately mishears/reinterprets the feeling-word as if it were the child's given name, and responds with the culture's standard first-introduction greeting, introducing himself as 'Dad'. The comic engine is a universal category-confusion (mistaking a description for an identity), not a sound-based pun, so it can be rebuilt natively in each language using that language's own idiomatic self-introduction formula.",
+  "languages": {
+    "en": {
+      "setup": "Dad, I'm hungry.",
+      "punchline": "Hi Hungry, I'm Dad.",
+      "combined": "Dad, I'm hungry. / Hi Hungry, I'm Dad.",
+      "portability_notes": "Uses the classic English 'I'm X' + 'Hi X, I'm Dad' introduction frame. Depends on 'hungry' pairing naturally with the copula 'to be', which does not hold in French or Spanish (see their notes)."
+    },
+    "fr": {
+      "setup": "Papa, j'ai faim.",
+      "punchline": "Salut Faim, moi c'est Papa.",
+      "combined": "Papa, j'ai faim. / Salut Faim, moi c'est Papa.",
+      "portability_notes": "French expresses hunger with 'avoir faim' (literally 'to have hunger'), not 'être' + adjective, so the child's line does not have the 'I am [state]' shape the mechanism relies on. The reinterpretation of 'faim' (hunger, a noun) as a name is more strained than the English adjective version."
+    },
+    "es": {
+      "setup": "Papá, tengo hambre.",
+      "punchline": "Hola Hambre, soy Papá.",
+      "combined": "Papá, tengo hambre. / Hola Hambre, soy Papá.",
+      "portability_notes": "Spanish also uses 'tener hambre' ('to have hunger') rather than 'estar' + adjective, matching the French mismatch. 'Hambre' is a noun, so the mock-name substitution is grammatically looser than in English."
+    },
+    "ja": {
+      "setup": "パパ、お腹すいたよ。",
+      "punchline": "はじめましてお腹すいた、パパだよ。",
+      "combined": "パパ、お腹すいたよ。 / はじめましてお腹すいた、パパだよ。",
+      "portability_notes": "'お腹すいた' (onaka suita, 'my stomach is empty/I'm hungry') is a full clause, not a single name-like word, so treating it as an introduced name in 'はじめまして[phrase]' reads as clunky rather than crisp."
+    }
+  }
+}

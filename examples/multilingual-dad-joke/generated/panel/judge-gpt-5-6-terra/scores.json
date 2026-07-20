@@ -1,0 +1,154 @@
+{
+  "judge_id": "judge-gpt-5-6-terra",
+  "model_id": "gpt-5.6-terra",
+  "blind": true,
+  "score_scale": {
+    "minimum": 1,
+    "maximum": 5,
+    "description": "1 = poor, 5 = excellent; all five criteria have equal weight."
+  },
+  "criteria": [
+    "cross_language_equivalence",
+    "dad_joke_groan",
+    "brevity",
+    "cultural_portability",
+    "translation_naturalness"
+  ],
+  "candidates": [
+    {
+      "label": "A",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 3,
+        "brevity": 5,
+        "cultural_portability": 5,
+        "translation_naturalness": 4
+      },
+      "mean": 4.4,
+      "completeness_gate": {
+        "status": "eligible",
+        "reason": "All four required languages are present, and Japanese is written in Japanese script."
+      },
+      "rationale": "The following-shadow premise transfers directly and cleanly. It is concise and broadly understandable, though its payoff is more a gentle observation than a strong groaner.",
+      "defects": [
+        "The Japanese wording is understandable but slightly less idiomatic than a more explicitly shadow-centered formulation.",
+        "The comic turn is mild."
+      ],
+      "recommendation": "Eligible, but rank below candidates with a sharper visual or spatial payoff."
+    },
+    {
+      "label": "B",
+      "scores": {
+        "cross_language_equivalence": 1,
+        "dad_joke_groan": 2,
+        "brevity": 5,
+        "cultural_portability": 1,
+        "translation_naturalness": 1
+      },
+      "mean": 2.0,
+      "completeness_gate": {
+        "status": "eligible",
+        "reason": "All four required languages are present, and Japanese is written in Japanese script."
+      },
+      "rationale": "This is the English 'Hi Hungry, I'm Dad' name misreading. The mechanism depends on English phrasing and becomes an overtly artificial name treatment in French, Spanish, and Japanese.",
+      "defects": [
+        "French, Spanish, and Japanese preserve the literal setup but not a natural comic effect.",
+        "The Japanese introduction to お腹すいた is especially forced."
+      ],
+      "recommendation": "Eligible by completeness only; do not select for a multilingual set."
+    },
+    {
+      "label": "C",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 5,
+        "brevity": 5,
+        "cultural_portability": 5,
+        "translation_naturalness": 4
+      },
+      "mean": 4.8,
+      "completeness_gate": {
+        "status": "eligible",
+        "reason": "All four required languages are present, and Japanese is written in Japanese script."
+      },
+      "rationale": "The physical fact that two walls meet at a corner supplies the same compact, familiar groaner in every language. It is the strongest universal mechanism in the group.",
+      "defects": [
+        "The Japanese question's 'one wall ... another wall' construction is a little stilted, though fully clear.",
+        "The Japanese answer would read more naturally without the quotation marks, but they do not impede the joke."
+      ],
+      "recommendation": "Top choice."
+    },
+    {
+      "label": "D",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 4,
+        "brevity": 5,
+        "cultural_portability": 5,
+        "translation_naturalness": 4
+      },
+      "mean": 4.6,
+      "completeness_gate": {
+        "status": "eligible",
+        "reason": "All four required languages are present, and Japanese is written in Japanese script."
+      },
+      "rationale": "An echo repeating secrets is a universally intelligible personification, with equivalent setups and payoffs across all four versions.",
+      "defects": [
+        "French 'garde mal les secrets' is grammatical but less idiomatic than saying an echo cannot keep a secret.",
+        "Spanish 'lo repite todo' is slightly awkward compared with simply 'repite todo'."
+      ],
+      "recommendation": "Strong multilingual option; polish the minor French and Spanish phrasing."
+    },
+    {
+      "label": "E",
+      "scores": {
+        "cross_language_equivalence": 1,
+        "dad_joke_groan": 2,
+        "brevity": 5,
+        "cultural_portability": 1,
+        "translation_naturalness": 1
+      },
+      "mean": 2.0,
+      "completeness_gate": {
+        "status": "eligible",
+        "reason": "All four required languages are present, and Japanese is written in Japanese script."
+      },
+      "rationale": "Like B, this depends on treating an English state expression as a personal name. The translated replies are literal calques rather than naturally functioning jokes.",
+      "defects": [
+        "The premise does not license the name interpretation naturally in French, Spanish, or Japanese.",
+        "Japanese はじめまして疲れた is notably unnatural."
+      ],
+      "recommendation": "Eligible by completeness only; reject for multilingual use."
+    },
+    {
+      "label": "F",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 5,
+        "brevity": 4,
+        "cultural_portability": 5,
+        "translation_naturalness": 4
+      },
+      "mean": 4.6,
+      "completeness_gate": {
+        "status": "eligible",
+        "reason": "All four required languages are present, and Japanese is written in Japanese script."
+      },
+      "rationale": "The joke is a visual cause-and-effect gag: overly high eyebrows produce a surprised-looking face. That mechanism survives translation well and lands as a classic dad-joke groaner.",
+      "defects": [
+        "It is marginally longer than the question-and-answer entries.",
+        "French and Spanish state the resulting surprise naturally, but their wording is a little less tightly pun-like than English."
+      ],
+      "recommendation": "Excellent alternative to C; use when a visual gag is preferred."
+    }
+  ],
+  "ranking": [
+    "C",
+    "F",
+    "D",
+    "A",
+    "B",
+    "E"
+  ],
+  "panel_note": "All candidates pass the objective language/script completeness gate. C wins because its corner mechanism is concise, culturally neutral, and retains the same comic inference in all four languages. F and D are strong universal alternatives. B and E are structurally English-specific name-misreading jokes whose translations are grammatical-calque-like rather than naturally funny."
+}

@@ -1,0 +1,727 @@
+{
+  "iteration": "synthesis-03",
+  "model_id": "gpt-5.6-sol",
+  "artifacts": [
+    "card.svg",
+    "variants.svg",
+    "card-preview.png",
+    "variants-preview.png"
+  ],
+  "measurement_method": {
+    "geometry": "Major card text/group bboxes and all flexible venue values were measured from the rendered SVG with Inkscape --query-id. Source-coordinate bboxes are used for explicit rects/lines. No character-factor estimate is used for pass/fail title or venue containment.",
+    "contrast": "WCAG 2.x: normalize sRGB; linearize c/12.92 when c<=0.04045 else ((c+0.055)/1.055)^2.4; L=0.2126R+0.7152G+0.0722B; ratio=(L_lighter+0.05)/(L_darker+0.05).",
+    "overlap": "Axis-aligned rendered bboxes for major groups. Intentional containment is classified separately."
+  },
+  "canvas": {
+    "card.svg": {
+      "width": 1200,
+      "height": 630,
+      "viewBox": "0 0 1200 630"
+    },
+    "variants.svg": {
+      "width": 1200,
+      "height": 630,
+      "viewBox": "0 0 1200 630"
+    }
+  },
+  "card_major_bounding_boxes": [
+    {
+      "id": "canvas",
+      "bbox": [
+        0,
+        0,
+        1200,
+        630
+      ]
+    },
+    {
+      "id": "frame",
+      "bbox": [
+        23.25,
+        23.25,
+        1176.75,
+        606.75
+      ],
+      "measurement": "Inkscape"
+    },
+    {
+      "id": "editorial-zone",
+      "bbox": [
+        71.805,
+        48,
+        680,
+        566
+      ],
+      "measurement": "Inkscape union"
+    },
+    {
+      "id": "logo-mark",
+      "bbox": [
+        72,
+        48,
+        116,
+        92
+      ],
+      "measurement": "Inkscape"
+    },
+    {
+      "id": "series-kicker",
+      "bbox": [
+        133.281,
+        65.609,
+        393.72,
+        77.195
+      ],
+      "measurement": "Inkscape"
+    },
+    {
+      "id": "format-badge",
+      "bbox": [
+        512,
+        54,
+        680,
+        86
+      ],
+      "measurement": "Inkscape"
+    },
+    {
+      "id": "header-rule",
+      "bbox": [
+        72,
+        105.25,
+        680,
+        106.75
+      ],
+      "measurement": "Inkscape"
+    },
+    {
+      "id": "title-rail",
+      "bbox": [
+        72,
+        132,
+        78,
+        304
+      ],
+      "measurement": "Inkscape"
+    },
+    {
+      "id": "title-block",
+      "bbox": [
+        99.57,
+        165.852,
+        572.609,
+        258.914
+      ],
+      "measurement": "Inkscape rendered group after canonical-copy restoration"
+    },
+    {
+      "id": "metadata-grid",
+      "bbox": [
+        72,
+        320,
+        680,
+        429.381
+      ],
+      "measurement": "Inkscape rendered group"
+    },
+    {
+      "id": "footer-rule",
+      "bbox": [
+        72,
+        451.25,
+        680,
+        452.75
+      ],
+      "measurement": "Inkscape"
+    },
+    {
+      "id": "event-summary",
+      "bbox": [
+        71.805,
+        469.906,
+        474.953,
+        485.469
+      ],
+      "measurement": "Inkscape"
+    },
+    {
+      "id": "cta-button",
+      "bbox": [
+        72,
+        510,
+        316,
+        566
+      ],
+      "measurement": "Inkscape rendered group"
+    },
+    {
+      "id": "capacity-note",
+      "bbox": [
+        342.656,
+        534.033,
+        484.691,
+        544.171
+      ],
+      "measurement": "Inkscape"
+    },
+    {
+      "id": "signal-module",
+      "bbox": [
+        752,
+        48,
+        1128,
+        582
+      ],
+      "measurement": "Inkscape rendered group"
+    },
+    {
+      "id": "signal-graphic",
+      "bbox": [
+        775,
+        198,
+        1107,
+        363
+      ],
+      "measurement": "source extrema including 7px nodes/stroke"
+    },
+    {
+      "id": "signal-module-header",
+      "bbox": [
+        780,
+        76,
+        1100,
+        91
+      ]
+    },
+    {
+      "id": "signal-module-footer",
+      "bbox": [
+        780,
+        508,
+        1098,
+        554
+      ]
+    }
+  ],
+  "variants_major_bounding_boxes": [
+    {
+      "id": "sheet-header",
+      "bbox": [
+        32,
+        20,
+        1168,
+        38
+      ]
+    },
+    {
+      "id": "variant-stress-test",
+      "bbox": [
+        32,
+        72,
+        384,
+        602
+      ]
+    },
+    {
+      "id": "variant-stress-title",
+      "bbox": [
+        74,
+        169,
+        324,
+        242
+      ]
+    },
+    {
+      "id": "variant-stress-metadata",
+      "bbox": [
+        56,
+        262,
+        360,
+        339
+      ]
+    },
+    {
+      "id": "stressVenueValue",
+      "bbox": [
+        56.461,
+        327.321,
+        289.239,
+        338.285
+      ],
+      "measurement": "Inkscape rendered text"
+    },
+    {
+      "id": "variant-stress-module",
+      "bbox": [
+        56,
+        356,
+        360,
+        480
+      ]
+    },
+    {
+      "id": "variant-stress-cta",
+      "bbox": [
+        56,
+        502,
+        232,
+        550
+      ]
+    },
+    {
+      "id": "variant-in-person",
+      "bbox": [
+        424,
+        72,
+        776,
+        602
+      ]
+    },
+    {
+      "id": "variant-in-person-title",
+      "bbox": [
+        466,
+        169,
+        657,
+        228
+      ]
+    },
+    {
+      "id": "variant-in-person-metadata",
+      "bbox": [
+        448,
+        262,
+        752,
+        341
+      ]
+    },
+    {
+      "id": "inPersonVenueValue",
+      "bbox": [
+        448.095,
+        327.321,
+        635.998,
+        340.849
+      ],
+      "measurement": "Inkscape rendered text"
+    },
+    {
+      "id": "variant-in-person-module",
+      "bbox": [
+        448,
+        356,
+        752,
+        480
+      ]
+    },
+    {
+      "id": "variant-in-person-cta",
+      "bbox": [
+        448,
+        502,
+        624,
+        550
+      ]
+    },
+    {
+      "id": "variant-virtual",
+      "bbox": [
+        816,
+        72,
+        1168,
+        602
+      ]
+    },
+    {
+      "id": "variant-virtual-title",
+      "bbox": [
+        858,
+        169,
+        1128,
+        228
+      ]
+    },
+    {
+      "id": "variant-virtual-metadata",
+      "bbox": [
+        840,
+        262,
+        1144,
+        339
+      ]
+    },
+    {
+      "id": "virtualVenueValue",
+      "bbox": [
+        840.52,
+        327.321,
+        1044.06,
+        338.285
+      ],
+      "measurement": "Inkscape rendered text"
+    },
+    {
+      "id": "variant-virtual-module",
+      "bbox": [
+        840,
+        356,
+        1144,
+        480
+      ]
+    },
+    {
+      "id": "variant-virtual-cta",
+      "bbox": [
+        840,
+        502,
+        1016,
+        550
+      ]
+    }
+  ],
+  "overlap_checks": {
+    "card": [
+      {
+        "pair": [
+          "series-kicker",
+          "format-badge"
+        ],
+        "gap_px": 118.28,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "header-rule",
+          "title-block"
+        ],
+        "gap_px": 33.102,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "title-block",
+          "metadata-grid"
+        ],
+        "gap_px": 29.086,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "title-block",
+          "signal-module"
+        ],
+        "gap_px": 111.516,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "editorial-zone",
+          "signal-module"
+        ],
+        "gap_px": 72,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "metadata-grid",
+          "footer-rule"
+        ],
+        "gap_px": 21.869,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "event-summary",
+          "cta-button"
+        ],
+        "gap_px": 24.531,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "cta-button",
+          "capacity-note"
+        ],
+        "gap_px": 26.656,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "cta-button",
+          "cta-label"
+        ],
+        "overlap": "intentional_containment",
+        "minimum_inset_px": 18
+      },
+      {
+        "pair": [
+          "signal-module",
+          "signal-graphic"
+        ],
+        "overlap": "intentional_containment",
+        "minimum_inset_px": 23
+      }
+    ],
+    "variants": [
+      {
+        "pair": [
+          "variant-stress-test",
+          "variant-in-person"
+        ],
+        "gap_px": 40,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "variant-in-person",
+          "variant-virtual"
+        ],
+        "gap_px": 40,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "each-title",
+          "each-metadata"
+        ],
+        "minimum_gap_px": 20,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "each-metadata",
+          "each-module"
+        ],
+        "minimum_gap_px": 15.151,
+        "overlap": false
+      },
+      {
+        "pair": [
+          "each-module",
+          "each-cta"
+        ],
+        "minimum_gap_px": 22,
+        "overlap": false
+      }
+    ],
+    "unintended_overlap_detected": false
+  },
+  "clipping_checks": {
+    "card_all_major_elements_within_canvas": true,
+    "card_all_editorial_content_within_editorial_zone": true,
+    "variants_all_major_elements_within_canvas": true,
+    "stress_venue_right_edge": 289.239,
+    "stress_card_inner_right_edge": 372,
+    "stress_venue_remaining_space_px": 82.761,
+    "in_person_venue_right_edge": 635.998,
+    "in_person_card_inner_right_edge": 764,
+    "in_person_venue_remaining_space_px": 128.002,
+    "virtual_venue_right_edge": 1044.06,
+    "virtual_card_inner_right_edge": 1156,
+    "virtual_venue_remaining_space_px": 111.94,
+    "module_routes_clipped_to_rounded_panel": true,
+    "text_overset": false,
+    "status": "pass"
+  },
+  "contrast_checks": [
+    {
+      "foreground": "#171C32",
+      "background": "#F6F1E8",
+      "role": "title/value text",
+      "ratio": 14.95,
+      "required": 4.5,
+      "pass": true
+    },
+    {
+      "foreground": "#5E5D58",
+      "background": "#F6F1E8",
+      "role": "labels/supporting text",
+      "ratio": 5.87,
+      "required": 4.5,
+      "pass": true
+    },
+    {
+      "foreground": "#006E70",
+      "background": "#F6F1E8",
+      "role": "hybrid kicker",
+      "ratio": 5.39,
+      "required": 4.5,
+      "pass": true
+    },
+    {
+      "foreground": "#FFFFFF",
+      "background": "#173B57",
+      "role": "CTA label",
+      "ratio": 11.67,
+      "required": 4.5,
+      "pass": true
+    },
+    {
+      "foreground": "#FFFFFF",
+      "background": "#006E70",
+      "role": "hybrid badge",
+      "ratio": 6.06,
+      "required": 4.5,
+      "pass": true
+    },
+    {
+      "foreground": "#FFFFFF",
+      "background": "#9F3424",
+      "role": "in-person badge",
+      "ratio": 7.02,
+      "required": 4.5,
+      "pass": true
+    },
+    {
+      "foreground": "#FFFFFF",
+      "background": "#4452B8",
+      "role": "virtual badge",
+      "ratio": 6.68,
+      "required": 4.5,
+      "pass": true
+    },
+    {
+      "foreground": "#BFD9DD",
+      "background": "#171C32",
+      "role": "module secondary labels",
+      "ratio": 11.36,
+      "required": 4.5,
+      "pass": true
+    }
+  ],
+  "defect_repairs": [
+    {
+      "defect": "synthesis-01 compact hybrid venue escaped its card by 3.358px.",
+      "source_evidence": "synthesis-01 variants-preview.png and Inkscape bbox [670.505,290.46,779.358,301.285] versus card right x=776",
+      "repair": "Flexible venue values now occupy a full-width second metadata row.",
+      "stress_test": "INNOVATION HUB + ONLINE",
+      "result": "Rendered right x=289.239 versus stress card inner right x=372; 82.761px remaining.",
+      "pass": true
+    },
+    {
+      "defect": "generative-02 CTA white on #3B82F6 was 3.68:1, not the claimed 4.5:1.",
+      "repair": "Retained synthesis-01 CTA surface #173B57.",
+      "computation": "WCAG relative luminance formula above; white on #173B57 = 11.67:1.",
+      "required": 4.5,
+      "pass": true
+    },
+    {
+      "defect": "generative-02 title was estimated to intrude about 24px into its x=650 graphic panel.",
+      "repair": "Retained protected zones and measured the actual dense three-line rendered title rather than a character estimate.",
+      "measurement": {
+        "rendered_title_right_x": 640.484,
+        "panel_left_x": 752,
+        "separation_px": 111.516,
+        "required_minimum_px": 64
+      },
+      "pass": true
+    },
+    {
+      "defect": "synthesis-02 promoted stress-test copy into the primary card and changed the canonical headline.",
+      "source_evidence": "User review plus synthesis-01 and synthesis-02 prompt-chain differential.",
+      "repair": "Restored Designing with Feedback Loops in the primary card while retaining long-title stress copy only in variants.svg.",
+      "pass": true
+    }
+  ],
+  "safe_zone_measurements": {
+    "editorial_zone_right_x": 680,
+    "signal_panel_left_x": 752,
+    "structural_gutter_px": 72,
+    "rendered_title_right_x": 640.484,
+    "title_to_panel_separation_px": 111.516,
+    "required_title_to_panel_separation_px": 64,
+    "pass": true
+  },
+  "required_content": {
+    "card.svg": {
+      "event_title": {
+        "present": true,
+        "text": "DESIGNING WITH / FEEDBACK LOOPS"
+      },
+      "date": {
+        "present": true,
+        "text": "NOV 19, 2026"
+      },
+      "time": {
+        "present": true,
+        "text": "13:00–16:30"
+      },
+      "venue": {
+        "present": true,
+        "text": "INNOVATION HUB + ONLINE"
+      },
+      "cta": {
+        "present": true,
+        "text": "REGISTER NOW →"
+      }
+    },
+    "variants.svg": {
+      "variant_count": 3,
+      "all_variants_have_title_date_time_venue_cta": true,
+      "long_content_stress_variant_present": true
+    }
+  },
+  "font_size": {
+    "card_minimum_px": 14,
+    "variants_minimum_px": 13,
+    "declared_threshold_px": 13,
+    "pass": true
+  },
+  "accessible_metadata": {
+    "card.svg": {
+      "role_img": true,
+      "aria_labelledby": true,
+      "title": true,
+      "desc": true
+    },
+    "variants.svg": {
+      "role_img": true,
+      "aria_labelledby": true,
+      "title": true,
+      "desc": true
+    },
+    "pass": true
+  },
+  "xml_parse": {
+    "parser": "python xml.etree.ElementTree",
+    "card.svg": "pass",
+    "variants.svg": "pass",
+    "external_assets_fonts_scripts": false
+  },
+  "objective_gates": {
+    "exact_canvas_and_viewbox": "pass",
+    "svg_xml_parse": "pass",
+    "accessible_metadata": "pass",
+    "required_content_present": "pass",
+    "minimum_font_size": "pass",
+    "no_unintended_overlap": "pass",
+    "no_clipping_or_component_overset": "pass",
+    "normal_text_contrast_at_least_4_5": "pass",
+    "title_panel_safe_zone_at_least_64": "pass",
+    "three_reusable_variants": "pass",
+    "long_content_stress_case": "pass"
+  },
+  "objective_comparison_to_synthesis_01": {
+    "synthesis_01_no_clipping": "fail",
+    "synthesis_02_no_clipping": "pass",
+    "measured_venue_overrun_before_px": 3.358,
+    "measured_stress_venue_remaining_space_after_px": 82.761,
+    "material_change": "compact metadata changed from three fixed columns to paired DATE/TIME plus full-width VENUE; density tiers and content-driven badge rules added"
+  },
+  "overall_pass": true,
+  "context_fidelity": {
+    "expected_primary_title": "Designing with Feedback Loops",
+    "actual_primary_title": "Designing with Feedback Loops",
+    "stress_fixture_title": "Facilitating Cross-Functional Decision-Making",
+    "stress_fixture_location": "variants.svg / hybrid-remote-stress",
+    "stress_fixture_visibly_labeled": true,
+    "primary_uses_stress_copy": false,
+    "pass": true
+  },
+  "objective_comparison_to_synthesis_02": {
+    "layout_system_preserved": true,
+    "canonical_primary_copy_restored": true,
+    "stress_fixture_preserved_as_secondary_evidence": true,
+    "material_change": "copy-role correction only; synthesis-02 width-aware layout repair is retained"
+  }
+}

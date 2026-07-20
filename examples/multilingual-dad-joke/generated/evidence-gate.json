@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "detail": {},
+      "name": "manifest_parse",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "schema_version": "1.1"
+      },
+      "name": "manifest_schema",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "champion": "track-gemini-3-1-pro-preview-loop-01",
+        "loops": 8,
+        "tracks": 4
+      },
+      "name": "manifest_semantics",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "checked": 42
+      },
+      "name": "artifact_integrity",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 416070
+      },
+      "name": "viewer_present",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 416070,
+        "sha256": "93fdbaf5b64893962bba6209075fc66fca97fa7dbe54fb87f7137d41580a9888"
+      },
+      "name": "viewer_determinism",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "checks": [
+          "self_contained",
+          "embedded_json",
+          "javascript",
+          "links",
+          "accessibility"
+        ]
+      },
+      "name": "viewer_static",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "browser": {
+          "name": "chromium",
+          "playwright": "1.61.1",
+          "version": "149.0.7827.55"
+        },
+        "viewer_sha256": "93fdbaf5b64893962bba6209075fc66fca97fa7dbe54fb87f7137d41580a9888"
+      },
+      "name": "navigation_evidence",
+      "required": true,
+      "status": "pass"
+    }
+  ],
+  "run_dir": "C:\\repos\\chrisauld_microsoft\\ai-strategy\\copilot-worktrees\\experiment-loop-skill\\chrisauld-microsoft-bookish-system\\.regeneration-6ydsfscu\\multilingual-dad-joke\\workspace\\generated",
+  "schema_version": "1.0",
+  "status": "pass"
+}

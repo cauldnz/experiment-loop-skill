@@ -1,0 +1,28 @@
+{
+  "canvas": { "width": 1200, "height": 630 },
+  "elements": {
+    "title": { "x": 80, "y": 160, "width": 550, "height": 160 },
+    "metadata": { "x": 80, "y": 400, "width": 600, "height": 100 },
+    "cta": { "x": 80, "y": 540, "width": 200, "height": 56 },
+    "visual_paths": { "x": 0, "y": 180, "width": 1200, "height": 440 }
+  },
+  "checks": {
+    "contrast_ratios": {
+      "title_bg": 13.9,
+      "metadata_bg": 6.8,
+      "cta_text_bg": 4.5
+    },
+    "required_content": {
+      "title": true,
+      "date": true,
+      "time": true,
+      "venue": true,
+      "cta": true
+    },
+    "overlap_clipping": {
+      "metadata_visual_paths_overlap": true
+    },
+    "parse_status": "success"
+  },
+  "overall_objective_pass": false
+}

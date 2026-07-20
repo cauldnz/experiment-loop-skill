@@ -1,0 +1,14 @@
+{
+  "strategy": "nearest",
+  "route_length_km": 42.530641862,
+  "validity": 1,
+  "reproducibility": 1,
+  "repeat_runs": 3,
+  "identical_routes": true,
+  "stop_count": 12,
+  "starts_at_depot": true,
+  "ends_at_depot": true,
+  "unique_stops_visited": 12,
+  "validation_errors": [],
+  "input_sha256": "bd5a9c265b9c05c4f467555a4ac89fdcfc73000c89258b2b10259e17db772263"
+}

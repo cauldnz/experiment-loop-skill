@@ -1,0 +1,6 @@
+{
+  "track_prompt": "Build a reusable fictional Loop Lab workshop event-card SVG system. Create standalone valid accessible 1200x630 card.svg with required title/date/time/venue/CTA. Visual language: distinctive modular loops / phase-shifted signal paths.",
+  "input_feedback": null,
+  "judge_feedback": "The SVG is syntactically valid and accessible. Required content is present. However, the visual language elements (phase-shifted signal paths) overlap heavily with the metadata text, causing poor readability and layout interference.",
+  "next_prompt": "Shift the visual language elements to the right hemisphere of the card to avoid overlapping with text. Extend the system by adding a 'Track' module/badge."
+}
