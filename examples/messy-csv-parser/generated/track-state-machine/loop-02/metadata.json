@@ -1,0 +1,48 @@
+{
+  "loop_id": "loop-02",
+  "track_id": "track-state-machine",
+  "track_label": "Character-state-machine architecture",
+  "model_id": "claude-sonnet-5",
+  "role": "generator",
+  "parent_ids": ["loop-01"],
+  "date": "2026-07-20",
+  "files": {
+    "parser": "parser.py",
+    "tests": "test_parser.py",
+    "test_result": "test-result.txt",
+    "judge": "judge.md"
+  },
+  "test_command": "python test_parser.py",
+  "test_counts": {
+    "total": 53,
+    "passed": 53,
+    "failed": 0,
+    "errors": 0
+  },
+  "regression_check_against_loop_01_tests": {
+    "command": "loop-01's original test_parser.py run unmodified against loop-02's parser.py",
+    "total": 30,
+    "passed": 30,
+    "failed": 0
+  },
+  "blocking_core_samples": {
+    "embedded_comma": "pass",
+    "embedded_newline": "pass",
+    "doubled_quote_escaping": "pass"
+  },
+  "gates": {
+    "core_samples": "pass",
+    "objective_tests": "pass"
+  },
+  "no_csv_import_verified": true,
+  "scores_0_to_5": {
+    "correctness": 5,
+    "robustness": 5,
+    "error_clarity": 5,
+    "maintainability": 4,
+    "constraint_adherence": 5
+  },
+  "decision": "new_best",
+  "stop_reason": "Track plan called for exactly two Loops; loop-02 fixed the maintainability weakness identified in loop-01, added row/field context to error messages, expanded objective tests from 30 to 53 with zero regressions, and all blocking core samples and gates pass. Promoting to final/ as the Track champion.",
+  "notes": "Refactored parse() into _Scanner + _Machine with per-state handlers; enriched ParseError with row/field context; promoted 12 loop-01 ad-hoc probes into committed tests and added 11 more. Verified no behavioral regression by re-running loop-01's original test file unmodified against loop-02's parser.py."
+}

@@ -1,0 +1,42 @@
+{
+  "loop_id": "loop-01",
+  "track_id": "track-state-machine",
+  "track_label": "Character-state-machine architecture",
+  "model_id": "claude-sonnet-5",
+  "role": "generator",
+  "parent_ids": [],
+  "date": "2026-07-20",
+  "files": {
+    "parser": "parser.py",
+    "tests": "test_parser.py",
+    "test_result": "test-result.txt",
+    "judge": "judge.md"
+  },
+  "test_command": "python test_parser.py",
+  "test_counts": {
+    "total": 30,
+    "passed": 30,
+    "failed": 0,
+    "errors": 0
+  },
+  "blocking_core_samples": {
+    "embedded_comma": "pass",
+    "embedded_newline": "pass",
+    "doubled_quote_escaping": "pass"
+  },
+  "gates": {
+    "core_samples": "pass",
+    "objective_tests": "pass"
+  },
+  "no_csv_import_verified": true,
+  "scores_0_to_5": {
+    "correctness": 5,
+    "robustness": 4,
+    "error_clarity": 4,
+    "maintainability": 2,
+    "constraint_adherence": 5
+  },
+  "decision": "keep_for_synthesis",
+  "stop_reason": null,
+  "notes": "Baseline is functionally solid and passes all objective tests plus 15 ad-hoc adversarial probes. Real weakness is architectural: monolithic ~250-line procedural function with duplicated advance logic. Driving loop-02 to refactor for maintainability and promote adversarial probes into the committed suite."
+}

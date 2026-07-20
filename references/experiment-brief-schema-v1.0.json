@@ -1,0 +1,351 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/experiment-loop/experiment-brief-schema-v1.0.json",
+  "title": "Experiment Setup Brief v1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "title",
+    "revision",
+    "status",
+    "target",
+    "problem",
+    "invariants",
+    "optimization_variables",
+    "scorecard",
+    "scorers",
+    "topology",
+    "models",
+    "evidence",
+    "autonomy",
+    "risks"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "experiment_id": {"$ref": "#/$defs/id"},
+    "title": {"$ref": "#/$defs/non_empty"},
+    "revision": {"type": "integer", "minimum": 1},
+    "status": {"enum": ["draft", "approved", "superseded"]},
+    "supersedes_revision": {"type": ["integer", "null"], "minimum": 1},
+    "target": {
+      "type": "object",
+      "required": ["repository_root", "setup_root", "generated_root"],
+      "properties": {
+        "repository_root": {"$ref": "#/$defs/non_empty"},
+        "setup_root": {"$ref": "#/$defs/non_empty"},
+        "generated_root": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "problem": {
+      "type": "object",
+      "required": [
+        "statement",
+        "artifact",
+        "audience",
+        "optimization_target",
+        "success_definition"
+      ],
+      "properties": {
+        "statement": {"$ref": "#/$defs/non_empty"},
+        "artifact": {"$ref": "#/$defs/non_empty"},
+        "audience": {"$ref": "#/$defs/non_empty"},
+        "optimization_target": {"$ref": "#/$defs/non_empty"},
+        "success_definition": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "invariants": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/invariant"}
+    },
+    "optimization_variables": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/optimization_variable"}
+    },
+    "scorecard": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/criterion"}
+    },
+    "scorers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/scorer"}
+    },
+    "topology": {
+      "type": "object",
+      "required": ["mode", "tracks", "synthesis_required"],
+      "properties": {
+        "mode": {
+          "enum": [
+            "single_track",
+            "parallel_variants",
+            "bake_off",
+            "parallel_then_synthesis",
+            "human_in_the_loop"
+          ]
+        },
+        "tracks": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/track"}
+        },
+        "synthesis_required": {"type": "boolean"},
+        "synthesis_model_role": {"type": ["string", "null"]},
+        "minimum_loops_per_track": {"type": "integer", "minimum": 2}
+      },
+      "additionalProperties": false
+    },
+    "models": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/model_assignment"}
+    },
+    "evidence": {
+      "type": "object",
+      "required": [
+        "baseline",
+        "preflight_commands",
+        "required_artifacts",
+        "viewer_required",
+        "navigation_evidence_required",
+        "evidence_gate_required"
+      ],
+      "properties": {
+        "baseline": {"$ref": "#/$defs/non_empty"},
+        "preflight_commands": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "required_artifacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "viewer_required": {"type": "boolean"},
+        "navigation_evidence_required": {"type": "boolean"},
+        "evidence_gate_required": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "autonomy": {
+      "type": "object",
+      "required": [
+        "mode",
+        "allowed_paths",
+        "denied_paths",
+        "max_wall_time_minutes",
+        "max_iterations",
+        "stop_conditions",
+        "pause_conditions",
+        "prohibited_actions"
+      ],
+      "properties": {
+        "mode": {"enum": ["interactive", "unattended"]},
+        "allowed_paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "denied_paths": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "max_wall_time_minutes": {"type": "integer", "minimum": 1},
+        "max_iterations": {"type": "integer", "minimum": 2},
+        "stop_conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "pause_conditions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "prohibited_actions": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/non_empty"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "risks": {
+      "type": "object",
+      "required": [
+        "external_users",
+        "deployment",
+        "telemetry",
+        "external_services",
+        "sensitive_data",
+        "controls"
+      ],
+      "properties": {
+        "external_users": {"type": "boolean"},
+        "deployment": {"type": "boolean"},
+        "telemetry": {"type": "boolean"},
+        "external_services": {"type": "boolean"},
+        "sensitive_data": {"type": "boolean"},
+        "controls": {
+          "type": "object",
+          "properties": {
+            "consent": {"type": "string"},
+            "privacy": {"type": "string"},
+            "retention": {"type": "string"},
+            "credentials": {"type": "string"},
+            "rollback": {"type": "string"},
+            "approval_boundaries": {"type": "string"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "setup_review": {
+      "type": "object",
+      "required": ["critic_model_id", "status", "unresolved_findings"],
+      "properties": {
+        "critic_model_id": {"$ref": "#/$defs/non_empty"},
+        "status": {"enum": ["pass", "needs_revision"]},
+        "unresolved_findings": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/non_empty"}
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "non_empty": {"type": "string", "minLength": 1},
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "verification": {
+      "type": "object",
+      "required": ["type", "source", "procedure"],
+      "properties": {
+        "type": {
+          "enum": [
+            "objective_command",
+            "artifact_assertion",
+            "human_review"
+          ]
+        },
+        "source": {"$ref": "#/$defs/non_empty"},
+        "procedure": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "invariant": {
+      "type": "object",
+      "required": [
+        "id",
+        "statement",
+        "applies_to",
+        "blocking",
+        "verification"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "statement": {"$ref": "#/$defs/non_empty"},
+        "applies_to": {
+          "enum": ["all_candidates", "primary_candidates", "champion"]
+        },
+        "blocking": {"const": true},
+        "verification": {"$ref": "#/$defs/verification"}
+      },
+      "additionalProperties": false
+    },
+    "optimization_variable": {
+      "type": "object",
+      "required": ["id", "description", "allowed_change"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "description": {"$ref": "#/$defs/non_empty"},
+        "allowed_change": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "criterion": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "direction",
+        "primary",
+        "weight",
+        "gate"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "label": {"$ref": "#/$defs/non_empty"},
+        "direction": {"enum": ["maximize", "minimize"]},
+        "primary": {"type": "boolean"},
+        "weight": {"type": "number", "exclusiveMinimum": 0},
+        "gate": {"type": "boolean"},
+        "measurement": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "scorer": {
+      "type": "object",
+      "required": ["id", "type", "criterion_ids", "primary"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "type": {
+          "enum": [
+            "objective_command",
+            "llm_rubric",
+            "pairwise_judge",
+            "human_review"
+          ]
+        },
+        "criterion_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/id"}
+        },
+        "primary": {"type": "boolean"},
+        "command": {"type": "string"},
+        "judge_panel": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "track": {
+      "type": "object",
+      "required": ["id", "hypothesis", "model_role", "allowed_change_scope"],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "hypothesis": {"$ref": "#/$defs/non_empty"},
+        "model_role": {"$ref": "#/$defs/id"},
+        "allowed_change_scope": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "model_assignment": {
+      "type": "object",
+      "required": [
+        "role",
+        "primary_model_id",
+        "allowed_fallback_model_ids"
+      ],
+      "properties": {
+        "role": {"$ref": "#/$defs/id"},
+        "primary_model_id": {"$ref": "#/$defs/non_empty"},
+        "allowed_fallback_model_ids": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/non_empty"}
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

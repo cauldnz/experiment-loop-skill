@@ -1,0 +1,611 @@
+{
+  "schema": "loop-lab-panel-aggregate/1.0",
+  "experiment_id": "loop-lab-event-card-system",
+  "methodology": {
+    "blind": true,
+    "independent": true,
+    "criteria_aggregation": "criterion-wise median across the three judges",
+    "overall_aggregation": "weighted arithmetic mean of criterion medians; visual_hierarchy weight 2, all other subjective criteria weight 1",
+    "dissent_preserved": true,
+    "objective_policy": "Independent gate consensus plus recorded metrics. Any svg_validity, layout_quality, or content_fidelity failure prevents Champion promotion. Blindness hides candidate identity/order, never the frozen acceptance contract."
+  },
+  "judges": [
+    {
+      "id": "opus-deep-design-critic",
+      "model_id": "claude-opus-4.8",
+      "role": "deep-design-critic"
+    },
+    {
+      "id": "gemini-visual-language-critic",
+      "model_id": "gemini-3.1-pro-preview",
+      "role": "visual-language-critic"
+    },
+    {
+      "id": "terra-layout-critic",
+      "model_id": "gpt-5.6-terra",
+      "role": "layout-critic"
+    },
+    {
+      "id": "sonnet-creative-director",
+      "model_id": "claude-sonnet-5",
+      "role": "creative-director"
+    },
+    {
+      "id": "gpt55-design-systems-critic",
+      "model_id": "gpt-5.5",
+      "role": "design-systems-critic"
+    },
+    {
+      "id": "opus-accessibility-critic",
+      "model_id": "claude-opus-4.8",
+      "role": "accessibility-critic"
+    }
+  ],
+  "criteria_weights": {
+    "visual_hierarchy": 2,
+    "brand_distinctiveness": 1,
+    "information_clarity": 1,
+    "system_coherence": 1,
+    "production_polish": 1
+  },
+  "loops": {
+    "editorial-01": {
+      "judges": [
+        {
+          "judge_id": "opus-deep-design-critic",
+          "model_id": "claude-opus-4.8",
+          "role": "deep-design-critic",
+          "scores": {
+            "visual_hierarchy": 4,
+            "brand_distinctiveness": 4,
+            "information_clarity": 3,
+            "system_coherence": 4,
+            "production_polish": 3
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "fail"
+          },
+          "note": "judges/opus/parents/editorial-01.md"
+        },
+        {
+          "judge_id": "gemini-visual-language-critic",
+          "model_id": "gemini-3.1-pro-preview",
+          "role": "visual-language-critic",
+          "scores": {
+            "visual_hierarchy": 4,
+            "brand_distinctiveness": 3,
+            "information_clarity": 2,
+            "system_coherence": 4,
+            "production_polish": 3
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "fail"
+          },
+          "note": "judges/gemini/parents/editorial-01.md"
+        },
+        {
+          "judge_id": "terra-layout-critic",
+          "model_id": "gpt-5.6-terra",
+          "role": "layout-critic",
+          "scores": {
+            "visual_hierarchy": 4,
+            "brand_distinctiveness": 4,
+            "information_clarity": 3,
+            "system_coherence": 3,
+            "production_polish": 3
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "fail"
+          },
+          "note": "judges/terra/parents/editorial-01.md"
+        }
+      ],
+      "panel_median": {
+        "visual_hierarchy": 4,
+        "brand_distinctiveness": 4,
+        "information_clarity": 3,
+        "system_coherence": 4,
+        "production_polish": 3
+      },
+      "weighted_median_score": 3.667,
+      "objective_gate_verdict": {
+        "svg_validity": "pass",
+        "layout_quality": "fail"
+      },
+      "champion_eligible": false,
+      "decision": "reject",
+      "dissent": "All judges failed layout on the 2.49:1 muted-text contrast. Gemini scored brand and clarity lower; Opus credited the token system more strongly."
+    },
+    "editorial-02": {
+      "judges": [
+        {
+          "judge_id": "opus-deep-design-critic",
+          "model_id": "claude-opus-4.8",
+          "role": "deep-design-critic",
+          "scores": {
+            "visual_hierarchy": 5,
+            "brand_distinctiveness": 4,
+            "information_clarity": 5,
+            "system_coherence": 5,
+            "production_polish": 4
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass"
+          },
+          "note": "judges/opus/parents/editorial-02.md"
+        },
+        {
+          "judge_id": "gemini-visual-language-critic",
+          "model_id": "gemini-3.1-pro-preview",
+          "role": "visual-language-critic",
+          "scores": {
+            "visual_hierarchy": 4,
+            "brand_distinctiveness": 4,
+            "information_clarity": 5,
+            "system_coherence": 5,
+            "production_polish": 5
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass"
+          },
+          "note": "judges/gemini/parents/editorial-02.md"
+        },
+        {
+          "judge_id": "terra-layout-critic",
+          "model_id": "gpt-5.6-terra",
+          "role": "layout-critic",
+          "scores": {
+            "visual_hierarchy": 5,
+            "brand_distinctiveness": 4,
+            "information_clarity": 5,
+            "system_coherence": 5,
+            "production_polish": 5
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass"
+          },
+          "note": "judges/terra/parents/editorial-02.md"
+        }
+      ],
+      "panel_median": {
+        "visual_hierarchy": 5,
+        "brand_distinctiveness": 4,
+        "information_clarity": 5,
+        "system_coherence": 5,
+        "production_polish": 5
+      },
+      "weighted_median_score": 4.833,
+      "objective_gate_verdict": {
+        "svg_validity": "pass",
+        "layout_quality": "pass"
+      },
+      "champion_eligible": true,
+      "decision": "keep_for_synthesis",
+      "dissent": "Opus and Terra scored hierarchy 5 while Gemini scored 4; Opus held polish at 4 for system-font and fixed-badge risks while Gemini and Terra scored 5."
+    },
+    "generative-01": {
+      "judges": [
+        {
+          "judge_id": "opus-deep-design-critic",
+          "model_id": "claude-opus-4.8",
+          "role": "deep-design-critic",
+          "scores": {
+            "visual_hierarchy": 2,
+            "brand_distinctiveness": 4,
+            "information_clarity": 2,
+            "system_coherence": 2,
+            "production_polish": 1
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "fail"
+          },
+          "note": "judges/opus/parents/generative-01.md"
+        },
+        {
+          "judge_id": "gemini-visual-language-critic",
+          "model_id": "gemini-3.1-pro-preview",
+          "role": "visual-language-critic",
+          "scores": {
+            "visual_hierarchy": 3,
+            "brand_distinctiveness": 4,
+            "information_clarity": 1,
+            "system_coherence": 3,
+            "production_polish": 2
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "fail"
+          },
+          "note": "judges/gemini/parents/generative-01.md"
+        },
+        {
+          "judge_id": "terra-layout-critic",
+          "model_id": "gpt-5.6-terra",
+          "role": "layout-critic",
+          "scores": {
+            "visual_hierarchy": 2,
+            "brand_distinctiveness": 5,
+            "information_clarity": 2,
+            "system_coherence": 2,
+            "production_polish": 2
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "fail"
+          },
+          "note": "judges/terra/parents/generative-01.md"
+        }
+      ],
+      "panel_median": {
+        "visual_hierarchy": 2,
+        "brand_distinctiveness": 4,
+        "information_clarity": 2,
+        "system_coherence": 2,
+        "production_polish": 2
+      },
+      "weighted_median_score": 2.333,
+      "objective_gate_verdict": {
+        "svg_validity": "pass",
+        "layout_quality": "fail"
+      },
+      "champion_eligible": false,
+      "decision": "reject",
+      "dissent": "All judges failed layout for signal-path interference. Gemini scored hierarchy 3 while Opus/Terra scored 2; Terra gave the distinctive motif 5 while Opus/Gemini gave 4."
+    },
+    "generative-02": {
+      "judges": [
+        {
+          "judge_id": "opus-deep-design-critic",
+          "model_id": "claude-opus-4.8",
+          "role": "deep-design-critic",
+          "scores": {
+            "visual_hierarchy": 4,
+            "brand_distinctiveness": 5,
+            "information_clarity": 3,
+            "system_coherence": 2,
+            "production_polish": 3
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass"
+          },
+          "note": "judges/opus/parents/generative-02.md"
+        },
+        {
+          "judge_id": "gemini-visual-language-critic",
+          "model_id": "gemini-3.1-pro-preview",
+          "role": "visual-language-critic",
+          "scores": {
+            "visual_hierarchy": 5,
+            "brand_distinctiveness": 5,
+            "information_clarity": 5,
+            "system_coherence": 4,
+            "production_polish": 4
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass"
+          },
+          "note": "judges/gemini/parents/generative-02.md"
+        },
+        {
+          "judge_id": "terra-layout-critic",
+          "model_id": "gpt-5.6-terra",
+          "role": "layout-critic",
+          "scores": {
+            "visual_hierarchy": 4,
+            "brand_distinctiveness": 5,
+            "information_clarity": 4,
+            "system_coherence": 3,
+            "production_polish": 4
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass"
+          },
+          "note": "judges/terra/parents/generative-02.md"
+        }
+      ],
+      "panel_median": {
+        "visual_hierarchy": 4,
+        "brand_distinctiveness": 5,
+        "information_clarity": 4,
+        "system_coherence": 3,
+        "production_polish": 4
+      },
+      "weighted_median_score": 4.0,
+      "objective_gate_verdict": {
+        "svg_validity": "pass",
+        "layout_quality": "pass"
+      },
+      "champion_eligible": true,
+      "decision": "keep_for_synthesis",
+      "dissent": "Parent split: Gemini ranked it first for visual impact (5 hierarchy, distinctiveness, clarity); Opus and Terra preferred editorial-02 on the whole brief. Opus scored system coherence 2 and flagged title-panel intrusion plus 3.68:1 CTA contrast; Terra passed the current large-bold CTA but preserved both as risks."
+    },
+    "synthesis-01": {
+      "judges": [
+        {
+          "judge_id": "opus-deep-design-critic",
+          "model_id": "claude-opus-4.8",
+          "role": "deep-design-critic",
+          "scores": {
+            "visual_hierarchy": 5,
+            "brand_distinctiveness": 5,
+            "information_clarity": 3,
+            "system_coherence": 3,
+            "production_polish": 2
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "fail"
+          },
+          "note": "judges/opus/synthesis/synthesis-01.md"
+        },
+        {
+          "judge_id": "gemini-visual-language-critic",
+          "model_id": "gemini-3.1-pro-preview",
+          "role": "visual-language-critic",
+          "scores": {
+            "visual_hierarchy": 4,
+            "brand_distinctiveness": 5,
+            "information_clarity": 4,
+            "system_coherence": 3,
+            "production_polish": 3
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "fail"
+          },
+          "note": "judges/gemini/synthesis/synthesis-01.md"
+        },
+        {
+          "judge_id": "terra-layout-critic",
+          "model_id": "gpt-5.6-terra",
+          "role": "layout-critic",
+          "scores": {
+            "visual_hierarchy": 4,
+            "brand_distinctiveness": 5,
+            "information_clarity": 4,
+            "system_coherence": 3,
+            "production_polish": 3
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "fail"
+          },
+          "note": "judges/terra/synthesis/synthesis-01.md"
+        }
+      ],
+      "panel_median": {
+        "visual_hierarchy": 4,
+        "brand_distinctiveness": 5,
+        "information_clarity": 4,
+        "system_coherence": 3,
+        "production_polish": 3
+      },
+      "weighted_median_score": 3.833,
+      "objective_gate_verdict": {
+        "svg_validity": "pass",
+        "layout_quality": "fail"
+      },
+      "champion_eligible": false,
+      "decision": "reject",
+      "dissent": "Opus scored display-card hierarchy 5 but information clarity 3 and polish 2; Gemini/Terra scored hierarchy 4, clarity 4, polish 3. All three failed layout because the 3.358px compact venue overset outweighs the strong display card."
+    },
+    "synthesis-02": {
+      "judges": [
+        {
+          "judge_id": "opus-deep-design-critic",
+          "model_id": "claude-opus-4.8",
+          "role": "deep-design-critic",
+          "scores": {
+            "visual_hierarchy": 5,
+            "brand_distinctiveness": 5,
+            "information_clarity": 5,
+            "system_coherence": 5,
+            "production_polish": 4
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass"
+          },
+          "note": "judges/opus/synthesis/synthesis-02.md"
+        },
+        {
+          "judge_id": "gemini-visual-language-critic",
+          "model_id": "gemini-3.1-pro-preview",
+          "role": "visual-language-critic",
+          "scores": {
+            "visual_hierarchy": 5,
+            "brand_distinctiveness": 5,
+            "information_clarity": 5,
+            "system_coherence": 5,
+            "production_polish": 5
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass"
+          },
+          "note": "judges/gemini/synthesis/synthesis-02.md"
+        },
+        {
+          "judge_id": "terra-layout-critic",
+          "model_id": "gpt-5.6-terra",
+          "role": "layout-critic",
+          "scores": {
+            "visual_hierarchy": 5,
+            "brand_distinctiveness": 5,
+            "information_clarity": 5,
+            "system_coherence": 5,
+            "production_polish": 4
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass"
+          },
+          "note": "judges/terra/synthesis/synthesis-02.md"
+        }
+      ],
+      "panel_median": {
+        "visual_hierarchy": 5,
+        "brand_distinctiveness": 5,
+        "information_clarity": 5,
+        "system_coherence": 5,
+        "production_polish": 4
+      },
+      "weighted_median_score": 4.833,
+      "objective_gate_verdict": {
+        "svg_validity": "pass",
+        "layout_quality": "pass",
+        "content_fidelity": "fail"
+      },
+      "champion_eligible": false,
+      "decision": "reject",
+      "dissent": "The original panel unanimously preferred the measured layout repair but had no canonical-content contract or content-fidelity veto. Later human review found that stress-test copy had replaced the primary headline, so the Loop is rejected without rewriting its original judge notes."
+    },
+    "synthesis-03": {
+      "judges": [
+        {
+          "judge_id": "sonnet-creative-director",
+          "model_id": "claude-sonnet-5",
+          "role": "creative-director",
+          "scores": {
+            "visual_hierarchy": 4.4,
+            "brand_distinctiveness": 4.3,
+            "information_clarity": 4.5,
+            "system_coherence": 4.6,
+            "production_polish": 4.3
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass",
+            "content_fidelity": "pass"
+          },
+          "note": "judges/repair/creative-director-synthesis-03.md"
+        },
+        {
+          "judge_id": "gpt55-design-systems-critic",
+          "model_id": "gpt-5.5",
+          "role": "design-systems-critic",
+          "scores": {
+            "visual_hierarchy": 4.4,
+            "brand_distinctiveness": 4.1,
+            "information_clarity": 4.5,
+            "system_coherence": 4.6,
+            "production_polish": 4.3
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass",
+            "content_fidelity": "pass"
+          },
+          "note": "judges/repair/design-systems-synthesis-03.md"
+        },
+        {
+          "judge_id": "opus-accessibility-critic",
+          "model_id": "claude-opus-4.8",
+          "role": "accessibility-critic",
+          "scores": {
+            "visual_hierarchy": 4.5,
+            "brand_distinctiveness": 4.3,
+            "information_clarity": 4.5,
+            "system_coherence": 4.6,
+            "production_polish": 4.4
+          },
+          "objective_gates": {
+            "svg_validity": "pass",
+            "layout_quality": "pass",
+            "content_fidelity": "pass"
+          },
+          "note": "judges/repair/accessibility-synthesis-03.md"
+        }
+      ],
+      "panel_median": {
+        "visual_hierarchy": 4.4,
+        "brand_distinctiveness": 4.3,
+        "information_clarity": 4.5,
+        "system_coherence": 4.6,
+        "production_polish": 4.3
+      },
+      "weighted_median_score": 4.417,
+      "objective_gate_verdict": {
+        "svg_validity": "pass",
+        "layout_quality": "pass",
+        "content_fidelity": "pass"
+      },
+      "champion_eligible": true,
+      "decision": "new_best",
+      "dissent": "All judges pass the repair. They preserve a caveat that the visible title uses an all-caps typographic treatment while exact mixed-case copy is held in accessible metadata; localization, RTL, and system-font behavior remain untested."
+    }
+  },
+  "rankings": {
+    "gate_aware_overall": [
+      "synthesis-03",
+      "editorial-02",
+      "generative-02",
+      "synthesis-01",
+      "editorial-01",
+      "generative-01",
+      "synthesis-02"
+    ],
+    "parent_panel": {
+      "opus": [
+        "editorial-02",
+        "generative-02",
+        "editorial-01",
+        "generative-01"
+      ],
+      "gemini": [
+        "generative-02",
+        "editorial-02",
+        "editorial-01",
+        "generative-01"
+      ],
+      "terra": [
+        "editorial-02",
+        "generative-02",
+        "editorial-01",
+        "generative-01"
+      ]
+    },
+    "synthesis_panel": {
+      "opus": [
+        "synthesis-02",
+        "synthesis-01"
+      ],
+      "gemini": [
+        "synthesis-02",
+        "synthesis-01"
+      ],
+      "terra": [
+        "synthesis-02",
+        "synthesis-01"
+      ]
+    },
+    "repair_panel": {
+      "sonnet": [
+        "synthesis-03"
+      ],
+      "gpt55": [
+        "synthesis-03"
+      ],
+      "opus": [
+        "synthesis-03"
+      ]
+    }
+  },
+  "preserved_parent_split": "Gemini favored generative-02 for memorable digital visual impact; Opus and Terra favored editorial-02 on the whole brief: hierarchy, clarity, reusable-system evidence, and objective rigor.",
+  "synthesis_caveats": [
+    "Synthesis-02 preserves useful layout evidence but is rejected for primary-content drift that its original judging contract could not detect.",
+    "Synthesis-03 restores canonical copy and visibly separates stress content while retaining the width-aware repair.",
+    "Exact glyph widths still vary with system fonts; localization, non-Latin scripts, and RTL ordering remain untested."
+  ],
+  "champion": "synthesis-03"
+}

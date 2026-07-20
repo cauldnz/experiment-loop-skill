@@ -1,0 +1,452 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/experiment-loop/manifest-schema-v1.1.json",
+  "title": "Experiment Loop Manifest v1.1",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "title",
+    "problem",
+    "generation",
+    "scorecard",
+    "scorers",
+    "tracks",
+    "iterations",
+    "champion",
+    "story"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1"},
+    "experiment_id": {"$ref": "#/$defs/non_empty"},
+    "title": {"$ref": "#/$defs/non_empty"},
+    "created_at": {"type": "string"},
+    "problem": {
+      "type": "object",
+      "required": [
+        "statement",
+        "optimization_target",
+        "constraints",
+        "success_criteria",
+        "original_prompt"
+      ],
+      "properties": {
+        "statement": {"$ref": "#/$defs/non_empty"},
+        "optimization_target": {"$ref": "#/$defs/non_empty"},
+        "constraints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "success_criteria": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "original_prompt": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "generation": {
+      "type": "object",
+      "required": [
+        "skill_commit",
+        "skill_tree_sha256",
+        "prompt_sha256",
+        "copilot_cli_version",
+        "orchestrator_model",
+        "models"
+      ],
+      "properties": {
+        "skill_commit": {"$ref": "#/$defs/non_empty"},
+        "skill_tree_sha256": {"$ref": "#/$defs/sha256"},
+        "prompt_sha256": {"$ref": "#/$defs/sha256"},
+        "copilot_cli_version": {"$ref": "#/$defs/non_empty"},
+        "orchestrator_model": {"$ref": "#/$defs/non_empty"},
+        "models": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/model_role"}
+        }
+      },
+      "additionalProperties": true
+    },
+    "budget": {"type": "object"},
+    "artifact_scope": {"type": "object"},
+    "scorecard": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/criterion"}
+    },
+    "scorers": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/scorer"}
+    },
+    "judge_panels": {"type": "array", "items": {"type": "object"}},
+    "governance": {"type": "object"},
+    "tracks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/track"}
+    },
+    "iterations": {
+      "type": "array",
+      "minItems": 2,
+      "items": {"$ref": "#/$defs/iteration"}
+    },
+    "champion": {"$ref": "#/$defs/champion"},
+    "story": {
+      "type": "object",
+      "required": [
+        "milestones",
+        "featured_artifact_id",
+        "primary_comparison_key"
+      ],
+      "properties": {
+        "milestones": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "type": "object",
+            "required": ["iteration_id", "caption"],
+            "properties": {
+              "iteration_id": {"$ref": "#/$defs/non_empty"},
+              "caption": {"$ref": "#/$defs/non_empty"}
+            },
+            "additionalProperties": false
+          }
+        },
+        "featured_artifact_id": {"$ref": "#/$defs/non_empty"},
+        "primary_comparison_key": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "rules": {"type": "array", "items": {"type": "string"}},
+    "synthesis": {"type": "string"}
+  },
+  "$defs": {
+    "non_empty": {"type": "string", "minLength": 1},
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "model_role": {
+      "type": "object",
+      "required": ["role", "model_id"],
+      "properties": {
+        "role": {"$ref": "#/$defs/non_empty"},
+        "model_id": {"$ref": "#/$defs/non_empty"},
+        "track_id": {"type": "string"},
+        "iteration_id": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "baseline": {
+      "type": "object",
+      "required": ["value", "unit", "source_artifact_id"],
+      "properties": {
+        "value": {"type": "number"},
+        "unit": {"type": "string"},
+        "source_artifact_id": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "gate": {
+      "type": "object",
+      "required": ["operator", "threshold"],
+      "properties": {
+        "operator": {"enum": ["eq", "ne", "gt", "gte", "lt", "lte"]},
+        "threshold": {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+    "criterion": {
+      "type": "object",
+      "required": [
+        "id",
+        "label",
+        "weight",
+        "direction",
+        "unit",
+        "comparable_across_tracks",
+        "primary"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/non_empty"},
+        "label": {"$ref": "#/$defs/non_empty"},
+        "weight": {"type": "number", "minimum": 0},
+        "direction": {"enum": ["maximize", "minimize", "target", "neutral"]},
+        "unit": {"type": "string"},
+        "comparable_across_tracks": {"type": "boolean"},
+        "primary": {"type": "boolean"},
+        "baseline": {"$ref": "#/$defs/baseline"},
+        "gate": {"$ref": "#/$defs/gate"}
+      },
+      "additionalProperties": false
+    },
+    "scorer": {
+      "type": "object",
+      "required": ["id", "type", "criterion_ids", "primary", "weight"],
+      "properties": {
+        "id": {"$ref": "#/$defs/non_empty"},
+        "type": {
+          "enum": [
+            "objective_command",
+            "llm_rubric",
+            "pairwise_judge",
+            "human_review"
+          ]
+        },
+        "criterion_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "primary": {"type": "boolean"},
+        "weight": {"type": "number", "minimum": 0},
+        "command": {"type": "string"},
+        "judge_panel": {"type": "string"}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"type": {"const": "objective_command"}}},
+          "then": {
+            "required": ["command"],
+            "properties": {"command": {"$ref": "#/$defs/non_empty"}}
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {"enum": ["llm_rubric", "pairwise_judge"]}
+            }
+          },
+          "then": {
+            "required": ["judge_panel"],
+            "properties": {"judge_panel": {"$ref": "#/$defs/non_empty"}}
+          }
+        }
+      ],
+      "additionalProperties": true
+    },
+    "track": {
+      "type": "object",
+      "required": ["id", "label", "hypothesis"],
+      "properties": {
+        "id": {"$ref": "#/$defs/non_empty"},
+        "label": {"$ref": "#/$defs/non_empty"},
+        "hypothesis": {"$ref": "#/$defs/non_empty"},
+        "final_decision": {"type": "string"}
+      },
+      "additionalProperties": true
+    },
+    "presentation": {
+      "type": "object",
+      "required": ["mode", "featured", "primary", "caption"],
+      "properties": {
+        "mode": {
+          "enum": [
+            "image",
+            "svg",
+            "metric_set",
+            "table",
+            "key_value",
+            "structured_json",
+            "markdown",
+            "text",
+            "log",
+            "code",
+            "interactive_html",
+            "download"
+          ]
+        },
+        "featured": {"type": "boolean"},
+        "primary": {"type": "boolean"},
+        "caption": {"$ref": "#/$defs/non_empty"},
+        "alt_text": {"type": "string"},
+        "comparison_key": {"type": "string"}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "mode": {"enum": ["image", "svg", "interactive_html"]},
+              "featured": {"const": true}
+            },
+            "required": ["mode", "featured"]
+          },
+          "then": {
+            "required": ["alt_text", "comparison_key"],
+            "properties": {
+              "alt_text": {"$ref": "#/$defs/non_empty"},
+              "comparison_key": {"$ref": "#/$defs/non_empty"}
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "artifact": {
+      "type": "object",
+      "required": [
+        "id",
+        "kind",
+        "role",
+        "label",
+        "path",
+        "sha256",
+        "presentation"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/non_empty"},
+        "kind": {"$ref": "#/$defs/non_empty"},
+        "role": {"$ref": "#/$defs/non_empty"},
+        "label": {"$ref": "#/$defs/non_empty"},
+        "path": {"$ref": "#/$defs/non_empty"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "presentation": {"$ref": "#/$defs/presentation"}
+      },
+      "additionalProperties": true
+    },
+    "score": {
+      "type": "object",
+      "required": ["scorer_id", "criterion_id", "value"],
+      "properties": {
+        "scorer_id": {"$ref": "#/$defs/non_empty"},
+        "criterion_id": {"$ref": "#/$defs/non_empty"},
+        "value": {"type": "number"},
+        "per_criterion": {"type": "object"},
+        "notes": {"type": "string"}
+      },
+      "additionalProperties": false
+    },
+    "iteration": {
+      "type": "object",
+      "required": [
+        "id",
+        "track_id",
+        "parent_ids",
+        "model_id",
+        "hypothesis",
+        "outcome",
+        "commands",
+        "artifacts",
+        "scores",
+        "prompt",
+        "quality_gates",
+        "changed_files",
+        "lesson",
+        "decision"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/non_empty"},
+        "track_id": {"$ref": "#/$defs/non_empty"},
+        "parent_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/non_empty"}
+        },
+        "model_id": {"$ref": "#/$defs/non_empty"},
+        "hypothesis": {"$ref": "#/$defs/non_empty"},
+        "outcome": {"$ref": "#/$defs/non_empty"},
+        "commands": {
+          "type": "object",
+          "required": ["build", "run", "judge"],
+          "properties": {
+            "build": {"$ref": "#/$defs/non_empty"},
+            "run": {"$ref": "#/$defs/non_empty"},
+            "judge": {"$ref": "#/$defs/non_empty"}
+          },
+          "additionalProperties": false
+        },
+        "artifacts": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/artifact"}
+        },
+        "scores": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/score"}
+        },
+        "prompt": {
+          "type": "object",
+          "required": [
+            "track_prompt",
+            "input_feedback",
+            "judge_feedback",
+            "next_prompt"
+          ],
+          "properties": {
+            "track_prompt": {"type": "string"},
+            "input_feedback": {"type": "string"},
+            "judge_feedback": {"type": "string"},
+            "next_prompt": {"type": "string"}
+          },
+          "additionalProperties": false
+        },
+        "quality_gates": {
+          "type": "object",
+          "additionalProperties": {"enum": ["pass", "fail", "blocked", "not_run"]}
+        },
+        "changed_files": {"type": "array", "items": {"type": "string"}},
+        "lesson": {
+          "type": "object",
+          "required": ["trigger", "action", "evidence", "confidence"],
+          "properties": {
+            "trigger": {"type": "string"},
+            "action": {"type": "string"},
+            "evidence": {"type": "string"},
+            "confidence": {"enum": ["low", "medium", "high"]}
+          },
+          "additionalProperties": false
+        },
+        "decision": {
+          "enum": [
+            "new_best",
+            "reject",
+            "keep_for_synthesis",
+            "needs_human_review",
+            "failed"
+          ]
+        },
+        "stop_reason": {"type": ["string", "null"]}
+      },
+      "additionalProperties": true
+    },
+    "evidence_reason": {
+      "type": "object",
+      "required": ["text", "evidence_refs"],
+      "properties": {
+        "text": {"$ref": "#/$defs/non_empty"},
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/non_empty"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "champion": {
+      "type": "object",
+      "required": ["iteration_id", "summary", "reasons", "caveats"],
+      "properties": {
+        "iteration_id": {"$ref": "#/$defs/non_empty"},
+        "summary": {"$ref": "#/$defs/non_empty"},
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/evidence_reason"}
+        },
+        "caveats": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/evidence_reason"}
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": true
+}

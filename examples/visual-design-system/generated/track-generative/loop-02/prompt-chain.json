@@ -1,0 +1,6 @@
+{
+  "track_prompt": "Shift the visual language elements to the right hemisphere of the card to avoid overlapping with text. Extend the system by adding a 'Track' module/badge.",
+  "input_feedback": "The previous layout had overlapping text and graphics. It lacked modular segmentation.",
+  "judge_feedback": "Perfect. The text is highly legible, the visual language remains distinctive, and the new badge system elegantly extends the layout. No bounding box overlaps detected.",
+  "next_prompt": null
+}

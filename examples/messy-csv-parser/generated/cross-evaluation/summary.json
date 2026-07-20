@@ -1,0 +1,10 @@
+{
+  "suite": "shared architecture-neutral bakeoff",
+  "tests_run": 64,
+  "passed": true,
+  "failures": [],
+  "blocking_core_samples": {
+    "line-regex": "pass",
+    "state-machine": "pass"
+  }
+}

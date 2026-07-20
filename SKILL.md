@@ -68,6 +68,42 @@ diffs.
 
 ## Standard workflow
 
+### 0. Verify Experiment Setup for substantial runs
+
+Use the companion `experiment-setup` skill before an Experiment that is
+unattended, expected to exceed 30 minutes, uses parallel generator Tracks,
+deploys anything, involves external users/services/telemetry/sensitive data, or
+otherwise has meaningful cost or risk.
+
+The approved setup lives in the target repository:
+
+```text
+.experiments/<experiment-id>/setup/
+  prompt.md
+  experiment-brief.json
+  setup-review.md
+  approval.json
+```
+
+Before any build or generation work, validate its exact approval binding:
+
+```text
+python <experiment-loop-skill>/scripts/validate_experiment_setup.py \
+  --brief <setup>/experiment-brief.json \
+  --prompt <setup>/prompt.md \
+  --approval <setup>/approval.json \
+  --require-approved
+```
+
+If validation fails, stop and return to `experiment-setup`. The frozen brief is
+authoritative over chat memory, candidate claims, parent Prompt drift, and
+candidate-authored metrics. Inject its invariants and each Track's allowed-change
+scope into every generator, synthesis, repair, and judge Prompt. Blind candidate
+identity or order when useful; never hide the acceptance contract from judges.
+
+Small, low-cost, interactive Loops may proceed without a setup brief, but still
+need a scorecard and observable evidence.
+
 ### 1. Clarify the optimization target
 
 Restate the user's goal as an artifact plus a quality target.
@@ -223,23 +259,35 @@ fine.
 
 ### 6. Record a manifest
 
-Maintain a JSON manifest so the viewer can be generated. Keep every field below;
-values are shortened here for readability. A full commented example lives in
-`references/manifest-schema-v0.2.json` and the `examples/` runs.
+Maintain a Manifest v1.1 JSON record so the Viewer can be generated without
+guessing. The complete contract lives in `references/manifest-schema-v1.1.json`
+and `templates/manifest-template.json`.
 
 ```json
 {
-  "schema_version": "0.2",
+  "schema_version": "1.1",
   "experiment_id": "short-stable-id",
-  "title": "...", "goal": "...", "created_at": "ISO timestamp",
+  "title": "...",
+  "problem": {
+    "statement": "...", "optimization_target": "...",
+    "constraints": ["..."], "success_criteria": ["..."],
+    "original_prompt": "exact prompt text"
+  },
+  "generation": {
+    "skill_commit": "...", "skill_tree_sha256": "...", "prompt_sha256": "...",
+    "copilot_cli_version": "...", "orchestrator_model": "...",
+    "models": [{"role": "orchestrator", "model_id": "..."}]
+  },
   "budget": {"max_iters": 15, "patience": 4, "cost_limit": null, "wall_time_limit_sec": 3600},
   "artifact_scope": {"roots": ["."], "allow_edit": ["experiment-loop/**"], "deny": [".env", "secrets/**", "**/*credential*"]},
-  "scorecard": [{"id": "clarity", "label": "Visual clarity", "weight": 1}],
+  "scorecard": [{
+    "id": "clarity", "label": "Visual clarity", "weight": 1,
+    "direction": "maximize", "unit": "points",
+    "comparable_across_tracks": true, "primary": true,
+    "baseline": {"value": 2, "unit": "points", "source_artifact_id": "baseline"}
+  }],
   "scorers": [
-    {"id": "tests", "type": "objective_command", "command": "npm test", "primary": true, "weight": 1},
-    {"id": "quality", "type": "llm_rubric", "judge_panel": "default_panel", "weight": 1},
-    {"id": "pairwise", "type": "pairwise_judge", "judge_panel": "default_panel", "weight": 1},
-    {"id": "human", "type": "human_review", "weight": 2}
+    {"id": "quality", "type": "llm_rubric", "criterion_ids": ["clarity"], "judge_panel": "default_panel", "primary": true, "weight": 1}
   ],
   "judge_panels": [{
     "id": "default_panel", "blind": true, "flip_pairwise_order": true, "aggregation": "median_with_dissent",
@@ -252,17 +300,20 @@ values are shortened here for readability. A full commented example lives in
   "governance": {"self_editing": {"requires_user_approval": true, "proposal_required": true, "approved_proposal_id": null}},
   "tracks": [{"id": "presentation", "label": "Presentation", "hypothesis": "..."}],
   "iterations": [{
-    "id": "loop-001", "track_id": "presentation", "parent_id": null,
+    "id": "loop-001", "track_id": "presentation", "parent_ids": [], "model_id": "...",
     "hypothesis": "Widening the camera will reduce clipping.",
+    "outcome": "The measured result and gate state.",
     "commands": {"build": "edit renderer", "run": "render preview", "judge": "judge with default_panel"},
-    "artifacts": [{"kind": "image", "label": "Contact sheet", "path": "track-presentation/loop-001/contact.png", "sha256": "..."}],
-    "scores": [{"scorer_id": "quality", "value": 3.8, "per_criterion": {"clarity": 4, "style": 3.5}, "notes": "..."}],
+    "artifacts": [{"id": "baseline", "kind": "image", "role": "primary-output", "label": "Contact sheet", "path": "track-presentation/loop-001/contact.png", "sha256": "...", "presentation": {"mode": "image", "featured": true, "primary": true, "caption": "...", "alt_text": "...", "comparison_key": "primary-output"}}],
+    "scores": [{"scorer_id": "quality", "criterion_id": "clarity", "value": 3.8, "notes": "..."}],
     "prompt": {"track_prompt": "...", "input_feedback": "...", "judge_feedback": "...", "next_prompt": "..."},
+    "quality_gates": {},
     "changed_files": ["renderer.py"],
     "lesson": {"trigger": "...", "action": "...", "evidence": "...", "confidence": "medium"},
     "decision": "keep_for_synthesis", "stop_reason": null
   }],
-  "best": {"iteration_id": "loop-001", "score": 3.8, "why": "Best clarity so far."},
+  "champion": {"iteration_id": "loop-001", "summary": "...", "reasons": [{"text": "...", "evidence_refs": ["clarity", "baseline"]}], "caveats": []},
+  "story": {"milestones": [{"iteration_id": "loop-001", "caption": "Baseline"}, {"iteration_id": "loop-002", "caption": "Measured improvement"}], "featured_artifact_id": "baseline", "primary_comparison_key": "primary-output"},
   "rules": [],
   "synthesis": ""
 }
@@ -272,14 +323,18 @@ Use relative paths in the manifest so the viewer works from the local filesystem
 
 ### 6a. Manifest is the source of truth
 
-For any multi-loop run, the manifest is authoritative. Do not rely on chat
+For every experiment, the manifest is authoritative. Do not rely on chat
 history, filenames, or memory to reconstruct experiment state.
+
+Every experiment must contain at least two loops. A single candidate does not
+demonstrate comparison or improvement and is not a completed experiment.
 
 Every loop entry should include:
 
 - `id`
 - `track_id`
-- `parent_id`
+- `parent_ids`
+- `model_id`
 - `hypothesis`
 - `commands.build`
 - `commands.run`
@@ -301,8 +356,10 @@ Use `decision` values:
 - `needs_human_review`
 - `failed`
 
-Use schema version `0.2` for new manifests. A fuller reference shape lives in
-`references/manifest-schema-v0.2.json` when available.
+Use schema version `1.1` for new manifests. Record the exact skill, prompt,
+Copilot CLI, orchestrator model, and role/track/judge model provenance under
+`generation`. A fuller reference shape lives in
+`references/manifest-schema-v1.1.json`.
 
 For parallel-agent runs, each agent should also write one manifest-ready fragment,
 for example:
@@ -316,27 +373,28 @@ The fragment should contain the track definition and that agent's loop entries
 using the same schema as the top-level manifest. The orchestrator owns merging
 fragments into `manifest.json`.
 
-After merging, validate before reporting done. Run the bundled validator; treat
-it as a **blocking evidence gate**:
+After building the Viewer and producing Navigation Evidence, run the bundled
+Evidence Gate before reporting done:
 
 ```
-python references/validate_manifest.py experiment-loop/manifest.json
+python <experiment-loop-skill>/scripts/run_evidence_gate.py experiment-loop
 ```
 
 It checks that:
 
 1. `manifest.json` parses as JSON.
-2. The manifest conforms to schema v0.2: required top-level keys are present,
-   `schema_version` is `0.2`, and every iteration carries its required fields with
-   a `decision` from the allowed enum. (Do not rely on JSON parsing alone —
-   parse-ability is not schema conformance.)
-3. Referenced artifact paths, including GIF `contact_path` values, exist on disk.
-4. The viewer's embedded manifest, if any, parses.
-5. A sibling `viewer.html` is present for visual or multi-loop runs.
+2. The manifest conforms to schema v1.1 and contains at least two Loops.
+3. Track, multi-parent, Champion, criterion, scorer, model, milestone, and
+   Artifact references are coherent.
+4. Every referenced Artifact exists and any recorded SHA-256 matches.
+5. `build_viewer.py --data DIR --out FILE` regenerates the Viewer deterministically.
+6. `viewer.html` is self-contained, parseable, accessible, and robust.
+7. Current passing `navigation-evidence.json` matches the Viewer SHA-256.
 
-If the validator exits non-zero the run is **not done**: fix the manifest and
-re-run until it passes. A failed primary objective scorer (this validator, tests,
-or a metric gate) blocks champion promotion unless the user explicitly overrides.
+The gate writes `evidence-gate.json` with explicit `pass`, `fail`, and `blocked`
+checks. Any required `fail` or `blocked` result means the experiment is **not
+done**. Fix it and rerun. A failed primary objective scorer, Evidence Gate, test,
+or metric gate blocks Champion promotion unless the user explicitly overrides.
 
 Use a safe JSON embedding method rather than regex replacement strings that can
 interpret path backslashes.
@@ -355,7 +413,7 @@ Each loop follows this contract:
 
 After judging, compare the iteration with the current champion:
 
-- If better, mark `decision: new_best` and update `best`.
+- If better, mark `decision: new_best` and update `champion`.
 - If worse, mark `decision: reject` and record the regression.
 - If it has useful partial ideas, mark `decision: keep_for_synthesis`.
 - If unclear, mark `decision: needs_human_review`.
@@ -529,9 +587,9 @@ For long parallel-agent runs, each track should write a small `status.json` or
 `heartbeat.md` after each loop with current loop, latest artifact path, current
 score if known, and blocker/failure status.
 
-### 9. Build a progress UI
+### 9. Build the Viewer
 
-For any multi-loop or visual task, produce a local static viewer:
+Every experiment produces a local static Viewer:
 
 ```text
 experiment-loop/viewer.html
@@ -541,7 +599,11 @@ Viewer requirements:
 
 - works by opening the HTML file directly;
 - no external CDN dependencies;
-- reads embedded data or `manifest.json`;
+- embeds its Manifest data;
+- is generated by a standard `build_viewer.py --data DIR --out FILE` adapter;
+- uses the shared `references.viewer_renderer` module when available;
+- keeps Overview, Tracks/lineage, and Loops as fixed core panels;
+- declares only additional curated panels in an example-local `ViewerProfile`;
 - timeline of loops;
 - filters by track and artifact type;
 - loop cards with artifacts, single-judge notes, panel notes, aggregate scores,
@@ -560,9 +622,11 @@ Viewer requirements:
 - side-by-side comparison;
 - finals gallery;
 - missing artifacts shown gracefully;
-- clear hill-climb narrative.
+- clear hill-climb narrative;
+- a relative link to `evidence-gate.json`;
+- an embedded declarative interaction contract covering every interactive control.
 
-For interactive viewers (tabs, filters, deep-links), additionally:
+All Viewers are interactive and must:
 
 - every interactive control must verifiably change the view — no dead controls
   (e.g. a nav link that only scrolls, or a filter that never re-renders);
@@ -571,19 +635,17 @@ For interactive viewers (tabs, filters, deep-links), additionally:
   respected;
 - view state that matters should be addressable via URL hash (e.g. `#tab=panel`)
   so a specific view is shareable and reproducible;
-- ship a deterministic generator (`<build> --data DIR --out FILE`, timestamps read
-  from the data, no wall-clock, no network) plus a companion smoke test, so the
-  viewer rebuilds byte-identically and degrades gracefully on malformed input;
+- rebuild byte-identically from the standard adapter, with timestamps read from
+  the data and no wall-clock, randomness, or network access;
 - surface auditable validation diagnostics — to stderr and as an embedded HTML
   comment — when input is missing or malformed, instead of rendering silently.
 
-Gate the viewer with a small objective check before judging: self-contained
-(no CDN), embedded data parses, JavaScript parses (`node --check`), internal links
-resolve, no animation without a reduced-motion guard, and — when the generator is
-parameterized — determinism (build twice, byte-identical) and robustness (builds
-against a degraded fixture without crashing). Record the gate output as an
-artifact so the viewer can show why a candidate passed or failed. Judges then
-operate the viewer per §7's navigation-based judging.
+Run the shared navigation judge against every Viewer. It executes the embedded
+interaction contract, cross-checks discovered controls, tests keyboard operation
+and deep links, captures screenshots, and writes `navigation-evidence.json`.
+Uncovered or dead controls, keyboard/deep-link failures, and console errors are
+blocking. The Evidence Gate then validates the full experiment and writes the
+linked `evidence-gate.json` sidecar.
 
 If the environment blocks browser rendering, still create the HTML and provide
 the file path.

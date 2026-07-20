@@ -1,0 +1,100 @@
+Track: track-state-machine (character-state-machine architecture)
+Loop: loop-02 (refactor + expanded adversarial coverage)
+Model: claude-sonnet-5
+
+Command:
+    python test_parser.py
+
+Full output:
+----------------------------------------------------------------------
+test_empty_input_returns_no_rows (__main__.TestBasicShapeAndAPI.test_empty_input_returns_no_rows) ... ok
+test_no_trailing_newline (__main__.TestBasicShapeAndAPI.test_no_trailing_newline) ... ok
+test_simple_two_row (__main__.TestBasicShapeAndAPI.test_simple_two_row) ... ok
+test_all_blank_and_comment_file_produces_no_rows (__main__.TestBomCommentsBlanks.test_all_blank_and_comment_file_produces_no_rows) ... ok
+test_blank_lines_ignored (__main__.TestBomCommentsBlanks.test_blank_lines_ignored) ... ok
+test_bom_at_start_is_stripped (__main__.TestBomCommentsBlanks.test_bom_at_start_is_stripped) ... ok
+test_bom_comments_and_blanks_combined (__main__.TestBomCommentsBlanks.test_bom_comments_and_blanks_combined) ... ok
+test_comment_immediately_after_bom_no_blank_line (__main__.TestBomCommentsBlanks.test_comment_immediately_after_bom_no_blank_line) ... ok
+test_comment_lines_ignored (__main__.TestBomCommentsBlanks.test_comment_lines_ignored) ... ok
+test_comment_only_file_produces_no_rows (__main__.TestBomCommentsBlanks.test_comment_only_file_produces_no_rows) ... ok
+test_comment_with_no_trailing_newline_at_eof (__main__.TestBomCommentsBlanks.test_comment_with_no_trailing_newline_at_eof) ... ok
+test_hash_not_at_start_of_line_is_literal (__main__.TestBomCommentsBlanks.test_hash_not_at_start_of_line_is_literal) ... ok
+test_core_doubled_quote_escaping (__main__.TestCoreBlockingSamples.test_core_doubled_quote_escaping) ... ok
+test_core_embedded_comma (__main__.TestCoreBlockingSamples.test_core_embedded_comma) ... ok
+test_core_embedded_newline (__main__.TestCoreBlockingSamples.test_core_embedded_newline) ... ok
+test_cr_only_physical_lines (__main__.TestCrOnlyLines.test_cr_only_physical_lines) ... ok
+test_mixed_crlf_and_lf_row_separators (__main__.TestCrOnlyLines.test_mixed_crlf_and_lf_row_separators) ... ok
+test_bom_as_last_character_of_file_raises (__main__.TestMalformedInputs.test_bom_as_last_character_of_file_raises) ... ok
+test_bom_away_from_start_raises_with_position (__main__.TestMalformedInputs.test_bom_away_from_start_raises_with_position) ... ok
+test_bom_inside_comment_line_raises (__main__.TestMalformedInputs.test_bom_inside_comment_line_raises) ... ok
+test_bom_inside_unquoted_field_raises (__main__.TestMalformedInputs.test_bom_inside_unquoted_field_raises) ... ok
+test_error_message_mentions_line_and_column_words (__main__.TestMalformedInputs.test_error_message_mentions_line_and_column_words) ... ok
+test_error_message_mentions_row_and_field_words (__main__.TestMalformedInputs.test_error_message_mentions_row_and_field_words) ... ok
+test_multiline_quoted_field_error_position_tracks_embedded_newlines (__main__.TestMalformedInputs.test_multiline_quoted_field_error_position_tracks_embedded_newlines) ... ok
+test_non_whitespace_after_closing_quote_raises_with_position (__main__.TestMalformedInputs.test_non_whitespace_after_closing_quote_raises_with_position) ... ok
+test_quote_in_unquoted_field_raises_with_position (__main__.TestMalformedInputs.test_quote_in_unquoted_field_raises_with_position) ... ok
+test_quote_in_unquoted_field_reports_row_and_field (__main__.TestMalformedInputs.test_quote_in_unquoted_field_reports_row_and_field) ... ok
+test_still_open_field_after_quote_then_comma_inside_quotes (__main__.TestMalformedInputs.test_still_open_field_after_quote_then_comma_inside_quotes) ... ok
+test_unterminated_quote_after_odd_trailing_quotes (__main__.TestMalformedInputs.test_unterminated_quote_after_odd_trailing_quotes) ... ok
+test_unterminated_quote_raises_with_open_position (__main__.TestMalformedInputs.test_unterminated_quote_raises_with_open_position) ... ok
+test_source_does_not_import_csv (__main__.TestNoStdlibCsvImport.test_source_does_not_import_csv) ... ok
+test_comment_and_blank_look_alikes_retained_inside_quotes (__main__.TestQuotedFields.test_comment_and_blank_look_alikes_retained_inside_quotes) ... ok
+test_doubled_quote_escape (__main__.TestQuotedFields.test_doubled_quote_escape) ... ok
+test_embedded_bare_cr_normalized (__main__.TestQuotedFields.test_embedded_bare_cr_normalized) ... ok
+test_embedded_crlf_normalized (__main__.TestQuotedFields.test_embedded_crlf_normalized) ... ok
+test_embedded_lf (__main__.TestQuotedFields.test_embedded_lf) ... ok
+test_empty_quoted_pair (__main__.TestQuotedFields.test_empty_quoted_pair) ... ok
+test_quote_immediately_reopened_yields_literal_quote_field (__main__.TestQuotedFields.test_quote_immediately_reopened_yields_literal_quote_field) ... ok
+test_quoted_comma (__main__.TestQuotedFields.test_quoted_comma) ... ok
+test_quoted_field_flush_at_eof_without_trailing_delimiter (__main__.TestQuotedFields.test_quoted_field_flush_at_eof_without_trailing_delimiter) ... ok
+test_quoted_field_padding_spaces_trimmed_outside_quotes (__main__.TestQuotedFields.test_quoted_field_padding_spaces_trimmed_outside_quotes) ... ok
+test_quoted_field_preserves_interior_whitespace (__main__.TestQuotedFields.test_quoted_field_preserves_interior_whitespace) ... ok
+test_quoted_field_then_eof_right_after_comma (__main__.TestQuotedFields.test_quoted_field_then_eof_right_after_comma) ... ok
+test_empty_fields_and_trailing_comma (__main__.TestRaggedRowsAndEmptyFields.test_empty_fields_and_trailing_comma) ... ok
+test_leading_comma_produces_empty_first_field (__main__.TestRaggedRowsAndEmptyFields.test_leading_comma_produces_empty_first_field) ... ok
+test_lone_comma_row (__main__.TestRaggedRowsAndEmptyFields.test_lone_comma_row) ... ok
+test_many_ragged_rows (__main__.TestRaggedRowsAndEmptyFields.test_many_ragged_rows) ... ok
+test_ragged_rows_preserved (__main__.TestRaggedRowsAndEmptyFields.test_ragged_rows_preserved) ... ok
+test_non_trim_whitespace_chars_preserved_in_unquoted_field (__main__.TestTrimming.test_non_trim_whitespace_chars_preserved_in_unquoted_field) ... ok
+test_unquoted_all_whitespace_field_becomes_empty (__main__.TestTrimming.test_unquoted_all_whitespace_field_becomes_empty) ... ok
+test_unquoted_surrounding_whitespace_trimmed (__main__.TestTrimming.test_unquoted_surrounding_whitespace_trimmed) ... ok
+test_unquoted_tabs_only_field_becomes_empty (__main__.TestTrimming.test_unquoted_tabs_only_field_becomes_empty) ... ok
+test_unicode_content_preserved (__main__.TestUnicode.test_unicode_content_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 53 tests in 0.005s
+
+OK
+----------------------------------------------------------------------
+
+Counts: 53 tests run, 53 passed, 0 failed, 0 errors.
+(Up from loop-01's 30; the 30 loop-01 tests are unchanged/still present and
+23 new adversarial/error-location tests were added.)
+
+Blocking core samples (all must pass, and did):
+  - test_core_embedded_comma ... ok
+  - test_core_embedded_newline ... ok
+  - test_core_doubled_quote_escaping ... ok
+
+What changed vs loop-01 and why:
+  - Refactored the single ~250-line procedural `parse()` into a `_Scanner`
+    class (owns pos/line/col; the only place that mutates them, via
+    `advance()`/`advance_newline()`) plus a `_Machine` class with one small
+    handler method per `_State` member, dispatched from a dict. This
+    directly addresses the maintainability weakness identified in
+    loop-01's judge.md, without changing any observable parsing behavior
+    (all 30 loop-01 test cases pass unchanged against loop-02's parser.py).
+  - `ParseError` now also reports `row_number`/`field_number` in addition
+    to line/column, improving error_clarity (verified by
+    test_error_message_mentions_row_and_field_words and
+    test_quote_in_unquoted_field_reports_row_and_field).
+  - Promoted 12 of loop-01's ad-hoc adversarial probes into committed,
+    repeatable tests (empty quoted pair, quoted-field-flush-at-EOF,
+    odd-trailing-quotes-still-unterminated, multi-line error position,
+    bare-CR-in-quotes, comment-with-no-trailing-newline, BOM in three more
+    contexts, '#' not at line start, tabs-only field, mixed CRLF/LF,
+    unicode content, comment-only file) and added several more (still-open
+    field via doubled-quote-then-literal-comma, all-blank-and-comment
+    file, comment right after BOM with no blank line, non-trim whitespace
+    chars like vertical-tab/form-feed preserved literally, quoted field
+    immediately followed by EOF right after a comma).

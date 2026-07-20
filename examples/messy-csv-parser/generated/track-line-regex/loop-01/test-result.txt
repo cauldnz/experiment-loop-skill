@@ -1,0 +1,41 @@
+COMMAND: python test_parser.py
+
+test_bom_away_from_offset_zero (__main__.MalformedInputTests.test_bom_away_from_offset_zero) ... ok
+test_junk_after_closing_quote_has_precise_location (__main__.MalformedInputTests.test_junk_after_closing_quote_has_precise_location) ... FAIL
+test_no_csv_import_in_source (__main__.MalformedInputTests.test_no_csv_import_in_source) ... ok
+test_parse_error_is_public_exception (__main__.MalformedInputTests.test_parse_error_is_public_exception) ... ok
+test_quote_in_unquoted_field (__main__.MalformedInputTests.test_quote_in_unquoted_field) ... ok
+test_second_bom_is_rejected (__main__.MalformedInputTests.test_second_bom_is_rejected) ... ok
+test_unterminated_quote_reports_opening (__main__.MalformedInputTests.test_unterminated_quote_reports_opening) ... ok
+test_bom_comments_and_blank_lines (__main__.ValidInputTests.test_bom_comments_and_blank_lines) ... ok
+test_comment_and_blank_looking_lines_inside_quotes (__main__.ValidInputTests.test_comment_and_blank_looking_lines_inside_quotes) ... ok
+test_cr_only_physical_lines (__main__.ValidInputTests.test_cr_only_physical_lines) ... ok
+test_doubled_quote_core_gate (__main__.ValidInputTests.test_doubled_quote_core_gate) ... ok
+test_embedded_crlf_is_normalized (__main__.ValidInputTests.test_embedded_crlf_is_normalized) ... ok
+test_embedded_lf_core_gate (__main__.ValidInputTests.test_embedded_lf_core_gate) ... ok
+test_empty_fields_and_trailing_comma (__main__.ValidInputTests.test_empty_fields_and_trailing_comma) ... ok
+test_quoted_comma_core_gate (__main__.ValidInputTests.test_quoted_comma_core_gate) ... ok
+test_ragged_rows (__main__.ValidInputTests.test_ragged_rows) ... ok
+test_spaces_around_quoted_token (__main__.ValidInputTests.test_spaces_around_quoted_token) ... ok
+test_trimming_and_quoted_preservation (__main__.ValidInputTests.test_trimming_and_quoted_preservation) ... ok
+
+======================================================================
+FAIL: test_junk_after_closing_quote_has_precise_location (__main__.MalformedInputTests.test_junk_after_closing_quote_has_precise_location)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "C:\repos\chrisauld_microsoft\ai-strategy\copilot-worktrees\experiment-loop-skill\chrisauld-microsoft-bookish-system\.regeneration-ebv2cd4q\messy-csv-parser\workspace\generated\track-line-regex\loop-01\test_parser.py", line 56, in test_junk_after_closing_quote_has_precise_location
+    self.assert_parse_error('a,b\n"x"x,y', 2, 4)
+    ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\repos\chrisauld_microsoft\ai-strategy\copilot-worktrees\experiment-loop-skill\chrisauld-microsoft-bookish-system\.regeneration-ebv2cd4q\messy-csv-parser\workspace\generated\track-line-regex\loop-01\test_parser.py", line 49, in assert_parse_error
+    self.assertRegex(message, rf"\bline {line}, column {column}\b")
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: Regex didn't match: '\\bline 2, column 4\\b' not found in 'malformed field at line 2, column 1'
+
+----------------------------------------------------------------------
+Ran 18 tests in 0.007s
+
+FAILED (failures=1)
+
+COUNTS: run=18 passed=17 failed=1 errors=0
+CORE_GATES: embedded_comma=pass embedded_newline=pass doubled_quote=pass
+OBJECTIVE_GATE: fail

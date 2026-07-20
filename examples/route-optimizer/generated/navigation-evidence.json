@@ -1,0 +1,4522 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "viewer": "viewer.html",
+  "viewer_sha256": "016c8ba96ec68311b3310a3e65050a8b8060f09ccaa405f6cb8151cab595723a",
+  "browser": {
+    "name": "chromium",
+    "version": "149.0.7827.55",
+    "playwright": "1.61.1"
+  },
+  "checks": [
+    {
+      "name": "interaction_contract",
+      "status": "pass",
+      "detail": {
+        "version": "1.1"
+      }
+    },
+    {
+      "name": "control_coverage",
+      "status": "pass",
+      "detail": {
+        "discovered": [
+          {
+            "selector": "#theme-select",
+            "tag": "select",
+            "role": null,
+            "text": "Theme",
+            "coveredBy": "#theme-select"
+          },
+          {
+            "selector": "#tab-overview",
+            "tag": "button",
+            "role": "tab",
+            "text": "Overview",
+            "coveredBy": "#tab-overview"
+          },
+          {
+            "selector": "#tab-topology",
+            "tag": "button",
+            "role": "tab",
+            "text": "Topology",
+            "coveredBy": "#tab-topology"
+          },
+          {
+            "selector": "#tab-compare",
+            "tag": "button",
+            "role": "tab",
+            "text": "Compare",
+            "coveredBy": "#tab-compare"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Original Experiment Prompt",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "01 / loop-001Measured baseline: valid but geometry-blind",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "02 / loop-002Construction heuristic: nearest-neighbor removes 47.77%",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "03 / loop-003Local search: 2-opt removes avoidable long edges",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "04 / loop-004Final synthesis: multi-start reaches the certified optimum",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Experiment evidence and provenance",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": "#manifest-search",
+            "tag": "input",
+            "role": null,
+            "text": "",
+            "coveredBy": "#manifest-search"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "manifest {18}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifact_scope {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "allow_edit [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "deny [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "roots [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "budget {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "champion {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "caveats [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "reasons [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "generation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "models [11]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "4 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "5 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "6 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "7 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "8 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "9 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "10 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "governance {1}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "iterations [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [7]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "4 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "5 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "6 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [5]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [0]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [5]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [5]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [6]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "4 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "5 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [7]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "judge_panels [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "judges [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "problem {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "constraints [6]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "success_criteria [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "rules [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scorecard [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {8}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {9}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "gate {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {9}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "gate {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {8}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scorers [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "criterion_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "criterion_ids [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "criterion_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "story {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "milestones [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "tracks [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": "#dialog-close",
+            "tag": "button",
+            "role": null,
+            "text": "Close",
+            "coveredBy": "#dialog-close"
+          },
+          {
+            "selector": "#theme-select",
+            "tag": "select",
+            "role": null,
+            "text": "Theme",
+            "coveredBy": "#theme-select"
+          },
+          {
+            "selector": "#tab-overview",
+            "tag": "button",
+            "role": "tab",
+            "text": "Overview",
+            "coveredBy": "#tab-overview"
+          },
+          {
+            "selector": "#tab-topology",
+            "tag": "button",
+            "role": "tab",
+            "text": "Topology",
+            "coveredBy": "#tab-topology"
+          },
+          {
+            "selector": "#tab-compare",
+            "tag": "button",
+            "role": "tab",
+            "text": "Compare",
+            "coveredBy": "#tab-compare"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Original Experiment Prompt",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "01 / loop-001Measured baseline: valid but geometry-blind",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "02 / loop-002Construction heuristic: nearest-neighbor removes 47.77%",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "03 / loop-003Local search: 2-opt removes avoidable long edges",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "04 / loop-004Final synthesis: multi-start reaches the certified optimum",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Experiment evidence and provenance",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": "#manifest-search",
+            "tag": "input",
+            "role": null,
+            "text": "",
+            "coveredBy": "#manifest-search"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "manifest {18}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifact_scope {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "allow_edit [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "deny [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "roots [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "budget {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "champion {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "caveats [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "reasons [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "generation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "models [11]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "4 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "5 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "6 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "7 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "8 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "9 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "10 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "governance {1}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "iterations [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [7]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "4 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "5 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "6 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [5]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [0]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [5]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [5]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [6]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "4 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "5 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [7]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "judge_panels [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "judges [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "problem {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "constraints [6]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "success_criteria [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "rules [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scorecard [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {8}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {9}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "gate {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {9}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "gate {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {8}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scorers [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "criterion_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "criterion_ids [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "criterion_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "story {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "milestones [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "tracks [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": "#track-filter",
+            "tag": "select",
+            "role": null,
+            "text": "All TracksQuantitative route optimization",
+            "coveredBy": "#track-filter,#decision-filter,#loop-search,#champion-filter"
+          },
+          {
+            "selector": "#decision-filter",
+            "tag": "select",
+            "role": null,
+            "text": "All decisionsnew_best",
+            "coveredBy": "#track-filter,#decision-filter,#loop-search,#champion-filter"
+          },
+          {
+            "selector": "#loop-search",
+            "tag": "input",
+            "role": null,
+            "text": "",
+            "coveredBy": "#track-filter,#decision-filter,#loop-search,#champion-filter"
+          },
+          {
+            "selector": "#champion-filter",
+            "tag": "input",
+            "role": null,
+            "text": "",
+            "coveredBy": "#track-filter,#decision-filter,#loop-search,#champion-filter"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-001\n        new_best · 81.425572 km",
+            "coveredBy": ".graph-node"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-002\n        new_best · 42.530642 km",
+            "coveredBy": ".graph-node"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-003\n        new_best · 38.066196 km",
+            "coveredBy": ".graph-node"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-004Champion\n        new_best · 37.576644 km",
+            "coveredBy": ".graph-node"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Other Artifacts (5)",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "value {12}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "validation_errors [0]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "value {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "route [14]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "value {8}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "optimal_route [14]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Prompt and feedback chain",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Advanced Loop evidence",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "All Loops — complete accessible list",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-00181.425572 km",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-00242.530642 km",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-00338.066196 km",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-00437.576644 km",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": "#dialog-close",
+            "tag": "button",
+            "role": null,
+            "text": "Close",
+            "coveredBy": "#dialog-close"
+          },
+          {
+            "selector": "#theme-select",
+            "tag": "select",
+            "role": null,
+            "text": "Theme",
+            "coveredBy": "#theme-select"
+          },
+          {
+            "selector": "#tab-overview",
+            "tag": "button",
+            "role": "tab",
+            "text": "Overview",
+            "coveredBy": "#tab-overview"
+          },
+          {
+            "selector": "#tab-topology",
+            "tag": "button",
+            "role": "tab",
+            "text": "Topology",
+            "coveredBy": "#tab-topology"
+          },
+          {
+            "selector": "#tab-compare",
+            "tag": "button",
+            "role": "tab",
+            "text": "Compare",
+            "coveredBy": "#tab-compare"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Original Experiment Prompt",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "01 / loop-001Measured baseline: valid but geometry-blind",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "02 / loop-002Construction heuristic: nearest-neighbor removes 47.77%",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "03 / loop-003Local search: 2-opt removes avoidable long edges",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "04 / loop-004Final synthesis: multi-start reaches the certified optimum",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Experiment evidence and provenance",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": "#manifest-search",
+            "tag": "input",
+            "role": null,
+            "text": "",
+            "coveredBy": "#manifest-search"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "manifest {18}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifact_scope {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "allow_edit [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "deny [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "roots [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "budget {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "champion {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "caveats [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "reasons [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "evidence_refs [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "generation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "models [11]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "4 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "5 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "6 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "7 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "8 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "9 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "10 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "governance {1}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "iterations [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [7]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "4 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "5 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "6 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [5]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [0]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [5]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [5]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {15}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "artifacts [6]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "4 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "5 {7}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "presentation {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "changed_files [7]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "commands {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "lesson {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "parent_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "prompt {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "quality_gates {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scores [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "judge_panels [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "judges [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "problem {5}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "constraints [6]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "success_criteria [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "rules [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scorecard [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {8}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {9}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "gate {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {9}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "gate {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {8}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "baseline {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "scorers [3]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "criterion_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "criterion_ids [2]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {6}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "criterion_ids [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "story {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "milestones [4]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "1 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "2 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "3 {2}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "tracks [1]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "0 {4}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": "#track-filter",
+            "tag": "select",
+            "role": null,
+            "text": "All TracksQuantitative route optimization",
+            "coveredBy": "#track-filter,#decision-filter,#loop-search,#champion-filter"
+          },
+          {
+            "selector": "#decision-filter",
+            "tag": "select",
+            "role": null,
+            "text": "All decisionsnew_best",
+            "coveredBy": "#track-filter,#decision-filter,#loop-search,#champion-filter"
+          },
+          {
+            "selector": "#loop-search",
+            "tag": "input",
+            "role": null,
+            "text": "",
+            "coveredBy": "#track-filter,#decision-filter,#loop-search,#champion-filter"
+          },
+          {
+            "selector": "#champion-filter",
+            "tag": "input",
+            "role": null,
+            "text": "",
+            "coveredBy": "#track-filter,#decision-filter,#loop-search,#champion-filter"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-001\n        new_best · 81.425572 km",
+            "coveredBy": ".graph-node"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-002\n        new_best · 42.530642 km",
+            "coveredBy": ".graph-node"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-003\n        new_best · 38.066196 km",
+            "coveredBy": ".graph-node"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-004Champion\n        new_best · 37.576644 km",
+            "coveredBy": ".graph-node"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Other Artifacts (5)",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "value {12}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "validation_errors [0]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "value {3}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "route [14]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "value {8}",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "optimal_route [14]",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Prompt and feedback chain",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "Advanced Loop evidence",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "summary",
+            "role": null,
+            "text": "All Loops — complete accessible list",
+            "coveredBy": "details > summary"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-00181.425572 km",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-00242.530642 km",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-00338.066196 km",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "loop-00437.576644 km",
+            "coveredBy": "[data-open-loop]"
+          },
+          {
+            "selector": "#compare-a",
+            "tag": "select",
+            "role": null,
+            "text": "loop-001loop-002loop-003loop-004",
+            "coveredBy": "#compare-a,#compare-b"
+          },
+          {
+            "selector": "#compare-b",
+            "tag": "select",
+            "role": null,
+            "text": "loop-001loop-002loop-003loop-004",
+            "coveredBy": "#compare-a,#compare-b"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": null,
+            "tag": "button",
+            "role": null,
+            "text": "Expand",
+            "coveredBy": ".expand-artifact"
+          },
+          {
+            "selector": null,
+            "tag": "a",
+            "role": null,
+            "text": "Original file",
+            "coveredBy": "a.button[href]"
+          },
+          {
+            "selector": "#dialog-close",
+            "tag": "button",
+            "role": null,
+            "text": "Close",
+            "coveredBy": "#dialog-close"
+          }
+        ],
+        "uncovered": []
+      }
+    },
+    {
+      "name": "contract:#tab-overview",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:#tab-topology",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:#tab-compare",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:.graph-node",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:#track-filter,#decision-filter,#loop-search,#champion-filter",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:[data-open-loop]",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:#theme-select",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:#manifest-search",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:.expand-artifact",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:#compare-a,#compare-b",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:details > summary",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:#dialog-close",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "contract:a.button[href]",
+      "status": "pass",
+      "detail": {}
+    },
+    {
+      "name": "keyboard",
+      "status": "pass",
+      "detail": {
+        "before": "tab-overview",
+        "after": "tab-topology",
+        "selected": "true"
+      }
+    },
+    {
+      "name": "deep_links",
+      "status": "pass",
+      "detail": {
+        "failures": []
+      }
+    },
+    {
+      "name": "console_errors",
+      "status": "pass",
+      "detail": {
+        "errors": []
+      }
+    }
+  ],
+  "steps": [
+    {
+      "control": "#tab-overview",
+      "action": "click",
+      "outcome": {
+        "hash": "#view=overview",
+        "selected": "true",
+        "panelVisible": true
+      },
+      "shot": "navigation-shots/01-tab-tab-overview.png"
+    },
+    {
+      "control": "#tab-topology",
+      "action": "click",
+      "outcome": {
+        "hash": "#view=topology",
+        "selected": "true",
+        "panelVisible": true
+      },
+      "shot": "navigation-shots/02-tab-tab-topology.png"
+    },
+    {
+      "control": "#tab-compare",
+      "action": "click",
+      "outcome": {
+        "hash": "#view=compare",
+        "selected": "true",
+        "panelVisible": true
+      },
+      "shot": "navigation-shots/03-tab-tab-compare.png"
+    },
+    {
+      "control": ".graph-node",
+      "action": "keyboard-select",
+      "outcome": {
+        "hash": "#view=topology&loop=loop-004",
+        "selected": 1,
+        "tabStops": 1,
+        "inspectorVisible": true
+      },
+      "shot": "navigation-shots/04-graph-selection.png"
+    },
+    {
+      "control": ".graph-node",
+      "action": "keyboard-select",
+      "outcome": {
+        "hash": "#view=topology&loop=loop-004",
+        "selected": 1,
+        "tabStops": 1,
+        "inspectorVisible": true
+      },
+      "shot": "navigation-shots/05-graph-selection.png"
+    },
+    {
+      "control": "#loop-search,#champion-filter",
+      "action": "filter",
+      "outcome": {
+        "dimmed": 4,
+        "total": 4,
+        "championCount": 1
+      }
+    },
+    {
+      "control": "[data-open-loop]",
+      "action": "click",
+      "outcome": {
+        "hash": "#view=topology&loop=loop-001",
+        "topology": "true",
+        "selected": 1
+      }
+    },
+    {
+      "control": "#theme-select",
+      "action": "select",
+      "value": "dark",
+      "outcome": {
+        "selected": "dark",
+        "theme": "dark"
+      }
+    },
+    {
+      "control": "#theme-select",
+      "action": "select",
+      "value": "light",
+      "outcome": {
+        "selected": "light",
+        "theme": "light"
+      }
+    },
+    {
+      "control": "#theme-select",
+      "action": "select",
+      "value": "system",
+      "outcome": {
+        "selected": "system",
+        "theme": "light"
+      }
+    },
+    {
+      "control": "#manifest-search",
+      "action": "input",
+      "outcome": {
+        "matched": true
+      }
+    },
+    {
+      "control": ".expand-artifact",
+      "action": "dialog",
+      "outcome": {
+        "opened": {
+          "open": true,
+          "focusInside": true
+        },
+        "contained": true,
+        "closed": {
+          "open": false,
+          "focusRestored": true
+        }
+      },
+      "shot": "navigation-shots/06-artifact-dialog.png"
+    },
+    {
+      "control": "#compare-a,#compare-b",
+      "action": "select",
+      "outcome": {
+        "hash": "#view=compare&loop=loop-001&a=loop-004&b=loop-001",
+        "comparisonVisible": true,
+        "a": "loop-004",
+        "b": "loop-001"
+      }
+    },
+    {
+      "control": "details > summary",
+      "action": "toggle",
+      "outcome": {
+        "before": false,
+        "after": true
+      }
+    },
+    {
+      "control": "a.button[href]",
+      "action": "inspect",
+      "outcome": {
+        "count": 11,
+        "unsafe": []
+      }
+    }
+  ],
+  "screenshots": 6
+}

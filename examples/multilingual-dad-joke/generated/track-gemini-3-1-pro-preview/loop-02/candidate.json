@@ -1,0 +1,29 @@
+{
+  "mechanism": "Personification and spatial geometry. Walls literally meet at the corner of a room, which doubles as the colloquial phrase for humans meeting at a street corner.",
+  "languages": {
+    "en": {
+      "setup": "What did one wall say to the other?",
+      "punchline": "I'll meet you at the corner!",
+      "combined": "What did one wall say to the other? I'll meet you at the corner!",
+      "portability_notes": "Classic personification dad joke. Works entirely on the geometric reality of walls."
+    },
+    "fr": {
+      "setup": "Que dit un mur à un autre mur ?",
+      "punchline": "On se retrouve au coin !",
+      "combined": "Que dit un mur à un autre mur ? On se retrouve au coin !",
+      "portability_notes": "'Au coin' works perfectly for both a street corner and the corner of a room."
+    },
+    "es": {
+      "setup": "¿Qué le dice una pared a otra pared?",
+      "punchline": "¡Nos vemos en la esquina!",
+      "combined": "¿Qué le dice una pared a otra pared? ¡Nos vemos en la esquina!",
+      "portability_notes": "'Esquina' perfectly translates the dual meaning of a structural corner and a meeting point."
+    },
+    "ja": {
+      "setup": "一つの壁がもう一つの壁に何て言った？",
+      "punchline": "「角で会おう！」",
+      "combined": "一つの壁がもう一つの壁に何て言った？「角で会おう！」",
+      "portability_notes": "'角' (kado) correctly means corner. Meeting at the corner translates naturally without relying on Japanese-specific puns (oyaji gyagu), while maintaining the groan-inducing personification."
+    }
+  }
+}

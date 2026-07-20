@@ -1,0 +1,76 @@
+Track: track-state-machine (character-state-machine architecture)
+Loop: loop-01 (baseline)
+Model: claude-sonnet-5
+
+Command:
+    python test_parser.py
+
+Full output:
+----------------------------------------------------------------------
+test_empty_input_returns_no_rows (__main__.TestBasicShapeAndAPI.test_empty_input_returns_no_rows) ... ok
+test_no_trailing_newline (__main__.TestBasicShapeAndAPI.test_no_trailing_newline) ... ok
+test_simple_two_row (__main__.TestBasicShapeAndAPI.test_simple_two_row) ... ok
+test_blank_lines_ignored (__main__.TestBomCommentsBlanks.test_blank_lines_ignored) ... ok
+test_bom_at_start_is_stripped (__main__.TestBomCommentsBlanks.test_bom_at_start_is_stripped) ... ok
+test_bom_comments_and_blanks_combined (__main__.TestBomCommentsBlanks.test_bom_comments_and_blanks_combined) ... ok
+test_comment_lines_ignored (__main__.TestBomCommentsBlanks.test_comment_lines_ignored) ... ok
+test_core_doubled_quote_escaping (__main__.TestCoreBlockingSamples.test_core_doubled_quote_escaping) ... ok
+test_core_embedded_comma (__main__.TestCoreBlockingSamples.test_core_embedded_comma) ... ok
+test_core_embedded_newline (__main__.TestCoreBlockingSamples.test_core_embedded_newline) ... ok
+test_cr_only_physical_lines (__main__.TestCrOnlyLines.test_cr_only_physical_lines) ... ok
+test_bom_away_from_start_raises_with_position (__main__.TestMalformedInputs.test_bom_away_from_start_raises_with_position) ... ok
+test_error_message_mentions_line_and_column_words (__main__.TestMalformedInputs.test_error_message_mentions_line_and_column_words) ... ok
+test_non_whitespace_after_closing_quote_raises_with_position (__main__.TestMalformedInputs.test_non_whitespace_after_closing_quote_raises_with_position) ... ok
+test_quote_in_unquoted_field_raises_with_position (__main__.TestMalformedInputs.test_quote_in_unquoted_field_raises_with_position) ... ok
+test_unterminated_quote_raises_with_open_position (__main__.TestMalformedInputs.test_unterminated_quote_raises_with_open_position) ... ok
+test_source_does_not_import_csv (__main__.TestNoStdlibCsvImport.test_source_does_not_import_csv) ... ok
+test_comment_and_blank_look_alikes_retained_inside_quotes (__main__.TestQuotedFields.test_comment_and_blank_look_alikes_retained_inside_quotes) ... ok
+test_doubled_quote_escape (__main__.TestQuotedFields.test_doubled_quote_escape) ... ok
+test_embedded_crlf_normalized (__main__.TestQuotedFields.test_embedded_crlf_normalized) ... ok
+test_embedded_lf (__main__.TestQuotedFields.test_embedded_lf) ... ok
+test_quoted_comma (__main__.TestQuotedFields.test_quoted_comma) ... ok
+test_quoted_field_padding_spaces_trimmed_outside_quotes (__main__.TestQuotedFields.test_quoted_field_padding_spaces_trimmed_outside_quotes) ... ok
+test_quoted_field_preserves_interior_whitespace (__main__.TestQuotedFields.test_quoted_field_preserves_interior_whitespace) ... ok
+test_empty_fields_and_trailing_comma (__main__.TestRaggedRowsAndEmptyFields.test_empty_fields_and_trailing_comma) ... ok
+test_leading_comma_produces_empty_first_field (__main__.TestRaggedRowsAndEmptyFields.test_leading_comma_produces_empty_first_field) ... ok
+test_lone_comma_row (__main__.TestRaggedRowsAndEmptyFields.test_lone_comma_row) ... ok
+test_ragged_rows_preserved (__main__.TestRaggedRowsAndEmptyFields.test_ragged_rows_preserved) ... ok
+test_unquoted_all_whitespace_field_becomes_empty (__main__.TestTrimming.test_unquoted_all_whitespace_field_becomes_empty) ... ok
+test_unquoted_surrounding_whitespace_trimmed (__main__.TestTrimming.test_unquoted_surrounding_whitespace_trimmed) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.003s
+
+OK
+----------------------------------------------------------------------
+
+Counts: 30 tests run, 30 passed, 0 failed, 0 errors.
+
+Blocking core samples (all must pass, and did):
+  - test_core_embedded_comma ... ok
+  - test_core_embedded_newline ... ok
+  - test_core_doubled_quote_escaping ... ok
+
+Additional manual adversarial probes (outside the committed suite, used to hunt
+for real weaknesses before writing loop-02; run via `python -` one-liners, not
+saved as a script per the "no writes outside track" constraint):
+  - empty_quoted_pair '"",""' -> OK [['', '']]
+  - quoted_flush_no_trailing 'a,"b"' (no trailing comma/newline) -> OK [['a','b']]
+  - odd_trailing_quotes_unterminated 'a,"b""' -> ParseError line=1 col=3 (correctly unterminated)
+  - multiline_error_pos (error 2 embedded newlines into a quoted field) -> ParseError line=3 col=7 (position tracked correctly across embedded newlines)
+  - cr_embedded_in_quotes -> OK, bare CR inside quotes normalized to \n
+  - comment_no_trailing_newline -> OK, comment consumed cleanly to EOF
+  - bom_mid_comment / bom_mid_unquoted_field / bom_last_char -> all correctly raise ParseError with the BOM's real position
+  - hash_not_at_start_of_line 'a#b,c' -> OK [['a#b','c']] (# only special as first char of a line)
+  - tabs_only_field -> OK, whitespace-only unquoted field trims to ''
+  - crlf_row_separator_mixed_with_lf -> OK, CRLF and LF rows in the same file both parse
+  - unicode_content (accented + emoji) -> OK, verified programmatically (console print itself hit a
+    Windows charmap encoding limitation, not a parser defect)
+  - nested_quotes_then_comma_still_open 'a,"b"",c\n' -> ParseError, correctly still-open (odd quote count)
+
+Result: no functional defects found by probing. Genuine weakness identified instead:
+parser.py's `parse()` is one ~250-line procedural function with duplicated
+`pos += 1; col += 1` advance logic repeated ~15 times and mutable closures over
+list-based row/field buffers. This is a real maintainability liability even
+though correctness held up under adversarial probing. Carried into loop-02 as
+the primary hypothesis (see prompt-history.md).

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630"
+     role="img" aria-labelledby="cardTitle cardDesc">
+  <title id="cardTitle">Loop Lab workshop: Designing with Feedback Loops</title>
+  <desc id="cardDesc">Event card for Designing with Feedback Loops, October 22, 2026, 9:30 AM to 12:30 PM at Studio B. Register now. An editorial information grid is separated from a modular signal-routing illustration.</desc>
+
+  <defs>
+    <style>
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .sans { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; }
+    </style>
+    <clipPath id="moduleClip">
+      <rect x="760" y="48" width="368" height="534" rx="24"/>
+    </clipPath>
+  </defs>
+
+  <rect id="canvas" width="1200" height="630" fill="#F6F1E8"/>
+  <rect id="frame" x="24" y="24" width="1152" height="582" fill="none" stroke="#171C32" stroke-width="1.5"/>
+
+  <g id="editorial-zone">
+    <rect id="logo-mark" x="72" y="48" width="44" height="44" rx="7" fill="#171C32"/>
+    <text x="94" y="77" class="sans" font-size="17" font-weight="700" fill="#FFFFFF" text-anchor="middle">LL</text>
+    <text id="series-kicker" x="132" y="77" class="sans" font-size="16" font-weight="700"
+          letter-spacing="2.2" fill="#9F3424">LOOP LAB · WORKSHOP 021</text>
+
+    <g id="format-badge">
+      <rect x="544" y="54" width="136" height="32" rx="16" fill="#9F3424"/>
+      <text x="612" y="75" class="sans" font-size="14" font-weight="700" letter-spacing="1.2"
+            fill="#FFFFFF" text-anchor="middle">IN PERSON</text>
+    </g>
+    <line id="header-rule" x1="72" y1="106" x2="680" y2="106" stroke="#BDB6AA" stroke-width="1.5"/>
+
+    <rect id="title-rail" x="72" y="136" width="6" height="136" fill="#9F3424"/>
+    <g id="title-block" class="serif" font-size="60" font-weight="700" fill="#171C32">
+      <text x="98" y="190">DESIGNING WITH</text>
+      <text x="98" y="260">FEEDBACK LOOPS</text>
+    </g>
+
+    <g id="metadata-row">
+      <line x1="278" y1="342" x2="278" y2="414" stroke="#BDB6AA" stroke-width="1.5"/>
+      <line x1="498" y1="342" x2="498" y2="414" stroke="#BDB6AA" stroke-width="1.5"/>
+      <g class="sans" font-size="14" font-weight="700" letter-spacing="1.8" fill="#5E5D58">
+        <text x="72" y="362">DATE</text>
+        <text x="292" y="362">TIME</text>
+        <text x="512" y="362">VENUE</text>
+      </g>
+      <g class="serif" font-size="22" font-weight="700" fill="#171C32">
+        <text x="72" y="397">OCT 22, 2026</text>
+        <text x="292" y="397">09:30–12:30</text>
+        <text x="512" y="397">STUDIO B</text>
+      </g>
+    </g>
+
+    <line id="footer-rule" x1="72" y1="438" x2="680" y2="438" stroke="#BDB6AA" stroke-width="1.5"/>
+    <text id="event-summary" x="72" y="475" class="serif" font-size="16" font-style="italic"
+          fill="#5E5D58">Build better products by learning in public.</text>
+
+    <g id="cta-button" aria-label="Register now">
+      <rect x="72" y="506" width="244" height="60" rx="8" fill="#173B57"/>
+      <text x="194" y="543" class="sans" font-size="18" font-weight="700" letter-spacing="1.4"
+            fill="#FFFFFF" text-anchor="middle">REGISTER NOW →</text>
+    </g>
+    <text id="capacity-note" x="342" y="542" class="sans" font-size="14" font-weight="700"
+          letter-spacing="1.4" fill="#5E5D58">40 SEATS · ALL LEVELS</text>
+  </g>
+
+  <g id="signal-module">
+    <rect id="module-panel" x="760" y="48" width="368" height="534" rx="24" fill="#171C32"/>
+    <g clip-path="url(#moduleClip)">
+      <path d="M748 124 H1132 M748 468 H1132" fill="none" stroke="#39405A" stroke-width="1"/>
+      <path d="M784 284 H1098" fill="none" stroke="#2CB8B8" stroke-width="4" stroke-dasharray="12 8"/>
+      <path d="M920 144 V448" fill="none" stroke="#5965D8" stroke-width="3" stroke-dasharray="4 9"/>
+
+      <circle cx="920" cy="284" r="124" fill="none" stroke="#2CB8B8" stroke-width="10"/>
+      <circle cx="920" cy="284" r="86" fill="none" stroke="#5965D8" stroke-width="5" stroke-dasharray="14 9"/>
+      <circle cx="920" cy="284" r="48" fill="#202743" stroke="#D65A42" stroke-width="4"/>
+      <circle cx="1034" cy="284" r="52" fill="none" stroke="#2CB8B8" stroke-width="7" opacity="0.72"/>
+      <path d="M968 284 C990 250 1010 250 1034 284 C1056 316 1078 316 1098 284"
+            fill="none" stroke="#D65A42" stroke-width="5"/>
+
+      <g fill="#FFFFFF">
+        <circle cx="796" cy="284" r="7"/>
+        <circle cx="920" cy="160" r="7"/>
+        <circle cx="920" cy="408" r="7"/>
+        <circle cx="1044" cy="284" r="7"/>
+      </g>
+      <g fill="#171C32" stroke="#2CB8B8" stroke-width="3">
+        <circle cx="920" cy="284" r="13"/>
+        <circle cx="1034" cy="284" r="11"/>
+      </g>
+    </g>
+
+    <text x="780" y="88" class="sans" font-size="14" font-weight="700" letter-spacing="1.8"
+          fill="#FFFFFF">ROUTING MODULE / A</text>
+    <circle cx="1094" cy="82" r="5" fill="#D65A42"/>
+    <text x="780" y="520" class="sans" font-size="14" font-weight="700" letter-spacing="1.4"
+          fill="#BFD9DD">INPUT 01</text>
+    <text x="1098" y="520" class="sans" font-size="14" font-weight="700" letter-spacing="1.4"
+          fill="#BFD9DD" text-anchor="end">OUTPUT 04</text>
+    <text x="780" y="550" class="serif" font-size="16" font-style="italic" fill="#FFFFFF">
+      Observe · route · revise
+    </text>
+  </g>
+</svg>

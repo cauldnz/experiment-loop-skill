@@ -1,26 +1,41 @@
-# Prompt used for this worked example
-
-```text
 Use the experiment-loop skill.
 
-Goal: Create a polished, reusable SVG event-card design system for a fictional "Loop Lab" workshop. Demonstrate two separate visual design experiments and a third synthesis experiment that builds from both.
+Create a polished, reusable SVG event-card design system for a fictional
+"Loop Lab" workshop. The cards must communicate event title, date, time, venue,
+and call to action at a glance while remaining reusable across event variants.
+Use the same canonical event brief in every primary candidate: the headline is
+exactly **“Designing with Feedback Loops.”** Track and Loop comparisons may
+change visual treatment but must not change canonical event copy. Long-content,
+localization, or stress-test copy belongs in separately labelled test variants,
+never in the primary candidate.
 
-Scorecard:
-- visual_hierarchy: the title, event promise, date, and call to action are easy to scan
-- brand_distinctiveness: the card has a memorable visual language
-- information_clarity: practical event details are legible and not buried
-- system_coherence: colors, type scale, shapes, and components feel reusable
-- polish: spacing, contrast, composition, and details feel production-ready
-- layout_quality: elements do not overlap, controls and body copy have clear whitespace, and visual polish does not hide readability defects
+Score visual hierarchy, brand distinctiveness, information clarity, system
+coherence, production polish, SVG validity, and layout quality. Subjective
+criteria use a 1–5 point scale and maximize. SVG validity and layout quality use
+pass/fail objective gates: overlap, clipping, unreadable text, inaccessible
+contrast, missing required content, or invalid SVG prevents Champion promotion.
+Visual hierarchy is the primary criterion.
+Add a blocking objective content-fidelity check against the canonical brief.
 
-Judging mode:
-- Use objective checks for artifact existence and SVG validity.
-- Use objective layout-quality checks so visual overlaps block champion promotion.
-- Use an independent qualitative panel, including a layout critic, for champion selection.
+Run three Tracks. Use `claude-sonnet-5` for an editorial-typography Track with
+at least two Loops. Use `gemini-3.1-pro-preview` for an independent generative
+visual-language Track with at least two Loops. Use `gpt-5.6-sol` for a synthesis
+Track with at least two Loops that combines the strongest evidence from both
+parents through true multi-parent lineage and repairs at least one objectively
+detected visual defect.
 
-Topology:
-- Run A: editorial typography path with two loops.
-- Run B: generative visual-language path with two loops.
-- Run C: cross-run synthesis path with three loops that uses both Run A and Run B finals as parents, rejects an overlapping production-polish loop, then repairs it.
-- Produce SVG cards, design tokens, layout-quality metrics, judge notes, prompt/feedback history, a manifest, and a local viewer with graph lineage, metadata/provenance drawers, and raw JSON.
-```
+Use an independent judge panel containing `gpt-5.6-terra`,
+`claude-opus-4.8`, and `gemini-3.1-pro-preview`; include a layout-critic role
+and preserve dissent. Add a `human_review` scorer assigned only to visual
+hierarchy, brand distinctiveness, information clarity, system coherence, and
+production polish so the conditional Human Judge UI is available. Its export
+must contain no reviewer identity and must support verdict, notes, optional
+criterion scores, selected Loop and Artifact notes, preferred Loop, and
+keep/reject/needs-improvement recommendation.
+
+Produce directly viewable SVG card Artifacts, design-token JSON, objective
+layout metric sets, judge notes, and complete prompt/feedback chains. Produce a
+Manifest v1.1 with authored milestones, evidence-linked Champion reasons and
+caveats, featured Artifact captions and alternative text, and actual model IDs
+for every generator, judge, synthesis role, and Loop. Generate and gate the
+shared Viewer.

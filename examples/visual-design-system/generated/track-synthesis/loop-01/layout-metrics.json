@@ -1,0 +1,175 @@
+{
+  "iteration": "synthesis-01",
+  "model_id": "gpt-5.6-sol",
+  "artifacts": ["card.svg", "variants.svg"],
+  "measurement_method": {
+    "geometry": "Rect, line, circle, and path extents are taken from source coordinates including half-stroke where relevant. Text was initially estimated, then pass/fail title and observed venue containment were measured from the rendered SVG with Inkscape --query-id; rendered bboxes supersede estimates.",
+    "contrast": "WCAG 2.x: sRGB channels are normalized to [0,1], linearized as c/12.92 when c<=0.04045 else ((c+0.055)/1.055)^2.4; relative luminance L=0.2126R+0.7152G+0.0722B; ratio=(L_lighter+0.05)/(L_darker+0.05).",
+    "overlap": "Axis-aligned major-element bboxes. Intentional containment (text inside button/badge, routes inside module) is classified separately and not treated as collision."
+  },
+  "canvas": {
+    "card.svg": {"width": 1200, "height": 630, "viewBox": "0 0 1200 630"},
+    "variants.svg": {"width": 1200, "height": 630, "viewBox": "0 0 1200 630"}
+  },
+  "card_major_bounding_boxes": [
+    {"id": "canvas", "bbox": [0, 0, 1200, 630]},
+    {"id": "frame", "bbox": [23.25, 23.25, 1176.75, 606.75]},
+    {"id": "editorial-zone-contract", "bbox": [72, 48, 680, 566], "note": "Nominal tokenized zone before the protected gutter."},
+    {"id": "editorial-zone-rendered-union", "bbox": [71.773, 48, 691.261, 566], "measurement": "Inkscape rendered group; title intentionally uses 11.261px of the 80px structural gutter while retaining the title-specific 64px panel safe zone."},
+    {"id": "logo-mark", "bbox": [72, 48, 116, 92]},
+    {"id": "series-kicker", "bbox": [132, 64.2, 407.9, 80.2]},
+    {"id": "format-badge", "bbox": [544, 54, 680, 86]},
+    {"id": "header-rule", "bbox": [72, 105.25, 680, 106.75]},
+    {"id": "title-rail", "bbox": [72, 136, 78, 272]},
+    {"id": "title-block", "bbox": [99.963, 147.314, 691.262, 261.142], "measurement": "Inkscape rendered group"},
+    {"id": "metadata-row", "bbox": [72, 342, 680, 414]},
+    {"id": "metadata-date", "bbox": [72, 350.8, 225.1, 401.4]},
+    {"id": "metadata-time", "bbox": [292, 350.8, 457.1, 401.4]},
+    {"id": "metadata-venue", "bbox": [512, 350.8, 614.1, 401.4]},
+    {"id": "footer-rule", "bbox": [72, 437.25, 680, 438.75]},
+    {"id": "event-summary", "bbox": [72, 462.2, 419.9, 478.2]},
+    {"id": "cta-button", "bbox": [72, 506, 316, 566]},
+    {"id": "cta-label", "bbox": [112.2, 528.6, 275.8, 546.6]},
+    {"id": "capacity-note", "bbox": [342, 530.8, 532.7, 544.8]},
+    {"id": "signal-module", "bbox": [760, 48, 1128, 582]},
+    {"id": "signal-module-header", "bbox": [780, 76.8, 982.7, 90.8]},
+    {"id": "signal-graphic", "bbox": [782, 134.5, 1100.5, 449.5]},
+    {"id": "signal-module-footer", "bbox": [780, 508.8, 1098, 553.2]}
+  ],
+  "variants_major_bounding_boxes": [
+    {"id": "sheet-header", "bbox": [32, 21.2, 1168, 38]},
+    {"id": "variant-in-person", "bbox": [32, 72, 384, 602]},
+    {"id": "variant-in-person-title", "bbox": [74, 174.4, 308.9, 236.4]},
+    {"id": "variant-in-person-metadata", "bbox": [56, 267.6, 360, 304]},
+    {"id": "variant-in-person-module", "bbox": [56, 326, 360, 472]},
+    {"id": "variant-in-person-cta", "bbox": [56, 498, 232, 550]},
+    {"id": "variant-hybrid", "bbox": [424, 72, 776, 602]},
+    {"id": "variant-hybrid-title", "bbox": [466, 174.4, 650.7, 236.4]},
+    {"id": "variant-hybrid-metadata", "bbox": [448, 267.6, 752, 304]},
+    {"id": "hybridVenueValue", "bbox": [670.505, 290.46, 779.358, 301.285], "measurement": "Inkscape rendered-text query", "defect": "right edge exceeds compact card outer edge x=776 by 3.358px and inner frame edge x=764 by 15.358px"},
+    {"id": "variant-hybrid-module", "bbox": [448, 326, 752, 472]},
+    {"id": "variant-hybrid-cta", "bbox": [448, 498, 624, 550]},
+    {"id": "variant-virtual", "bbox": [816, 72, 1168, 602]},
+    {"id": "variant-virtual-title", "bbox": [858, 174.4, 1124.3, 236.4]},
+    {"id": "variant-virtual-metadata", "bbox": [840, 267.6, 1144, 304]},
+    {"id": "variant-virtual-module", "bbox": [840, 326, 1144, 472]},
+    {"id": "variant-virtual-cta", "bbox": [840, 498, 1016, 550]}
+  ],
+  "overlap_checks": {
+    "card": [
+      {"pair": ["series-kicker", "format-badge"], "gap_px": 136.1, "overlap": false},
+      {"pair": ["header-rule", "title-block"], "gap_px": 35.25, "overlap": false},
+      {"pair": ["title-block", "metadata-row"], "gap_px": 70, "overlap": false},
+      {"pair": ["title-block", "signal-module"], "gap_px": 68.738, "overlap": false, "measurement": "Inkscape rendered title bbox versus source panel edge"},
+      {"pair": ["editorial-zone-rendered-union", "signal-module"], "gap_px": 68.739, "overlap": false},
+      {"pair": ["metadata-row", "footer-rule"], "gap_px": 23.25, "overlap": false},
+      {"pair": ["event-summary", "cta-button"], "gap_px": 27.8, "overlap": false},
+      {"pair": ["cta-button", "capacity-note"], "gap_px": 26, "overlap": false},
+      {"pair": ["cta-button", "cta-label"], "overlap": "intentional_containment", "minimum_inset_px": 19.4},
+      {"pair": ["signal-module", "signal-graphic"], "overlap": "intentional_containment", "minimum_inset_px": 30}
+    ],
+    "variants": [
+      {"pair": ["variant-in-person", "variant-hybrid"], "gap_px": 40, "overlap": false},
+      {"pair": ["variant-hybrid", "variant-virtual"], "gap_px": 40, "overlap": false},
+      {"pair": ["each-title", "each-metadata"], "minimum_gap_px": 31.2, "overlap": false},
+      {"pair": ["each-metadata", "each-module"], "minimum_gap_px": 22, "overlap": false},
+      {"pair": ["each-module", "each-cta"], "minimum_gap_px": 26, "overlap": false}
+    ],
+    "unintended_overlap_detected": false,
+    "rendered_overset_detected": true
+  },
+  "clipping_checks": {
+    "card_all_major_elements_within_canvas": true,
+    "variants_all_major_elements_within_canvas": false,
+    "module_routes_clipped_to_rounded_panel": true,
+    "text_clipped": false,
+    "text_overset": true,
+    "defect": "Hybrid compact venue 'HUB A + WEB' renders to x=779.358, 3.358px beyond the card's x=776 outer edge. The SVG canvas does not clip the glyphs, but they visibly escape the component boundary, so the no-clipping/layout-containment gate fails.",
+    "status": "fail"
+  },
+  "contrast_checks": [
+    {"foreground": "#171C32", "background": "#F6F1E8", "role": "title/value text", "relative_luminance_foreground": 0.01243, "relative_luminance_background": 0.883296, "ratio": 14.95, "required": 4.5, "pass": true},
+    {"foreground": "#5E5D58", "background": "#F6F1E8", "role": "labels/supporting text", "ratio": 5.87, "required": 4.5, "pass": true},
+    {"foreground": "#FFFFFF", "background": "#173B57", "role": "CTA label", "ratio": 11.67, "required": 4.5, "pass": true},
+    {"foreground": "#FFFFFF", "background": "#9F3424", "role": "in-person badge", "ratio": 7.02, "required": 4.5, "pass": true},
+    {"foreground": "#FFFFFF", "background": "#006E70", "role": "hybrid badge", "ratio": 6.06, "required": 4.5, "pass": true},
+    {"foreground": "#FFFFFF", "background": "#4452B8", "role": "virtual badge", "ratio": 6.68, "required": 4.5, "pass": true},
+    {"foreground": "#FFFFFF", "background": "#171C32", "role": "module labels", "ratio": 16.82, "required": 4.5, "pass": true},
+    {"foreground": "#BFD9DD", "background": "#171C32", "role": "module secondary labels", "ratio": 11.36, "required": 4.5, "pass": true}
+  ],
+  "parent_defect_repairs": [
+    {
+      "defect": "generative-02 CTA white text on #3B82F6 was independently recomputed as 3.68:1, despite the parent's 4.5 claim.",
+      "source_evidence": ["generated/judges/opus/parents/summary.json independent_findings[2]", "generated/judges/terra/parents/generative-02.md"],
+      "repair": "CTA surface changed to #173B57 with #FFFFFF label.",
+      "computation": "WCAG relative luminance formula above; (#FFFFFF + 0.05)/(#173B57 + 0.05) = 11.67:1.",
+      "required": 4.5,
+      "result": 11.67,
+      "pass": true
+    },
+    {
+      "defect": "generative-02 title was independently estimated to reach x≈674 while its panel began at x=650, an approximately 24px intrusion.",
+      "source_evidence": ["generated/judges/opus/parents/summary.json independent_findings[3]", "generated/judges/opus/parents/generative-02.md"],
+      "repair": "Protected structural gutter plus a title-specific rendered safe-zone threshold; widest synthesized title line ends at x=691.262 and signal panel begins at x=760.",
+      "measurement": {"title_right_x": 691.262, "panel_left_x": 760, "separation_px": 68.738, "required_minimum_px": 64, "improvement_vs_parent_px": 92.738},
+      "pass": true
+    }
+  ],
+  "safe_zone_measurements": {
+    "editorial_zone_right_x": 680,
+    "signal_panel_left_x": 760,
+    "structural_gutter_px": 80,
+    "title_right_x_rendered": 691.262,
+    "title_to_panel_separation_px": 68.738,
+    "required_title_to_panel_separation_px": 64,
+    "pass": true
+  },
+  "required_content": {
+    "card.svg": {
+      "event_title": {"present": true, "text": "DESIGNING WITH / FEEDBACK LOOPS"},
+      "date": {"present": true, "text": "OCT 22, 2026"},
+      "time": {"present": true, "text": "09:30–12:30"},
+      "venue": {"present": true, "text": "STUDIO B"},
+      "cta": {"present": true, "text": "REGISTER NOW →"}
+    },
+    "variants.svg": {
+      "variant_count": 3,
+      "all_variants_have_title_date_time_venue_cta": true
+    }
+  },
+  "font_size": {
+    "card_minimum_px": 14,
+    "variants_minimum_px": 13,
+    "declared_threshold_px": 13,
+    "pass": true
+  },
+  "accessible_metadata": {
+    "card.svg": {"role_img": true, "aria_labelledby": true, "title": true, "desc": true},
+    "variants.svg": {"role_img": true, "aria_labelledby": true, "title": true, "desc": true},
+    "pass": true
+  },
+  "xml_parse": {
+    "parser": "python xml.etree.ElementTree",
+    "card.svg": "pass",
+    "variants.svg": "pass",
+    "external_assets_fonts_scripts": false
+  },
+  "objective_gates": {
+    "exact_canvas_and_viewbox": "pass",
+    "svg_xml_parse": "pass",
+    "accessible_metadata": "pass",
+    "required_content_present": "pass",
+    "minimum_font_size": "pass",
+    "no_unintended_overlap": "pass",
+    "no_clipping": "fail",
+    "normal_text_contrast_at_least_4_5": "pass",
+    "title_panel_safe_zone_at_least_64": "pass",
+    "three_reusable_variants": "pass"
+  },
+  "overall_pass": false,
+  "observed_remaining_weakness": {
+    "evidence": "variants-preview.png plus Inkscape --query-id=hybridVenueValue",
+    "defect": "Compact three-column metadata cannot contain the 11-character venue 'HUB A + WEB'; actual rendered width is 108.853px and right edge is x=779.358.",
+    "next_action": "Replace the compact fixed three-column values with width-aware metadata cells that wrap or stack flexible venue content, then prove the fix on longer strings."
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/experiment-loop/human-judge-schema-v1.0.json",
+  "title": "Experiment Loop Human Judge Export v1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "experiment_id",
+    "manifest_sha256",
+    "viewer_sha256",
+    "viewer_hash_algorithm",
+    "verdict",
+    "general_notes",
+    "criterion_reviews",
+    "loop_notes",
+    "artifact_notes",
+    "preferred_iteration_id",
+    "recommendation"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "experiment_id": {"type": "string", "minLength": 1},
+    "manifest_sha256": {"$ref": "#/$defs/sha256"},
+    "viewer_sha256": {"$ref": "#/$defs/sha256"},
+    "viewer_hash_algorithm": {"const": "canonical-html-zeroed-binding-v1"},
+    "verdict": {"enum": ["approve", "reject", "needs_improvement"]},
+    "general_notes": {"type": "string"},
+    "criterion_reviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["criterion_id", "score", "rating", "notes"],
+        "properties": {
+          "criterion_id": {"type": "string", "minLength": 1},
+          "score": {"type": ["number", "null"]},
+          "rating": {"type": ["string", "null"]},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "loop_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["iteration_id", "notes"],
+        "properties": {
+          "iteration_id": {"type": "string", "minLength": 1},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "artifact_notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["artifact_id", "notes"],
+        "properties": {
+          "artifact_id": {"type": "string", "minLength": 1},
+          "notes": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
+    "preferred_iteration_id": {"type": ["string", "null"]},
+    "recommendation": {"enum": ["keep", "reject", "needs_improvement"]}
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    }
+  },
+  "additionalProperties": false
+}

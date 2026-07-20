@@ -1,93 +1,225 @@
 {
-  "schema_version": "0.2",
+  "schema_version": "1.1",
   "experiment_id": "short-stable-id",
   "title": "Human-readable title",
-  "goal": "Short user-facing goal",
   "created_at": "ISO timestamp",
-  "budget": {
-    "max_iters": 15,
-    "patience": 4,
-    "cost_limit": null,
-    "wall_time_limit_sec": 3600
+  "problem": {
+    "statement": "Improve a measured result without violating correctness.",
+    "optimization_target": "Maximize the clarity score while passing correctness.",
+    "constraints": [
+      "The correctness gate must pass",
+      "Every candidate must be reproducible"
+    ],
+    "success_criteria": [
+      "Clarity improves over the declared baseline",
+      "The final result passes every hard gate"
+    ],
+    "original_prompt": "Create and improve a small measured result."
   },
-  "artifact_scope": {
-    "roots": ["."],
-    "allow_edit": ["experiment-loop/**"],
-    "deny": [".env", "secrets/**", "**/*credential*"]
+  "generation": {
+    "skill_commit": "git commit used for this experiment",
+    "skill_tree_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "prompt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "copilot_cli_version": "copilot version",
+    "orchestrator_model": "model ID",
+    "models": [
+      {"role": "orchestrator", "model_id": "model ID"}
+    ]
   },
   "scorecard": [
-    {"id": "clarity", "label": "Visual clarity", "weight": 1},
-    {"id": "correctness", "label": "Correctness", "weight": 1}
+    {
+      "id": "clarity",
+      "label": "Clarity",
+      "weight": 0.6,
+      "direction": "maximize",
+      "unit": "points",
+      "comparable_across_tracks": true,
+      "primary": true,
+      "baseline": {
+        "value": 1,
+        "unit": "points",
+        "source_artifact_id": "baseline-result"
+      }
+    },
+    {
+      "id": "correctness",
+      "label": "Correctness",
+      "weight": 0.4,
+      "direction": "maximize",
+      "unit": "pass",
+      "comparable_across_tracks": true,
+      "primary": false,
+      "gate": {"operator": "gte", "threshold": 1}
+    }
   ],
   "scorers": [
     {
-      "id": "artifact-quality-gate",
+      "id": "objective-check",
       "type": "objective_command",
-      "command": "replace with a reproducible artifact-quality check when available",
+      "criterion_ids": ["clarity", "correctness"],
+      "command": "replace with a reproducible check",
       "primary": true,
       "weight": 1
-    },
-    {
-      "id": "quality",
-      "type": "llm_rubric",
-      "judge_panel": "default_panel",
-      "weight": 1
     }
   ],
-  "judge_panels": [
-    {
-      "id": "default_panel",
-      "blind": true,
-      "flip_pairwise_order": true,
-      "aggregation": "median_with_dissent",
-      "judges": [
-        {"id": "fast-critic", "role": "obvious defects"},
-        {"id": "deep-critic", "role": "correctness and tradeoffs"},
-        {"id": "style-critic", "role": "subjective style/presentation"}
-      ]
-    }
-  ],
-  "governance": {
-    "self_editing": {
-      "requires_user_approval": true,
-      "proposal_required": true,
-      "approved_proposal_id": null
-    }
-  },
+  "judge_panels": [],
   "tracks": [
     {
       "id": "example-track",
-      "label": "Example track",
-      "hypothesis": "What this track is trying to improve."
+      "label": "Example Track",
+      "hypothesis": "Measured feedback will improve clarity without breaking correctness."
     }
   ],
   "iterations": [
     {
       "id": "loop-001",
       "track_id": "example-track",
-      "parent_id": null,
-      "hypothesis": "What this loop is testing.",
+      "parent_ids": [],
+      "model_id": "model ID",
+      "hypothesis": "Establish a measured baseline.",
+      "outcome": "The baseline passed correctness and established a clarity score of 1.",
       "commands": {
-        "build": "Build or edit the candidate.",
-        "run": "Run/render/test the candidate.",
-        "judge": "Score the candidate against the scorecard."
+        "build": "Build the baseline.",
+        "run": "Run the baseline.",
+        "judge": "Score the baseline."
       },
-      "artifacts": [],
-      "scores": [],
+      "artifacts": [
+        {
+          "id": "baseline-result",
+          "kind": "result",
+          "role": "primary-output",
+          "label": "Baseline result",
+          "path": "example-track/loop-001/result.txt",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "presentation": {
+            "mode": "text",
+            "featured": false,
+            "primary": true,
+            "caption": "Measured baseline output.",
+            "comparison_key": "primary-output"
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "objective-check",
+          "criterion_id": "clarity",
+          "value": 1,
+          "notes": "Measured baseline."
+        },
+        {
+          "scorer_id": "objective-check",
+          "criterion_id": "correctness",
+          "value": 1,
+          "notes": "Gate passed."
+        }
+      ],
       "prompt": {
-        "track_prompt": "Prompt or instruction sent to the generator for this loop.",
-        "input_feedback": "Prior judge notes, parent evidence, or human feedback used as input.",
-        "judge_feedback": "Condensed feedback returned by judges for this loop.",
-        "next_prompt": "Next hypothesis or prompt that should drive the following loop."
+        "track_prompt": "Build a baseline.",
+        "input_feedback": "",
+        "judge_feedback": "The baseline is correct but unclear.",
+        "next_prompt": "Improve clarity while preserving correctness."
       },
-      "quality_gates": {},
+      "quality_gates": {"correctness": "pass"},
       "changed_files": [],
-      "lesson": {},
-      "decision": "needs_human_review",
+      "lesson": {
+        "trigger": "Measured baseline feedback",
+        "action": "Improve clarity",
+        "evidence": "Clarity scored 1",
+        "confidence": "medium"
+      },
+      "decision": "new_best",
       "stop_reason": null
+    },
+    {
+      "id": "loop-002",
+      "track_id": "example-track",
+      "parent_ids": ["loop-001"],
+      "model_id": "model ID",
+      "hypothesis": "Applying the feedback will improve clarity.",
+      "outcome": "Clarity improved to 4 while correctness continued to pass.",
+      "commands": {
+        "build": "Build the improved result.",
+        "run": "Run the improved result.",
+        "judge": "Compare against the baseline."
+      },
+      "artifacts": [
+        {
+          "id": "champion-result",
+          "kind": "result",
+          "role": "primary-output",
+          "label": "Champion result",
+          "path": "example-track/loop-002/result.txt",
+          "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+          "presentation": {
+            "mode": "text",
+            "featured": true,
+            "primary": true,
+            "caption": "Champion output after applying measured feedback.",
+            "comparison_key": "primary-output"
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "objective-check",
+          "criterion_id": "clarity",
+          "value": 4,
+          "notes": "Clarity improved."
+        },
+        {
+          "scorer_id": "objective-check",
+          "criterion_id": "correctness",
+          "value": 1,
+          "notes": "Gate passed."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Improve clarity.",
+        "input_feedback": "The baseline is correct but unclear.",
+        "judge_feedback": "The result is clear and remains correct.",
+        "next_prompt": ""
+      },
+      "quality_gates": {"correctness": "pass"},
+      "changed_files": [],
+      "lesson": {
+        "trigger": "Clarity feedback",
+        "action": "Apply the measured improvement",
+        "evidence": "Clarity improved from 1 to 4",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": "Goal reached"
     }
   ],
-  "best": null,
+  "champion": {
+    "iteration_id": "loop-002",
+    "summary": "The Champion improved clarity and passed correctness.",
+    "reasons": [
+      {
+        "text": "Clarity improved from 1 to 4.",
+        "evidence_refs": ["clarity", "champion-result"]
+      },
+      {
+        "text": "The correctness gate passed.",
+        "evidence_refs": ["correctness"]
+      }
+    ],
+    "caveats": [
+      {
+        "text": "The result was tested only against the declared fixture.",
+        "evidence_refs": ["champion-result"]
+      }
+    ]
+  },
+  "story": {
+    "milestones": [
+      {"iteration_id": "loop-001", "caption": "Measured baseline"},
+      {"iteration_id": "loop-002", "caption": "Clarity improved"}
+    ],
+    "featured_artifact_id": "champion-result",
+    "primary_comparison_key": "primary-output"
+  },
   "rules": [],
-  "synthesis": ""
+  "synthesis": "Measured feedback improved clarity without breaking correctness."
 }

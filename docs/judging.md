@@ -35,7 +35,16 @@ Each judge, or a shared navigation harness that every judge runs, should:
 
 Score interactivity, hierarchy, and robustness from that transcript, citing the concrete interaction observed. A control that is visibly present but does nothing — a nav link that only scrolls, a dead filter, a non-operable tablist — is a defect, not something to credit from a screenshot. Prefer a shared, reproducible harness so every judge exercises the same states and the evidence is auditable.
 
-`scripts/navigate.mjs` is a reference harness: `node scripts/navigate.mjs --viewer viewer.html --out nav/`. It drives the locally installed Edge via `playwright-core`, discovers and exercises controls, tests keyboard operability and hash deep-links, and writes `transcript.json`, per-state screenshots, and `report.md` for the judges to inspect.
+`references/navigation_judge` is the required harness. Install its pinned
+Playwright/Chromium dependency once, then run:
+
+```text
+node references/navigation_judge/cli.mjs --viewer <run>/viewer.html --out <run>
+```
+
+It executes the Viewer's embedded interaction contract, fails on uncovered
+controls, tests keyboard operation and hash deep-links, and writes
+`navigation-evidence.json`, screenshots, and `navigation-report.md`.
 
 ## Panel judging
 
@@ -80,7 +89,7 @@ When two candidates are close, compare them side by side. Blind labels and flip 
     {
       "id": "metrics",
       "type": "objective_command",
-      "command": "python run_example.py",
+      "command": "python score_candidate.py",
       "primary": true,
       "weight": 2
     },

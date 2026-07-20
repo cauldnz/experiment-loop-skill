@@ -1,0 +1,114 @@
+{
+  "judge_id": "judge-gemini-3-1-pro-preview",
+  "model_id": "gemini-3.1-pro-preview",
+  "blind": true,
+  "score_scale": "1-5",
+  "criteria": [
+    "cross_language_equivalence",
+    "dad_joke_groan",
+    "brevity",
+    "cultural_portability",
+    "translation_naturalness"
+  ],
+  "candidates": [
+    {
+      "label": "A",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 3,
+        "brevity": 4,
+        "cultural_portability": 5,
+        "translation_naturalness": 5
+      },
+      "mean": 4.4,
+      "completeness_gate": "pass",
+      "rationale": "Universally understood concept with natural translations, but structurally more of a riddle than a groan-inducing dad joke.",
+      "defects": "Lacks the punchy groan factor typical of the best dad jokes.",
+      "recommendation": "Acceptable, but outclassed by better comedic mechanisms."
+    },
+    {
+      "label": "B",
+      "scores": {
+        "cross_language_equivalence": 2,
+        "dad_joke_groan": 5,
+        "brevity": 5,
+        "cultural_portability": 2,
+        "translation_naturalness": 2
+      },
+      "mean": 3.2,
+      "completeness_gate": "pass",
+      "rationale": "The classic English dad joke fails in other languages because expressing hunger relies on 'I have hunger' (avoir faim/tener hambre) or adjectives that don't dual-purpose as a noun name.",
+      "defects": "English wordplay calqued into languages where the grammar destroys the joke.",
+      "recommendation": "Reject due to poor cross-language portability."
+    },
+    {
+      "label": "C",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 4,
+        "brevity": 5,
+        "cultural_portability": 4,
+        "translation_naturalness": 5
+      },
+      "mean": 4.6,
+      "completeness_gate": "pass",
+      "rationale": "The double meaning of a physical 'corner' and 'meeting at the corner' translates surprisingly well across the required languages.",
+      "defects": "Slightly less visual and visceral than Candidate F.",
+      "recommendation": "Strong contender, translates well."
+    },
+    {
+      "label": "D",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 3,
+        "brevity": 4,
+        "cultural_portability": 5,
+        "translation_naturalness": 5
+      },
+      "mean": 4.4,
+      "completeness_gate": "pass",
+      "rationale": "Like candidate A, this is a clean translation of a universal concept, but it feels more like a children's riddle than a dad joke.",
+      "defects": "Low groan factor.",
+      "recommendation": "Acceptable, but too mild."
+    },
+    {
+      "label": "E",
+      "scores": {
+        "cross_language_equivalence": 3,
+        "dad_joke_groan": 5,
+        "brevity": 5,
+        "cultural_portability": 2,
+        "translation_naturalness": 2
+      },
+      "mean": 3.4,
+      "completeness_gate": "pass",
+      "rationale": "Suffers the same fatal flaw as Candidate B; the English grammatical pun 'I am [adjective]' -> 'Hi [Name]' does not work naturally in Spanish (estoy vs soy) or Japanese.",
+      "defects": "Unnatural calque translations in non-English languages.",
+      "recommendation": "Reject due to structural incompatibility across languages."
+    },
+    {
+      "label": "F",
+      "scores": {
+        "cross_language_equivalence": 5,
+        "dad_joke_groan": 5,
+        "brevity": 5,
+        "cultural_portability": 5,
+        "translation_naturalness": 5
+      },
+      "mean": 5.0,
+      "completeness_gate": "pass",
+      "rationale": "A perfect visual dad joke. The punchline relies on a universal human expression (raised eyebrows = surprise), avoiding English-specific grammar traps entirely.",
+      "defects": "None.",
+      "recommendation": "Clear winner."
+    }
+  ],
+  "ranking": [
+    "F",
+    "C",
+    "A",
+    "D",
+    "E",
+    "B"
+  ],
+  "panel_note": "Visual/situational puns (F) and physical puns (C) succeed where grammatical wordplay (B, E) fails."
+}

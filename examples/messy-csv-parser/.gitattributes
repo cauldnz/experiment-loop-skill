@@ -1,5 +1,0 @@
-# The sample CSVs are exact parser test vectors. Preserve their bytes verbatim
-# on every platform (notably crlf.csv's CRLF line ending), overriding
-# core.autocrlf. Treating them as binary stops any line-ending normalization so
-# a fresh clone parses the same rows the committed expected.json describes.
-*.csv -text

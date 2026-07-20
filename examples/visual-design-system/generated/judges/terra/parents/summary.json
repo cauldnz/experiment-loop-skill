@@ -1,0 +1,179 @@
+{
+  "model_id": "gpt-5.6-terra",
+  "role": "layout-critic",
+  "independent": true,
+  "evidence_inspected": [
+    {
+      "candidate": "editorial-01",
+      "files": [
+        "generated/track-editorial/loop-01/card.svg",
+        "generated/track-editorial/loop-01/tokens.json",
+        "generated/track-editorial/loop-01/layout-metrics.json",
+        "generated/track-editorial/loop-01/prompt-chain.json",
+        "generated/track-editorial/loop-01/self-review.md"
+      ]
+    },
+    {
+      "candidate": "editorial-02",
+      "files": [
+        "generated/track-editorial/loop-02/card.svg",
+        "generated/track-editorial/loop-02/tokens.json",
+        "generated/track-editorial/loop-02/layout-metrics.json",
+        "generated/track-editorial/loop-02/prompt-chain.json",
+        "generated/track-editorial/loop-02/self-review.md"
+      ]
+    },
+    {
+      "candidate": "generative-01",
+      "files": [
+        "generated/track-generative/loop-01/card.svg",
+        "generated/track-generative/loop-01/tokens.json",
+        "generated/track-generative/loop-01/layout-metrics.json",
+        "generated/track-generative/loop-01/prompt-chain.json",
+        "generated/track-generative/loop-01/self-review.md"
+      ]
+    },
+    {
+      "candidate": "generative-02",
+      "files": [
+        "generated/track-generative/loop-02/card.svg",
+        "generated/track-generative/loop-02/tokens.json",
+        "generated/track-generative/loop-02/layout-metrics.json",
+        "generated/track-generative/loop-02/prompt-chain.json",
+        "generated/track-generative/loop-02/self-review.md"
+      ]
+    }
+  ],
+  "candidates": {
+    "editorial-01": {
+      "scores": {
+        "visual_hierarchy": 4,
+        "brand_distinctiveness": 4,
+        "information_clarity": 3,
+        "system_coherence": 3,
+        "production_polish": 3
+      },
+      "rationales": {
+        "visual_hierarchy": "Large serif title is decisively primary; metadata and isolated CTA follow in a clear order.",
+        "brand_distinctiveness": "Monogram, terracotta kicker, frame, and rhythm squares form a restrained identity.",
+        "information_clarity": "Required event details are geometrically clear, but low-contrast labels and microcopy weaken support text.",
+        "system_coherence": "Grid, typographic roles, and components align, though only one event configuration is rendered.",
+        "production_polish": "Margins and rules are precise, but the muted-text contrast defect prevents a finished result."
+      },
+      "top_defects": [
+        "Muted #A39C8C text on #F8F4EC measures 2.49:1 across five small secondary-text nodes."
+      ],
+      "next_step": "Replace the muted token with an AA-compliant value and prove the grid on a second event variant.",
+      "objective_gates": {
+        "svg_validity": {
+          "verdict": "pass",
+          "evidence": "Well-formed XML/SVG with viewBox, title, and description."
+        },
+        "layout_quality": {
+          "verdict": "fail",
+          "defect": "Inaccessible secondary text contrast; no clipping or unintended geometric overlap found."
+        }
+      }
+    },
+    "editorial-02": {
+      "scores": {
+        "visual_hierarchy": 5,
+        "brand_distinctiveness": 4,
+        "information_clarity": 5,
+        "system_coherence": 5,
+        "production_polish": 5
+      },
+      "rationales": {
+        "visual_hierarchy": "Title, metadata, and CTA have an unambiguous descending reading order; the badge stays secondary.",
+        "brand_distinctiveness": "Editorial type, monogram, terracotta accent, and print-rule grammar are cohesive.",
+        "information_clarity": "All required fields are plainly separated, aligned, and contrast-safe.",
+        "system_coherence": "Token-level contrast repair, optional badge, and two documented variants demonstrate reusable behaviour.",
+        "production_polish": "Spacing, containment, contrast, and component alignment are consistently resolved."
+      },
+      "top_defects": [
+        "Long title, venue, and badge-label capacity remains untested."
+      ],
+      "next_step": "Specify and test content-length budgets for every flexible component.",
+      "objective_gates": {
+        "svg_validity": {
+          "verdict": "pass",
+          "evidence": "Well-formed XML/SVG with viewBox, title, and description."
+        },
+        "layout_quality": {
+          "verdict": "pass",
+          "defect": null
+        }
+      }
+    },
+    "generative-01": {
+      "scores": {
+        "visual_hierarchy": 2,
+        "brand_distinctiveness": 5,
+        "information_clarity": 2,
+        "system_coherence": 2,
+        "production_polish": 2
+      },
+      "rationales": {
+        "visual_hierarchy": "The phase paths visibly compete with and traverse the lower headline and metadata zone.",
+        "brand_distinctiveness": "Phase-shifted signal paths create a memorable, relevant Loop Lab motif.",
+        "information_clarity": "Required details exist but share active visual territory with decorative strokes.",
+        "system_coherence": "Only colour and font palette tokens are articulated; reusable layout rules and variants are absent.",
+        "production_polish": "The unresolved foreground-text collision makes the otherwise appealing visual language feel unfinished."
+      },
+      "top_defects": [
+        "Cyan/indigo signal paths cross essential text and impair readability.",
+        "Path strokes intentionally bleed beyond canvas edges."
+      ],
+      "next_step": "Place the illustration in a reserved non-text zone before introducing decorative paths.",
+      "objective_gates": {
+        "svg_validity": {
+          "verdict": "pass",
+          "evidence": "Well-formed XML/SVG with viewBox, title, and description."
+        },
+        "layout_quality": {
+          "verdict": "fail",
+          "defect": "Foreground decorative-path overlap with headline and metadata."
+        }
+      }
+    },
+    "generative-02": {
+      "scores": {
+        "visual_hierarchy": 4,
+        "brand_distinctiveness": 5,
+        "information_clarity": 4,
+        "system_coherence": 3,
+        "production_polish": 4
+      },
+      "rationales": {
+        "visual_hierarchy": "Protected left content column and supporting right module produce a clear scan path.",
+        "brand_distinctiveness": "The modular loops/routing-panel visual language is distinctive and well integrated.",
+        "information_clarity": "Separated zones make details legible, though unlabeled icon-like metadata markers reduce explicitness.",
+        "system_coherence": "Palette and badge are tokenised, but reusable spatial/component rules and variants are limited.",
+        "production_polish": "The collision repair is clean; CTA contrast has only large-bold-text threshold headroom."
+      },
+      "top_defects": [
+        "CTA text contrast is 3.68:1 on #3B82F6: acceptable for current 20px semibold large text, but not normal-text AA.",
+        "Metadata lacks explicit labels and robust reusable layout tokens."
+      ],
+      "next_step": "Tokenise the zone/grid and metadata component, add variants, and darken the CTA surface for normal-text AA resilience.",
+      "objective_gates": {
+        "svg_validity": {
+          "verdict": "pass",
+          "evidence": "Well-formed XML/SVG with viewBox, title, and description."
+        },
+        "layout_quality": {
+          "verdict": "pass",
+          "defect": "No blocking current-card geometry defect; CTA contrast has limited headroom."
+        }
+      }
+    }
+  },
+  "ranking": [
+    "editorial-02",
+    "generative-02",
+    "editorial-01",
+    "generative-01"
+  ],
+  "preferred_candidate": "editorial-02",
+  "dissent_statement": "This is a layout-only ordering, not a champion selection or promotion. A reasonable dissent can prefer generative-02 for its stronger bespoke brand signature and spatial drama; editorial-02 ranks first here because its hierarchy, information clarity, contrast, and reuse evidence are more complete. Generative-02's CTA contrast remains close to the boundary and should not be treated as normal-text AA."
+}

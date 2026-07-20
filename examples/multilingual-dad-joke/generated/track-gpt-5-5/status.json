@@ -1,0 +1,26 @@
+{
+  "status": "completed",
+  "track_id": "track-gpt-5-5",
+  "model_id": "gpt-5.5",
+  "loops_required": 2,
+  "loops_completed": 2,
+  "current_loop": "track-gpt-5-5-loop-02",
+  "decision": "keep_for_synthesis",
+  "best_provisional_candidate": "loop-02/candidate.json",
+  "completeness_gate": "passed",
+  "independent_panel_scores_claimed": false,
+  "files_written": [
+    "loop-01/candidate.json",
+    "loop-01/draft.md",
+    "loop-01/self-critique.md",
+    "loop-01/loop.json",
+    "loop-02/candidate.json",
+    "loop-02/draft.md",
+    "loop-02/self-critique.md",
+    "loop-02/loop.json",
+    "manifest-fragment.json",
+    "status.json"
+  ],
+  "blockers": [],
+  "updated_at": "2026-07-20T21:25:20.078+10:00"
+}

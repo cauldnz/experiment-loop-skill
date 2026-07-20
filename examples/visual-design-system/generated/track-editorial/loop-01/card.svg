@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630"
+     role="img" aria-labelledby="cardTitle cardDesc">
+  <title id="cardTitle">Loop Lab Workshop: Systems Thinking for Product Teams</title>
+  <desc id="cardDesc">Editorial event card for a Loop Lab workshop titled "Systems Thinking for Product
+    Teams," held Oct 14, 2026 from 9:30-11:30 AM at The Loft, Bldg 4. Includes a Register Now call to
+    action. Print-inspired layout with a kicker, rule lines, three-column metadata row, and a footer CTA.</desc>
+
+  <!-- Design tokens (loop-01): see tokens.json for full system -->
+  <defs>
+    <style>
+      .serif { font-family: Georgia, 'Times New Roman', serif; }
+      .sans  { font-family: 'Segoe UI', Arial, Helvetica, sans-serif; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect x="0" y="0" width="1200" height="630" fill="#F8F4EC"/>
+  <!-- Print-style frame accent -->
+  <rect x="24" y="24" width="1152" height="582" fill="none" stroke="#1B1F33" stroke-width="1.5"/>
+
+  <!-- Logo mark -->
+  <rect x="80" y="56" width="40" height="40" rx="6" fill="#1B1F33"/>
+  <text x="100" y="82" class="sans" font-size="18" font-weight="700" fill="#F8F4EC" text-anchor="middle">LL</text>
+
+  <!-- Kicker -->
+  <text x="136" y="82" class="sans" font-size="18" font-weight="700" letter-spacing="2.5" fill="#B5432E">LOOP LAB WORKSHOP SERIES</text>
+  <!-- Edition tag -->
+  <text x="1120" y="82" class="sans" font-size="16" letter-spacing="1" fill="#A39C8C" text-anchor="end">EDITION 014</text>
+
+  <!-- Header rule -->
+  <line x1="80" y1="112" x2="1120" y2="112" stroke="#C9C2B4" stroke-width="1.5"/>
+
+  <!-- Title -->
+  <text x="80" y="222" class="serif" font-size="64" font-weight="700" fill="#1B1F33">Systems Thinking</text>
+  <text x="80" y="298" class="serif" font-size="64" font-weight="700" fill="#1B1F33">for Product Teams</text>
+
+  <!-- Divider below title -->
+  <line x1="80" y1="340" x2="1120" y2="340" stroke="#C9C2B4" stroke-width="1.5"/>
+
+  <!-- Metadata labels -->
+  <text x="80" y="380" class="sans" font-size="16" font-weight="700" letter-spacing="2" fill="#A39C8C">DATE</text>
+  <text x="440" y="380" class="sans" font-size="16" font-weight="700" letter-spacing="2" fill="#A39C8C">TIME</text>
+  <text x="800" y="380" class="sans" font-size="16" font-weight="700" letter-spacing="2" fill="#A39C8C">VENUE</text>
+
+  <!-- Column dividers -->
+  <line x1="420" y1="364" x2="420" y2="440" stroke="#C9C2B4" stroke-width="1.5"/>
+  <line x1="780" y1="364" x2="780" y2="440" stroke="#C9C2B4" stroke-width="1.5"/>
+
+  <!-- Metadata values -->
+  <text x="80" y="428" class="serif" font-size="30" font-weight="700" fill="#1B1F33">Oct 14, 2026</text>
+  <text x="440" y="428" class="serif" font-size="30" font-weight="700" fill="#1B1F33">9:30&#8211;11:30 AM</text>
+  <text x="800" y="428" class="serif" font-size="30" font-weight="700" fill="#1B1F33">The Loft, Bldg 4</text>
+
+  <!-- Bottom rule -->
+  <line x1="80" y1="480" x2="1120" y2="480" stroke="#C9C2B4" stroke-width="1.5"/>
+
+  <!-- Microcopy -->
+  <text x="80" y="530" class="serif" font-size="16" font-style="italic" fill="#A39C8C">Only 40 seats &#183; loop-lab.dev/systems</text>
+
+  <!-- CTA -->
+  <rect x="860" y="500" width="260" height="64" rx="6" fill="#1B1F33"/>
+  <text x="990" y="540" class="sans" font-size="22" font-weight="700" letter-spacing="1.5" fill="#FFFFFF" text-anchor="middle">REGISTER NOW &#8594;</text>
+
+  <!-- Decorative brand rhythm mark -->
+  <rect x="576" y="582" width="6" height="6" fill="#B5432E"/>
+  <rect x="597" y="582" width="6" height="6" fill="#B5432E"/>
+  <rect x="618" y="582" width="6" height="6" fill="#B5432E"/>
+</svg>

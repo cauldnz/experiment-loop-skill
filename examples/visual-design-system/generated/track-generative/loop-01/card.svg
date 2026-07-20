@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" aria-labelledby="title desc">
+  <title id="title">Loop Lab: Synthesis &amp; Routing</title>
+  <desc id="desc">Workshop event card for Loop Lab on October 15, 2026. Register now.</desc>
+
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <!-- Visual Language: Phase-shifted signal paths (Intentionally overlapping text in this version) -->
+  <g opacity="0.6">
+    <path d="M 0 400 C 300 400, 300 200, 600 200 S 900 600, 1200 600" fill="none" stroke="#38bdf8" stroke-width="8" />
+    <path d="M 0 420 C 300 420, 300 220, 600 220 S 900 620, 1200 620" fill="none" stroke="#818cf8" stroke-width="4" stroke-dasharray="10 10"/>
+    <path d="M 0 380 C 300 380, 300 180, 600 180 S 900 580, 1200 580" fill="none" stroke="#38bdf8" stroke-width="2" />
+  </g>
+
+  <!-- Text Content -->
+  <g transform="translate(80, 160)">
+    <text font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="600" fill="#38bdf8" letter-spacing="2">LOOP LAB WORKSHOP</text>
+    <text font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#f8fafc" y="80">Synthesis &amp;</text>
+    <text font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#f8fafc" y="160">Routing Systems</text>
+    
+    <!-- Defect: Text is placed right where the phase paths are, reducing legibility -->
+    <g transform="translate(0, 240)">
+      <rect x="0" y="0" width="40" height="40" rx="8" fill="#1e293b"/>
+      <text font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="500" fill="#94a3b8" x="60" y="28">Oct 15, 2026</text>
+      
+      <rect x="300" y="0" width="40" height="40" rx="8" fill="#1e293b"/>
+      <text font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="500" fill="#94a3b8" x="360" y="28">10:00 AM - 4:00 PM</text>
+      
+      <rect x="0" y="60" width="40" height="40" rx="8" fill="#1e293b"/>
+      <text font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="500" fill="#94a3b8" x="60" y="88">Loop Lab, Studio 4</text>
+    </g>
+
+    <!-- CTA -->
+    <g transform="translate(0, 380)">
+      <rect width="200" height="56" rx="28" fill="#3b82f6"/>
+      <text font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#ffffff" x="100" y="34" text-anchor="middle">Register Now</text>
+    </g>
+  </g>
+</svg>

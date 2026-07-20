@@ -1,6 +1,9 @@
 # Experiment Loop Skill
 
-`experiment-loop` is a Copilot skill for agent-mediated experimentation loops.
+`experiment-loop` is a GitHub Copilot CLI and Claude Code skill for
+agent-mediated experimentation loops. Its `experiment-setup` companion
+inspects a target repository, asks one adaptive question at a time, and freezes
+an approved, machine-validated brief before costly or unattended runs begin.
 
 Use it when a task benefits from build/run/judge/improve cycles: visual artifacts, code, prompts, UX, documents, data workflows, or any open-ended quality optimization.
 
@@ -33,62 +36,41 @@ macOS/Linux:
 bash scripts/install.sh
 ```
 
-Both scripts install this repository as:
+Both scripts install the two skills for GitHub Copilot CLI and Claude Code:
 
 ```text
 ~/.copilot/skills/experiment-loop
+~/.copilot/skills/experiment-setup
+~/.claude/skills/experiment-loop
+~/.claude/skills/experiment-setup
 ```
 
 They do not overwrite an existing skill unless `-Force` / `--force` is provided.
+Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
+`--runtime claude` to target one runtime.
 
-## Contents
+## Architecture
 
-```text
-.
-├── SKILL.md
-├── docs
-│   ├── concepts.md
-│   ├── judging.md
-│   ├── quickstart.md
-│   ├── self-testing.md
-│   ├── viewer.md
-│   └── worked-examples.md
-├── references
-│   ├── manifest-schema-v0.2.json
-│   └── validate_manifest.py
-├── templates
-│   ├── judge-note-template.md
-│   ├── manifest-template.json
-│   └── proposal-template.md
-├── examples
-│   ├── minimal-agent-prompt.md
-│   ├── route-optimizer
-│   │   ├── manifest.json
-│   │   ├── viewer.html
-│   │   └── run_example.py
-│   ├── visual-design-system
-│   │   ├── manifest.json
-│   │   ├── viewer.html
-│   │   └── run_example.py
-│   ├── multilingual-dad-joke
-│   │   ├── manifest.json
-│   │   ├── viewer.html
-│   │   └── run_example.py
-│   └── messy-csv-parser
-│       ├── manifest.json
-│       ├── viewer.html
-│       └── run_example.py
-└── scripts
-    ├── check_viewer.py
-    ├── install.ps1
-    ├── install.sh
-    ├── navigate.mjs
-    └── skill_selftest.py
-```
+- `references/manifest-schema-v1.1.json` defines the enforced Manifest contract.
+- `skills/experiment-setup/SKILL.md` defines the guided setup interview,
+  independent setup critic, approval, and immutable revision workflow.
+- `references/experiment-brief-schema-v1.0.json` and
+  `references/experiment-approval-schema-v1.0.json` define the frozen setup
+  contract and exact Prompt/brief hash binding.
+- `references/human-judge-schema-v1.0.json` defines the review export contract;
+  its Viewer UI is finalized in the later Visual Design System phase.
+- `references/viewer_renderer` is the deep standalone Viewer module.
+- `references/navigation_judge` produces required Navigation Evidence with pinned Chromium.
+- `references/evidence_gate` is the single blocking experiment completion gate.
+- `scripts/regenerate_examples.py` transactionally regenerates committed snapshots from Example Prompts.
+- `.github/workflows/tests.yml` runs lightweight unit tests on pull requests and `main`.
+- `.github/workflows/examples.yml` manually validates refreshed snapshots and optionally publishes valid Viewers with GitHub Pages.
 
 ## Start here
 
 - Read `docs\quickstart.md` for the shortest path.
+- Invoke `experiment-setup` to create and approve
+  `.experiments\<id>\setup\`, then invoke `experiment-loop`.
 - Read `docs\concepts.md` for the mental model.
 - Read `docs\judging.md` to choose objective, qualitative, or panel judging.
 - Read `docs\viewer.md` to understand the expected inspection UI.
@@ -96,16 +78,25 @@ They do not overwrite an existing skill unless `-Force` / `--force` is provided.
 
 ## Worked examples
 
-| Example | What it demonstrates | Inspect without rerunning | Rerun command |
-| --- | --- | --- | --- |
-| `examples\route-optimizer` | Quantitative judging with objective metrics | Open `viewer.html` | `python run_example.py` |
-| `examples\visual-design-system` | Qualitative SVG design judging with cross-run synthesis | Open `viewer.html` | `python run_example.py` |
-| `examples\multilingual-dad-joke` | Language-only optimization with multi-model generator and judge panels | Open `viewer.html` | `python run_example.py` |
-| `examples\messy-csv-parser` | Objective test-driven architecture bake-off with a dead-end reject and synthesis | Open `viewer.html` | `python run_example.py` |
+| Example | What it demonstrates | Inspect without rerunning |
+| --- | --- | --- |
+| `examples\route-optimizer` | Quantitative judging with objective metrics | Open `generated\viewer.html` |
+| `examples\visual-design-system` | Qualitative SVG design judging with cross-run synthesis | Open `generated\viewer.html` |
+| `examples\multilingual-dad-joke` | Language optimization with multi-model generator and judge panels | Open `generated\viewer.html` |
+| `examples\messy-csv-parser` | Objective architecture bake-off | Open `generated\viewer.html` |
+
+Regenerate all snapshots manually with `python scripts\regenerate_examples.py`.
+Batch skill changes first: ordinary CI does not regenerate Examples or block on
+snapshot freshness.
 
 ## Dependencies
 
-The skill itself has no runtime package dependencies. The committed worked examples use only the Python standard library when rerun, and their generated artifacts, manifests, judge notes, and viewers are already included for offline inspection.
+The Evidence Gate requires Python 3.11+ and pinned `jsonschema`. Navigation
+Evidence requires Node.js 20+ and the locked Playwright/Chromium package under
+`references\navigation_judge`. Published Viewers remain standalone static files
+with no runtime network dependency. `scripts\install_dependencies.py` accepts an
+approved npm upstream through `EXPERIMENT_LOOP_NPM_REGISTRY` without persisting
+it in repository files.
 
 ## License
 

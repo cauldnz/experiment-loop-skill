@@ -1,0 +1,18 @@
+{
+  "coordinate_system": "Cartesian kilometers",
+  "depot": {"name": "Central Depot", "x": 5.0, "y": 5.0},
+  "stops": [
+    {"name": "Amber Bakery", "x": 1.0, "y": 8.0},
+    {"name": "Birch Library", "x": 2.0, "y": 2.0},
+    {"name": "Cedar Clinic", "x": 8.0, "y": 9.0},
+    {"name": "Dahlia School", "x": 9.0, "y": 3.0},
+    {"name": "Elm Market", "x": 4.0, "y": 9.5},
+    {"name": "Fossil Museum", "x": 6.5, "y": 1.0},
+    {"name": "Garnet Hotel", "x": 0.5, "y": 5.0},
+    {"name": "Harbor Cafe", "x": 10.0, "y": 6.5},
+    {"name": "Indigo Pharmacy", "x": 3.0, "y": 6.0},
+    {"name": "Juniper Park", "x": 7.0, "y": 6.0},
+    {"name": "Kestrel Theater", "x": 4.0, "y": 3.5},
+    {"name": "Linden Post", "x": 7.5, "y": 4.0}
+  ]
+}

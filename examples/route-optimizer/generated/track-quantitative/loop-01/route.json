@@ -1,0 +1,20 @@
+{
+  "strategy": "baseline",
+  "route": [
+    "Central Depot",
+    "Amber Bakery",
+    "Birch Library",
+    "Cedar Clinic",
+    "Dahlia School",
+    "Elm Market",
+    "Fossil Museum",
+    "Garnet Hotel",
+    "Harbor Cafe",
+    "Indigo Pharmacy",
+    "Juniper Park",
+    "Kestrel Theater",
+    "Linden Post",
+    "Central Depot"
+  ],
+  "route_length_km": 81.425571978
+}

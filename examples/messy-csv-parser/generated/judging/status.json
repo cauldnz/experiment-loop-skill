@@ -1,0 +1,19 @@
+{
+  "status": "complete",
+  "judge_model_id": "gpt-5.6-terra",
+  "judge_type": "independent_qualitative",
+  "objective_gate_status": "pass",
+  "shared_tests": {
+    "run": 64,
+    "passed": 64,
+    "blocking_samples": "pass for both finalists"
+  },
+  "winner_track_id": "track-state-machine",
+  "artifacts": [
+    "independent-judge.md",
+    "scores.json",
+    "prompt-history.md",
+    "status.json"
+  ],
+  "completed_at": "2026-07-20T21:42:54.377+10:00"
+}

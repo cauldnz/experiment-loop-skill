@@ -1,0 +1,264 @@
+{
+  "fragment_type": "manifest-v1.1-partial",
+  "note": "This is a partial fragment for the editorial-typography Track only (schema_version 1.1 iteration/track shapes). It is not a complete standalone manifest: it omits document-level fields (experiment_id, problem, generation, scorecard, scorers, champion, story) that belong to the top-level synthesis manifest, which combines this Track with the visual-language and synthesis Tracks.",
+  "track": {
+    "id": "track-editorial",
+    "label": "Editorial Typography",
+    "hypothesis": "A print-inspired editorial grid (kicker, rule lines, three-column metadata, footer CTA) driven by a small, reusable typography/color/spacing token set will deliver strong visual hierarchy and brand distinctiveness while remaining fully accessible and generalizing cleanly to new event variants.",
+    "final_decision": "keep_for_synthesis"
+  },
+  "iterations": [
+    {
+      "id": "editorial-01",
+      "track_id": "track-editorial",
+      "parent_ids": [],
+      "model_id": "claude-sonnet-5",
+      "hypothesis": "A print-inspired grid (kicker + rule lines + three-column DATE/TIME/VENUE metadata + isolated footer CTA) will establish clear visual hierarchy and editorial brand character in a single, reusable component skeleton.",
+      "outcome": "Produced a valid, standalone 1200x630 SVG event card with all required content (title, date, time, venue, CTA) and strong hierarchy (64px serif title, isolated CTA, three-column metadata). Passed 4 of 6 objective gates (svg_parses, no_overlap, no_clipping, required_content_present) but failed 2: the ink.muted color token (#A39C8C) used for metadata labels, the edition tag, and microcopy measured 2.49:1 against the paper background, well under the WCAG AA 4.5:1 threshold for normal text, causing both the readable_text and accessible_contrast gates to fail.",
+      "commands": {
+        "build": "Author generated/track-editorial/loop-01/card.svg by hand as raw SVG XML against a manually specified 1200x630 grid (margins, column x-positions, rule-line y-positions), plus generated/track-editorial/loop-01/tokens.json describing the reusable color/typography/spacing/radius/layout/component tokens.",
+        "run": "Validate the SVG by parsing it with python xml.etree.ElementTree to confirm well-formed XML and the expected viewBox; compute analytical text bounding boxes (documented methodology) and rect/line bounding boxes (exact, from source) to populate generated/track-editorial/loop-01/layout-metrics.json.",
+        "judge": "Self-score against the objective gates named in the track prompt (SVG validity, overlap, clipping, unreadable text, inaccessible contrast, missing required content) using measured WCAG contrast ratios (python luminance/contrast calculation) and the recorded bounding boxes; no external judge panel is in scope for this track-only deliverable."
+      },
+      "artifacts": [
+        {
+          "id": "editorial-01-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Loop 01 event card (Systems Thinking for Product Teams)",
+          "path": "track-editorial/loop-01/card.svg",
+          "sha256": "9fefb4cce07695d16abbbb151fbfb3c946199b4c4397bac136def5d8c4dd3078",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "Loop 01: editorial grid baseline for a Loop Lab in-person workshop card, with a measured contrast defect in the caption/label color.",
+            "alt_text": "Cream event card for Loop Lab workshop 'Systems Thinking for Product Teams,' Oct 14 2026, 9:30-11:30 AM, at The Loft Bldg 4, with a dark Register Now button bottom-right; metadata labels are rendered in a low-contrast tan color.",
+            "comparison_key": "editorial-card"
+          }
+        },
+        {
+          "id": "editorial-01-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "Loop 01 design tokens",
+          "path": "track-editorial/loop-01/tokens.json",
+          "sha256": "36eb7df415b59c1a2644f2ab6d01ed8c7cac3f4207dda4b600b7087cbc0e9a29",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Color, typography, spacing, radius, layout, and component tokens for the editorial card system, including the not-yet-fixed ink.muted value."
+          }
+        },
+        {
+          "id": "editorial-01-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "Loop 01 objective layout metrics",
+          "path": "track-editorial/loop-01/layout-metrics.json",
+          "sha256": "43632be7967ee0c423dae8611018bff8ede9eba50f053b15dac6d0a470dc4609",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Bounding boxes, overlap/clipping checks, contrast ratios, required-content checks, and gate results for Loop 01; records the accessible_contrast gate failure."
+          }
+        },
+        {
+          "id": "editorial-01-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "Loop 01 prompt chain",
+          "path": "track-editorial/loop-01/prompt-chain.json",
+          "sha256": "62a91a46ec35153ae27f336595d36dbcaf28baeef803f00d46d7435f3f0ce5d8",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Track prompt, input feedback, self-judge feedback, and the next prompt handed to Loop 02."
+          }
+        },
+        {
+          "id": "editorial-01-self-review",
+          "kind": "markdown",
+          "role": "self-review",
+          "label": "Loop 01 self-review",
+          "path": "track-editorial/loop-01/self-review.md",
+          "sha256": "86360acedcecd833c163304c2fc1cdda39decec5a50321f879402315cf256a52",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Provisional self-review of Loop 01 evidence, strengths, defects, and the next hypothesis; not an independent judge verdict."
+          }
+        }
+      ],
+      "scores": [
+        { "scorer_id": "self-review", "criterion_id": "visual_hierarchy", "value": 4, "notes": "Large two-line serif title dominates; metadata and CTA are clearly subordinate; no competing element approaches the title's weight." },
+        { "scorer_id": "self-review", "criterion_id": "brand_distinctiveness", "value": 4, "notes": "Monogram mark, terracotta kicker, and brand rhythm mark give the system a repeatable identity beyond a generic card." },
+        { "scorer_id": "self-review", "criterion_id": "information_clarity", "value": 4, "notes": "All five required fields present and legibly separated by rule lines and columns; only the low-contrast caption color reduces clarity of the secondary metadata labels." },
+        { "scorer_id": "self-review", "criterion_id": "system_coherence", "value": 3, "notes": "Grid and type scale are coherent, but tokens.json describes only one hardcoded event with no demonstrated variant, so reusability is asserted rather than proven." },
+        { "scorer_id": "self-review", "criterion_id": "production_polish", "value": 4, "notes": "Consistent margins, deliberate outer frame, and print-grade spacing rhythm read as intentional." },
+        { "scorer_id": "objective-gates", "criterion_id": "svg_valid", "value": 1, "notes": "Parses as well-formed XML with correct viewBox; pass." },
+        { "scorer_id": "objective-gates", "criterion_id": "layout_quality", "value": 0, "notes": "Fails: accessible_contrast and readable_text gates both fail due to the ink.muted token measuring 2.49:1 (needs 4.5:1) on 5 text nodes; no_overlap, no_clipping, required_content_present all pass." }
+      ],
+      "prompt": {
+        "track_prompt": "Use the experiment-loop skill. Create a polished, reusable SVG event-card design system for a fictional \"Loop Lab\" workshop. The cards must communicate event title, date, time, venue, and call to action at a glance while remaining reusable across event variants. Score visual hierarchy, brand distinctiveness, information clarity, system coherence, production polish, SVG validity, and layout quality. Subjective criteria use a 1-5 point scale and maximize. SVG validity and layout quality use pass/fail objective gates: overlap, clipping, unreadable text, inaccessible contrast, missing required content, or invalid SVG prevents Champion promotion. Visual hierarchy is the primary criterion. [Editorial-typography Track scope: use claude-sonnet-5, at least two Loops, strong typographic rhythm, restrained geometric accents, clear reading order, print-grade spacing.]",
+        "input_feedback": "No prior loop exists; this is the track's first build with no baseline artifact or judge note to react to.",
+        "judge_feedback": "Self-measured: strong hierarchy and coherent grid, but the ink.muted token fails WCAG AA contrast (2.49:1 vs. 4.5:1 required) across 5 text nodes -- a hard accessible-contrast gate failure that blocks a clean pass despite no other criterion being compromised.",
+        "next_prompt": "Keep the loop-01 grid, type scale, and component structure intact, but repair the ink.muted token so every caption/label text node clears WCAG AA (>=4.5:1), re-verify the full overlap/clipping/content gate suite, and extend tokens.json with at least one additional event variant to demonstrate the system generalizes."
+      },
+      "quality_gates": {
+        "svg_parses": "pass",
+        "no_overlap": "pass",
+        "no_clipping": "pass",
+        "readable_text": "fail",
+        "accessible_contrast": "fail",
+        "required_content_present": "pass"
+      },
+      "changed_files": [
+        "track-editorial/loop-01/card.svg",
+        "track-editorial/loop-01/tokens.json",
+        "track-editorial/loop-01/layout-metrics.json",
+        "track-editorial/loop-01/prompt-chain.json",
+        "track-editorial/loop-01/self-review.md"
+      ],
+      "lesson": {
+        "trigger": "Measured WCAG contrast check on the ink.muted color token used by 5 text nodes returned 2.49:1 against a 4.5:1 requirement.",
+        "action": "Darken the ink.muted token value and re-verify all dependent text nodes plus the full geometric gate suite in the next loop, fixing the defect at the token level rather than per-instance.",
+        "evidence": "layout-metrics.json contrast_checks entry for ink.muted on paper: ratio 2.49, required 4.5, pass=false, affecting label-date, label-time, label-venue, edition-tag, and microcopy.",
+        "confidence": "high"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": null
+    },
+    {
+      "id": "editorial-02",
+      "track_id": "track-editorial",
+      "parent_ids": ["editorial-01"],
+      "model_id": "claude-sonnet-5",
+      "hypothesis": "Repairing the ink.muted color token to clear WCAG AA contrast, while keeping the loop-01 grid and type scale byte-for-byte identical, will fix the accessible_contrast and readable_text gate failures with zero layout regression; adding an optional format-badge component and a second event configuration will demonstrate the system generalizes to variants.",
+      "outcome": "Repaired the single loop-01 defect: ink.muted changed from #A39C8C (2.49:1, fail) to #6B6558 (5.28:1, pass), fixing all 5 dependent text nodes. Re-verified every loop-01 geometric check (all still pass) and added 3 new checks for a new optional format-badge component (contrast 5.03:1, fully contained, clear of its 3 nearest neighbors). Rendered a second event (Prototyping Under Constraints, hybrid format) on the identical grid and documented both configurations in an eventVariants section of tokens.json. All 6 objective gates now pass, versus 4 of 6 in loop-01.",
+      "commands": {
+        "build": "Copy the loop-01 grid coordinates into generated/track-editorial/loop-02/card.svg unchanged, swap in new event content and the repaired ink.muted value, add the new format-badge rect/text pair, and extend generated/track-editorial/loop-02/tokens.json with a changelog entry and an eventVariants object covering both the loop-01 and loop-02 events.",
+        "run": "Re-parse the SVG with python xml.etree.ElementTree; recompute the same analytical bounding-box methodology as loop-01 for every element (shared coordinates unchanged, new badge coordinates added); recompute all WCAG contrast ratios including a new check for white-on-accent badge text; write results to generated/track-editorial/loop-02/layout-metrics.json.",
+        "judge": "Self-score against the same 6 objective gates as loop-01 and diff the result directly against editorial-01's layout-metrics.json to confirm no geometric regression and a measured +2.79 contrast-ratio improvement on the repaired token."
+      },
+      "artifacts": [
+        {
+          "id": "editorial-02-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Loop 02 event card (Prototyping Under Constraints, Hybrid)",
+          "path": "track-editorial/loop-02/card.svg",
+          "sha256": "f23cece010088fe163355eb8fb6b0477c0fd3798aaaa85da2b0d828a70cb9148",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "Loop 02: same editorial grid as Loop 01, with the contrast defect repaired, a new optional format-badge component, and a second event variant rendered end to end.",
+            "alt_text": "Cream event card for Loop Lab workshop 'Prototyping Under Constraints,' Nov 3 2026, 1:00-3:00 PM, at Hub A + Remote, with a red HYBRID SESSION badge top-right and a dark Register Now button bottom-right; all caption text is now clearly legible dark warm gray.",
+            "comparison_key": "editorial-card"
+          }
+        },
+        {
+          "id": "editorial-02-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "Loop 02 design tokens",
+          "path": "track-editorial/loop-02/tokens.json",
+          "sha256": "bdc971c63c42b48a45a414a76b647647701c062c1bbd64b7ca956170cde87e96",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": true,
+            "primary": false,
+            "caption": "Repaired token set with a changelog documenting the contrast fix and the new formatBadge component, plus an eventVariants object proving reuse across two events.",
+            "alt_text": "JSON design token document listing color, typography, spacing, radius, layout, and component tokens, a changelog entry for the ink.muted contrast fix, and two named event variants.",
+            "comparison_key": "editorial-tokens"
+          }
+        },
+        {
+          "id": "editorial-02-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "Loop 02 objective layout metrics",
+          "path": "track-editorial/loop-02/layout-metrics.json",
+          "sha256": "afd701550fb3a24f7339478df05e40fc4ab06c7cb6d10c565ba766c9a8fad909",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Bounding boxes, overlap/clipping checks, contrast ratios, required-content checks, and gate results for Loop 02, all 6 gates passing."
+          }
+        },
+        {
+          "id": "editorial-02-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "Loop 02 prompt chain",
+          "path": "track-editorial/loop-02/prompt-chain.json",
+          "sha256": "4c2b14c7eb73b3350c6c82335d8275a709915aa4441e8dfadcfdeec6aa776f29",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Track prompt, input feedback carried from Loop 01, self-judge feedback confirming the repair, and the next prompt for a hypothetical Loop 03."
+          }
+        },
+        {
+          "id": "editorial-02-self-review",
+          "kind": "markdown",
+          "role": "self-review",
+          "label": "Loop 02 self-review",
+          "path": "track-editorial/loop-02/self-review.md",
+          "sha256": "95dad9287c7484a0447bb655d6cd9844004260c9e8b4dffc37b3a529e4b3f532",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Provisional self-review of Loop 02 evidence, strengths, remaining non-blocking observations, and the next hypothesis; not an independent judge verdict."
+          }
+        }
+      ],
+      "scores": [
+        { "scorer_id": "self-review", "criterion_id": "visual_hierarchy", "value": 4, "notes": "Unchanged from Loop 01: title size/weight/position untouched by the fix, so the primary criterion is preserved, not just maintained by luck." },
+        { "scorer_id": "self-review", "criterion_id": "brand_distinctiveness", "value": 4, "notes": "Monogram, kicker, and brand rhythm mark retained; the new format-badge extends the brand's geometric-accent language without adding visual noise." },
+        { "scorer_id": "self-review", "criterion_id": "information_clarity", "value": 5, "notes": "All required fields present and now fully legible; the contrast defect that suppressed clarity of the secondary metadata in Loop 01 is resolved." },
+        { "scorer_id": "self-review", "criterion_id": "system_coherence", "value": 5, "notes": "eventVariants section proves two real events share one grid/type/color system; the fix propagated through a single token rather than five separate patches." },
+        { "scorer_id": "self-review", "criterion_id": "production_polish", "value": 4, "notes": "Same disciplined spacing and framing as Loop 01, now paired with verified accessibility rather than an unverified assumption of it." },
+        { "scorer_id": "objective-gates", "criterion_id": "svg_valid", "value": 1, "notes": "Parses as well-formed XML with correct viewBox; pass." },
+        { "scorer_id": "objective-gates", "criterion_id": "layout_quality", "value": 1, "notes": "All 6 gates pass: svg_parses, no_overlap, no_clipping, readable_text, accessible_contrast, required_content_present." }
+      ],
+      "prompt": {
+        "track_prompt": "Use the experiment-loop skill. Create a polished, reusable SVG event-card design system for a fictional \"Loop Lab\" workshop. The cards must communicate event title, date, time, venue, and call to action at a glance while remaining reusable across event variants. Score visual hierarchy, brand distinctiveness, information clarity, system coherence, production polish, SVG validity, and layout quality. Subjective criteria use a 1-5 point scale and maximize. SVG validity and layout quality use pass/fail objective gates: overlap, clipping, unreadable text, inaccessible contrast, missing required content, or invalid SVG prevents Champion promotion. Visual hierarchy is the primary criterion. [Editorial-typography Track scope: use claude-sonnet-5, at least two Loops, strong typographic rhythm, restrained geometric accents, clear reading order, print-grade spacing.]",
+        "input_feedback": "Loop-01 failed 2 of 6 objective gates (readable_text, accessible_contrast) due to the ink.muted token measuring 2.49:1 against paper, and its self-review flagged that only one hardcoded event existed, with no evidence of reuse.",
+        "judge_feedback": "Self-measured: the token-level fix resolved both failing gates for all 5 affected text nodes with zero geometric regression (all loop-01 checks re-verified pass), and the new format-badge component was independently gate-checked before being accepted. The eventVariants documentation now gives direct evidence, not just an assertion, that the grid generalizes.",
+        "next_prompt": "Stress-test the grid's character budget with a third variant using a longer title, venue string, and badge label to convert the current informal ~18-20 character/line estimate into a tested, documented constraint before adding further components."
+      },
+      "quality_gates": {
+        "svg_parses": "pass",
+        "no_overlap": "pass",
+        "no_clipping": "pass",
+        "readable_text": "pass",
+        "accessible_contrast": "pass",
+        "required_content_present": "pass"
+      },
+      "changed_files": [
+        "track-editorial/loop-02/card.svg",
+        "track-editorial/loop-02/tokens.json",
+        "track-editorial/loop-02/layout-metrics.json",
+        "track-editorial/loop-02/prompt-chain.json",
+        "track-editorial/loop-02/self-review.md"
+      ],
+      "lesson": {
+        "trigger": "Loop-01's measured accessible_contrast and readable_text gate failures, both traced to the single ink.muted color token.",
+        "action": "Repair the failing token value once (rather than patching each of the 5 affected text nodes independently), re-verify the full gate suite for regressions, and add a second event variant plus an optional new component to prove the token system generalizes.",
+        "evidence": "layout-metrics.json contrast_checks: ink.muted on paper improved from 2.49:1 (loop-01, fail) to 5.28:1 (loop-02, pass); overall_gates shows all 6 gates passing versus 4 of 6 in loop-01.",
+        "confidence": "high"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": "Track scope requires only two Loops; the objective defect observed in Loop 01 has been measurably repaired in Loop 02 and reusability has been demonstrated, so this Track's output is ready to hand to the synthesis Track."
+    }
+  ]
+}

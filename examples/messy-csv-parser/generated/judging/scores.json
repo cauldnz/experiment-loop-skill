@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0",
+  "judge_role": "independent_qualitative_judge",
+  "model_id": "gpt-5.6-terra",
+  "scoring_order": "blind_first_pass",
+  "weights": {
+    "correctness": 0.4,
+    "robustness": 0.2,
+    "error_clarity": 0.15,
+    "maintainability": 0.15,
+    "constraint_adherence": 0.1
+  },
+  "objective_gate": {
+    "status": "pass",
+    "authoritative_result": "both finalists pass all 64 shared tests and all blocking samples",
+    "shared_suite": {
+      "tests_run": 64,
+      "passed": true,
+      "failures": [],
+      "blocking_core_samples": {
+        "line-regex": "pass",
+        "track-state-machine": "pass"
+      }
+    },
+    "independent_rerun": {
+      "command": "python generated\\cross-evaluation\\test_bakeoff.py",
+      "result": "64 passed"
+    },
+    "objective_tests_overridden": false
+  },
+  "blind_candidates": {
+    "Candidate A": {
+      "track_id": "line-regex",
+      "scores": {
+        "correctness": 5.0,
+        "robustness": 4.6,
+        "error_clarity": 4.5,
+        "maintainability": 4.2,
+        "constraint_adherence": 5.0
+      },
+      "weighted_total": 4.745
+    },
+    "Candidate B": {
+      "track_id": "track-state-machine",
+      "scores": {
+        "correctness": 5.0,
+        "robustness": 4.8,
+        "error_clarity": 5.0,
+        "maintainability": 4.8,
+        "constraint_adherence": 5.0
+      },
+      "weighted_total": 4.94
+    }
+  },
+  "candidate_mapping": {
+    "Candidate A": "line-regex",
+    "Candidate B": "track-state-machine"
+  },
+  "winner_track_id": "track-state-machine",
+  "recommendation_basis": "Objective correctness is tied at 5.0; the state-machine is preferred solely for clearer transitions, centralized physical coordinates, and row/field-aware errors.",
+  "proven_helpers_for_synthesis": {
+    "items": [],
+    "reason": "No rejected-track helper is both independently proven necessary and architecture-compatible. Importing the regex record/offset pipeline would duplicate the selected scanner and state-transition responsibilities."
+  }
+}

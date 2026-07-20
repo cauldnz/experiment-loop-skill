@@ -1,0 +1,29 @@
+{
+  "mechanism": "Anthropomorphized shadow-as-bad-hider: a shadow is imagined trying to hide, but its literal physical nature is to follow a person. The comic failure is visual, universal, clean, and does not depend on homophones, idioms, or culture-specific knowledge.",
+  "languages": {
+    "en": {
+      "setup": "Why is a shadow so bad at hiding?",
+      "punchline": "Because it always follows someone.",
+      "combined": "Why is a shadow so bad at hiding? Because it always follows someone.",
+      "portability_notes": "Uses the universal behavior of shadows following people; no English-specific wordplay."
+    },
+    "fr": {
+      "setup": "Pourquoi une ombre se cache-t-elle si mal ?",
+      "punchline": "Parce qu’elle suit toujours quelqu’un.",
+      "combined": "Pourquoi une ombre se cache-t-elle si mal ? Parce qu’elle suit toujours quelqu’un.",
+      "portability_notes": "Natural French phrasing keeps the same bad-at-hiding setup and follows-someone reveal."
+    },
+    "es": {
+      "setup": "¿Por qué una sombra se esconde tan mal?",
+      "punchline": "Porque siempre sigue a alguien.",
+      "combined": "¿Por qué una sombra se esconde tan mal? Porque siempre sigue a alguien.",
+      "portability_notes": "Avoids regional hide-and-seek vocabulary; the hiding/following mechanism remains direct."
+    },
+    "ja": {
+      "setup": "どうして影は隠れるのが下手なの？",
+      "punchline": "いつも誰かについていくから。",
+      "combined": "どうして影は隠れるのが下手なの？ いつも誰かについていくから。",
+      "portability_notes": "Uses common Japanese words and script; the shadow-following image is immediate and unchanged."
+    }
+  }
+}

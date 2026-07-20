@@ -1,0 +1,2185 @@
+{
+  "schema_version": "1.1",
+  "experiment_id": "loop-lab-event-card-system",
+  "title": "Loop Lab reusable SVG event-card design system",
+  "created_at": "2026-07-20T18:46:58.357+10:00",
+  "problem": {
+    "statement": "Create a polished, reusable SVG event-card design system for the fictional Loop Lab workshop that communicates title, date, time, venue, and call to action at a glance.",
+    "optimization_target": "Maximize primary visual hierarchy and the four supporting subjective criteria while satisfying blocking SVG-validity and layout-quality gates across reusable variants.",
+    "constraints": [
+      "Use exactly three tracks with at least two loops each and preserve the specified model and multi-parent lineage; audited repair loops may extend a track after human review.",
+      "Produce standalone accessible SVGs, design tokens, objective layout metrics, prompt chains, and inspectable independent evidence.",
+      "Any overlap, clipping, unreadable text, inaccessible contrast, missing required content, or invalid SVG blocks Champion promotion.",
+      "The primary Champion headline is exactly 'Designing with Feedback Loops'; stress-test copy must remain visibly labelled secondary evidence."
+    ],
+    "success_criteria": [
+      "Title, date, time, venue, and CTA are clear at a glance in each primary card.",
+      "The final system combines editorial hierarchy with a distinctive modular routing language through true multi-parent synthesis.",
+      "The Champion repairs objectively detected defects, demonstrates reusable variants, and passes both objective gates.",
+      "Three independent judges provide inspectable subjective scores with dissent preserved, while anonymous human review remains available.",
+      "The Champion passes an external content-fidelity gate against the frozen canonical brief."
+    ],
+    "original_prompt": "Use the experiment-loop skill.\r\n\r\nCreate a polished, reusable SVG event-card design system for a fictional\r\n\"Loop Lab\" workshop. The cards must communicate event title, date, time, venue,\r\nand call to action at a glance while remaining reusable across event variants.\r\n\r\nScore visual hierarchy, brand distinctiveness, information clarity, system\r\ncoherence, production polish, SVG validity, and layout quality. Subjective\r\ncriteria use a 1–5 point scale and maximize. SVG validity and layout quality use\r\npass/fail objective gates: overlap, clipping, unreadable text, inaccessible\r\ncontrast, missing required content, or invalid SVG prevents Champion promotion.\r\nVisual hierarchy is the primary criterion.\r\n\r\nRun three Tracks. Use `claude-sonnet-5` for an editorial-typography Track with\r\nat least two Loops. Use `gemini-3.1-pro-preview` for an independent generative\r\nvisual-language Track with at least two Loops. Use `gpt-5.6-sol` for a synthesis\r\nTrack with at least two Loops that combines the strongest evidence from both\r\nparents through true multi-parent lineage and repairs at least one objectively\r\ndetected visual defect.\r\n\r\nUse an independent judge panel containing `gpt-5.6-terra`,\r\n`claude-opus-4.8`, and `gemini-3.1-pro-preview`; include a layout-critic role\r\nand preserve dissent. Add a `human_review` scorer assigned only to visual\r\nhierarchy, brand distinctiveness, information clarity, system coherence, and\r\nproduction polish so the conditional Human Judge UI is available. Its export\r\nmust contain no reviewer identity and must support verdict, notes, optional\r\ncriterion scores, selected Loop and Artifact notes, preferred Loop, and\r\nkeep/reject/needs-improvement recommendation.\r\n\r\nProduce directly viewable SVG card Artifacts, design-token JSON, objective\r\nlayout metric sets, judge notes, and complete prompt/feedback chains. Produce a\r\nManifest v1.1 with authored milestones, evidence-linked Champion reasons and\r\ncaveats, featured Artifact captions and alternative text, and actual model IDs\r\nfor every generator, judge, synthesis role, and Loop. Generate and gate the\r\nshared Viewer.\r\n"
+  },
+  "generation": {
+    "skill_commit": "d086a6686a0e13d7c42241b92c74793cdafac702",
+    "skill_tree_sha256": "22d14d7663d12149960bb258ce924de0166e0d952b29b5b3a7a7c3fa7f2037f3",
+    "prompt_sha256": "bccfd7b6ad103530c950f8c57d5368bbfc8f29265fb36d9c5764b324b27f4497",
+    "copilot_cli_version": "GitHub Copilot CLI 1.0.71-2.\nRun 'copilot update' to check for updates.",
+    "orchestrator_model": "gpt-5.6-sol",
+    "models": [
+      {
+        "role": "orchestrator",
+        "model_id": "gpt-5.6-sol"
+      },
+      {
+        "role": "editorial-generator",
+        "model_id": "claude-sonnet-5",
+        "track_id": "track-editorial",
+        "iteration_id": "editorial-01"
+      },
+      {
+        "role": "editorial-generator",
+        "model_id": "claude-sonnet-5",
+        "track_id": "track-editorial",
+        "iteration_id": "editorial-02"
+      },
+      {
+        "role": "generative-visual-language-generator",
+        "model_id": "gemini-3.1-pro-preview",
+        "track_id": "track-generative",
+        "iteration_id": "generative-01"
+      },
+      {
+        "role": "generative-visual-language-generator",
+        "model_id": "gemini-3.1-pro-preview",
+        "track_id": "track-generative",
+        "iteration_id": "generative-02"
+      },
+      {
+        "role": "multi-parent-synthesis-generator",
+        "model_id": "gpt-5.6-sol",
+        "track_id": "track-synthesis",
+        "iteration_id": "synthesis-01"
+      },
+      {
+        "role": "repair-synthesis-generator",
+        "model_id": "gpt-5.6-sol",
+        "track_id": "track-synthesis",
+        "iteration_id": "synthesis-02"
+      },
+      {
+        "role": "layout-critic",
+        "model_id": "gpt-5.6-terra"
+      },
+      {
+        "role": "deep-design-critic",
+        "model_id": "claude-opus-4.8"
+      },
+      {
+        "role": "visual-language-critic",
+        "model_id": "gemini-3.1-pro-preview"
+      }
+    ],
+    "score_semantics": {
+      "subjective": "Five criteria use integer 1-5 independent-judge scores; 5 is best. Criterion-wise panel medians are the manifest score values.",
+      "objective": "svg_validity and layout_quality are binary numeric gates: 1=pass, 0=fail, threshold gte 1.",
+      "aggregation": "Weighted arithmetic mean of the five criterion medians; visual_hierarchy weight 2 and each other subjective criterion weight 1; dissent remains in score notes and prompt feedback.",
+      "champion_policy": "Any objective gate value of 0 prevents Champion promotion regardless of subjective score."
+    }
+  },
+  "budget": {
+    "max_iters": 6,
+    "patience": 2,
+    "cost_limit": null,
+    "wall_time_limit_sec": 7200
+  },
+  "artifact_scope": {
+    "roots": [
+      "."
+    ],
+    "allow_edit": [
+      "generated/**"
+    ],
+    "deny": [
+      ".env",
+      "secrets/**",
+      "**/*credential*"
+    ]
+  },
+  "scorecard": [
+    {
+      "id": "visual_hierarchy",
+      "label": "Visual hierarchy — subjective 1–5 (5 best)",
+      "weight": 2,
+      "direction": "maximize",
+      "unit": "subjective points, 1–5",
+      "comparable_across_tracks": true,
+      "primary": true
+    },
+    {
+      "id": "brand_distinctiveness",
+      "label": "Brand distinctiveness — subjective 1–5 (5 best)",
+      "weight": 1,
+      "direction": "maximize",
+      "unit": "subjective points, 1–5",
+      "comparable_across_tracks": true,
+      "primary": false
+    },
+    {
+      "id": "information_clarity",
+      "label": "Information clarity — subjective 1–5 (5 best)",
+      "weight": 1,
+      "direction": "maximize",
+      "unit": "subjective points, 1–5",
+      "comparable_across_tracks": true,
+      "primary": false
+    },
+    {
+      "id": "system_coherence",
+      "label": "System coherence — subjective 1–5 (5 best)",
+      "weight": 1,
+      "direction": "maximize",
+      "unit": "subjective points, 1–5",
+      "comparable_across_tracks": true,
+      "primary": false
+    },
+    {
+      "id": "production_polish",
+      "label": "Production polish — subjective 1–5 (5 best)",
+      "weight": 1,
+      "direction": "maximize",
+      "unit": "subjective points, 1–5",
+      "comparable_across_tracks": true,
+      "primary": false
+    },
+    {
+      "id": "svg_validity",
+      "label": "SVG validity — objective gate (1 pass / 0 fail)",
+      "weight": 1,
+      "direction": "maximize",
+      "unit": "binary: 1=pass, 0=fail",
+      "comparable_across_tracks": true,
+      "primary": false,
+      "gate": {
+        "operator": "gte",
+        "threshold": 1
+      }
+    },
+    {
+      "id": "layout_quality",
+      "label": "Layout quality — objective gate (1 pass / 0 fail)",
+      "weight": 1,
+      "direction": "maximize",
+      "unit": "binary: 1=pass, 0=fail",
+      "comparable_across_tracks": true,
+      "primary": false,
+      "gate": {
+        "operator": "gte",
+        "threshold": 1
+      }
+    },
+    {
+      "id": "content_fidelity",
+      "label": "Canonical content fidelity — objective gate (1 pass / 0 fail)",
+      "weight": 1,
+      "direction": "maximize",
+      "unit": "binary: 1=pass, 0=fail",
+      "comparable_across_tracks": false,
+      "primary": false,
+      "gate": {
+        "operator": "gte",
+        "threshold": 1
+      }
+    }
+  ],
+  "scorers": [
+    {
+      "id": "objective-command",
+      "type": "objective_command",
+      "criterion_ids": [
+        "svg_validity",
+        "layout_quality",
+        "content_fidelity"
+      ],
+      "primary": true,
+      "weight": 1,
+      "command": "python validate_artifacts.py --manifest manifest.json"
+    },
+    {
+      "id": "independent-panel",
+      "type": "llm_rubric",
+      "criterion_ids": [
+        "visual_hierarchy",
+        "brand_distinctiveness",
+        "information_clarity",
+        "system_coherence",
+        "production_polish"
+      ],
+      "judge_panel": "independent-design-panel",
+      "primary": false,
+      "weight": 1
+    },
+    {
+      "id": "human-review",
+      "type": "human_review",
+      "criterion_ids": [
+        "visual_hierarchy",
+        "brand_distinctiveness",
+        "information_clarity",
+        "system_coherence",
+        "production_polish"
+      ],
+      "primary": false,
+      "weight": 1,
+      "export": {
+        "anonymous": true,
+        "reviewer_identity": "excluded",
+        "fields": [
+          "verdict",
+          "notes",
+          "optional_criterion_scores",
+          "selected_iteration_id",
+          "selected_artifact_notes",
+          "preferred_iteration_id",
+          "recommendation"
+        ],
+        "recommendation_values": [
+          "keep",
+          "reject",
+          "needs-improvement"
+        ]
+      }
+    },
+    {
+      "id": "context-repair-panel",
+      "type": "llm_rubric",
+      "criterion_ids": [
+        "visual_hierarchy",
+        "brand_distinctiveness",
+        "information_clarity",
+        "system_coherence",
+        "production_polish"
+      ],
+      "judge_panel": "context-repair-panel",
+      "primary": false,
+      "weight": 1
+    }
+  ],
+  "judge_panels": [
+    {
+      "id": "independent-design-panel",
+      "blind": true,
+      "independent": true,
+      "flip_pairwise_order": false,
+      "aggregation": "criterion_median_then_weighted_mean_with_dissent",
+      "dissent_preserved": true,
+      "judges": [
+        {
+          "id": "terra-layout-critic",
+          "model_id": "gpt-5.6-terra",
+          "role": "layout-critic",
+          "weight": 1
+        },
+        {
+          "id": "opus-deep-design-critic",
+          "model_id": "claude-opus-4.8",
+          "role": "deep-design-critic",
+          "weight": 1
+        },
+        {
+          "id": "gemini-visual-language-critic",
+          "model_id": "gemini-3.1-pro-preview",
+          "role": "visual-language-critic",
+          "weight": 1
+        }
+      ],
+      "calculation": "Take the median of the three independent scores for each subjective criterion, then compute the weighted arithmetic mean using scorecard weights. Preserve all individual scores and disagreements."
+    },
+    {
+      "id": "context-repair-panel",
+      "blind": true,
+      "independent": true,
+      "flip_pairwise_order": false,
+      "aggregation": "criterion_median_then_weighted_mean_with_dissent",
+      "dissent_preserved": true,
+      "frozen_acceptance_contract": {
+        "primary_headline": "Designing with Feedback Loops",
+        "stress_fixture_policy": "secondary and visibly labelled",
+        "content_mismatch": "blocking veto"
+      },
+      "judges": [
+        {
+          "id": "sonnet-creative-director",
+          "model_id": "claude-sonnet-5",
+          "role": "creative-director",
+          "weight": 1
+        },
+        {
+          "id": "gpt55-design-systems-critic",
+          "model_id": "gpt-5.5",
+          "role": "design-systems-critic",
+          "weight": 1
+        },
+        {
+          "id": "opus-accessibility-critic",
+          "model_id": "claude-opus-4.8",
+          "role": "accessibility-critic",
+          "weight": 1
+        }
+      ],
+      "calculation": "Take the median of the three independent criterion scores, then apply scorecard weights. Any failed objective gate vetoes promotion."
+    }
+  ],
+  "governance": {
+    "self_editing": {
+      "requires_user_approval": true,
+      "proposal_required": true,
+      "approved_proposal_id": null
+    },
+    "champion_gate": "svg_validity=1 and layout_quality=1 are mandatory; subjective scores cannot override a failed objective gate.",
+    "human_review": {
+      "available": true,
+      "anonymous_export": true,
+      "objective_criteria_excluded": true
+    }
+  },
+  "tracks": [
+    {
+      "id": "track-editorial",
+      "label": "Editorial Typography",
+      "hypothesis": "A print-inspired editorial grid (kicker, rule lines, three-column metadata, footer CTA) driven by a small, reusable typography/color/spacing token set will deliver strong visual hierarchy and brand distinctiveness while remaining fully accessible and generalizing cleanly to new event variants.",
+      "final_decision": "editorial-02 kept for synthesis"
+    },
+    {
+      "id": "track-generative",
+      "label": "Generative Visual Language",
+      "hypothesis": "A modular loop and signal-routing language can make Loop Lab memorable when decorative paths are constrained to protected zones and treated as a reusable brand module.",
+      "final_decision": "generative-02 kept for synthesis with detected risks"
+    },
+    {
+      "id": "track-synthesis",
+      "label": "Multi-parent Synthesis",
+      "hypothesis": "Editorial-02's hierarchy, explicit metadata, accessibility discipline, and variant-ready system can govern generative-02's distinctive modular routing language; measured protected zones and contrast-safe actions can preserve both clarity and brand character.",
+      "final_decision": "synthesis-03 selected after restoring canonical content and passing the new content-fidelity gate"
+    }
+  ],
+  "iterations": [
+    {
+      "id": "editorial-01",
+      "track_id": "track-editorial",
+      "parent_ids": [],
+      "model_id": "claude-sonnet-5",
+      "hypothesis": "A print-inspired grid (kicker + rule lines + three-column DATE/TIME/VENUE metadata + isolated footer CTA) will establish clear visual hierarchy and editorial brand character in a single, reusable component skeleton.",
+      "outcome": "Produced a valid, standalone 1200x630 SVG event card with all required content (title, date, time, venue, CTA) and strong hierarchy (64px serif title, isolated CTA, three-column metadata). Passed 4 of 6 objective gates (svg_parses, no_overlap, no_clipping, required_content_present) but failed 2: the ink.muted color token (#A39C8C) used for metadata labels, the edition tag, and microcopy measured 2.49:1 against the paper background, well under the WCAG AA 4.5:1 threshold for normal text, causing both the readable_text and accessible_contrast gates to fail.",
+      "commands": {
+        "build": "Author generated/track-editorial/loop-01/card.svg by hand as raw SVG XML against a manually specified 1200x630 grid (margins, column x-positions, rule-line y-positions), plus generated/track-editorial/loop-01/tokens.json describing the reusable color/typography/spacing/radius/layout/component tokens.",
+        "run": "Validate the SVG by parsing it with python xml.etree.ElementTree to confirm well-formed XML and the expected viewBox; compute analytical text bounding boxes (documented methodology) and rect/line bounding boxes (exact, from source) to populate generated/track-editorial/loop-01/layout-metrics.json.",
+        "judge": "Self-score against the objective gates named in the track prompt (SVG validity, overlap, clipping, unreadable text, inaccessible contrast, missing required content) using measured WCAG contrast ratios (python luminance/contrast calculation) and the recorded bounding boxes; no external judge panel is in scope for this track-only deliverable."
+      },
+      "artifacts": [
+        {
+          "id": "editorial-01-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Editorial 01 baseline event card",
+          "path": "track-editorial/loop-01/card.svg",
+          "sha256": "9fefb4cce07695d16abbbb151fbfb3c946199b4c4397bac136def5d8c4dd3078",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "Editorial baseline with a decisive serif title and measured low-contrast secondary labels.",
+            "alt_text": "Cream Loop Lab event card for Systems Thinking for Product Teams, with a large two-line serif title, three-column details, and a dark Register Now button; muted labels have insufficient contrast.",
+            "comparison_key": "event-card"
+          },
+          "required_content": {
+            "title": "Systems Thinking for Product Teams",
+            "date": "Oct 14, 2026",
+            "time": "9:30–11:30 AM",
+            "venue": "The Loft, Bldg 4",
+            "cta": "REGISTER NOW →"
+          }
+        },
+        {
+          "id": "editorial-01-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "editorial-01 design tokens",
+          "path": "track-editorial/loop-01/tokens.json",
+          "sha256": "36eb7df415b59c1a2644f2ab6d01ed8c7cac3f4207dda4b600b7087cbc0e9a29",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Design-token source for editorial-01, including the reusable visual and component rules evidenced in this loop."
+          }
+        },
+        {
+          "id": "editorial-01-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "editorial-01 objective layout metrics",
+          "path": "track-editorial/loop-01/layout-metrics.json",
+          "sha256": "43632be7967ee0c423dae8611018bff8ede9eba50f053b15dac6d0a470dc4609",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Recorded SVG, required-content, contrast, overlap, clipping, and overall objective evidence for editorial-01."
+          }
+        },
+        {
+          "id": "editorial-01-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "editorial-01 prompt chain",
+          "path": "track-editorial/loop-01/prompt-chain.json",
+          "sha256": "62a91a46ec35153ae27f336595d36dbcaf28baeef803f00d46d7435f3f0ce5d8",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Complete track prompt, input feedback, judge feedback, and next prompt for editorial-01."
+          }
+        },
+        {
+          "id": "editorial-01-notes",
+          "kind": "markdown",
+          "role": "self-review",
+          "label": "editorial-01 self-review",
+          "path": "track-editorial/loop-01/self-review.md",
+          "sha256": "86360acedcecd833c163304c2fc1cdda39decec5a50321f879402315cf256a52",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Generator-authored provisional observations for editorial-01; independent panel notes are attached separately."
+          }
+        },
+        {
+          "id": "editorial-01-judge-opus",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Claude Opus 4.8 independent deep-design note: editorial-01",
+          "path": "judges/opus/parents/editorial-01.md",
+          "sha256": "55e37db00b031a3a7aeeb76eefa16b703bc0aed003ce56aad9380381dcbf7905",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent deep-design-critic evidence, scores, gate verdict, defects, and dissent for editorial-01."
+          }
+        },
+        {
+          "id": "editorial-01-judge-gemini",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Gemini 3.1 Pro Preview independent visual-language note: editorial-01",
+          "path": "judges/gemini/parents/editorial-01.md",
+          "sha256": "d7adc6f68b5c2a5942040831a0027b2904ab767d06cbade1c2c193cf00665439",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent visual-language-critic evidence, scores, gate verdict, defects, and dissent for editorial-01."
+          }
+        },
+        {
+          "id": "editorial-01-judge-terra",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "GPT-5.6 Terra independent layout note: editorial-01",
+          "path": "judges/terra/parents/editorial-01.md",
+          "sha256": "a76cd1f7e295a38ad080a038a3f397886e665d81364afeb746f4556d9b9ed093",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent layout-critic evidence, scores, gate verdict, defects, and dissent for editorial-01."
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "visual_hierarchy",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=4/5, Gemini=4/5, Terra=4/5. Preserved dissent: All judges failed layout on the 2.49:1 muted-text contrast. Gemini scored brand and clarity lower; Opus credited the token system more strongly."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "brand_distinctiveness",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=4/5, Gemini=3/5, Terra=4/5. Preserved dissent: All judges failed layout on the 2.49:1 muted-text contrast. Gemini scored brand and clarity lower; Opus credited the token system more strongly."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "information_clarity",
+          "value": 3,
+          "notes": "Criterion-wise panel median 3/5; Opus=3/5, Gemini=2/5, Terra=3/5. Preserved dissent: All judges failed layout on the 2.49:1 muted-text contrast. Gemini scored brand and clarity lower; Opus credited the token system more strongly."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "system_coherence",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=4/5, Gemini=4/5, Terra=3/5. Preserved dissent: All judges failed layout on the 2.49:1 muted-text contrast. Gemini scored brand and clarity lower; Opus credited the token system more strongly."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "production_polish",
+          "value": 3,
+          "notes": "Criterion-wise panel median 3/5; Opus=3/5, Gemini=3/5, Terra=3/5. Preserved dissent: All judges failed layout on the 2.49:1 muted-text contrast. Gemini scored brand and clarity lower; Opus credited the token system more strongly."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "svg_validity",
+          "value": 1,
+          "notes": "SVG parses; layout fails because five muted-text nodes measure 2.49:1, below 4.5:1."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "layout_quality",
+          "value": 0,
+          "notes": "SVG parses; layout fails because five muted-text nodes measure 2.49:1, below 4.5:1."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Use the experiment-loop skill. Create a polished, reusable SVG event-card design system for a fictional \"Loop Lab\" workshop. The cards must communicate event title, date, time, venue, and call to action at a glance while remaining reusable across event variants. Score visual hierarchy, brand distinctiveness, information clarity, system coherence, production polish, SVG validity, and layout quality. Subjective criteria use a 1-5 point scale and maximize. SVG validity and layout quality use pass/fail objective gates: overlap, clipping, unreadable text, inaccessible contrast, missing required content, or invalid SVG prevents Champion promotion. Visual hierarchy is the primary criterion. [Editorial-typography Track scope: use claude-sonnet-5, at least two Loops, strong typographic rhythm, restrained geometric accents, clear reading order, print-grade spacing.]",
+        "input_feedback": "No prior loop exists. This is the track's first build; there is no baseline artifact or judge note to react to yet. Design intent for this loop: establish a print-inspired editorial grid (kicker + rule lines + three-column metadata + footer CTA) as the reusable skeleton for the whole track, then measure it honestly before polishing.",
+        "judge_feedback": "Self-measured via layout-metrics.json (no external judge panel is in scope for this track deliverable). Findings: visual hierarchy is strong (large serif title dominates, metadata is clearly secondary, CTA is isolated bottom-right with its own filled surface) and the grid produces genuine editorial rhythm (kicker, rule lines, column dividers, footer microcopy echoing a masthead). All geometric gates pass: no overlap across 19 checked adjacent-element pairs, no clipping against the 1200x630 canvas, all five required content types present, minimum font size 16px. However the objective contrast check fails: the ink.muted token (#A39C8C) used for the three metadata labels, the edition tag, and the microcopy line measures 2.49:1 against the paper background (#F8F4EC), well under the 4.5:1 AA threshold for normal text and even under the 3:1 large-text threshold. This is a hard accessible-contrast gate failure and blocks this loop from being a clean pass, even though no other criterion is compromised.\n\nIndependent panel (criterion-wise median with dissent): All judges failed layout on the 2.49:1 muted-text contrast. Gemini scored brand and clarity lower; Opus credited the token system more strongly.",
+        "next_prompt": "Keep the loop-01 grid, type scale, and component structure intact (they satisfy hierarchy, coherence, and geometry) but repair the ink.muted color token so every caption/label text node clears WCAG AA (>=4.5:1 on the paper background), and re-verify all five affected text nodes plus the full overlap/clipping/content gate suite so nothing regresses. Additionally, extend the token set to demonstrate reuse: add at least one event variant (e.g. a virtual/hybrid session) or an explicit variant/extensibility mechanism in tokens.json, proving the system generalizes beyond a single hardcoded event."
+      },
+      "quality_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "fail"
+      },
+      "changed_files": [
+        "track-editorial/loop-01/card.svg",
+        "track-editorial/loop-01/tokens.json",
+        "track-editorial/loop-01/layout-metrics.json",
+        "track-editorial/loop-01/prompt-chain.json",
+        "track-editorial/loop-01/self-review.md"
+      ],
+      "lesson": {
+        "trigger": "Measured WCAG contrast check on the ink.muted color token used by 5 text nodes returned 2.49:1 against a 4.5:1 requirement.",
+        "action": "Darken the ink.muted token value and re-verify all dependent text nodes plus the full geometric gate suite in the next loop, fixing the defect at the token level rather than per-instance.",
+        "evidence": "layout-metrics.json contrast_checks entry for ink.muted on paper: ratio 2.49, required 4.5, pass=false, affecting label-date, label-time, label-venue, edition-tag, and microcopy.",
+        "confidence": "high"
+      },
+      "decision": "reject",
+      "stop_reason": "Blocked by independent layout/contrast gate failure.",
+      "panel_aggregation": {
+        "method": "criterion_median_then_weighted_mean",
+        "weighted_median_score": 3.667
+      }
+    },
+    {
+      "id": "editorial-02",
+      "track_id": "track-editorial",
+      "parent_ids": [
+        "editorial-01"
+      ],
+      "model_id": "claude-sonnet-5",
+      "hypothesis": "Repairing the ink.muted color token to clear WCAG AA contrast, while keeping the loop-01 grid and type scale byte-for-byte identical, will fix the accessible_contrast and readable_text gate failures with zero layout regression; adding an optional format-badge component and a second event configuration will demonstrate the system generalizes to variants.",
+      "outcome": "Repaired the single loop-01 defect: ink.muted changed from #A39C8C (2.49:1, fail) to #6B6558 (5.28:1, pass), fixing all 5 dependent text nodes. Re-verified every loop-01 geometric check (all still pass) and added 3 new checks for a new optional format-badge component (contrast 5.03:1, fully contained, clear of its 3 nearest neighbors). Rendered a second event (Prototyping Under Constraints, hybrid format) on the identical grid and documented both configurations in an eventVariants section of tokens.json. All 6 objective gates now pass, versus 4 of 6 in loop-01.",
+      "commands": {
+        "build": "Copy the loop-01 grid coordinates into generated/track-editorial/loop-02/card.svg unchanged, swap in new event content and the repaired ink.muted value, add the new format-badge rect/text pair, and extend generated/track-editorial/loop-02/tokens.json with a changelog entry and an eventVariants object covering both the loop-01 and loop-02 events.",
+        "run": "Re-parse the SVG with python xml.etree.ElementTree; recompute the same analytical bounding-box methodology as loop-01 for every element (shared coordinates unchanged, new badge coordinates added); recompute all WCAG contrast ratios including a new check for white-on-accent badge text; write results to generated/track-editorial/loop-02/layout-metrics.json.",
+        "judge": "Self-score against the same 6 objective gates as loop-01 and diff the result directly against editorial-01's layout-metrics.json to confirm no geometric regression and a measured +2.79 contrast-ratio improvement on the repaired token."
+      },
+      "artifacts": [
+        {
+          "id": "editorial-02-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Editorial 02 repaired hybrid event card",
+          "path": "track-editorial/loop-02/card.svg",
+          "sha256": "f23cece010088fe163355eb8fb6b0477c0fd3798aaaa85da2b0d828a70cb9148",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "Token-level contrast repair and optional format badge preserve the editorial hierarchy on a second event.",
+            "alt_text": "Cream Loop Lab hybrid card for Prototyping Under Constraints, with a large serif title, clear date, time, venue, terracotta Hybrid Session badge, and dark Register Now button.",
+            "comparison_key": "event-card"
+          },
+          "required_content": {
+            "title": "Prototyping Under Constraints",
+            "date": "Nov 3, 2026",
+            "time": "1:00–3:00 PM",
+            "venue": "Hub A + Remote",
+            "cta": "REGISTER NOW →"
+          }
+        },
+        {
+          "id": "editorial-02-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "editorial-02 design tokens",
+          "path": "track-editorial/loop-02/tokens.json",
+          "sha256": "bdc971c63c42b48a45a414a76b647647701c062c1bbd64b7ca956170cde87e96",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Design-token source for editorial-02, including the reusable visual and component rules evidenced in this loop."
+          }
+        },
+        {
+          "id": "editorial-02-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "editorial-02 objective layout metrics",
+          "path": "track-editorial/loop-02/layout-metrics.json",
+          "sha256": "afd701550fb3a24f7339478df05e40fc4ab06c7cb6d10c565ba766c9a8fad909",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Recorded SVG, required-content, contrast, overlap, clipping, and overall objective evidence for editorial-02."
+          }
+        },
+        {
+          "id": "editorial-02-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "editorial-02 prompt chain",
+          "path": "track-editorial/loop-02/prompt-chain.json",
+          "sha256": "4c2b14c7eb73b3350c6c82335d8275a709915aa4441e8dfadcfdeec6aa776f29",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Complete track prompt, input feedback, judge feedback, and next prompt for editorial-02."
+          }
+        },
+        {
+          "id": "editorial-02-notes",
+          "kind": "markdown",
+          "role": "self-review",
+          "label": "editorial-02 self-review",
+          "path": "track-editorial/loop-02/self-review.md",
+          "sha256": "95dad9287c7484a0447bb655d6cd9844004260c9e8b4dffc37b3a529e4b3f532",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Generator-authored provisional observations for editorial-02; independent panel notes are attached separately."
+          }
+        },
+        {
+          "id": "editorial-02-judge-opus",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Claude Opus 4.8 independent deep-design note: editorial-02",
+          "path": "judges/opus/parents/editorial-02.md",
+          "sha256": "2bb1afe0f33e250f445f8d47605973ee0605a99b6fe9943cbb63bfcc12e29412",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent deep-design-critic evidence, scores, gate verdict, defects, and dissent for editorial-02."
+          }
+        },
+        {
+          "id": "editorial-02-judge-gemini",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Gemini 3.1 Pro Preview independent visual-language note: editorial-02",
+          "path": "judges/gemini/parents/editorial-02.md",
+          "sha256": "df9d1ce8af0bb82909b602ad956ce879d37d21edc9b07576f60a129293a8667a",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent visual-language-critic evidence, scores, gate verdict, defects, and dissent for editorial-02."
+          }
+        },
+        {
+          "id": "editorial-02-judge-terra",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "GPT-5.6 Terra independent layout note: editorial-02",
+          "path": "judges/terra/parents/editorial-02.md",
+          "sha256": "e2398bc3063936cd7669690a7fe7ead24fce39f452efe73a8aac677a44bd70aa",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent layout-critic evidence, scores, gate verdict, defects, and dissent for editorial-02."
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "visual_hierarchy",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=5/5, Gemini=4/5, Terra=5/5. Preserved dissent: Opus and Terra scored hierarchy 5 while Gemini scored 4; Opus held polish at 4 for system-font and fixed-badge risks while Gemini and Terra scored 5."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "brand_distinctiveness",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=4/5, Gemini=4/5, Terra=4/5. Preserved dissent: Opus and Terra scored hierarchy 5 while Gemini scored 4; Opus held polish at 4 for system-font and fixed-badge risks while Gemini and Terra scored 5."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "information_clarity",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=5/5, Gemini=5/5, Terra=5/5. Preserved dissent: Opus and Terra scored hierarchy 5 while Gemini scored 4; Opus held polish at 4 for system-font and fixed-badge risks while Gemini and Terra scored 5."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "system_coherence",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=5/5, Gemini=5/5, Terra=5/5. Preserved dissent: Opus and Terra scored hierarchy 5 while Gemini scored 4; Opus held polish at 4 for system-font and fixed-badge risks while Gemini and Terra scored 5."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "production_polish",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=4/5, Gemini=5/5, Terra=5/5. Preserved dissent: Opus and Terra scored hierarchy 5 while Gemini scored 4; Opus held polish at 4 for system-font and fixed-badge risks while Gemini and Terra scored 5."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "svg_validity",
+          "value": 1,
+          "notes": "SVG parses and all recorded overlap, clipping, readability, contrast, and required-content checks pass."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "layout_quality",
+          "value": 1,
+          "notes": "SVG parses and all recorded overlap, clipping, readability, contrast, and required-content checks pass."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Use the experiment-loop skill. Create a polished, reusable SVG event-card design system for a fictional \"Loop Lab\" workshop. The cards must communicate event title, date, time, venue, and call to action at a glance while remaining reusable across event variants. Score visual hierarchy, brand distinctiveness, information clarity, system coherence, production polish, SVG validity, and layout quality. Subjective criteria use a 1-5 point scale and maximize. SVG validity and layout quality use pass/fail objective gates: overlap, clipping, unreadable text, inaccessible contrast, missing required content, or invalid SVG prevents Champion promotion. Visual hierarchy is the primary criterion. [Editorial-typography Track scope: use claude-sonnet-5, at least two Loops, strong typographic rhythm, restrained geometric accents, clear reading order, print-grade spacing.]",
+        "input_feedback": "Loop-01 established the grid, type scale, and component language and passed 4 of 6 objective gates (svg_parses, no_overlap, no_clipping, required_content_present) but failed 2 (readable_text, accessible_contrast), both caused by a single root cause: the ink.muted color token (#A39C8C) measured 2.49:1 against the paper background, well under the 4.5:1 AA threshold, across five text nodes (3 metadata labels, edition tag, microcopy). Loop-01's self-review also flagged that tokens.json described only one hardcoded event, with no evidence the grid generalizes.",
+        "judge_feedback": "Self-measured via layout-metrics.json against the loop-01 baseline. Repairing ink.muted to #6B6558 (5.28:1) fixes all five affected text nodes with zero layout changes, since every shared coordinate (title, rule lines, column x-positions, CTA button, brand mark) is byte-for-byte identical to loop-01 -- confirmed by re-running the same overlap/clipping checks, which all still pass. The new format-badge component was independently contrast-checked (white on accent = 5.03:1, pass) and overlap/clipping-checked against its 3 nearest neighbors (edition tag, header rule, title) before being accepted, rather than assumed safe. All 6 objective gates now pass: svg_parses, no_overlap, no_clipping, readable_text, accessible_contrast, required_content_present. The eventVariants section in tokens.json now documents both the loop-01 in-person configuration and this loop's hybrid configuration on the identical grid, demonstrating the system generalizes rather than asserting it.\n\nIndependent panel (criterion-wise median with dissent): Opus and Terra scored hierarchy 5 while Gemini scored 4; Opus held polish at 4 for system-font and fixed-badge risks while Gemini and Terra scored 5.",
+        "next_prompt": "The editorial track has now demonstrated one full repair cycle (contrast defect found and fixed) and one variant (in-person -> hybrid with an optional format-badge component). A plausible next loop would stress-test a third variant with a longer venue/title string to find the grid's real capacity limit (current title budget is roughly 18-20 characters per line and venue budget roughly 320px/16 characters before column-width or line-count adjustments are needed), and would consider whether the format-badge should have a defined position rule when an event has both a long title and a badge simultaneously, since that combination has not yet been tested."
+      },
+      "quality_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "pass"
+      },
+      "changed_files": [
+        "track-editorial/loop-02/card.svg",
+        "track-editorial/loop-02/tokens.json",
+        "track-editorial/loop-02/layout-metrics.json",
+        "track-editorial/loop-02/prompt-chain.json",
+        "track-editorial/loop-02/self-review.md"
+      ],
+      "lesson": {
+        "trigger": "Loop-01's measured accessible_contrast and readable_text gate failures, both traced to the single ink.muted color token.",
+        "action": "Repair the failing token value once (rather than patching each of the 5 affected text nodes independently), re-verify the full gate suite for regressions, and add a second event variant plus an optional new component to prove the token system generalizes.",
+        "evidence": "layout-metrics.json contrast_checks: ink.muted on paper improved from 2.49:1 (loop-01, fail) to 5.28:1 (loop-02, pass); overall_gates shows all 6 gates passing versus 4 of 6 in loop-01.",
+        "confidence": "high"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": "Two-loop track complete; contrast repaired and the passing system retained for synthesis.",
+      "panel_aggregation": {
+        "method": "criterion_median_then_weighted_mean",
+        "weighted_median_score": 4.833
+      }
+    },
+    {
+      "id": "generative-01",
+      "track_id": "track-generative",
+      "parent_ids": [],
+      "model_id": "gemini-3.1-pro-preview",
+      "hypothesis": "Phase-shifted signal paths spanning the canvas can create a memorable Loop Lab visual language while a large title and metadata retain a clear reading order.",
+      "outcome": "Produced a valid accessible dark SVG with all required content and a distinctive signal-path motif, but the paths traverse the title/metadata territory and the CTA contrast was independently recomputed at 3.68:1. The layout/contrast gate fails, so the baseline is rejected and its motif alone is carried forward.",
+      "commands": {
+        "build": "Author generated/track-generative/loop-01/card.svg with full-canvas phase-shifted signal paths and write colors/fonts to tokens.json.",
+        "run": "Parse the SVG; record canvas, element zones, required content, contrast claims, and the path/text interference in layout-metrics.json.",
+        "judge": "Independent Opus, Gemini, and Terra panel review of the SVG, tokens, metrics, prompt chain, and self-review; aggregate criterion medians and objective gate verdicts with dissent."
+      },
+      "changed_files": [
+        "track-generative/loop-01/card.svg",
+        "track-generative/loop-01/tokens.json",
+        "track-generative/loop-01/layout-metrics.json",
+        "track-generative/loop-01/prompt-chain.json",
+        "track-generative/loop-01/self-review.md"
+      ],
+      "lesson": {
+        "trigger": "Signal paths visibly crossed live headline and metadata territory.",
+        "action": "Reserve separate text and illustration zones before drawing the brand paths.",
+        "evidence": "layout-metrics.json records metadata_visual_paths_overlap=true; all three independent judges fail layout quality.",
+        "confidence": "high"
+      },
+      "artifacts": [
+        {
+          "id": "generative-01-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Generative 01 signal-path baseline",
+          "path": "track-generative/loop-01/card.svg",
+          "sha256": "716a0a97e6deadcc01a3ffbab9845a2bddfd15b2ab11ad3fa6e82161c2294c45",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "Expressive phase-shifted paths establish the brand motif but visibly interfere with live text.",
+            "alt_text": "Dark Loop Lab workshop card for Synthesis and Routing Systems. Cyan and indigo signal paths sweep through the title and event details, impairing readability; a blue Register Now button sits below.",
+            "comparison_key": "event-card"
+          },
+          "required_content": {
+            "title": "Synthesis & Routing Systems",
+            "date": "Oct 15, 2026",
+            "time": "10:00 AM - 4:00 PM",
+            "venue": "Loop Lab, Studio 4",
+            "cta": "Register Now"
+          }
+        },
+        {
+          "id": "generative-01-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "generative-01 design tokens",
+          "path": "track-generative/loop-01/tokens.json",
+          "sha256": "eb5444ae3cba013bea01b2a30ea7b27cc8cd84112565a09f19e830a8e099453f",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Design-token source for generative-01, including the reusable visual and component rules evidenced in this loop."
+          }
+        },
+        {
+          "id": "generative-01-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "generative-01 objective layout metrics",
+          "path": "track-generative/loop-01/layout-metrics.json",
+          "sha256": "2309110ec3d35d6e4babc41e11ebff32a0d306c504b4b56699450b2e3726cf10",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Recorded SVG, required-content, contrast, overlap, clipping, and overall objective evidence for generative-01."
+          }
+        },
+        {
+          "id": "generative-01-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "generative-01 prompt chain",
+          "path": "track-generative/loop-01/prompt-chain.json",
+          "sha256": "e87d19d3d993fd48a1a9d1c7e9e293f67089beee90325a0d5ee8a6a3a65313e1",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Complete track prompt, input feedback, judge feedback, and next prompt for generative-01."
+          }
+        },
+        {
+          "id": "generative-01-notes",
+          "kind": "markdown",
+          "role": "self-review",
+          "label": "generative-01 self-review",
+          "path": "track-generative/loop-01/self-review.md",
+          "sha256": "e58ad13aa63a50e7cf238984c4adac368399ef49b019a748cf40b0cad1db21ce",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Generator-authored provisional observations for generative-01; independent panel notes are attached separately."
+          }
+        },
+        {
+          "id": "generative-01-judge-opus",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Claude Opus 4.8 independent deep-design note: generative-01",
+          "path": "judges/opus/parents/generative-01.md",
+          "sha256": "1014be3de5cbb1e4638218d9af38acdda3d71ba181fa3177d10b9bb7246058f1",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent deep-design-critic evidence, scores, gate verdict, defects, and dissent for generative-01."
+          }
+        },
+        {
+          "id": "generative-01-judge-gemini",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Gemini 3.1 Pro Preview independent visual-language note: generative-01",
+          "path": "judges/gemini/parents/generative-01.md",
+          "sha256": "c74762ac93e8c4f732ad0a68b2077f4471e44ddd102a6476fbe71fac76500b86",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent visual-language-critic evidence, scores, gate verdict, defects, and dissent for generative-01."
+          }
+        },
+        {
+          "id": "generative-01-judge-terra",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "GPT-5.6 Terra independent layout note: generative-01",
+          "path": "judges/terra/parents/generative-01.md",
+          "sha256": "a853cfb5badb90d58134fabd8196d06dce4e8cf694d80379330479d5094111d9",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent layout-critic evidence, scores, gate verdict, defects, and dissent for generative-01."
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "visual_hierarchy",
+          "value": 2,
+          "notes": "Criterion-wise panel median 2/5; Opus=2/5, Gemini=3/5, Terra=2/5. Preserved dissent: All judges failed layout for signal-path interference. Gemini scored hierarchy 3 while Opus/Terra scored 2; Terra gave the distinctive motif 5 while Opus/Gemini gave 4."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "brand_distinctiveness",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=4/5, Gemini=4/5, Terra=5/5. Preserved dissent: All judges failed layout for signal-path interference. Gemini scored hierarchy 3 while Opus/Terra scored 2; Terra gave the distinctive motif 5 while Opus/Gemini gave 4."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "information_clarity",
+          "value": 2,
+          "notes": "Criterion-wise panel median 2/5; Opus=2/5, Gemini=1/5, Terra=2/5. Preserved dissent: All judges failed layout for signal-path interference. Gemini scored hierarchy 3 while Opus/Terra scored 2; Terra gave the distinctive motif 5 while Opus/Gemini gave 4."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "system_coherence",
+          "value": 2,
+          "notes": "Criterion-wise panel median 2/5; Opus=2/5, Gemini=3/5, Terra=2/5. Preserved dissent: All judges failed layout for signal-path interference. Gemini scored hierarchy 3 while Opus/Terra scored 2; Terra gave the distinctive motif 5 while Opus/Gemini gave 4."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "production_polish",
+          "value": 2,
+          "notes": "Criterion-wise panel median 2/5; Opus=1/5, Gemini=2/5, Terra=2/5. Preserved dissent: All judges failed layout for signal-path interference. Gemini scored hierarchy 3 while Opus/Terra scored 2; Terra gave the distinctive motif 5 while Opus/Gemini gave 4."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "svg_validity",
+          "value": 1,
+          "notes": "SVG parses; layout fails because signal paths interfere with live text and white on #3B82F6 is independently 3.68:1."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "layout_quality",
+          "value": 0,
+          "notes": "SVG parses; layout fails because signal paths interfere with live text and white on #3B82F6 is independently 3.68:1."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Build a reusable fictional Loop Lab workshop event-card SVG system. Create standalone valid accessible 1200x630 card.svg with required title/date/time/venue/CTA. Visual language: distinctive modular loops / phase-shifted signal paths.",
+        "input_feedback": "",
+        "judge_feedback": "The SVG is syntactically valid and accessible. Required content is present. However, the visual language elements (phase-shifted signal paths) overlap heavily with the metadata text, causing poor readability and layout interference.\n\nIndependent panel (criterion-wise median with dissent): All judges failed layout for signal-path interference. Gemini scored hierarchy 3 while Opus/Terra scored 2; Terra gave the distinctive motif 5 while Opus/Gemini gave 4.",
+        "next_prompt": "Shift the visual language elements to the right hemisphere of the card to avoid overlapping with text. Extend the system by adding a 'Track' module/badge."
+      },
+      "quality_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "fail"
+      },
+      "decision": "reject",
+      "stop_reason": "Blocking interference and contrast failure.",
+      "panel_aggregation": {
+        "method": "criterion_median_then_weighted_mean",
+        "weighted_median_score": 2.333
+      }
+    },
+    {
+      "id": "generative-02",
+      "track_id": "track-generative",
+      "parent_ids": [
+        "generative-01"
+      ],
+      "model_id": "gemini-3.1-pro-preview",
+      "hypothesis": "Moving the modular loop language into a dedicated right-side panel and adding a track badge will preserve brand impact while eliminating text interference.",
+      "outcome": "Separated text and graphics into left/right zones, removing the baseline collision and passing the current-card objective gates. The independent panel keeps the routing language for synthesis while preserving risks: thin palette-only tokens, unproven variants, CTA contrast at 3.68:1 for normal text, and a possible title/panel intrusion under stricter glyph measurement.",
+      "commands": {
+        "build": "Author generated/track-generative/loop-02/card.svg with a protected left content field, right modular routing panel, and Track: Generative badge; extend tokens.json with badge colors.",
+        "run": "Parse the SVG and record canvas, element zones, required content, contrast claims, separated text/graphic bounds, and overall pass in layout-metrics.json.",
+        "judge": "Independent Opus, Gemini, and Terra panel review of the SVG, tokens, metrics, prompt chain, and self-review; aggregate criterion medians and objective gate verdicts with dissent."
+      },
+      "changed_files": [
+        "track-generative/loop-02/card.svg",
+        "track-generative/loop-02/tokens.json",
+        "track-generative/loop-02/layout-metrics.json",
+        "track-generative/loop-02/prompt-chain.json",
+        "track-generative/loop-02/self-review.md"
+      ],
+      "lesson": {
+        "trigger": "The baseline's full-canvas paths interfered with essential information.",
+        "action": "Use a protected content field and a dedicated illustration module, then carry unresolved token/contrast risks into synthesis rather than declaring perfection.",
+        "evidence": "All three judges pass current-card layout in loop-02 and rank its brand distinctiveness 5 median, while Opus/Terra preserve system and contrast risks.",
+        "confidence": "high"
+      },
+      "artifacts": [
+        {
+          "id": "generative-02-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Generative 02 zoned routing card",
+          "path": "track-generative/loop-02/card.svg",
+          "sha256": "9054fe9916728a3b3dc62a323ad90731ab567ed81ad3e0cc9344863ff3725d01",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "A protected left content field and right routing module remove the baseline interference while retaining high visual impact.",
+            "alt_text": "Dark Loop Lab card for Synthesis and Routing Systems. Event details and blue Register Now button occupy the left; a rounded modular cyan-and-indigo routing illustration occupies the right.",
+            "comparison_key": "event-card"
+          },
+          "required_content": {
+            "title": "Synthesis & Routing Systems",
+            "date": "Oct 15, 2026",
+            "time": "10:00 AM - 4:00 PM",
+            "venue": "Loop Lab, Studio 4",
+            "cta": "Register Now"
+          }
+        },
+        {
+          "id": "generative-02-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "generative-02 design tokens",
+          "path": "track-generative/loop-02/tokens.json",
+          "sha256": "c1bde40562d5f0b86decc359235c8e5eebd2f61c9aae3b295fcf5ee6336b82b0",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Design-token source for generative-02, including the reusable visual and component rules evidenced in this loop."
+          }
+        },
+        {
+          "id": "generative-02-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "generative-02 objective layout metrics",
+          "path": "track-generative/loop-02/layout-metrics.json",
+          "sha256": "825cb893f4dc0809df7044b2d1651e042cd3ec28a4e85458c8d072e863daab9e",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Recorded SVG, required-content, contrast, overlap, clipping, and overall objective evidence for generative-02."
+          }
+        },
+        {
+          "id": "generative-02-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "generative-02 prompt chain",
+          "path": "track-generative/loop-02/prompt-chain.json",
+          "sha256": "b275c322d5f5de551be2c596fb21de9ad0cac22f54b64669329c250f2d66829b",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Complete track prompt, input feedback, judge feedback, and next prompt for generative-02."
+          }
+        },
+        {
+          "id": "generative-02-notes",
+          "kind": "markdown",
+          "role": "self-review",
+          "label": "generative-02 self-review",
+          "path": "track-generative/loop-02/self-review.md",
+          "sha256": "2030b23e198ed36113da819661895318abaad607bb25c2e69552054b353816cc",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Generator-authored provisional observations for generative-02; independent panel notes are attached separately."
+          }
+        },
+        {
+          "id": "generative-02-judge-opus",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Claude Opus 4.8 independent deep-design note: generative-02",
+          "path": "judges/opus/parents/generative-02.md",
+          "sha256": "737b16f1d8e1c5dec61edfffd13a49cca003a9868e185d1526f03497b50591c6",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent deep-design-critic evidence, scores, gate verdict, defects, and dissent for generative-02."
+          }
+        },
+        {
+          "id": "generative-02-judge-gemini",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Gemini 3.1 Pro Preview independent visual-language note: generative-02",
+          "path": "judges/gemini/parents/generative-02.md",
+          "sha256": "2ab94cdf4ef19e86b47f4a76df5238c24fb9ec0ce161354fc81d3f95b5e4e827",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent visual-language-critic evidence, scores, gate verdict, defects, and dissent for generative-02."
+          }
+        },
+        {
+          "id": "generative-02-judge-terra",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "GPT-5.6 Terra independent layout note: generative-02",
+          "path": "judges/terra/parents/generative-02.md",
+          "sha256": "a9251d1011e4046706042c23d712658a9048c12c1cb3e58ffb7605cb1ba0e29b",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent layout-critic evidence, scores, gate verdict, defects, and dissent for generative-02."
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "visual_hierarchy",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=4/5, Gemini=5/5, Terra=4/5. Preserved dissent: Parent split: Gemini ranked it first for visual impact (5 hierarchy, distinctiveness, clarity); Opus and Terra preferred editorial-02 on the whole brief. Opus scored system coherence 2 and flagged title-panel intrusion plus 3.68:1 CTA contrast; Terra passed the current large-bold CTA but preserved both as risks."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "brand_distinctiveness",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=5/5, Gemini=5/5, Terra=5/5. Preserved dissent: Parent split: Gemini ranked it first for visual impact (5 hierarchy, distinctiveness, clarity); Opus and Terra preferred editorial-02 on the whole brief. Opus scored system coherence 2 and flagged title-panel intrusion plus 3.68:1 CTA contrast; Terra passed the current large-bold CTA but preserved both as risks."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "information_clarity",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=3/5, Gemini=5/5, Terra=4/5. Preserved dissent: Parent split: Gemini ranked it first for visual impact (5 hierarchy, distinctiveness, clarity); Opus and Terra preferred editorial-02 on the whole brief. Opus scored system coherence 2 and flagged title-panel intrusion plus 3.68:1 CTA contrast; Terra passed the current large-bold CTA but preserved both as risks."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "system_coherence",
+          "value": 3,
+          "notes": "Criterion-wise panel median 3/5; Opus=2/5, Gemini=4/5, Terra=3/5. Preserved dissent: Parent split: Gemini ranked it first for visual impact (5 hierarchy, distinctiveness, clarity); Opus and Terra preferred editorial-02 on the whole brief. Opus scored system coherence 2 and flagged title-panel intrusion plus 3.68:1 CTA contrast; Terra passed the current large-bold CTA but preserved both as risks."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "production_polish",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=3/5, Gemini=4/5, Terra=4/5. Preserved dissent: Parent split: Gemini ranked it first for visual impact (5 hierarchy, distinctiveness, clarity); Opus and Terra preferred editorial-02 on the whole brief. Opus scored system coherence 2 and flagged title-panel intrusion plus 3.68:1 CTA contrast; Terra passed the current large-bold CTA but preserved both as risks."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "svg_validity",
+          "value": 1,
+          "notes": "SVG parses; current-card layout passes the independent panel, with preserved CTA contrast and title/panel safety risks for synthesis."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "layout_quality",
+          "value": 1,
+          "notes": "SVG parses; current-card layout passes the independent panel, with preserved CTA contrast and title/panel safety risks for synthesis."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Shift the visual language elements to the right hemisphere of the card to avoid overlapping with text. Extend the system by adding a 'Track' module/badge.",
+        "input_feedback": "The previous layout had overlapping text and graphics. It lacked modular segmentation.",
+        "judge_feedback": "Perfect. The text is highly legible, the visual language remains distinctive, and the new badge system elegantly extends the layout. No bounding box overlaps detected.\n\nIndependent panel (criterion-wise median with dissent): Parent split: Gemini ranked it first for visual impact (5 hierarchy, distinctiveness, clarity); Opus and Terra preferred editorial-02 on the whole brief. Opus scored system coherence 2 and flagged title-panel intrusion plus 3.68:1 CTA contrast; Terra passed the current large-bold CTA but preserved both as risks.",
+        "next_prompt": ""
+      },
+      "quality_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "pass"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": "Two-loop track complete; passing visual language retained with detected risks for synthesis.",
+      "panel_aggregation": {
+        "method": "criterion_median_then_weighted_mean",
+        "weighted_median_score": 4.0
+      }
+    },
+    {
+      "id": "synthesis-01",
+      "track_id": "track-synthesis",
+      "parent_ids": [
+        "editorial-02",
+        "generative-02"
+      ],
+      "model_id": "gpt-5.6-sol",
+      "hypothesis": "A protected two-zone composition can combine editorial-02's title-first typography, explicit metadata, and production token model with generative-02's modular loop/routing panel while repairing the parent's CTA contrast and title/panel boundary defects.",
+      "outcome": "Produced a standalone display card and a three-variant compact system sheet. Parent defects were repaired: white CTA text on #173B57 measures 11.67:1, and the rendered title retains 68.738px to the panel versus the parent's approximately 24px intrusion. A real Inkscape render then exposed a new compact-system defect: 'HUB A + WEB' extended 3.358px beyond its card, so the no-clipping/layout-containment gate failed and the weakness was handed to synthesis-02.",
+      "commands": {
+        "build": "Author generated/track-synthesis/loop-01/card.svg and variants.svg; define production color, typography, spacing, radii, layout, state, constraint, and event-variant tokens in tokens.json.",
+        "run": "Parse SVG/XML and JSON with Python; render both SVGs at 1200x630 with Inkscape; inspect card-preview.png and variants-preview.png; measure hybridVenueValue with Inkscape --query-id; recompute WCAG contrast from raw hex.",
+        "judge": "Provisional evidence-led self-observation against the shared scorecard and objective gates, preserving Opus/Gemini/Terra parent dissent; no independent synthesis panel was run."
+      },
+      "artifacts": [
+        {
+          "id": "synthesis-01-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Synthesis 01 integrated display card",
+          "path": "track-synthesis/loop-01/card.svg",
+          "sha256": "539b890672dd824a8ae19952f59fd2741ee04c2089bbd0ef16571a7ed3bd6773",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "Editorial hierarchy and a protected modular routing panel repair both parent defects, while the companion variant sheet exposes a new overset.",
+            "alt_text": "Cream Loop Lab event card for Designing with Feedback Loops, with a large navy serif title and labelled details on the left, a dark modular routing panel on the right, and a dark blue Register Now button.",
+            "comparison_key": "event-card"
+          },
+          "required_content": {
+            "title": "DESIGNING WITH FEEDBACK LOOPS",
+            "date": "OCT 22, 2026",
+            "time": "09:30–12:30",
+            "venue": "STUDIO B",
+            "cta": "REGISTER NOW →"
+          }
+        },
+        {
+          "id": "synthesis-01-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "synthesis-01 design tokens",
+          "path": "track-synthesis/loop-01/tokens.json",
+          "sha256": "70aede5b9a1bd0b852cdd056c71e85653e3c0d638f70e69af283b9548a449d6d",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Design-token source for synthesis-01, including the reusable visual and component rules evidenced in this loop."
+          }
+        },
+        {
+          "id": "synthesis-01-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "synthesis-01 objective layout metrics",
+          "path": "track-synthesis/loop-01/layout-metrics.json",
+          "sha256": "67e81e4d7acab718b299b03a950964d2c21a25aab3e95cdb207e8f996717a7d1",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Recorded SVG, required-content, contrast, overlap, clipping, and overall objective evidence for synthesis-01."
+          }
+        },
+        {
+          "id": "synthesis-01-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "synthesis-01 prompt chain",
+          "path": "track-synthesis/loop-01/prompt-chain.json",
+          "sha256": "751f87b916c58cf1316d8d2fd8db2819dd5b031f75f28b0d66e232bae375ff83",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Complete track prompt, input feedback, judge feedback, and next prompt for synthesis-01."
+          }
+        },
+        {
+          "id": "synthesis-01-notes",
+          "kind": "markdown",
+          "role": "synthesis-notes",
+          "label": "synthesis-01 synthesis notes",
+          "path": "track-synthesis/loop-01/synthesis-notes.md",
+          "sha256": "1591e33b5861d8ef4003994226501ea0236ce078caf7f13a871112aad64925aa",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Generator-authored synthesis decisions for synthesis-01; independent panel notes are attached separately."
+          }
+        },
+        {
+          "id": "synthesis-01-variants",
+          "kind": "svg",
+          "role": "variant-system-sheet",
+          "label": "synthesis-01 three-variant system sheet",
+          "path": "track-synthesis/loop-01/variants.svg",
+          "sha256": "2d4d841934ed6a452286231c1f11e86995e06e24fa4244cc739e7e03b3b10e38",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": false,
+            "caption": "Three integrated compact variants; the hybrid venue escapes its component by 3.358px and becomes the next repair target.",
+            "alt_text": "Three compact Loop Lab cards for in-person, hybrid, and virtual workshops. The middle hybrid card's venue text extends beyond its right edge.",
+            "comparison_key": "variant-system"
+          }
+        },
+        {
+          "id": "synthesis-01-card-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "synthesis-01 rendered card",
+          "path": "track-synthesis/loop-01/card-preview.png",
+          "sha256": "47243868e092e64363bd5820d18b35303f178e60c8f4ca1bc2c14c97a1dea347",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape 1200×630 render used by the independent panel to inspect synthesis-01."
+          },
+          "dimensions": {
+            "width": 1200,
+            "height": 630
+          }
+        },
+        {
+          "id": "synthesis-01-variants-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "synthesis-01 rendered variants",
+          "path": "track-synthesis/loop-01/variants-preview.png",
+          "sha256": "c7749b2e213d2493431d66ab20d562dcc604d8efb818c31824700e751b8fe7ed",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape 1200×630 system-sheet render used to verify variant containment for synthesis-01."
+          },
+          "dimensions": {
+            "width": 1200,
+            "height": 630
+          }
+        },
+        {
+          "id": "synthesis-01-judge-opus",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Claude Opus 4.8 independent deep-design note: synthesis-01",
+          "path": "judges/opus/synthesis/synthesis-01.md",
+          "sha256": "a32d5ecdfaa6d7bee57362f6856cef93c6ecccdcc2d7331213b855d7dfd8e8c5",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent deep-design-critic evidence, scores, gate verdict, defects, and dissent for synthesis-01."
+          }
+        },
+        {
+          "id": "synthesis-01-judge-gemini",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Gemini 3.1 Pro Preview independent visual-language note: synthesis-01",
+          "path": "judges/gemini/synthesis/synthesis-01.md",
+          "sha256": "9616ade9ea3e7d880dcbe8171824324ac1ffae857250e7c3b510a3e107afe212",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent visual-language-critic evidence, scores, gate verdict, defects, and dissent for synthesis-01."
+          }
+        },
+        {
+          "id": "synthesis-01-judge-terra",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "GPT-5.6 Terra independent layout note: synthesis-01",
+          "path": "judges/terra/synthesis/synthesis-01.md",
+          "sha256": "73c7d386807df97fdba19cd3d0836fc95a2f16b3ac04ae1df9ea8e4838d3f3a9",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent layout-critic evidence, scores, gate verdict, defects, and dissent for synthesis-01."
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "visual_hierarchy",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=5/5, Gemini=4/5, Terra=4/5. Preserved dissent: Opus scored display-card hierarchy 5 but information clarity 3 and polish 2; Gemini/Terra scored hierarchy 4, clarity 4, polish 3. All three failed layout because the 3.358px compact venue overset outweighs the strong display card."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "brand_distinctiveness",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=5/5, Gemini=5/5, Terra=5/5. Preserved dissent: Opus scored display-card hierarchy 5 but information clarity 3 and polish 2; Gemini/Terra scored hierarchy 4, clarity 4, polish 3. All three failed layout because the 3.358px compact venue overset outweighs the strong display card."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "information_clarity",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=3/5, Gemini=4/5, Terra=4/5. Preserved dissent: Opus scored display-card hierarchy 5 but information clarity 3 and polish 2; Gemini/Terra scored hierarchy 4, clarity 4, polish 3. All three failed layout because the 3.358px compact venue overset outweighs the strong display card."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "system_coherence",
+          "value": 3,
+          "notes": "Criterion-wise panel median 3/5; Opus=3/5, Gemini=3/5, Terra=3/5. Preserved dissent: Opus scored display-card hierarchy 5 but information clarity 3 and polish 2; Gemini/Terra scored hierarchy 4, clarity 4, polish 3. All three failed layout because the 3.358px compact venue overset outweighs the strong display card."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "production_polish",
+          "value": 3,
+          "notes": "Criterion-wise panel median 3/5; Opus=2/5, Gemini=3/5, Terra=3/5. Preserved dissent: Opus scored display-card hierarchy 5 but information clarity 3 and polish 2; Gemini/Terra scored hierarchy 4, clarity 4, polish 3. All three failed layout because the 3.358px compact venue overset outweighs the strong display card."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "svg_validity",
+          "value": 1,
+          "notes": "Both SVGs parse; layout fails because the compact venue ends at x=779.358, 3.358px beyond the card edge x=776."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "layout_quality",
+          "value": 0,
+          "notes": "Both SVGs parse; layout fails because the compact venue ends at x=779.358, 3.358px beyond the card edge x=776."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Synthesize editorial-02 and generative-02 into a polished reusable Loop Lab SVG event-card system. Preserve editorial hierarchy, typography, grid discipline, accessibility, and real variant tokens; preserve generative modular loop/signal-path distinctiveness. Repair the independently detected CTA contrast and title/panel intrusion defects. Produce standalone card.svg, a three-variant system sheet, tokens, objective metrics, and explicit evidence-led synthesis notes.",
+        "input_feedback": "The parent panel split. Opus and Terra ranked editorial-02 first because hierarchy, information clarity, contrast, and variant-ready tokens were more complete; Gemini preferred generative-02 because the modular routing panel was the most memorable and brand-appropriate image. All agreed the generative language was distinctive. Opus independently found two metric defects hidden by the generative self-review: white on #3B82F6 is 3.68:1, not 4.5:1, and the title may extend about 24px into the panel. Editorial-02 also retained fixed badge-width and long-content boundary risks.",
+        "judge_feedback": "Provisional synthesis observation after real Inkscape rendering: Loop 01 combines an editorial title/metadata/CTA reading order with a protected right routing module. Both parent defects are repaired: CTA contrast is 11.67:1 and the rendered title ends at x=691.262 before the panel at x=760, a measured 68.738px safe zone. However, variants-preview.png reveals a new concrete defect: compact variant 02's venue 'HUB A + WEB' escapes the card. Inkscape measures the text bbox right edge at x=779.358, 3.358px beyond the card's outer edge x=776. The no-clipping/layout-containment gate therefore fails. The compact fixed three-column model is not resilient even at its published 11-character venue budget.\n\nIndependent panel (criterion-wise median with dissent): Opus scored display-card hierarchy 5 but information clarity 3 and polish 2; Gemini/Terra scored hierarchy 4, clarity 4, polish 3. All three failed layout because the 3.358px compact venue overset outweighs the strong display card.",
+        "next_prompt": "Keep Loop 01's protected zones, contrast-safe CTA, and signal-path language. Materially repair the observed compact venue overset with width-aware metadata cells that wrap/stack flexible content. Also render a stress-test display event with a three-line title, long venue, and longer delivery label; add explicit title-density tiers and content-driven badge width rules; remeasure every major bbox, contrast pair, and safe zone without reducing hierarchy."
+      },
+      "quality_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "fail"
+      },
+      "changed_files": [
+        "track-synthesis/loop-01/card.svg",
+        "track-synthesis/loop-01/variants.svg",
+        "track-synthesis/loop-01/tokens.json",
+        "track-synthesis/loop-01/layout-metrics.json",
+        "track-synthesis/loop-01/prompt-chain.json",
+        "track-synthesis/loop-01/synthesis-notes.md",
+        "track-synthesis/loop-01/card-preview.png",
+        "track-synthesis/loop-01/variants-preview.png"
+      ],
+      "lesson": {
+        "trigger": "Rendered compact hybrid venue exceeded its card boundary even though the character-count estimate predicted fit.",
+        "action": "Use rendered text measurement and give flexible venue content a full-width metadata row instead of trusting fixed character budgets.",
+        "evidence": "Inkscape bbox right x=779.358 versus compact card right x=776; variants-preview.png visibly shows the overset.",
+        "confidence": "high"
+      },
+      "decision": "reject",
+      "stop_reason": "Blocked by the measured 3.358px compact venue overset.",
+      "panel_aggregation": {
+        "method": "criterion_median_then_weighted_mean",
+        "weighted_median_score": 3.833
+      }
+    },
+    {
+      "id": "synthesis-02",
+      "track_id": "track-synthesis",
+      "parent_ids": [
+        "synthesis-01"
+      ],
+      "model_id": "gpt-5.6-sol",
+      "hypothesis": "Width-aware metadata rows, named title-density tiers, and content-driven badge widths can repair synthesis-01's measured compact overset and prove long-content resilience without weakening hierarchy, CTA contrast, or the title/module safe zone.",
+      "outcome": "Materially changed both display and compact metadata to pair DATE/TIME and give VENUE a full-width row; added standard/dense title tiers and content-driven badge rules. The longer stress venue ends with 82.761px remaining, versus Loop 01's 3.358px overrun. A three-line title, 'INNOVATION HUB + ONLINE', and 'HYBRID + REMOTE' badge coexist. Actual rendered title-to-panel separation is 111.516px; CTA contrast remains 11.67:1. All objective gates pass; subjective decision remains pending independent review. Later human review rejected primary-content drift: the stress-test title had replaced the intended headline.",
+      "commands": {
+        "build": "Author generated/track-synthesis/loop-02/card.svg and variants.svg from synthesis-01; replace fixed compact metadata columns with paired DATE/TIME plus full-width VENUE; add dense title and content-driven badge tokens.",
+        "run": "Parse all SVG/XML and JSON with Python; render both SVGs at 1200x630 with Inkscape; query title, major groups, and all flexible venue bboxes with Inkscape --query-id; recompute WCAG contrast; verify PNG dimensions with ImageMagick.",
+        "judge": "Provisional evidence-led self-observation against the same scorecard and objective gates; compare the measured Loop 01 overrun to Loop 02 remaining space. Independent panel intentionally not simulated."
+      },
+      "artifacts": [
+        {
+          "id": "synthesis-02-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Synthesis 02 density-aware Champion card",
+          "path": "track-synthesis/loop-02/card.svg",
+          "sha256": "0598a21eaf2f74dd3664f527a4435eea5c1b4e3e9231dbf0ae4d535c79bb8d59",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "The final synthesis proves a three-line title, long venue, adaptive badge, protected routing module, and contrast-safe CTA.",
+            "alt_text": "Cream Loop Lab card for Facilitating Cross-Functional Decision-Making. A large three-line navy serif title and adaptive event details sit left; a dark paired-loop routing diagram sits right; a dark blue Register Now button sits below.",
+            "comparison_key": "event-card"
+          },
+          "required_content": {
+            "title": "FACILITATING CROSS-FUNCTIONAL DECISION-MAKING",
+            "date": "NOV 19, 2026",
+            "time": "13:00–16:30",
+            "venue": "INNOVATION HUB + ONLINE",
+            "cta": "REGISTER NOW →"
+          }
+        },
+        {
+          "id": "synthesis-02-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "synthesis-02 design tokens",
+          "path": "track-synthesis/loop-02/tokens.json",
+          "sha256": "e26b18a902aef081f96aea188cb7617494ff3e3b4ba7a528eb1945447beb7a17",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Design-token source for synthesis-02, including the reusable visual and component rules evidenced in this loop."
+          }
+        },
+        {
+          "id": "synthesis-02-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "synthesis-02 objective layout metrics",
+          "path": "track-synthesis/loop-02/layout-metrics.json",
+          "sha256": "3f9e55936fe121970453352b58d55c093738f23ee55997ec56443cadaf1f7d0d",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Recorded SVG, required-content, contrast, overlap, clipping, and overall objective evidence for synthesis-02."
+          }
+        },
+        {
+          "id": "synthesis-02-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "synthesis-02 prompt chain",
+          "path": "track-synthesis/loop-02/prompt-chain.json",
+          "sha256": "e796ac4ad091e6af8d91a545c1c55e0cf7dbd5231ad7bab333b3d908750f537d",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Complete track prompt, input feedback, judge feedback, and next prompt for synthesis-02."
+          }
+        },
+        {
+          "id": "synthesis-02-notes",
+          "kind": "markdown",
+          "role": "synthesis-notes",
+          "label": "synthesis-02 synthesis notes",
+          "path": "track-synthesis/loop-02/synthesis-notes.md",
+          "sha256": "2dd5a77b9ca01f92f42841aba10c0afb0beca2eb94d7486849ecc2fdd03aaa90",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Generator-authored synthesis decisions for synthesis-02; independent panel notes are attached separately."
+          }
+        },
+        {
+          "id": "synthesis-02-variants",
+          "kind": "svg",
+          "role": "variant-system-sheet",
+          "label": "synthesis-02 three-variant system sheet",
+          "path": "track-synthesis/loop-02/variants.svg",
+          "sha256": "aedcaaa48509d9199b289b47c52ffb9885bfb3c53fc8c2141707c830bc1b9c1c",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": false,
+            "caption": "Three density-aware compact variants with full-width venue rows; all rendered content remains inside component boundaries.",
+            "alt_text": "Three compact Loop Lab cards for hybrid plus remote, in-person, and virtual workshops. A long-title stress card and two other variants retain clear details, routing modules, and Register buttons without overset.",
+            "comparison_key": "variant-system"
+          }
+        },
+        {
+          "id": "synthesis-02-card-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "synthesis-02 rendered card",
+          "path": "track-synthesis/loop-02/card-preview.png",
+          "sha256": "0414c80c949cad65a8823ce2631ad0fdfd6f002695eded19cc932b89a33632f9",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape 1200×630 render used by the independent panel to inspect synthesis-02."
+          },
+          "dimensions": {
+            "width": 1200,
+            "height": 630
+          }
+        },
+        {
+          "id": "synthesis-02-variants-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "synthesis-02 rendered variants",
+          "path": "track-synthesis/loop-02/variants-preview.png",
+          "sha256": "951cd3fcaa82bae42c86c778f390bc1ad3185092f16a18956ab609867fa7b2cf",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape 1200×630 system-sheet render used to verify variant containment for synthesis-02."
+          },
+          "dimensions": {
+            "width": 1200,
+            "height": 630
+          }
+        },
+        {
+          "id": "synthesis-02-judge-opus",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Claude Opus 4.8 independent deep-design note: synthesis-02",
+          "path": "judges/opus/synthesis/synthesis-02.md",
+          "sha256": "9991610bcdfbf05e6a2f7398ef9adfd6efa3c2c66ccd8a0475dca219debf13aa",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent deep-design-critic evidence, scores, gate verdict, defects, and dissent for synthesis-02."
+          }
+        },
+        {
+          "id": "synthesis-02-judge-gemini",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Gemini 3.1 Pro Preview independent visual-language note: synthesis-02",
+          "path": "judges/gemini/synthesis/synthesis-02.md",
+          "sha256": "ed5447ebf07f985666e0f680c5312e2680a0a793cbb1a55b892c25f71d44dd3c",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent visual-language-critic evidence, scores, gate verdict, defects, and dissent for synthesis-02."
+          }
+        },
+        {
+          "id": "synthesis-02-judge-terra",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "GPT-5.6 Terra independent layout note: synthesis-02",
+          "path": "judges/terra/synthesis/synthesis-02.md",
+          "sha256": "3b595eec5b0ce7a34364f3dc4cd3b6c1cccaef629a550f88a539cea040e97d25",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent layout-critic evidence, scores, gate verdict, defects, and dissent for synthesis-02."
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "visual_hierarchy",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=5/5, Gemini=5/5, Terra=5/5. Preserved dissent: Gemini awarded 5 across all subjective criteria. Opus and Terra held production polish at 4 because system-font variance, localization/RTL, and localized badge fallback remain untested; all judges otherwise converge on the winner and passing gates."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "brand_distinctiveness",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=5/5, Gemini=5/5, Terra=5/5. Preserved dissent: Gemini awarded 5 across all subjective criteria. Opus and Terra held production polish at 4 because system-font variance, localization/RTL, and localized badge fallback remain untested; all judges otherwise converge on the winner and passing gates."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "information_clarity",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=5/5, Gemini=5/5, Terra=5/5. Preserved dissent: Gemini awarded 5 across all subjective criteria. Opus and Terra held production polish at 4 because system-font variance, localization/RTL, and localized badge fallback remain untested; all judges otherwise converge on the winner and passing gates."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "system_coherence",
+          "value": 5,
+          "notes": "Criterion-wise panel median 5/5; Opus=5/5, Gemini=5/5, Terra=5/5. Preserved dissent: Gemini awarded 5 across all subjective criteria. Opus and Terra held production polish at 4 because system-font variance, localization/RTL, and localized badge fallback remain untested; all judges otherwise converge on the winner and passing gates."
+        },
+        {
+          "scorer_id": "independent-panel",
+          "criterion_id": "production_polish",
+          "value": 4,
+          "notes": "Criterion-wise panel median 4/5; Opus=4/5, Gemini=5/5, Terra=4/5. Preserved dissent: Gemini awarded 5 across all subjective criteria. Opus and Terra held production polish at 4 because system-font variance, localization/RTL, and localized badge fallback remain untested; all judges otherwise converge on the winner and passing gates."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "svg_validity",
+          "value": 1,
+          "notes": "Both SVGs parse; all recorded layout gates pass, including 82.761px stress-venue space, 111.516px title/panel separation, and 11.67:1 CTA contrast."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "layout_quality",
+          "value": 1,
+          "notes": "Both SVGs parse; all recorded layout gates pass, including 82.761px stress-venue space, 111.516px title/panel separation, and 11.67:1 CTA contrast."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "content_fidelity",
+          "value": 0,
+          "notes": "Later human review found that stress-test copy replaced the primary headline. The original panel had no canonical-content gate."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Improve synthesis-01 without weakening its editorial hierarchy, protected signal-module brand language, contrast-safe CTA, or measured title/panel firewall. React to real rendered evidence, not a hypothetical defect.",
+        "input_feedback": "Inkscape rendering of synthesis-01 exposed compact hybrid venue overset: 'HUB A + WEB' measured [670.505,290.46,779.358,301.285] while its compact card ended at x=776. The fixed three-column compact metadata component failed its own published 11-character budget. Parent evidence also retained fixed badge-width and long-title capacity risks.",
+        "judge_feedback": "Provisional self-observation after Inkscape render and rendered-bbox queries: the metadata repair is material and measurable. The stress venue 'INNOVATION HUB + ONLINE' ends at x=289.239 with 82.761px before the inner card edge; two additional long venues retain 111.94px or more. A real three-line title, long venue, and 'HYBRID + REMOTE' badge coexist without overlap. The actual title right edge is x=640.484, leaving 111.516px to the routing panel, and CTA contrast remains 11.67:1. All objective gates now pass. Subjective promotion remains unavailable until an independent panel inspects the two rendered previews.\n\nIndependent panel (criterion-wise median with dissent): Gemini awarded 5 across all subjective criteria. Opus and Terra held production polish at 4 because system-font variance, localization/RTL, and localized badge fallback remain untested; all judges otherwise converge on the winner and passing gates.",
+        "next_prompt": "Independent panel review should compare synthesis-01 and synthesis-02 previews for hierarchy, brand distinctiveness, information clarity, system coherence, and production polish. If another loop were authorized later, test localization and bidirectional text, because current resilience evidence covers English content lengths but not translated expansion or RTL ordering."
+      },
+      "quality_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "pass",
+        "content_fidelity": "fail"
+      },
+      "changed_files": [
+        "track-synthesis/loop-02/card.svg",
+        "track-synthesis/loop-02/variants.svg",
+        "track-synthesis/loop-02/tokens.json",
+        "track-synthesis/loop-02/layout-metrics.json",
+        "track-synthesis/loop-02/prompt-chain.json",
+        "track-synthesis/loop-02/synthesis-notes.md",
+        "track-synthesis/loop-02/card-preview.png",
+        "track-synthesis/loop-02/variants-preview.png"
+      ],
+      "lesson": {
+        "trigger": "A real rendered compact field overflowed despite an estimated character budget.",
+        "action": "Promote flexible content to a measured full-width row and define density/width-selection rules instead of shrinking or substituting the content.",
+        "evidence": "Loop 01 overrun 3.358px; Loop 02 longer stress venue retains 82.761px, with all three venue bboxes inside their inner frames.",
+        "confidence": "high"
+      },
+      "decision": "reject",
+      "stop_reason": "Rejected after human review: content_fidelity failed even though the original SVG and layout gates passed.",
+      "panel_aggregation": {
+        "method": "criterion_median_then_weighted_mean",
+        "weighted_median_score": 4.833
+      }
+    },
+    {
+      "id": "synthesis-03",
+      "track_id": "track-synthesis",
+      "parent_ids": [
+        "synthesis-02"
+      ],
+      "model_id": "gpt-5.6-sol",
+      "hypothesis": "Restoring the canonical primary headline while retaining synthesis-02's width-aware layout, and visibly separating stress content, will repair context drift without regressing visual or layout quality.",
+      "outcome": "Restored 'Designing with Feedback Loops' in the primary card, retained the measured metadata and routing-module repairs, visibly labelled the alternate long title as a stress fixture, and added an external content-fidelity gate. Three independent judges pass all gates.",
+      "commands": {
+        "build": "python repair_context_drift.py",
+        "run": "Render both SVGs with Inkscape; query title geometry; compare context-fidelity.json expected and actual primary content.",
+        "judge": "Independent context-repair-panel with a blocking content_fidelity veto."
+      },
+      "artifacts": [
+        {
+          "id": "synthesis-03-card",
+          "kind": "svg",
+          "role": "primary-output",
+          "label": "Synthesis 03 context-preserving Champion card",
+          "path": "track-synthesis/loop-03/card.svg",
+          "sha256": "451d6c12c0e4480b2e9b9cd4765ce4e4417f80a4193828a780c471f3093b2880",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": true,
+            "caption": "Canonical headline restored without losing the measured width-aware layout repair.",
+            "alt_text": "Cream Loop Lab card for Designing with Feedback Loops. A large two-line navy serif title and event details sit left; a dark paired-loop routing diagram sits right; a dark blue Register Now button sits below.",
+            "comparison_key": "event-card"
+          },
+          "required_content": {
+            "title": "Designing with Feedback Loops",
+            "date": "NOV 19, 2026",
+            "time": "13:00–16:30",
+            "venue": "INNOVATION HUB + ONLINE",
+            "cta": "REGISTER NOW →"
+          }
+        },
+        {
+          "id": "synthesis-03-tokens",
+          "kind": "json",
+          "role": "design-tokens",
+          "label": "synthesis-03 design tokens",
+          "path": "track-synthesis/loop-03/tokens.json",
+          "sha256": "99b901f8fa06f2460db6e911e55e5a522d55fdbee246b23591e4791d8086ad95",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Design tokens with an explicit immutable canonical-event contract."
+          }
+        },
+        {
+          "id": "synthesis-03-metrics",
+          "kind": "json",
+          "role": "layout-metrics",
+          "label": "synthesis-03 objective layout metrics",
+          "path": "track-synthesis/loop-03/layout-metrics.json",
+          "sha256": "bcaba82a710d579f3e07e4da065537d63d8e65768852c8d24ffb7ca90837501f",
+          "presentation": {
+            "mode": "metric_set",
+            "featured": false,
+            "primary": false,
+            "caption": "Rendered geometry, contrast, clipping, and context-fidelity evidence."
+          }
+        },
+        {
+          "id": "synthesis-03-content-fidelity",
+          "kind": "json",
+          "role": "context-fidelity",
+          "label": "synthesis-03 canonical-content gate",
+          "path": "track-synthesis/loop-03/context-fidelity.json",
+          "sha256": "691dd57903168bc82f898a717ee85768a207ae0ca2f129063185d5ad83f77afe",
+          "presentation": {
+            "mode": "key_value",
+            "featured": false,
+            "primary": false,
+            "caption": "External expected-versus-actual primary-copy gate."
+          }
+        },
+        {
+          "id": "synthesis-03-prompt-chain",
+          "kind": "json",
+          "role": "prompt-chain",
+          "label": "synthesis-03 prompt chain",
+          "path": "track-synthesis/loop-03/prompt-chain.json",
+          "sha256": "ed1c04f0a596384d9115b209b1acaa68cc7811ecef35cc2189574fdf83a91dcf",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Repair Prompt, human feedback, objective result, and prevention rule."
+          }
+        },
+        {
+          "id": "synthesis-03-notes",
+          "kind": "markdown",
+          "role": "synthesis-notes",
+          "label": "synthesis-03 synthesis notes",
+          "path": "track-synthesis/loop-03/synthesis-notes.md",
+          "sha256": "5cefeb85c97d6c0d3fb513bf34270aa68eb5e90513111daa1d4d2c45cdf74366",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Context-preserving repair decisions and prevention lesson."
+          }
+        },
+        {
+          "id": "synthesis-03-variants",
+          "kind": "svg",
+          "role": "variant-system-sheet",
+          "label": "synthesis-03 variant and stress-fixture sheet",
+          "path": "track-synthesis/loop-03/variants.svg",
+          "sha256": "150cd8ca78345c1b198d7462e56435ab4657c8b95e1ce1aaa6753a670386e218",
+          "presentation": {
+            "mode": "svg",
+            "featured": true,
+            "primary": false,
+            "caption": "Three compact variants; alternate long-title content is visibly marked as a stress fixture.",
+            "alt_text": "Three compact Loop Lab cards. The first is visibly labelled Stress Fixture and uses the long alternate title; two event variants follow.",
+            "comparison_key": "variant-system"
+          }
+        },
+        {
+          "id": "synthesis-03-card-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "synthesis-03 rendered primary card",
+          "path": "track-synthesis/loop-03/card-preview.png",
+          "sha256": "582be96f2fb8a9a29e6475645207a5ba81a094900aeb521e207a75f3c9786e6e",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape 1200×630 render inspected by the repair panel."
+          },
+          "dimensions": {
+            "width": 1200,
+            "height": 630
+          }
+        },
+        {
+          "id": "synthesis-03-variants-preview",
+          "kind": "image",
+          "role": "render-evidence",
+          "label": "synthesis-03 rendered variant sheet",
+          "path": "track-synthesis/loop-03/variants-preview.png",
+          "sha256": "6960748e323788d0d7e195380c36ebcedad3f8ed7ec6674d2bd929f4f109bc38",
+          "presentation": {
+            "mode": "image",
+            "featured": false,
+            "primary": false,
+            "caption": "Inkscape 1200×630 render proving visible stress-fixture separation."
+          },
+          "dimensions": {
+            "width": 1200,
+            "height": 630
+          }
+        },
+        {
+          "id": "synthesis-03-judge-creative",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Claude Sonnet 5 creative-director note",
+          "path": "judges/repair/creative-director-synthesis-03.md",
+          "sha256": "ce17318265b834a8a796ac26a8abb42f4abd209cb298d226a3a89deac6116119",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent creative-direction scores, gates, and dissent."
+          }
+        },
+        {
+          "id": "synthesis-03-judge-systems",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "GPT-5.5 design-systems note",
+          "path": "judges/repair/design-systems-synthesis-03.md",
+          "sha256": "9ec2cacd6a5243e69ad50e3a4df9c6fed44c85e8e2b825a4d5a367f71a7385fe",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent design-system scores, gates, and dissent."
+          }
+        },
+        {
+          "id": "synthesis-03-judge-accessibility",
+          "kind": "markdown",
+          "role": "independent-judge-note",
+          "label": "Claude Opus 4.8 accessibility note",
+          "path": "judges/repair/accessibility-synthesis-03.md",
+          "sha256": "4a50aedcf08d55b904f44ae9870b734dd26b9f7a84ef90b9f40f4172a42d2a52",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Independent accessibility scores, gates, and dissent."
+          }
+        },
+        {
+          "id": "synthesis-03-human-review",
+          "kind": "markdown",
+          "role": "human-review",
+          "label": "Human context-drift review",
+          "path": "judges/repair/human-context-review.md",
+          "sha256": "5094a4130a0f993c9fa1fc185517a54628de651f76b9b16a25fbec3d7d641650",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Human rejection of synthesis-02 and required repair scope."
+          }
+        },
+        {
+          "id": "context-drift-postmortem",
+          "kind": "markdown",
+          "role": "postmortem",
+          "label": "Context-drift causal analysis",
+          "path": "context-drift-postmortem.md",
+          "sha256": "c4356858f0ed20399a4733ea3ab254078bf52f1eecbab65c062d1dbdee11fa1e",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Why synthesis drifted and why three independent judges missed it."
+          }
+        },
+        {
+          "id": "panel-aggregate-json",
+          "kind": "json",
+          "role": "panel-aggregate",
+          "label": "Independent panel aggregate data",
+          "path": "judges/panel-aggregate.json",
+          "sha256": "c1636051c44f79823eba57530cb5125e0de8e0fad9f192420f9980e46448f4be",
+          "presentation": {
+            "mode": "structured_json",
+            "featured": false,
+            "primary": false,
+            "caption": "Historical panel results plus the content-aware repair-panel verdict."
+          }
+        },
+        {
+          "id": "panel-aggregate-md",
+          "kind": "markdown",
+          "role": "panel-aggregate",
+          "label": "Independent panel aggregate report",
+          "path": "judges/panel-aggregate.md",
+          "sha256": "dd09a3c44ad948141a7b2ff5bc25bdd90f3a1eea5331a39919a042ebadcdc362",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Readable gate-aware ranking, judge-miss analysis, and revised Champion."
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "context-repair-panel",
+          "criterion_id": "visual_hierarchy",
+          "value": 4.4,
+          "notes": "Criterion median from Claude Sonnet 5, GPT-5.5, and Claude Opus 4.8. All judges passed content fidelity and preserved case-transform, localization/RTL, and system-font caveats."
+        },
+        {
+          "scorer_id": "context-repair-panel",
+          "criterion_id": "brand_distinctiveness",
+          "value": 4.3,
+          "notes": "Criterion median from Claude Sonnet 5, GPT-5.5, and Claude Opus 4.8. All judges passed content fidelity and preserved case-transform, localization/RTL, and system-font caveats."
+        },
+        {
+          "scorer_id": "context-repair-panel",
+          "criterion_id": "information_clarity",
+          "value": 4.5,
+          "notes": "Criterion median from Claude Sonnet 5, GPT-5.5, and Claude Opus 4.8. All judges passed content fidelity and preserved case-transform, localization/RTL, and system-font caveats."
+        },
+        {
+          "scorer_id": "context-repair-panel",
+          "criterion_id": "system_coherence",
+          "value": 4.6,
+          "notes": "Criterion median from Claude Sonnet 5, GPT-5.5, and Claude Opus 4.8. All judges passed content fidelity and preserved case-transform, localization/RTL, and system-font caveats."
+        },
+        {
+          "scorer_id": "context-repair-panel",
+          "criterion_id": "production_polish",
+          "value": 4.3,
+          "notes": "Criterion median from Claude Sonnet 5, GPT-5.5, and Claude Opus 4.8. All judges passed content fidelity and preserved case-transform, localization/RTL, and system-font caveats."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "svg_validity",
+          "value": 1,
+          "notes": "Both standalone SVGs parse and contain accessible metadata."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "layout_quality",
+          "value": 1,
+          "notes": "Rendered bounds, contrast, clipping, and safe-zone checks pass."
+        },
+        {
+          "scorer_id": "objective-command",
+          "criterion_id": "content_fidelity",
+          "value": 1,
+          "notes": "Expected and actual primary headline match; alternate copy is a visibly labelled secondary stress fixture."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Repair synthesis-02's context drift without changing its validated width-aware layout system. The primary headline is immutable: 'Designing with Feedback Loops'. Keep long-title stress content only in the separately labelled variants fixture.",
+        "input_feedback": "Human review found that synthesis-02 unexpectedly changed the final Champion headline to 'Facilitating Cross-Functional Decision-Making'. The prior prompt requested a three-line stress-test display event but did not distinguish the primary candidate from the stress fixture.",
+        "judge_feedback": "Objective context-fidelity evidence now passes: the primary card uses 'Designing with Feedback Loops', while the long three-line title remains available only in variants.svg. The synthesis-02 metadata, contrast, safe-zone, and routing-module repairs are retained.",
+        "next_prompt": "Independent judges must confirm that restoring canonical copy preserves hierarchy and polish. Future Loops must carry immutable brief fields verbatim and keep stress fixtures secondary."
+      },
+      "quality_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "pass",
+        "content_fidelity": "pass"
+      },
+      "changed_files": [
+        "track-synthesis/loop-03/card.svg",
+        "track-synthesis/loop-03/variants.svg",
+        "track-synthesis/loop-03/tokens.json",
+        "track-synthesis/loop-03/layout-metrics.json",
+        "track-synthesis/loop-03/context-fidelity.json",
+        "track-synthesis/loop-03/prompt-chain.json",
+        "track-synthesis/loop-03/synthesis-notes.md",
+        "track-synthesis/loop-03/card-preview.png",
+        "track-synthesis/loop-03/variants-preview.png"
+      ],
+      "lesson": {
+        "trigger": "Human review found that a stress-test Prompt had changed primary copy and that three judges promoted it.",
+        "action": "Freeze canonical content outside the candidate, inject it into every repair and judge Prompt, visibly separate stress fixtures, and make content fidelity a blocking objective gate.",
+        "evidence": "synthesis-02 lacks the canonical title but was previously new_best; synthesis-03 context-fidelity.json passes and all three repair judges confirm the visible separation.",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": "All three objective gates pass and the independent repair panel selects synthesis-03 as Champion."
+    }
+  ],
+  "champion": {
+    "iteration_id": "synthesis-03",
+    "summary": "Synthesis-03 is the context-preserving Champion: it restores the canonical headline, visibly separates stress content, retains the measured layout repair, and passes SVG, layout, and content-fidelity gates.",
+    "reasons": [
+      {
+        "text": "The primary Artifact again uses 'Designing with Feedback Loops'.",
+        "evidence_refs": [
+          "content_fidelity",
+          "synthesis-03-card",
+          "synthesis-03-content-fidelity"
+        ]
+      },
+      {
+        "text": "Long-title capacity evidence remains available only as a visibly labelled stress fixture.",
+        "evidence_refs": [
+          "content_fidelity",
+          "synthesis-03-variants",
+          "synthesis-03-variants-preview"
+        ]
+      },
+      {
+        "text": "The width-aware metadata and routing-module layout repair remains intact.",
+        "evidence_refs": [
+          "layout_quality",
+          "synthesis-03-metrics",
+          "synthesis-03-card-preview"
+        ]
+      },
+      {
+        "text": "Three independent repair judges pass every objective gate.",
+        "evidence_refs": [
+          "panel-aggregate-json",
+          "synthesis-03-judge-creative",
+          "synthesis-03-judge-systems",
+          "synthesis-03-judge-accessibility"
+        ]
+      }
+    ],
+    "caveats": [
+      {
+        "text": "Visible all-caps display treatment is accepted while exact mixed-case copy remains in accessible metadata.",
+        "evidence_refs": [
+          "synthesis-03-judge-creative",
+          "synthesis-03-judge-accessibility"
+        ]
+      },
+      {
+        "text": "Localization, non-Latin scripts, RTL ordering, and cross-environment font substitution remain untested.",
+        "evidence_refs": [
+          "production_polish",
+          "synthesis-03-judge-systems",
+          "synthesis-03-judge-accessibility"
+        ]
+      }
+    ]
+  },
+  "story": {
+    "milestones": [
+      {
+        "iteration_id": "editorial-01",
+        "caption": "Established the editorial grid, then rejected it when five secondary-text nodes measured only 2.49:1 contrast."
+      },
+      {
+        "iteration_id": "editorial-02",
+        "caption": "Repaired contrast at the token level and proved a second event variant; retained for synthesis."
+      },
+      {
+        "iteration_id": "generative-01",
+        "caption": "Discovered an ownable signal-path language, but rejected full-canvas interference and CTA contrast failure."
+      },
+      {
+        "iteration_id": "generative-02",
+        "caption": "Zoned text and routing graphics to clear the current layout; retained for its visual impact with measured risks."
+      },
+      {
+        "iteration_id": "synthesis-01",
+        "caption": "Integrated both parents and repaired their defects, then rejected a new 3.358px compact venue overset."
+      },
+      {
+        "iteration_id": "synthesis-02",
+        "caption": "Repaired the measured overset but was later rejected because stress copy had replaced the primary headline."
+      },
+      {
+        "iteration_id": "synthesis-03",
+        "caption": "Restored canonical content, visibly separated the stress fixture, added a blocking fidelity gate, and became Champion."
+      }
+    ],
+    "featured_artifact_id": "synthesis-03-card",
+    "primary_comparison_key": "event-card"
+  },
+  "rules": [
+    "Keep expressive routing graphics inside a measured protected module; live title and metadata zones must remain free of decorative paths.",
+    "Use rendered measurement and width-aware rows for flexible content; do not treat character-count estimates as containment proof.",
+    "Freeze primary-content invariants outside candidate artifacts; stress fixtures must remain visibly labelled secondary evidence and invariant failures block promotion."
+  ],
+  "synthesis": "Editorial-02 contributed hierarchy and accessibility discipline; generative-02 contributed the routing language. Synthesis-01 combined them but exposed a venue overset. Synthesis-02 repaired the layout yet promoted stress-test copy into the primary card because no content invariant existed. Human review caught the drift. Synthesis-03 preserves the useful repair, restores canonical copy, visibly labels the stress fixture, and passes a new external fidelity gate."
+}

@@ -1,0 +1,291 @@
+{
+  "schema_version": "1.1",
+  "track": {
+    "id": "line-regex",
+    "label": "Line-oriented / regular-expression architecture",
+    "hypothesis": "Physical-line assembly plus anchored regular-expression field tokenization can robustly parse the vendor dialect while producing precise errors without becoming a whole-input CSV state machine.",
+    "final_decision": "Promote loop 02: all 38 expanded objective tests and all blocking core gates pass."
+  },
+  "scorecard": [
+    {
+      "id": "correctness",
+      "label": "Correctness",
+      "weight": 0.4,
+      "direction": "maximize",
+      "unit": "points",
+      "comparable_across_tracks": true,
+      "primary": true,
+      "gate": {
+        "operator": "gte",
+        "threshold": 5
+      }
+    },
+    {
+      "id": "robustness",
+      "label": "Robustness",
+      "weight": 0.2,
+      "direction": "maximize",
+      "unit": "points",
+      "comparable_across_tracks": true,
+      "primary": false
+    },
+    {
+      "id": "error_clarity",
+      "label": "Error clarity",
+      "weight": 0.15,
+      "direction": "maximize",
+      "unit": "points",
+      "comparable_across_tracks": true,
+      "primary": false
+    },
+    {
+      "id": "maintainability",
+      "label": "Maintainability",
+      "weight": 0.15,
+      "direction": "maximize",
+      "unit": "points",
+      "comparable_across_tracks": true,
+      "primary": false
+    },
+    {
+      "id": "constraint_adherence",
+      "label": "Constraint adherence",
+      "weight": 0.1,
+      "direction": "maximize",
+      "unit": "points",
+      "comparable_across_tracks": true,
+      "primary": false
+    }
+  ],
+  "iterations": [
+    {
+      "id": "line-regex-loop-01",
+      "track_id": "line-regex",
+      "parent_ids": [],
+      "model_id": "gpt-5.6-sol",
+      "hypothesis": "Regex physical-line splitting and field tokenization, with minimal quote-balance scanning, will cover the dialect and establish an objective baseline.",
+      "outcome": "Ran 18 tests: 17 passed and 1 failed. All three blocking core samples passed, but post-closing-quote junk was reported at line 2, column 1 instead of the offending column 4, so the objective gate failed.",
+      "commands": {
+        "build": "Create loop-01/parser.py and loop-01/test_parser.py using line splitting, quote-balance assembly, and anchored field regexes.",
+        "run": "cd generated\\track-line-regex\\loop-01 && python test_parser.py",
+        "judge": "Inspect loop-01/test-result.txt, apply the five-criterion weighted scorecard, and enforce core/objective gates."
+      },
+      "artifacts": [
+        {
+          "id": "line-regex-loop-01-parser",
+          "kind": "python-source",
+          "role": "primary-output",
+          "label": "Baseline parser",
+          "path": "track-line-regex/loop-01/parser.py",
+          "sha256": "63acd5774e7d63713fa053ea083ce8f276d6b55ab57feb61573ada177ffba54e",
+          "presentation": {
+            "mode": "code",
+            "featured": false,
+            "primary": true,
+            "caption": "Runnable baseline parser snapshot.",
+            "comparison_key": "parser-source"
+          }
+        },
+        {
+          "id": "line-regex-loop-01-tests",
+          "kind": "test-log",
+          "role": "objective-evidence",
+          "label": "Loop 01 objective test result",
+          "path": "track-line-regex/loop-01/test-result.txt",
+          "sha256": "7e9c9c53501febb1e0fb8e81fa3a668f49c8d6d13f2cc996e2c64364c65ed86e",
+          "presentation": {
+            "mode": "log",
+            "featured": false,
+            "primary": false,
+            "caption": "18 run, 17 passed, 1 failed; core gates passed."
+          }
+        },
+        {
+          "id": "line-regex-loop-01-judge",
+          "kind": "judge-note",
+          "role": "assessment",
+          "label": "Loop 01 provisional judge",
+          "path": "track-line-regex/loop-01/judge.md",
+          "sha256": "513cb5e083369e1222cfe9c3ecae0b79f7b38c2827cc599dcda62c0322234fc4",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Scorecard assessment and actual failure-driven next hypothesis."
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "correctness",
+          "value": 4.2,
+          "notes": "Core behavior passed, but the objective location assertion failed."
+        },
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "robustness",
+          "value": 3.4,
+          "notes": "Broad baseline coverage with generic malformed-token diagnosis."
+        },
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "error_clarity",
+          "value": 2.8,
+          "notes": "Line and column were present but the failed case pointed at the token start."
+        },
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "maintainability",
+          "value": 4.0,
+          "notes": "Compact, focused helpers and regular expressions."
+        },
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "constraint_adherence",
+          "value": 4.5,
+          "notes": "Genuinely line/regex oriented with no forbidden parser import."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Implement the specified messy CSV parser under the line-oriented/regular-expression architecture and run exactly two evidence-bearing loops.",
+        "input_feedback": "No prior candidate; establish the objective baseline.",
+        "judge_feedback": "Core gates passed, but closing-quote junk was localized to column 1 rather than column 4.",
+        "next_prompt": "Retain regex tokenization; add precise line-local structural diagnostics and source-offset mapping, then expand adversarial malformed checks."
+      },
+      "quality_gates": {
+        "core_samples": "pass",
+        "objective_tests": "fail",
+        "forbidden_import_scan": "pass"
+      },
+      "changed_files": [
+        "track-line-regex/loop-01/parser.py",
+        "track-line-regex/loop-01/test_parser.py"
+      ],
+      "lesson": {
+        "trigger": "A regex token match failed at the field boundary after a closing quote.",
+        "action": "Diagnose quote structure while physical lines are assembled and retain exact source offsets.",
+        "evidence": "The only failed test expected line 2, column 4; the generic fallback emitted line 2, column 1.",
+        "confidence": "high"
+      },
+      "decision": "reject",
+      "stop_reason": "Primary objective tests failed, although blocking core samples passed."
+    },
+    {
+      "id": "line-regex-loop-02",
+      "track_id": "line-regex",
+      "parent_ids": [
+        "line-regex-loop-01"
+      ],
+      "model_id": "gpt-5.6-sol",
+      "hypothesis": "A line-local structural quote validator and source-offset map will fix precise diagnostics while preserving regex field tokenization and all valid behavior.",
+      "outcome": "Ran 38 expanded tests: all 38 passed. The loop-01 failure is fixed, all blocking core samples pass, and multiline CRLF error locations remain physical and precise.",
+      "commands": {
+        "build": "Improve loop-02/parser.py with line-local quote validation and logical-record source maps; expand test_parser.py and add tests/fixtures/valid-messy.csv.",
+        "run": "cd generated\\track-line-regex\\loop-02 && python test_parser.py",
+        "judge": "Inspect loop-02/test-result.txt, compare against loop 01, apply the weighted scorecard, and enforce core/objective gates."
+      },
+      "artifacts": [
+        {
+          "id": "line-regex-loop-02-parser",
+          "kind": "python-source",
+          "role": "primary-output",
+          "label": "Champion parser",
+          "path": "track-line-regex/loop-02/parser.py",
+          "sha256": "4d4425e36aa319291825955f8ca6424eb81605e85fcfbd639faffe7ba2ed39a9",
+          "presentation": {
+            "mode": "code",
+            "featured": true,
+            "primary": true,
+            "caption": "Strongest runnable parser snapshot.",
+            "comparison_key": "parser-source"
+          }
+        },
+        {
+          "id": "line-regex-loop-02-tests",
+          "kind": "test-log",
+          "role": "objective-evidence",
+          "label": "Loop 02 objective test result",
+          "path": "track-line-regex/loop-02/test-result.txt",
+          "sha256": "a5689e21ea324dfde0213a077a48590fa767baff77ade77641ecf658562f84f5",
+          "presentation": {
+            "mode": "log",
+            "featured": true,
+            "primary": false,
+            "caption": "38 run, 38 passed; core and objective gates passed."
+          }
+        },
+        {
+          "id": "line-regex-loop-02-judge",
+          "kind": "judge-note",
+          "role": "assessment",
+          "label": "Loop 02 provisional judge",
+          "path": "track-line-regex/loop-02/judge.md",
+          "sha256": "e92af6aedcda834c59a43e55803ec83b04bc1e40509e716c07ada50102f9f4d5",
+          "presentation": {
+            "mode": "markdown",
+            "featured": false,
+            "primary": false,
+            "caption": "Comparison, provisional scores, and promotion rationale."
+          }
+        }
+      ],
+      "scores": [
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "correctness",
+          "value": 5.0,
+          "notes": "All 38 objective tests and every blocking sample passed."
+        },
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "robustness",
+          "value": 4.8,
+          "notes": "Expanded valid and malformed boundaries include mixed newlines, Unicode whitespace, and multiline coordinates."
+        },
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "error_clarity",
+          "value": 4.8,
+          "notes": "Specific categories and precise 1-based physical locations passed adversarial assertions."
+        },
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "maintainability",
+          "value": 4.6,
+          "notes": "Validation state remains isolated to logical-record assembly and helpers remain focused."
+        },
+        {
+          "scorer_id": "provisional-self-judge",
+          "criterion_id": "constraint_adherence",
+          "value": 4.8,
+          "notes": "Field tokenization remains regex based; no csv, pandas, or third-party parser is used."
+        }
+      ],
+      "prompt": {
+        "track_prompt": "Improve the loop-01 line/regex parser from measured failures and expand malformed/error-location evidence.",
+        "input_feedback": "Loop 01 passed 17/18 tests and every core gate, but localized closing-quote junk to the field start.",
+        "judge_feedback": "Loop 02 passes all 38 tests, fixes the measured location failure, and preserves architecture constraints.",
+        "next_prompt": "Stop after the mandated second loop and promote this snapshot; seek new vendor fixtures before adding complexity."
+      },
+      "quality_gates": {
+        "core_samples": "pass",
+        "objective_tests": "pass",
+        "forbidden_import_scan": "pass"
+      },
+      "changed_files": [
+        "track-line-regex/loop-02/parser.py",
+        "track-line-regex/loop-02/test_parser.py",
+        "track-line-regex/loop-02/tests/fixtures/valid-messy.csv"
+      ],
+      "lesson": {
+        "trigger": "Normalized CRLF content and regex fallback positions can diverge from physical source coordinates.",
+        "action": "Carry a source-offset map while assembling each logical record and validate quote boundaries on each physical line.",
+        "evidence": "The expanded 38-test suite passes post-CRLF line/column assertions and the original column-4 failure.",
+        "confidence": "high"
+      },
+      "decision": "new_best",
+      "stop_reason": "Completed exactly two mandated loops with all core and objective gates passing."
+    }
+  ]
+}

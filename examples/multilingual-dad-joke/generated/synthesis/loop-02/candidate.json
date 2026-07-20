@@ -1,0 +1,32 @@
+{
+  "id": "synthesis-loop-02-candidate",
+  "mechanism": "A wall speaks to the neighboring wall as if arranging a rendezvous; “meet at the corner” is simultaneously an ordinary plan and the literal geometry of where the walls join. The comedy is compact visual personification shared across languages.",
+  "languages": {
+    "en": {
+      "setup": "What does one wall say to the other?",
+      "punchline": "Let’s meet at the corner!",
+      "combined": "What does one wall say to the other? Let’s meet at the corner!",
+      "portability_notes": "Short, generic riddle form; the physical and social senses of meeting coincide."
+    },
+    "fr": {
+      "setup": "Qu’est-ce qu’un mur dit à l’autre ?",
+      "punchline": "On se retrouve au coin !",
+      "combined": "Qu’est-ce qu’un mur dit à l’autre ? On se retrouve au coin !",
+      "portability_notes": "Uses a compact native riddle formula and natural rendezvous wording without copying English syntax."
+    },
+    "es": {
+      "setup": "¿Qué le dice una pared a la otra?",
+      "punchline": "¡Nos vemos en el rincón!",
+      "combined": "¿Qué le dice una pared a la otra? ¡Nos vemos en el rincón!",
+      "portability_notes": "Retains rincón for the inner corner formed by walls while using a concise, idiomatic present-tense joke setup."
+    },
+    "ja": {
+      "setup": "壁が隣の壁に何て言う？",
+      "punchline": "角で会おう！",
+      "combined": "壁が隣の壁に何て言う？ 角で会おう！",
+      "portability_notes": "Uses colloquial present-tense Japanese, no numeric counter, and no unnecessary quotation marks."
+    }
+  },
+  "revision_from": "synthesis-loop-01-candidate",
+  "revision_reason": "Consumed Loop 1’s self-critique: removed explanatory adjacency wording from English/French/Spanish, aligned the native riddle setups in a timeless present where natural, and retained the explicit Spanish and Japanese panel repairs."
+}

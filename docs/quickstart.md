@@ -16,9 +16,32 @@ On macOS or Linux:
 bash scripts/install.sh
 ```
 
-Restart Copilot or reload skills after installation.
+Restart GitHub Copilot CLI or Claude Code, or reload skills after installation.
 
-## 2. Start with a compact prompt
+## 2. Freeze the Experiment setup
+
+For unattended, high-cost, deployment, telemetry, external-user, service, or
+real-data work, invoke `experiment-setup` first. It inspects the repository,
+asks one adaptive question at a time, runs an independent setup critic, and
+writes:
+
+```text
+.experiments/<experiment-id>/setup/
+  prompt.md
+  experiment-brief.json
+  setup-review.md
+  approval.json
+```
+
+Review the exact Prompt, brief, and critic findings before approving them. An
+approval binds the exact Prompt and brief hashes. Revise approved setup through
+a new numbered revision rather than editing it in place.
+
+## 3. Start the Experiment
+
+After approval, ask the agent to invoke `experiment-loop` with the setup
+directory. Small, supervised, low-cost experiments may start directly with a
+compact prompt:
 
 ```text
 Use the experiment-loop skill.
@@ -33,12 +56,12 @@ Scorecard:
 Topology:
 - Run 2 or 3 tracks.
 - Each track runs 2 or 3 loops.
-- Keep a manifest, judge notes, artifacts, and a local viewer.
+- Keep a Manifest, judge notes, Artifacts, and a standalone Viewer.
 ```
 
 If you already know the exact implementation, do not use the skill. Use normal engineering work instead.
 
-## 3. Require observable evidence
+## 4. Require observable evidence
 
 Every loop should leave behind:
 
@@ -50,15 +73,17 @@ Every loop should leave behind:
 
 The manifest is the source of truth. Chat history is not.
 
-## 4. Pick the judging mode
+## 5. Pick the judging mode
 
 Use objective commands when correctness can be measured, for example tests, route length, benchmarks, or schema validation.
 
 Use independent qualitative judges when the target is visual quality, UX, writing, prompt quality, or design taste. The generator should not be the only judge of its own work if a result is promoted as the champion.
 
-## 5. Inspect the result
+## 6. Inspect the result
 
-Open the generated `viewer.html` directly in a browser. It should show the loop history, score progression, artifacts, judge notes, current champion, and why the champion won.
+Every experiment must contain at least two Loops and a Viewer. Run the navigation
+judge and Evidence Gate before treating it as complete, then open `viewer.html`
+directly in a browser.
 
 For complete examples, see:
 

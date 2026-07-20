@@ -41,7 +41,9 @@ A later pass that combines the best lessons from earlier tracks. Synthesis shoul
 
 ## Manifest
 
-`manifest.json` is the durable record. It tracks scorecard, scorers, tracks, iterations, artifacts, decisions, lessons, and the current best result. The viewer should be generated from the manifest or embed the same manifest data.
+`manifest.json` is the durable record. It tracks the Problem, scorecard semantics,
+scorers, Tracks, Loops, Artifact presentation, decisions, lessons, milestones,
+and structured Champion rationale. The Viewer is generated from that record.
 
 ## Viewer
 

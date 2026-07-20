@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" aria-labelledby="title desc">
+  <title id="title">Loop Lab: Synthesis &amp; Routing</title>
+  <desc id="desc">Workshop event card for Loop Lab on October 15, 2026. Register now.</desc>
+
+  <rect width="1200" height="630" fill="#0f172a"/>
+
+  <!-- Visual Language: Phase-shifted signal paths (Moved to right hemisphere) -->
+  <g transform="translate(600, 0)">
+    <!-- Grid/Module background -->
+    <rect x="50" y="50" width="500" height="530" rx="24" fill="#1e293b" opacity="0.3" stroke="#334155" stroke-width="2"/>
+    
+    <!-- Modular loops -->
+    <g transform="translate(100, 150)">
+      <circle cx="150" cy="150" r="100" fill="none" stroke="#38bdf8" stroke-width="12" opacity="0.8"/>
+      <circle cx="150" cy="150" r="120" fill="none" stroke="#818cf8" stroke-width="4" stroke-dasharray="8 8" opacity="0.6"/>
+      <circle cx="250" cy="150" r="80" fill="none" stroke="#38bdf8" stroke-width="8" opacity="0.4"/>
+      
+      <path d="M -50 150 L 50 150 M 250 150 L 450 150" stroke="#38bdf8" stroke-width="4" stroke-dasharray="10 5" opacity="0.7"/>
+      <path d="M 150 -50 L 150 50 M 150 250 L 150 350" stroke="#818cf8" stroke-width="4" opacity="0.7"/>
+      
+      <!-- Nodes -->
+      <circle cx="50" cy="150" r="8" fill="#f8fafc"/>
+      <circle cx="250" cy="150" r="8" fill="#f8fafc"/>
+      <circle cx="150" cy="50" r="8" fill="#f8fafc"/>
+      <circle cx="150" cy="250" r="8" fill="#f8fafc"/>
+    </g>
+  </g>
+
+  <!-- Text Content (Constrained to left side) -->
+  <g transform="translate(80, 140)">
+    <!-- System Extension: Badge -->
+    <g transform="translate(0, 0)">
+      <rect width="180" height="32" rx="16" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" fill="#38bdf8" x="90" y="21" text-anchor="middle" letter-spacing="1">TRACK: GENERATIVE</text>
+    </g>
+
+    <text font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#f8fafc" y="90">Synthesis &amp;</text>
+    <text font-family="system-ui, -apple-system, sans-serif" font-size="72" font-weight="800" fill="#f8fafc" y="170">Routing Systems</text>
+    
+    <!-- Metadata (No longer overlapping) -->
+    <g transform="translate(0, 240)">
+      <g>
+        <rect x="0" y="0" width="40" height="40" rx="8" fill="#1e293b"/>
+        <text font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="500" fill="#94a3b8" x="60" y="27">Oct 15, 2026</text>
+      </g>
+      
+      <g transform="translate(240, 0)">
+        <rect x="0" y="0" width="40" height="40" rx="8" fill="#1e293b"/>
+        <text font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="500" fill="#94a3b8" x="60" y="27">10:00 AM - 4:00 PM</text>
+      </g>
+      
+      <g transform="translate(0, 60)">
+        <rect x="0" y="0" width="40" height="40" rx="8" fill="#1e293b"/>
+        <text font-family="system-ui, -apple-system, sans-serif" font-size="24" font-weight="500" fill="#94a3b8" x="60" y="27">Loop Lab, Studio 4</text>
+      </g>
+    </g>
+
+    <!-- CTA -->
+    <g transform="translate(0, 370)">
+      <rect width="200" height="56" rx="28" fill="#3b82f6"/>
+      <text font-family="system-ui, -apple-system, sans-serif" font-size="20" font-weight="600" fill="#ffffff" x="100" y="34" text-anchor="middle">Register Now</text>
+    </g>
+  </g>
+</svg>

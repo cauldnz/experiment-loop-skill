@@ -1,85 +1,27 @@
-# Worked examples
+# Generated Examples
 
-This repository includes four completed experiment runs. They are intentionally small enough to read, rerun, and adapt.
+Each example contains one maintained `prompt.md` and one disposable committed
+`generated/` snapshot. The snapshot is produced from the current project-local
+experiment-loop skill, contains Manifest v1.1, Artifacts, Navigation Evidence,
+the Evidence Gate report, and a standalone Viewer, and may be replaced wholesale.
 
-All examples are self-contained for review: generated artifacts, judge notes, `manifest.json`, and `viewer.html` are committed. Rerunning is optional.
+| Example Prompt | Demonstrates | Viewer |
+| --- | --- | --- |
+| `examples/route-optimizer/prompt.md` | Quantitative objective scoring | `examples/route-optimizer/generated/viewer.html` |
+| `examples/visual-design-system/prompt.md` | Visual judging and synthesis | `examples/visual-design-system/generated/viewer.html` |
+| `examples/multilingual-dad-joke/prompt.md` | Multi-model generation and judging | `examples/multilingual-dad-joke/generated/viewer.html` |
+| `examples/messy-csv-parser/prompt.md` | Objective architecture bake-off | `examples/messy-csv-parser/generated/viewer.html` |
 
-## Quantitative: route optimizer
+At a deliberate release checkpoint, after batching related skill changes,
+regenerate all four transactionally:
 
-Path: `examples\route-optimizer`
-
-This example optimizes a small delivery route. The primary scorer is objective: route length must go down while every stop is visited exactly once. The run compares input order, nearest-neighbor construction, 2-opt local search, and deterministic multi-start 2-opt.
-
-Open:
-
-- `examples\route-optimizer\README.md` for the story;
-- `examples\route-optimizer\prompt.md` for the kickoff prompt;
-- `examples\route-optimizer\manifest.json` for the source of truth;
-- `examples\route-optimizer\viewer.html` for the inspection UI.
-
-Rerun:
-
-```powershell
-Set-Location examples\route-optimizer
-python run_example.py
+```text
+python scripts/regenerate_examples.py
 ```
 
-## Qualitative: SVG visual design system
+Use `--jobs N` to opt into bounded parallel generation. The sequential default
+avoids unexpected model-credit spikes and provider throttling.
 
-Path: `examples\visual-design-system`
-
-This example explores a browser-native event-card design system. It produces SVG cards, design tokens, layout-quality metrics, and judge notes. Objective gates check SVG validity and visual overlap, while champion selection also depends on qualitative design judgement. It demonstrates two independent design runs followed by a cross-run synthesis experiment with multi-parent graph lineage.
-
-Open:
-
-- `examples\visual-design-system\README.md` for the story;
-- `examples\visual-design-system\prompt.md` for the kickoff prompt;
-- `examples\visual-design-system\manifest.json` for the source of truth;
-- `examples\visual-design-system\viewer.html` for the inspection UI.
-
-Rerun:
-
-```powershell
-Set-Location examples\visual-design-system
-python run_example.py
-```
-
-## Language: multilingual dad joke
-
-Path: `examples\multilingual-dad-joke`
-
-This example creates a wholesome dad joke that works in English, French, Spanish, and Japanese. It demonstrates a multi-model experiment panel where GPT-style, Gemini-style, and Claude-style generator tracks compete, then a multi-model judge panel preserves dissent before a synthesis loop polishes the winner.
-
-Open:
-
-- `examples\multilingual-dad-joke\README.md` for the story;
-- `examples\multilingual-dad-joke\prompt.md` for the kickoff prompt;
-- `examples\multilingual-dad-joke\manifest.json` for the source of truth;
-- `examples\multilingual-dad-joke\viewer.html` for the inspection UI.
-
-Rerun:
-
-```powershell
-Set-Location examples\multilingual-dad-joke
-python run_example.py
-```
-
-## Objective bake-off: messy CSV parser
-
-Path: `examples\messy-csv-parser`
-
-This example hand-rolls a parser for a messy vendor CSV dialect and lets an objective correctness suite settle an architecture bake-off. A line-based regex track competes with a character state-machine track; a quoted field that spans two lines is a must-pass core sample that the regex architecture structurally cannot represent, so that track is rejected. The hardened state machine wins, and a synthesis loop merges it with the regex track's concise field-finalisation helper. A single deep-critic judge scores only error clarity and maintainability and never overrides the objective result.
-
-Open:
-
-- `examples\messy-csv-parser\README.md` for the story;
-- `examples\messy-csv-parser\prompt.md` for the kickoff prompt;
-- `examples\messy-csv-parser\manifest.json` for the source of truth;
-- `examples\messy-csv-parser\viewer.html` for the inspection UI.
-
-Rerun:
-
-```powershell
-Set-Location examples\messy-csv-parser
-python run_example.py
-```
+Regeneration is never run by pull-request or push CI because it invokes models
+and can be expensive. After regeneration, manually run the freshness and
+Evidence Gate checks or dispatch the manual Example workflow.

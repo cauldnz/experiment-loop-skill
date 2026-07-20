@@ -5,4 +5,7 @@ Thumbs.db
 .vscode/
 .env
 .env.*
+.npmrc
 secrets/
+node_modules/
+.regeneration-*/

@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "status": "pass",
+  "manifest": "manifest.json",
+  "readme": "example-readme.md",
+  "validation_steps": [
+    {
+      "id": "manifest-json-parse",
+      "status": "pass",
+      "detail": "generated/manifest.json parsed successfully after write."
+    },
+    {
+      "id": "manifest-schema-v1.1",
+      "status": "pass",
+      "detail": "Validated with Draft 2020-12 against .github/skills/experiment-loop/references/manifest-schema-v1.1.json."
+    },
+    {
+      "id": "prompt-byte-preservation",
+      "status": "pass",
+      "detail": "problem.original_prompt round-trips to the exact 1378 prompt.md bytes; JSON escaping only."
+    },
+    {
+      "id": "prompt-sha256",
+      "status": "pass",
+      "detail": "25f389c824d5943700444677e04a6377bbf9a46b12dc0154e523be659b9fea42"
+    },
+    {
+      "id": "topology-and-references",
+      "status": "pass",
+      "detail": "Three Tracks, six unique Loops, multi-parent synthesis, scorer/criterion/track/parent/milestone/champion/evidence references are coherent."
+    },
+    {
+      "id": "artifact-paths",
+      "status": "pass",
+      "detail": "Every artifact path is relative to generated/ and contains neither a generated/ prefix nor a backslash/absolute prefix."
+    },
+    {
+      "id": "artifact-existence",
+      "status": "pass",
+      "detail": "All 44 referenced artifacts exist beneath generated/."
+    },
+    {
+      "id": "artifact-sha256",
+      "status": "pass",
+      "detail": "All 44 referenced artifact SHA-256 values match file bytes."
+    },
+    {
+      "id": "viewer-navigation-evidence-gate",
+      "status": "not_run",
+      "detail": "Intentionally deferred to the orchestrator as requested; Viewer and gate were not run during manifest assembly."
+    }
+  ],
+  "track_count": 3,
+  "loop_count": 6,
+  "referenced_artifact_count": 44,
+  "verified_hash_count": 44,
+  "unique_artifact_id_count": 44,
+  "manifest_sha256": "1a0e09161b989bbd8c9d35b5f24285b031c223407137b377b9e41b75c56717bc"
+}

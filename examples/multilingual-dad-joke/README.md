@@ -1,38 +1,34 @@
-# Worked example: multilingual dad joke
+# Multilingual dad-joke Experiment
 
-This is a completed language-only experiment-loop run. It uses a multi-model generation panel to produce candidate dad jokes, then uses a multi-model judging panel to choose and polish the joke that works most evenly in English, French, Spanish, and Japanese.
+This Generated Example searches for one wholesome dad joke that lands naturally in English, French, Spanish, and Japanese. The Champion is a visual cause-and-effect joke: eyebrows drawn too high make someone look surprised.
 
-The completed run is self-contained for review: generated joke drafts, candidate JSON, judge notes, the manifest, and the static viewer are already included. Rerunning only needs Python.
+## Experiment
 
-## Goal
+Five equal-weight qualitative criteria guide the hill-climb: cross-language equivalence, dad-joke groan, brevity, cultural portability, and translation naturalness. A reproducible objective scorer blocks any candidate missing one of the four languages or Japanese native script.
 
-Create a wholesome dad joke that lands as consistently as possible across four languages without relying on an English-only pun.
+## Topology
 
-## What the loop tried
+Three independent generators (`gpt-5.5`, `gemini-3.1-pro-preview`, and `claude-sonnet-5`) each run two Loops. A `gpt-5.6-sol` synthesis Track then accepts or rejects lessons from all three parents and runs two more Loops. `parent_ids` preserve single-parent improvements and the synthesis Track’s three-parent lineage.
 
-1. A GPT-style generator proposed a globally portable computer-virus joke.
-2. A Gemini-style generator proposed a wall/corner joke based on shared physical geometry.
-3. A Claude-style generator proposed a doctor joke based on "two places" ambiguity.
-4. A synthesis loop resolved judge-panel dissent and polished the strongest cross-language candidate.
+## Judging
 
-## Why this is a good language example
+The same blind panel (`claude-opus-4.8`, `gpt-5.6-terra`, and `gemini-3.1-pro-preview`) first scores all six source candidates, then judges a championship slate containing the two leading sources and both synthesis Loops. Scores use equal-weight means, while every individual rationale, defect, ranking, and dissent remains available. The Champion wins two first-place votes to one; Terra’s preference for the compact wall synthesis is retained as a caveat.
 
-It shows that experiment loops are not limited to images, code, or CAD. The artifact is text, but the run still records evidence: every loop has multilingual outputs, model provenance, independent judge notes, scores, lineage metadata, and a manifest. It also demonstrates a second kind of panel: not just several agents judging one artifact, but several model-backed generators competing as an experiment panel.
+## Inspect or rerun
 
-## Inspect the completed run
+Open `viewer.html` directly to inspect the Problem, topology, complete Loop prompt/feedback chains, artifacts, scores, and Champion evidence. To rebuild and revalidate from this folder:
 
-Open `viewer.html` in a browser, or read `manifest.json` directly. Each loop folder contains:
-
-- `joke.md`
-- `candidate.json`
-- judge notes
-
-The viewer includes the experiment graph, score timeline, candidate translations, model-panel provenance, judge-panel dissent, artifact inventory, raw iteration JSON, and raw manifest JSON.
-
-## Rerun
-
-```powershell
-python run_example.py
+```text
+python check_completeness.py --data . --out completeness-report.json
+python build_viewer.py --data . --out viewer.html
+node ..\.github\skills\experiment-loop\references\navigation_judge\cli.mjs --viewer viewer.html --out .
+python -m references.evidence_gate .
 ```
 
-Dependency: Python standard library only.
+Run the final two commands from the repository root with the skill root on `PYTHONPATH`, or set `EXPERIMENT_LOOP_SKILL_ROOT` for the Viewer adapter.
+
+## Feature surface demonstrated
+
+**Viewer capabilities:** fixed Overview, Topology, and Compare views; authored milestones; multi-parent lineage; per-Loop Artifact inspection; full prompt/input-feedback/judge-feedback/next-prompt chains; criterion timelines; blind-panel dissent; evidence-linked Champion reasons and caveats; structured generation provenance; native-script rendering; objective gate state; and offline deterministic rebuilds.
+
+**Manifest capabilities:** schema v1.1 Problem framing with exact original Prompt evidence; authoritative generation fields and actual model IDs; explicit scorer semantics and a blocking objective gate; blind judge panels; comparable scorecards; structured Artifact presentation metadata; eight Loops with `parent_ids`; multi-parent synthesis; authored story milestones; and evidence-linked Champion decisions.

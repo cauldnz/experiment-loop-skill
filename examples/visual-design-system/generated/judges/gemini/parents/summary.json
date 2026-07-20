@@ -1,0 +1,104 @@
+{
+  "model_id": "gemini-3.1-pro-preview",
+  "role": "visual-language-critic",
+  "independent": true,
+  "evidence_inspected": [
+    "generated/track-editorial/loop-01/card.svg",
+    "generated/track-editorial/loop-01/tokens.json",
+    "generated/track-editorial/loop-01/layout-metrics.json",
+    "generated/track-editorial/loop-01/prompt-chain.json",
+    "generated/track-editorial/loop-01/self-review.md",
+    "generated/track-editorial/loop-02/card.svg",
+    "generated/track-editorial/loop-02/tokens.json",
+    "generated/track-editorial/loop-02/layout-metrics.json",
+    "generated/track-editorial/loop-02/prompt-chain.json",
+    "generated/track-editorial/loop-02/self-review.md",
+    "generated/track-generative/loop-01/card.svg",
+    "generated/track-generative/loop-01/layout-metrics.json",
+    "generated/track-generative/loop-01/prompt-chain.json",
+    "generated/track-generative/loop-01/self-review.md",
+    "generated/track-generative/loop-02/card.svg",
+    "generated/track-generative/loop-02/layout-metrics.json",
+    "generated/track-generative/loop-02/prompt-chain.json",
+    "generated/track-generative/loop-02/self-review.md"
+  ],
+  "bias_flag": "As a Gemini model (gemini-3.1-pro-preview), I lack provenance affinity for the Claude-generated candidates in the Editorial track, ensuring strict, evidence-based independence.",
+  "candidates": {
+    "editorial-01": {
+      "scores": {
+        "visual_hierarchy": 4,
+        "brand_distinctiveness": 3,
+        "information_clarity": 2,
+        "system_coherence": 4,
+        "production_polish": 3
+      },
+      "objective_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "fail"
+      },
+      "top_defects": [
+        "Severe contrast failure on ink.muted token (2.49:1) rendering metadata inaccessible."
+      ],
+      "next_step": "Fixed in loop-02 via token adjustment.",
+      "rationale": "Strong editorial grid and hierarchy, but failed an objective accessibility gate."
+    },
+    "editorial-02": {
+      "scores": {
+        "visual_hierarchy": 4,
+        "brand_distinctiveness": 4,
+        "information_clarity": 5,
+        "system_coherence": 5,
+        "production_polish": 5
+      },
+      "objective_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "pass"
+      },
+      "top_defects": [],
+      "next_step": "Stress test character limits on title and venue fields.",
+      "rationale": "Excellent structural repair of contrast issues. Highly polished print-style layout with proven variant capability."
+    },
+    "generative-01": {
+      "scores": {
+        "visual_hierarchy": 3,
+        "brand_distinctiveness": 4,
+        "information_clarity": 1,
+        "system_coherence": 3,
+        "production_polish": 2
+      },
+      "objective_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "fail"
+      },
+      "top_defects": [
+        "Signal paths overlap text, causing severe legibility failures."
+      ],
+      "next_step": "Fixed in loop-02 by shifting visuals to a dedicated zone.",
+      "rationale": "High originality and distinctiveness but failed fundamental layout non-overlap gates."
+    },
+    "generative-02": {
+      "scores": {
+        "visual_hierarchy": 5,
+        "brand_distinctiveness": 5,
+        "information_clarity": 5,
+        "system_coherence": 4,
+        "production_polish": 4
+      },
+      "objective_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "pass"
+      },
+      "top_defects": [],
+      "next_step": "System ready for synthesis; consider tokenizing the modular container for programmatic generation.",
+      "rationale": "Exceptional brand alignment and gestalt balance achieved by zoning the text and generative elements into an instrument-panel layout."
+    }
+  },
+  "ranking": [
+    "generative-02",
+    "editorial-02",
+    "editorial-01",
+    "generative-01"
+  ],
+  "preferred_candidate": "generative-02",
+  "dissent_statement": "While Editorial-02 possesses superior token documentation and strict mathematical regression discipline (the 'safest' system), Generative-02 is the preferred candidate. Generative-02 achieves a far more memorable, brand-appropriate 'Loop Lab' visual language with its modular instrument panel aesthetic. Editorial-02 borders on generic print mimicry, whereas Generative-02 leverages the digital medium to create true originality and gestalt balance. As an independent critic, I prioritize the artifact that delivers the strongest distinctiveness and visual hierarchy once all objective gates are cleared."
+}

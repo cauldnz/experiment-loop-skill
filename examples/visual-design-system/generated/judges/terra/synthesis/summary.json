@@ -1,0 +1,83 @@
+{
+  "role": "layout-critic",
+  "model_id": "gpt-5.6-terra",
+  "independent": true,
+  "evidence_inspected": [
+    "generated/track-synthesis/loop-01/{card.svg,variants.svg,card-preview.png,variants-preview.png,tokens.json,layout-metrics.json,prompt-chain.json,synthesis-notes.md}",
+    "generated/track-synthesis/loop-02/{card.svg,variants.svg,card-preview.png,variants-preview.png,tokens.json,layout-metrics.json,prompt-chain.json,synthesis-notes.md}",
+    "generated/track-synthesis/manifest-fragment.json",
+    "generated/judges/terra/parents/{editorial-02.md,generative-02.md,summary.json}"
+  ],
+  "verification_method": {
+    "svg": "XML parsed independently; source SVG geometry and rendered previews inspected.",
+    "rendered_geometry": "Inkscape --query-id on title-block and flexible venue values.",
+    "contrast": "WCAG relative-luminance computation from source token hex values."
+  },
+  "loops": {
+    "synthesis-01": {
+      "scores": {
+        "visual_hierarchy": 4,
+        "brand_distinctiveness": 5,
+        "information_clarity": 4,
+        "system_coherence": 3,
+        "production_polish": 3
+      },
+      "objective_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "fail",
+        "required_content": "pass",
+        "text_contrast": "pass",
+        "unintended_overlap": "pass",
+        "safe_zone": "pass",
+        "compact_containment": "fail"
+      },
+      "verified_claims": {
+        "cta_contrast": "pass: #FFFFFF on #173B57 = 11.67:1",
+        "title_panel_repair": "pass: title ends x=691.262; panel starts x=760; gap=68.738px",
+        "venue_overset": "fail: HUB A + WEB ends x=779.358, 3.358px beyond outer card edge x=776"
+      },
+      "defects": [
+        "Visible hybrid compact venue overset.",
+        "Fixed compact metadata budget is disproven by a supplied variant.",
+        "Fixed badge and title capacity rules remain unproven."
+      ],
+      "parent_comparison": "Improves generative-02 contrast, metadata semantics, and title/graphic zoning; adds a more bespoke brand object to editorial-02, but introduces a reusable-state containment failure."
+    },
+    "synthesis-02": {
+      "scores": {
+        "visual_hierarchy": 5,
+        "brand_distinctiveness": 5,
+        "information_clarity": 5,
+        "system_coherence": 5,
+        "production_polish": 4
+      },
+      "objective_gates": {
+        "svg_validity": "pass",
+        "layout_quality": "pass",
+        "required_content": "pass",
+        "text_contrast": "pass",
+        "unintended_overlap": "pass",
+        "safe_zone": "pass",
+        "compact_containment": "pass"
+      },
+      "verified_claims": {
+        "cta_contrast": "pass: #FFFFFF on #173B57 = 11.67:1",
+        "title_panel_repair": "pass: title ends x=640.484; panel starts x=752; gap=111.516px",
+        "venue_overset_repair": "pass: stress venue ends x=289.239 with 82.761px before inner edge x=372"
+      },
+      "defects": [
+        "Localization, RTL, and non-Latin expansion are untested.",
+        "Fallback-font variation is untested outside the inspected rendering environment.",
+        "Two-line badge-overflow behavior is specified but not rendered."
+      ],
+      "parent_comparison": "Retains editorial-02's hierarchy and explicit metadata while retaining generative-02's routing identity; materially resolves both parent CTA/title risks and Loop 01's venue overset."
+    }
+  },
+  "ranking": [
+    "synthesis-02",
+    "synthesis-01"
+  ],
+  "preference": "synthesis-02 for inspected layout quality and system resilience only",
+  "promotion": "none; this is an independent critique, not a promotion decision",
+  "explicit_dissent": "Synthesis-02 passes only the inspected English, system-font evidence. It should not be read as proof of localization or production-environment resilience. Synthesis-01's strong display card does not offset its visible compact-system failure."
+}

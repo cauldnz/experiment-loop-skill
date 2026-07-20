@@ -1,0 +1,57 @@
+name: Validate and publish examples (manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish_pages:
+        description: Publish validated Example Viewers to GitHub Pages
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: references/navigation_judge/package-lock.json
+      - run: python -m pip install -r requirements.txt
+      - run: npm ci
+        working-directory: references/navigation_judge
+      - run: npx playwright install --with-deps chromium
+        working-directory: references/navigation_judge
+      - run: python scripts/check_example_freshness.py
+      - run: python scripts/ci_validate_examples.py
+      - if: inputs.publish_pages
+        run: python scripts/build_pages.py --out _site
+      - if: inputs.publish_pages
+        uses: actions/configure-pages@v5
+      - if: inputs.publish_pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    if: inputs.publish_pages
+    needs: validate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

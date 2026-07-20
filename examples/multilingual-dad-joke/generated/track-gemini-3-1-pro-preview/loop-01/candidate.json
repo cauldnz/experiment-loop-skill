@@ -1,0 +1,29 @@
+{
+  "mechanism": "Visual/situational absurdity relying on human facial expressions, eliminating the need for language-specific wordplay.",
+  "languages": {
+    "en": {
+      "setup": "I told my son he was drawing his eyebrows too high.",
+      "punchline": "He looked surprised.",
+      "combined": "I told my son he was drawing his eyebrows too high. He looked surprised.",
+      "portability_notes": "Relies entirely on the universal physics of human facial expressions (high eyebrows = surprise). Translates perfectly into any language."
+    },
+    "fr": {
+      "setup": "J'ai dit à mon fils qu'il dessinait ses sourcils trop haut.",
+      "punchline": "Il a eu l'air surpris.",
+      "combined": "J'ai dit à mon fils qu'il dessinait ses sourcils trop haut. Il a eu l'air surpris.",
+      "portability_notes": "Idiomatic phrasing 'a eu l'air' naturally conveys the unintended expression."
+    },
+    "es": {
+      "setup": "Le dije a mi hijo que se estaba dibujando las cejas muy altas.",
+      "punchline": "Me miró sorprendido.",
+      "combined": "Le dije a mi hijo que se estaba dibujando las cejas muy altas. Me miró sorprendido.",
+      "portability_notes": "Simple, direct translation retaining the same semantic punch."
+    },
+    "ja": {
+      "setup": "息子に「眉毛を描く位置が高すぎるよ」と言ったら、",
+      "punchline": "驚いた顔をした。",
+      "combined": "息子に「眉毛を描く位置が高すぎるよ」と言ったら、驚いた顔をした。",
+      "portability_notes": "Uses standard Japanese phrasing for drawing eyebrows ('描く位置' - drawing position) and expressing surprise visually ('驚いた顔をした')."
+    }
+  }
+}
