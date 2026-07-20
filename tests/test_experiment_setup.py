@@ -130,6 +130,16 @@ class ExperimentSetupTests(unittest.TestCase):
         del brief["target"]["scratch_root"]
         self.assertEqual([], validate_brief(brief))
 
+    def test_windows_absolute_target_path_fails(self) -> None:
+        brief = self.valid_brief()
+        brief["target"]["scratch_root"] = (
+            r"C:\outside\generated\harness\scratch"
+        )
+        self.assertIn(
+            "target.scratch_root must be a repository-relative path",
+            validate_brief(brief),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()

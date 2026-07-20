@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from pathlib import Path, PurePosixPath
+from pathlib import Path, PurePosixPath, PureWindowsPath
 from typing import Any
 
 import jsonschema
@@ -38,7 +38,12 @@ def _relative_path(value: object) -> bool:
         return False
     normalized = value.replace("\\", "/")
     path = PurePosixPath(normalized)
-    return not path.is_absolute() and ".." not in path.parts
+    windows_path = PureWindowsPath(value)
+    return (
+        not path.is_absolute()
+        and not windows_path.drive
+        and ".." not in path.parts
+    )
 
 
 def _path_is_within(child: object, parent: object) -> bool:
