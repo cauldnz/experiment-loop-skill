@@ -34,7 +34,8 @@
       "properties": {
         "repository_root": {"$ref": "#/$defs/non_empty"},
         "setup_root": {"$ref": "#/$defs/non_empty"},
-        "generated_root": {"$ref": "#/$defs/non_empty"}
+        "generated_root": {"$ref": "#/$defs/non_empty"},
+        "scratch_root": {"$ref": "#/$defs/non_empty"}
       },
       "additionalProperties": false
     },

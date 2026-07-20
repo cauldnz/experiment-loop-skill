@@ -76,3 +76,14 @@ the lockfile, or repository configuration.
 
 After install, start a new Copilot CLI or Claude Code session, or reload skills
 if the runtime supports skill reload.
+
+Both installed skills include `scripts/prepare_scratch.py`. Before an unattended
+Windows run, create prompt-safe experiment-local scratch space with:
+
+```powershell
+python <installed-skill>\scripts\prepare_scratch.py `
+  --generated-root .experiments\<experiment-id>\generated
+```
+
+If a tool requires an existing session scratch directory, use
+`--session-scratch <path>` and pass agents only the printed long-form path.

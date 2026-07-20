@@ -6,7 +6,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
-from pathlib import Path, PurePosixPath
+from pathlib import Path, PurePosixPath, PureWindowsPath
 from typing import Any
 
 import jsonschema
@@ -38,7 +38,20 @@ def _relative_path(value: object) -> bool:
         return False
     normalized = value.replace("\\", "/")
     path = PurePosixPath(normalized)
-    return not path.is_absolute() and ".." not in path.parts
+    windows_path = PureWindowsPath(value)
+    return (
+        not path.is_absolute()
+        and not windows_path.drive
+        and ".." not in path.parts
+    )
+
+
+def _path_is_within(child: object, parent: object) -> bool:
+    if not _relative_path(child) or not _relative_path(parent):
+        return False
+    child_path = PurePosixPath(str(child).replace("\\", "/"))
+    parent_path = PurePosixPath(str(parent).replace("\\", "/"))
+    return child_path == parent_path or parent_path in child_path.parents
 
 
 def validate_brief(data: object) -> list[str]:
@@ -121,6 +134,13 @@ def validate_brief(data: object) -> list[str]:
 
     autonomy = data["autonomy"]
     if autonomy["mode"] == "unattended":
+        scratch_root = data["target"].get("scratch_root")
+        if scratch_root is None:
+            errors.append("unattended mode requires target.scratch_root")
+        elif not _path_is_within(scratch_root, data["target"]["generated_root"]):
+            errors.append(
+                "unattended target.scratch_root must be within target.generated_root"
+            )
         if not autonomy["pause_conditions"]:
             errors.append("unattended mode requires pause conditions")
         if not autonomy["prohibited_actions"]:

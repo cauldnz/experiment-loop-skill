@@ -63,6 +63,8 @@ Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
 - `references/navigation_judge` produces required Navigation Evidence with pinned Chromium.
 - `references/evidence_gate` is the single blocking experiment completion gate.
 - `scripts/regenerate_examples.py` transactionally regenerates committed snapshots from Example Prompts.
+- `scripts/prepare_scratch.py` creates experiment-local scratch space and expands
+  unavoidable Windows 8.3 session paths before unattended work.
 - `.github/workflows/tests.yml` runs lightweight unit tests on pull requests and `main`.
 - `.github/workflows/examples.yml` manually validates refreshed snapshots and optionally publishes valid Viewers with GitHub Pages.
 
@@ -71,6 +73,9 @@ Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
 - Read `docs\quickstart.md` for the shortest path.
 - Invoke `experiment-setup` to create and approve
   `.experiments\<id>\setup\`, then invoke `experiment-loop`.
+- On Windows, prepare unattended scratch space under
+  `.experiments\<id>\generated\harness\scratch\`; never use a session path that
+  still contains an 8.3 component such as `CHRISA~1`.
 - Read `docs\concepts.md` for the mental model.
 - Read `docs\judging.md` to choose objective, qualitative, or panel judging.
 - Read `docs\viewer.md` to understand the expected inspection UI.

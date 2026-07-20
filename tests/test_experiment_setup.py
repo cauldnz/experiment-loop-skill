@@ -107,6 +107,39 @@ class ExperimentSetupTests(unittest.TestCase):
             errors,
         )
 
+    def test_unattended_mode_requires_scratch_root(self) -> None:
+        brief = self.valid_brief()
+        brief["autonomy"]["mode"] = "unattended"
+        del brief["target"]["scratch_root"]
+        self.assertIn(
+            "unattended mode requires target.scratch_root",
+            validate_brief(brief),
+        )
+
+    def test_unattended_scratch_root_must_be_under_generated_root(self) -> None:
+        brief = self.valid_brief()
+        brief["autonomy"]["mode"] = "unattended"
+        brief["target"]["scratch_root"] = ".scratch"
+        self.assertIn(
+            "unattended target.scratch_root must be within target.generated_root",
+            validate_brief(brief),
+        )
+
+    def test_interactive_legacy_brief_may_omit_scratch_root(self) -> None:
+        brief = self.valid_brief()
+        del brief["target"]["scratch_root"]
+        self.assertEqual([], validate_brief(brief))
+
+    def test_windows_absolute_target_path_fails(self) -> None:
+        brief = self.valid_brief()
+        brief["target"]["scratch_root"] = (
+            r"C:\outside\generated\harness\scratch"
+        )
+        self.assertIn(
+            "target.scratch_root must be a repository-relative path",
+            validate_brief(brief),
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
