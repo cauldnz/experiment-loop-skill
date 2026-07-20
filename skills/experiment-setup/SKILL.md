@@ -45,10 +45,29 @@ The Experiment writes runtime output to:
 
 ```text
 .experiments/<experiment-id>/generated/
+  harness/
+    scratch/
 ```
 
 If the target project already has an Experiment convention, use it instead and
 record the repository-relative paths in the brief.
+
+For unattended Windows runs, `target.scratch_root` must be inside
+`target.generated_root`; default to
+`.experiments/<experiment-id>/generated/harness/scratch`. Prepare it before
+handoff with:
+
+```text
+python <experiment-setup-skill>/scripts/prepare_scratch.py \
+  --generated-root .experiments/<experiment-id>/generated
+```
+
+Never direct unattended agents to `%TEMP%` or a Claude/Copilot session
+scratchpad. Windows session paths can contain 8.3 components such as
+`CHRISA~1`, causing manual suspicious-path prompts. If a session scratch
+directory is unavoidable, run the helper with `--session-scratch <path>`, record
+and distribute only the printed long-form path, and make failure to expand a
+pause condition.
 
 ## Phase 1 — Repository discovery
 
@@ -125,6 +144,7 @@ must:
 - name the brief path and revision as authoritative;
 - restate the frozen invariants and allowed-change scope;
 - pin topology, models/fallbacks, scorers, evidence, budgets, and autonomy;
+- name the exact experiment-local scratch root in every unattended agent Prompt;
 - require Manifest v1.1, exact Prompt/feedback history, Viewer, Navigation
   Evidence, and Evidence Gate when declared in the brief;
 - prohibit silent mutation of the brief.
@@ -152,6 +172,8 @@ facts, Prompt, brief, and preflight evidence. Ask it to find:
 - correlated judges sharing the same incomplete contract;
 - unmeasurable evidence or commands that do not exercise the real outcome;
 - unsafe unattended permissions or missing pause conditions;
+- unattended scratch paths outside the Experiment or containing Windows 8.3
+  components;
 - risk signals without complete controls;
 - budget/topology/model choices that cannot answer the hypothesis.
 

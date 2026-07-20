@@ -28,6 +28,7 @@
     "The skill includes a human-review gate for durable changes to skills, rubrics, judge policy, and reusable instructions.",
     "The companion setup skill produces an independently criticized brief and an approval record bound to the exact Prompt and brief hashes.",
     "Ships references/evidence_gate as the single blocking experiment completion gate and scripts/skill_selftest.py as its batch adapter.",
-    "Ships references/navigation_judge as a locked Playwright/Chromium module for required Navigation Evidence."
+    "Ships references/navigation_judge as a locked Playwright/Chromium module for required Navigation Evidence.",
+    "Ships scripts/prepare_scratch.py in both skills for prompt-safe unattended Windows scratch paths."
   ]
 }

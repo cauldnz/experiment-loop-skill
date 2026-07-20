@@ -243,6 +243,8 @@ Use a dedicated output directory in the current workspace:
 experiment-loop/
   manifest.json
   viewer.html
+  harness/
+    scratch/
   track-<name>/
     loop-01/
       artifact...
@@ -256,6 +258,25 @@ experiment-loop/
 If working in a repository, avoid committing generated experiment artifacts
 unless the user explicitly wants them. For scratch/chat sessions, local files are
 fine.
+
+For unattended Windows runs, keep every temporary script, payload, log, and
+intermediate file in the Experiment workspace, preferably
+`<generated-root>/harness/scratch/`. Do not write unattended work to `%TEMP%` or
+the Claude/Copilot session scratchpad: those paths can contain 8.3 components
+such as `CHRISA~1`, which trigger suspicious-path permission prompts and stall
+the run. Prepare the directory before spawning agents and pass its exact path to
+every Track:
+
+```text
+python <experiment-loop-skill>/scripts/prepare_scratch.py \
+  --generated-root .experiments/<experiment-id>/generated
+```
+
+The helper creates a locally gitignored scratch directory and prints its
+absolute path. If an external tool requires an existing session scratch
+directory, expand it first with `--session-scratch <path>` and use only the
+printed long-form path. If expansion fails or still contains an 8.3 component,
+pause rather than prompting during an unattended run.
 
 ### 6. Record a manifest
 

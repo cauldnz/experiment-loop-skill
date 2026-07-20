@@ -48,6 +48,7 @@ install_setup() {
   cp "$source_dir/references/experiment-brief-schema-v1.0.json" "$path/references/"
   cp "$source_dir/references/experiment-approval-schema-v1.0.json" "$path/references/"
   cp "$source_dir/scripts/validate_experiment_setup.py" "$path/scripts/"
+  cp "$source_dir/scripts/prepare_scratch.py" "$path/scripts/"
   cp "$source_dir/templates/experiment-brief-template.json" "$path/templates/"
   cp "$source_dir/templates/experiment-approval-template.json" "$path/templates/"
   echo "Installed experiment-setup skill to $path"

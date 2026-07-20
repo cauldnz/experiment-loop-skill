@@ -37,6 +37,18 @@ Review the exact Prompt, brief, and critic findings before approving them. An
 approval binds the exact Prompt and brief hashes. Revise approved setup through
 a new numbered revision rather than editing it in place.
 
+For unattended Windows runs, keep scratch files under the Experiment rather
+than in `%TEMP%` or a session scratchpad:
+
+```powershell
+python <experiment-loop-skill>\scripts\prepare_scratch.py `
+  --generated-root .experiments\<experiment-id>\generated
+```
+
+Use the printed path for every agent. If a tool forces use of an existing
+session scratch directory, pass it with `--session-scratch`; the helper expands
+8.3 components such as `CHRISA~1` to a long path or fails before the run starts.
+
 ## 3. Start the Experiment
 
 After approval, ask the agent to invoke `experiment-loop` with the setup
