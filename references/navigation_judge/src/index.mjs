@@ -159,12 +159,24 @@ async function executeTopologyViewport(page, shotsDir, state) {
 
   const viewport = page.locator("#graph-viewport");
   const viewportBox = await viewport.boundingBox();
-  await page.mouse.move(
-    viewportBox.x + viewportBox.width / 2,
-    viewportBox.y + viewportBox.height / 2
-  );
+  const pointer = {
+    x: viewportBox.x + viewportBox.width / 2,
+    y: viewportBox.y + viewportBox.height / 2,
+  };
+  const anchorBefore = {
+    x: (viewportBox.width / 2 - reset.x) / reset.scale,
+    y: (viewportBox.height / 2 - reset.y) / reset.scale,
+  };
+  await page.mouse.move(pointer.x, pointer.y);
   await page.mouse.wheel(0, -600);
   const wheelZoomed = await snapshot();
+  const anchorAfter = {
+    x: (viewportBox.width / 2 - wheelZoomed.x) / wheelZoomed.scale,
+    y: (viewportBox.height / 2 - wheelZoomed.y) / wheelZoomed.scale,
+  };
+  const pointerAnchored =
+    Math.abs(anchorBefore.x - anchorAfter.x) < 1 &&
+    Math.abs(anchorBefore.y - anchorAfter.y) < 1;
   await page.mouse.move(viewportBox.x + 32, viewportBox.y + 32);
   await page.mouse.down();
   await page.mouse.move(viewportBox.x + 92, viewportBox.y + 72, { steps: 3 });
@@ -193,6 +205,7 @@ async function executeTopologyViewport(page, shotsDir, state) {
     zoomedOut,
     reset,
     wheelZoomed,
+    pointerAnchored,
     panned,
     beforeMinimap,
     afterMinimap,
@@ -217,6 +230,7 @@ async function executeTopologyViewport(page, shotsDir, state) {
     zoomedOut.scale < zoomed.scale &&
     reset.scale === 1 &&
     wheelZoomed.scale > reset.scale &&
+    pointerAnchored &&
     (panned.x !== wheelZoomed.x || panned.y !== wheelZoomed.y) &&
     minimapMoved &&
     selected.drawerOpen &&
@@ -483,7 +497,7 @@ async function checkDeepLinks(page, fileUrl, contract) {
     topologyState.x !== "-300" ||
     topologyState.y !== "-100" ||
     topologyState.scale !== "2" ||
-    !topologyState.transform.includes("scale(2)") ||
+    !topologyState.transform.includes("translate(-300px, -100px) scale(2)") ||
     topologyState.topology !== "true"
   ) {
     failures.push({ selector: "#graph-stage", ...topologyState });
@@ -496,7 +510,55 @@ async function checkDeepLinks(page, fileUrl, contract) {
   if (!malformedState.usable) {
     failures.push({ selector: "#graph-stage", ...malformedState });
   }
+  await page.goto(`${fileUrl}#view=topology`, { waitUntil: "load" });
+  const deepLoopId = await page.locator(".graph-node").last().getAttribute("data-loop");
+  await page.goto(
+    `${fileUrl}#view=topology&loop=${encodeURIComponent(deepLoopId)}`,
+    { waitUntil: "load" }
+  );
+  await page.waitForTimeout(220);
+  const centeredSelection = await page.locator(`.graph-node[data-loop="${deepLoopId}"]`).evaluate((node) => {
+    const nodeRect = node.getBoundingClientRect();
+    const viewport = document.querySelector("#graph-viewport");
+    const viewportRect = viewport.getBoundingClientRect();
+    return {
+      selected: node.getAttribute("aria-pressed"),
+      drawerOpen: document.querySelector("#loop-inspector")?.classList.contains("is-open"),
+      deltaX: Math.abs(
+        nodeRect.left + nodeRect.width / 2 -
+        (viewportRect.left + viewportRect.width / 2)
+      ),
+      deltaY: Math.abs(
+        nodeRect.top + nodeRect.height / 2 -
+        (viewportRect.top + viewportRect.height / 2)
+      ),
+    };
+  });
+  if (
+    centeredSelection.selected !== "true" ||
+    !centeredSelection.drawerOpen ||
+    centeredSelection.deltaX > 2 ||
+    centeredSelection.deltaY > 2
+  ) {
+    failures.push({ selector: ".graph-node", ...centeredSelection });
+  }
   return check("deep_links", failures.length ? "fail" : "pass", { failures });
+}
+
+async function checkReducedMotion(page, fileUrl) {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.goto(`${fileUrl}#view=topology`, { waitUntil: "load" });
+  await page.locator(".graph-node").last().evaluate((element) => element.click());
+  const result = await page.locator("#graph-stage").evaluate((stage) => ({
+    reduced: matchMedia("(prefers-reduced-motion: reduce)").matches,
+    transition: stage.style.transition,
+  }));
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  return check(
+    "reduced_motion",
+    result.reduced && result.transition === "none" ? "pass" : "fail",
+    result
+  );
 }
 
 export async function judgeViewer({ viewerPath, evidenceDir }) {
@@ -557,6 +619,7 @@ export async function judgeViewer({ viewerPath, evidenceDir }) {
     screenshots = contractRun.screenshots;
     checks.push(await checkKeyboard(page));
     checks.push(await checkDeepLinks(page, fileUrl, contract));
+    checks.push(await checkReducedMotion(page, fileUrl));
     checks.push(
       check(
         "console_errors",

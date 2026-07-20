@@ -146,6 +146,84 @@ class ViewerRendererTests(unittest.TestCase):
         ):
             self.assertIn(marker, rendered)
 
+    def test_bit_quiver_shape_renders_single_loop_tracks_and_synthesis_chain(
+        self,
+    ) -> None:
+        base = self.manifest["iterations"][0]
+        tracks = []
+        iterations = []
+        parent_ids = []
+        for index, track_id in enumerate(
+            ("openscad", "cadquery", "makerskills", "fusion"),
+            start=1,
+        ):
+            tracks.append(
+                {
+                    "id": track_id,
+                    "label": track_id.title(),
+                    "hypothesis": f"Track {index}",
+                }
+            )
+            loop = json.loads(json.dumps(base))
+            loop.update(
+                {
+                    "id": f"{track_id}-loop-01",
+                    "track_id": track_id,
+                    "parent_ids": [],
+                    "decision": "keep_for_synthesis",
+                }
+            )
+            loop["artifacts"][0]["id"] = f"{track_id}-artifact"
+            iterations.append(loop)
+            parent_ids.append(loop["id"])
+        tracks.append(
+            {"id": "synthesis", "label": "Synthesis", "hypothesis": "Combine."}
+        )
+        for number in (1, 2):
+            loop = json.loads(json.dumps(base))
+            loop.update(
+                {
+                    "id": f"synthesis-loop-{number:02d}",
+                    "track_id": "synthesis",
+                    "parent_ids": parent_ids if number == 1 else ["synthesis-loop-01"],
+                    "decision": "new_best",
+                }
+            )
+            loop["artifacts"][0]["id"] = f"synthesis-artifact-{number}"
+            iterations.append(loop)
+        manifest = {
+            **self.manifest,
+            "tracks": tracks,
+            "iterations": iterations,
+            "champion": {
+                **self.manifest["champion"],
+                "iteration_id": "synthesis-loop-02",
+            },
+        }
+
+        view_model = build_view_model(manifest)
+        rendered = render_viewer(manifest)
+
+        self.assertEqual([1, 1, 1, 1, 2], [track["loop_count"] for track in view_model["tracks"]])
+        self.assertIn(
+            "${tracks.length} Tracks x ${loopDimension} Loops per Track | "
+            "${VM.loops.length} iterations total",
+            rendered,
+        )
+        self.assertEqual(
+            5,
+            sum(len(loop["parent_ids"]) for loop in view_model["loops"]),
+        )
+        self.assertIn('marker-end="url(#topology-arrow)"', rendered)
+        self.assertEqual(
+            4,
+            sum(
+                loop["decision"] == "keep_for_synthesis"
+                for loop in view_model["loops"]
+            ),
+        )
+        self.assertIn(".graph-node.keep_for_synthesis", rendered)
+
     def test_human_review_ui_is_conditional_and_identity_free(self) -> None:
         self.assertNotIn('id="human-review-button"', render_viewer(self.manifest))
         self.manifest["scorers"].append(

@@ -11,9 +11,12 @@ The shared Viewer has three fixed views:
    tells the authored milestone journey, and links every winning reason or
    caveat to evidence. The exact original Experiment Prompt is directly
    inspectable.
-2. **Topology** renders Tracks as columns and Loops top-to-bottom, including all
-   `parent_ids`. Selecting a Loop opens its inspector with the primary Artifact,
-   metrics, gate state, judge feedback, lesson, and full prompt/feedback chain.
+2. **Topology** renders Tracks as horizontal swimlanes and each Track's Loops
+   left-to-right, with directed `parent_ids` edges and synthesis convergence.
+   Selecting a Loop centers it and opens a collapsible inspector with the primary
+   Artifact, metrics, gate state, judge feedback, lesson, and full
+   prompt/feedback chain. Pan, pointer-centered zoom, Fit, reset, minimap,
+   maximize, and URL-persisted viewport state support large graphs.
 3. **Compare** shows Experiment-wide metric progression and compares any two
    Loops, defaulting to the earliest Loop and Champion.
 
@@ -40,7 +43,8 @@ uses a composite hash such as `#view=topology&loop=loop-003`. The pinned
 Playwright judge exercises:
 
 - primary navigation and deep links;
-- the graph's single Tab stop and keyboard selection;
+- the graph's single Tab stop, keyboard selection, centered deep links, pan,
+  pointer-centered zoom, Fit/reset, minimap, inspector, and maximize controls;
 - Loop filters and complete All Loops list;
 - Compare selectors;
 - theme selection;

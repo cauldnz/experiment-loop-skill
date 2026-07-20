@@ -440,6 +440,11 @@ pre {
   cursor: pointer;
 }
 .graph-node[aria-pressed="true"] { border: 2px solid var(--cp-accent); background: var(--cp-accent-soft); }
+.graph-node.new_best { border-left: 5px solid var(--cp-success); }
+.graph-node.keep_for_synthesis { border-left: 5px solid var(--cp-accent); }
+.graph-node.reject, .graph-node.failed { border-left: 5px solid var(--cp-danger); }
+.graph-node.needs_human_review { border-left: 5px solid var(--cp-warning); }
+.graph-node.failed { border-style: dashed; }
 .graph-node.is-dimmed { opacity: .28; }
 .node-title { display: flex; justify-content: space-between; gap: 6px; font-weight: 650; }
 .node-meta { margin-top: 8px; color: var(--cp-text-muted); font: 12px Consolas, "Courier New", Courier, monospace; }
@@ -762,13 +767,19 @@ __HUMAN_DIALOG__
   function renderTopology() {
     const tracks = VM.tracks;
     const decisions = [...new Set(VM.loops.map(loop => loop.decision).filter(Boolean))];
+    const trackLoopCounts = tracks.map(track => Number(track.loop_count || 0));
+    const minTrackLoops = Math.min(...trackLoopCounts, 0);
+    const maxTrackLoops = Math.max(...trackLoopCounts, 0);
+    const loopDimension = minTrackLoops === maxTrackLoops
+      ? String(minTrackLoops)
+      : `${minTrackLoops}–${maxTrackLoops}`;
     byId("panel-topology").innerHTML = `<div class="topology-workspace" id="topology-workspace">
       <div class="toolbar card compact">
         <label>Track<select id="track-filter"><option value="">All Tracks</option>${tracks.map(track => `<option value="${esc(track.id)}">${esc(track.label || track.id)}</option>`).join("")}</select></label>
         <label>Decision<select id="decision-filter"><option value="">All decisions</option>${decisions.map(value => `<option value="${esc(value)}">${esc(value)}</option>`).join("")}</select></label>
         <label>Search<input id="loop-search" type="search" placeholder="Loop, hypothesis, outcome"></label>
         <label><span>Champion</span><span><input id="champion-filter" type="checkbox"> only</span></label>
-        <div class="topology-summary">${tracks.length} Tracks · ${VM.loops.length} Loops total</div>
+        <div class="topology-summary">${tracks.length} Tracks x ${loopDimension} Loops per Track | ${VM.loops.length} iterations total</div>
         <div class="topology-canvas-tools" aria-label="Topology canvas controls">
           <button class="button" id="topology-zoom-out" aria-label="Zoom out">−</button>
           <button class="button" id="topology-zoom-in" aria-label="Zoom in">+</button>
@@ -796,7 +807,7 @@ __HUMAN_DIALOG__
     if (state.x != null && state.y != null && state.scale != null) {
       topologyController.set(
         {x: Number(state.x), y: Number(state.y), scale: Number(state.scale)},
-        {persist: false}
+        {persist: false, unclamped: true}
       );
     } else {
       topologyController.fit({persist: false});
@@ -845,17 +856,17 @@ __HUMAN_DIALOG__
       const parent = loopById(parentId);
       if (!parent) return "";
       const from = graphPosition(parent), to = graphPosition(loop);
-      return `<line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}"></line>`;
+      return `<line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}" marker-end="url(#topology-arrow)"></line>`;
     })).join("");
     const nodes = VM.loops.map(loop => {
       const trackIndex = Math.max(0, VM.tracks.findIndex(track => track.id === loop.track_id));
       const depth = loop.topology_column ?? loop.topology_depth ?? loop.index;
-      return `<button class="graph-node" data-loop="${esc(loop.id)}" style="grid-row:${trackIndex + 1};grid-column:${depth + 2}" aria-pressed="false" tabindex="-1">
+      return `<button class="graph-node ${esc(loop.decision)}" data-loop="${esc(loop.id)}" style="grid-row:${trackIndex + 1};grid-column:${depth + 2}" aria-pressed="false" tabindex="-1">
         <span class="node-title"><span>${esc(loop.label || loop.id)}</span>${loop.is_champion ? '<span class="badge champion">Champion</span>' : ""}</span>
-        <span class="node-meta">${esc(loop.decision)} · ${esc(formatValue(loop.primary_value, VM.primary_criterion))}</span>
+        <span class="node-meta"><span class="badge ${esc(loop.decision)}">${esc(loop.decision)}</span> · ${esc(formatValue(loop.primary_value, VM.primary_criterion))}</span>
       </button>`;
     }).join("");
-    stage.innerHTML = `${lanes}<svg class="edge-layer" viewBox="0 0 ${width} ${height}" aria-hidden="true">${edges}</svg>${nodes}`;
+    stage.innerHTML = `${lanes}<svg class="edge-layer" viewBox="0 0 ${width} ${height}" aria-hidden="true"><defs><marker id="topology-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--cp-border-strong)"></path></marker></defs>${edges}</svg>${nodes}`;
     stage.querySelectorAll(".graph-node").forEach(node => {
       node.addEventListener("click", () => selectLoop(node.dataset.loop, true));
       node.addEventListener("keydown", graphKeydown);
@@ -878,7 +889,6 @@ __HUMAN_DIALOG__
   }
 
   function createCanvasController(viewport, stage, dimensions) {
-    const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const bounds = {minScale: .08, maxScale: 2.5, padding: 24};
     let state = {x: 0, y: 0, scale: 1};
 
@@ -905,11 +915,18 @@ __HUMAN_DIALOG__
       );
       const rawX = Number(partial.x ?? state.x);
       const rawY = Number(partial.y ?? state.y);
+      const nextX = Number.isFinite(rawX) ? rawX : state.x;
+      const nextY = Number.isFinite(rawY) ? rawY : state.y;
       const next = {
         scale,
-        x: clampAxis(Number.isFinite(rawX) ? rawX : state.x, viewport.clientWidth, dimensions.width * scale),
-        y: clampAxis(Number.isFinite(rawY) ? rawY : state.y, viewport.clientHeight, dimensions.height * scale),
+        x: options.unclamped
+          ? nextX
+          : clampAxis(nextX, viewport.clientWidth, dimensions.width * scale),
+        y: options.unclamped
+          ? nextY
+          : clampAxis(nextY, viewport.clientHeight, dimensions.height * scale),
       };
+      const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
       stage.style.transition = options.animate && !reduceMotion ? "transform 180ms ease" : "none";
       stage.style.transform = `translate(${next.x}px, ${next.y}px) scale(${next.scale})`;
       state = next;
@@ -960,7 +977,7 @@ __HUMAN_DIALOG__
         scale,
         x: viewport.clientWidth / 2 - (target.x + target.width / 2) * scale,
         y: viewport.clientHeight / 2 - (target.y + target.height / 2) * scale,
-      }, {...options, animate: options.animate !== false});
+      }, {...options, animate: options.animate !== false, unclamped: true});
     }
 
     return {set, focus, get, fit, reset};
@@ -1374,7 +1391,7 @@ __HUMAN_DIALOG__
       if (hasViewport) {
         topologyController.set(
           {x: Number(state.x), y: Number(state.y), scale: Number(state.scale)},
-          {persist: false}
+          {persist: false, unclamped: true}
         );
       }
       if (state.loop) {
