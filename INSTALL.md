@@ -93,3 +93,8 @@ and standard adapter template. Generated adapters support both one-shot builds
 and dependency-free local `--watch` mode without additional installation. Both
 skills include the canonical human-feedback intake/disposition schemas and
 templates; the loop skill includes `scripts/validate_human_feedback.py`.
+The installed setup schema supports legacy v1.0 briefs and emits v1.1 briefs with
+mandatory human-use applicability for physical and digital systems, prior-art
+review, and explicit network-search policy. The shared Viewer adapter renders
+selected qualitative use-friction evidence without presenting it as an objective
+gate.

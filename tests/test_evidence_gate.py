@@ -174,6 +174,166 @@ class EvidenceGateTests(unittest.TestCase):
 
             self.assertEqual("fail", feedback.status)
 
+    def test_applicable_human_use_requires_qualitative_evidence_for_every_loop(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            self.make_run(root)
+            manifest_path = root / "manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["scorecard"].append(
+                {
+                    "id": "human-use-friction",
+                    "label": "Human-use friction",
+                    "weight": 1,
+                    "direction": "maximize",
+                    "unit": "qualitative points",
+                    "comparable_across_tracks": True,
+                    "primary": False,
+                }
+            )
+            manifest["scorers"].append(
+                {
+                    "id": "ergonomics-panel",
+                    "type": "llm_rubric",
+                    "criterion_ids": ["human-use-friction"],
+                    "judge_panel": "ergonomics-panel",
+                    "primary": False,
+                    "weight": 1,
+                }
+            )
+            for iteration in manifest["iterations"]:
+                iteration["scores"].append(
+                    {
+                        "scorer_id": "ergonomics-panel",
+                        "criterion_id": "human-use-friction",
+                        "value": 4,
+                    }
+                )
+            manifest["human_use"] = {
+                "applicability": "applicable",
+                "rationale": "The artifact is operated by hand.",
+                "friction_scenarios": [
+                    {
+                        "id": "retention",
+                        "category": "inversion_retention",
+                        "operation": "Invert while carrying",
+                        "context": "Normal use",
+                        "material_friction": "Contents may fall out.",
+                        "treatment": "qualitative_scorecard_criterion",
+                        "target": "human-use-friction",
+                        "rationale": "Retention confidence is qualitatively judged.",
+                        "evidence_plan": "Inspect inversion evidence.",
+                    }
+                ],
+                "prior_art_learnings": [],
+                "qualitative_criterion_id": "human-use-friction",
+                "qualitative_scorer_id": "ergonomics-panel",
+                "required_lenses": ["retention", "operability"],
+                "judging_evidence": [],
+            }
+            manifest_path.write_text(json.dumps(manifest), encoding="utf-8")
+
+            report = validate_experiment(root)
+            semantic = next(
+                check for check in report.checks if check.name == "manifest_semantics"
+            )
+
+            self.assertEqual("fail", semantic.status)
+            self.assertIn(
+                "lacks qualitative judging evidence",
+                " ".join(semantic.detail["errors"]),
+            )
+
+    def test_design_invariant_human_use_friction_passes_manifest_gate(
+        self,
+    ) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            self.make_run(root)
+            manifest_path = root / "manifest.json"
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            manifest["scorecard"].append(
+                {
+                    "id": "human-use-friction",
+                    "label": "Human-use friction",
+                    "weight": 1,
+                    "direction": "maximize",
+                    "unit": "qualitative points",
+                    "comparable_across_tracks": True,
+                    "primary": False,
+                }
+            )
+            manifest["scorers"].append(
+                {
+                    "id": "use-panel",
+                    "type": "llm_rubric",
+                    "criterion_ids": ["human-use-friction"],
+                    "judge_panel": "use-panel",
+                    "primary": False,
+                    "weight": 1,
+                }
+            )
+            evidence = []
+            for iteration in manifest["iterations"]:
+                iteration["scores"].append(
+                    {
+                        "scorer_id": "use-panel",
+                        "criterion_id": "human-use-friction",
+                        "value": 4,
+                    }
+                )
+                evidence.append(
+                    {
+                        "iteration_id": iteration["id"],
+                        "criterion_id": "human-use-friction",
+                        "scorer_id": "use-panel",
+                        "kind": "qualitative_rubric",
+                        "objective_gate": False,
+                        "score": 4,
+                        "evidence_refs": [iteration["artifacts"][0]["id"]],
+                        "lens_findings": [
+                            {
+                                "lens": "operability",
+                                "finding": "The invariant preserves intended operation.",
+                            }
+                        ],
+                    }
+                )
+            manifest["human_use"] = {
+                "applicability": "applicable",
+                "rationale": "A person directly operates the artifact.",
+                "friction_scenarios": [
+                    {
+                        "id": "safe-discard",
+                        "category": "destructive_actions",
+                        "operation": "Discard a draft",
+                        "context": "Interrupted mobile workflow",
+                        "material_friction": "An accidental discard loses work.",
+                        "treatment": "design_invariant",
+                        "target": "discard requires confirmation",
+                        "rationale": "Data-loss prevention is frozen.",
+                        "evidence_plan": "Exercise and capture the confirmed discard path.",
+                    }
+                ],
+                "prior_art_learnings": [],
+                "qualitative_criterion_id": "human-use-friction",
+                "qualitative_scorer_id": "use-panel",
+                "required_lenses": ["operability"],
+                "judging_evidence": evidence,
+            }
+            manifest_path.write_text(
+                json.dumps(manifest, indent=2) + "\n",
+                encoding="utf-8",
+            )
+
+            report = validate_experiment(root)
+            statuses = {check.name: check.status for check in report.checks}
+
+            self.assertEqual("pass", statuses["manifest_schema"])
+            self.assertEqual("pass", statuses["manifest_semantics"])
+
 
 if __name__ == "__main__":
     unittest.main()

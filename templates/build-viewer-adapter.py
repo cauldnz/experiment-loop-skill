@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Standard Viewer adapter for Manifest and human-feedback one-shot/watch builds."""
+"""Standard Viewer adapter for Manifest, human-use, and feedback inspection."""
 
 from __future__ import annotations
 

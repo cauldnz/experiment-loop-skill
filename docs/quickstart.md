@@ -37,6 +37,14 @@ Review the exact Prompt, brief, and critic findings before approving them. An
 approval binds the exact Prompt and brief hashes. Revise approved setup through
 a new numbered revision rather than editing it in place.
 
+Every new brief uses schema v1.1 and explicitly declares human-use analysis
+applicable or not applicable with a rationale. Human-operated includes physical
+tools, digital interfaces, interactive artifacts, and workflows. For applicable
+artifacts, review the selected physical and/or digital operation/context
+frictions, qualitative use criterion, and every owner-provided prior-art
+reference. Independent prior-art search is off unless the frozen network-risk
+policy explicitly approves it and records provenance.
+
 For unattended Windows runs, keep scratch files under the Experiment rather
 than in `%TEMP%` or a session scratchpad:
 
@@ -99,6 +107,13 @@ Manifest/Prompt chain before the next Loop. See `docs\human-feedback.md`.
 Use objective commands when correctness can be measured, for example tests, route length, benchmarks, or schema validation.
 
 Use independent qualitative judges when the target is visual quality, UX, writing, prompt quality, or design taste. The generator should not be the only judge of its own work if a result is promoted as the champion.
+
+For human-operated artifacts, require relevant qualitative human-use lenses.
+Physical systems may need contact, comfort, retention, strength, and degraded
+geometry findings. Digital systems may need discoverability, navigation, input,
+error recovery, status, accessibility, responsive/touch use, interruption,
+latency, destructive-action, and cognitive-load findings. These scores are
+rubric evidence, not numeric geometry, load, or interaction gates.
 
 ## 6. Inspect the result
 

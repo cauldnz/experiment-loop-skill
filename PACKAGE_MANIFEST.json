@@ -4,9 +4,9 @@
     "experiment-loop",
     "experiment-setup"
   ],
-  "source": "Curated from the approved experiment-loop skill after proposals 002/003/004/005/006/007/008/009/010/011 were applied.",
-  "source_commit": "78dafb8f7a091de6ee0e56811ac443c85d171e14",
-  "description": "Shareable package for experiment-setup and experiment-loop, including frozen setup contracts, canonical human-feedback intake and disposition, deep Viewer, Evidence Gate, navigation judging, regeneration tooling, documentation, and Generated Examples.",
+  "source": "Curated from main 9c3b08fe37afe389c0c5a7487b5363cf902804fd with approved proposal 012 applied.",
+  "source_commit": "9c3b08fe37afe389c0c5a7487b5363cf902804fd",
+  "description": "Shareable package for experiment-setup and experiment-loop, including frozen setup and human-use contracts, canonical human-feedback intake and disposition, deep Viewer, Evidence Gate, navigation judging, regeneration tooling, documentation, and Generated Examples.",
   "dependencies": {
     "required": [
       "Python 3.11+",
@@ -31,6 +31,7 @@
     "Ships references/navigation_judge as a locked Playwright/Chromium module for required Navigation Evidence.",
     "Ships scripts/prepare_scratch.py in both skills for prompt-safe unattended Windows scratch paths.",
     "Ships the standard Viewer adapter and shared dependency-free watch mode for incremental Manifest and human-feedback inspection; final Evidence Gate semantics are unchanged.",
-    "Ships immutable Viewer-native human-feedback intake and orchestrator disposition schemas, templates, semantic validation, Manifest linkage, and attended-mode protocol."
+    "Ships immutable Viewer-native human-feedback intake and orchestrator disposition schemas, templates, semantic validation, Manifest linkage, and attended-mode protocol.",
+    "Ships explicit human-use applicability for physical and digital systems, selectable qualitative friction analysis and judging, prior-art functional-review provenance, and network-approval enforcement while preserving legacy briefs and Manifests."
   ]
 }

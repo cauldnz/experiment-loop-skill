@@ -63,6 +63,11 @@
     }
   ],
   "judge_panels": [],
+  "human_use": {
+    "applicability": "not_applicable",
+    "rationale": "The template result is not directly operated by a person; it is neither a physical tool nor an interactive digital system or workflow.",
+    "prior_art_learnings": []
+  },
   "human_feedback": [],
   "tracks": [
     {

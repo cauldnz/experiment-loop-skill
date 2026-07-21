@@ -43,6 +43,8 @@ class ViewerRendererTests(unittest.TestCase):
         self.assertIn('"version":"1.1"', first)
         self.assertIn("Original Experiment Prompt", first)
         self.assertIn("Judge feedback", first)
+        self.assertIn("Human use / friction", first)
+        self.assertIn("Not applicable", first)
         self.assertIn("--cp-accent: #b11f4b", first)
         binding = re.search(r'"viewer_sha256":"([a-f0-9]{64})"', first)
         self.assertIsNotNone(binding)
@@ -248,6 +250,191 @@ class ViewerRendererTests(unittest.TestCase):
             "reviewer identity",
             rendered.lower().replace("no reviewer identity", ""),
         )
+
+    def test_applicable_human_use_renders_qualitative_evidence(self) -> None:
+        self.manifest["scorecard"].append(
+            {
+                "id": "human-use-friction",
+                "label": "Human-use friction",
+                "weight": 1,
+                "direction": "maximize",
+                "unit": "qualitative points",
+                "comparable_across_tracks": True,
+                "primary": False,
+            }
+        )
+        self.manifest["scorers"].append(
+            {
+                "id": "ergonomics-panel",
+                "type": "llm_rubric",
+                "criterion_ids": ["human-use-friction"],
+                "judge_panel": "ergonomics-panel",
+                "primary": False,
+                "weight": 1,
+            }
+        )
+        findings = [
+            {
+                "lens": "sharp_contact_edges",
+                "finding": "No sharp contact edge observed.",
+            },
+            {
+                "lens": "comfort",
+                "finding": "Grip appears comfortable for the intended short use.",
+            },
+            {
+                "lens": "retention",
+                "finding": "Inversion evidence shows the retained part stays seated.",
+            },
+            {
+                "lens": "strength_confidence_under_intended_loads",
+                "finding": "Section and slicer evidence support qualitative confidence.",
+            },
+            {
+                "lens": "operability",
+                "finding": "Insertion and removal remain finger-operable.",
+            },
+            {
+                "lens": "degraded_cosmetic_operations",
+                "finding": "No failed fillet or chamfer operation is present.",
+            },
+        ]
+        evidence = []
+        for iteration in self.manifest["iterations"]:
+            iteration["scores"].append(
+                {
+                    "scorer_id": "ergonomics-panel",
+                    "criterion_id": "human-use-friction",
+                    "value": 4,
+                    "notes": "Qualitative human-use rubric.",
+                }
+            )
+            evidence.append(
+                {
+                    "iteration_id": iteration["id"],
+                    "criterion_id": "human-use-friction",
+                    "scorer_id": "ergonomics-panel",
+                    "kind": "qualitative_rubric",
+                    "objective_gate": False,
+                    "score": 4,
+                    "evidence_refs": [iteration["artifacts"][0]["id"]],
+                    "lens_findings": findings,
+                }
+            )
+        self.manifest["human_use"] = {
+            "applicability": "applicable",
+            "rationale": "The artifact is gripped and operated by hand.",
+            "friction_scenarios": [
+                {
+                    "id": "rim-contact",
+                    "category": "hand_contact_edges",
+                    "operation": "Grip and turn",
+                    "context": "Repeated bare-hand use",
+                    "material_friction": "A sharp rim may be uncomfortable.",
+                    "treatment": "qualitative_scorecard_criterion",
+                    "target": "human-use-friction",
+                    "rationale": "Ergonomics is qualitatively judged.",
+                    "evidence_plan": "Inspect renders and handled-prototype notes.",
+                }
+            ],
+            "prior_art_learnings": [
+                {
+                    "provenance": "owner_provided",
+                    "source": "Owner reference",
+                    "observed_functional_choice": "Rounded hand-contact rim.",
+                    "inferred_rationale": "Reduce contact discomfort.",
+                    "decision": "adapt",
+                    "decision_rationale": "Use the function without copying geometry.",
+                    "originality_implications": "Independent form remains required.",
+                    "evidence": "Owner-supplied image.",
+                }
+            ],
+            "qualitative_criterion_id": "human-use-friction",
+            "qualitative_scorer_id": "ergonomics-panel",
+            "required_lenses": [
+                "sharp_contact_edges",
+                "comfort",
+                "retention",
+                "strength_confidence_under_intended_loads",
+                "operability",
+                "degraded_cosmetic_operations",
+            ],
+            "judging_evidence": evidence,
+        }
+
+        view_model = build_view_model(self.manifest)
+        rendered = render_viewer(self.manifest)
+
+        self.assertEqual(
+            "applicable",
+            view_model["human_use"]["applicability"],
+        )
+        self.assertEqual(
+            "loop-001",
+            view_model["loops"][0]["human_use_evidence"]["iteration_id"],
+        )
+        self.assertIn("Material friction scenarios", rendered)
+        self.assertIn("Prior-art functional learnings", rendered)
+        self.assertIn("not an objective gate", rendered)
+        self.assertIn("Degraded fillet / chamfer / cosmetic operations", rendered)
+
+    def test_digital_human_use_evidence_renders_selected_lenses(self) -> None:
+        self.manifest["human_use"] = {
+            "applicability": "applicable",
+            "rationale": "People directly operate the web workflow.",
+            "friction_scenarios": [
+                {
+                    "id": "recover-submit",
+                    "category": "error_prevention_recovery",
+                    "operation": "Recover from a rejected submission",
+                    "context": "Interrupted mobile session",
+                    "material_friction": "Entered data may be lost.",
+                    "treatment": "qualitative_scorecard_criterion",
+                    "target": "clarity",
+                    "rationale": "Recovery quality is experienced qualitatively.",
+                    "evidence_plan": "Operate the rejected-submit path.",
+                }
+            ],
+            "prior_art_learnings": [],
+            "qualitative_criterion_id": "clarity",
+            "qualitative_scorer_id": "objective-check",
+            "required_lenses": [
+                "error_prevention_recovery",
+                "responsive_touch_ergonomics",
+                "cognitive_load",
+            ],
+            "judging_evidence": [
+                {
+                    "iteration_id": "loop-001",
+                    "criterion_id": "clarity",
+                    "scorer_id": "objective-check",
+                    "kind": "qualitative_rubric",
+                    "objective_gate": False,
+                    "score": 1,
+                    "evidence_refs": ["baseline-result"],
+                    "lens_findings": [
+                        {
+                            "lens": "error_prevention_recovery",
+                            "finding": "State preservation is unclear.",
+                        },
+                        {
+                            "lens": "responsive_touch_ergonomics",
+                            "finding": "Controls crowd at the mobile viewport.",
+                        },
+                        {
+                            "lens": "cognitive_load",
+                            "finding": "Recovery instructions require rereading.",
+                        },
+                    ],
+                }
+            ],
+        }
+
+        rendered = render_viewer(self.manifest)
+
+        self.assertIn("Error prevention / recovery", rendered)
+        self.assertIn("Responsive / touch ergonomics", rendered)
+        self.assertIn("Cognitive load", rendered)
 
     def test_cli_build_degrades_to_diagnostic_viewer(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

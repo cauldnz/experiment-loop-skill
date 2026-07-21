@@ -28,6 +28,13 @@ _Avoid_: Navigation transcript, UI smoke test
 The durable record of an experiment's topology, Loops, evidence, decisions, Champion, and generation provenance.
 _Avoid_: Run log, metadata file
 
+**Human-use Analysis**:
+The explicit applicable/not-applicable declaration for physical or digital
+human-operated systems, rationale, selected first-principles friction scenarios,
+prior-art functional learnings, and qualitative use evidence frozen by setup and
+carried through judging.
+_Avoid_: inferred ergonomics, numeric comfort gate
+
 **Human Feedback Intake**:
 The immutable, Viewer-exported canonical JSON that preserves the owner's exact
 words, structured criterion review, targets, provenance, and binding.

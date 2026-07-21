@@ -21,6 +21,35 @@ Use qualitative judges for taste, clarity, UX, style, usefulness, and design tra
 
 For subjective work, avoid self-approval. A generator can propose that a loop is promising, but an independent judge or panel should confirm before promotion to `new_best`.
 
+### Human-operated artifacts
+
+When the setup says human use is applicable, every Loop receives the frozen
+friction analysis and is scored through a qualitative use-friction criterion.
+Human-operated systems include physical tools, digital interfaces, interactive
+artifacts, and workflows. Record evidence-backed findings for every selected
+lens. Relevant physical findings can include:
+
+- sharp and hand-contact edges;
+- comfort across the declared grips and repetitive-use contexts;
+- insertion/removal and inversion/retention;
+- qualitative strength confidence under intended loads;
+- operability, assembly/disassembly, misuse, accessibility, and safety contexts;
+- failed, skipped, or degraded fillet/chamfer/cosmetic operations.
+
+Relevant digital/interaction findings can include:
+
+- discoverability, navigation, and input burden;
+- error prevention/recovery and feedback/status;
+- accessibility and responsive/touch ergonomics;
+- interruption/resumption and latency perception;
+- destructive actions and cognitive load.
+
+Treat degraded physical or digital operations as real defects whenever they
+affect use quality or confidence. Do not replace this rubric with mandatory
+numeric edge, force, load, torque, latency, or interaction gates. Objective
+safety/correctness gates may coexist only when separately justified by the
+approved setup.
+
 ## Navigation-based judging for interactive artifacts
 
 When the artifact is *interactive* — a viewer, dashboard, SPA, prototype, or any UI with tabs, filters, keyboard controls, or deep-links — a static screenshot is not sufficient evidence. Judges must **operate** the artifact and score from observed behaviour, not appearance.

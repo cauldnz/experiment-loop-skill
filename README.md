@@ -25,6 +25,10 @@ This repository is self-contained for review: the worked examples include comple
 - Collects Viewer-native human feedback as immutable schema-validated JSON,
   dispositions it against the frozen brief, and traces accepted entries into
   consuming Loop Prompts.
+- Explicitly classifies human-use applicability for physical tools, digital
+  interfaces, interactive artifacts, and workflows; carries first-principles
+  friction and prior-art functional reasoning through Prompts; and judges
+  applicable artifacts with qualitative use-friction evidence.
 - Gates durable changes to skills, rubrics, judge policy, and reusable workflow instructions behind explicit human approval.
 
 ## Install
@@ -59,7 +63,8 @@ Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
 - `references/manifest-schema-v1.1.json` defines the enforced Manifest contract.
 - `skills/experiment-setup/SKILL.md` defines the guided setup interview,
   independent setup critic, approval, and immutable revision workflow.
-- `references/experiment-brief-schema-v1.0.json` and
+- `references/experiment-brief-schema-v1.0.json` (legacy v1.0 plus current v1.1)
+  and
   `references/experiment-approval-schema-v1.0.json` define the frozen setup
   contract and exact Prompt/brief hash binding.
 - `references/human-judge-schema-v1.0.json` remains the legacy judge export
@@ -90,6 +95,9 @@ Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
 - Read `docs\judging.md` to choose objective, qualitative, or panel judging.
 - Read `docs\viewer.md` to understand the expected inspection UI.
 - Read `docs\human-feedback.md` for attended intake and disposition.
+- Human-operated artifacts require the setup's qualitative human-use/friction
+  analysis; independent prior-art browsing remains disabled without explicit
+  network approval.
 - Read `docs\worked-examples.md` for the completed examples.
 
 ## Worked examples

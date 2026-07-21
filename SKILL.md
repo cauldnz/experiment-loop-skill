@@ -137,6 +137,59 @@ For each criterion, define what better looks like. If possible, include
 measurable checks. If subjective, use short judge comments and side-by-side
 comparison artifacts.
 
+#### Human-use applicability and first-principles friction
+
+Every approved setup must explicitly declare human-use analysis `applicable` or
+`not_applicable` with a rationale. Human-operated includes physical tools,
+web/mobile/desktop UI, interactive artifacts, and workflows. Do not infer
+applicability and leave it unstated.
+
+When applicable, freeze and inject the setup's complete first-principles analysis
+into every generator, synthesis, repair, and judge Prompt. Select operation and
+context categories that actually apply. Physical interaction may require grips,
+forces/loads, insertion/removal, inversion/retention, repetitive use, hand/contact
+edges, and assembly/disassembly. Digital interaction may require discoverability,
+navigation, input burden, error prevention/recovery, feedback/status,
+responsive/touch ergonomics, interruption/resumption, latency perception,
+destructive actions, and cognitive load. Also consider foreseeable misuse and
+relevant accessibility/safety interactions. Do not manufacture physical geometry
+concerns for a digital system. Each material friction must map to either:
+
+- a scored qualitative human-use criterion with concrete evidence; or
+- an explicitly justified frozen design invariant/constraint.
+
+Before any Loop begins, verify that every generator, synthesis, repair, and judge
+Prompt literally repeats the frozen applicability and rationale. This includes
+`not_applicable`; do not drop the branch because no friction rubric follows.
+Applicable judge Prompts must name every selected lens, state that the score is
+qualitative rather than an objective gate, and treat degraded physical or
+digital operations as scored defects.
+
+For physical artifacts, explicitly disposition grip, force/load,
+insertion/removal, inversion/retention, repetitive use, hand/contact edges,
+assembly/disassembly, foreseeable misuse, and accessibility/safety. For digital
+systems, explicitly disposition discoverability, navigation, input burden,
+error prevention/recovery, feedback/status, accessibility, responsive/touch
+use, interruption/resumption, latency perception, destructive actions, and
+cognitive load. "Not selected" needs a rationale; omission is not disposition.
+
+Do not promote severe qualitative friction into an objective gate by wording it
+as a blocker. Objective gates require an independently justified
+correctness/safety invariant and canonical verification. Comfort, touch
+precision, cognitive load, latency perception, and similar experience findings
+remain qualitative scores.
+
+Ergonomics is qualitative. Do not turn edge radius, grip force, torque, or similar
+geometry/load proxies into mandatory objective ergonomics gates unless a future
+approved setup independently chooses a measurable safety/correctness invariant.
+
+Review every owner-provided prior-art reference for its source, observed
+functional choice, inferred rationale, adopt/adapt/reject decision and reason,
+originality implications, and evidence. Learn from function; do not copy geometry
+or style. Independent prior-art search is allowed only when the frozen setup/risk
+policy explicitly approves network access and hosts. Record query, source, and
+retrieval provenance; never browse silently.
+
 ### 3. Choose judging mode
 
 At kickoff, and again whenever the user asks while a run is in progress, choose
@@ -324,6 +377,11 @@ and `templates/manifest-template.json`.
     ]
   }],
   "governance": {"self_editing": {"requires_user_approval": true, "proposal_required": true, "approved_proposal_id": null}},
+  "human_use": {
+    "applicability": "not_applicable",
+    "rationale": "This artifact is not directly operated by a person and is neither a physical tool nor an interactive digital system or workflow.",
+    "prior_art_learnings": []
+  },
   "tracks": [{"id": "presentation", "label": "Presentation", "hypothesis": "..."}],
   "iterations": [{
     "id": "loop-001", "track_id": "presentation", "parent_ids": [], "model_id": "...",
@@ -386,6 +444,24 @@ Use schema version `1.1` for new manifests. Record the exact skill, prompt,
 Copilot CLI, orchestrator model, and role/track/judge model provenance under
 `generation`. A fuller reference shape lives in
 `references/manifest-schema-v1.1.json`.
+New runs must include `human_use` with explicit applicability and rationale.
+Legacy Manifests without it remain valid and the Viewer labels them as
+unclassified rather than inferring applicability.
+
+For applicable artifacts, also record:
+
+- material `friction_scenarios[]`, including operation, context, treatment,
+  rationale, and evidence plan;
+- `prior_art_learnings[]`, distinguishing owner-provided references from any
+  explicitly approved independent search;
+- the qualitative criterion and scorer IDs;
+- one `judging_evidence[]` entry per Loop covering every selected physical and/or
+  digital lens, with Artifact evidence references and the matching qualitative
+  score.
+
+Human-use scores are rubric judgements, never objective gate results. The
+Evidence Gate rejects an applicable Manifest that omits Loop coverage, maps the
+criterion to an objective scorer/gate, or records unknown evidence.
 
 For parallel-agent runs, each agent should also write one manifest-ready fragment,
 for example:
@@ -511,6 +587,15 @@ Each loop follows this contract:
    immutable human feedback before constructing the next Prompt.
 8. **Merge and publish progress**: merge the Loop fragment into `manifest.json`
    and immediately rebuild `viewer.html`.
+
+For applicable artifacts, the judge must explicitly score every selected lens.
+Physical lenses can include sharp/contact edges, comfort, retention, strength
+confidence under intended loads, operability, and failed or degraded
+fillet/chamfer/cosmetic operations. Digital lenses can include discoverability,
+navigation, input burden, error prevention/recovery, feedback/status,
+accessibility, responsive/touch ergonomics, interruption/resumption, latency
+perception, destructive actions, and cognitive load. A degraded operation that
+affects use is a scored defect, not a silent implementation note.
 
 After judging, compare the iteration with the current champion:
 
@@ -718,6 +803,9 @@ Viewer requirements:
   human feedback used as input, judge feedback, and next prompt;
 - visual-quality gate output for visual work, including rejected overlap,
   clipping, readability, or broken-layout defects;
+- explicit human-use applicability/rationale, friction scenarios, prior-art
+  functional learnings, and per-Loop qualitative ergonomics evidence, labelled
+  so rubric scores cannot be mistaken for objective gates;
 - filters by track, scorer, judge, status, decision, and `new_best`;
 - "why this won" summary and regression warnings;
 - side-by-side comparison;

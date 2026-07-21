@@ -753,6 +753,56 @@ __HUMAN_DIALOG__
     return ({eq: value === gate.threshold, ne: value !== gate.threshold, gt: value > gate.threshold, gte: value >= gate.threshold, lt: value < gate.threshold, lte: value <= gate.threshold})[gate.operator] || false;
   }
 
+  function humanUseEvidenceMarkup(evidence) {
+    const item = object(evidence);
+    if (!item.iteration_id) return '<p class="muted">No qualitative human-use evidence is recorded for this Loop.</p>';
+    const findings = list(item.lens_findings);
+    const labels = {
+      sharp_contact_edges: "Sharp / contact edges",
+      comfort: "Comfort",
+      retention: "Retention",
+      strength_confidence_under_intended_loads: "Strength confidence under intended loads",
+      operability: "Operability",
+      degraded_cosmetic_operations: "Degraded fillet / chamfer / cosmetic operations",
+      discoverability: "Discoverability",
+      navigation: "Navigation",
+      input_burden: "Input burden",
+      error_prevention_recovery: "Error prevention / recovery",
+      feedback_status: "Feedback / status",
+      accessibility: "Accessibility",
+      responsive_touch_ergonomics: "Responsive / touch ergonomics",
+      interruption_resumption: "Interruption / resumption",
+      latency_perception: "Latency perception",
+      destructive_actions: "Destructive actions",
+      cognitive_load: "Cognitive load"
+    };
+    return `<div><p><span class="badge">Qualitative rubric</span> <strong>Score ${esc(item.score)}</strong> <span class="muted">not an objective gate</span></p>
+      <ul>${findings.map(finding => `<li><strong>${esc(labels[finding.lens] || finding.lens)}:</strong> ${esc(finding.finding || "Not recorded.")}</li>`).join("")}</ul>
+      <p class="muted">Evidence: ${list(item.evidence_refs).map(ref => `<span class="mono">${esc(ref)}</span>`).join(", ")}</p></div>`;
+  }
+
+  function humanUseMarkup() {
+    const humanUse = object(VM.human_use);
+    if (!humanUse.applicability) {
+      return `<section class="card"><div class="eyebrow">Human use</div><h2>Legacy Manifest: applicability not recorded</h2><p class="muted">This Manifest predates explicit classification for physical and digital human-operated systems. No applicability should be inferred.</p></section>`;
+    }
+    const applicable = humanUse.applicability === "applicable";
+    const scenarios = list(humanUse.friction_scenarios);
+    const learnings = list(humanUse.prior_art_learnings);
+    const evidence = list(humanUse.judging_evidence);
+    return `<section class="card">
+      <div class="eyebrow">Human use / friction</div>
+      <h2>${applicable ? "Applicable" : "Not applicable"} <span class="badge">${esc(humanUse.applicability.replaceAll("_", " "))}</span></h2>
+      <p class="lede">${esc(humanUse.rationale)}</p>
+      ${applicable ? `<div class="grid-2">
+        <div><h3>Material friction scenarios</h3><ul>${scenarios.map(item => `<li><strong>${esc(item.category)}:</strong> ${esc(item.operation)} in ${esc(item.context)} - ${esc(item.material_friction)} <span class="muted">Treatment: ${esc(item.treatment)} / ${esc(item.target)}</span></li>`).join("")}</ul></div>
+        <div><h3>Qualitative judging evidence</h3><p class="muted">These rubric scores express judged human-use quality; they are not objective geometry or load gates.</p>${evidence.map(item => humanUseEvidenceMarkup(item)).join("")}</div>
+      </div>` : ""}
+      <h3>Prior-art functional learnings</h3>
+      ${learnings.length ? `<ul>${learnings.map(item => `<li><strong>${esc(item.source)}:</strong> ${esc(item.observed_functional_choice)} - inferred ${esc(item.inferred_rationale)}. <strong>${esc(item.decision)}:</strong> ${esc(item.decision_rationale)} <span class="muted">${esc(item.originality_implications)} Evidence: ${esc(item.evidence)}</span></li>`).join("")}</ul>` : '<p class="muted">No owner-provided or approved-network prior-art references were recorded.</p>'}
+    </section>`;
+  }
+
   function renderOverview() {
     const problem = object(VM.problem);
     const inProgress = Boolean(object(VM.status).is_in_progress);
@@ -772,6 +822,7 @@ __HUMAN_DIALOG__
         </div>
         <details><summary>Original Experiment Prompt</summary><pre>${esc(problem.original_prompt || "")}</pre></details>
       </section>
+      ${humanUseMarkup()}
       <section class="card">
         <div class="eyebrow">02 / ${inProgress ? "Current state" : "Champion"}</div>
         <div class="grid-2">
@@ -1199,6 +1250,7 @@ __HUMAN_DIALOG__
       <h3>Outcome</h3><p>${esc(loop.outcome)}</p>
       ${artifactMarkup(loop.primary_artifact)}
       ${metricCards(loop)}
+      <div class="feedback"><div class="eyebrow">Human-use / ergonomics evidence</div>${humanUseEvidenceMarkup(loop.human_use_evidence)}</div>
       <div class="feedback human-steering"><div class="eyebrow">Human steering</div>${humanFeedbackMarkup(loop.human_feedback, "No human feedback targets or was consumed by this Loop.")}</div>
       <div class="feedback model-feedback"><div class="eyebrow">Model judge feedback</div>${loop.judge_feedback_pending ? '<p><span class="badge pending">Awaiting panel</span> Judge feedback has not been merged yet.</p>' : `<p>${esc(prompt.judge_feedback)}</p>`}</div>
       <h3 style="margin-top:14px">Lesson</h3><p>${esc(lesson.action || "")}</p><p class="muted">${esc(lesson.evidence || "")}</p>

@@ -322,6 +322,14 @@ def build_view_model(
     }
     feedback_records, feedback_diagnostics = load_feedback_view(data_dir, source)
     diagnostics.extend(feedback_diagnostics)
+    human_use = _dict(source.get("human_use"))
+    human_use_evidence = {
+        _text(item.get("iteration_id")): item
+        for item in (
+            _dict(raw)
+            for raw in _list(human_use.get("judging_evidence"))
+        )
+    }
     for loop in loops:
         loop_id = _text(loop.get("id"))
         loop_feedback = [
@@ -335,6 +343,7 @@ def build_view_model(
         ]
         loop["human_feedback"] = loop_feedback
         loop["human_feedback_count"] = len(loop_feedback)
+        loop["human_use_evidence"] = human_use_evidence.get(loop_id, {})
     if data_dir is not None and (data_dir / "manifest.json").is_file():
         manifest_sha256 = hashlib.sha256(
             (data_dir / "manifest.json").read_bytes()
@@ -354,6 +363,7 @@ def build_view_model(
         "title": _text(source.get("title")) or "Experiment Viewer",
         "problem": _dict(source.get("problem")),
         "generation": _dict(source.get("generation")),
+        "human_use": human_use,
         "criteria": criteria,
         "primary_criterion": primary_criterion,
         "scorers": [_dict(item) for item in _list(source.get("scorers"))],

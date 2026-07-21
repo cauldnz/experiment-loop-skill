@@ -59,6 +59,14 @@ while the Experiment is in progress.
 Raw Manifest and generation fields are advanced evidence. They render as
 structured, searchable UI rather than default JSON dumps.
 
+The Overview also shows the explicit human-use applicability/rationale for
+physical and digital systems, selected operation/context friction scenarios,
+prior-art functional learnings and provenance, and qualitative judging evidence.
+Each applicable Loop inspector shows its selected physical and/or digital
+findings beside the score and labels it as a qualitative rubric result, not an
+objective gate. Legacy Manifests are shown as unclassified rather than silently
+inferred.
+
 ## Artifact presentation
 
 Manifest v1.1 declares each Artifact's role, presentation mode, primary and
