@@ -6,9 +6,17 @@ import re
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from references.viewer_renderer import ViewerProfile, render_viewer
-from references.viewer_renderer.cli import build_viewer
+from references.viewer_renderer.cli import (
+    WatchDebouncer,
+    build_viewer,
+    main,
+    poll_watch_inputs,
+    snapshot_watch_inputs,
+    watch_viewer,
+)
 from references.viewer_renderer._renderer import canonical_viewer_sha256
 from references.viewer_renderer._viewmodel import build_view_model
 
@@ -25,7 +33,9 @@ class ViewerRendererTests(unittest.TestCase):
     def test_render_is_deterministic_and_embeds_contract(self) -> None:
         first = render_viewer(self.manifest)
         second = render_viewer(self.manifest)
+        view_model = build_view_model(self.manifest)
         self.assertEqual(first, second)
+        self.assertFalse(view_model["status"]["is_in_progress"])
         self.assertIn('id="interaction-contract"', first)
         self.assertIn('id="tab-overview"', first)
         self.assertIn('id="tab-topology"', first)
@@ -252,6 +262,118 @@ class ViewerRendererTests(unittest.TestCase):
             rendered = output.read_text(encoding="utf-8")
             self.assertIn("manifest.json not found", rendered)
             self.assertIn("<!doctype html>", rendered)
+
+    def test_partial_manifest_is_explicitly_in_progress(self) -> None:
+        partial = json.loads(json.dumps(self.manifest))
+        partial.pop("story")
+        partial["champion"] = {"iteration_id": ""}
+        partial["tracks"] = []
+        partial["iterations"] = [partial["iterations"][0]]
+        loop = partial["iterations"][0]
+        loop["track_id"] = "partially-merged-track"
+        loop["artifacts"] = []
+        loop["scores"] = []
+        loop["decision"] = ""
+        loop["prompt"]["judge_feedback"] = "PENDING_JUDGES"
+
+        view_model = build_view_model(partial)
+        rendered = render_viewer(partial)
+
+        self.assertTrue(view_model["status"]["is_in_progress"])
+        self.assertEqual(1, view_model["status"]["iteration_count"])
+        self.assertEqual("not_final", view_model["status"]["evidence_gate"])
+        self.assertEqual("partially-merged-track", view_model["tracks"][0]["id"])
+        self.assertTrue(view_model["tracks"][0]["inferred"])
+        self.assertIn("Experiment in progress - ${iterationCount}", rendered)
+        self.assertIn('"iteration_count":1', rendered)
+        self.assertIn("Only final outputs are gate-verified.", rendered)
+        self.assertIn("Awaiting panel", rendered)
+        self.assertIn(': "pending";', rendered)
+        self.assertIn("Artifact pending or not yet merged.", rendered)
+        self.assertIn("No authored milestones have been merged yet.", rendered)
+        self.assertTrue(view_model["loops"][0]["judge_feedback_pending"])
+
+    def test_empty_manifest_renders_zero_iteration_progress(self) -> None:
+        rendered = render_viewer({})
+
+        self.assertIn("Experiment in progress - ${iterationCount}", rendered)
+        self.assertIn('"iteration_count":0', rendered)
+        self.assertIn("No Loops merged yet", rendered)
+        self.assertIn("No Loops are available to compare yet.", rendered)
+
+    def test_watch_poll_tracks_only_manifest_inputs(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            viewer = root / "viewer.html"
+            initial = snapshot_watch_inputs(root)
+
+            viewer.write_text("first", encoding="utf-8")
+            after_viewer, changed = poll_watch_inputs(root, initial)
+            self.assertEqual((), changed)
+
+            manifest = root / "manifest.json"
+            manifest.write_text("{}", encoding="utf-8")
+            after_manifest, changed = poll_watch_inputs(root, after_viewer)
+            self.assertEqual(("manifest.json",), changed)
+
+            fragment = root / "track-a" / "manifest-fragment.json"
+            fragment.parent.mkdir()
+            fragment.write_text("{}", encoding="utf-8")
+            _, changed = poll_watch_inputs(root, after_manifest)
+            self.assertEqual(("track-a/manifest-fragment.json",), changed)
+
+    def test_watch_debouncer_coalesces_bursts(self) -> None:
+        debouncer = WatchDebouncer(0.2)
+
+        self.assertFalse(debouncer.observe(True, 1.0))
+        self.assertFalse(debouncer.observe(True, 1.1))
+        self.assertFalse(debouncer.observe(False, 1.29))
+        self.assertTrue(debouncer.observe(False, 1.31))
+        self.assertFalse(debouncer.observe(False, 2.0))
+
+    def test_watch_cli_stops_cleanly_on_ctrl_c(self) -> None:
+        with patch(
+            "references.viewer_renderer.cli.watch_viewer",
+            side_effect=KeyboardInterrupt,
+        ):
+            self.assertEqual(
+                0,
+                main(["--data", ".", "--out", "viewer.html", "--watch"]),
+            )
+
+    def test_watch_rebuilds_after_manifest_change(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            output = root / "viewer.html"
+            partial = {
+                "schema_version": "1.1",
+                "experiment_id": "watch-test",
+                "title": "Updated while watching",
+                "iterations": [],
+                "champion": {"iteration_id": ""},
+            }
+            sleep_calls = 0
+
+            def advance_watch(_seconds: float) -> None:
+                nonlocal sleep_calls
+                sleep_calls += 1
+                if sleep_calls == 1:
+                    (root / "manifest.json").write_text(
+                        json.dumps(partial),
+                        encoding="utf-8",
+                    )
+                elif sleep_calls == 3:
+                    raise KeyboardInterrupt
+
+            with (
+                patch("references.viewer_renderer.cli.time.sleep", advance_watch),
+                self.assertRaises(KeyboardInterrupt),
+            ):
+                watch_viewer(root, output, poll_interval=0.01, debounce=0)
+
+            rendered = output.read_text(encoding="utf-8")
+            self.assertIn("<title>Updated while watching</title>", rendered)
+            self.assertNotIn(".viewer.html.tmp", rendered)
 
     def test_cli_embeds_hash_verified_visual_artifact(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:

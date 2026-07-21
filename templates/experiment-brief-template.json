@@ -121,6 +121,8 @@
       "prompt and feedback history"
     ],
     "viewer_required": true,
+    "viewer_update_policy": "after_each_loop_merge",
+    "viewer_watch_mode": "on_request",
     "navigation_evidence_required": true,
     "evidence_gate_required": true
   },

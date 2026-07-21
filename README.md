@@ -20,6 +20,8 @@ This repository is self-contained for review: the worked examples include comple
 - Gates viewers with an objective check (self-contained, parses, accessible, deterministic, robust) before judging.
 - Synthesizes the best lessons into a final pass.
 - Produces a local viewer for inspecting the hill-climb.
+- Rebuilds that Viewer after every merged Loop and offers a dependency-free local
+  `--watch` mode for long-running Experiments.
 - Gates durable changes to skills, rubrics, judge policy, and reusable workflow instructions behind explicit human approval.
 
 ## Install
@@ -60,6 +62,8 @@ Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
 - `references/human-judge-schema-v1.0.json` defines the review export contract;
   its Viewer UI is finalized in the later Visual Design System phase.
 - `references/viewer_renderer` is the deep standalone Viewer module.
+- `templates/build-viewer-adapter.py` exposes deterministic one-shot and
+  Manifest-only watch builds through the shared Viewer CLI.
 - `references/navigation_judge` produces required Navigation Evidence with pinned Chromium.
 - `references/evidence_gate` is the single blocking experiment completion gate.
 - `scripts/regenerate_examples.py` transactionally regenerates committed snapshots from Example Prompts.
@@ -93,6 +97,11 @@ Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
 Regenerate all snapshots manually with `python scripts\regenerate_examples.py`.
 Batch skill changes first: ordinary CI does not regenerate Examples or block on
 snapshot freshness.
+
+Installed Experiments can run
+`python build_viewer.py --data <generated-root> --out <generated-root>\viewer.html --watch`
+for local incremental viewing. Ctrl+C stops the watcher; final Viewers remain
+self-contained and require the unchanged Navigation Evidence and Evidence Gate.
 
 ## Dependencies
 

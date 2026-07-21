@@ -87,3 +87,7 @@ python <installed-skill>\scripts\prepare_scratch.py `
 
 If a tool requires an existing session scratch directory, use
 `--session-scratch <path>` and pass agents only the printed long-form path.
+
+The installed `experiment-loop` skill also includes the shared Viewer renderer
+and standard adapter template. Generated adapters support both one-shot builds
+and dependency-free local `--watch` mode without additional installation.

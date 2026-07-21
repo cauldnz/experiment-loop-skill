@@ -394,8 +394,23 @@ The fragment should contain the track definition and that agent's loop entries
 using the same schema as the top-level manifest. The orchestrator owns merging
 fragments into `manifest.json`.
 
-After building the Viewer and producing Navigation Evidence, run the bundled
-Evidence Gate before reporting done:
+After **every** Loop fragment merge, rebuild `viewer.html` with the standard
+adapter. Do not wait for Track completion, synthesis, or finalization. A partial
+Manifest is allowed for this interim build: leave pending scores, judge feedback,
+Artifacts, and the Champion visibly pending rather than inventing final values.
+
+For a local session where a human wants continuously fresh output, the same
+adapter can watch `manifest.json` and recursive `manifest-fragment.json` files:
+
+```text
+python build_viewer.py --data experiment-loop --out experiment-loop/viewer.html --watch
+```
+
+Watch mode is optional, dependency-free, and local. It only rebuilds static HTML;
+it performs no model or network calls. Stop it with Ctrl+C.
+
+After building the **final** Viewer and producing Navigation Evidence, run the
+bundled Evidence Gate before reporting done:
 
 ```
 python <experiment-loop-skill>/scripts/run_evidence_gate.py experiment-loop
@@ -431,6 +446,8 @@ Each loop follows this contract:
 5. **Compare to champion**: decide whether this is a new best, a rejection, or a
    useful partial result for synthesis.
 6. **Improve**: define the next hypothesis before changing anything.
+7. **Merge and publish progress**: merge the Loop fragment into `manifest.json`
+   and immediately rebuild `viewer.html`.
 
 After judging, compare the iteration with the current champion:
 
@@ -646,6 +663,27 @@ Viewer requirements:
 - clear hill-climb narrative;
 - a relative link to `evidence-gate.json`;
 - an embedded declarative interaction contract covering every interactive control.
+- when no merged Champion exists, an explicit in-progress banner with the current
+  iteration count and pending states for unmerged feedback, scores, gates,
+  Artifacts, Tracks, Loops, story, and milestones;
+- no claim that an interim Viewer has completed the Evidence Gate.
+
+Build once after each Loop merge:
+
+```text
+python build_viewer.py --data experiment-loop --out experiment-loop/viewer.html
+```
+
+Or keep a local watcher running while Loops are merged:
+
+```text
+python build_viewer.py --data experiment-loop --out experiment-loop/viewer.html --watch
+```
+
+The watcher polls only Manifest inputs, coalesces rapid writes, and does not watch
+its own output. It prints read/build errors and exits cleanly on Ctrl+C. The
+resulting `viewer.html` remains the same deterministic, self-contained file as a
+one-shot build.
 
 All Viewers are interactive and must:
 
@@ -667,6 +705,10 @@ and deep links, captures screenshots, and writes `navigation-evidence.json`.
 Uncovered or dead controls, keyboard/deep-link failures, and console errors are
 blocking. The Evidence Gate then validates the full experiment and writes the
 linked `evidence-gate.json` sidecar.
+
+Navigation Evidence and the Evidence Gate apply only to the final Viewer.
+Incremental builds are inspection conveniences and never loosen completion,
+Champion, or gate requirements.
 
 If the environment blocks browser rendering, still create the HTML and provide
 the file path.

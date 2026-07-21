@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Standard Generated Example Viewer adapter."""
+"""Standard Viewer adapter, including deterministic one-shot and local watch modes."""
 
 from __future__ import annotations
 

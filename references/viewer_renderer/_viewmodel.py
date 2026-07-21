@@ -28,6 +28,22 @@ def _dict(value: object) -> dict:
     return dict(value) if isinstance(value, Mapping) else {}
 
 
+def _judge_feedback_pending(value: object) -> bool:
+    normalized = _text(value).strip().upper().replace(" ", "_")
+    return not normalized or normalized in {
+        "PENDING",
+        "PENDING_JUDGE",
+        "PENDING_JUDGES",
+        "AWAITING_JUDGE",
+        "AWAITING_JUDGES",
+        "AWAITING_PANEL",
+    }
+
+
+def _loop_track_id(loop: Mapping[str, object]) -> str:
+    return _text(loop.get("track_id")) or "unassigned"
+
+
 def _artifact_preview(
     artifact: dict,
     *,
@@ -140,7 +156,22 @@ def build_view_model(
         (item for item in criteria if item.get("primary") is True),
         criteria[0] if criteria else {},
     )
+    raw_iterations = [_dict(item) for item in _list(source.get("iterations"))]
     tracks = [_dict(item) for item in _list(source.get("tracks"))]
+    known_track_ids = {_text(track.get("id")) for track in tracks}
+    for loop in raw_iterations:
+        track_id = _loop_track_id(loop)
+        if track_id in known_track_ids:
+            continue
+        tracks.append(
+            {
+                "id": track_id,
+                "label": track_id if track_id != "unassigned" else "Unassigned",
+                "hypothesis": "Track definition has not been merged yet.",
+                "inferred": True,
+            }
+        )
+        known_track_ids.add(track_id)
     track_by_id = {_text(item.get("id")): item for item in tracks}
     champion = _dict(source.get("champion"))
     champion_id = _text(champion.get("iteration_id"))
@@ -150,8 +181,7 @@ def build_view_model(
     artifact_index: dict[str, dict] = {}
     loops: list[dict] = []
     track_positions: dict[str, int] = {}
-    for index, raw_loop in enumerate(_list(source.get("iterations"))):
-        loop = _dict(raw_loop)
+    for index, loop in enumerate(raw_iterations):
         artifacts: list[dict] = []
         for raw_artifact in _list(loop.get("artifacts")):
             artifact, used = _artifact_preview(
@@ -170,7 +200,7 @@ def build_view_model(
             _text(score.get("criterion_id")): score.get("value")
             for score in scores
         }
-        track_id = _text(loop.get("track_id"))
+        track_id = _loop_track_id(loop)
         track_index = track_positions.get(track_id, 0)
         track_positions[track_id] = track_index + 1
         primary_artifact = next(
@@ -181,6 +211,14 @@ def build_view_model(
             ),
             artifacts[0] if artifacts else None,
         )
+        prompt = _dict(loop.get("prompt"))
+        pending_fields = []
+        if not artifacts:
+            pending_fields.append("artifacts")
+        if not scores:
+            pending_fields.append("scores")
+        if _judge_feedback_pending(prompt.get("judge_feedback")):
+            pending_fields.append("judge feedback")
         loops.append(
             {
                 **loop,
@@ -195,6 +233,9 @@ def build_view_model(
                 "scores": scores,
                 "score_values": score_values,
                 "primary_value": score_values.get(_text(primary_criterion.get("id"))),
+                "judge_feedback_pending": "judge feedback" in pending_fields,
+                "pending_fields": pending_fields,
+                "is_pending": bool(pending_fields),
             }
         )
 
@@ -218,6 +259,15 @@ def build_view_model(
 
     for loop in loops:
         loop["topology_depth"] = topology_depth(_text(loop.get("id")))
+
+    champion_is_merged = bool(champion_id and champion_id in loop_index)
+    has_pending_evidence = any(bool(loop.get("is_pending")) for loop in loops)
+    is_in_progress = not champion_is_merged or has_pending_evidence
+    if champion_id and not champion_is_merged:
+        diagnostics.append(
+            f"Champion Loop {champion_id!r} has not been merged; "
+            "the Viewer remains in progress."
+        )
 
     for track in tracks:
         column = -1
@@ -295,6 +345,18 @@ def build_view_model(
         "champion": champion,
         "story": story,
         "featured_artifact": featured_artifact,
+        "status": {
+            "is_in_progress": is_in_progress,
+            "iteration_count": len(loops),
+            "pending_iteration_count": sum(
+                bool(loop.get("is_pending")) for loop in loops
+            ),
+            "evidence_gate": (
+                "not_final"
+                if is_in_progress
+                else "final_output_requires_verification"
+            ),
+        },
         "human_review_enabled": bool(human_scorers),
         "human_review_criteria": [
             criterion

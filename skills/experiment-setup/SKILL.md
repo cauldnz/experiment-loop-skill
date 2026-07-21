@@ -147,6 +147,11 @@ must:
 - name the exact experiment-local scratch root in every unattended agent Prompt;
 - require Manifest v1.1, exact Prompt/feedback history, Viewer, Navigation
   Evidence, and Evidence Gate when declared in the brief;
+- require `viewer.html` to be rebuilt immediately after every Loop fragment merge
+  when the Viewer is required, with optional local `--watch` mode for live
+  inspection;
+- state that interim Viewers are explicitly in progress and that Navigation
+  Evidence and the Evidence Gate remain final-output requirements;
 - prohibit silent mutation of the brief.
 
 Validate the draft before critique:
@@ -225,3 +230,6 @@ and require new approval. Preserve prior revisions and approvals.
 Provide the approved Prompt and setup directory. `experiment-loop` must verify
 the approval binding before unattended or high-cost work and treat the brief as
 authoritative over chat memory, candidate claims, or intermediate Prompts.
+When `evidence.viewer_required` is true, the handoff must also carry
+`viewer_update_policy: after_each_loop_merge` and the approved
+`viewer_watch_mode`; default watch mode to `on_request`.
