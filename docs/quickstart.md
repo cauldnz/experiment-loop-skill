@@ -88,6 +88,12 @@ After merging each Loop entry, immediately rebuild `viewer.html`. For a local
 live view, run the standard adapter with `--watch`; it rebuilds when the Manifest
 or standard fragments change and stops with Ctrl+C.
 
+When a human wants to steer the next Loop, use **Human feedback** in the Viewer.
+Download the validated JSON and move it unchanged to
+`generated\human-feedback\intake\`. The orchestrator records a separate
+accepted, deferred, or frozen-invariant-conflict disposition and validates the
+Manifest/Prompt chain before the next Loop. See `docs\human-feedback.md`.
+
 ## 5. Pick the judging mode
 
 Use objective commands when correctness can be measured, for example tests, route length, benchmarks, or schema validation.
@@ -100,6 +106,8 @@ Open `viewer.html` during the run to inspect all Loops merged so far. An interim
 Viewer labels itself in progress and does not claim final gate completion. Every
 completed experiment must contain at least two Loops and a final Viewer. Run the
 navigation judge and Evidence Gate before treating it as complete.
+Human steering is shown separately from model judge notes, including pending
+intake during an attended checkpoint.
 
 For complete examples, see:
 

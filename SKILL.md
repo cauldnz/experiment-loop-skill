@@ -243,6 +243,11 @@ Use a dedicated output directory in the current workspace:
 experiment-loop/
   manifest.json
   viewer.html
+  human-feedback/
+    intake/
+      review-<stable-id>.json
+    dispositions/
+      disposition-<stable-entry-id>.json
   harness/
     scratch/
   track-<name>/
@@ -407,7 +412,63 @@ python build_viewer.py --data experiment-loop --out experiment-loop/viewer.html 
 ```
 
 Watch mode is optional, dependency-free, and local. It only rebuilds static HTML;
-it performs no model or network calls. Stop it with Ctrl+C.
+it performs no model or network calls. It also watches canonical JSON sidecars
+under `human-feedback/`. Stop it with Ctrl+C.
+
+### 6b. Intake and disposition human feedback
+
+The Viewer is the primary human-review surface. Its **Human feedback** action
+collects optional criterion scores/ratings plus verbatim general, Loop, and
+Artifact feedback. It validates and downloads one immutable intake sidecar using
+`references/human-feedback-intake-schema-v1.0.json`. A browser cannot write into
+the local Experiment, so move the download without editing it to:
+
+```text
+<generated-root>/human-feedback/intake/<review-id>.json
+```
+
+Do not use Markdown or chat history as canonical intake. One review contains a
+stable `review_id`; every feedback item has a stable `entry_id`. Preserve
+`human.entries[].verbatim` byte-for-byte when linking or prompting from it.
+
+For each entry, the orchestrator writes a separate immutable file under
+`human-feedback/dispositions/` using
+`references/human-feedback-disposition-schema-v1.0.json`. Human-authored fields
+remain only in intake; orchestrator-authored interpretation, rationale, response,
+disposition, and consuming Loop refs remain only in disposition. Use:
+
+- `accepted` when feedback fits the frozen optimization variables;
+- `answered_conflicts_with_frozen_invariant` when it conflicts with the approved
+  brief; record the answer to the owner and do not consume it;
+- `deferred` when valid but outside the current budget or Experiment.
+
+The frozen brief always wins. Never silently obey conflicting feedback or mutate
+an approved brief. A requested invariant change requires setup revision and new
+approval.
+
+Manifest v1.1 may include `human_feedback[]` links. Accepted entries must copy
+the exact verbatim text, bind the intake and disposition paths/hashes, and name
+each consuming Loop. Every consuming Loop must reciprocally include the `entry_id` in
+`prompt.input_feedback_refs` and include the exact verbatim text in
+`prompt.input_feedback`. Conflicting and deferred entries have no consumers.
+Validate before continuing:
+
+```text
+python <experiment-loop-skill>/scripts/validate_human_feedback.py \
+  --data <generated-root>
+```
+
+#### Switching from unattended to attended
+
+Human arrival does not cancel an in-flight atomic build, write, or Manifest
+merge. Finish that operation, rebuild the in-progress Viewer, checkpoint the
+downloaded intake sidecar, and then pause before the next Loop Prompt is issued.
+Disposition and schema validation may proceed without separate approval when
+feedback stays inside frozen optimization variables. Explicit approval is
+required for a setup revision, invariant/risk-boundary change, deployment,
+credential/secret access, budget expansion, or any action already named by an
+approval boundary. Resume only after accepted entries are linked into the next
+Loop's Prompt chain; keep unresolved entries pending and visible.
 
 After building the **final** Viewer and producing Navigation Evidence, run the
 bundled Evidence Gate before reporting done:
@@ -446,7 +507,9 @@ Each loop follows this contract:
 5. **Compare to champion**: decide whether this is a new best, a rejection, or a
    useful partial result for synthesis.
 6. **Improve**: define the next hypothesis before changing anything.
-7. **Merge and publish progress**: merge the Loop fragment into `manifest.json`
+7. **Checkpoint attended input**: at a pause point, validate and disposition
+   immutable human feedback before constructing the next Prompt.
+8. **Merge and publish progress**: merge the Loop fragment into `manifest.json`
    and immediately rebuild `viewer.html`.
 
 After judging, compare the iteration with the current champion:

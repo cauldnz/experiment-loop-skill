@@ -90,4 +90,6 @@ If a tool requires an existing session scratch directory, use
 
 The installed `experiment-loop` skill also includes the shared Viewer renderer
 and standard adapter template. Generated adapters support both one-shot builds
-and dependency-free local `--watch` mode without additional installation.
+and dependency-free local `--watch` mode without additional installation. Both
+skills include the canonical human-feedback intake/disposition schemas and
+templates; the loop skill includes `scripts/validate_human_feedback.py`.

@@ -71,6 +71,12 @@ class PrepareScratchTests(unittest.TestCase):
             contents = (ROOT / "scripts" / installer).read_text(encoding="utf-8")
             self.assertIn("prepare_scratch.py", contents)
 
+    def test_both_installers_ship_feedback_contracts_to_setup_skill(self) -> None:
+        for installer in ("install.ps1", "install.sh"):
+            contents = (ROOT / "scripts" / installer).read_text(encoding="utf-8")
+            self.assertIn("human-feedback-intake-schema-v1.0.json", contents)
+            self.assertIn("human-feedback-disposition-schema-v1.0.json", contents)
+
 
 if __name__ == "__main__":
     unittest.main()

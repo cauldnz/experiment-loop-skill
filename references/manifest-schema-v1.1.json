@@ -85,6 +85,10 @@
     },
     "judge_panels": {"type": "array", "items": {"type": "object"}},
     "governance": {"type": "object"},
+    "human_feedback": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/human_feedback_link"}
+    },
     "tracks": {
       "type": "array",
       "minItems": 1,
@@ -322,6 +326,122 @@
       },
       "additionalProperties": false
     },
+    "human_feedback_link": {
+      "type": "object",
+      "required": [
+        "entry_id",
+        "review_id",
+        "intake_path",
+        "intake_sha256",
+        "disposition_path",
+        "disposition_sha256",
+        "feedback_type",
+        "verbatim",
+        "disposition"
+      ],
+      "properties": {
+        "entry_id": {"$ref": "#/$defs/non_empty"},
+        "review_id": {"$ref": "#/$defs/non_empty"},
+        "intake_path": {
+          "type": "string",
+          "pattern": "^human-feedback/intake/[^/]+\\.json$"
+        },
+        "intake_sha256": {"$ref": "#/$defs/sha256"},
+        "disposition_path": {
+          "type": "string",
+          "pattern": "^human-feedback/dispositions/[^/]+\\.json$"
+        },
+        "disposition_sha256": {"$ref": "#/$defs/sha256"},
+        "feedback_type": {
+          "enum": ["general", "criterion", "loop", "artifact"]
+        },
+        "verbatim": {"type": "string"},
+        "target": {
+          "type": "object",
+          "required": ["kind", "id"],
+          "properties": {
+            "kind": {"enum": ["loop", "artifact"]},
+            "id": {"$ref": "#/$defs/non_empty"}
+          },
+          "additionalProperties": false
+        },
+        "disposition": {
+          "type": "object",
+          "required": [
+            "id",
+            "status",
+            "interpretation",
+            "rationale",
+            "consumed_iteration_refs"
+          ],
+          "properties": {
+            "id": {"$ref": "#/$defs/non_empty"},
+            "status": {
+              "enum": [
+                "accepted",
+                "answered_conflicts_with_frozen_invariant",
+                "deferred"
+              ]
+            },
+            "interpretation": {"$ref": "#/$defs/non_empty"},
+            "rationale": {"$ref": "#/$defs/non_empty"},
+            "owner_response": {"type": "string"},
+            "consumed_iteration_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"$ref": "#/$defs/non_empty"}
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {"status": {"const": "accepted"}},
+                "required": ["status"]
+              },
+              "then": {
+                "properties": {
+                  "consumed_iteration_refs": {"minItems": 1}
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "answered_conflicts_with_frozen_invariant",
+                      "deferred"
+                    ]
+                  }
+                },
+                "required": ["status"]
+              },
+              "then": {
+                "properties": {
+                  "consumed_iteration_refs": {"maxItems": 0}
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "answered_conflicts_with_frozen_invariant"
+                  }
+                },
+                "required": ["status"]
+              },
+              "then": {
+                "required": ["owner_response"],
+                "properties": {"owner_response": {"minLength": 1}}
+              }
+            }
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
     "iteration": {
       "type": "object",
       "required": [
@@ -382,6 +502,11 @@
           "properties": {
             "track_prompt": {"type": "string"},
             "input_feedback": {"type": "string"},
+            "input_feedback_refs": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"$ref": "#/$defs/non_empty"}
+            },
             "judge_feedback": {"type": "string"},
             "next_prompt": {"type": "string"}
           },

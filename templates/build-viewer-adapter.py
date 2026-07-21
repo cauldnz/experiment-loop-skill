@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Standard Viewer adapter, including deterministic one-shot and local watch modes."""
+"""Standard Viewer adapter for Manifest and human-feedback one-shot/watch builds."""
 
 from __future__ import annotations
 

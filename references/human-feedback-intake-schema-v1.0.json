@@ -1,0 +1,186 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/experiment-loop/human-feedback-intake-schema-v1.0.json",
+  "title": "Experiment Loop Human Feedback Intake v1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "kind",
+    "review_id",
+    "experiment_id",
+    "submitted_at",
+    "provenance",
+    "binding",
+    "human"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "human_feedback_intake"},
+    "review_id": {"$ref": "#/$defs/id"},
+    "experiment_id": {"$ref": "#/$defs/non_empty"},
+    "submitted_at": {"type": "string", "format": "date-time"},
+    "provenance": {
+      "type": "object",
+      "required": ["surface", "export_mode"],
+      "properties": {
+        "surface": {"const": "viewer_native"},
+        "export_mode": {"const": "local_download"}
+      },
+      "additionalProperties": false
+    },
+    "binding": {
+      "type": "object",
+      "required": [
+        "manifest_sha256",
+        "viewer_sha256",
+        "viewer_hash_algorithm"
+      ],
+      "properties": {
+        "manifest_sha256": {"$ref": "#/$defs/sha256"},
+        "viewer_sha256": {"$ref": "#/$defs/sha256"},
+        "viewer_hash_algorithm": {
+          "const": "canonical-html-zeroed-binding-v1"
+        },
+        "setup_approval": {
+          "type": "object",
+          "required": [
+            "brief_revision",
+            "brief_sha256",
+            "prompt_sha256"
+          ],
+          "properties": {
+            "brief_revision": {"type": "integer", "minimum": 1},
+            "brief_sha256": {"$ref": "#/$defs/sha256"},
+            "prompt_sha256": {"$ref": "#/$defs/sha256"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "human": {
+      "type": "object",
+      "required": [
+        "verdict",
+        "recommendation",
+        "preferred_iteration_id",
+        "entries"
+      ],
+      "properties": {
+        "verdict": {"enum": ["approve", "reject", "needs_improvement"]},
+        "recommendation": {"enum": ["keep", "reject", "needs_improvement"]},
+        "preferred_iteration_id": {"type": ["string", "null"]},
+        "entries": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/entry"}
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "non_empty": {"type": "string", "minLength": 1},
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    },
+    "entry": {
+      "type": "object",
+      "required": ["entry_id", "feedback_type", "verbatim"],
+      "properties": {
+        "entry_id": {"$ref": "#/$defs/id"},
+        "feedback_type": {
+          "enum": ["general", "criterion", "loop", "artifact"]
+        },
+        "verbatim": {"type": "string"},
+        "criterion_review": {
+          "type": "object",
+          "required": ["criterion_id", "score", "rating"],
+          "properties": {
+            "criterion_id": {"$ref": "#/$defs/non_empty"},
+            "score": {"type": ["number", "null"]},
+            "rating": {"type": ["string", "null"]}
+          },
+          "additionalProperties": false
+        },
+        "target": {
+          "type": "object",
+          "required": ["kind", "id"],
+          "properties": {
+            "kind": {"enum": ["loop", "artifact"]},
+            "id": {"$ref": "#/$defs/non_empty"}
+          },
+          "additionalProperties": false
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"feedback_type": {"const": "criterion"}},
+            "required": ["feedback_type"]
+          },
+          "then": {
+            "required": ["criterion_review"],
+            "anyOf": [
+              {"properties": {"verbatim": {"minLength": 1}}},
+              {
+                "properties": {
+                  "criterion_review": {
+                    "properties": {"score": {"type": "number"}}
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "criterion_review": {
+                    "properties": {"rating": {"type": "string"}}
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {"feedback_type": {"const": "loop"}},
+            "required": ["feedback_type"]
+          },
+          "then": {
+            "required": ["target"],
+            "properties": {
+              "verbatim": {"minLength": 1},
+              "target": {"properties": {"kind": {"const": "loop"}}}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {"feedback_type": {"const": "artifact"}},
+            "required": ["feedback_type"]
+          },
+          "then": {
+            "required": ["target"],
+            "properties": {
+              "verbatim": {"minLength": 1},
+              "target": {"properties": {"kind": {"const": "artifact"}}}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {"feedback_type": {"const": "general"}},
+            "required": ["feedback_type"]
+          },
+          "then": {"properties": {"verbatim": {"minLength": 1}}}
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

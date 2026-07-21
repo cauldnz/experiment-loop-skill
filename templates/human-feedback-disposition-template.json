@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "kind": "human_feedback_disposition",
+  "disposition_id": "disposition-example-001",
+  "experiment_id": "short-stable-id",
+  "entry_id": "feedback-example-001",
+  "recorded_at": "2026-07-21T00:05:00Z",
+  "intake": {
+    "review_id": "review-example-001",
+    "path": "human-feedback/intake/review-example-001.json",
+    "sha256": "0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "orchestrator": {
+    "interpretation": "Retain the current strengths while testing a clarity-focused change.",
+    "disposition": "accepted",
+    "rationale": "The request is inside the frozen optimization variables.",
+    "consumed_iteration_refs": ["loop-003"]
+  }
+}

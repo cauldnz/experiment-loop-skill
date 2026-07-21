@@ -117,10 +117,10 @@ def render_viewer(
                 ],
             }
         )
-        human_button = '<button class="button" id="human-review-button">Human Judge</button>'
+        human_button = '<button class="button" id="human-review-button">Human feedback</button>'
         human_dialog = """
 <dialog id="human-dialog" aria-labelledby="human-title">
-  <div class="dialog-head"><strong id="human-title">Human Judge</strong><button class="button" id="human-close">Close</button></div>
+  <div class="dialog-head"><strong id="human-title">Human feedback</strong><button class="button" id="human-close">Close</button></div>
   <div class="dialog-body" id="human-body"></div>
 </dialog>"""
     interaction_contract = {
@@ -314,6 +314,9 @@ li + li { margin-top: 6px; }
 .badge.pass, .new_best { color: var(--cp-success); border-color: var(--cp-success); }
 .badge.fail, .reject, .failed { color: var(--cp-danger); border-color: var(--cp-danger); }
 .badge.pending { color: var(--cp-warning); border-color: var(--cp-warning); }
+.badge.accepted { color: var(--cp-success); border-color: var(--cp-success); }
+.badge.deferred { color: var(--cp-warning); border-color: var(--cp-warning); }
+.badge.answered_conflicts_with_frozen_invariant { color: var(--cp-danger); border-color: var(--cp-danger); }
 .run-status {
   display: flex;
   flex-wrap: wrap;
@@ -523,6 +526,18 @@ pre {
   padding: 10px 12px;
   margin-top: 12px;
 }
+.feedback.model-feedback { border-left-color: var(--cp-border-strong); background: var(--cp-surface-soft); }
+.human-steering {
+  border: 1px solid var(--cp-accent);
+  border-left-width: 5px;
+  background: var(--cp-accent-soft);
+}
+.human-feedback-entry {
+  border-top: 1px solid var(--cp-border);
+  padding-top: 10px;
+  margin-top: 10px;
+}
+.human-feedback-entry blockquote { margin: 6px 0; font-size: 15px; }
 .artifact {
   border: 1px solid var(--cp-border);
   border-radius: 0.625rem;
@@ -593,6 +608,7 @@ dialog::backdrop { background: var(--cp-overlay); }
   color: var(--cp-text);
   font: inherit;
 }
+.review-validation { min-height: 22px; color: var(--cp-danger); }
 .criterion-review {
   display: grid;
   grid-template-columns: minmax(160px, 1fr) 120px 140px minmax(220px, 2fr);
@@ -713,6 +729,25 @@ __HUMAN_DIALOG__
     }).join("")}</div>`;
   }
 
+  function humanFeedbackMarkup(entries, emptyMessage = "No human feedback has been checkpointed.") {
+    const feedback = list(entries);
+    if (!feedback.length) return `<p class="muted">${esc(emptyMessage)}</p>`;
+    return feedback.map(entry => {
+      const target = object(entry.target);
+      const consumed = list(entry.consumed_iteration_refs);
+      return `<article class="human-feedback-entry">
+        <div><span class="badge">Human steering</span> <span class="badge ${esc(entry.status || "pending")}">${esc((entry.status || "pending").replaceAll("_", " "))}</span> <span class="mono muted">${esc(entry.entry_id)}</span></div>
+        ${entry.verbatim ? `<blockquote>“${esc(entry.verbatim)}”</blockquote>` : ""}
+        ${object(entry.criterion_review).criterion_id ? `<p class="muted">Criterion: ${esc(object(entry.criterion_review).criterion_id)} · score ${esc(object(entry.criterion_review).score ?? "—")} · rating ${esc(object(entry.criterion_review).rating || "—")}</p>` : ""}
+        ${target.id ? `<p class="muted">Target: ${esc(target.kind)} ${esc(target.id)}</p>` : ""}
+        ${entry.interpretation ? `<p><strong>Orchestrator interpretation:</strong> ${esc(entry.interpretation)}</p>` : '<p class="muted">Awaiting orchestrator disposition.</p>'}
+        ${entry.rationale ? `<p class="muted">${esc(entry.rationale)}</p>` : ""}
+        ${entry.owner_response ? `<p><strong>Answer:</strong> ${esc(entry.owner_response)}</p>` : ""}
+        ${consumed.length ? `<p class="muted">Consumed by ${consumed.map(value => `<span class="mono">${esc(value)}</span>`).join(", ")}</p>` : ""}
+      </article>`;
+    }).join("");
+  }
+
   function gatePass(value, gate) {
     if (typeof value !== "number" || typeof gate.threshold !== "number") return false;
     return ({eq: value === gate.threshold, ne: value !== gate.threshold, gt: value > gate.threshold, gte: value >= gate.threshold, lt: value < gate.threshold, lte: value <= gate.threshold})[gate.operator] || false;
@@ -748,6 +783,12 @@ __HUMAN_DIALOG__
         <div class="eyebrow">03 / Experiment journey</div>
         <h2>How the Experiment progressed</h2>
         <div class="journey">${milestones.length ? milestones.map((milestone, index) => `<button class="milestone" data-open-loop="${esc(milestone.iteration_id)}"><span class="eyebrow">${String(index + 1).padStart(2, "0")} / ${esc(milestone.iteration_id)}</span><strong>${esc(milestone.caption)}</strong></button>`).join("") : '<p class="muted">No authored milestones have been merged yet.</p>'}</div>
+      </section>
+      <section class="card human-steering">
+        <div class="eyebrow">Human steering / owner feedback</div>
+        <h2>Attended review and disposition</h2>
+        <p class="muted">Verbatim human intake is shown separately from model judge notes. The frozen brief remains authoritative.</p>
+        ${humanFeedbackMarkup(VM.human_feedback)}
       </section>
       <section class="card">
         <div class="eyebrow">04 / ${inProgress ? "Interim evidence" : "Why it won"}</div>
@@ -877,7 +918,7 @@ __HUMAN_DIALOG__
       const trackIndex = Math.max(0, VM.tracks.findIndex(track => track.id === loop.track_id));
       const depth = loop.topology_column ?? loop.topology_depth ?? loop.index;
       return `<button class="graph-node ${esc(loop.decision)}" data-loop="${esc(loop.id)}" style="grid-row:${trackIndex + 1};grid-column:${depth + 2}" aria-pressed="false" tabindex="-1">
-        <span class="node-title"><span>${esc(loop.label || loop.id)}</span>${loop.is_champion ? '<span class="badge champion">Champion</span>' : ""}</span>
+        <span class="node-title"><span>${esc(loop.label || loop.id)}</span>${loop.is_champion ? '<span class="badge champion">Champion</span>' : ""}${loop.human_feedback_count ? `<span class="badge accepted">${loop.human_feedback_count} human</span>` : ""}</span>
         <span class="node-meta"><span class="badge ${esc(loop.decision || "pending")}">${esc(loop.decision || "pending")}</span> · ${esc(formatValue(loop.primary_value, VM.primary_criterion))}</span>
       </button>`;
     }).join("");
@@ -1158,7 +1199,8 @@ __HUMAN_DIALOG__
       <h3>Outcome</h3><p>${esc(loop.outcome)}</p>
       ${artifactMarkup(loop.primary_artifact)}
       ${metricCards(loop)}
-      <div class="feedback"><div class="eyebrow">Judge feedback</div>${loop.judge_feedback_pending ? '<p><span class="badge pending">Awaiting panel</span> Judge feedback has not been merged yet.</p>' : `<p>${esc(prompt.judge_feedback)}</p>`}</div>
+      <div class="feedback human-steering"><div class="eyebrow">Human steering</div>${humanFeedbackMarkup(loop.human_feedback, "No human feedback targets or was consumed by this Loop.")}</div>
+      <div class="feedback model-feedback"><div class="eyebrow">Model judge feedback</div>${loop.judge_feedback_pending ? '<p><span class="badge pending">Awaiting panel</span> Judge feedback has not been merged yet.</p>' : `<p>${esc(prompt.judge_feedback)}</p>`}</div>
       <h3 style="margin-top:14px">Lesson</h3><p>${esc(lesson.action || "")}</p><p class="muted">${esc(lesson.evidence || "")}</p>
       ${secondary.length ? `<details><summary>Other Artifacts (${secondary.length})</summary><div class="stack">${secondary.map(artifact => artifactMarkup(artifact)).join("")}</div></details>` : ""}
       <details><summary>Prompt and feedback chain</summary>
@@ -1282,37 +1324,47 @@ __HUMAN_DIALOG__
     const loopOptions = VM.loops.map(loop => `<option value="${esc(loop.id)}">${esc(loop.label || loop.id)}</option>`).join("");
     const artifactOptions = VM.loops.flatMap(loop => list(loop.artifacts).map(artifact => `<option value="${esc(artifact.id)}">${esc(loop.id)} / ${esc(artifact.label || artifact.id)}</option>`)).join("");
     const criteria = list(VM.human_review_criteria).map((criterion, index) => `
-      <div class="criterion-review" data-review-criterion="${esc(criterion.id)}">
+      <div class="criterion-review" data-review-criterion="${esc(criterion.id)}" data-entry-id="${stableId("feedback")}">
         <div><strong>${esc(criterion.label || criterion.id)}</strong><div class="muted">${esc(criterion.unit || "rating")}</div></div>
         <label>Score<input id="human-score-${index}" type="number" step="any" inputmode="decimal"></label>
         <label>Rating<select id="human-rating-${index}"><option value="">Not rated</option><option value="weak">Weak</option><option value="acceptable">Acceptable</option><option value="strong">Strong</option></select></label>
         <label>Criterion notes<textarea id="human-criterion-notes-${index}"></textarea></label>
       </div>`).join("");
     return `<div class="review-form">
-      <div><div class="eyebrow">Export-only review</div><h2>Judge this Experiment</h2><p class="muted">Your review is downloaded as a schema-bound JSON sidecar. It contains no reviewer identity and is not imported by this Viewer.</p></div>
+      <div><div class="eyebrow">Viewer-native intake</div><h2>Review and steer this Experiment</h2><p class="muted">The Viewer validates and downloads an immutable canonical JSON sidecar. Move it to <span class="mono">generated/human-feedback/intake/</span>; browsers cannot write local Experiment files directly. No reviewer identity is collected.</p></div>
       <div class="grid-2">
         <label>Overall verdict<select id="human-verdict"><option value="needs_improvement">Needs improvement</option><option value="approve">Approve</option><option value="reject">Reject</option></select></label>
         <label>Recommendation<select id="human-recommendation"><option value="needs_improvement">Needs improvement</option><option value="keep">Keep</option><option value="reject">Reject</option></select></label>
       </div>
-      <label>General notes<textarea id="human-general-notes"></textarea></label>
+      <label data-entry-id="${stableId("feedback")}">General feedback<textarea id="human-general-notes"></textarea></label>
       <section><h3>Assigned criteria</h3><div class="stack">${criteria}</div></section>
       <div class="grid-2">
         <label>Preferred Loop<select id="human-preferred-loop"><option value="">No preference</option>${loopOptions}</select></label>
         <span></span>
-        <label>Loop note for<select id="human-loop-note-id">${loopOptions}</select></label>
-        <label>Loop notes<textarea id="human-loop-notes"></textarea></label>
-        <label>Artifact note for<select id="human-artifact-note-id">${artifactOptions}</select></label>
-        <label>Artifact notes<textarea id="human-artifact-notes"></textarea></label>
+        <label>Loop feedback target<select id="human-loop-note-id">${loopOptions}</select></label>
+        <label data-entry-id="${stableId("feedback")}">Verbatim Loop feedback<textarea id="human-loop-notes"></textarea></label>
+        <label>Artifact feedback target<select id="human-artifact-note-id">${artifactOptions}</select></label>
+        <label data-entry-id="${stableId("feedback")}">Verbatim Artifact feedback<textarea id="human-artifact-notes"></textarea></label>
       </div>
       <div class="card compact"><h3>Evidence binding</h3><div class="binding">Experiment: ${esc(VM.experiment_id)}<br>Manifest SHA-256: ${esc(VM.binding.manifest_sha256)}<br>Viewer SHA-256: ${esc(VM.binding.viewer_sha256)}<br>Algorithm: ${esc(VM.binding.viewer_hash_algorithm)}</div></div>
-      <div><button class="button" id="human-export">Download review JSON</button></div>
+      <div class="review-validation" id="human-validation" role="alert"></div>
+      <div><button class="button" id="human-export">Validate and download intake JSON</button></div>
     </div>`;
+  }
+
+  function stableId(prefix) {
+    const random = globalThis.crypto && typeof globalThis.crypto.randomUUID === "function"
+      ? globalThis.crypto.randomUUID()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+    return `${prefix}-${random}`;
   }
 
   function openHumanReview(invoker) {
     const dialog = byId("human-dialog");
     if (!dialog) return;
     dialog._invoker = invoker;
+    dialog.dataset.reviewId = stableId("review");
+    dialog.dataset.submittedAt = "";
     byId("human-body").innerHTML = humanReviewMarkup();
     const selectedLoop = loopById(hashState().loop) || loopById(VM.champion.iteration_id);
     if (selectedLoop) byId("human-loop-note-id").value = selectedLoop.id;
@@ -1323,41 +1375,103 @@ __HUMAN_DIALOG__
   }
 
   function exportHumanReview() {
-    const criterionReviews = list(VM.human_review_criteria).map((criterion, index) => {
+    const entries = [];
+    const generalNotes = byId("human-general-notes").value;
+    if (generalNotes.trim()) {
+      entries.push({
+        entry_id: byId("human-general-notes").closest("[data-entry-id]").dataset.entryId,
+        feedback_type: "general",
+        verbatim: generalNotes
+      });
+    }
+    list(VM.human_review_criteria).forEach((criterion, index) => {
       const scoreText = byId(`human-score-${index}`).value;
       const rating = byId(`human-rating-${index}`).value;
-      return {
-        criterion_id: criterion.id,
-        score: scoreText === "" ? null : Number(scoreText),
-        rating: rating || null,
-        notes: byId(`human-criterion-notes-${index}`).value
-      };
+      const notes = byId(`human-criterion-notes-${index}`).value;
+      if (scoreText !== "" || rating || notes.trim()) {
+        entries.push({
+          entry_id: byId(`human-score-${index}`).closest("[data-entry-id]").dataset.entryId,
+          feedback_type: "criterion",
+          verbatim: notes,
+          criterion_review: {
+            criterion_id: criterion.id,
+            score: scoreText === "" ? null : Number(scoreText),
+            rating: rating || null
+          }
+        });
+      }
     });
     const loopNotes = byId("human-loop-notes").value.trim();
     const artifactNotes = byId("human-artifact-notes").value.trim();
+    if (loopNotes) {
+      entries.push({
+        entry_id: byId("human-loop-notes").closest("[data-entry-id]").dataset.entryId,
+        feedback_type: "loop",
+        verbatim: byId("human-loop-notes").value,
+        target: {kind: "loop", id: byId("human-loop-note-id").value}
+      });
+    }
+    if (artifactNotes) {
+      entries.push({
+        entry_id: byId("human-artifact-notes").closest("[data-entry-id]").dataset.entryId,
+        feedback_type: "artifact",
+        verbatim: byId("human-artifact-notes").value,
+        target: {kind: "artifact", id: byId("human-artifact-note-id").value}
+      });
+    }
+    const dialog = byId("human-dialog");
+    if (!dialog.dataset.submittedAt) dialog.dataset.submittedAt = new Date().toISOString();
     const review = {
       schema_version: "1.0",
+      kind: "human_feedback_intake",
+      review_id: dialog.dataset.reviewId,
       experiment_id: VM.experiment_id,
-      manifest_sha256: VM.binding.manifest_sha256,
-      viewer_sha256: VM.binding.viewer_sha256,
-      viewer_hash_algorithm: VM.binding.viewer_hash_algorithm,
-      verdict: byId("human-verdict").value,
-      general_notes: byId("human-general-notes").value,
-      criterion_reviews: criterionReviews,
-      loop_notes: loopNotes ? [{iteration_id: byId("human-loop-note-id").value, notes: loopNotes}] : [],
-      artifact_notes: artifactNotes ? [{artifact_id: byId("human-artifact-note-id").value, notes: artifactNotes}] : [],
-      preferred_iteration_id: byId("human-preferred-loop").value || null,
-      recommendation: byId("human-recommendation").value
+      submitted_at: dialog.dataset.submittedAt,
+      provenance: {surface: "viewer_native", export_mode: "local_download"},
+      binding: {
+        manifest_sha256: VM.binding.manifest_sha256,
+        viewer_sha256: VM.binding.viewer_sha256,
+        viewer_hash_algorithm: VM.binding.viewer_hash_algorithm
+      },
+      human: {
+        verdict: byId("human-verdict").value,
+        recommendation: byId("human-recommendation").value,
+        preferred_iteration_id: byId("human-preferred-loop").value || null,
+        entries
+      }
     };
+    const errors = validateHumanIntake(review);
+    byId("human-validation").textContent = errors.join(" ");
+    if (errors.length) return;
     const blob = new Blob([`${JSON.stringify(review, null, 2)}\n`], {type: "application/json"});
     const href = URL.createObjectURL(blob);
     const anchor = document.createElement("a");
     anchor.href = href;
-    anchor.download = `${VM.experiment_id}-human-review.json`;
+    anchor.download = `${review.review_id}.json`;
     document.body.append(anchor);
     anchor.click();
     anchor.remove();
     setTimeout(() => URL.revokeObjectURL(href), 0);
+  }
+
+  function validateHumanIntake(review) {
+    const errors = [];
+    if (review.schema_version !== "1.0" || review.kind !== "human_feedback_intake") errors.push("Unsupported feedback schema.");
+    if (!review.review_id || !review.experiment_id) errors.push("Stable review and Experiment IDs are required.");
+    if (!list(object(review.human).entries).length) errors.push("Enter general, criterion, Loop, or Artifact feedback before exporting.");
+    list(object(review.human).entries).forEach(entry => {
+      if (!entry.entry_id || !["general", "criterion", "loop", "artifact"].includes(entry.feedback_type)) errors.push("Each feedback entry needs a stable ID and type.");
+      if (entry.feedback_type !== "criterion" && !String(entry.verbatim || "").length) errors.push("Freeform feedback must preserve non-empty verbatim text.");
+      if (entry.feedback_type === "criterion") {
+        const criterion = object(entry.criterion_review);
+        if (!criterion.criterion_id || (criterion.score == null && !criterion.rating && !String(entry.verbatim || "").length)) errors.push("Criterion feedback needs a score, rating, or verbatim note.");
+      }
+      if (["loop", "artifact"].includes(entry.feedback_type)) {
+        const target = object(entry.target);
+        if (target.kind !== entry.feedback_type || !target.id) errors.push(`${entry.feedback_type} feedback needs a valid target.`);
+      }
+    });
+    return [...new Set(errors)];
   }
 
   byId("experiment-id").textContent = VM.experiment_id;

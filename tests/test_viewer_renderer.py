@@ -234,24 +234,20 @@ class ViewerRendererTests(unittest.TestCase):
         )
         self.assertIn(".graph-node.keep_for_synthesis", rendered)
 
-    def test_human_review_ui_is_conditional_and_identity_free(self) -> None:
-        self.assertNotIn('id="human-review-button"', render_viewer(self.manifest))
-        self.manifest["scorers"].append(
-            {
-                "id": "human",
-                "type": "human_review",
-                "criterion_ids": ["clarity"],
-                "primary": False,
-                "weight": 1,
-            }
-        )
-
+    def test_human_feedback_intake_is_always_available_and_identity_free(self) -> None:
         rendered = render_viewer(self.manifest)
 
         self.assertIn('id="human-review-button"', rendered)
-        self.assertIn("schema-bound JSON sidecar", rendered)
+        self.assertIn("immutable canonical JSON sidecar", rendered)
+        self.assertIn("human_feedback_intake", rendered)
+        self.assertIn("Validate and download intake JSON", rendered)
+        self.assertIn("Human steering", rendered)
+        self.assertIn("Model judge feedback", rendered)
         self.assertIn('"viewer_hash_algorithm":"canonical-html-zeroed-binding-v1"', rendered)
-        self.assertNotIn("reviewer identity", rendered.lower().replace("no reviewer identity", ""))
+        self.assertNotIn(
+            "reviewer identity",
+            rendered.lower().replace("no reviewer identity", ""),
+        )
 
     def test_cli_build_degrades_to_diagnostic_viewer(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
@@ -301,7 +297,7 @@ class ViewerRendererTests(unittest.TestCase):
         self.assertIn("No Loops merged yet", rendered)
         self.assertIn("No Loops are available to compare yet.", rendered)
 
-    def test_watch_poll_tracks_only_manifest_inputs(self) -> None:
+    def test_watch_poll_tracks_manifest_and_feedback_inputs(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)
             viewer = root / "viewer.html"
@@ -321,6 +317,16 @@ class ViewerRendererTests(unittest.TestCase):
             fragment.write_text("{}", encoding="utf-8")
             _, changed = poll_watch_inputs(root, after_manifest)
             self.assertEqual(("track-a/manifest-fragment.json",), changed)
+
+            after_fragment = snapshot_watch_inputs(root)
+            intake = root / "human-feedback" / "intake" / "review-001.json"
+            intake.parent.mkdir(parents=True)
+            intake.write_text("{}", encoding="utf-8")
+            _, changed = poll_watch_inputs(root, after_fragment)
+            self.assertEqual(
+                ("human-feedback/intake/review-001.json",),
+                changed,
+            )
 
     def test_watch_debouncer_coalesces_bursts(self) -> None:
         debouncer = WatchDebouncer(0.2)

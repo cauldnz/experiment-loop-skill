@@ -63,6 +63,7 @@
     }
   ],
   "judge_panels": [],
+  "human_feedback": [],
   "tracks": [
     {
       "id": "example-track",
@@ -117,6 +118,7 @@
       "prompt": {
         "track_prompt": "Build a baseline.",
         "input_feedback": "",
+        "input_feedback_refs": [],
         "judge_feedback": "The baseline is correct but unclear.",
         "next_prompt": "Improve clarity while preserving correctness."
       },
@@ -177,6 +179,7 @@
       "prompt": {
         "track_prompt": "Improve clarity.",
         "input_feedback": "The baseline is correct but unclear.",
+        "input_feedback_refs": [],
         "judge_feedback": "The result is clear and remains correct.",
         "next_prompt": ""
       },

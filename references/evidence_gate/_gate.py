@@ -18,6 +18,10 @@ from ._static_viewer import (
     check_links,
     check_self_contained,
 )
+from references.human_feedback import (
+    validate_feedback_directory,
+    validate_manifest_feedback,
+)
 
 
 def _pass(name: str, **detail: object) -> CheckResult:
@@ -289,6 +293,7 @@ def _semantic_check(data: dict[str, object]) -> CheckResult:
             errors.append(
                 f"Loop {iteration.get('id')} uses undeclared model {model_id}"
             )
+    errors.extend(validate_manifest_feedback(data))
 
     if errors:
         return _fail("manifest_semantics", errors=errors[:30])
@@ -523,6 +528,13 @@ def validate_experiment(run_dir: Path | str) -> EvidenceReport:
         checks.append(_schema_check(data, schema_path))
         checks.append(_semantic_check(data))
         checks.append(_artifact_check(data, run_path))
+        if (run_path / "human-feedback").exists() or data.get("human_feedback"):
+            feedback_errors = validate_feedback_directory(run_path, data)
+            checks.append(
+                _fail("human_feedback", errors=feedback_errors[:30])
+                if feedback_errors
+                else _pass("human_feedback")
+            )
 
     checks.extend(_viewer_checks(run_path))
     checks.append(_navigation_check(run_path, run_path / "viewer.html"))

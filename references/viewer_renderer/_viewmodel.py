@@ -9,6 +9,8 @@ import mimetypes
 from collections.abc import Mapping
 from pathlib import Path
 
+from references.human_feedback import load_feedback_view
+
 MAX_PREVIEW_BYTES = 1_000_000
 MAX_TOTAL_PREVIEW_BYTES = 8_000_000
 
@@ -318,6 +320,21 @@ def build_view_model(
         for scorer in human_scorers
         for criterion_id in _list(scorer.get("criterion_ids"))
     }
+    feedback_records, feedback_diagnostics = load_feedback_view(data_dir, source)
+    diagnostics.extend(feedback_diagnostics)
+    for loop in loops:
+        loop_id = _text(loop.get("id"))
+        loop_feedback = [
+            feedback
+            for feedback in feedback_records
+            if loop_id in _list(feedback.get("consumed_iteration_refs"))
+            or (
+                _dict(feedback.get("target")).get("kind") == "loop"
+                and _dict(feedback.get("target")).get("id") == loop_id
+            )
+        ]
+        loop["human_feedback"] = loop_feedback
+        loop["human_feedback_count"] = len(loop_feedback)
     if data_dir is not None and (data_dir / "manifest.json").is_file():
         manifest_sha256 = hashlib.sha256(
             (data_dir / "manifest.json").read_bytes()
@@ -357,12 +374,14 @@ def build_view_model(
                 else "final_output_requires_verification"
             ),
         },
-        "human_review_enabled": bool(human_scorers),
+        "human_review_enabled": True,
         "human_review_criteria": [
             criterion
             for criterion in criteria
-            if _text(criterion.get("id")) in human_criterion_ids
+            if not human_criterion_ids
+            or _text(criterion.get("id")) in human_criterion_ids
         ],
+        "human_feedback": feedback_records,
         "binding": {
             "manifest_sha256": manifest_sha256,
             "viewer_sha256": "0" * 64,

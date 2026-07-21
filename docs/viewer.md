@@ -25,7 +25,8 @@ python build_viewer.py --data <generated-root> --out <generated-root>/viewer.htm
 ```
 
 It builds once, then polls `manifest.json` and recursive
-`manifest-fragment.json` files. Rapid writes are coalesced, its own
+`manifest-fragment.json` files plus JSON sidecars under `human-feedback/`. Rapid
+writes are coalesced, its own
 `viewer.html` output cannot trigger a rebuild loop, errors are printed, and
 Ctrl+C exits cleanly. No network or model calls occur.
 
@@ -45,6 +46,15 @@ The shared Viewer has three fixed views:
    maximize, and URL-persisted viewport state support large graphs.
 3. **Compare** shows Experiment-wide metric progression and compares any two
    Loops, defaulting to the earliest Loop and Champion.
+
+The header's **Human feedback** action is the primary attended review surface.
+It captures optional multi-axis criterion ratings and verbatim general, Loop,
+and Artifact feedback, validates a canonical intake object, and downloads it for
+placement under `generated/human-feedback/intake/`. The Viewer cannot and does
+not write local files directly. Human steering appears in a dedicated accented
+lane and badge; model judge notes remain a separate neutral lane. Pending,
+accepted, deferred, and frozen-invariant-conflict dispositions remain distinct
+while the Experiment is in progress.
 
 Raw Manifest and generation fields are advanced evidence. They render as
 structured, searchable UI rather than default JSON dumps.
@@ -96,5 +106,8 @@ python <experiment-loop-skill>/scripts/run_evidence_gate.py <run>
 The Evidence Gate validates Manifest v1.1 schema and semantics, Artifact
 integrity and presentation, deterministic Viewer regeneration, static
 HTML/JavaScript/accessibility checks, and fresh passing Navigation Evidence.
+When canonical feedback exists, it also validates sidecar schemas, hashes,
+references, dispositions, exact verbatim text, and the reciprocal consuming Loop
+Prompt chain.
 Run Navigation Evidence and the Evidence Gate only for the final output.
 Incremental Viewers do not relax or satisfy either completion requirement.
