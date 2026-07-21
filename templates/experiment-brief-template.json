@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "experiment_id": "short-stable-id",
   "title": "Human-readable Experiment title",
   "revision": 1,
@@ -17,6 +17,20 @@
     "audience": "The people who will use or judge the result.",
     "optimization_target": "What the Experiment should maximize or minimize.",
     "success_definition": "A concise definition of a credible successful result."
+  },
+  "human_use": {
+    "applicability": "not_applicable",
+    "rationale": "This template artifact is not directly operated by a person; it is neither a physical tool nor an interactive digital system or workflow.",
+    "prior_art_review": {
+      "owner_provided_references": [],
+      "independent_search": {
+        "network_approved": false,
+        "approval_source": null,
+        "performed": false,
+        "provenance": [],
+        "reviewed_references": []
+      }
+    }
   },
   "invariants": [
     {
@@ -160,6 +174,12 @@
     "telemetry": false,
     "external_services": false,
     "sensitive_data": false,
+    "network_access": {
+      "allowed": false,
+      "approval_source": null,
+      "allowed_hosts": [],
+      "purpose": "No network access is approved for this Experiment."
+    },
     "controls": {}
   },
   "setup_review": {

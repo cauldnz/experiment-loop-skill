@@ -24,6 +24,10 @@ tells you to measure anything else: by the quality of the runs it produces.
 
 3. **Compare induced run quality**, not the diff prose: outcome metric, evidence
    completeness, judging rigor, and governance adherence.
+   When a change introduces conditional applicability, include both applicable
+   and not-applicable cases. Human-use changes must include at least one
+   human-operated digital system as well as any relevant physical case so the
+   benchmark does not equate ergonomics with geometry.
 
 4. **Regenerate the examples at a deliberate release checkpoint.** An Example
    Prompt is maintained source; its `generated/` directory is a disposable

@@ -45,6 +45,16 @@ A later pass that combines the best lessons from earlier tracks. Synthesis shoul
 scorers, Tracks, Loops, Artifact presentation, decisions, lessons, milestones,
 and structured Champion rationale. The Viewer is generated from that record.
 
+## Human-use analysis
+
+Every setup explicitly records whether a person directly operates the Artifact
+and why. This includes physical tools, digital interfaces, interactive
+artifacts, and workflows. Applicable artifacts select relevant physical and/or
+digital operation contexts, map material frictions, preserve functional
+prior-art decisions, and carry a qualitative use-friction rubric through every
+Prompt and Loop. Not-applicable artifacts retain their rationale and do not
+manufacture ergonomics evidence.
+
 ## Viewer
 
 The viewer is a local static HTML file for reviewing the experiment after the chat context is gone. It should make the hill-climb understandable to someone who did not watch the run happen.

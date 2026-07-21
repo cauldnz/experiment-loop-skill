@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://example.invalid/experiment-loop/experiment-brief-schema-v1.0.json",
-  "title": "Experiment Setup Brief v1.0",
+  "title": "Experiment Setup Brief v1.0/v1.1",
   "type": "object",
   "required": [
     "schema_version",
@@ -22,7 +22,7 @@
     "risks"
   ],
   "properties": {
-    "schema_version": {"const": "1.0"},
+    "schema_version": {"enum": ["1.0", "1.1"]},
     "experiment_id": {"$ref": "#/$defs/id"},
     "title": {"$ref": "#/$defs/non_empty"},
     "revision": {"type": "integer", "minimum": 1},
@@ -57,6 +57,7 @@
       },
       "additionalProperties": false
     },
+    "human_use": {"$ref": "#/$defs/human_use"},
     "invariants": {
       "type": "array",
       "minItems": 1,
@@ -229,6 +230,21 @@
         "telemetry": {"type": "boolean"},
         "external_services": {"type": "boolean"},
         "sensitive_data": {"type": "boolean"},
+        "network_access": {
+          "type": "object",
+          "required": ["allowed", "approval_source", "allowed_hosts", "purpose"],
+          "properties": {
+            "allowed": {"type": "boolean"},
+            "approval_source": {"type": ["string", "null"]},
+            "allowed_hosts": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {"$ref": "#/$defs/non_empty"}
+            },
+            "purpose": {"$ref": "#/$defs/non_empty"}
+          },
+          "additionalProperties": false
+        },
         "controls": {
           "type": "object",
           "properties": {
@@ -258,11 +274,274 @@
       "additionalProperties": false
     }
   },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"schema_version": {"const": "1.1"}},
+        "required": ["schema_version"]
+      },
+      "then": {
+        "required": ["human_use"],
+        "properties": {
+          "risks": {"required": ["network_access"]}
+        }
+      }
+    }
+  ],
   "$defs": {
     "non_empty": {"type": "string", "minLength": 1},
     "id": {
       "type": "string",
       "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "prior_art_reference": {
+      "type": "object",
+      "required": [
+        "source",
+        "observed_functional_choice",
+        "inferred_rationale",
+        "decision",
+        "decision_rationale",
+        "originality_implications",
+        "evidence"
+      ],
+      "properties": {
+        "source": {"$ref": "#/$defs/non_empty"},
+        "observed_functional_choice": {"$ref": "#/$defs/non_empty"},
+        "inferred_rationale": {"$ref": "#/$defs/non_empty"},
+        "decision": {"enum": ["adopt", "reject", "adapt"]},
+        "decision_rationale": {"$ref": "#/$defs/non_empty"},
+        "originality_implications": {"$ref": "#/$defs/non_empty"},
+        "evidence": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "search_provenance": {
+      "type": "object",
+      "required": ["query", "source", "retrieved_at", "result"],
+      "properties": {
+        "query": {"$ref": "#/$defs/non_empty"},
+        "source": {"$ref": "#/$defs/non_empty"},
+        "retrieved_at": {"$ref": "#/$defs/non_empty"},
+        "result": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "prior_art_review": {
+      "type": "object",
+      "required": ["owner_provided_references", "independent_search"],
+      "properties": {
+        "owner_provided_references": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/prior_art_reference"}
+        },
+        "independent_search": {
+          "type": "object",
+          "required": [
+            "network_approved",
+            "approval_source",
+            "performed",
+            "provenance",
+            "reviewed_references"
+          ],
+          "properties": {
+            "network_approved": {"type": "boolean"},
+            "approval_source": {"type": ["string", "null"]},
+            "performed": {"type": "boolean"},
+            "provenance": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/search_provenance"}
+            },
+            "reviewed_references": {
+              "type": "array",
+              "items": {"$ref": "#/$defs/prior_art_reference"}
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "friction_scenario": {
+      "type": "object",
+      "required": [
+        "id",
+        "operation",
+        "context",
+        "material_friction",
+        "treatment",
+        "target_id",
+        "rationale",
+        "evidence_plan"
+      ],
+      "properties": {
+        "id": {"$ref": "#/$defs/id"},
+        "operation": {"$ref": "#/$defs/non_empty"},
+        "context": {"$ref": "#/$defs/non_empty"},
+        "material_friction": {"$ref": "#/$defs/non_empty"},
+        "treatment": {
+          "enum": ["qualitative_scorecard_criterion", "design_invariant"]
+        },
+        "target_id": {"$ref": "#/$defs/id"},
+        "rationale": {"$ref": "#/$defs/non_empty"},
+        "evidence_plan": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "friction_category": {
+      "type": "object",
+      "required": ["category", "assessment", "scenarios"],
+      "properties": {
+        "category": {
+          "enum": [
+            "grips",
+            "forces_loads",
+            "insertion_removal",
+            "inversion_retention",
+            "repetitive_use",
+            "hand_contact_edges",
+            "assembly_disassembly",
+            "foreseeable_misuse",
+            "accessibility_safety_interactions",
+            "accessibility",
+            "discoverability",
+            "navigation",
+            "input_burden",
+            "error_prevention_recovery",
+            "feedback_status",
+            "responsive_touch_ergonomics",
+            "interruption_resumption",
+            "latency_perception",
+            "destructive_actions",
+            "cognitive_load"
+          ]
+        },
+        "assessment": {"$ref": "#/$defs/non_empty"},
+        "scenarios": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/friction_scenario"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "friction_analysis": {
+      "type": "object",
+      "required": ["categories", "not_selected_categories"],
+      "properties": {
+        "categories": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/friction_category"}
+        },
+        "not_selected_categories": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/friction_category_disposition"}
+        }
+      },
+      "additionalProperties": false
+    },
+    "friction_category_disposition": {
+      "type": "object",
+      "required": ["category", "rationale"],
+      "properties": {
+        "category": {
+          "enum": [
+            "grips",
+            "forces_loads",
+            "insertion_removal",
+            "inversion_retention",
+            "repetitive_use",
+            "hand_contact_edges",
+            "assembly_disassembly",
+            "foreseeable_misuse",
+            "accessibility_safety_interactions",
+            "accessibility",
+            "discoverability",
+            "navigation",
+            "input_burden",
+            "error_prevention_recovery",
+            "feedback_status",
+            "responsive_touch_ergonomics",
+            "interruption_resumption",
+            "latency_perception",
+            "destructive_actions",
+            "cognitive_load"
+          ]
+        },
+        "rationale": {"$ref": "#/$defs/non_empty"}
+      },
+      "additionalProperties": false
+    },
+    "qualitative_judging": {
+      "type": "object",
+      "required": [
+        "criterion_id",
+        "scorer_id",
+        "evidence_plan",
+        "required_lenses"
+      ],
+      "properties": {
+        "criterion_id": {"$ref": "#/$defs/id"},
+        "scorer_id": {"$ref": "#/$defs/id"},
+        "evidence_plan": {"$ref": "#/$defs/non_empty"},
+        "required_lenses": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": [
+              "sharp_contact_edges",
+              "comfort",
+              "retention",
+              "strength_confidence_under_intended_loads",
+              "operability",
+              "degraded_cosmetic_operations",
+              "discoverability",
+              "navigation",
+              "input_burden",
+              "error_prevention_recovery",
+              "feedback_status",
+              "accessibility",
+              "responsive_touch_ergonomics",
+              "interruption_resumption",
+              "latency_perception",
+              "destructive_actions",
+              "cognitive_load"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "human_use": {
+      "type": "object",
+      "required": ["applicability", "rationale", "prior_art_review"],
+      "properties": {
+        "applicability": {"enum": ["applicable", "not_applicable"]},
+        "rationale": {"$ref": "#/$defs/non_empty"},
+        "friction_analysis": {"$ref": "#/$defs/friction_analysis"},
+        "prior_art_review": {"$ref": "#/$defs/prior_art_review"},
+        "qualitative_judging": {"$ref": "#/$defs/qualitative_judging"}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"applicability": {"const": "applicable"}},
+            "required": ["applicability"]
+          },
+          "then": {
+            "required": ["friction_analysis", "qualitative_judging"]
+          },
+          "else": {
+            "properties": {
+              "friction_analysis": false,
+              "qualitative_judging": false
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
     },
     "verification": {
       "type": "object",

@@ -23,6 +23,47 @@ RISK_CONTROL_FIELDS = (
     "rollback",
     "approval_boundaries",
 )
+FRICTION_CATEGORIES = (
+    "grips",
+    "forces_loads",
+    "insertion_removal",
+    "inversion_retention",
+    "repetitive_use",
+    "hand_contact_edges",
+    "assembly_disassembly",
+    "foreseeable_misuse",
+    "accessibility_safety_interactions",
+    "accessibility",
+    "discoverability",
+    "navigation",
+    "input_burden",
+    "error_prevention_recovery",
+    "feedback_status",
+    "responsive_touch_ergonomics",
+    "interruption_resumption",
+    "latency_perception",
+    "destructive_actions",
+    "cognitive_load",
+)
+HUMAN_USE_LENSES = {
+    "sharp_contact_edges",
+    "comfort",
+    "retention",
+    "strength_confidence_under_intended_loads",
+    "operability",
+    "degraded_cosmetic_operations",
+    "discoverability",
+    "navigation",
+    "input_burden",
+    "error_prevention_recovery",
+    "feedback_status",
+    "accessibility",
+    "responsive_touch_ergonomics",
+    "interruption_resumption",
+    "latency_perception",
+    "destructive_actions",
+    "cognitive_load",
+}
 
 
 def _load(path: Path) -> Any:
@@ -108,6 +149,120 @@ def validate_brief(data: object) -> list[str]:
             f"blocking gates lack objective scorers: {sorted(missing_objective)}"
         )
 
+    human_use = data.get("human_use")
+    if data.get("schema_version") == "1.1" and not isinstance(human_use, dict):
+        errors.append("schema v1.1 requires an explicit human_use declaration")
+    if isinstance(human_use, dict):
+        prior_art = human_use["prior_art_review"]
+        independent = prior_art["independent_search"]
+        network_access = data["risks"].get("network_access", {})
+        if independent["performed"] and not independent["network_approved"]:
+            errors.append(
+                "independent prior-art search cannot be performed without explicit network approval"
+            )
+        if independent["network_approved"]:
+            if not str(independent.get("approval_source") or "").strip():
+                errors.append(
+                    "approved independent prior-art search requires an approval_source"
+                )
+            if not isinstance(network_access, dict) or network_access.get("allowed") is not True:
+                errors.append(
+                    "independent prior-art search approval must be enabled by risks.network_access"
+                )
+        if independent["performed"] and not independent["provenance"]:
+            errors.append(
+                "performed independent prior-art search requires provenance"
+            )
+        if not independent["performed"] and (
+            independent["provenance"] or independent["reviewed_references"]
+        ):
+            errors.append(
+                "unperformed independent prior-art search cannot record provenance or references"
+            )
+
+        if human_use["applicability"] == "applicable":
+            friction_analysis = human_use["friction_analysis"]
+            categories = friction_analysis["categories"]
+            not_selected = friction_analysis["not_selected_categories"]
+            scenarios = [
+                scenario
+                for category in categories
+                for scenario in category["scenarios"]
+            ]
+            category_ids = [category["category"] for category in categories]
+            if len(category_ids) != len(set(category_ids)):
+                errors.append("human-use friction categories must be unique")
+            not_selected_ids = [
+                category["category"] for category in not_selected
+            ]
+            if len(not_selected_ids) != len(set(not_selected_ids)):
+                errors.append(
+                    "human-use not-selected friction categories must be unique"
+                )
+            overlap = set(category_ids) & set(not_selected_ids)
+            if overlap:
+                errors.append(
+                    "human-use friction categories cannot be both selected and "
+                    f"not selected: {sorted(overlap)}"
+                )
+            undispositioned = set(FRICTION_CATEGORIES) - (
+                set(category_ids) | set(not_selected_ids)
+            )
+            if undispositioned:
+                errors.append(
+                    "human-use friction categories lack explicit disposition: "
+                    f"{sorted(undispositioned)}"
+                )
+            scenario_ids = [scenario["id"] for scenario in scenarios]
+            if len(scenario_ids) != len(set(scenario_ids)):
+                errors.append("human-use friction scenario IDs must be unique")
+            invariant_ids = {item["id"] for item in data["invariants"]}
+            judging = human_use["qualitative_judging"]
+            criterion_id = judging["criterion_id"]
+            scorer_id = judging["scorer_id"]
+            scorer_by_id = {item["id"]: item for item in data["scorers"]}
+            criterion = criteria.get(criterion_id)
+            scorer = scorer_by_id.get(scorer_id)
+            if criterion is None:
+                errors.append(
+                    f"human-use qualitative judging references unknown criterion {criterion_id}"
+                )
+            elif criterion["gate"]:
+                errors.append(
+                    "human-use ergonomics criterion must be qualitative, not an objective gate"
+                )
+            if scorer is None:
+                errors.append(
+                    f"human-use qualitative judging references unknown scorer {scorer_id}"
+                )
+            elif (
+                scorer["type"] not in {"llm_rubric", "pairwise_judge"}
+                or criterion_id not in scorer["criterion_ids"]
+            ):
+                errors.append(
+                    "human-use ergonomics scorer must qualitatively score its declared criterion"
+                )
+            if not set(judging["required_lenses"]).issubset(HUMAN_USE_LENSES):
+                errors.append(
+                    "human-use qualitative judging contains an unknown lens"
+                )
+            for scenario in scenarios:
+                target_id = scenario["target_id"]
+                if (
+                    scenario["treatment"] == "qualitative_scorecard_criterion"
+                    and target_id not in criteria
+                ):
+                    errors.append(
+                        f"human-use scenario {scenario['id']} references unknown criterion {target_id}"
+                    )
+                if (
+                    scenario["treatment"] == "design_invariant"
+                    and target_id not in invariant_ids
+                ):
+                    errors.append(
+                        f"human-use scenario {scenario['id']} references unknown invariant {target_id}"
+                    )
+
     if not any(
         invariant["blocking"]
         and invariant["verification"]["type"]
@@ -171,6 +326,13 @@ def validate_brief(data: object) -> list[str]:
             "sensitive_data",
         )
     )
+    network_access = risks.get("network_access")
+    if isinstance(network_access, dict) and network_access["allowed"]:
+        risk_active = True
+        if not str(network_access.get("approval_source") or "").strip():
+            errors.append("approved network access requires an approval_source")
+        if not network_access["allowed_hosts"]:
+            errors.append("approved network access requires at least one allowed host")
     if risk_active:
         controls = risks["controls"]
         missing = [

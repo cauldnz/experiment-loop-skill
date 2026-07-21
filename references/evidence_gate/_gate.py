@@ -172,6 +172,16 @@ def _semantic_check(data: dict[str, object]) -> CheckResult:
 
     criterion_set = {str(value) for value in criterion_ids}
     scorer_ids = {str(value) for value in scorer_ids_list}
+    criterion_by_id = {
+        str(criterion["id"]): criterion
+        for criterion in criteria
+        if criterion.get("id")
+    }
+    scorer_by_id = {
+        str(scorer["id"]): scorer
+        for scorer in scorers
+        if scorer.get("id")
+    }
     scorer_criteria: dict[str, set[str]] = {}
     for scorer in scorers:
         scorer_id = str(scorer.get("id", ""))
@@ -234,6 +244,117 @@ def _semantic_check(data: dict[str, object]) -> CheckResult:
     for duplicate in _duplicates(artifact_ids):
         errors.append(f"duplicate Artifact id: {duplicate}")
     artifact_set = {str(value) for value in artifact_ids}
+
+    human_use = data.get("human_use")
+    if isinstance(human_use, dict) and human_use.get("applicability") == "applicable":
+        criterion_id = str(human_use.get("qualitative_criterion_id", ""))
+        scorer_id = str(human_use.get("qualitative_scorer_id", ""))
+        criterion = criterion_by_id.get(criterion_id)
+        scorer = scorer_by_id.get(scorer_id)
+        if criterion is None:
+            errors.append(
+                f"human-use analysis references unknown criterion {criterion_id}"
+            )
+        elif "gate" in criterion:
+            errors.append(
+                "human-use ergonomics criterion must be qualitative and cannot declare an objective gate"
+            )
+        if scorer is None:
+            errors.append(
+                f"human-use analysis references unknown scorer {scorer_id}"
+            )
+        elif (
+            scorer.get("type") not in {"llm_rubric", "pairwise_judge"}
+            or criterion_id not in {
+                str(value) for value in scorer.get("criterion_ids", [])
+            }
+        ):
+            errors.append(
+                "human-use ergonomics scorer must qualitatively score its declared criterion"
+            )
+
+        evidence_items = [
+            item
+            for item in human_use.get("judging_evidence", [])
+            if isinstance(item, dict)
+        ]
+        evidence_iteration_ids = {
+            str(item.get("iteration_id", "")) for item in evidence_items
+        }
+        missing_evidence = set(iteration_map) - evidence_iteration_ids
+        if missing_evidence:
+            errors.append(
+                "applicable human-use analysis lacks qualitative judging evidence "
+                f"for Loops: {sorted(missing_evidence)}"
+            )
+        required_lenses = {
+            str(value) for value in human_use.get("required_lenses", [])
+        }
+        for item in evidence_items:
+            evidence_iteration_id = str(item.get("iteration_id", ""))
+            evidence_criterion_id = str(item.get("criterion_id", ""))
+            evidence_scorer_id = str(item.get("scorer_id", ""))
+            if evidence_iteration_id not in iteration_map:
+                errors.append(
+                    "human-use judging evidence references unknown Loop "
+                    f"{evidence_iteration_id}"
+                )
+                continue
+            if (
+                evidence_criterion_id != criterion_id
+                or evidence_scorer_id != scorer_id
+            ):
+                errors.append(
+                    f"human-use judging evidence for {evidence_iteration_id} "
+                    "does not use the declared qualitative criterion and scorer"
+                )
+            loop_scores = iteration_map[evidence_iteration_id].get("scores", [])
+            if not any(
+                isinstance(score, dict)
+                and str(score.get("criterion_id", "")) == criterion_id
+                and str(score.get("scorer_id", "")) == scorer_id
+                and score.get("value") == item.get("score")
+                for score in loop_scores
+            ):
+                errors.append(
+                    f"human-use judging evidence for {evidence_iteration_id} "
+                    "does not match its qualitative Loop score"
+                )
+            for reference in item.get("evidence_refs", []):
+                if str(reference) not in artifact_set:
+                    errors.append(
+                        f"human-use judging evidence references unknown Artifact {reference}"
+                    )
+            lens_findings = [
+                finding
+                for finding in item.get("lens_findings", [])
+                if isinstance(finding, dict)
+            ]
+            finding_lenses = [
+                str(finding.get("lens", "")) for finding in lens_findings
+            ]
+            for duplicate in _duplicates(finding_lenses):
+                errors.append(
+                    f"human-use judging evidence for {evidence_iteration_id} "
+                    f"duplicates lens {duplicate}"
+                )
+            missing_lenses = required_lenses - set(finding_lenses)
+            if missing_lenses:
+                errors.append(
+                    f"human-use judging evidence for {evidence_iteration_id} "
+                    f"lacks required lenses: {sorted(missing_lenses)}"
+                )
+        for scenario in human_use.get("friction_scenarios", []):
+            if not isinstance(scenario, dict):
+                continue
+            if (
+                scenario.get("treatment") == "qualitative_scorecard_criterion"
+                and str(scenario.get("target", "")) != criterion_id
+            ):
+                errors.append(
+                    f"human-use friction {scenario.get('id')} is not mapped to "
+                    "the declared qualitative criterion"
+                )
 
     for criterion in criteria:
         baseline = criterion.get("baseline")
