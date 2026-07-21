@@ -84,6 +84,9 @@ Every loop should leave behind:
 - a manifest entry.
 
 The manifest is the source of truth. Chat history is not.
+After merging each Loop entry, immediately rebuild `viewer.html`. For a local
+live view, run the standard adapter with `--watch`; it rebuilds when the Manifest
+or standard fragments change and stops with Ctrl+C.
 
 ## 5. Pick the judging mode
 
@@ -93,9 +96,10 @@ Use independent qualitative judges when the target is visual quality, UX, writin
 
 ## 6. Inspect the result
 
-Every experiment must contain at least two Loops and a Viewer. Run the navigation
-judge and Evidence Gate before treating it as complete, then open `viewer.html`
-directly in a browser.
+Open `viewer.html` during the run to inspect all Loops merged so far. An interim
+Viewer labels itself in progress and does not claim final gate completion. Every
+completed experiment must contain at least two Loops and a final Viewer. Run the
+navigation judge and Evidence Gate before treating it as complete.
 
 For complete examples, see:
 

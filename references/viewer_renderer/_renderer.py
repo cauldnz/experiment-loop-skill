@@ -313,6 +313,18 @@ li + li { margin-top: 6px; }
 .badge.champion { border-color: var(--cp-accent); color: var(--cp-accent); }
 .badge.pass, .new_best { color: var(--cp-success); border-color: var(--cp-success); }
 .badge.fail, .reject, .failed { color: var(--cp-danger); border-color: var(--cp-danger); }
+.badge.pending { color: var(--cp-warning); border-color: var(--cp-warning); }
+.run-status {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  border: 1px solid var(--cp-warning);
+  border-radius: 12px;
+  padding: 12px 16px;
+  background: color-mix(in srgb, var(--cp-warning) 10%, var(--cp-surface));
+}
+.run-status span { color: var(--cp-text-muted); }
 .metric-row { display: grid; grid-template-columns: repeat(auto-fit,minmax(150px,1fr)); gap: 10px; margin-top: 12px; }
 .metric {
   background: var(--cp-surface-soft);
@@ -663,7 +675,7 @@ __HUMAN_DIALOG__
   const button = (label, attrs = "") => `<button class="button" ${attrs}>${esc(label)}</button>`;
 
   function artifactMarkup(artifact, expanded = false) {
-    if (!artifact) return '<div class="diagnostic">No Artifact was declared for this position.</div>';
+    if (!artifact) return '<div class="diagnostic">Artifact pending or not yet merged.</div>';
     const presentation = object(artifact.presentation);
     const preview = object(artifact.preview);
     let body = '<div class="diagnostic">No inline preview is available.</div>';
@@ -696,7 +708,7 @@ __HUMAN_DIALOG__
       const value = object(loop.score_values)[criterion.id];
       const gate = object(criterion.gate);
       let state = "";
-      if (gate.operator) state = gatePass(value, gate) ? "pass" : "fail";
+      if (gate.operator) state = typeof value === "number" ? (gatePass(value, gate) ? "pass" : "fail") : "pending";
       return `<div class="metric"><span>${esc(criterion.label || criterion.id)}</span><strong>${esc(formatValue(value, criterion))}</strong>${state ? `<span class="badge ${state}">${state} gate</span>` : ""}</div>`;
     }).join("")}</div>`;
   }
@@ -708,9 +720,12 @@ __HUMAN_DIALOG__
 
   function renderOverview() {
     const problem = object(VM.problem);
-    const championLoop = loopById(VM.champion.iteration_id) || VM.loops[0] || {};
+    const inProgress = Boolean(object(VM.status).is_in_progress);
+    const iterationCount = Number(object(VM.status).iteration_count || 0);
+    const championLoop = loopById(VM.champion.iteration_id) || VM.loops.at(-1) || {};
     const milestones = list(VM.story.milestones);
     byId("panel-overview").innerHTML = `<div class="stack">
+      ${inProgress ? `<section class="run-status" role="status"><strong>Experiment in progress - ${iterationCount} ${iterationCount === 1 ? "iteration" : "iterations"} so far</strong><span>This interim Viewer is not Evidence Gate completion. Only final outputs are gate-verified.</span></section>` : ""}
       ${list(VM.diagnostics).map(item => `<div class="diagnostic" role="alert">${esc(item)}</div>`).join("")}
       <section class="card">
         <div class="eyebrow">01 / Problem</div>
@@ -723,22 +738,22 @@ __HUMAN_DIALOG__
         <details><summary>Original Experiment Prompt</summary><pre>${esc(problem.original_prompt || "")}</pre></details>
       </section>
       <section class="card">
-        <div class="eyebrow">02 / Champion</div>
+        <div class="eyebrow">02 / ${inProgress ? "Current state" : "Champion"}</div>
         <div class="grid-2">
-          <div><h2>${esc(championLoop.label || championLoop.id || "Champion")}</h2><p class="lede">${esc(VM.champion.summary || championLoop.outcome || "")}</p>${metricCards(championLoop)}</div>
+          <div><h2>${esc(championLoop.label || championLoop.id || (inProgress ? "No Loops merged yet" : "Champion"))}</h2><p class="lede">${esc(VM.champion.summary || championLoop.outcome || (inProgress ? "Current evidence will appear as Loops are merged." : ""))}</p>${metricCards(championLoop)}</div>
           <div>${artifactMarkup(VM.featured_artifact || championLoop.primary_artifact)}</div>
         </div>
       </section>
       <section class="card">
         <div class="eyebrow">03 / Experiment journey</div>
         <h2>How the Experiment progressed</h2>
-        <div class="journey">${milestones.map((milestone, index) => `<button class="milestone" data-open-loop="${esc(milestone.iteration_id)}"><span class="eyebrow">${String(index + 1).padStart(2, "0")} / ${esc(milestone.iteration_id)}</span><strong>${esc(milestone.caption)}</strong></button>`).join("")}</div>
+        <div class="journey">${milestones.length ? milestones.map((milestone, index) => `<button class="milestone" data-open-loop="${esc(milestone.iteration_id)}"><span class="eyebrow">${String(index + 1).padStart(2, "0")} / ${esc(milestone.iteration_id)}</span><strong>${esc(milestone.caption)}</strong></button>`).join("") : '<p class="muted">No authored milestones have been merged yet.</p>'}</div>
       </section>
       <section class="card">
-        <div class="eyebrow">04 / Why it won</div>
+        <div class="eyebrow">04 / ${inProgress ? "Interim evidence" : "Why it won"}</div>
         <div class="grid-2">
-          <div><h2>Evidence-backed reasons</h2><ul>${list(VM.champion.reasons).map(reason => `<li>${esc(reason.text)} <span class="muted mono">${list(reason.evidence_refs).map(ref => esc(ref)).join(" · ")}</span></li>`).join("")}</ul></div>
-          <div><h2>Caveats and dissent</h2><ul>${list(VM.champion.caveats).map(reason => `<li>${esc(reason.text)} <span class="muted mono">${list(reason.evidence_refs).map(ref => esc(ref)).join(" · ")}</span></li>`).join("") || "<li>No caveats were recorded.</li>"}</ul></div>
+          <div><h2>${inProgress ? "Current observations" : "Evidence-backed reasons"}</h2><ul>${list(VM.champion.reasons).map(reason => `<li>${esc(reason.text)} <span class="muted mono">${list(reason.evidence_refs).map(ref => esc(ref)).join(" · ")}</span></li>`).join("") || `<li>${inProgress ? "Champion reasons are pending finalization." : "No winning reasons were recorded."}</li>`}</ul></div>
+          <div><h2>${inProgress ? "Pending final evidence" : "Caveats and dissent"}</h2><ul>${list(VM.champion.caveats).map(reason => `<li>${esc(reason.text)} <span class="muted mono">${list(reason.evidence_refs).map(ref => esc(ref)).join(" · ")}</span></li>`).join("") || `<li>${inProgress ? "Final caveats, Navigation Evidence, and Evidence Gate results are not available yet." : "No caveats were recorded."}</li>`}</ul></div>
         </div>
         <details><summary>Experiment evidence and provenance</summary>${provenanceMarkup()}${manifestExplorer()}</details>
       </section>
@@ -773,7 +788,7 @@ __HUMAN_DIALOG__
     const loopDimension = minTrackLoops === maxTrackLoops
       ? String(minTrackLoops)
       : `${minTrackLoops}–${maxTrackLoops}`;
-    byId("panel-topology").innerHTML = `<div class="topology-workspace" id="topology-workspace">
+    byId("panel-topology").innerHTML = `${VM.loops.length ? "" : '<div class="card diagnostic">No Loops have been merged yet. Track lanes may still be incomplete.</div>'}<div class="topology-workspace" id="topology-workspace">
       <div class="toolbar card compact">
         <label>Track<select id="track-filter"><option value="">All Tracks</option>${tracks.map(track => `<option value="${esc(track.id)}">${esc(track.label || track.id)}</option>`).join("")}</select></label>
         <label>Decision<select id="decision-filter"><option value="">All decisions</option>${decisions.map(value => `<option value="${esc(value)}">${esc(value)}</option>`).join("")}</select></label>
@@ -863,7 +878,7 @@ __HUMAN_DIALOG__
       const depth = loop.topology_column ?? loop.topology_depth ?? loop.index;
       return `<button class="graph-node ${esc(loop.decision)}" data-loop="${esc(loop.id)}" style="grid-row:${trackIndex + 1};grid-column:${depth + 2}" aria-pressed="false" tabindex="-1">
         <span class="node-title"><span>${esc(loop.label || loop.id)}</span>${loop.is_champion ? '<span class="badge champion">Champion</span>' : ""}</span>
-        <span class="node-meta"><span class="badge ${esc(loop.decision)}">${esc(loop.decision)}</span> · ${esc(formatValue(loop.primary_value, VM.primary_criterion))}</span>
+        <span class="node-meta"><span class="badge ${esc(loop.decision || "pending")}">${esc(loop.decision || "pending")}</span> · ${esc(formatValue(loop.primary_value, VM.primary_criterion))}</span>
       </button>`;
     }).join("");
     stage.innerHTML = `${lanes}<svg class="edge-layer" viewBox="0 0 ${width} ${height}" aria-hidden="true"><defs><marker id="topology-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="var(--cp-border-strong)"></path></marker></defs>${edges}</svg>${nodes}`;
@@ -1138,12 +1153,12 @@ __HUMAN_DIALOG__
     byId("loop-inspector").innerHTML = `<div class="inspector-head"><button class="button" id="topology-inspector-close" aria-label="Close Loop inspector">Close</button></div>
       <div class="eyebrow">${esc(loop.track_label)} / ${esc(loop.id)}</div>
       <h2>${esc(loop.label || loop.id)} ${loop.is_champion ? '<span class="badge champion">Champion</span>' : ""}</h2>
-      <p><span class="badge ${esc(loop.decision)}">${esc(loop.decision)}</span> <span class="badge">${esc(loop.model_id)}</span></p>
+      <p><span class="badge ${esc(loop.decision || "pending")}">${esc(loop.decision || "pending")}</span> <span class="badge">${esc(loop.model_id || "model pending")}</span></p>
       <h3>Hypothesis</h3><p>${esc(loop.hypothesis)}</p>
       <h3>Outcome</h3><p>${esc(loop.outcome)}</p>
       ${artifactMarkup(loop.primary_artifact)}
       ${metricCards(loop)}
-      <div class="feedback"><div class="eyebrow">Judge feedback</div><p>${esc(prompt.judge_feedback || "No judge feedback was recorded.")}</p></div>
+      <div class="feedback"><div class="eyebrow">Judge feedback</div>${loop.judge_feedback_pending ? '<p><span class="badge pending">Awaiting panel</span> Judge feedback has not been merged yet.</p>' : `<p>${esc(prompt.judge_feedback)}</p>`}</div>
       <h3 style="margin-top:14px">Lesson</h3><p>${esc(lesson.action || "")}</p><p class="muted">${esc(lesson.evidence || "")}</p>
       ${secondary.length ? `<details><summary>Other Artifacts (${secondary.length})</summary><div class="stack">${secondary.map(artifact => artifactMarkup(artifact)).join("")}</div></details>` : ""}
       <details><summary>Prompt and feedback chain</summary>
@@ -1159,6 +1174,10 @@ __HUMAN_DIALOG__
   function renderCompare() {
     const first = VM.loops[0] || {};
     const champion = loopById(VM.champion.iteration_id) || VM.loops.at(-1) || first;
+    if (!VM.loops.length) {
+      byId("panel-compare").innerHTML = '<section class="card diagnostic">No Loops are available to compare yet.</section>';
+      return;
+    }
     byId("panel-compare").innerHTML = `<div class="stack">
       <section class="card"><div class="eyebrow">Metric progression</div><h2>${esc(VM.primary_criterion.label || primaryId || "Primary criterion")}</h2><div id="progression"></div><div class="table-wrap" id="progression-table"></div></section>
       <section class="card">
@@ -1196,7 +1215,7 @@ __HUMAN_DIALOG__
 
   function comparableArtifact(loop) {
     const key = VM.story.primary_comparison_key;
-    return list(loop.artifacts).find(artifact => object(artifact.presentation).comparison_key === key) || loop.primary_artifact;
+    return (key ? list(loop.artifacts).find(artifact => object(artifact.presentation).comparison_key === key) : null) || loop.primary_artifact;
   }
 
   function renderComparison() {

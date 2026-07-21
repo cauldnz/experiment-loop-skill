@@ -1,7 +1,33 @@
 # Viewer
 
-The Viewer is the standalone, offline handoff for every Experiment. Open
-`viewer.html` directly from disk; it has no runtime network dependency.
+The Viewer is the standalone, offline handoff and incremental inspection surface
+for every Experiment. Open `viewer.html` directly from disk; it has no runtime
+network dependency.
+
+## Incremental viewing
+
+Rebuild the Viewer immediately after every Loop fragment is merged into
+`manifest.json`:
+
+```text
+python build_viewer.py --data <generated-root> --out <generated-root>/viewer.html
+```
+
+Partial Manifests are supported. Until a merged Champion exists, the Viewer shows
+an explicit in-progress banner and current iteration count. Empty Champion,
+optional story or milestones, incomplete Tracks, and pending judge feedback,
+scores, gates, or Artifacts are shown as pending rather than failed or complete.
+
+For local live inspection, leave the dependency-free watcher running:
+
+```text
+python build_viewer.py --data <generated-root> --out <generated-root>/viewer.html --watch
+```
+
+It builds once, then polls `manifest.json` and recursive
+`manifest-fragment.json` files. Rapid writes are coalesced, its own
+`viewer.html` output cannot trigger a rebuild loop, errors are printed, and
+Ctrl+C exits cleanly. No network or model calls occur.
 
 ## Core experience
 
@@ -56,9 +82,9 @@ Topology representation on narrow screens.
 
 ## Required generation and gates
 
-Every Experiment ships `build_viewer.py --data DIR --out FILE`. The adapter uses
-`references.viewer_renderer`; a local `ViewerProfile` may add only curated
-optional panels.
+Every Experiment ships `build_viewer.py --data DIR --out FILE` and exposes the
+same `--watch` mode. The adapter uses `references.viewer_renderer`; a local
+`ViewerProfile` may add only curated optional panels.
 
 Run Navigation Evidence, then the blocking Evidence Gate:
 
@@ -70,3 +96,5 @@ python <experiment-loop-skill>/scripts/run_evidence_gate.py <run>
 The Evidence Gate validates Manifest v1.1 schema and semantics, Artifact
 integrity and presentation, deterministic Viewer regeneration, static
 HTML/JavaScript/accessibility checks, and fresh passing Navigation Evidence.
+Run Navigation Evidence and the Evidence Gate only for the final output.
+Incremental Viewers do not relax or satisfy either completion requirement.
