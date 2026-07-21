@@ -7,15 +7,135 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
+from references.evidence_gate import CheckResult, EvidenceReport
+from scripts.example_regeneration._copilot import RunnerResult
 from scripts.example_regeneration._workflow import (
     ExampleResult,
     _promote,
+    _regenerate_one,
     _refresh_artifact_hashes,
     _sanitize_generated_paths,
 )
 
 
 class ExampleRegenerationTests(unittest.TestCase):
+    def test_navigation_failure_rewrites_final_evidence_gate(self) -> None:
+        class SuccessfulRunner:
+            def run(self, **_kwargs: object) -> RunnerResult:
+                return RunnerResult(0, "generated")
+
+        with tempfile.TemporaryDirectory() as temp_dir:
+            base = Path(temp_dir)
+            root = base / "repo"
+            prompt = root / "examples" / "sample" / "prompt.md"
+            prompt.parent.mkdir(parents=True)
+            prompt.write_text("Generate the sample.", encoding="utf-8")
+            batch_root = base / "batch"
+            events: list[str] = []
+
+            def initialize(_root: Path, _prompt: Path, workspace: Path) -> Path:
+                generated = workspace / "generated"
+                generated.mkdir(parents=True)
+                (generated / "manifest.json").write_text("{}", encoding="utf-8")
+                (generated / "example-readme.md").write_text(
+                    "## Feature surface demonstrated\n", encoding="utf-8"
+                )
+                (generated / "build_viewer.py").write_text("", encoding="utf-8")
+                (generated / "viewer.html").write_text("viewer", encoding="utf-8")
+                (generated / "evidence-gate.json").write_text(
+                    '{"status":"pass"}\n', encoding="utf-8"
+                )
+                return workspace / ".github" / "skills" / "experiment-loop"
+
+            def navigate(_root: Path, generated: Path) -> tuple[bool, str]:
+                events.append("navigation")
+                viewer_hash = hashlib.sha256(
+                    (generated / "viewer.html").read_bytes()
+                ).hexdigest()
+                (generated / "navigation-evidence.json").write_text(
+                    json.dumps(
+                        {
+                            "status": "fail",
+                            "viewer_sha256": viewer_hash,
+                            "checks": [{"name": "contract", "status": "fail"}],
+                        }
+                    ),
+                    encoding="utf-8",
+                )
+                return False, "navigation failed"
+
+            def validate(generated: Path) -> EvidenceReport:
+                events.append("gate")
+                navigation = json.loads(
+                    (generated / "navigation-evidence.json").read_text(
+                        encoding="utf-8"
+                    )
+                )
+                self.assertEqual("fail", navigation["status"])
+                self.assertEqual(
+                    hashlib.sha256(
+                        (generated / "viewer.html").read_bytes()
+                    ).hexdigest(),
+                    navigation["viewer_sha256"],
+                )
+                return EvidenceReport(
+                    ".",
+                    (
+                        CheckResult(
+                            "navigation_evidence",
+                            "fail",
+                            {"errors": ["status is 'fail'"]},
+                        ),
+                    ),
+                )
+
+            with (
+                patch(
+                    "scripts.example_regeneration._workflow._initialize_workspace",
+                    side_effect=initialize,
+                ),
+                patch(
+                    "scripts.example_regeneration._workflow.expected_provenance",
+                    return_value={},
+                ),
+                patch("scripts.example_regeneration._workflow.apply_provenance"),
+                patch("scripts.example_regeneration._workflow._refresh_artifact_hashes"),
+                patch("scripts.example_regeneration._workflow._sanitize_generated_paths"),
+                patch(
+                    "scripts.example_regeneration._workflow._render_viewer",
+                    return_value=(True, ""),
+                ),
+                patch(
+                    "scripts.example_regeneration._workflow._run_navigation",
+                    side_effect=navigate,
+                ),
+                patch(
+                    "scripts.example_regeneration._workflow.validate_experiment",
+                    side_effect=validate,
+                ),
+            ):
+                result = _regenerate_one(
+                    root=root,
+                    prompt=prompt,
+                    batch_root=batch_root,
+                    runner=SuccessfulRunner(),
+                    orchestrator_model="test-model",
+                    cli_version="test-cli",
+                )
+
+            self.assertEqual("fail", result.status)
+            self.assertEqual(["navigation", "gate"], events)
+            final_gate = json.loads(
+                (
+                    batch_root
+                    / "sample"
+                    / "workspace"
+                    / "generated"
+                    / "evidence-gate.json"
+                ).read_text(encoding="utf-8")
+            )
+            self.assertEqual("fail", final_gate["status"])
+
     def test_rollback_removes_partial_target_before_restoring_backup(self) -> None:
         with tempfile.TemporaryDirectory() as temp_dir:
             root = Path(temp_dir)

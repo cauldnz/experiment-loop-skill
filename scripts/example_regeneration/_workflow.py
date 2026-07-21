@@ -273,11 +273,6 @@ def _regenerate_one(
         return ExampleResult(name, "fail", f"Viewer build failed: {render_output}")
 
     navigated, navigation_output = _run_navigation(root, generated)
-    if not navigated:
-        return ExampleResult(
-            name, "fail", f"navigation judge failed: {navigation_output[-1500:]}"
-        )
-
     gate = validate_experiment(generated)
     (generated / "evidence-gate.json").write_text(
         json.dumps(gate.to_dict(), indent=2, sort_keys=True) + "\n",
@@ -290,6 +285,8 @@ def _regenerate_one(
             for check in gate.checks
             if check.status != "pass"
         ]
+        if not navigated:
+            failures.append(f"navigation judge process: {navigation_output[-1500:]}")
         return ExampleResult(name, "fail", "; ".join(failures))
     return ExampleResult(name, "pass", "generated and gated", generated)
 
