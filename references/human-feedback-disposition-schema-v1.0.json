@@ -1,0 +1,121 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/experiment-loop/human-feedback-disposition-schema-v1.0.json",
+  "title": "Experiment Loop Human Feedback Disposition v1.0",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "kind",
+    "disposition_id",
+    "experiment_id",
+    "entry_id",
+    "recorded_at",
+    "intake",
+    "orchestrator"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "kind": {"const": "human_feedback_disposition"},
+    "disposition_id": {"$ref": "#/$defs/id"},
+    "experiment_id": {"$ref": "#/$defs/non_empty"},
+    "entry_id": {"$ref": "#/$defs/id"},
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "intake": {
+      "type": "object",
+      "required": ["review_id", "path", "sha256"],
+      "properties": {
+        "review_id": {"$ref": "#/$defs/id"},
+        "path": {
+          "type": "string",
+          "pattern": "^human-feedback/intake/[^/]+\\.json$"
+        },
+        "sha256": {"$ref": "#/$defs/sha256"}
+      },
+      "additionalProperties": false
+    },
+    "orchestrator": {
+      "type": "object",
+      "required": [
+        "interpretation",
+        "disposition",
+        "rationale",
+        "consumed_iteration_refs"
+      ],
+      "properties": {
+        "interpretation": {"$ref": "#/$defs/non_empty"},
+        "disposition": {
+          "enum": [
+            "accepted",
+            "answered_conflicts_with_frozen_invariant",
+            "deferred"
+          ]
+        },
+        "rationale": {"$ref": "#/$defs/non_empty"},
+        "owner_response": {"type": "string"},
+        "consumed_iteration_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"$ref": "#/$defs/non_empty"}
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"disposition": {"const": "accepted"}},
+            "required": ["disposition"]
+          },
+          "then": {
+            "properties": {
+              "consumed_iteration_refs": {"minItems": 1}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "enum": [
+                  "answered_conflicts_with_frozen_invariant",
+                  "deferred"
+                ]
+              }
+            },
+            "required": ["disposition"]
+          },
+          "then": {
+            "properties": {
+              "consumed_iteration_refs": {"maxItems": 0}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "answered_conflicts_with_frozen_invariant"
+              }
+            },
+            "required": ["disposition"]
+          },
+          "then": {
+            "required": ["owner_response"],
+            "properties": {"owner_response": {"minLength": 1}}
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "non_empty": {"type": "string", "minLength": 1},
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]*$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[a-fA-F0-9]{64}$"
+    }
+  },
+  "additionalProperties": false
+}

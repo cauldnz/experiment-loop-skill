@@ -27,3 +27,13 @@ _Avoid_: Navigation transcript, UI smoke test
 **Manifest**:
 The durable record of an experiment's topology, Loops, evidence, decisions, Champion, and generation provenance.
 _Avoid_: Run log, metadata file
+
+**Human Feedback Intake**:
+The immutable, Viewer-exported canonical JSON that preserves the owner's exact
+words, structured criterion review, targets, provenance, and binding.
+_Avoid_: Feedback Markdown, chat note
+
+**Human Feedback Disposition**:
+The immutable orchestrator-authored JSON that interprets one intake entry,
+records accepted/conflicting/deferred status, and names any consuming Loops.
+_Avoid_: Edited intake, silent override

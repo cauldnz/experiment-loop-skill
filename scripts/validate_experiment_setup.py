@@ -133,6 +133,20 @@ def validate_brief(data: object) -> list[str]:
             )
 
     autonomy = data["autonomy"]
+    attended = autonomy.get("attended_protocol")
+    if (
+        autonomy["mode"] in {"attended", "unattended"}
+        and not isinstance(attended, dict)
+    ):
+        errors.append(
+            f"{autonomy['mode']} mode requires autonomy.attended_protocol"
+        )
+    if isinstance(attended, dict) and not _path_is_within(
+        attended["checkpoint_root"], data["target"]["generated_root"]
+    ):
+        errors.append(
+            "attended checkpoint_root must be within target.generated_root"
+        )
     if autonomy["mode"] == "unattended":
         scratch_root = data["target"].get("scratch_root")
         if scratch_root is None:

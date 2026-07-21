@@ -116,6 +116,15 @@ class ExperimentSetupTests(unittest.TestCase):
             validate_brief(brief),
         )
 
+    def test_unattended_mode_requires_attended_transition_protocol(self) -> None:
+        brief = self.valid_brief()
+        brief["autonomy"]["mode"] = "unattended"
+        del brief["autonomy"]["attended_protocol"]
+        self.assertIn(
+            "unattended mode requires autonomy.attended_protocol",
+            validate_brief(brief),
+        )
+
     def test_unattended_scratch_root_must_be_under_generated_root(self) -> None:
         brief = self.valid_brief()
         brief["autonomy"]["mode"] = "unattended"
@@ -129,6 +138,22 @@ class ExperimentSetupTests(unittest.TestCase):
         brief = self.valid_brief()
         del brief["target"]["scratch_root"]
         self.assertEqual([], validate_brief(brief))
+
+    def test_attended_mode_requires_checkpoint_protocol(self) -> None:
+        brief = self.valid_brief()
+        del brief["autonomy"]["attended_protocol"]
+        self.assertIn(
+            "attended mode requires autonomy.attended_protocol",
+            validate_brief(brief),
+        )
+
+    def test_attended_checkpoint_must_be_under_generated_root(self) -> None:
+        brief = self.valid_brief()
+        brief["autonomy"]["attended_protocol"]["checkpoint_root"] = "outside"
+        self.assertIn(
+            "attended checkpoint_root must be within target.generated_root",
+            validate_brief(brief),
+        )
 
     def test_windows_absolute_target_path_fails(self) -> None:
         brief = self.valid_brief()

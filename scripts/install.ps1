@@ -46,10 +46,14 @@ function Install-ExperimentSetup([string]$Path) {
   Copy-Item (Join-Path $source "skills\experiment-setup\SKILL.md") (Join-Path $Path "SKILL.md")
   Copy-Item (Join-Path $source "references\experiment-brief-schema-v1.0.json") (Join-Path $Path "references")
   Copy-Item (Join-Path $source "references\experiment-approval-schema-v1.0.json") (Join-Path $Path "references")
+  Copy-Item (Join-Path $source "references\human-feedback-intake-schema-v1.0.json") (Join-Path $Path "references")
+  Copy-Item (Join-Path $source "references\human-feedback-disposition-schema-v1.0.json") (Join-Path $Path "references")
   Copy-Item (Join-Path $source "scripts\validate_experiment_setup.py") (Join-Path $Path "scripts")
   Copy-Item (Join-Path $source "scripts\prepare_scratch.py") (Join-Path $Path "scripts")
   Copy-Item (Join-Path $source "templates\experiment-brief-template.json") (Join-Path $Path "templates")
   Copy-Item (Join-Path $source "templates\experiment-approval-template.json") (Join-Path $Path "templates")
+  Copy-Item (Join-Path $source "templates\human-feedback-intake-template.json") (Join-Path $Path "templates")
+  Copy-Item (Join-Path $source "templates\human-feedback-disposition-template.json") (Join-Path $Path "templates")
   Write-Host "Installed experiment-setup skill to $Path"
 }
 

@@ -127,7 +127,7 @@
     "evidence_gate_required": true
   },
   "autonomy": {
-    "mode": "interactive",
+    "mode": "attended",
     "allowed_paths": [".experiments/short-stable-id/**"],
     "denied_paths": [".env", "secrets/**", "**/*credential*"],
     "max_wall_time_minutes": 60,
@@ -140,7 +140,19 @@
     ],
     "prohibited_actions": [
       "Do not expose credentials, bypass security controls, or deploy without approval."
-    ]
+    ],
+    "attended_protocol": {
+      "checkpoint_root": ".experiments/short-stable-id/generated/human-feedback",
+      "pause_points": [
+        "Pause after the current atomic Loop merge before consuming newly downloaded feedback."
+      ],
+      "explicit_approval_required": [
+        "Changing a frozen invariant, risk boundary, deployment decision, or approved setup revision."
+      ],
+      "may_proceed_without_approval": [
+        "Validate and disposition checkpointed feedback that remains inside frozen optimization variables."
+      ]
+    }
   },
   "risks": {
     "external_users": false,

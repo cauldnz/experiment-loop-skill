@@ -12,6 +12,7 @@ from . import DEFAULT_PROFILE, ViewerProfile, render_viewer
 
 
 WATCH_FRAGMENT_NAME = "manifest-fragment.json"
+WATCH_FEEDBACK_ROOT = "human-feedback"
 
 
 @dataclass(frozen=True)
@@ -82,10 +83,13 @@ def build_viewer(
 
 
 def snapshot_watch_inputs(data_dir: Path) -> WatchSnapshot:
-    """Capture one deterministic polling snapshot of Manifest inputs."""
+    """Capture one deterministic polling snapshot of Viewer data inputs."""
     candidates = {data_dir / "manifest.json"}
     if data_dir.is_dir():
         candidates.update(data_dir.rglob(WATCH_FRAGMENT_NAME))
+        feedback_root = data_dir / WATCH_FEEDBACK_ROOT
+        if feedback_root.is_dir():
+            candidates.update(feedback_root.rglob("*.json"))
     files: list[tuple[str, int, int]] = []
     for path in sorted(candidates):
         try:
@@ -128,7 +132,7 @@ def watch_viewer(
     poll_interval: float = 0.25,
     debounce: float = 0.2,
 ) -> int:
-    """Build once, then rebuild after coalesced Manifest input changes."""
+    """Build once, then rebuild after coalesced Viewer input changes."""
     if poll_interval <= 0:
         raise ValueError("poll_interval must be greater than zero")
     if debounce < 0:
@@ -142,7 +146,8 @@ def watch_viewer(
         return 1
 
     print(
-        f"Watching {data_dir / 'manifest.json'} and {WATCH_FRAGMENT_NAME} files. "
+        f"Watching Manifest inputs and {WATCH_FEEDBACK_ROOT} JSON sidecars in "
+        f"{data_dir}. "
         "Press Ctrl+C to stop.",
         file=sys.stderr,
     )
@@ -151,7 +156,7 @@ def watch_viewer(
         time.sleep(poll_interval)
         snapshot, changed = poll_watch_inputs(data_dir, snapshot)
         if changed:
-            print(f"Manifest input changed: {', '.join(changed)}", file=sys.stderr)
+            print(f"Viewer input changed: {', '.join(changed)}", file=sys.stderr)
         if not debouncer.observe(bool(changed), time.monotonic()):
             continue
         try:
@@ -187,7 +192,7 @@ def main(
     parser.add_argument(
         "--watch",
         action="store_true",
-        help="rebuild after manifest.json or manifest-fragment.json changes",
+        help="rebuild after Manifest or human-feedback sidecar changes",
     )
     parser.add_argument(
         "--poll-interval",

@@ -22,6 +22,9 @@ This repository is self-contained for review: the worked examples include comple
 - Produces a local viewer for inspecting the hill-climb.
 - Rebuilds that Viewer after every merged Loop and offers a dependency-free local
   `--watch` mode for long-running Experiments.
+- Collects Viewer-native human feedback as immutable schema-validated JSON,
+  dispositions it against the frozen brief, and traces accepted entries into
+  consuming Loop Prompts.
 - Gates durable changes to skills, rubrics, judge policy, and reusable workflow instructions behind explicit human approval.
 
 ## Install
@@ -59,8 +62,11 @@ Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
 - `references/experiment-brief-schema-v1.0.json` and
   `references/experiment-approval-schema-v1.0.json` define the frozen setup
   contract and exact Prompt/brief hash binding.
-- `references/human-judge-schema-v1.0.json` defines the review export contract;
-  its Viewer UI is finalized in the later Visual Design System phase.
+- `references/human-judge-schema-v1.0.json` remains the legacy judge export
+  contract. `references/human-feedback-*-schema-v1.0.json` defines canonical
+  immutable intake and orchestrator disposition sidecars.
+- `references/human_feedback.py` and `scripts/validate_human_feedback.py`
+  validate the owner-words-to-consuming-Loop chain.
 - `references/viewer_renderer` is the deep standalone Viewer module.
 - `templates/build-viewer-adapter.py` exposes deterministic one-shot and
   Manifest-only watch builds through the shared Viewer CLI.
@@ -83,6 +89,7 @@ Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
 - Read `docs\concepts.md` for the mental model.
 - Read `docs\judging.md` to choose objective, qualitative, or panel judging.
 - Read `docs\viewer.md` to understand the expected inspection UI.
+- Read `docs\human-feedback.md` for attended intake and disposition.
 - Read `docs\worked-examples.md` for the completed examples.
 
 ## Worked examples
@@ -102,6 +109,7 @@ Installed Experiments can run
 `python build_viewer.py --data <generated-root> --out <generated-root>\viewer.html --watch`
 for local incremental viewing. Ctrl+C stops the watcher; final Viewers remain
 self-contained and require the unchanged Navigation Evidence and Evidence Gate.
+The watcher also rebuilds for canonical JSON sidecars under `human-feedback\`.
 
 ## Dependencies
 

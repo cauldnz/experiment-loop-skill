@@ -159,6 +159,21 @@ class EvidenceGateTests(unittest.TestCase):
             self.assertEqual("fail", semantic.status)
             self.assertIn("comparison key", " ".join(semantic.detail["errors"]))
 
+    def test_invalid_feedback_sidecar_adds_blocking_check(self) -> None:
+        with tempfile.TemporaryDirectory() as temp_dir:
+            root = Path(temp_dir)
+            self.make_run(root)
+            intake = root / "human-feedback" / "intake" / "invalid.json"
+            intake.parent.mkdir(parents=True)
+            intake.write_text("{", encoding="utf-8")
+
+            report = validate_experiment(root)
+            feedback = next(
+                check for check in report.checks if check.name == "human_feedback"
+            )
+
+            self.assertEqual("fail", feedback.status)
+
 
 if __name__ == "__main__":
     unittest.main()

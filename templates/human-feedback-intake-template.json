@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "kind": "human_feedback_intake",
+  "review_id": "review-example-001",
+  "experiment_id": "short-stable-id",
+  "submitted_at": "2026-07-21T00:00:00Z",
+  "provenance": {
+    "surface": "viewer_native",
+    "export_mode": "local_download"
+  },
+  "binding": {
+    "manifest_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "viewer_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "viewer_hash_algorithm": "canonical-html-zeroed-binding-v1"
+  },
+  "human": {
+    "verdict": "needs_improvement",
+    "recommendation": "needs_improvement",
+    "preferred_iteration_id": null,
+    "entries": [
+      {
+        "entry_id": "feedback-example-001",
+        "feedback_type": "general",
+        "verbatim": "Preserve the strong baseline and explore a clearer next pass."
+      }
+    ]
+  }
+}

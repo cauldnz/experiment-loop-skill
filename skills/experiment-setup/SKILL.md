@@ -45,6 +45,9 @@ The Experiment writes runtime output to:
 
 ```text
 .experiments/<experiment-id>/generated/
+  human-feedback/
+    intake/
+    dispositions/
   harness/
     scratch/
 ```
@@ -103,8 +106,9 @@ Resolve these branches in dependency order:
    separation, independent critics, and dissent handling.
 8. **Budget and stopping** — iteration/time limits, convergence, failure, and
    escalation conditions.
-9. **Autonomy** — allowed/denied paths and actions, pause conditions, prohibited
-   actions, and commit/PR policy.
+9. **Autonomy** — attended/unattended mode, allowed/denied paths and actions,
+   pause conditions, prohibited actions, commit/PR policy, and the
+   unattended-to-attended checkpoint protocol.
 10. **Risk branch** — activate when deployment, external users, telemetry,
     external services, or sensitive data is detected. Resolve consent, privacy,
     retention, credentials, rollback, and human approval boundaries.
@@ -152,6 +156,14 @@ must:
   inspection;
 - state that interim Viewers are explicitly in progress and that Navigation
   Evidence and the Evidence Gate remain final-output requirements;
+- name `generated/human-feedback/` as the canonical immutable intake/disposition
+  root, require Viewer-native local-download intake, and require exact verbatim
+  Manifest and `prompt.input_feedback_refs` linkage for accepted entries;
+- define the attended checkpoint: finish the current atomic operation, merge and
+  rebuild the Viewer, checkpoint intake, pause before the next Loop Prompt,
+  disposition feedback, then resume;
+- state which actions require explicit approval and which in-scope validation,
+  disposition, and Loop work may proceed;
 - prohibit silent mutation of the brief.
 
 Validate the draft before critique:
@@ -196,8 +208,9 @@ Show the user:
 4. topology, models, judges, and fallbacks;
 5. evidence and baseline;
 6. autonomy/risk envelope;
-7. complete generated Prompt;
-8. critic findings and resolutions.
+7. attended-mode pause, checkpoint, approval, and proceed-without-approval rules;
+8. complete generated Prompt;
+9. critic findings and resolutions.
 
 Ask one final approval question. Do not launch Loops in the same turn.
 
@@ -233,3 +246,7 @@ authoritative over chat memory, candidate claims, or intermediate Prompts.
 When `evidence.viewer_required` is true, the handoff must also carry
 `viewer_update_policy: after_each_loop_merge` and the approved
 `viewer_watch_mode`; default watch mode to `on_request`.
+The handoff must carry `autonomy.attended_protocol`. Human arrival during an
+unattended run switches execution to attended only after the current atomic
+operation and Viewer checkpoint. The approved brief remains authoritative;
+feedback that conflicts with it is answered and recorded, not obeyed.
