@@ -1,0 +1,42 @@
+{
+  "judge": "judge-human-use",
+  "judge_model": "claude-opus-4.7",
+  "loop": "loop-01",
+  "flipped_order": ["candidate-c", "candidate-b", "candidate-a"],
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "note": "All three objective reports pass; qualitative preferences here do not override any objective gate. Pairwise preferences are advisory raw judge input; final aggregation is by panel median with dissent preserved.",
+  "pairs": [
+    {
+      "pair": "candidate-c_vs_candidate-b",
+      "preferred": "candidate-c",
+      "confidence": "high",
+      "rationale": "Candidate C wins on input_burden (tolerant validation vs candidate B's exact-fixture match on state/country/card/name/CSC), cognitive_load (one wizard step visible at a time vs a single-page with ~20 required fields), interruption_resumption (explicit Save/Clear controls and restored step position vs auto-only), and feedback_status (progress bar with narrated aria-valuetext plus polite status vs assertive-only error live region). Candidate B is slightly stronger on error message specificity but suffers from double-radio ARIA on shipping and autocomplete='off' on every input, both anti-patterns that penalise motor- and cognitively-impaired users. Screens: screenshots/candidate-c/01-initial-390x844.png vs screenshots/candidate-b/01-initial-390x844.png.",
+      "lens_deltas_favouring_c": ["input_burden", "cognitive_load", "interruption_resumption", "feedback_status"],
+      "lens_deltas_favouring_b": ["error_prevention_recovery"],
+      "lens_deltas_neutral": ["discoverability", "navigation", "responsive_touch_ergonomics", "latency_perception", "destructive_actions"]
+    },
+    {
+      "pair": "candidate-b_vs_candidate-a",
+      "preferred": "candidate-b",
+      "confidence": "high",
+      "rationale": "Candidate B wins on error_prevention_recovery (highly specific messages vs candidate A's generic 'Please enter a value'), feedback_status (polite aria-live + focused error summary vs A's misused assertive routine updates), latency_perception (180 ms placement vs A's 500 ms), destructive_actions (placementStarted flag + disabled-immediately vs A's disable-only-inside-callback), interruption_resumption (no payment-field leak vs A restoring card-name), navigation (section-nav pills vs no skip-link/no nav), and discoverability (visible order summary + numbered steps vs A's bottom-only summary). Candidate A retains marginal advantages in cognitive_load-per-view (fewer visible fields at once) but the missing skip-link, missing landmark aside, aria-live misuse, and payment leakage outweigh that. Screens: screenshots/candidate-b/01-initial-390x844.png vs screenshots/candidate-a/01-initial-390x844.png.",
+      "lens_deltas_favouring_b": ["error_prevention_recovery", "feedback_status", "latency_perception", "destructive_actions", "interruption_resumption", "navigation", "discoverability", "responsive_touch_ergonomics"],
+      "lens_deltas_favouring_a": [],
+      "lens_deltas_neutral": ["input_burden", "cognitive_load", "accessibility"]
+    },
+    {
+      "pair": "candidate-c_vs_candidate-a",
+      "preferred": "candidate-c",
+      "confidence": "high",
+      "rationale": "Candidate C wins across almost every lens: it has a narrated progress bar (feedback_status), explicit Save/Clear controls with restored step position (interruption_resumption), 120 ms placement with aria-busy narration (latency_perception), aria-disabled Place order + orderPlaced flag (destructive_actions), field-specific error messages routed to the correct step (error_prevention_recovery), single-active-continue wizard grouping (cognitive_load), skip-link present (discoverability/navigation), and no payment-field persistence (interruption_resumption). Candidate A has no skip-link, no landmark aside, misuses assertive aria-live, restores card-name on reload, and imposes a 500 ms placement delay. Screens: screenshots/candidate-c/01-initial-390x844.png vs screenshots/candidate-a/01-initial-390x844.png.",
+      "lens_deltas_favouring_c": ["discoverability", "navigation", "input_burden", "error_prevention_recovery", "feedback_status", "accessibility", "interruption_resumption", "latency_perception", "destructive_actions", "cognitive_load"],
+      "lens_deltas_favouring_a": [],
+      "lens_deltas_neutral": ["responsive_touch_ergonomics"]
+    }
+  ],
+  "identity_note": "No attempt was made to infer or reveal Track or model identity from bundle contents. Comparisons are strictly artifact-behaviour based.",
+  "no_champion_selection": true
+}

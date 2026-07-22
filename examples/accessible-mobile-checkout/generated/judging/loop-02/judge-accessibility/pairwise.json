@@ -1,0 +1,49 @@
+{
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "model": "gpt-5.6-terra",
+  "comparisons_in_required_order": [
+    {
+      "comparison": [
+        "candidate-a",
+        "candidate-b"
+      ],
+      "preference": "candidate-b",
+      "confidence": "medium-high",
+      "rationale": "B offers stronger recoverability: it has explicit save/restore, step-local validation, and a tested clear-progress confirmation; A remains more direct and has safe compact keyboard behavior.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "comparison": [
+        "candidate-b",
+        "candidate-c"
+      ],
+      "preference": "candidate-b",
+      "confidence": "very-high",
+      "rationale": "B kept unrevealed steps out of the operated tab sequence and supplies clear-progress confirmation; C allowed focus into headers-marked collapsed content.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "comparison": [
+        "candidate-a",
+        "candidate-c"
+      ],
+      "preference": "candidate-a",
+      "confidence": "high",
+      "rationale": "A's compacted bodies did not receive keyboard focus, while C's collapsed address, shipping, and payment controls did.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    }
+  ],
+  "identity_note": "Blind labels only; no identity map or other judge notes read."
+}

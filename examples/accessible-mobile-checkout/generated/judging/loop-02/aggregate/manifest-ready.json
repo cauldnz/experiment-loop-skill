@@ -1,0 +1,1253 @@
+{
+  "records": [
+    {
+      "decision": "new_best",
+      "decision_rationale": "All seven objective gates pass and the Loop 02 per-lens panel aggregate improved from 3.909091 to 4.545455.",
+      "iteration_id": "single-page-loop-02",
+      "judge_feedback": "Independent Loop 02 blind panel evidence is preserved in aggregate/panel-scores.json.",
+      "judging_evidence": {
+        "criterion_id": "human-use-quality",
+        "evidence_refs": [
+          "judging/loop-02/judge-accessibility/candidate-a.json",
+          "judging/loop-02/judge-accessibility/candidate-a.md",
+          "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+          "judging/loop-02/judge-accessibility/pairwise.json",
+          "judging/loop-02/judge-accessibility/pairwise.md",
+          "judging/loop-02/judge-accessibility/manifest-ready.json",
+          "judging/loop-02/judge-accessibility/status.json",
+          "judging/loop-02/judge-human-use/candidate-a.json",
+          "judging/loop-02/judge-human-use/candidate-a.md",
+          "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+          "judging/loop-02/judge-human-use/pairwise.json",
+          "judging/loop-02/judge-human-use/pairwise.md",
+          "judging/loop-02/judge-human-use/manifest-ready.json",
+          "judging/loop-02/judge-human-use/status.json"
+        ],
+        "iteration_id": "single-page-loop-02",
+        "kind": "qualitative_rubric",
+        "lens_findings": [
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: The labelled sections and persistent review make required work apparent, although the full single-page length delays the lower sections. | judge-human-use: <nav aria-label='Checkout sections'> anchor nav + skip link + kicker + 'All five sections are on this page' + numbered step badges + persistent order summary + 'Compact completed sections' toggle.",
+            "lens": "discoverability",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Skip navigation, section edit controls, and reverse traversal worked; the compacted sections remained recoverable. | judge-human-use: Three landmarks (main + nav + header); clean 25-focusable keyboard tour; Edit-per-section; anchor nav; double-ring focus outline.",
+            "lens": "navigation",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: All inputs are reachable in one flow with autocomplete-oriented field types, but address and payment remain a long sequential form. | judge-human-use: Inline 'Synthetic value:' hint per field; dedicated 'Fictional card to use' hint box; zero Continue clicks; autocomplete tokens.",
+            "lens": "input_burden",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-a/error.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: An empty explicit submission reached the error state and the completed correction path retained values. | judge-human-use: 'Check 13 items in 4 sections' summary with per-section counts, 'Your entries are preserved' reassurance, 'Show all 13 corrections' progressive disclosure, per-field friendly copy, focus onto #error-summary.",
+            "lens": "error_prevention_recovery",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Completion, restored-progress, and single-confirmation messages were observed, but status is less directive before the user reaches review. | judge-human-use: role=status announces 'Synthetic order placed once. Confirmation ID SYN-2048.' — 'once' explicitly conveys atomicity. Full confirmation card. Section state chips update inline.",
+            "lens": "feedback_status",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: First Tab exposed a skip link; compacted-body traversal found no hidden focus target; no console/runtime errors were recorded. | judge-human-use: Full landmark set + skip link + role=alert aria-live=assertive + role=status aria-live=polite aria-atomic + aria-describedby + autocomplete + double-ring 4px focus outline.",
+            "lens": "accessibility",
+            "score": 5.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: All three operated widths had scrollWidth equal to clientWidth; controls retain visible spacing, though the long page increases scrolling. | judge-human-use: No overflow at 320/360/390; large targets; 24x24 gate passes; compact-completed toggle reduces vertical scroll.",
+            "lens": "responsive_touch_ergonomics",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Reload restored Alex Morgan while payment fields were empty. | judge-human-use: northstar-safe-checkout persists non-sensitive fields + shipping; card fields absent from storage (no '4111' substring); explicit 'Payment details are cleared on reload and never saved' copy.",
+            "lens": "interruption_resumption",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Reduced motion reported no duration over 10 ms; repeated activation gave exactly one confirmation, with a clear local completion status. | judge-human-use: Status announces atomicity; duplicate submit blocked at DOM level (button removed). Small deduction — no directly-observed aria-busy interstitial.",
+            "lens": "latency_perception",
+            "score": 4.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Review edit and duplicate-submit behavior were safe, but no clear-progress confirmation affordance was discoverable to test. | judge-human-use: Place order button removed from the DOM after successful submit — strongest possible duplicate-submit block. Review checkbox with explicit rationale. Edit-per-section preserves data.",
+            "lens": "destructive_actions",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-a/app.js",
+              "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-a/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Optional compact summaries, section completion state, and persistent review reduce memory load without concealing completed details. | judge-human-use: Preloaded synthetic hints, compact-completed toggle, section badges, persistent totals, plain-language repeated fictional-context messaging.",
+            "lens": "cognitive_load",
+            "score": 5.0
+          }
+        ],
+        "objective_gate": false,
+        "score": 4.545454545454546,
+        "scorer_id": "blind-human-use-panel"
+      },
+      "loop_id": "single-page-loop-02",
+      "next_loop_feedback": "Use the evidence-driven Track finalists and preserved panel dissent as inputs to synthesis-loop-01.",
+      "next_loop_feedback_ref": "judging/loop-02/aggregate/synthesis-input.json",
+      "panel_judges": [
+        {
+          "judge_id": "judge-accessibility",
+          "model_id": "gpt-5.6-terra"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "model_id": "claude-opus-4.7"
+        }
+      ],
+      "raw_judge_artifacts": [
+        {
+          "id": "candidate-a-judge-accessibility-candidate-a-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/candidate-a.json",
+          "sha256": "a535133ee7645df3d3f4b59775095f94c756c3355b3a33ccd2a49684607039df"
+        },
+        {
+          "id": "candidate-a-judge-accessibility-candidate-a-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/candidate-a.md",
+          "sha256": "e13f58a70d5eb075fb8121969c4af4b28935593da5fd683891a0db980a0acd51"
+        },
+        {
+          "id": "candidate-a-judge-accessibility-navigation-transcript-a-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+          "sha256": "5ab1cd48edc2d64798d16a870e11d814f2cd731b841103c8febef283c34ac904"
+        },
+        {
+          "id": "candidate-a-judge-accessibility-pairwise-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/pairwise.json",
+          "sha256": "16deee54fafb4676f3689940d13bbac516de0a4d171628b37fcbce266f35cb1b"
+        },
+        {
+          "id": "candidate-a-judge-accessibility-pairwise-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/pairwise.md",
+          "sha256": "155a8b178eb9e57b0aa96999a77b7fe4cd68e897d6a552455b49df6670145d95"
+        },
+        {
+          "id": "candidate-a-judge-accessibility-manifest-ready-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/manifest-ready.json",
+          "sha256": "aea3ab88ec0405842973bd480218a858c2928c9400baef6914f67b2249c3cc02"
+        },
+        {
+          "id": "candidate-a-judge-accessibility-status-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/status.json",
+          "sha256": "3fa845f23bc9725cffd192e6648c4dccec0c3277b7f2ff548a005bc91faaad78"
+        },
+        {
+          "id": "candidate-a-judge-human-use-candidate-a-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/candidate-a.json",
+          "sha256": "e147bf9b01e0e6167b44b457785bc9d63b73bd145a4e56c3b31141bee2e45633"
+        },
+        {
+          "id": "candidate-a-judge-human-use-candidate-a-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/candidate-a.md",
+          "sha256": "56595f6f39bf4c058a06b24730cd555ffe13c03810b092a263109b1a25dddea3"
+        },
+        {
+          "id": "candidate-a-judge-human-use-navigation-transcript-a-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+          "sha256": "1bcfea9e908ac731045363c07deb764fc3f45f1ba58bebadcd9e308feb7494fc"
+        },
+        {
+          "id": "candidate-a-judge-human-use-pairwise-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/pairwise.json",
+          "sha256": "edde65b809cb2eac46af2ddf86b78dd976f74501276b8b72fdaa3d1fc07d47e5"
+        },
+        {
+          "id": "candidate-a-judge-human-use-pairwise-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/pairwise.md",
+          "sha256": "46c22bfcf24e6e9d19d6fd66498c115c55391b11e7319ebc5c61ff85d042e2cc"
+        },
+        {
+          "id": "candidate-a-judge-human-use-manifest-ready-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/manifest-ready.json",
+          "sha256": "7f70f033e9aa65f58f51d065d49da8877e4b7729da83e9778865807140e14c81"
+        },
+        {
+          "id": "candidate-a-judge-human-use-status-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/status.json",
+          "sha256": "050f9e66a13c4804a800d43dce281d858b129d9e7258153caa2983b02a83802a"
+        }
+      ],
+      "scores": [
+        {
+          "criterion_id": "human-use-quality",
+          "notes": "Mean of 11 per-lens medians from two independent blind judges.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.545454545454546
+        },
+        {
+          "criterion_id": "visual-information-clarity",
+          "notes": "Median of two independent blind judge scores.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.5
+        }
+      ],
+      "synthesis_feedback": [
+        {
+          "feedback": "Adopt the optional compact-completed pattern only: it preserved keyboard exclusion from hidden bodies (supplemental hidden-focus count 0). Reject copying the absence of a discoverable clear-progress confirmation affordance.",
+          "judge_id": "judge-accessibility"
+        },
+        {
+          "feedback": {
+            "action": "adopt_as_primary_template",
+            "adopt": [
+              "landmark trio + skip link",
+              "one-page anchor nav + Edit-per-section",
+              "inline synthetic-value hints + fictional-card hint box",
+              "error summary with per-section counts + preserved-values reassurance",
+              "DOM-level duplicate-submit blocking",
+              "compact-completed progressive disclosure",
+              "'placed once' atomicity status copy",
+              "double-ring focus outline"
+            ],
+            "rationale": "Strongest human-use vehicle for the Champion across every lens; use as the primary template and layer in B's progressbar announcement and Clear-saved-progress dialog.",
+            "reject": []
+          },
+          "judge_id": "judge-human-use"
+        }
+      ],
+      "track_finalist_iteration_id": "single-page-loop-02",
+      "track_id": "track-single-page"
+    },
+    {
+      "decision": "new_best",
+      "decision_rationale": "All seven objective gates pass and the Loop 02 per-lens panel aggregate improved from 4.272727 to 4.318182.",
+      "iteration_id": "resumable-wizard-loop-02",
+      "judge_feedback": "Independent Loop 02 blind panel evidence is preserved in aggregate/panel-scores.json.",
+      "judging_evidence": {
+        "criterion_id": "human-use-quality",
+        "evidence_refs": [
+          "judging/loop-02/judge-accessibility/candidate-b.json",
+          "judging/loop-02/judge-accessibility/candidate-b.md",
+          "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+          "judging/loop-02/judge-accessibility/pairwise.json",
+          "judging/loop-02/judge-accessibility/pairwise.md",
+          "judging/loop-02/judge-accessibility/manifest-ready.json",
+          "judging/loop-02/judge-accessibility/status.json",
+          "judging/loop-02/judge-human-use/candidate-b.json",
+          "judging/loop-02/judge-human-use/candidate-b.md",
+          "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+          "judging/loop-02/judge-human-use/pairwise.json",
+          "judging/loop-02/judge-human-use/pairwise.md",
+          "judging/loop-02/judge-human-use/manifest-ready.json",
+          "judging/loop-02/judge-human-use/status.json"
+        ],
+        "iteration_id": "resumable-wizard-loop-02",
+        "kind": "qualitative_rubric",
+        "lens_findings": [
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: The step labels, active stage, and direct skip target orient the user, though the next requirement is intentionally deferred. | judge-human-use: Skip link + role=progressbar with aria-valuetext 'Step 1 of 4: Contact details' + four-chip step list + persistent order summary + Save/Clear-saved-progress affordances.",
+            "lens": "discoverability",
+            "score": 4.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: The keyboard run reached no hidden content; Back and review Edit were exercised, but returning through a multi-stage path requires more navigation than a single page. | judge-human-use: Skip link -> #wizard-form; Continue-to-delivery/payment/review advance cleanly; step-1 keyboard tour clean. Only <main> landmark; shipping fieldset lives inside the aside.",
+            "lens": "navigation",
+            "score": 4.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Progressive disclosure limits the active fields, offset by Continue and Back activations. | judge-human-use: Wizard chunking (3 fields + Continue); friendly per-field help; autocomplete tokens. No preloaded fictional card values.",
+            "lens": "input_burden",
+            "score": 4.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-b/error.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Empty-step validation was exercised; errors are step-local and the completed route corrected to confirmation. | judge-human-use: Per-step validation catches errors early; role=alert summary exists but its whole-form empty-submit behaviour was not directly captured in this run.",
+            "lens": "error_prevention_recovery",
+            "score": 4.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Status clearly reports save, restore, cancellation, and local confirmation; completed cards say what was retained. | judge-human-use: role=status announces 'Order placed. Confirmation SYN-2048.' plus a full named-greeting confirmation card; role=progressbar aria-valuetext step announcement; strongest programmatic status of the three.",
+            "lens": "feedback_status",
+            "score": 5.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Skip focus, keyboard exposure check, reduced motion, and no console/runtime errors were observed; later steps stayed out of the tested initial tab order. | judge-human-use: Skip link, role=progressbar, role=status, role=alert, fieldset/legend, aria-describedby, aria-expanded on toggles, 3px focus outline. Only <main> landmark.",
+            "lens": "accessibility",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: All frozen widths had no horizontal overflow; the long review is readable but requires scrolling around the sticky summary. | judge-human-use: No overflow at 320/360/390; large full-width buttons; wide radio rows; 24x24 gate passes.",
+            "lens": "responsive_touch_ergonomics",
+            "score": 4.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: A reload restored contact values while payment was empty, and Save progress was explicitly operated. | judge-human-use: northstar-wizard-checkout-v1 persists non-sensitive state + currentStep; card fields absent from storage; explicit 'Payment details are never saved' copy.",
+            "lens": "interruption_resumption",
+            "score": 4.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Reduced motion had no long duration and duplicate activation yielded one confirmation; the final confirmation is clear but the busy interval is brief. | judge-human-use: Immediate status announcement on Place order; one SYN-2048 rendered despite duplicate click; local simulation completed too quickly to observe aria-busy interstitial.",
+            "lens": "latency_perception",
+            "score": 4.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-b/clear-progress-confirmation.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Clear saved progress opens a dedicated confirmation and Cancel was exercised before proceeding; duplicate submit gave one confirmation. | judge-human-use: Explicit two-step Clear-saved-progress dialog with plain-language explanation; Save-progress separate; Place order hidden until step 4; review checkbox required. Strongest of the three.",
+            "lens": "destructive_actions",
+            "score": 5.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-b/app.js",
+              "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-b/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: One active task, concise completed summaries, progress labels, and review edits minimize working-memory demand. | judge-human-use: Wizard chunking + friendly copy + progress indicator + persistent order summary. Weakness: shipping fieldset lives inside <aside>.",
+            "lens": "cognitive_load",
+            "score": 4.5
+          }
+        ],
+        "objective_gate": false,
+        "score": 4.318181818181818,
+        "scorer_id": "blind-human-use-panel"
+      },
+      "loop_id": "resumable-wizard-loop-02",
+      "next_loop_feedback": "Use the evidence-driven Track finalists and preserved panel dissent as inputs to synthesis-loop-01.",
+      "next_loop_feedback_ref": "judging/loop-02/aggregate/synthesis-input.json",
+      "panel_judges": [
+        {
+          "judge_id": "judge-accessibility",
+          "model_id": "gpt-5.6-terra"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "model_id": "claude-opus-4.7"
+        }
+      ],
+      "raw_judge_artifacts": [
+        {
+          "id": "candidate-b-judge-accessibility-candidate-b-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/candidate-b.json",
+          "sha256": "cd9c44d3dad4c58f76b500806927d1e7a3ad8b7186ef60cb16b9b791860c3841"
+        },
+        {
+          "id": "candidate-b-judge-accessibility-candidate-b-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/candidate-b.md",
+          "sha256": "d769971e12608eca65948104a6ca556cb531b1533abf8a707f49fc897c53a760"
+        },
+        {
+          "id": "candidate-b-judge-accessibility-navigation-transcript-b-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+          "sha256": "91163019bc22431925febd3f93f5d4f7a4fd7e4416b6bd193abaa9b2d6fb1733"
+        },
+        {
+          "id": "candidate-b-judge-accessibility-pairwise-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/pairwise.json",
+          "sha256": "16deee54fafb4676f3689940d13bbac516de0a4d171628b37fcbce266f35cb1b"
+        },
+        {
+          "id": "candidate-b-judge-accessibility-pairwise-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/pairwise.md",
+          "sha256": "155a8b178eb9e57b0aa96999a77b7fe4cd68e897d6a552455b49df6670145d95"
+        },
+        {
+          "id": "candidate-b-judge-accessibility-manifest-ready-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/manifest-ready.json",
+          "sha256": "aea3ab88ec0405842973bd480218a858c2928c9400baef6914f67b2249c3cc02"
+        },
+        {
+          "id": "candidate-b-judge-accessibility-status-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/status.json",
+          "sha256": "3fa845f23bc9725cffd192e6648c4dccec0c3277b7f2ff548a005bc91faaad78"
+        },
+        {
+          "id": "candidate-b-judge-human-use-candidate-b-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/candidate-b.json",
+          "sha256": "7bf154e8edcb553039de00e6a615c47d28fd72bb54292ef01e94d5a460685ebf"
+        },
+        {
+          "id": "candidate-b-judge-human-use-candidate-b-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/candidate-b.md",
+          "sha256": "7f0f8892dfbb8f0416b723a337c8b3eae61b15f8658a7daabf34297dcf642744"
+        },
+        {
+          "id": "candidate-b-judge-human-use-navigation-transcript-b-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+          "sha256": "5f4ce2f9f15e585f2bb05e77036adb734c56bd5195c195199781aca691531c9c"
+        },
+        {
+          "id": "candidate-b-judge-human-use-pairwise-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/pairwise.json",
+          "sha256": "edde65b809cb2eac46af2ddf86b78dd976f74501276b8b72fdaa3d1fc07d47e5"
+        },
+        {
+          "id": "candidate-b-judge-human-use-pairwise-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/pairwise.md",
+          "sha256": "46c22bfcf24e6e9d19d6fd66498c115c55391b11e7319ebc5c61ff85d042e2cc"
+        },
+        {
+          "id": "candidate-b-judge-human-use-manifest-ready-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/manifest-ready.json",
+          "sha256": "7f70f033e9aa65f58f51d065d49da8877e4b7729da83e9778865807140e14c81"
+        },
+        {
+          "id": "candidate-b-judge-human-use-status-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/status.json",
+          "sha256": "050f9e66a13c4804a800d43dce281d858b129d9e7258153caa2983b02a83802a"
+        }
+      ],
+      "scores": [
+        {
+          "criterion_id": "human-use-quality",
+          "notes": "Mean of 11 per-lens medians from two independent blind judges.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.318181818181818
+        },
+        {
+          "criterion_id": "visual-information-clarity",
+          "notes": "Median of two independent blind judge scores.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.5
+        }
+      ],
+      "synthesis_feedback": [
+        {
+          "feedback": "Adopt the explicit clear-progress confirmation/cancel treatment and step-local validation; retain this candidate as the strongest qualitative synthesis starting point. Reject copying its extra step transitions when they do not lower cognitive load.",
+          "judge_id": "judge-accessibility"
+        },
+        {
+          "feedback": {
+            "action": "adopt_selective",
+            "adopt": [
+              "skip link + role=progressbar with aria-valuetext step announcement",
+              "Save-progress + Clear-saved-progress with two-step confirm dialog",
+              "friendly synthetic-context copy",
+              "named-greeting confirmation card"
+            ],
+            "rationale": "Bring B's progress announcement and destructive-actions dialog patterns into the Champion; do not mix cart chrome with input decisions; add landmark diversity when merging.",
+            "reject": [
+              "shipping fieldset inside order-summary <aside>"
+            ]
+          },
+          "judge_id": "judge-human-use"
+        }
+      ],
+      "track_finalist_iteration_id": "resumable-wizard-loop-02",
+      "track_id": "track-resumable-wizard"
+    },
+    {
+      "decision": "reject",
+      "decision_rationale": "All seven objective gates pass, but the Loop 02 per-lens panel aggregate changed from 3.136364 to 3.090909. The parent remains the Track finalist; the regression evidence is preserved.",
+      "iteration_id": "task-cards-loop-02",
+      "judge_feedback": "Independent Loop 02 blind panel evidence is preserved in aggregate/panel-scores.json.",
+      "judging_evidence": {
+        "criterion_id": "human-use-quality",
+        "evidence_refs": [
+          "judging/loop-02/judge-accessibility/candidate-c.json",
+          "judging/loop-02/judge-accessibility/candidate-c.md",
+          "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+          "judging/loop-02/judge-accessibility/pairwise.json",
+          "judging/loop-02/judge-accessibility/pairwise.md",
+          "judging/loop-02/judge-accessibility/manifest-ready.json",
+          "judging/loop-02/judge-accessibility/status.json",
+          "judging/loop-02/judge-human-use/candidate-c.json",
+          "judging/loop-02/judge-human-use/candidate-c.md",
+          "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+          "judging/loop-02/judge-human-use/pairwise.json",
+          "judging/loop-02/judge-human-use/pairwise.md",
+          "judging/loop-02/judge-human-use/manifest-ready.json",
+          "judging/loop-02/judge-human-use/status.json"
+        ],
+        "iteration_id": "task-cards-loop-02",
+        "kind": "qualitative_rubric",
+        "lens_findings": [
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Numbered accordion headers show a broad task outline, but the relationship between collapsed cards and the review action is less immediate. | judge-human-use: Numbered accordion headers with Incomplete/Complete badges provide structure. No skip link, no <nav>, no progress indicator, no synthetic-value preload for the fictional card.",
+            "lens": "discoverability",
+            "score": 3.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: The Tab sequence entered address, shipping, and payment descendants while their headers reported aria-expanded=false, creating invisible navigation stops. | judge-human-use: Keyboard tour of 25 focusables is logically ordered; accordion aria-expanded/aria-controls are correct. But no skip link and no <nav>.",
+            "lens": "navigation",
+            "score": 2.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Task grouping is useful, but keyboard traversal through collapsed sections adds avoidable effort. | judge-human-use: Fields labelled with persistent help; Continue-per-card advances. No inline preload of fictional card / expiry / CVV values.",
+            "lens": "input_burden",
+            "score": 3.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-c/error.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: The empty submit produced an error state and the operated correction path completed successfully. | judge-human-use: Empty submit surfaces role=alert error summary listing every missing field and focuses the alert. Flat 12-row list, generic 'Please enter a value' copy, no section grouping, no jump-to-field links.",
+            "lens": "error_prevention_recovery",
+            "score": 3.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-c/review.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Section completion and confirmation feedback are present, though collapsed status does not match keyboard exposure. | judge-human-use: aria-live=polite status and card-status badges update correctly, but the review checkbox silently unchecks on any non-checkbox input change with no announcement — hidden failure mode.",
+            "lens": "feedback_status",
+            "score": 3.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-c/collapsed-focus-defect.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Direct supplemental evidence shows focus on address-line1, shipping controls, and card-expiry inside `.hidden` ancestors after their headers were collapsed. | judge-human-use: Correct labels, aria-describedby, role=alert, aria-expanded/aria-controls, very strong 4px solid-black focus outline. Missing skip link and landmark diversity.",
+            "lens": "accessibility",
+            "score": 2.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: The three viewport checks reported no horizontal overflow and the controls were visually spaced. | judge-human-use: No overflow at 320/360/390; large tap targets; objective 24x24 gate passes.",
+            "lens": "responsive_touch_ergonomics",
+            "score": 4.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Reload restored contact while payment remained empty. | judge-human-use: localStorage restores contact/address/shipping; card fields excluded and absent from storage after reload.",
+            "lens": "interruption_resumption",
+            "score": 4.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Reduced motion had no duration above 10 ms and duplicate Place order produced one confirmation. | judge-human-use: aria-busy toggled and 'Processing your order...' announced on submit path, but my run stayed blocked with 'errors in the form' while every card badge read Complete, indicating a fragile completion signal.",
+            "lens": "latency_perception",
+            "score": 3.5
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: Review edit and duplicate-submit are safe, but no discoverable clear-progress confirmation control was available. | judge-human-use: placementStarted flag + disabled button; required review checkbox; per-section Edit buttons. Silent review-reset is destructive-safe but confusing; no explicit clear-progress action.",
+            "lens": "destructive_actions",
+            "score": 3.0
+          },
+          {
+            "evidence_refs": [
+              "judging/blind-loop-02/candidate-c/app.js",
+              "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+              "judging/blind-loop-02/candidate-c/index.html",
+              "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-02/judge-accessibility/screenshots/candidate-c/collapsed-focus-defect.png",
+              "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+              "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+            ],
+            "finding": "judge-accessibility: The card headings help chunk work, but mismatch between collapsed presentation and tab order makes the interaction mentally unstable. | judge-human-use: Accordion-only pattern, 12-row generic error dump, no synthetic-value hints for payment, hidden review-reset state — highest cognitive load of the three.",
+            "lens": "cognitive_load",
+            "score": 2.5
+          }
+        ],
+        "objective_gate": false,
+        "score": 3.090909090909091,
+        "scorer_id": "blind-human-use-panel"
+      },
+      "loop_id": "task-cards-loop-02",
+      "next_loop_feedback": "Use the evidence-driven Track finalists and preserved panel dissent as inputs to synthesis-loop-01.",
+      "next_loop_feedback_ref": "judging/loop-02/aggregate/synthesis-input.json",
+      "panel_judges": [
+        {
+          "judge_id": "judge-accessibility",
+          "model_id": "gpt-5.6-terra"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "model_id": "claude-opus-4.7"
+        }
+      ],
+      "raw_judge_artifacts": [
+        {
+          "id": "candidate-c-judge-accessibility-candidate-c-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/candidate-c.json",
+          "sha256": "b1bad25b508a73ad5a8ae3e6b394b58f2446fafa7589e0b19dcad76eba36774e"
+        },
+        {
+          "id": "candidate-c-judge-accessibility-candidate-c-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/candidate-c.md",
+          "sha256": "190aefc0049868ed67fa501d504e2fd0f8d052cbc5d1b4736cc65c8c3d4ee3a3"
+        },
+        {
+          "id": "candidate-c-judge-accessibility-navigation-transcript-c-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+          "sha256": "43af6cab49d055bf6a872903171813a84e629c02e620656f6e88a72e0cc7a32c"
+        },
+        {
+          "id": "candidate-c-judge-accessibility-pairwise-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/pairwise.json",
+          "sha256": "16deee54fafb4676f3689940d13bbac516de0a4d171628b37fcbce266f35cb1b"
+        },
+        {
+          "id": "candidate-c-judge-accessibility-pairwise-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/pairwise.md",
+          "sha256": "155a8b178eb9e57b0aa96999a77b7fe4cd68e897d6a552455b49df6670145d95"
+        },
+        {
+          "id": "candidate-c-judge-accessibility-manifest-ready-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/manifest-ready.json",
+          "sha256": "aea3ab88ec0405842973bd480218a858c2928c9400baef6914f67b2249c3cc02"
+        },
+        {
+          "id": "candidate-c-judge-accessibility-status-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-02/judge-accessibility/status.json",
+          "sha256": "3fa845f23bc9725cffd192e6648c4dccec0c3277b7f2ff548a005bc91faaad78"
+        },
+        {
+          "id": "candidate-c-judge-human-use-candidate-c-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/candidate-c.json",
+          "sha256": "003c6950674eaee5377381b0f90f9b212b8ae078d1880fa61a5302533124a1bb"
+        },
+        {
+          "id": "candidate-c-judge-human-use-candidate-c-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/candidate-c.md",
+          "sha256": "aeea5d4fe06b96932083b612061297b849b29cecbfe087924d5a7865828ec411"
+        },
+        {
+          "id": "candidate-c-judge-human-use-navigation-transcript-c-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+          "sha256": "96040e493a0b97c9e906feac8240e6329932c56c0a67f719890518d3a92bfd0c"
+        },
+        {
+          "id": "candidate-c-judge-human-use-pairwise-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/pairwise.json",
+          "sha256": "edde65b809cb2eac46af2ddf86b78dd976f74501276b8b72fdaa3d1fc07d47e5"
+        },
+        {
+          "id": "candidate-c-judge-human-use-pairwise-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/pairwise.md",
+          "sha256": "46c22bfcf24e6e9d19d6fd66498c115c55391b11e7319ebc5c61ff85d042e2cc"
+        },
+        {
+          "id": "candidate-c-judge-human-use-manifest-ready-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/manifest-ready.json",
+          "sha256": "7f70f033e9aa65f58f51d065d49da8877e4b7729da83e9778865807140e14c81"
+        },
+        {
+          "id": "candidate-c-judge-human-use-status-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-02/judge-human-use/status.json",
+          "sha256": "050f9e66a13c4804a800d43dce281d858b129d9e7258153caa2983b02a83802a"
+        }
+      ],
+      "scores": [
+        {
+          "criterion_id": "human-use-quality",
+          "notes": "Mean of 11 per-lens medians from two independent blind judges.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 3.090909090909091
+        },
+        {
+          "criterion_id": "visual-information-clarity",
+          "notes": "Median of two independent blind judge scores.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 3.0
+        }
+      ],
+      "synthesis_feedback": [
+        {
+          "feedback": "Reject this accordion implementation for synthesis until collapsed panels remove descendants from keyboard and screen-reader exposure and a safe clear-progress path is provided. A labelled section-status pattern may be adopted only after that repair.",
+          "judge_id": "judge-accessibility"
+        },
+        {
+          "feedback": {
+            "action": "reject_pattern",
+            "adopt": [
+              "4px solid-black focus outline as a fallback"
+            ],
+            "rationale": "The submission-gating state machine is fragile enough to leave users in an unrecoverable 'errors in the form' state without pointing at the failing field. Do not carry this pattern into the Champion.",
+            "reject": [
+              "silent review-checkbox reset on non-checkbox input",
+              "flat generic error summary",
+              "accordion-only structure without progress indicator"
+            ]
+          },
+          "judge_id": "judge-human-use"
+        }
+      ],
+      "track_finalist_iteration_id": "task-cards-loop-01",
+      "track_id": "track-task-cards"
+    }
+  ],
+  "schema_version": "1.0",
+  "source_loop": "loop-02",
+  "synthesis_parent_ids": [
+    "single-page-loop-02",
+    "resumable-wizard-loop-02",
+    "task-cards-loop-01"
+  ],
+  "track_finalists": {
+    "track-resumable-wizard": "resumable-wizard-loop-02",
+    "track-single-page": "single-page-loop-02",
+    "track-task-cards": "task-cards-loop-01"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "experiment_id": "accessible-mobile-checkout",
+  "judge_orders": {
+    "judge-accessibility": [
+      "candidate-a",
+      "candidate-b",
+      "candidate-c"
+    ],
+    "judge-human-use": [
+      "candidate-c",
+      "candidate-b",
+      "candidate-a"
+    ]
+  },
+  "judge_terminal_evidence": {
+    "judge-accessibility": {
+      "path": "judging/loop-02/judge-accessibility/status.json",
+      "terminal_at": "2026-07-21T18:33:04.606110+10:00"
+    },
+    "judge-human-use": {
+      "path": "judging/loop-02/judge-human-use/status.json",
+      "terminal_at": "2026-07-21T19:00:00+10:00"
+    }
+  },
+  "loop": "loop-02",
+  "mapping_fixed_before_judging": true,
+  "mappings": [
+    {
+      "bundle_manifest_sha256": "86279273d53ec9e78edc752d4e83426f6b51f9a0a8a84f4b927631305b42138b",
+      "label": "candidate-a",
+      "loop_id": "single-page-loop-02",
+      "source_path": "track-single-page/loop-02",
+      "track_id": "single-page"
+    },
+    {
+      "bundle_manifest_sha256": "c35c0fb08346dd6b7ce674ccf934d9ff40a01b96a8bfce82f1a337aceffa2706",
+      "label": "candidate-b",
+      "loop_id": "resumable-wizard-loop-02",
+      "source_path": "track-resumable-wizard/loop-02",
+      "track_id": "resumable-wizard"
+    },
+    {
+      "bundle_manifest_sha256": "556a404deecf581412c196aa59d9fe9904499d1a349e0500fd745a7b60f7ce2c",
+      "label": "candidate-c",
+      "loop_id": "task-cards-loop-02",
+      "source_path": "track-task-cards/loop-02",
+      "track_id": "task-cards"
+    }
+  ],
+  "schema_version": "1.0",
+  "visibility": "revealed after both independent judges reached terminal state"
+}

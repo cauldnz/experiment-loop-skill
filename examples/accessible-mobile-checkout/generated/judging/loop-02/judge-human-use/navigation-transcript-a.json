@@ -1,0 +1,716 @@
+{
+  "candidate_dir": "<experiment-workspace>/generated/judging/blind-loop-02/candidate-a",
+  "steps": [
+    {
+      "step": "viewport",
+      "t": "18:40:52",
+      "size": "320x568",
+      "overflow": {
+        "docW": 320,
+        "winW": 320,
+        "bodyOverflowX": "visible"
+      }
+    },
+    {
+      "step": "viewport",
+      "t": "18:40:53",
+      "size": "360x800",
+      "overflow": {
+        "docW": 360,
+        "winW": 360,
+        "bodyOverflowX": "visible"
+      }
+    },
+    {
+      "step": "viewport",
+      "t": "18:40:54",
+      "size": "390x844",
+      "overflow": {
+        "docW": 390,
+        "winW": 390,
+        "bodyOverflowX": "visible"
+      }
+    },
+    {
+      "step": "semantic_snapshot",
+      "t": "18:40:54",
+      "data": {
+        "title": "Northstar Goods \u2014 Synthetic checkout demonstration",
+        "landmarks": {
+          "main": 1,
+          "nav": 1,
+          "header": 1
+        },
+        "h1": [
+          "Complete your synthetic order"
+        ],
+        "h2": [
+          "Checkout details",
+          "Contact",
+          "Delivery address",
+          "Shipping method",
+          "Synthetic payment",
+          "Review and place order",
+          "Order confirmed locally"
+        ],
+        "statusRegions": [
+          {
+            "role": "alert",
+            "live": "assertive",
+            "text": ""
+          },
+          {
+            "role": "status",
+            "live": "polite",
+            "text": "Your safe progress can be restored after a reload."
+          },
+          {
+            "role": "status",
+            "live": "polite",
+            "text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transactio"
+          }
+        ],
+        "errorSummary": {
+          "tag": "div",
+          "role": "alert",
+          "tabindex": "-1",
+          "hidden": true,
+          "text": ""
+        },
+        "skipLink": {
+          "href": "#checkout-form",
+          "text": "Skip to checkout form"
+        },
+        "accordionCount": 0,
+        "expandedStates": [],
+        "focusable": 31,
+        "firstHeaders": [
+          "Contact",
+          "Delivery address",
+          "Shipping method",
+          "Synthetic payment",
+          "Review and place order",
+          "Contact and delivery",
+          "Shipping and payment",
+          "Order confirmed locally"
+        ]
+      }
+    },
+    {
+      "step": "click",
+      "t": "18:40:54",
+      "target": "empty-place-order",
+      "selector": "button[data-hook=\"place-order\"]"
+    },
+    {
+      "step": "empty_submit_state",
+      "t": "18:40:55",
+      "state": {
+        "errorText": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview: 1 item need attentionShow all 13 correctionsEnter a synthetic full name with at least 2 characters.Enter a complete email address, such as alex.morgan@example",
+        "errorHidden": false,
+        "focusedTag": "div",
+        "focusedId": "error-summary",
+        "focusedText": "Check 13 items in 4 sections\n\nYour entries are preserved. St"
+      }
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "contact.name",
+      "selector": "#contact-name",
+      "value": "Alex Morgan"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "contact.email",
+      "selector": "#contact-email",
+      "value": "alex.morgan@example.invalid"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "contact.phone",
+      "selector": "#contact-phone",
+      "value": "+61 400 000 000"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:40:55",
+      "target": "contact-continue",
+      "tried": [
+        "#contact-continue",
+        "[data-hook=\"continue\"][data-next=\"address\"]",
+        "button:has-text(\"Continue to Address\")",
+        "button:has-text(\"Continue to Delivery\")",
+        "button[data-action=\"next\"]",
+        "button:has-text(\"Continue to delivery\")"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "address.line1",
+      "selector": "#address-line1",
+      "value": "42 Fiction Lane"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "address.city",
+      "selector": "#address-city",
+      "value": "Sampleton"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "address.state",
+      "selector": "#address-state",
+      "value": "NSW"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "address.postcode",
+      "selector": "#address-postcode",
+      "value": "2000"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "address.country",
+      "selector": "#address-country",
+      "value": "Australia"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:40:55",
+      "target": "address-continue",
+      "tried": [
+        "#address-continue",
+        "[data-hook=\"continue\"][data-next=\"shipping\"]",
+        "button:has-text(\"Continue to Shipping\")",
+        "button:has-text(\"Continue to shipping\")",
+        "button:has-text(\"Continue to Payment\")"
+      ]
+    },
+    {
+      "step": "click_missing",
+      "t": "18:40:55",
+      "target": "shipping-continue",
+      "tried": [
+        "#shipping-continue",
+        "[data-hook=\"continue\"][data-next=\"payment\"]",
+        "button:has-text(\"Continue to Payment\")",
+        "button:has-text(\"Continue to payment\")"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "payment.card",
+      "selector": "#card-number",
+      "value": "4111 1111 1111 1111"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "payment.expiry",
+      "selector": "#card-expiry",
+      "value": "12/34"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "payment.cvv",
+      "selector": "input[autocomplete=\"cc-csc\"]",
+      "value": "123"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:55",
+      "target": "payment.name",
+      "selector": "#card-name",
+      "value": "Alex Morgan"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:40:55",
+      "target": "payment-continue",
+      "tried": [
+        "#payment-continue",
+        "[data-hook=\"continue\"][data-next=\"review\"]",
+        "button:has-text(\"Continue to Review\")",
+        "button:has-text(\"Continue to review\")"
+      ]
+    },
+    {
+      "step": "pre_submit_state",
+      "t": "18:40:55",
+      "state": {
+        "localStorage": {
+          "northstar-safe-checkout": "{\"fields\":{\"contact-name\":\"Alex Morgan\",\"contact-email\":\"alex.morgan@example.invalid\",\"contact-phone\":\"+61 400 000 000\",\"address-line1\":\"42 Fiction Lane\",\"address-city\":\"Sampleton\",\"address-state\":\"NSW\",\"address-postcode\":\"2000\",\"address-country\":\"Australia\"},\"shipping\":\"standard\"}"
+        },
+        "sessionStorage": {},
+        "inputValues": {
+          "contact-name": "Alex Morgan",
+          "contact-email": "alex.morgan@example.invalid",
+          "contact-phone": "+61 400 000 000",
+          "address-line1": "42 Fiction Lane",
+          "address-city": "Sampleton",
+          "address-state": "NSW",
+          "address-postcode": "2000",
+          "address-country": "Australia",
+          "shipping": "standard",
+          "card-number": "4111 1111 1111 1111",
+          "card-expiry": "12/34",
+          "card-security": "123",
+          "card-name": "Alex Morgan"
+        },
+        "confirmationText": 0,
+        "confirmationVisible": false
+      }
+    },
+    {
+      "step": "review_checkbox",
+      "t": "18:40:55",
+      "results": [
+        {
+          "id": "review-confirmation",
+          "name": "",
+          "label": "I reviewed the fictional order and understand that Place order creates only a local synthetic confirmation.\n            ",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "step": "click",
+      "t": "18:40:57",
+      "target": "place-order",
+      "selector": "button[data-hook=\"place-order\"]"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:42:27",
+      "target": "place-order-duplicate",
+      "tried": [
+        "button[data-hook=\"place-order\"]",
+        "button[data-action=\"place-order\"]",
+        "button[data-action=\"submit-order\"]",
+        "#place-order",
+        "button:has-text(\"Place order\")",
+        "button:has-text(\"Place Order\")",
+        "button:has-text(\"Place synthetic order\")"
+      ]
+    },
+    {
+      "step": "duplicate_submit_attempted",
+      "t": "18:42:27",
+      "found": false
+    },
+    {
+      "step": "confirmation_visible",
+      "t": "18:42:27",
+      "confirmed": true
+    },
+    {
+      "step": "confirmation_state",
+      "t": "18:42:27",
+      "state": {
+        "syn2048Count": 2,
+        "statusRegionsText": [
+          "",
+          "Synthetic order placed once. Confirmation ID SYN-2048.",
+          "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transactio"
+        ]
+      }
+    },
+    {
+      "step": "fill",
+      "t": "18:42:28",
+      "target": "resume.contact.name",
+      "selector": "#contact-name",
+      "value": "Alex Morgan"
+    },
+    {
+      "step": "fill",
+      "t": "18:42:28",
+      "target": "resume.contact.email",
+      "selector": "#contact-email",
+      "value": "alex.morgan@example.invalid"
+    },
+    {
+      "step": "fill",
+      "t": "18:42:28",
+      "target": "resume.contact.phone",
+      "selector": "#contact-phone",
+      "value": "+61 400 000 000"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:42:28",
+      "target": "resume-persist-trigger",
+      "tried": [
+        "#contact-continue",
+        "[data-hook=\"continue\"][data-next=\"address\"]",
+        "button:has-text(\"Continue to Address\")",
+        "button:has-text(\"Continue to Delivery\")",
+        "button[data-action=\"save-now\"]",
+        "button:has-text(\"Save progress\")"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:42:28",
+      "target": "resume.address.line1",
+      "selector": "#address-line1",
+      "value": "42 Fiction Lane"
+    },
+    {
+      "step": "fill",
+      "t": "18:42:28",
+      "target": "resume.payment.card-preload",
+      "selector": "#card-number",
+      "value": "4111 1111 1111 1111"
+    },
+    {
+      "step": "fill",
+      "t": "18:42:28",
+      "target": "resume.payment.exp-preload",
+      "selector": "#card-expiry",
+      "value": "12/34"
+    },
+    {
+      "step": "fill",
+      "t": "18:42:28",
+      "target": "resume.payment.cvv-preload",
+      "selector": "input[autocomplete=\"cc-csc\"]",
+      "value": "123"
+    },
+    {
+      "step": "pre_reload_storage",
+      "t": "18:42:28",
+      "storage": {
+        "localStorage": {
+          "northstar-safe-checkout": "{\"fields\":{\"contact-name\":\"Alex Morgan\",\"contact-email\":\"alex.morgan@example.invalid\",\"contact-phone\":\"+61 400 000 000\",\"address-line1\":\"42 Fiction Lane\",\"address-city\":\"Sampleton\",\"address-state\":\"NSW\",\"address-postcode\":\"2000\",\"address-country\":\"Australia\"},\"shipping\":\"standard\"}"
+        },
+        "sessionStorage": {}
+      }
+    },
+    {
+      "step": "post_reload_state",
+      "t": "18:42:28",
+      "state": {
+        "cardNumber": "",
+        "cardCvv": null,
+        "cardExp": "",
+        "contactName": "Alex Morgan",
+        "contactEmail": "alex.morgan@example.invalid",
+        "contactPhone": "+61 400 000 000",
+        "addressLine1": "42 Fiction Lane",
+        "localStorage": {
+          "northstar-safe-checkout": "{\"fields\":{\"contact-name\":\"Alex Morgan\",\"contact-email\":\"alex.morgan@example.invalid\",\"contact-phone\":\"+61 400 000 000\",\"address-line1\":\"42 Fiction Lane\",\"address-city\":\"Sampleton\",\"address-state\":\"NSW\",\"address-postcode\":\"2000\",\"address-country\":\"Australia\"},\"shipping\":\"standard\"}"
+        },
+        "sessionStorage": {},
+        "cardInStorage": false
+      }
+    },
+    {
+      "step": "reduced_motion_findings",
+      "t": "18:42:29",
+      "motion": []
+    },
+    {
+      "step": "first_tab_focus",
+      "t": "18:42:30",
+      "text": "Skip to checkout form"
+    },
+    {
+      "step": "keyboard_focus_order",
+      "t": "18:42:30",
+      "count": 25,
+      "first_10": [
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "type": null,
+          "role": null,
+          "label": null,
+          "text": "Contact",
+          "aria": null,
+          "describedby": null,
+          "data": null,
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "a#None|None|None|Contact"
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "type": null,
+          "role": null,
+          "label": null,
+          "text": "Delivery",
+          "aria": null,
+          "describedby": null,
+          "data": null,
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "a#None|None|None|Delivery"
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "type": null,
+          "role": null,
+          "label": null,
+          "text": "Shipping",
+          "aria": null,
+          "describedby": null,
+          "data": null,
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "a#None|None|None|Shipping"
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "type": null,
+          "role": null,
+          "label": null,
+          "text": "Payment",
+          "aria": null,
+          "describedby": null,
+          "data": null,
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "a#None|None|None|Payment"
+        },
+        {
+          "tag": "a",
+          "id": null,
+          "name": null,
+          "type": null,
+          "role": null,
+          "label": null,
+          "text": "Review",
+          "aria": null,
+          "describedby": null,
+          "data": null,
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "a#None|None|None|Review"
+        },
+        {
+          "tag": "summary",
+          "id": "order-title",
+          "name": null,
+          "type": null,
+          "role": null,
+          "label": null,
+          "text": "Order summary\nAUD 93.50",
+          "aria": null,
+          "describedby": null,
+          "data": null,
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "summary#order-title|None|None|Order summary\nAUD 93.50"
+        },
+        {
+          "tag": "input",
+          "id": "compact-completed",
+          "name": null,
+          "type": "checkbox",
+          "role": null,
+          "label": "Compact completed sections",
+          "text": "",
+          "aria": null,
+          "describedby": null,
+          "data": null,
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "input#compact-completed|None|None|"
+        },
+        {
+          "tag": "input",
+          "id": "contact-name",
+          "name": "contact-name",
+          "type": "text",
+          "role": null,
+          "label": "Full name *",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-name-help",
+          "data": "contact-name",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "input#contact-name|contact-name|contact-name|"
+        },
+        {
+          "tag": "input",
+          "id": "contact-email",
+          "name": "contact-email",
+          "type": "email",
+          "role": null,
+          "label": "Email *",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-email-help",
+          "data": "contact-email",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "input#contact-email|contact-email|contact-email|"
+        },
+        {
+          "tag": "input",
+          "id": "contact-phone",
+          "name": "contact-phone",
+          "type": "tel",
+          "role": null,
+          "label": "Phone *",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-phone-help",
+          "data": "contact-phone",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "input#contact-phone|contact-phone|contact-phone|"
+        }
+      ],
+      "last_5": [
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Edit contact",
+          "aria": null,
+          "describedby": null,
+          "data": "edit-contact",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "button#None|None|edit-contact|Edit contact"
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Edit shipping",
+          "aria": null,
+          "describedby": null,
+          "data": "edit-shipping",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "button#None|None|edit-shipping|Edit shipping"
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Edit payment",
+          "aria": null,
+          "describedby": null,
+          "data": "edit-payment",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "button#None|None|edit-payment|Edit payment"
+        },
+        {
+          "tag": "input",
+          "id": "review-confirmation",
+          "name": null,
+          "type": "checkbox",
+          "role": null,
+          "label": "I reviewed the fictional order and understand that Place order creates only a local synthetic confirmation.",
+          "text": "",
+          "aria": null,
+          "describedby": "review-confirmation-help",
+          "data": "review-confirmation",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "input#review-confirmation|None|review-confirmation|"
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "submit",
+          "role": null,
+          "label": null,
+          "text": "Place order",
+          "aria": null,
+          "describedby": null,
+          "data": "place-order",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(255, 191, 71)",
+            "boxShadow": "rgb(16, 47, 70) 0px 0px 0px 2px"
+          },
+          "key": "button#None|None|place-order|Place order"
+        }
+      ]
+    },
+    {
+      "step": "keyboard_reach",
+      "t": "18:42:30",
+      "contact_reached": true,
+      "payment_reached": true
+    }
+  ],
+  "console": [],
+  "page_errors": [],
+  "screenshots": [
+    "viewport-320x568",
+    "viewport-360x800",
+    "viewport-390x844",
+    "initial",
+    "empty-submit",
+    "review-state",
+    "confirmation",
+    "post-reload",
+    "reduced-motion",
+    "keyboard-focus-tour"
+  ],
+  "started_at": "2026-07-21T18:40:51",
+  "completed": true,
+  "ended_at": "2026-07-21T18:42:30"
+}

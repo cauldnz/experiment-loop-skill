@@ -1,0 +1,81 @@
+{
+  "branch": "chrisauld-microsoft-accessible-checkout-experiment",
+  "captured_utc": "2026-07-21T08:11:58.1477408Z",
+  "git_status": [
+    "?? .experiments/"
+  ],
+  "root_files": [
+    {
+      "creation_utc": "2026-07-21T05:17:34.083663Z",
+      "length": 124,
+      "modified_utc": "2026-07-21T05:17:34.083663Z",
+      "path": ".git",
+      "sha256": "0e7b4bc025deff5bd6da5c200889fcbcd00f07e7587d4bfe51b48d542d00b849"
+    },
+    {
+      "creation_utc": "2026-07-21T05:17:34.307674Z",
+      "length": 152,
+      "modified_utc": "2026-07-21T05:17:34.307674Z",
+      "path": ".gitattributes",
+      "sha256": "e4d3fbf6061e8a57c0f86ba2d4b2443af7f06516d369ee1c20e8de29395b0800"
+    },
+    {
+      "creation_utc": "2026-07-21T05:17:34.309971Z",
+      "length": 122,
+      "modified_utc": "2026-07-21T05:17:34.311195Z",
+      "path": ".gitignore",
+      "sha256": "4415ffcd8558df74ed0500f073b64573b5308e4a297e5db0dada07560697d642"
+    },
+    {
+      "creation_utc": "2026-07-21T05:17:34.311195Z",
+      "length": 1833,
+      "modified_utc": "2026-07-21T05:17:34.318206Z",
+      "path": "CONTEXT.md",
+      "sha256": "dc2f48199fc6a74387dfa5dce96e33bbcce8f7b88fc08c4b4077965088c32819"
+    },
+    {
+      "creation_utc": "2026-07-21T05:17:34.318206Z",
+      "length": 2840,
+      "modified_utc": "2026-07-21T05:17:34.325881Z",
+      "path": "INSTALL.md",
+      "sha256": "78d17fd0bc70aacfa4512e6bdffe6b2d6c1f4ffb8c3ec6b87de237764a2014e9"
+    },
+    {
+      "creation_utc": "2026-07-21T05:17:34.326892Z",
+      "length": 1088,
+      "modified_utc": "2026-07-21T05:17:34.326892Z",
+      "path": "LICENSE",
+      "sha256": "d086872d2d2705a6e71c52abc055a3bfbe4e76d189800e976750bb7e7e699a9e"
+    },
+    {
+      "creation_utc": "2026-07-21T05:17:34.326892Z",
+      "length": 2370,
+      "modified_utc": "2026-07-21T05:17:34.337940Z",
+      "path": "PACKAGE_MANIFEST.json",
+      "sha256": "1e6690665c1eb8f22fac77002328e4c2cb7b924dc1d5198d5dea9c2bfb7a5eed"
+    },
+    {
+      "creation_utc": "2026-07-21T05:17:34.338938Z",
+      "length": 6934,
+      "modified_utc": "2026-07-21T05:17:34.349204Z",
+      "path": "README.md",
+      "sha256": "07839c5e398e6d9323bd532da8791f0c0eaec863ce04e41856de0e7a9413c266"
+    },
+    {
+      "creation_utc": "2026-07-21T05:17:38.894262Z",
+      "length": 19,
+      "modified_utc": "2026-07-21T05:17:38.909328Z",
+      "path": "requirements.txt",
+      "sha256": "44ff0dc2f1e40311b8239e83146749ab9d9cee2a650e699f5464755d552ee20d"
+    },
+    {
+      "creation_utc": "2026-07-21T05:17:34.349204Z",
+      "length": 41118,
+      "modified_utc": "2026-07-21T05:17:34.356484Z",
+      "path": "SKILL.md",
+      "sha256": "f66e8867d89323e51af1df8279fe08541381e6ec6edf479a2830bcee0681793d"
+    }
+  ],
+  "root_violation_files_present": [],
+  "schema_version": "1.0"
+}

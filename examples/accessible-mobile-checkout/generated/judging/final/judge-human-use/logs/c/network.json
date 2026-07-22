@@ -1,0 +1,66 @@
+{
+  "total_requests": 12,
+  "external_requests": [],
+  "sample_requests": [
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "script",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "script",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "script",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/judging/final/blind/can",
+      "resource_type": "script",
+      "method": "GET"
+    }
+  ]
+}

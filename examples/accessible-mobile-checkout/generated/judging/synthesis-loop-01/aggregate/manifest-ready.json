@@ -1,0 +1,374 @@
+{
+  "records": [
+    {
+      "decision": "new_best",
+      "decision_rationale": "All seven objective gates pass and the independent synthesis panel aggregate is 4.681818, above the strongest parent aggregate 4.545455. This is the synthesis baseline leader, not the final Champion.",
+      "iteration_id": "synthesis-loop-01",
+      "judge_feedback": "The panel confirms the synthesis direction while preserving a skip-link focus defect and three minor human-use improvements.",
+      "judging_evidence": {
+        "criterion_id": "human-use-quality",
+        "evidence_refs": [
+          "judging/synthesis-loop-01/judge-accessibility/candidate-a.json",
+          "judging/synthesis-loop-01/judge-accessibility/candidate-a.md",
+          "judging/synthesis-loop-01/judge-accessibility/manifest-ready.json",
+          "judging/synthesis-loop-01/judge-accessibility/navigation-transcript-a.json",
+          "judging/synthesis-loop-01/judge-accessibility/operate_candidate.py",
+          "judging/synthesis-loop-01/judge-accessibility/pairwise.json",
+          "judging/synthesis-loop-01/judge-accessibility/pairwise.md",
+          "judging/synthesis-loop-01/judge-accessibility/screenshots/01-initial-390x844.png",
+          "judging/synthesis-loop-01/judge-accessibility/screenshots/02-error-recovery-390x844.png",
+          "judging/synthesis-loop-01/judge-accessibility/screenshots/03-save-clear-confirmation-390x844.png",
+          "judging/synthesis-loop-01/judge-accessibility/screenshots/04-compact-edit-390x844.png",
+          "judging/synthesis-loop-01/judge-accessibility/screenshots/05-confirmation-390x844.png",
+          "judging/synthesis-loop-01/judge-accessibility/status.json",
+          "judging/synthesis-loop-01/judge-accessibility/write_judgment.py",
+          "judging/synthesis-loop-01/judge-human-use/candidate-a.json",
+          "judging/synthesis-loop-01/judge-human-use/candidate-a.md",
+          "judging/synthesis-loop-01/judge-human-use/logs/console.json",
+          "judging/synthesis-loop-01/judge-human-use/logs/landmarks.json",
+          "judging/synthesis-loop-01/judge-human-use/logs/network.json",
+          "judging/synthesis-loop-01/judge-human-use/logs/tab-order-compact.json",
+          "judging/synthesis-loop-01/judge-human-use/logs/tab-order.json",
+          "judging/synthesis-loop-01/judge-human-use/logs/touch-targets.json",
+          "judging/synthesis-loop-01/judge-human-use/manifest-ready.json",
+          "judging/synthesis-loop-01/judge-human-use/navigation-transcript-a.json",
+          "judging/synthesis-loop-01/judge-human-use/pairwise.json",
+          "judging/synthesis-loop-01/judge-human-use/pairwise.md",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/01-initial-390x844.png",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/02-empty-submit-error-summary.png",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/03-error-recovery-invalid-postcode.png",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/04-compact-completed-on.png",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/05-edit-compact-section.png",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/06-clear-confirm-dialog.png",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/07-review-required-error.png",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/08-confirmation-SYN-2048.png",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/09-post-reload-restored.png",
+          "judging/synthesis-loop-01/judge-human-use/screenshots/10-after-clear-confirmed.png",
+          "judging/synthesis-loop-01/judge-human-use/scripts/operate.py",
+          "judging/synthesis-loop-01/judge-human-use/status.json"
+        ],
+        "iteration_id": "synthesis-loop-01",
+        "kind": "qualitative_rubric",
+        "lens_findings": [
+          {
+            "finding": "judge-accessibility (5): The synthetic banner, clear H1, five named section links, numbered section headings, progressbar, visible order summary, and direct labels make the checkout’s purpose and available tasks explicit. | judge-human-use (5): discoverability score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "discoverability",
+            "score": 5.0
+          },
+          {
+            "finding": "judge-accessibility (4): All five anchor links changed hash/position; compact and review Edit controls opened the exact section and focused its first control; Tab/Shift+Tab order was logical. Deduction: Enter on the skip link set #checkout-form but focus landed on BODY because the form target is not programmatically focusable. | judge-human-use (5): navigation score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "navigation",
+            "score": 4.5
+          },
+          {
+            "finding": "judge-accessibility (4): Field-level synthetic examples, input modes, persistent totals, direct section edits, radio shipping and a single review confirmation reduce hesitation. The full 13-field, five-section form remains long at 390px. | judge-human-use (5): input burden score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "input_burden",
+            "score": 4.5
+          },
+          {
+            "finding": "judge-accessibility (5): Empty submit focused an actionable grouped summary (13 items, four sections); its first link focused contact-name. Invalid fields received messages/aria-invalid; a later invalid-payment submit retained valid contact/delivery values. | judge-human-use (5): error prevention recovery score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "error_prevention_recovery",
+            "score": 5.0
+          },
+          {
+            "finding": "judge-accessibility (5): Progress exposes completed/next section text, saving/restoring/clearing status is announced, a short local busy state appears before confirmation, and successful placement reports SYN-2048. | judge-human-use (5): feedback status score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "feedback_status",
+            "score": 5.0
+          },
+          {
+            "finding": "judge-accessibility (4): Observed landmark structure, labelled native fields/fieldsets, semantic status/alert/progressbar, visible keyboard focus, native radio arrows, no trap, safe compaction, and reduced-motion behavior are strong. The non-focused skip destination prevents a top score. | judge-human-use (5): accessibility score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "accessibility",
+            "score": 4.5
+          },
+          {
+            "finding": "judge-accessibility (4): At 390x844 there was no horizontal overflow; cards/buttons/inputs are generally generous and measured minimum interactive dimensions were 24x24px. The exact-minimum native radio/checkbox footprint and long one-page reach keep this below excellent. | judge-human-use (5): responsive touch ergonomics score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "responsive_touch_ergonomics",
+            "score": 4.5
+          },
+          {
+            "finding": "judge-accessibility (5): Explicit save preserved only eight safe fields plus shipping; reload restored them and left all four payment fields blank. Clear uses confirmation, Cancel and Escape, then correctly clears/reloads. | judge-human-use (5): interruption resumption score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "interruption_resumption",
+            "score": 5.0
+          },
+          {
+            "finding": "judge-accessibility (4): Placement exposes an immediate 'Placing local synthetic order' busy status and resolves to a focused confirmation after the short local delay. Focus temporarily fell to BODY while the disabled action handed off, so feedback is good but not seamless. | judge-human-use (5): latency perception score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "latency_perception",
+            "score": 4.5
+          },
+          {
+            "finding": "judge-accessibility (5): Clear is explicit, describes scope and irreversibility, focuses Cancel, supports Escape and preserves data on cancellation. Confirming clear erased storage. Placement disabled its button and a duplicate native submit kept exactly one confirmation. | judge-human-use (5): destructive actions score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "destructive_actions",
+            "score": 5.0
+          },
+          {
+            "finding": "judge-accessibility (4): One-page orientation, five-step progress, compact completed sections and concise section status reduce re-orientation. Initial completion still exposes a long multi-section mobile form; the full error panorama can be demanding despite its grouping. | judge-human-use (4): cognitive load score supported by candidate-a.json and manifest-ready.json.",
+            "lens": "cognitive_load",
+            "score": 4.0
+          }
+        ],
+        "objective_gate": false,
+        "score": 4.681818181818182,
+        "scorer_id": "blind-human-use-panel"
+      },
+      "next_loop_feedback": "Preserve the one-page synthesis, grouped recovery, safe storage boundary, confirmed clear flow, compact hidden descendants, and one SYN-2048 confirmation. Make the skip target programmatically focusable and move focus to the named checkout start. Default compact-completed on after safe restoration records a completed section and persist that preference. Label untouched preselected shipping as 'Default selected: Standard' until acknowledged. Persist only a non-sensitive placed flag so reload keeps placement disabled and announces the existing SYN-2048 order. Do not persist payment secrets or weaken any objective gate.",
+      "next_loop_feedback_ref": "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json",
+      "panel_judges": [
+        {
+          "judge_id": "judge-accessibility",
+          "model_id": "gpt-5.6-terra"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "model_id": "claude-opus-4.7"
+        }
+      ],
+      "raw_judge_artifacts": [
+        {
+          "id": "synthesis-loop-01-judge-accessibility-candidate-a-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/candidate-a.json",
+          "sha256": "15f9512cbf0665dc764807c7937067a6a1fcfcdd1698283167c1f4c2c4e63ef3"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-candidate-a-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/candidate-a.md",
+          "sha256": "869191ee5d63629ca7ab80aeb2bb9403294101184f7082f96e01651ba7fdb90e"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-manifest-ready-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/manifest-ready.json",
+          "sha256": "868bff62450a9cf7940e3330fe362c66de952f4a039ec688cb975801b5999713"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-navigation-transcript-a-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/navigation-transcript-a.json",
+          "sha256": "7d3606a857e7dad5ee89740af1e38f97e74b51e2a85fc9bb0cfbcbfeb7258a8e"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-operate-candidate-py",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/operate_candidate.py",
+          "sha256": "89cf4d902902e9522ff4e7f5e2a2a118872559bd7f3a63cbe3ad95419d2c7f0b"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-pairwise-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/pairwise.json",
+          "sha256": "d76fe78eb287b41c0f7b37d11c73f13e41685ca02fbdae60c626241beeda676d"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-pairwise-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/pairwise.md",
+          "sha256": "db8bda0cf7084873169f1284fb7928cb25a4564bb1287d1d1772f53ae5b927ee"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-screenshots-01-initial-390x844-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/screenshots/01-initial-390x844.png",
+          "sha256": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-screenshots-02-error-recovery-390x844-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/screenshots/02-error-recovery-390x844.png",
+          "sha256": "b204a90a7e86ec88c117bae131dc2da461ed20ac252c385776286b0ce3860d5a"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-screenshots-03-save-clear-confirmation-390x844-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/screenshots/03-save-clear-confirmation-390x844.png",
+          "sha256": "804484b19d089cc0888ef8995f36e1747d7a9a1817517ceeb6e5a08a596e12f2"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-screenshots-04-compact-edit-390x844-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/screenshots/04-compact-edit-390x844.png",
+          "sha256": "88af20f780619d77599d9010d46f00cbb3ef5800a517b258c696c8c9af58b981"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-screenshots-05-confirmation-390x844-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/screenshots/05-confirmation-390x844.png",
+          "sha256": "da34fcc703e74eb943a3feca6bb0d6e6fb55d45bff82657d973642074683f5aa"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-status-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/status.json",
+          "sha256": "b35031feeb860edf412ab11a4b059cf31c07dada433830ef293536b0babbc87f"
+        },
+        {
+          "id": "synthesis-loop-01-judge-accessibility-write-judgment-py",
+          "judge_id": "judge-accessibility",
+          "path": "judging/synthesis-loop-01/judge-accessibility/write_judgment.py",
+          "sha256": "ff1ee67e7727bf79fc7edbed259fd44921694a5b1f577f9b7d3d0f8f4c8556d6"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-candidate-a-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/candidate-a.json",
+          "sha256": "0c2947c317058c2f47b34eb9364d27ea45834403eaaa4e94c16c141f6316cd14"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-candidate-a-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/candidate-a.md",
+          "sha256": "f2dc7cfc704dd97b532d5c2ca0ebb6ebdb359afa2ac92e3e5fe8f2e3e46bdd3e"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-logs-console-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/logs/console.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-logs-landmarks-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/logs/landmarks.json",
+          "sha256": "5b5dc61b83fa9502d4cd0b2cb0364c23ead6af3d28d4142ee68fbd229bcb3555"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-logs-network-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/logs/network.json",
+          "sha256": "2dd0b031a549733043fc84818d99606410b2ad1544af47f1b11d0255d2c47edc"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-logs-tab-order-compact-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/logs/tab-order-compact.json",
+          "sha256": "d4b6cd411b2ebb60801d9cffb97233a344d3f093fea624d6755d07ff5a2e1eef"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-logs-tab-order-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/logs/tab-order.json",
+          "sha256": "dc320d11454b5da475fb090e639df088206e7c2116e325b799e0f7ae30475633"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-logs-touch-targets-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/logs/touch-targets.json",
+          "sha256": "0334fd0c2294eb243f107825db1e5c19891f215089b766f3bfdb424b85bec997"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-manifest-ready-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/manifest-ready.json",
+          "sha256": "dd517447d501e7f671ff2efce24cc8b83ec34fa52986f1b6a54a3f74a197df6d"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-navigation-transcript-a-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/navigation-transcript-a.json",
+          "sha256": "cae0b4f4b24b1381d2200d72d46b5d5495c838d4160a5fd57ca2cb155be91ba0"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-pairwise-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/pairwise.json",
+          "sha256": "00fc0470b5aeee07c4793474c79ac8fb54b0b743158697beb3005d782307f2bf"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-pairwise-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/pairwise.md",
+          "sha256": "82aa4db5dec59e41a9ad91089645e238ca7abb65b0d4e30d7f5d7f8989b2ae57"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-01-initial-390x844-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/01-initial-390x844.png",
+          "sha256": "c14ddf59e885f8ea5336847aa97f8cb10bec1837790940f06b726b2ac7a0459d"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-02-empty-submit-error-summary-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/02-empty-submit-error-summary.png",
+          "sha256": "7faf6be3a241e0bcf151f35247ad3260eb2d74a2c5e64fae36801eeec88f4a14"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-03-error-recovery-invalid-postcode-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/03-error-recovery-invalid-postcode.png",
+          "sha256": "30701bc4352bda3a65d0f5302410efb3545949014261cccb2b3a0716d2d5664f"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-04-compact-completed-on-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/04-compact-completed-on.png",
+          "sha256": "9dbb51051214fbcb08c812ca8e4b6a672254aebb62a8db00dcf63d88f4f900bf"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-05-edit-compact-section-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/05-edit-compact-section.png",
+          "sha256": "196df8f4753826ec009ea96932d3ed9af039358190e5ee4a040045c33b050fa4"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-06-clear-confirm-dialog-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/06-clear-confirm-dialog.png",
+          "sha256": "14718c6d76c87eca8a3bbec19f543b52c66b213556f76274bde240552a6ca23c"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-07-review-required-error-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/07-review-required-error.png",
+          "sha256": "4da184e88606406ed95278cc34928689f9ef720ec45e6d0690fa8c15c7068883"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-08-confirmation-SYN-2048-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/08-confirmation-SYN-2048.png",
+          "sha256": "8b245b7009fb27688ec268295cfa22719f554b093ad77898431f95cca038dac4"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-09-post-reload-restored-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/09-post-reload-restored.png",
+          "sha256": "f2ea8170b6beeef07b2b79b5358699865ad35bfa9bac70d3ca099eda339eb391"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-screenshots-10-after-clear-confirmed-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/screenshots/10-after-clear-confirmed.png",
+          "sha256": "bb30deb29732861cfa8758f8dff5f61122db0d89b449e6c790699ceb4e0e8bc8"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-scripts-operate-py",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/scripts/operate.py",
+          "sha256": "a868699e090bba0abe6dfe0456658b6a2dacadb592e10f510abc5c5d02ab07ac"
+        },
+        {
+          "id": "synthesis-loop-01-judge-human-use-status-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/synthesis-loop-01/judge-human-use/status.json",
+          "sha256": "aaa659d75066e8988e08228f189e7632b1e378ec2044927be4c7b9e4b8918083"
+        }
+      ],
+      "scores": [
+        {
+          "criterion_id": "human-use-quality",
+          "notes": "Mean of 11 per-lens medians from two independent blind judges.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.681818181818182
+        },
+        {
+          "criterion_id": "visual-information-clarity",
+          "notes": "Median of two independent blind judge scores.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.5
+        }
+      ],
+      "track_id": "synthesis"
+    }
+  ],
+  "schema_version": "1.0",
+  "source_loop": "synthesis-loop-01"
+}

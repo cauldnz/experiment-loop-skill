@@ -1,0 +1,133 @@
+{
+  "header": [
+    {
+      "tag": "HEADER",
+      "role": null,
+      "aria_label": null,
+      "id": null,
+      "text": "Northstar Goods\n      Guest checkout"
+    }
+  ],
+  "main": [
+    {
+      "tag": "MAIN",
+      "role": null,
+      "aria_label": null,
+      "id": "main-content",
+      "text": "One-page checkout\n      Complete your synthetic order\n      All five sections ar"
+    }
+  ],
+  "nav": [
+    {
+      "tag": "NAV",
+      "role": null,
+      "aria_label": "Checkout sections",
+      "id": null,
+      "text": "Contact\n      Delivery\n      Shipping\n      Payment\n      Review"
+    }
+  ],
+  "footer": [
+    {
+      "tag": "FOOTER",
+      "role": null,
+      "aria_label": null,
+      "id": null,
+      "text": "Local, network-free accessibility prototype \u00b7 fictional and synthetic data only"
+    }
+  ],
+  "aside": [
+    {
+      "tag": "ASIDE",
+      "role": null,
+      "aria_label": "order-title",
+      "id": null,
+      "text": "Order summary AUD 93.50\n          \n            \n              \n                N"
+    }
+  ],
+  "landmark_role_notes": [
+    {
+      "tag": "DIV",
+      "role": "note",
+      "aria_label": null,
+      "id": null,
+      "text": "Northstar Goods \u2014 Synthetic checkout demonstration\n      All products, people, c"
+    },
+    {
+      "tag": "DIV",
+      "role": "note",
+      "aria_label": null,
+      "id": null,
+      "text": "Fictional card for this synthetic demonstration\n              4111 1111 1111 111"
+    }
+  ],
+  "progressbar": [
+    {
+      "tag": "DIV",
+      "role": "progressbar",
+      "aria_label": "Checkout completion progress",
+      "id": null,
+      "text": "1Contact\n        2Delivery\n        3Shipping\n        4Payment\n        5Review"
+    }
+  ],
+  "skip_links": [
+    {
+      "tag": "A",
+      "role": null,
+      "aria_label": null,
+      "id": null,
+      "text": "Skip to checkout form"
+    }
+  ],
+  "headings": [
+    {
+      "level": "H1",
+      "id": null,
+      "text": "Complete your synthetic order"
+    },
+    {
+      "level": "H2",
+      "id": "form-title",
+      "text": "Checkout details"
+    },
+    {
+      "level": "H2",
+      "id": "contact-title",
+      "text": "Contact"
+    },
+    {
+      "level": "H2",
+      "id": "delivery-title",
+      "text": "Delivery address"
+    },
+    {
+      "level": "H2",
+      "id": "shipping-title",
+      "text": "Shipping method"
+    },
+    {
+      "level": "H2",
+      "id": "payment-title",
+      "text": "Synthetic payment"
+    },
+    {
+      "level": "H2",
+      "id": "review-title",
+      "text": "Review and place order"
+    },
+    {
+      "level": "H3",
+      "id": null,
+      "text": "Contact and delivery"
+    },
+    {
+      "level": "H3",
+      "id": null,
+      "text": "Shipping and payment"
+    },
+    {
+      "level": "H2",
+      "id": null,
+      "text": "Order confirmed locally"
+    }
+  ]
+}

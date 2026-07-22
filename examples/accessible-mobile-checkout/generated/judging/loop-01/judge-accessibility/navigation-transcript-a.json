@@ -1,0 +1,307 @@
+{
+  "judge_id": "judge-accessibility",
+  "candidate": "candidate-a",
+  "operation_mode": "fresh Playwright browser context; local file UI; no objective evidence changed",
+  "viewport_checks": [
+    {
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "clientWidth": 320,
+      "hasHorizontalOverflow": false
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "hasHorizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "hasHorizontalOverflow": false
+    }
+  ],
+  "discovered_controls": [
+    {
+      "index": 0,
+      "tag": "input",
+      "id": "contact-name",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 1,
+      "tag": "input",
+      "id": "contact-email",
+      "type": "email",
+      "text": ""
+    },
+    {
+      "index": 2,
+      "tag": "input",
+      "id": "contact-phone",
+      "type": "tel",
+      "text": ""
+    },
+    {
+      "index": 3,
+      "tag": "input",
+      "id": "address-line1",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 4,
+      "tag": "input",
+      "id": "address-city",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 5,
+      "tag": "input",
+      "id": "address-state",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 6,
+      "tag": "input",
+      "id": "address-postcode",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 7,
+      "tag": "input",
+      "id": "address-country",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 8,
+      "tag": "input",
+      "id": "shipping-standard-input",
+      "type": "radio",
+      "text": "standard"
+    },
+    {
+      "index": 9,
+      "tag": "input",
+      "id": "shipping-express-input",
+      "type": "radio",
+      "text": "express"
+    },
+    {
+      "index": 10,
+      "tag": "input",
+      "id": "card-name",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 11,
+      "tag": "input",
+      "id": "card-number",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 12,
+      "tag": "input",
+      "id": "card-expiry",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 13,
+      "tag": "input",
+      "id": "card-security",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 14,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Edit Contact"
+    },
+    {
+      "index": 15,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Edit Address"
+    },
+    {
+      "index": 16,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Edit Shipping"
+    },
+    {
+      "index": 17,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Edit Payment"
+    },
+    {
+      "index": 18,
+      "tag": "input",
+      "id": "review-confirmation",
+      "type": "checkbox",
+      "text": "on"
+    },
+    {
+      "index": 19,
+      "tag": "button",
+      "id": "place-order",
+      "type": "submit",
+      "text": "Place order"
+    }
+  ],
+  "actions": [
+    {
+      "action": "Keyboard Tab then Shift+Tab orientation",
+      "outcome": "BODY",
+      "status": "passed"
+    },
+    {
+      "action": "Submit empty checkout",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Confirm error summary is focused or visible",
+      "outcome": {
+        "visible": true,
+        "active": "error-summary"
+      },
+      "status": "passed"
+    },
+    {
+      "action": "Fill all checkout fields",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Choose Express shipping by pointer",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Choose Standard shipping by keyboard Space",
+      "outcome": "standard",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise review control edit-contact",
+      "outcome": "contact-name",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise review control edit-address",
+      "outcome": "address-line1",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise review control edit-shipping",
+      "outcome": "shipping-standard-input",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise review control edit-payment",
+      "outcome": "card-name",
+      "status": "passed"
+    },
+    {
+      "action": "Reload for interruption-resumption check",
+      "outcome": "<Response url='file:///<experiment-workspace>/generated/judging/blind-loop-01/candidate-a/index.html' request=<Request url='file:///<experiment-workspace>/generated/judging/blind-loop-01/candidate-a/index.html' method='GET'>>",
+      "status": "passed"
+    },
+    {
+      "action": "Verify safe values restore and payment secrets clear",
+      "outcome": {
+        "safe": {
+          "contact-name": "Alex Morgan",
+          "contact-email": "alex.morgan@example.invalid",
+          "contact-phone": "+61 400 000 000",
+          "address-line1": "42 Fiction Lane",
+          "address-city": "Sampleton",
+          "address-state": "NSW",
+          "address-postcode": "2000",
+          "address-country": "Australia"
+        },
+        "payment": {
+          "card-number": "",
+          "card-expiry": "",
+          "card-security": ""
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "action": "Enable reduced-motion and reload",
+      "outcome": {
+        "reduced": true,
+        "maxTransition": 0.01
+      },
+      "status": "passed"
+    },
+    {
+      "action": "Re-enter payment after reduced-motion reload",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Review and explicitly confirm",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Place order by keyboard Enter",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Repeat Place order during or after processing",
+      "outcome": {
+        "disabled": true,
+        "ariaDisabled": null,
+        "busy": null
+      },
+      "status": "passed"
+    },
+    {
+      "action": "Verify one local confirmation after repeated activation",
+      "outcome": {
+        "count": 1,
+        "confirmation": "SYN-2048",
+        "status": "Order successfully placed."
+      },
+      "status": "passed"
+    }
+  ],
+  "console_errors": [],
+  "page_errors": [],
+  "screenshots": [
+    "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-a/mobile-320.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-a/mobile-360.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+  ],
+  "defects_observed": [],
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  }
+}

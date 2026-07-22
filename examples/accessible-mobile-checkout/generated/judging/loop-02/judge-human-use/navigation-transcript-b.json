@@ -1,0 +1,646 @@
+{
+  "candidate_dir": "<experiment-workspace>/generated/judging/blind-loop-02/candidate-b",
+  "steps": [
+    {
+      "step": "viewport",
+      "t": "18:38:54",
+      "size": "320x568",
+      "overflow": {
+        "docW": 320,
+        "winW": 320,
+        "bodyOverflowX": "visible"
+      }
+    },
+    {
+      "step": "viewport",
+      "t": "18:38:54",
+      "size": "360x800",
+      "overflow": {
+        "docW": 360,
+        "winW": 360,
+        "bodyOverflowX": "visible"
+      }
+    },
+    {
+      "step": "viewport",
+      "t": "18:38:55",
+      "size": "390x844",
+      "overflow": {
+        "docW": 390,
+        "winW": 390,
+        "bodyOverflowX": "visible"
+      }
+    },
+    {
+      "step": "semantic_snapshot",
+      "t": "18:38:56",
+      "data": {
+        "title": "Northstar Goods \u2014 Synthetic checkout demonstration (Resumable Wizard)",
+        "landmarks": {
+          "main": 1,
+          "nav": 0,
+          "header": 0
+        },
+        "h1": [
+          "Northstar Goods checkout"
+        ],
+        "h2": [
+          "Order summary",
+          "1. Contact details",
+          "2. Delivery address",
+          "3. Payment (synthetic demonstration)",
+          "4. Review & place order",
+          "Order confirmed"
+        ],
+        "statusRegions": [
+          {
+            "role": "status",
+            "live": "polite",
+            "text": ""
+          },
+          {
+            "role": "status",
+            "live": "polite",
+            "text": "Order confirmed\n      Thank you, \u2014. This synthetic order is complete.\n      Confirmation number: \n      This confirmatio"
+          }
+        ],
+        "errorSummary": {
+          "tag": "div",
+          "role": "alert",
+          "tabindex": null,
+          "hidden": true,
+          "text": ""
+        },
+        "skipLink": {
+          "href": "#wizard-form",
+          "text": "Skip to checkout steps"
+        },
+        "accordionCount": 2,
+        "expandedStates": [
+          {
+            "text": "Hide item details",
+            "expanded": "true",
+            "controls": "summary-details",
+            "hidden": false
+          },
+          {
+            "text": "Clear saved progress",
+            "expanded": "false",
+            "controls": "clear-confirm",
+            "hidden": true
+          }
+        ],
+        "focusable": 40,
+        "firstHeaders": [
+          "1. Contact details",
+          "2. Delivery address",
+          "3. Payment (synthetic demonstration)",
+          "4. Review & place order",
+          "Contact Edit",
+          "Delivery address Edit",
+          "Shipping method Edit",
+          "Payment Edit"
+        ]
+      }
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:38:56",
+      "clicked": [
+        "Clear saved progress"
+      ]
+    },
+    {
+      "step": "click_missing",
+      "t": "18:40:26",
+      "target": "empty-place-order",
+      "tried": [
+        "button[data-hook=\"place-order\"]",
+        "button[data-action=\"place-order\"]",
+        "button[data-action=\"submit-order\"]",
+        "[data-hook=\"place-order-btn\"]",
+        "button:has-text(\"Place order\")",
+        "button:has-text(\"Place Order\")"
+      ]
+    },
+    {
+      "step": "empty_submit_state",
+      "t": "18:40:26",
+      "state": {
+        "errorText": "",
+        "errorHidden": true,
+        "focusedTag": "button",
+        "focusedId": "",
+        "focusedText": "Cancel"
+      }
+    },
+    {
+      "step": "fill",
+      "t": "18:40:26",
+      "target": "contact.name",
+      "selector": "#contact-name",
+      "value": "Alex Morgan"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:26",
+      "target": "contact.email",
+      "selector": "#contact-email",
+      "value": "alex.morgan@example.invalid"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:26",
+      "target": "contact.phone",
+      "selector": "#contact-phone",
+      "value": "+61 400 000 000"
+    },
+    {
+      "step": "click",
+      "t": "18:40:26",
+      "target": "contact-continue",
+      "selector": "button:has-text(\"Continue to Delivery\")"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:26",
+      "target": "address.line1",
+      "selector": "#address-line1",
+      "value": "42 Fiction Lane"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:26",
+      "target": "address.city",
+      "selector": "#address-city",
+      "value": "Sampleton"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:26",
+      "target": "address.state",
+      "selector": "#address-state",
+      "value": "NSW"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:26",
+      "target": "address.postcode",
+      "selector": "#address-postcode",
+      "value": "2000"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:26",
+      "target": "address.country",
+      "selector": "#address-country",
+      "value": "Australia"
+    },
+    {
+      "step": "click",
+      "t": "18:40:27",
+      "target": "address-continue",
+      "selector": "button:has-text(\"Continue to Payment\")"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:40:28",
+      "target": "shipping-continue",
+      "tried": [
+        "#shipping-continue",
+        "[data-hook=\"continue\"][data-next=\"payment\"]",
+        "button:has-text(\"Continue to Payment\")",
+        "button:has-text(\"Continue to payment\")"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:40:28",
+      "target": "payment.card",
+      "selector": "#card-number",
+      "value": "4111 1111 1111 1111"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:28",
+      "target": "payment.expiry",
+      "selector": "#card-expiry",
+      "value": "12/34"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:28",
+      "target": "payment.cvv",
+      "selector": "input[autocomplete=\"cc-csc\"]",
+      "value": "123"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:28",
+      "target": "payment.name",
+      "selector": "#card-name",
+      "value": "Alex Morgan"
+    },
+    {
+      "step": "click",
+      "t": "18:40:28",
+      "target": "payment-continue",
+      "selector": "button:has-text(\"Continue to Review\")"
+    },
+    {
+      "step": "pre_submit_state",
+      "t": "18:40:28",
+      "state": {
+        "localStorage": {
+          "northstar-wizard-checkout-v1": "{\"contact-name\":\"Alex Morgan\",\"contact-email\":\"alex.morgan@example.invalid\",\"contact-phone\":\"+61 400 000 000\",\"address-line1\":\"42 Fiction Lane\",\"address-city\":\"Sampleton\",\"address-state\":\"NSW\",\"address-postcode\":\"2000\",\"address-country\":\"Australia\",\"shippingMethod\":\"standard\",\"currentStep\":4,\"highestRevealed\":4}"
+        },
+        "sessionStorage": {},
+        "inputValues": {
+          "shipping-method": "standard",
+          "contact-name": "Alex Morgan",
+          "contact-email": "alex.morgan@example.invalid",
+          "contact-phone": "+61 400 000 000",
+          "address-line1": "42 Fiction Lane",
+          "address-city": "Sampleton",
+          "address-state": "NSW",
+          "address-postcode": "2000",
+          "address-country": "Australia",
+          "card-number": "4111 1111 1111 1111",
+          "card-expiry": "12/34",
+          "card-security": "123",
+          "card-name": "Alex Morgan"
+        },
+        "confirmationText": 0,
+        "confirmationVisible": false
+      }
+    },
+    {
+      "step": "review_checkbox",
+      "t": "18:40:28",
+      "results": [
+        {
+          "id": "review-confirmation",
+          "name": "",
+          "label": "I have reviewed my order and confirm the details above are correct.\n          review-confirmation",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "step": "click",
+      "t": "18:40:28",
+      "target": "place-order",
+      "selector": "button[data-hook=\"place-order\"]"
+    },
+    {
+      "step": "click",
+      "t": "18:40:28",
+      "target": "place-order-duplicate",
+      "selector": "button[data-hook=\"place-order\"]"
+    },
+    {
+      "step": "duplicate_submit_attempted",
+      "t": "18:40:28",
+      "found": true
+    },
+    {
+      "step": "confirmation_visible",
+      "t": "18:40:29",
+      "confirmed": true
+    },
+    {
+      "step": "confirmation_state",
+      "t": "18:40:29",
+      "state": {
+        "syn2048Count": 2,
+        "statusRegionsText": [
+          "Order placed. Confirmation SYN-2048.",
+          "Order confirmed\n      Thank you, Alex Morgan. This synthetic order is complete.\n      Confirmation number: SYN-2048\n    "
+        ]
+      }
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:40:29",
+      "clicked": [
+        "Clear saved progress"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:40:29",
+      "target": "resume.contact.name",
+      "selector": "#contact-name",
+      "value": "Alex Morgan"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:29",
+      "target": "resume.contact.email",
+      "selector": "#contact-email",
+      "value": "alex.morgan@example.invalid"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:29",
+      "target": "resume.contact.phone",
+      "selector": "#contact-phone",
+      "value": "+61 400 000 000"
+    },
+    {
+      "step": "click",
+      "t": "18:40:29",
+      "target": "resume-persist-trigger",
+      "selector": "button:has-text(\"Continue to Delivery\")"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:30",
+      "target": "resume.address.line1",
+      "selector": "#address-line1",
+      "value": "42 Fiction Lane"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:30",
+      "target": "resume.payment.card-preload",
+      "selector": "#card-number",
+      "value": "4111 1111 1111 1111"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:30",
+      "target": "resume.payment.exp-preload",
+      "selector": "#card-expiry",
+      "value": "12/34"
+    },
+    {
+      "step": "fill",
+      "t": "18:40:30",
+      "target": "resume.payment.cvv-preload",
+      "selector": "input[autocomplete=\"cc-csc\"]",
+      "value": "123"
+    },
+    {
+      "step": "pre_reload_storage",
+      "t": "18:40:30",
+      "storage": {
+        "localStorage": {
+          "northstar-wizard-checkout-v1": "{\"contact-name\":\"Alex Morgan\",\"contact-email\":\"alex.morgan@example.invalid\",\"contact-phone\":\"+61 400 000 000\",\"address-line1\":\"42 Fiction Lane\",\"address-city\":\"\",\"address-state\":\"\",\"address-postcode\":\"\",\"address-country\":\"\",\"shippingMethod\":\"standard\",\"currentStep\":2,\"highestRevealed\":2}"
+        },
+        "sessionStorage": {}
+      }
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:40:30",
+      "clicked": [
+        "Clear saved progress"
+      ]
+    },
+    {
+      "step": "post_reload_state",
+      "t": "18:40:30",
+      "state": {
+        "cardNumber": "",
+        "cardCvv": null,
+        "cardExp": "",
+        "contactName": "Alex Morgan",
+        "contactEmail": "alex.morgan@example.invalid",
+        "contactPhone": "+61 400 000 000",
+        "addressLine1": "42 Fiction Lane",
+        "localStorage": {
+          "northstar-wizard-checkout-v1": "{\"contact-name\":\"Alex Morgan\",\"contact-email\":\"alex.morgan@example.invalid\",\"contact-phone\":\"+61 400 000 000\",\"address-line1\":\"42 Fiction Lane\",\"address-city\":\"\",\"address-state\":\"\",\"address-postcode\":\"\",\"address-country\":\"\",\"shippingMethod\":\"standard\",\"currentStep\":2,\"highestRevealed\":2}"
+        },
+        "sessionStorage": {},
+        "cardInStorage": false
+      }
+    },
+    {
+      "step": "reduced_motion_findings",
+      "t": "18:40:31",
+      "motion": []
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:40:31",
+      "clicked": [
+        "Clear saved progress"
+      ]
+    },
+    {
+      "step": "first_tab_focus",
+      "t": "18:40:31",
+      "text": "Skip to checkout steps"
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:40:31",
+      "clicked": [
+        "Clear saved progress"
+      ]
+    },
+    {
+      "step": "keyboard_focus_order",
+      "t": "18:40:32",
+      "count": 5,
+      "first_10": [
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Yes, clear saved progress",
+          "aria": null,
+          "describedby": null,
+          "data": "confirm-clear",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(255, 255, 255)",
+            "boxShadow": "none"
+          },
+          "key": "button#None|None|confirm-clear|Yes, clear saved progress"
+        },
+        {
+          "tag": "input",
+          "id": "contact-name",
+          "name": "contact-name",
+          "type": "text",
+          "role": null,
+          "label": "Full name",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-name-help",
+          "data": "contact-name",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(16, 36, 62)",
+            "boxShadow": "none"
+          },
+          "key": "input#contact-name|contact-name|contact-name|"
+        },
+        {
+          "tag": "input",
+          "id": "contact-email",
+          "name": "contact-email",
+          "type": "email",
+          "role": null,
+          "label": "Email address",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-email-help",
+          "data": "contact-email",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(16, 36, 62)",
+            "boxShadow": "none"
+          },
+          "key": "input#contact-email|contact-email|contact-email|"
+        },
+        {
+          "tag": "input",
+          "id": "contact-phone",
+          "name": "contact-phone",
+          "type": "tel",
+          "role": null,
+          "label": "Phone number",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-phone-help",
+          "data": "contact-phone",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(16, 36, 62)",
+            "boxShadow": "none"
+          },
+          "key": "input#contact-phone|contact-phone|contact-phone|"
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Continue to delivery address",
+          "aria": null,
+          "describedby": null,
+          "data": "continue",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(255, 255, 255)",
+            "boxShadow": "none"
+          },
+          "key": "button#None|None|continue|Continue to delivery address"
+        }
+      ],
+      "last_5": [
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Yes, clear saved progress",
+          "aria": null,
+          "describedby": null,
+          "data": "confirm-clear",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(255, 255, 255)",
+            "boxShadow": "none"
+          },
+          "key": "button#None|None|confirm-clear|Yes, clear saved progress"
+        },
+        {
+          "tag": "input",
+          "id": "contact-name",
+          "name": "contact-name",
+          "type": "text",
+          "role": null,
+          "label": "Full name",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-name-help",
+          "data": "contact-name",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(16, 36, 62)",
+            "boxShadow": "none"
+          },
+          "key": "input#contact-name|contact-name|contact-name|"
+        },
+        {
+          "tag": "input",
+          "id": "contact-email",
+          "name": "contact-email",
+          "type": "email",
+          "role": null,
+          "label": "Email address",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-email-help",
+          "data": "contact-email",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(16, 36, 62)",
+            "boxShadow": "none"
+          },
+          "key": "input#contact-email|contact-email|contact-email|"
+        },
+        {
+          "tag": "input",
+          "id": "contact-phone",
+          "name": "contact-phone",
+          "type": "tel",
+          "role": null,
+          "label": "Phone number",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-phone-help",
+          "data": "contact-phone",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(16, 36, 62)",
+            "boxShadow": "none"
+          },
+          "key": "input#contact-phone|contact-phone|contact-phone|"
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Continue to delivery address",
+          "aria": null,
+          "describedby": null,
+          "data": "continue",
+          "visibleFocus": {
+            "outline": "solid 3px rgb(255, 255, 255)",
+            "boxShadow": "none"
+          },
+          "key": "button#None|None|continue|Continue to delivery address"
+        }
+      ]
+    },
+    {
+      "step": "keyboard_reach",
+      "t": "18:40:32",
+      "contact_reached": true,
+      "payment_reached": false
+    }
+  ],
+  "console": [],
+  "page_errors": [],
+  "screenshots": [
+    "viewport-320x568",
+    "viewport-360x800",
+    "viewport-390x844",
+    "initial",
+    "empty-submit",
+    "review-state",
+    "confirmation",
+    "post-reload",
+    "reduced-motion",
+    "keyboard-focus-tour"
+  ],
+  "started_at": "2026-07-21T18:38:51",
+  "completed": true,
+  "ended_at": "2026-07-21T18:40:32"
+}

@@ -1,0 +1,28 @@
+Accessible mobile checkout objective report
+Fixture SHA-256: e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894
+Candidate: loop-01
+human_use.applicability = applicable
+human_use.rationale: The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use.
+
+content-fidelity: FAIL
+  FAIL visible-canonical-text: Guest
+  FAIL canonical-standard-shipping-label: 
+  FAIL canonical-express-shipping-label: 
+semantic-accessibility-gate: FAIL
+  FAIL primary-heading: 
+  FAIL visible-focus-indicator: {'active': False, 'outlineColor': 'rgb(255, 255, 255)', 'outlineWidth': '3px', 'outlineStyle': 'none', 'boxShadow': 'none', 'borderColor': 'rgb(22, 58, 44)'}
+  FAIL non-text-control-contrast: place-order border: 1.00
+  FAIL focus-contrast: focus contrast=12.532024848052176
+keyboard-completion-gate: PASS
+error-recovery-gate: FAIL
+  FAIL preserve-valid-safe-value: 
+mobile-touch-gate: PASS
+resilience-gate: FAIL
+  FAIL reduced-motion-completes-once: 1
+offline-safety-gate: FAIL
+  FAIL invalid-or-unreviewed-placement-blocked: 1
+
+Failed gate IDs: content-fidelity, semantic-accessibility-gate, error-recovery-gate, resilience-gate, offline-safety-gate
+Blocking failure: yes
+Non-gating task-efficiency metrics: {"activations": 36, "completion_interactions": 1, "corrections": 4, "focusable_controls_traversed": 9}
+Screenshots: final.png, initial.png, keyboard-completion.png, viewport-320x568.png, viewport-360x800.png, viewport-390x844.png

@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from pathlib import Path
@@ -17,11 +18,25 @@ from scripts.example_regeneration._provenance import (  # noqa: E402
 )
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "examples",
+        nargs="*",
+        help="optional Example names to check; the default checks every Example",
+    )
+    args = parser.parse_args(argv)
     expected_skill = tree_sha256(ROOT)
     failures = 0
-    prompts = sorted((ROOT / "examples").glob("*/prompt.md"))
+    if args.examples:
+        prompts = [ROOT / "examples" / name / "prompt.md" for name in args.examples]
+    else:
+        prompts = sorted((ROOT / "examples").glob("*/prompt.md"))
     for prompt in prompts:
+        if not prompt.is_file():
+            print(f"[FAIL] {prompt.parent.name}: prompt.md is missing")
+            failures += 1
+            continue
         manifest_path = prompt.parent / "generated" / "manifest.json"
         if not manifest_path.exists():
             print(f"[FAIL] {prompt.parent.name}: generated/manifest.json is missing")

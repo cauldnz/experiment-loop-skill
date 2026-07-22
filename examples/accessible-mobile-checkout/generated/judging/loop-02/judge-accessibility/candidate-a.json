@@ -1,0 +1,130 @@
+{
+  "candidate": "candidate-a",
+  "model": "gpt-5.6-terra",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "criterion_id": "human-use-quality",
+  "objective_gate": false,
+  "human_use_quality_raw_mean": 4.181818181818182,
+  "lens_findings": [
+    {
+      "lens": "discoverability",
+      "score": 4,
+      "finding": "The labelled sections and persistent review make required work apparent, although the full single-page length delays the lower sections.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-a/initial.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "navigation",
+      "score": 4,
+      "finding": "Skip navigation, section edit controls, and reverse traversal worked; the compacted sections remained recoverable.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "input_burden",
+      "score": 4,
+      "finding": "All inputs are reachable in one flow with autocomplete-oriented field types, but address and payment remain a long sequential form.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "error_prevention_recovery",
+      "score": 4,
+      "finding": "An empty explicit submission reached the error state and the completed correction path retained values.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-a/error.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "feedback_status",
+      "score": 4,
+      "finding": "Completion, restored-progress, and single-confirmation messages were observed, but status is less directive before the user reaches review.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "accessibility",
+      "score": 5,
+      "finding": "First Tab exposed a skip link; compacted-body traversal found no hidden focus target; no console/runtime errors were recorded.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "responsive_touch_ergonomics",
+      "score": 4,
+      "finding": "All three operated widths had scrollWidth equal to clientWidth; controls retain visible spacing, though the long page increases scrolling.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "interruption_resumption",
+      "score": 4,
+      "finding": "Reload restored Alex Morgan while payment fields were empty.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "latency_perception",
+      "score": 4,
+      "finding": "Reduced motion reported no duration over 10 ms; repeated activation gave exactly one confirmation, with a clear local completion status.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "destructive_actions",
+      "score": 4,
+      "finding": "Review edit and duplicate-submit behavior were safe, but no clear-progress confirmation affordance was discoverable to test.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    },
+    {
+      "lens": "cognitive_load",
+      "score": 5,
+      "finding": "Optional compact summaries, section completion state, and persistent review reduce memory load without concealing completed details.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+      ]
+    }
+  ],
+  "visual_information_clarity": {
+    "score": 4,
+    "evidence_refs": [
+      "judging/loop-02/judge-accessibility/screenshots/candidate-a/initial.png",
+      "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png"
+    ]
+  },
+  "strengths": [
+    "Optional compact summaries reduce revisiting completed work without removing it from keyboard traversal.",
+    "Reload restored contact and withheld payment; a repeated Place order produced one confirmation."
+  ],
+  "defects": [
+    "No discoverable clear-progress confirmation control was available during the operated flow.",
+    "The compacted review remains long on a narrow screen."
+  ],
+  "uncertainty": "The accepted objective report establishes the technical gates; this qualitative run did not infer any identity or rerun them.",
+  "synthesis_adoption_rejection_recommendation": "Adopt the optional compact-completed pattern only: it preserved keyboard exclusion from hidden bodies (supplemental hidden-focus count 0). Reject copying the absence of a discoverable clear-progress confirmation affordance.",
+  "objective_reports": "Accepted as pass; not rerun or overridden."
+}

@@ -1,0 +1,173 @@
+{
+  "schema_version": "1.0",
+  "loop_id": "synthesis-loop-02",
+  "track_id": "synthesis",
+  "model_role": "synthesizer",
+  "model": "claude-opus-4.8",
+  "lineage": {
+    "immediate_parent_ids": ["synthesis-loop-01"],
+    "ancestor_parent_ids": ["single-page-loop-02", "resumable-wizard-loop-02", "task-cards-loop-01"],
+    "note": "synthesis-loop-02 is an immediate hill-climb of synthesis-loop-01. A fresh copy of the Loop 01 functional files was authored into loop-02 and only the evidence-backed panel-feedback changes were applied; Loop 01 was not mutated. True multi-parent ancestry from the three finalists is preserved via ancestor_parent_ids, and all prior three-parent adopt/reject decisions are inherited unchanged."
+  },
+  "dominant_paradigm": "single-page landmarked one-page checkout (inherited from synthesis-loop-01, ancestor single-page-loop-02)",
+  "hypothesis": "Hill-climb synthesis-loop-01 by adopting every Loop 01 panel-feedback instruction (focus-safe skip destination, lower default vertical density via persisted default-on compaction after safe restore, user-neutral shipping default status, a non-sensitive persisted placed flag, and a larger touch-target margin) while preserving every frozen invariant and keeping all seven objective gates blocking, so the residual accessibility and human-use frictions are removed without regressing the objective harness or the inherited multi-parent synthesis.",
+  "feedback_source": {
+    "aggregate_feedback": "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json",
+    "panel_scores": "judging/synthesis-loop-01/aggregate/panel-scores.json",
+    "dissent": "judging/synthesis-loop-01/aggregate/dissent.md",
+    "judge_manifests": [
+      "judging/synthesis-loop-01/judge-accessibility/manifest-ready.json",
+      "judging/synthesis-loop-01/judge-human-use/manifest-ready.json"
+    ],
+    "note": "The referenced panel_score (4.68) and visual_information_clarity (4.5) are input qualitative evidence authored by the independent Loop 01 judges. They are cited only as the source of the improvement instructions; no synthesizer-authored qualitative score is claimed for synthesis-loop-02, whose independent qualitative judging remains pending."
+  },
+  "feedback_adoption": [
+    {
+      "feedback_item": 1,
+      "instruction": "Make the skip destination programmatically focusable and ensure skip activation moves focus to a named checkout/form start, never BODY.",
+      "judge_source": "judge-accessibility (gpt-5.6-terra)",
+      "decision": "adopt",
+      "realized_in": "index.html form#checkout-form now carries tabindex=\"-1\" (aria-labelledby=form-title 'Checkout details'); app.js adds a skip-link click handler that preventDefaults, focuses #checkout-form, falls back to the first named field (contact-name) if focus does not land, scrolls it into view, and announces 'Moved to the checkout form. Start with Contact.'",
+      "safety": "Purely additive; skip target is a named form start, not BODY. No gate weakened.",
+      "evidence_refs": [
+        "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json",
+        "judging/synthesis-loop-01/judge-accessibility/manifest-ready.json"
+      ]
+    },
+    {
+      "feedback_item": 2,
+      "instruction": "Reduce initial/resumed vertical density without wizard steps. Default compact-completed ON only when safe restoration records at least one completed section; persist the user's compact preference safely. Never leave hidden descendants focusable.",
+      "judge_source": "judge-accessibility (gpt-5.6-terra) and judge-human-use (claude-opus-4.7)",
+      "decision": "adopt",
+      "realized_in": "app.js restoreSafeState defaults compactCompleted ON only when a real content section (contact or delivery) is complete on restore, while a remembered explicit user preference (saved.compact boolean) wins and is re-persisted; the compact checkbox change handler persists the user's preference (compact) via persistSafeState. Compaction uses the reveal-safe .compacted-body visually-hidden technique so descendants stay operable to the harness but every compacted descendant receives tabindex=\"-1\" and the body is aria-hidden, so no hidden descendant remains keyboard-focusable. intro padding reduced (styles.css) to lower initial vertical density. No wizard steps introduced.",
+      "safety": "Compaction is disabled while orderPlaced and expands on placement; keyboard_gate runs fresh with compact OFF; hidden descendants are removed from tab order. No gate weakened.",
+      "evidence_refs": [
+        "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json",
+        "judging/synthesis-loop-01/judge-human-use/manifest-ready.json",
+        "judging/synthesis-loop-01/judge-accessibility/manifest-ready.json"
+      ]
+    },
+    {
+      "feedback_item": 3,
+      "instruction": "Untouched preselected shipping must not claim Complete; expose a user-neutral status such as 'Default selected: Standard' or 'Ready to review' until the user focuses/changes/acknowledges it, then use Complete.",
+      "judge_source": "judge-human-use (claude-opus-4.7)",
+      "decision": "adopt",
+      "realized_in": "index.html shipping badge initial text changed from 'Complete' to 'Default selected: Standard' (state-progress). app.js stateBadge shows 'Default selected: Standard' for shipping until shippingAcknowledged, then 'Complete'. Shipping focus and change handlers set shippingAcknowledged and persist a non-sensitive shippingAcknowledged flag. An unacknowledged default shipping section is also never auto-compacted out of view. sectionIsComplete('shipping') still returns true so progress and placement semantics are unchanged.",
+      "safety": "No harness assertion checks badge text; placement/progress semantics unchanged. No gate weakened.",
+      "evidence_refs": [
+        "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json",
+        "judging/synthesis-loop-01/judge-human-use/manifest-ready.json"
+      ]
+    },
+    {
+      "feedback_item": 4,
+      "instruction": "Persist only a non-sensitive placed flag/confirmation ID so post-confirmation reload keeps Place order disabled and visibly announces 'This synthetic order was already placed as SYN-2048.' Never persist payment fields/secrets.",
+      "judge_source": "judge-human-use (claude-opus-4.7)",
+      "decision": "adopt",
+      "realized_in": "app.js completeOrder persists only { placed:true, confirmationId:'SYN-2048' } alongside the existing non-sensitive safe fields. restoreSafeState calls applyPlacedState on reload to keep Place order disabled, reveal the confirmation, and show a new #placed-banner (data-hook=placed-banner, role=status) reading 'This synthetic order was already placed as SYN-2048.' persistSafeState never writes payment fields; only contact/delivery/shipping values plus the placed/compact/shippingAcknowledged flags are stored. handleEditAfterPlacement clears the placed flag when the user starts a new synthetic order (and the harness error-recovery clear triggers the same reset), so genuine re-entry is not blocked.",
+      "safety": "Payment fields (card-*) are never persisted; resilience_gate secret-absence checks remain satisfied. Post-reload placement stays disabled for non-editing reloads. No gate weakened.",
+      "evidence_refs": [
+        "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json",
+        "judging/synthesis-loop-01/judge-human-use/manifest-ready.json"
+      ]
+    },
+    {
+      "feedback_item": 5,
+      "instruction": "Improve target margin where practical above exact 24px and preserve reduced-motion and mobile layout.",
+      "judge_source": "panel improvement instruction (accepted_improvement_instruction)",
+      "decision": "adopt",
+      "realized_in": "styles.css increases the compact-toggle and choice-card / review-check control hit areas from 24px to 28px, lifting them above the harness 24x24 interactive-target-minimum floor. Existing reduced-motion media query and mobile responsive layout are unchanged.",
+      "safety": "Larger targets only increase the mobile-touch-gate margin; reduced-motion and responsive layout preserved. No gate weakened.",
+      "evidence_refs": [
+        "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json"
+      ]
+    }
+  ],
+  "out_of_scope_confirmed_absent": {
+    "statement": "No account creation, discounts/coupons, recommendations/upsell, external assets, extra checkout steps, or unrelated features were added. Changes are confined to the five evidence-backed panel-feedback items.",
+    "content_gate_forbidden_scope": "content-fidelity gate confirms forbidden scopes (account, sign in, coupon, recommendation, upsell, stock) remain absent."
+  },
+  "inherited_three_parent_decisions": {
+    "statement": "All prior three-parent adopt/reject decisions from synthesis-loop-01 are inherited unchanged in synthesis-loop-02. No parent-level adoption or rejection was revised; only synthesis-loop-01 panel feedback was applied on top.",
+    "source_matrix": [
+      "synthesis/loop-01/adoption-rejection-matrix.json",
+      "synthesis/loop-01/adoption-rejection-matrix.md"
+    ],
+    "inherited": [
+      {
+        "iteration_id": "single-page-loop-02",
+        "role": "primary structural template (inherited)",
+        "still_adopted": [
+          "landmark trio and skip link (skip link now focus-safe per feedback #1)",
+          "one-page anchor navigation and direct Edit controls",
+          "section-grouped error summary with preserved-values reassurance",
+          "compact-completed progressive disclosure with hidden descendants excluded from focus (now default-on after safe restore per feedback #2)",
+          "fictional-value hints and atomic single-placement status (now with a persisted placed flag per feedback #4)"
+        ],
+        "still_rejected": [
+          "absence of a discoverable confirmed clear-progress control (remedied by adopting B)",
+          "literal fictional card hints outside a synthetic demonstration (retained only within this canonical synthetic demonstration)"
+        ]
+      },
+      {
+        "iteration_id": "resumable-wizard-loop-02",
+        "role": "selective safety and progress contributor (inherited)",
+        "still_adopted": [
+          "role=progressbar with descriptive aria-valuetext",
+          "step-local focused validation compatible with one page",
+          "explicit Save progress",
+          "confirmed, cancellable Clear saved progress",
+          "named synthetic confirmation SYN-2048 (exactly one local confirmation)"
+        ],
+        "still_rejected": [
+          "shipping choices nested inside the order-summary aside",
+          "extra step transitions that do not reduce cognitive load"
+        ]
+      },
+      {
+        "iteration_id": "task-cards-loop-01",
+        "role": "independent task-status contributor (inherited)",
+        "still_adopted": [
+          "independently understandable per-section completion state (shipping default now user-neutral per feedback #3)",
+          "direct per-section editability"
+        ],
+        "still_rejected": [
+          "Loop 02 collapsed-but-keyboard-focusable content",
+          "silent review-checkbox reset",
+          "flat generic error dump",
+          "weak landmarks and fragile completion state",
+          "Loop 01 all-open mobile density"
+        ]
+      }
+    ]
+  },
+  "no_regression_check": {
+    "statement": "synthesis-loop-02 passes all seven blocking gates on the same canonical fixture SHA-256 as synthesis-loop-01 and all three ancestor finalists, so there is no objective pass-to-fail regression against Loop 01 or any parent. Each comparator objective report records failed_gate_ids: [] and zero external requests.",
+    "fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+    "candidate_failed_gate_ids": [],
+    "candidate_external_request_count": 0,
+    "comparators": [
+      { "iteration_id": "synthesis-loop-01", "failed_gate_ids": [], "external_request_count": 0, "report": "synthesis/loop-01/evidence/objective-report.json" },
+      { "iteration_id": "single-page-loop-02", "failed_gate_ids": [], "external_request_count": 0, "report": "track-single-page/loop-02/evidence/objective-report.json" },
+      { "iteration_id": "resumable-wizard-loop-02", "failed_gate_ids": [], "external_request_count": 0, "report": "track-resumable-wizard/loop-02/evidence/objective-report.json" },
+      { "iteration_id": "task-cards-loop-01", "failed_gate_ids": [], "external_request_count": 0, "report": "track-task-cards/loop-01/evidence/objective-report.json" }
+    ]
+  },
+  "path_remediation_procedural_caveat": {
+    "permanence": "permanent",
+    "statement": "A permanent procedural provenance caveat applies to this experiment's lineage: during task-cards-loop-01, fifteen diagnostic scripts were written at the repository root outside the task write scope, and resumable-wizard-loop-02 later deleted them before quarantine and omitted scratch provenance. This was remediated with a permanent caveat. Forensic analysis found no environment or credential reads, no external data, no generated secrets, and no network hosts; the recovered test-gates.py was byte-identical to the frozen harness. Functional and hash validity of the affected candidate is preserved, so the caveat is procedural only and does not imply functional invalidity of any parent or of this synthesis.",
+    "disposition": "retain; do not rerun solely for remediation",
+    "evidence_refs": [
+      "harness/path-violation-evidence/provenance.json"
+    ]
+  },
+  "reboot_interruption_recovery_caveat": {
+    "permanence": "permanent",
+    "statement": "A permanent recovery provenance caveat is inherited from synthesis-loop-01: its records were completed by a single owner-authorized post-reboot continuation after the original agent handle did not survive a PC reboot. The terminal Loop 01 objective run had already completed (exit 0, all seven gates passing) before the interruption and was not rerun; all immutable Loop 01 functional outputs were hash-verified against synthesis/recovery/recovery-inventory.json. synthesis-loop-02 copied those verified Loop 01 functional files as its starting point without mutating Loop 01.",
+    "disposition": "retain; provenance caveat only, no functional invalidity implied",
+    "evidence_refs": [
+      "synthesis/recovery/recovery-inventory.json",
+      "synthesis/recovery/post-recovery-verification.json"
+    ]
+  }
+}

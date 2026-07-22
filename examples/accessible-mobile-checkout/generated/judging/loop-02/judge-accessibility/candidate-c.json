@@ -1,0 +1,130 @@
+{
+  "candidate": "candidate-c",
+  "model": "gpt-5.6-terra",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "criterion_id": "human-use-quality",
+  "objective_gate": false,
+  "human_use_quality_raw_mean": 3.1818181818181817,
+  "lens_findings": [
+    {
+      "lens": "discoverability",
+      "score": 3,
+      "finding": "Numbered accordion headers show a broad task outline, but the relationship between collapsed cards and the review action is less immediate.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-c/initial.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "navigation",
+      "score": 2,
+      "finding": "The Tab sequence entered address, shipping, and payment descendants while their headers reported aria-expanded=false, creating invisible navigation stops.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "input_burden",
+      "score": 3,
+      "finding": "Task grouping is useful, but keyboard traversal through collapsed sections adds avoidable effort.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "error_prevention_recovery",
+      "score": 4,
+      "finding": "The empty submit produced an error state and the operated correction path completed successfully.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-c/error.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "feedback_status",
+      "score": 4,
+      "finding": "Section completion and confirmation feedback are present, though collapsed status does not match keyboard exposure.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-c/review.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "accessibility",
+      "score": 1,
+      "finding": "Direct supplemental evidence shows focus on address-line1, shipping controls, and card-expiry inside `.hidden` ancestors after their headers were collapsed.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-c/collapsed-focus-defect.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "responsive_touch_ergonomics",
+      "score": 4,
+      "finding": "The three viewport checks reported no horizontal overflow and the controls were visually spaced.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "interruption_resumption",
+      "score": 4,
+      "finding": "Reload restored contact while payment remained empty.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "latency_perception",
+      "score": 4,
+      "finding": "Reduced motion had no duration above 10 ms and duplicate Place order produced one confirmation.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "destructive_actions",
+      "score": 3,
+      "finding": "Review edit and duplicate-submit are safe, but no discoverable clear-progress confirmation control was available.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    },
+    {
+      "lens": "cognitive_load",
+      "score": 3,
+      "finding": "The card headings help chunk work, but mismatch between collapsed presentation and tab order makes the interaction mentally unstable.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-c/collapsed-focus-defect.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+      ]
+    }
+  ],
+  "visual_information_clarity": {
+    "score": 3,
+    "evidence_refs": [
+      "judging/loop-02/judge-accessibility/screenshots/candidate-c/initial.png",
+      "judging/loop-02/judge-accessibility/screenshots/candidate-c/review.png"
+    ]
+  },
+  "strengths": [
+    "The visible accordion headers, section completion labels, error state, reload restoration, and one-confirmation behavior provide some helpful structure.",
+    "No horizontal overflow, runtime error, or reduced-motion duration over 10 ms was observed."
+  ],
+  "defects": [
+    "Severe: Address, shipping, and payment headers began aria-expanded=false, yet Tab reached their visually collapsed controls (including card expiry).",
+    "No skip link or discoverable clear-progress confirmation control was available in the operated candidate; collapsed-card behavior raises both navigation and cognitive-load friction."
+  ],
+  "uncertainty": "The objective report remains accepted as passing; this score records observed qualitative use friction, especially the independent collapsed-focus check.",
+  "synthesis_adoption_rejection_recommendation": "Reject this accordion implementation for synthesis until collapsed panels remove descendants from keyboard and screen-reader exposure and a safe clear-progress path is provided. A labelled section-status pattern may be adopted only after that repair.",
+  "objective_reports": "Accepted as pass; not rerun or overridden."
+}

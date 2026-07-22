@@ -1,0 +1,65 @@
+{
+  "c": {
+    "candidate": "c",
+    "bundle": "candidate-c",
+    "steps": 29,
+    "console_msgs": 0,
+    "external_requests": 0,
+    "focus_leaks": [],
+    "touch_targets_below_24": [],
+    "has_syn2048": true,
+    "confirmation_text_snippets": [
+      "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n          Confirmation ID SYN-2048",
+      "Confirmation ID SYN-2048"
+    ]
+  },
+  "b": {
+    "candidate": "b",
+    "bundle": "candidate-b",
+    "steps": 31,
+    "console_msgs": 0,
+    "external_requests": 0,
+    "focus_leaks": [],
+    "touch_targets_below_24": [
+      {
+        "tag": "P",
+        "id": "contact-name-help",
+        "data_hook": "field-help",
+        "text": "Synthetic value: Alex Morgan.",
+        "width": 345,
+        "height": 21,
+        "below_24": true
+      }
+    ],
+    "has_syn2048": true,
+    "confirmation_text_snippets": [
+      "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n          Confirmation ID SYN-2048",
+      "Confirmation ID SYN-2048"
+    ]
+  },
+  "a": {
+    "candidate": "a",
+    "bundle": "candidate-a",
+    "steps": 31,
+    "console_msgs": 0,
+    "external_requests": 0,
+    "focus_leaks": [],
+    "touch_targets_below_24": [
+      {
+        "tag": "P",
+        "id": "contact-name-help",
+        "data_hook": "field-help",
+        "text": "Synthetic value: Alex Morgan.",
+        "width": 345,
+        "height": 21,
+        "below_24": true
+      }
+    ],
+    "has_syn2048": true,
+    "confirmation_text_snippets": [
+      "",
+      "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n          Confirmation ID SYN-2048",
+      "Confirmation ID SYN-2048"
+    ]
+  }
+}

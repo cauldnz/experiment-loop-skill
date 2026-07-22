@@ -1,0 +1,52 @@
+{
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "e69485aff953c2cee9c898ac83d73481779c697d20118d50e9fe98b68a295ba0"
+    },
+    {
+      "path": "styles.css",
+      "sha256": "3c759ec9d99c4c6f01088bb01ea4ac8d14bff9eb470fd380fb3b9dbbef099942"
+    },
+    {
+      "path": "app.js",
+      "sha256": "bf86c643d23188b24982187bddf0d71ad7707f73dd839c1eaa9e35f1ac4bd414"
+    },
+    {
+      "path": "evidence/final.png",
+      "sha256": "9c09f0e09cf084b7c0222e62b21ee3db53c8c0d45a341407c69478c338259b8c"
+    },
+    {
+      "path": "evidence/initial.png",
+      "sha256": "461492e69e7763b7c3e8b4981cd40bd883ca087223dea6ecd9d8615e8d6bd915"
+    },
+    {
+      "path": "evidence/keyboard-completion.png",
+      "sha256": "5ff600b9882ed6b37ae98e769e6989381e4f621b78f14dce1e6d4c804abed5b2"
+    },
+    {
+      "path": "evidence/objective-report.json",
+      "sha256": "0fd4d9db9d5b43dba01dc97e1bdf9632518d3b2a5167ce9ad52967d628237f6b"
+    },
+    {
+      "path": "evidence/objective-report.txt",
+      "sha256": "609c4b38ec5360f641de20396102ef1b6044f948c58971d34ed8c1e0749a7811"
+    },
+    {
+      "path": "evidence/viewport-320x568.png",
+      "sha256": "3637a8bab90b4dd3d0c90871915b0b1dc4f1baad5a715c63bf1d27b648334b77"
+    },
+    {
+      "path": "evidence/viewport-360x800.png",
+      "sha256": "8252b2c897f77e82e7140d5fe339886042f5d9c5b34e917238982be112194822"
+    },
+    {
+      "path": "evidence/viewport-390x844.png",
+      "sha256": "5ff600b9882ed6b37ae98e769e6989381e4f621b78f14dce1e6d4c804abed5b2"
+    }
+  ],
+  "identity_blind": true,
+  "label": "candidate-b",
+  "objective_report_pass_required": true,
+  "schema_version": "1.0"
+}

@@ -1,0 +1,149 @@
+{
+  "phase": "complete",
+  "role": "judge-human-use",
+  "scope": "final",
+  "experiment_id": "accessible-mobile-checkout",
+  "revision": 1,
+  "model": "claude-opus-4.7",
+  "actual_model": "claude-opus-4.7",
+  "started_at": "2026-07-22T08:36:00+10:00",
+  "completed_at": "2026-07-22T08:39:00+10:00",
+  "heartbeat": "2026-07-22T08:39:00+10:00",
+  "fixed_order": ["candidate-c", "candidate-b", "candidate-a"],
+  "frozen_hashes": {
+    "experiment_brief_sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13",
+    "prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928"
+  },
+  "output_hashes_sha256": {
+    "candidate-a.json": "6adb55433441e13cc9328824fff4c242cf4b0a34f142f300d3b3cb0b9652bc6e",
+    "candidate-b.json": "5f74c27f253eaf8674128793f44cc5bc90aecfe6cdd8953eb8848ed224b89291",
+    "candidate-c.json": "c960b2ad6ca6255681cdcab4acf0c45ed3228fa9ae3b2a22ec8363a729a1ced5",
+    "navigation-transcript-a.json": "93c4d4f433a1d6d68819c993bffe5df26c2cfb2fc6375b98d9f972396131b729",
+    "navigation-transcript-b.json": "00be53b4d7a363fcd78ea69c15545b02e72a6d0b78caaf6b3d132a66de3dcb65",
+    "navigation-transcript-c.json": "96f1f6e67777aa6d9354fe4f156a197ab4f41bbc51fe1562336631445fc64fae",
+    "pairwise.json": "7c756313badc77d254cb7c0dcb97ed6879c3505e4faad974c4142141f503973a"
+  },
+  "browser_summary": {
+    "engine": "chromium (local Playwright, headless=True)",
+    "viewport_primary": {"width": 390, "height": 844},
+    "extra_viewport_screenshots": [{"width": 320, "height": 568}, {"width": 360, "height": 800}],
+    "reduced_motion": "reduce",
+    "device_scale_factor": 2,
+    "has_touch": true,
+    "is_mobile": true
+  },
+  "coverage_summary": {
+    "operations_per_candidate": {
+      "candidate-c": {
+        "steps": 29,
+        "console_messages": 0,
+        "external_requests": 0,
+        "total_network_requests": 12,
+        "touch_target_controls_measured": 42,
+        "touch_target_controls_below_24_interactive": 0,
+        "hidden_ancestor_focus_leaks_normal": 0,
+        "hidden_ancestor_focus_leaks_compact": 0,
+        "syn2048_confirmation_present": true,
+        "duplicate_submit_confirmation_delta": 0,
+        "post_reload_confirmation_visible": false,
+        "clear_progress_dialog_present": false,
+        "explicit_save_now_present": false,
+        "progressbar_landmark_present": false
+      },
+      "candidate-b": {
+        "steps": 31,
+        "console_messages": 0,
+        "external_requests": 0,
+        "total_network_requests": 18,
+        "touch_target_controls_measured": 47,
+        "touch_target_controls_below_24_interactive": 0,
+        "hidden_ancestor_focus_leaks_normal": 0,
+        "hidden_ancestor_focus_leaks_compact": 0,
+        "syn2048_confirmation_present": true,
+        "duplicate_submit_confirmation_delta": 0,
+        "post_reload_confirmation_visible": false,
+        "clear_progress_dialog_present": true,
+        "explicit_save_now_present": true,
+        "progressbar_landmark_present": true
+      },
+      "candidate-a": {
+        "steps": 31,
+        "console_messages": 0,
+        "external_requests": 0,
+        "total_network_requests": 18,
+        "touch_target_controls_measured": 47,
+        "touch_target_controls_below_24_interactive": 0,
+        "hidden_ancestor_focus_leaks_normal": 0,
+        "hidden_ancestor_focus_leaks_compact": 0,
+        "syn2048_confirmation_present": true,
+        "duplicate_submit_confirmation_delta": 0,
+        "post_reload_confirmation_visible": true,
+        "post_reload_place_order_disabled": true,
+        "clear_progress_dialog_present": true,
+        "explicit_save_now_present": true,
+        "progressbar_landmark_present": true
+      }
+    },
+    "screenshots_per_candidate": {"a": 12, "b": 12, "c": 10},
+    "flows_exercised": [
+      "landmark and skip-link discovery",
+      "keyboard Tab*60 traversal from top (normal and compact modes)",
+      "in-page anchor navigation for all five sections",
+      "touch-target size audit",
+      "empty submit -> grouped error summary and focus move",
+      "error-summary link -> focus into flagged field",
+      "cross-disability form completion with realistic synthetic values",
+      "invalid postcode ('abcd') -> corrected ('2000')",
+      "shipping change (Express) with totals refresh",
+      "explicit Save-progress (where present)",
+      "payment fill with post-fill localStorage secret-absence audit",
+      "compact-completed toggle with hidden-ancestor focus audit",
+      "edit-compacted-section flow (where present)",
+      "clear-progress: Cancel + Escape + Confirm (where present)",
+      "submit without review checkbox -> scoped review error",
+      "valid submit -> SYN-2048 confirmation",
+      "duplicate submit attempt (click + dispatchEvent)",
+      "post-confirmation reload safe-restore and payment-secret non-persistence",
+      "network request accounting: 0 external for all three candidates"
+    ]
+  },
+  "objective_acknowledgements": {
+    "candidate-a": {
+      "seven_gates_pass": true,
+      "failed_gate_ids": [],
+      "blocking_failure": false,
+      "external_requests_recorded": 0
+    },
+    "candidate-b": {
+      "seven_gates_pass": true,
+      "failed_gate_ids": [],
+      "blocking_failure": false,
+      "external_requests_recorded": 0
+    },
+    "candidate-c": {
+      "seven_gates_pass": true,
+      "failed_gate_ids": [],
+      "blocking_failure": false,
+      "external_requests_recorded": 0
+    }
+  },
+  "required_c_vs_a_result": {
+    "preferred": "candidate-a",
+    "confidence": "high",
+    "observed_pair_ordering": "candidate-c then candidate-a (flipped from sibling judge who observed A then C)",
+    "objective_pass_acknowledgement": true,
+    "regressions": "none",
+    "primary_evidence": [
+      "candidate-a preserves confirmation region and keeps Place order disabled across post-confirmation reload; candidate-c returns to editable form",
+      "candidate-a exposes explicit Save-progress, Clear-progress destructive-safety triad (Confirm/Cancel/Escape), and a progressbar landmark; candidate-c does not"
+    ]
+  },
+  "harness_rerun": false,
+  "blockers": [],
+  "notes": [
+    "Judge-local browser operation only. Objective harness NOT rerun; persisted objective reports accepted as terminal.",
+    "No writes outside .experiments/accessible-mobile-checkout/generated/judging/final/judge-human-use.",
+    "No inspection of judge-accessibility output, orchestrator mapping, source candidates outside blind bundles, synthesis metadata, model IDs, lineage, prior qualitative scores, or Manifest Champion state.",
+    "Lineage/identity strings observed in the persisted objective-report.txt were intentionally ignored when scoring; scoring is based solely on observed friction in judge-local operation."
+  ]
+}

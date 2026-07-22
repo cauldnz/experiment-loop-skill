@@ -1,0 +1,143 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "accessible-mobile-checkout",
+  "fixture_id": "northstar-goods-synthetic-checkout-v1",
+  "synthetic": true,
+  "labelling": {
+    "required_visible_text": "Northstar Goods — Synthetic checkout demonstration",
+    "required_markers": [
+      "synthetic",
+      "fictional",
+      "demonstration"
+    ],
+    "sensitive_data": false
+  },
+  "store": "Northstar Goods — Synthetic checkout demonstration",
+  "store_synthetic": true,
+  "cart": [
+    {
+      "name": "Northstar Insulated Bottle",
+      "quantity": 1,
+      "price_aud": "32.00",
+      "synthetic": true
+    },
+    {
+      "name": "Willow Cotton Throw",
+      "quantity": 1,
+      "price_aud": "48.00",
+      "synthetic": true
+    }
+  ],
+  "totals": {
+    "subtotal_aud": "80.00",
+    "tax_aud": "8.50",
+    "shipping": {
+      "standard": {
+        "label": "Standard — 3 to 5 business days",
+        "price_aud": "5.00",
+        "total_aud": "93.50"
+      },
+      "express": {
+        "label": "Express — 1 to 2 business days",
+        "price_aud": "12.00",
+        "total_aud": "100.50"
+      }
+    }
+  },
+  "customer": {
+    "name": "Alex Morgan",
+    "email": "alex.morgan@example.invalid",
+    "phone": "+61 400 000 000",
+    "synthetic": true
+  },
+  "address": {
+    "line1": "42 Fiction Lane",
+    "city": "Sampleton",
+    "state": "NSW",
+    "postcode": "2000",
+    "country": "Australia",
+    "formatted": "Sampleton NSW 2000",
+    "synthetic": true
+  },
+  "payment": {
+    "card_number": "4111 1111 1111 1111",
+    "expiry": "12/34",
+    "security_code": "123",
+    "name": "Alex Morgan",
+    "synthetic": true
+  },
+  "confirmation": {
+    "id": "SYN-2048",
+    "local_only": true,
+    "deterministic": true,
+    "synthetic": true
+  },
+  "checkout": {
+    "mode": "guest",
+    "required_tasks": [
+      "contact",
+      "delivery address",
+      "shipping method",
+      "synthetic payment",
+      "review",
+      "explicit Place order",
+      "confirmation"
+    ],
+    "forbidden_scope": [
+      "account creation",
+      "sign-in",
+      "coupon",
+      "recommendation",
+      "upsell",
+      "stock",
+      "real payment",
+      "real transaction",
+      "external request",
+      "real or sensitive data"
+    ]
+  },
+  "objective_thresholds": {
+    "target_min_css_px": {
+      "width": 24,
+      "height": 24
+    },
+    "contrast_ratio": {
+      "normal_text": 4.5,
+      "large_text": 3.0,
+      "non_text_ui_and_focus": 3.0
+    },
+    "reduced_motion_nonessential_max_ms": 10,
+    "viewports": [
+      {
+        "width": 320,
+        "height": 568
+      },
+      {
+        "width": 360,
+        "height": 800
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ]
+  },
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use.",
+    "qualitative_lenses": [
+      "discoverability",
+      "navigation",
+      "input_burden",
+      "error_prevention_recovery",
+      "feedback_status",
+      "accessibility",
+      "responsive_touch_ergonomics",
+      "interruption_resumption",
+      "latency_perception",
+      "destructive_actions",
+      "cognitive_load"
+    ],
+    "objective_ergonomics_gate": false
+  }
+}

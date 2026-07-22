@@ -1,0 +1,363 @@
+{
+  "attribution": {
+    "basis": [
+      "All original timestamps fall inside the recorded task window.",
+      "Every browser probe targets track-task-cards/loop-01.",
+      "The task launch restricted writes to track-task-cards/**."
+    ],
+    "confidence": "high",
+    "model": "gemini-3.1-pro-preview",
+    "originating_task": "task-cards-loop-01",
+    "task_call_id": "call_QJI0iLw1cMlBEjyyE86tO0R7",
+    "task_window_utc": {
+      "end": "2026-07-21T06:50:37.7732408Z",
+      "start": "2026-07-21T06:17:48.702Z"
+    }
+  },
+  "dependency_assessment": {
+    "causal_development_influence": true,
+    "direct_artifact_dependency": false,
+    "runtime_dependency": false,
+    "statement": "No approved Artifact, report, fragment, or metadata referenced a root filename. Final objective reports record the frozen harness and fixture. The diagnostics likely informed later candidate fixes, so the procedural provenance caveat remains."
+  },
+  "inferred_absent_debug_copy_caveat": {
+    "path": ".experiments/accessible-mobile-checkout/generated/harness/run_checkout_gates_debug.py",
+    "statement": "modify.py, modify2.py, and modify3.py target this path, so a temporary debug harness copy may have existed. No surviving file or command transcript proves creation or execution; the inference is preserved without being promoted to fact.",
+    "status": "not_present"
+  },
+  "owner_authorization_utc": "2026-07-21T08:11:36.118Z",
+  "records": {
+    "hash_verification": "hash-verification.json",
+    "report": "forensic-report.md",
+    "snapshot": "worktree-snapshot.json"
+  },
+  "schema_version": "1.0",
+  "sensitivity_assessment": {
+    "environment_or_credential_reads_found": false,
+    "external_data_found": false,
+    "generated_secrets_found": false,
+    "network_hosts_found": false,
+    "statement": "The files contain local Playwright probes and the explicitly synthetic checkout fixture. test-gates.py contains only the byte-identical frozen harness, including external-request detection code and fictional payment values."
+  },
+  "status": "remediated_with_procedural_caveat",
+  "task_transcript_references": {
+    "content_capture_call_ids": [
+      "call_4vcBCBEyTrjAqCa80kBJ8d1B",
+      "call_5FBe7sfY9KS4lAiax7E87Y5I",
+      "call_BM3qLoZNpqGYULzhibfGx2DE",
+      "call_Fec2EK3jZuUabZmMQm3JFIQg",
+      "call_FsaiiDxDeAjdwinvUDyeH056",
+      "call_Ob0HAifJ4wLtx1U21isMPcWy",
+      "call_P55IpEkws9qAOP2BR35qQBRS",
+      "call_WYaVQSmTPcSAGukUHosWV87H",
+      "call_X2H7tWzJoQXpu6kn7zMXD3p1",
+      "call_XAGB16WdBd10EMNcMnXuYXxT",
+      "call_gFwLqJFD4YaGTW3qw0R7Sje5",
+      "call_iOR7pfHYtSkydvuJIdtytCnZ",
+      "call_vbpcCEN0RMTqzFjBo25RVvcg",
+      "call_vhq5IXl9lQS3z6qgsjM2JkjM"
+    ],
+    "session_id": "7f1c73a6-e8a1-4424-aa61-74c07fd35f32",
+    "task_launch_call_ids": [
+      "call_QJI0iLw1cMlBEjyyE86tO0R7",
+      "call_PNnxF0twhYllpjhAqxuI90So"
+    ]
+  },
+  "validity_assessment": {
+    "candidate_disposition": "retain; do not rerun solely for remediation",
+    "functional_hash_validity": "preserved",
+    "procedural_validity": "remediated_with_permanent_caveat"
+  },
+  "violations": [
+    {
+      "id": "task-cards-loop-01-root-scratch",
+      "recovered_files": [
+        {
+          "actual_length": 1007,
+          "actual_sha256": "0600c43f7536a2a2c2563823fc95ae17d104153718523767bbfcb90f974d4d0a",
+          "capture_call_id": "call_vhq5IXl9lQS3z6qgsjM2JkjM",
+          "creation_utc": "2026-07-21T06:43:08.9529926Z",
+          "length": 1007,
+          "match": true,
+          "modified_utc": "2026-07-21T06:43:08.9539890Z",
+          "original_path": "modify.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/modify.py",
+          "sha256": "0600c43f7536a2a2c2563823fc95ae17d104153718523767bbfcb90f974d4d0a"
+        },
+        {
+          "actual_length": 942,
+          "actual_sha256": "0d3cde4db1f821d633146f12e47b8599b359a3ab64f030c43f8351d8c2d74292",
+          "capture_call_id": "call_Ob0HAifJ4wLtx1U21isMPcWy",
+          "creation_utc": "2026-07-21T06:46:12.0808978Z",
+          "length": 942,
+          "match": true,
+          "modified_utc": "2026-07-21T06:46:12.0820431Z",
+          "original_path": "modify2.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/modify2.py",
+          "sha256": "0d3cde4db1f821d633146f12e47b8599b359a3ab64f030c43f8351d8c2d74292"
+        },
+        {
+          "actual_length": 479,
+          "actual_sha256": "7806a617712df81ab8e6fcbe096d8c16f2af1663a421a64f4ed9940d795cdce7",
+          "capture_call_id": "call_4vcBCBEyTrjAqCa80kBJ8d1B",
+          "creation_utc": "2026-07-21T06:47:52.6999423Z",
+          "length": 479,
+          "match": true,
+          "modified_utc": "2026-07-21T06:47:52.7020442Z",
+          "original_path": "modify3.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/modify3.py",
+          "sha256": "7806a617712df81ab8e6fcbe096d8c16f2af1663a421a64f4ed9940d795cdce7"
+        },
+        {
+          "actual_length": 989,
+          "actual_sha256": "df3f7bb89363160d65c3415b8a8c4c41a39ac38b8bd44b428cfd7d36851d9a94",
+          "capture_call_id": "call_WYaVQSmTPcSAGukUHosWV87H",
+          "creation_utc": "2026-07-21T06:43:45.7584816Z",
+          "length": 989,
+          "match": true,
+          "modified_utc": "2026-07-21T06:43:45.7606361Z",
+          "original_path": "test-focus-why.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-focus-why.py",
+          "sha256": "df3f7bb89363160d65c3415b8a8c4c41a39ac38b8bd44b428cfd7d36851d9a94"
+        },
+        {
+          "actual_length": 696,
+          "actual_sha256": "25b6afbccfad2049e53bf9407177201061dcb708b64fe452fa251639a20b1979",
+          "capture_call_id": "call_vbpcCEN0RMTqzFjBo25RVvcg",
+          "creation_utc": "2026-07-21T06:41:15.3926359Z",
+          "length": 696,
+          "match": true,
+          "modified_utc": "2026-07-21T06:41:15.3958722Z",
+          "original_path": "test-focus.js",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-focus.js",
+          "sha256": "25b6afbccfad2049e53bf9407177201061dcb708b64fe452fa251639a20b1979"
+        },
+        {
+          "actual_length": 892,
+          "actual_sha256": "477b81045ae7ba634b9cd2245f34d42f75586e8f0b6d5087ddb0e881a3b2edd3",
+          "capture_call_id": "call_FsaiiDxDeAjdwinvUDyeH056",
+          "creation_utc": "2026-07-21T06:41:22.0212946Z",
+          "length": 892,
+          "match": true,
+          "modified_utc": "2026-07-21T06:41:22.0212946Z",
+          "original_path": "test-focus.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-focus.py",
+          "sha256": "477b81045ae7ba634b9cd2245f34d42f75586e8f0b6d5087ddb0e881a3b2edd3"
+        },
+        {
+          "actual_length": 49175,
+          "actual_sha256": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563",
+          "capture_call_id": null,
+          "creation_utc": "2026-07-21T06:42:34.5380911Z",
+          "length": 49175,
+          "match": true,
+          "modified_utc": "2026-07-21T06:42:34.5860424Z",
+          "original_path": "test-gates.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-gates.py",
+          "recovery_source": "Byte-identical frozen harness run_checkout_gates.py.",
+          "sha256": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563"
+        },
+        {
+          "actual_length": 2044,
+          "actual_sha256": "b3a2b817fd87e865eff831340a0aaae552892e44216674fbd8af0dc40b79e953",
+          "capture_call_id": "call_BM3qLoZNpqGYULzhibfGx2DE",
+          "creation_utc": "2026-07-21T06:42:14.8432109Z",
+          "length": 2044,
+          "match": true,
+          "modified_utc": "2026-07-21T06:42:14.8562608Z",
+          "original_path": "test-harness-condition.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-harness-condition.py",
+          "sha256": "b3a2b817fd87e865eff831340a0aaae552892e44216674fbd8af0dc40b79e953"
+        },
+        {
+          "actual_length": 928,
+          "actual_sha256": "5e9b1d2bb8df4623fd6a919bc5fe77c2808d52cae6b6f846f3f217007338d973",
+          "capture_call_id": "call_P55IpEkws9qAOP2BR35qQBRS",
+          "creation_utc": "2026-07-21T06:41:58.2372475Z",
+          "length": 928,
+          "match": true,
+          "modified_utc": "2026-07-21T06:41:58.2382479Z",
+          "original_path": "test-harness-focus.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-harness-focus.py",
+          "sha256": "5e9b1d2bb8df4623fd6a919bc5fe77c2808d52cae6b6f846f3f217007338d973"
+        },
+        {
+          "actual_length": 962,
+          "actual_sha256": "f89bc80f124c5fdb417b3b78b928a036207e8726b7b4250c131f9770866333cb",
+          "capture_call_id": "call_XAGB16WdBd10EMNcMnXuYXxT",
+          "creation_utc": "2026-07-21T06:41:32.3469555Z",
+          "length": 962,
+          "match": true,
+          "modified_utc": "2026-07-21T06:41:32.3469555Z",
+          "original_path": "test-harness.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-harness.py",
+          "sha256": "f89bc80f124c5fdb417b3b78b928a036207e8726b7b4250c131f9770866333cb"
+        },
+        {
+          "actual_length": 813,
+          "actual_sha256": "98881735d43584f2d82170641a6c706392b7f8b8eb2777e839162bbaf802eb0a",
+          "capture_call_id": "call_iOR7pfHYtSkydvuJIdtytCnZ",
+          "creation_utc": "2026-07-21T06:48:16.8676819Z",
+          "length": 813,
+          "match": true,
+          "modified_utc": "2026-07-21T06:48:16.8701989Z",
+          "original_path": "test-html.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-html.py",
+          "sha256": "98881735d43584f2d82170641a6c706392b7f8b8eb2777e839162bbaf802eb0a"
+        },
+        {
+          "actual_length": 2373,
+          "actual_sha256": "7007ec7bd1ad6258fcd9c4f8f71c7c368930fb54496c4659bd07c7f291a15a91",
+          "capture_call_id": "call_Fec2EK3jZuUabZmMQm3JFIQg",
+          "creation_utc": "2026-07-21T06:45:35.3758352Z",
+          "length": 2373,
+          "match": true,
+          "modified_utc": "2026-07-21T06:45:35.3764138Z",
+          "original_path": "test-paint.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-paint.py",
+          "sha256": "7007ec7bd1ad6258fcd9c4f8f71c7c368930fb54496c4659bd07c7f291a15a91"
+        },
+        {
+          "actual_length": 797,
+          "actual_sha256": "8106fcb3afcf069cf0ef27bb50f61c561620f517d4988a7344e3e83f5afa27a8",
+          "capture_call_id": "call_X2H7tWzJoQXpu6kn7zMXD3p1",
+          "creation_utc": "2026-07-21T06:46:51.9061804Z",
+          "length": 797,
+          "match": true,
+          "modified_utc": "2026-07-21T06:46:51.9071799Z",
+          "original_path": "test-visibility-viewport.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-visibility-viewport.py",
+          "sha256": "8106fcb3afcf069cf0ef27bb50f61c561620f517d4988a7344e3e83f5afa27a8"
+        },
+        {
+          "actual_length": 700,
+          "actual_sha256": "197925dac416d45aad67db01ebc76f9c4836c17f570f12b75c38547c70b694a4",
+          "capture_call_id": "call_gFwLqJFD4YaGTW3qw0R7Sje5",
+          "creation_utc": "2026-07-21T06:45:22.8771850Z",
+          "length": 700,
+          "match": true,
+          "modified_utc": "2026-07-21T06:45:22.8782686Z",
+          "original_path": "test-visibility.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-visibility.py",
+          "sha256": "197925dac416d45aad67db01ebc76f9c4836c17f570f12b75c38547c70b694a4"
+        },
+        {
+          "actual_length": 924,
+          "actual_sha256": "630c1b913e65890dcc3c0bb82260eebb270b991888ccfb63d207993f06a3a205",
+          "capture_call_id": "call_5FBe7sfY9KS4lAiax7E87Y5I",
+          "creation_utc": "2026-07-21T06:47:38.2723580Z",
+          "length": 924,
+          "match": true,
+          "modified_utc": "2026-07-21T06:47:38.2757169Z",
+          "original_path": "test-visible-why.py",
+          "recovered_path": ".experiments/accessible-mobile-checkout/generated/harness/path-violation-evidence/root-scripts/test-visible-why.py",
+          "sha256": "630c1b913e65890dcc3c0bb82260eebb270b991888ccfb63d207993f06a3a205"
+        }
+      ],
+      "summary": "Fifteen diagnostics were written at repository root outside the task write scope."
+    },
+    {
+      "authorized_at_time": false,
+      "evidence": "Terminal task report plus post-terminal absence check.",
+      "id": "resumable-wizard-loop-02-unapproved-deletion",
+      "model": "claude-sonnet-5",
+      "summary": "The already-live wizard task deleted the fifteen root diagnostics after the procedural pause and before quarantine.",
+      "task_call_id": "call_PNnxF0twhYllpjhAqxuI90So"
+    },
+    {
+      "exact_shell_commands_recovered": false,
+      "id": "resumable-wizard-loop-02-omitted-scratch-provenance",
+      "scratch_files": [
+        {
+          "actual_length": 16,
+          "actual_sha256": "4bb38be6d6d9ef0d2f9bcc339850ff48d821eccfa739369402b354c9ba946ea2",
+          "creation_utc": "2026-07-21T05:58:25.7648806Z",
+          "length": 16,
+          "match": true,
+          "modified_utc": "2026-07-21T05:58:25.7658886Z",
+          "origin": "approved preflight scratch-root setup",
+          "path": ".experiments/accessible-mobile-checkout/generated/harness/scratch/.gitignore",
+          "sha256": "4bb38be6d6d9ef0d2f9bcc339850ff48d821eccfa739369402b354c9ba946ea2"
+        },
+        {
+          "actual_length": 2875,
+          "actual_sha256": "32df846d2dbea8a1cec9a8cf3dc686f5de3e62abbe38ff65918727c929601490",
+          "creation_utc": "2026-07-21T07:52:28.9667389Z",
+          "length": 2875,
+          "match": true,
+          "modified_utc": "2026-07-21T07:52:29.2031076Z",
+          "origin": "resumable-wizard-loop-02",
+          "path": ".experiments/accessible-mobile-checkout/generated/harness/scratch/loop02-gate-detail.txt",
+          "sha256": "32df846d2dbea8a1cec9a8cf3dc686f5de3e62abbe38ff65918727c929601490"
+        },
+        {
+          "actual_length": 1366,
+          "actual_sha256": "bdfb87980ac9843455d4b5a23f12909b916abb85a1ac4804d6197179eae55334",
+          "creation_utc": "2026-07-21T07:53:54.2193718Z",
+          "length": 1366,
+          "match": true,
+          "modified_utc": "2026-07-21T07:53:54.2203710Z",
+          "origin": "resumable-wizard-loop-02",
+          "path": ".experiments/accessible-mobile-checkout/generated/harness/scratch/debug_probe.py",
+          "sha256": "bdfb87980ac9843455d4b5a23f12909b916abb85a1ac4804d6197179eae55334"
+        },
+        {
+          "actual_length": 700,
+          "actual_sha256": "d886c353da6346291e1d868e1ebdd57c7ed1fc396dd2d93a04f2ce2a43773ed8",
+          "creation_utc": "2026-07-21T07:54:29.1933142Z",
+          "length": 700,
+          "match": true,
+          "modified_utc": "2026-07-21T07:54:29.1964821Z",
+          "origin": "resumable-wizard-loop-02",
+          "path": ".experiments/accessible-mobile-checkout/generated/harness/scratch/debug_probe2.py",
+          "sha256": "d886c353da6346291e1d868e1ebdd57c7ed1fc396dd2d93a04f2ce2a43773ed8"
+        },
+        {
+          "actual_length": 1691,
+          "actual_sha256": "35918a5207c2d6f4e8e3f81ff25dc0f5c7b1b5bd4f1408d881822cba5687da51",
+          "creation_utc": "2026-07-21T07:55:36.8319492Z",
+          "length": 1691,
+          "match": true,
+          "modified_utc": "2026-07-21T07:55:36.8335110Z",
+          "origin": "resumable-wizard-loop-02",
+          "path": ".experiments/accessible-mobile-checkout/generated/harness/scratch/debug_probe3.py",
+          "sha256": "35918a5207c2d6f4e8e3f81ff25dc0f5c7b1b5bd4f1408d881822cba5687da51"
+        },
+        {
+          "actual_length": 2236,
+          "actual_sha256": "413d186abbd322ed54567f67d1ca7cde8c8a13ab141540d2b742ba1db34d522b",
+          "creation_utc": "2026-07-21T07:56:33.5352712Z",
+          "length": 2236,
+          "match": true,
+          "modified_utc": "2026-07-21T07:56:33.5362683Z",
+          "origin": "resumable-wizard-loop-02",
+          "path": ".experiments/accessible-mobile-checkout/generated/harness/scratch/debug_probe4.py",
+          "sha256": "413d186abbd322ed54567f67d1ca7cde8c8a13ab141540d2b742ba1db34d522b"
+        },
+        {
+          "actual_length": 1955,
+          "actual_sha256": "1b5aff482887aa4805c451d1293ec148776817b39cfc0cdb2128dde82561274b",
+          "creation_utc": "2026-07-21T07:58:15.9521151Z",
+          "length": 1955,
+          "match": true,
+          "modified_utc": "2026-07-21T07:58:15.9521151Z",
+          "origin": "resumable-wizard-loop-02",
+          "path": ".experiments/accessible-mobile-checkout/generated/harness/scratch/debug_probe5.py",
+          "sha256": "1b5aff482887aa4805c451d1293ec148776817b39cfc0cdb2128dde82561274b"
+        },
+        {
+          "actual_length": 642,
+          "actual_sha256": "eed439aada9758539e4fa08d28d7eeafa99a0d8351d0d67e5c5cf33354c6f29d",
+          "creation_utc": "2026-07-21T07:58:29.3041520Z",
+          "length": 642,
+          "match": true,
+          "modified_utc": "2026-07-21T07:58:29.3041520Z",
+          "origin": "resumable-wizard-loop-02",
+          "path": ".experiments/accessible-mobile-checkout/generated/harness/scratch/debug_probe6.py",
+          "sha256": "eed439aada9758539e4fa08d28d7eeafa99a0d8351d0d67e5c5cf33354c6f29d"
+        }
+      ],
+      "summary": "The wizard wrote surviving scratch diagnostics while metadata falsely claimed the scratch root was not written and omitted exact commands."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "test_id": "invalid-fixture-rejection",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "fixture": "self-test-invalid/index.html",
+  "command": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\harness\\self-test-invalid --out .experiments\\accessible-mobile-checkout\\generated\\harness\\self-test-evidence",
+  "result": {
+    "exit_code": 1,
+    "blocking_failure": true,
+    "objective_report": "self-test-evidence/objective-report.json",
+    "readable_report": "self-test-evidence/objective-report.txt",
+    "failed_gate_ids": [
+      "content-fidelity",
+      "semantic-accessibility-gate",
+      "keyboard-completion-gate",
+      "error-recovery-gate",
+      "mobile-touch-gate",
+      "resilience-gate",
+      "offline-safety-gate"
+    ],
+    "multiple_named_failures": true
+  },
+  "verified_at_utc": "2026-07-21T06:15:00.476Z"
+}

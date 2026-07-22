@@ -1,0 +1,315 @@
+{
+  "candidate": "candidate-b",
+  "started_at": "2026-07-21T17:18:14",
+  "entries": [
+    {
+      "t": "2026-07-21T17:18:04",
+      "action": "goto initial page 390x844",
+      "outcome": "loaded"
+    },
+    {
+      "t": "2026-07-21T17:18:05",
+      "action": "initial screenshot",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/01-initial-390x844.png"
+    },
+    {
+      "t": "2026-07-21T17:18:05",
+      "action": "audit landmarks/headings",
+      "outcome": "captured",
+      "extra": {
+        "main": 1,
+        "nav": 1,
+        "aside": 1,
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Complete your synthetic order"
+          },
+          {
+            "tag": "H2",
+            "text": "Checkout details"
+          },
+          {
+            "tag": "H2",
+            "text": "Contact"
+          },
+          {
+            "tag": "H2",
+            "text": "Delivery address"
+          },
+          {
+            "tag": "H2",
+            "text": "Shipping method"
+          },
+          {
+            "tag": "H2",
+            "text": "Synthetic payment"
+          },
+          {
+            "tag": "H2",
+            "text": "Review and place order"
+          },
+          {
+            "tag": "H3",
+            "text": "Contact and delivery"
+          },
+          {
+            "tag": "H3",
+            "text": "Shipping and payment"
+          },
+          {
+            "tag": "H2",
+            "text": "Order confirmed locally"
+          }
+        ],
+        "skipLinks": [],
+        "landmarks": [
+          {
+            "tag": "DIV",
+            "role": "note"
+          },
+          {
+            "tag": "DIV",
+            "role": "alert"
+          },
+          {
+            "tag": "DIV",
+            "role": "status"
+          },
+          {
+            "tag": "LABEL",
+            "role": "radio"
+          },
+          {
+            "tag": "LABEL",
+            "role": "radio"
+          },
+          {
+            "tag": "DIV",
+            "role": "note"
+          },
+          {
+            "tag": "SECTION",
+            "role": "status"
+          }
+        ],
+        "liveRegions": [
+          {
+            "live": "assertive",
+            "atomic": null,
+            "role": "alert"
+          },
+          {
+            "live": "polite",
+            "atomic": "true",
+            "role": "status"
+          },
+          {
+            "live": "polite",
+            "atomic": "true",
+            "role": "status"
+          }
+        ],
+        "synthBannerText": "Northstar Goods \u2014 Synthetic checkout demonstration\n      All products, people, contact details, addresses, payment details and order data are fictional and synthetic. Nothing is purchased.",
+        "buttonCount": 3,
+        "focusableCount": 25
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:05",
+      "action": "click place-order with empty form",
+      "outcome": "invalid submit attempted"
+    },
+    {
+      "t": "2026-07-21T17:18:05",
+      "action": "error summary state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/02-error-summary.png"
+    },
+    {
+      "t": "2026-07-21T17:18:05",
+      "action": "post-invalid-submit report",
+      "outcome": "captured",
+      "extra": {
+        "errorSummaryVisible": true,
+        "errorSummaryText": "Check 13 itemsYour entries are preserved. Use these links to correct each item.Enter the synthetic full name.Enter a complete email address, such as alex.morgan@example.invalid.Enter the synthetic phone number with at least 8 digits.Enter the synthetic street address.Enter the synthetic city or suburb.Select NSW for this demonstration.Enter the 4-digit synthetic postcode.Enter Australia for this demonstration.Enter the 16-digit synthetic card number shown above.Enter the synthetic expiry as 12/3",
+        "errorSummaryFocused": true,
+        "invalidsCount": 13,
+        "invalids": [
+          "contact-name",
+          "contact-email",
+          "contact-phone",
+          "address-line1",
+          "address-city",
+          "address-state",
+          "address-postcode",
+          "address-country",
+          "card-number",
+          "card-expiry",
+          "card-security",
+          "card-name",
+          "review-confirmation"
+        ],
+        "visibleFieldErrors": [
+          "Enter the synthetic full name.",
+          "Enter a complete email address, such as alex.morgan@example.invalid.",
+          "Enter the synthetic phone number with at least 8 digits.",
+          "Enter the synthetic street address.",
+          "Enter the synthetic city or suburb.",
+          "Select NSW for this demonstration.",
+          "Enter the 4-digit synthetic postcode.",
+          "Enter Australia for this demonstration.",
+          "Enter the 16-digit synthetic card number shown above.",
+          "Enter the synthetic expiry as 12/34.",
+          "Enter the 3-digit synthetic security code.",
+          "Enter Alex Morgan as the synthetic name on card.",
+          "Review the fictional order and select the confirmation checkbox."
+        ],
+        "statusText": "Order not placed. 13 items need attention.",
+        "activeElement": "DIV#error-summary"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:05",
+      "action": "filled safe + payment before reload",
+      "outcome": "attempted"
+    },
+    {
+      "t": "2026-07-21T17:18:06",
+      "action": "pre-reload state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/03-pre-reload.png"
+    },
+    {
+      "t": "2026-07-21T17:18:06",
+      "action": "reload persistence check",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/04-post-reload.png",
+      "extra": {
+        "safe": {
+          "contact-name": "Alex Morgan",
+          "contact-email": "alex.morgan@example.invalid",
+          "address-line1": "42 Fiction Lane",
+          "address-postcode": "2000"
+        },
+        "payment": {
+          "card-number": "",
+          "card-expiry": "",
+          "card-security": "",
+          "card-name": ""
+        }
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:08",
+      "action": "filled complete form (mouse fill)",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/05-review-filled.png"
+    },
+    {
+      "t": "2026-07-21T17:18:08",
+      "action": "review content",
+      "outcome": "captured",
+      "extra": {
+        "reviewFields": [],
+        "totalText": "AUD 93.50"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:09",
+      "action": "click Place order",
+      "outcome": "clicked"
+    },
+    {
+      "t": "2026-07-21T17:18:09",
+      "action": "confirmation state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/06-confirmation.png",
+      "extra": {
+        "confirmationVisible": true,
+        "confirmationText": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n          Confirmation ID SYN-2048",
+        "confirmationId": "SYN-2048",
+        "activeElement": "SECTION"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:09",
+      "action": "second Place order attempt",
+      "outcome": "button disabled or missing (good)"
+    },
+    {
+      "t": "2026-07-21T17:18:09",
+      "action": "duplicate-safety report",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/07-after-duplicate.png",
+      "extra": {
+        "confIds": [
+          "SYN-2048"
+        ],
+        "placeOrderDisabled": true,
+        "placeOrderAriaDisabled": null
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:10",
+      "action": "keyboard: fresh navigation start",
+      "outcome": "loaded"
+    },
+    {
+      "t": "2026-07-21T17:18:10",
+      "action": "keyboard: first Tab focus",
+      "outcome": "A text=Contact"
+    },
+    {
+      "t": "2026-07-21T17:18:12",
+      "action": "keyboard: form completed by keyboard entry",
+      "outcome": "attempted"
+    },
+    {
+      "t": "2026-07-21T17:18:12",
+      "action": "keyboard: review screenshot",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/08-keyboard-review.png"
+    },
+    {
+      "t": "2026-07-21T17:18:12",
+      "action": "keyboard: confirmation state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/09-keyboard-confirmation.png",
+      "extra": {
+        "confirmationVisible": true,
+        "confirmationId": "SYN-2048",
+        "activeElement": "SECTION"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:13",
+      "action": "reduced-motion: loaded",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/10-reduced-motion-initial.png"
+    },
+    {
+      "t": "2026-07-21T17:18:13",
+      "action": "reduced-motion: completed flow",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/11-reduced-motion-confirmation.png",
+      "extra": {
+        "confirmationId": "SYN-2048"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:14",
+      "action": "320x568: viewport initial",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/12-viewport-320-initial.png",
+      "extra": {
+        "scrollWidth": 320,
+        "clientWidth": 320,
+        "hasHorizontalScroll": false
+      }
+    }
+  ],
+  "console_messages": [],
+  "page_errors": []
+}

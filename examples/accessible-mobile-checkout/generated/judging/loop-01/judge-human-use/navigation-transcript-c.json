@@ -1,0 +1,296 @@
+{
+  "candidate": "candidate-c",
+  "started_at": "2026-07-21T17:18:04",
+  "entries": [
+    {
+      "t": "2026-07-21T17:17:25",
+      "action": "goto initial page 390x844",
+      "outcome": "loaded"
+    },
+    {
+      "t": "2026-07-21T17:17:26",
+      "action": "initial screenshot",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/01-initial-390x844.png"
+    },
+    {
+      "t": "2026-07-21T17:17:26",
+      "action": "audit landmarks/headings",
+      "outcome": "captured",
+      "extra": {
+        "main": 1,
+        "nav": 0,
+        "aside": 1,
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Northstar Goods checkout"
+          },
+          {
+            "tag": "H2",
+            "text": "Order summary"
+          },
+          {
+            "tag": "H2",
+            "text": "1. Contact details"
+          },
+          {
+            "tag": "H2",
+            "text": "2. Delivery address"
+          },
+          {
+            "tag": "H2",
+            "text": "3. Payment (synthetic demonstration)"
+          },
+          {
+            "tag": "H2",
+            "text": "4. Review & place order"
+          },
+          {
+            "tag": "H3",
+            "text": "Contact Edit"
+          },
+          {
+            "tag": "H3",
+            "text": "Delivery address Edit"
+          },
+          {
+            "tag": "H3",
+            "text": "Shipping method Edit"
+          },
+          {
+            "tag": "H3",
+            "text": "Payment Edit"
+          },
+          {
+            "tag": "H2",
+            "text": "Order confirmed"
+          }
+        ],
+        "skipLinks": [
+          "Skip to checkout steps"
+        ],
+        "landmarks": [
+          {
+            "tag": "DIV",
+            "role": "progressbar"
+          },
+          {
+            "tag": "DIV",
+            "role": "status"
+          },
+          {
+            "tag": "DIV",
+            "role": "alert"
+          },
+          {
+            "tag": "DIV",
+            "role": "status"
+          }
+        ],
+        "liveRegions": [
+          {
+            "live": "polite",
+            "atomic": null,
+            "role": "status"
+          },
+          {
+            "live": "polite",
+            "atomic": null,
+            "role": "status"
+          }
+        ],
+        "synthBannerText": "Fictional demonstration only \u2014 Northstar Goods \u2014 Synthetic checkout demonstration.\n    Guest checkout \u2014 no registration is required for this synthetic demonstration.\n    Every product, name, address, ",
+        "buttonCount": 14,
+        "focusableCount": 30
+      }
+    },
+    {
+      "t": "2026-07-21T17:17:56",
+      "action": "invalid submit attempt failed",
+      "outcome": "error: ElementHandle.click: Timeout 30000ms exceeded.\nCall log:\n  - attempting click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <main id=\"main-content\">\u2026</main> intercepts pointer events\n  - retrying click action\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <section class=\"step\" data-step=\"1\" data-hook=\"contact-section\">\u2026</section> intercepts pointer events\n  - retrying click action\n    - waiting 20ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <main id=\"main-content\">\u2026</main> intercepts pointer events\n  - retrying click action\n    - waiting 100ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <body>\u2026</body> intercepts pointer events\n  - retrying click action\n    - waiting 100ms\n    14 \u00d7 waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <main id=\"main-content\">\u2026</main> intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n       - waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <section class=\"step\" data-step=\"1\" data-hook=\"contact-section\">\u2026</section> intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n       - waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <main id=\"main-content\">\u2026</main> intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n       - waiting for element to be visible, enabled and stable\n       - element is visible, enabled and stable\n       - scrolling into view if needed\n       - done scrolling\n       - <body>\u2026</body> intercepts pointer events\n     - retrying click action\n       - waiting 500ms\n    - waiting for element to be visible, enabled and stable\n    - element is visible, enabled and stable\n    - scrolling into view if needed\n    - done scrolling\n    - <main id=\"main-content\">\u2026</main> intercepts pointer events\n  - retrying click action\n    - waiting 500ms\n"
+    },
+    {
+      "t": "2026-07-21T17:17:56",
+      "action": "post-invalid-submit report",
+      "outcome": "captured",
+      "extra": {
+        "errorSummaryVisible": false,
+        "errorSummaryText": "",
+        "errorSummaryFocused": false,
+        "invalidsCount": 0,
+        "invalids": [],
+        "visibleFieldErrors": [],
+        "statusText": "",
+        "activeElement": "BODY"
+      }
+    },
+    {
+      "t": "2026-07-21T17:17:56",
+      "action": "filled safe + payment before reload",
+      "outcome": "attempted"
+    },
+    {
+      "t": "2026-07-21T17:17:56",
+      "action": "pre-reload state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/03-pre-reload.png"
+    },
+    {
+      "t": "2026-07-21T17:17:57",
+      "action": "reload persistence check",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/04-post-reload.png",
+      "extra": {
+        "safe": {
+          "contact-name": "Alex Morgan",
+          "contact-email": "alex.morgan@example.invalid",
+          "address-line1": "42 Fiction Lane",
+          "address-postcode": "2000"
+        },
+        "payment": {
+          "card-number": "",
+          "card-expiry": "",
+          "card-security": "",
+          "card-name": ""
+        }
+      }
+    },
+    {
+      "t": "2026-07-21T17:17:58",
+      "action": "filled complete form (mouse fill)",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/05-review-filled.png"
+    },
+    {
+      "t": "2026-07-21T17:17:58",
+      "action": "review content",
+      "outcome": "captured",
+      "extra": {
+        "reviewFields": [
+          {
+            "key": "contact",
+            "text": "Alex Morgan \u00b7 alex.morgan@example.invalid \u00b7 +61 400 000 000"
+          },
+          {
+            "key": "address",
+            "text": "42 Fiction Lane, Sampleton NSW 2000, Australia"
+          },
+          {
+            "key": "shipping",
+            "text": "Standard \u2014 3 to 5 business days \u2014 AUD 5.00"
+          },
+          {
+            "key": "payment",
+            "text": "Synthetic card ending 1111, expires 12/34"
+          },
+          {
+            "key": "confirmation-name",
+            "text": "Alex Morgan"
+          }
+        ],
+        "totalText": "Total: AUD 93.50"
+      }
+    },
+    {
+      "t": "2026-07-21T17:17:58",
+      "action": "click Place order",
+      "outcome": "clicked"
+    },
+    {
+      "t": "2026-07-21T17:17:59",
+      "action": "confirmation state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/06-confirmation.png",
+      "extra": {
+        "confirmationVisible": true,
+        "confirmationText": "Order confirmed\n      Thank you, Alex Morgan. This synthetic order is complete.\n      Confirmation number: SYN-2048\n      This confirmation is local, deterministic, and synthetic \u2014 no real order was\n        placed and no real payment was processed.",
+        "confirmationId": "SYN-2048",
+        "activeElement": "DIV"
+      }
+    },
+    {
+      "t": "2026-07-21T17:17:59",
+      "action": "second Place order attempt",
+      "outcome": "button disabled or missing (good)"
+    },
+    {
+      "t": "2026-07-21T17:17:59",
+      "action": "duplicate-safety report",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/07-after-duplicate.png",
+      "extra": {
+        "confIds": [
+          "SYN-2048"
+        ],
+        "placeOrderDisabled": false,
+        "placeOrderAriaDisabled": "true"
+      }
+    },
+    {
+      "t": "2026-07-21T17:17:59",
+      "action": "keyboard: fresh navigation start",
+      "outcome": "loaded"
+    },
+    {
+      "t": "2026-07-21T17:17:59",
+      "action": "keyboard: first Tab focus",
+      "outcome": "A text=Skip to checkout steps"
+    },
+    {
+      "t": "2026-07-21T17:17:59",
+      "action": "keyboard: activated skip-link",
+      "outcome": "BODY"
+    },
+    {
+      "t": "2026-07-21T17:18:02",
+      "action": "keyboard: form completed by keyboard entry",
+      "outcome": "attempted"
+    },
+    {
+      "t": "2026-07-21T17:18:02",
+      "action": "keyboard: review screenshot",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/08-keyboard-review.png"
+    },
+    {
+      "t": "2026-07-21T17:18:02",
+      "action": "keyboard: confirmation state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/09-keyboard-confirmation.png",
+      "extra": {
+        "confirmationVisible": true,
+        "confirmationId": "SYN-2048",
+        "activeElement": "DIV"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:03",
+      "action": "reduced-motion: loaded",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/10-reduced-motion-initial.png"
+    },
+    {
+      "t": "2026-07-21T17:18:04",
+      "action": "reduced-motion: completed flow",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/11-reduced-motion-confirmation.png",
+      "extra": {
+        "confirmationId": "SYN-2048"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:04",
+      "action": "320x568: viewport initial",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/12-viewport-320-initial.png",
+      "extra": {
+        "scrollWidth": 320,
+        "clientWidth": 320,
+        "hasHorizontalScroll": false
+      }
+    }
+  ],
+  "console_messages": [],
+  "page_errors": []
+}

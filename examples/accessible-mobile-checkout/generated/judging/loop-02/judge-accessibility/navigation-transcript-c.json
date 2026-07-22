@@ -1,0 +1,321 @@
+{
+  "candidate": "candidate-c",
+  "fresh_context": true,
+  "actions": [
+    {
+      "action": "keyboard-and-collapsed-exposure",
+      "outcome": "checked",
+      "result": [
+        {
+          "key": "Tab",
+          "focus": {
+            "id": "contact-header",
+            "tag": "BUTTON",
+            "text": "1. Contact\nIncomplete"
+          }
+        },
+        {
+          "key": "Enter",
+          "focus": "contact-header"
+        },
+        {
+          "key": "Tab x45",
+          "focus": {
+            "id": "card-expiry",
+            "hidden": false,
+            "tabindex": null
+          }
+        },
+        {
+          "key": "Shift+Tab",
+          "focus": "card-number"
+        }
+      ]
+    },
+    {
+      "action": "empty-submit",
+      "outcome": "error-state"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-name"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-email"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-phone"
+    },
+    {
+      "action": "reload-resume",
+      "outcome": "checked",
+      "contact_restored": "Alex Morgan",
+      "payment_empty": true
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-name"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-email"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-phone"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-line1"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-city"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-state"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-postcode"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-country"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-number"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-expiry"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-security"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-name"
+    },
+    {
+      "action": "edit-review",
+      "outcome": "first-edit-activated"
+    },
+    {
+      "action": "duplicate-submit",
+      "outcome": "checked",
+      "confirmation_count": 1
+    }
+  ],
+  "console_errors": [],
+  "page_errors": [],
+  "screenshots": [
+    "judging/loop-02/judge-accessibility/screenshots/candidate-c/initial.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-c/error.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-c/review.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-c/confirmation.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-c/viewport-320x568.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-c/viewport-360x800.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-c/viewport-390x844.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-c/collapsed-focus-defect.png"
+  ],
+  "keyboard": [
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "contact-header",
+        "tag": "BUTTON",
+        "text": "1. Contact\nIncomplete"
+      }
+    },
+    {
+      "key": "Enter",
+      "focus": "contact-header"
+    },
+    {
+      "key": "Tab x45",
+      "focus": {
+        "id": "card-expiry",
+        "hidden": false,
+        "tabindex": null
+      }
+    },
+    {
+      "key": "Shift+Tab",
+      "focus": "card-number"
+    }
+  ],
+  "viewport_motion": [
+    {
+      "viewport": "320x568",
+      "scroll_width": 320,
+      "client_width": 320
+    },
+    {
+      "viewport": "360x800",
+      "scroll_width": 360,
+      "client_width": 360
+    },
+    {
+      "viewport": "390x844",
+      "scroll_width": 390,
+      "client_width": 390
+    }
+  ],
+  "resume": {
+    "contact_restored": "Alex Morgan",
+    "payment_empty": true
+  },
+  "confirmation_count": 1,
+  "reduced_motion": {
+    "matches": true,
+    "long_duration": 0
+  },
+  "supplemental_checks": {
+    "initial_accordion_headers": [
+      {
+        "id": "contact-header",
+        "expanded": "true"
+      },
+      {
+        "id": "address-header",
+        "expanded": "false"
+      },
+      {
+        "id": "shipping-header",
+        "expanded": "false"
+      },
+      {
+        "id": "payment-header",
+        "expanded": "false"
+      }
+    ],
+    "keyboard_focus_sequence": [
+      {
+        "id": "contact-header",
+        "className": "card-header",
+        "collapsedAncestor": false
+      },
+      {
+        "id": "contact-name",
+        "className": "",
+        "collapsedAncestor": false
+      },
+      {
+        "id": "contact-email",
+        "className": "",
+        "collapsedAncestor": false
+      },
+      {
+        "id": "contact-phone",
+        "className": "",
+        "collapsedAncestor": false
+      },
+      {
+        "id": "contact-continue",
+        "className": "continue-btn",
+        "collapsedAncestor": false
+      },
+      {
+        "id": "address-header",
+        "className": "card-header",
+        "collapsedAncestor": false
+      },
+      {
+        "id": "address-line1",
+        "className": "",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "address-city",
+        "className": "",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "address-state",
+        "className": "",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "address-postcode",
+        "className": "",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "address-country",
+        "className": "",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "address-continue",
+        "className": "continue-btn",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "shipping-header",
+        "className": "card-header",
+        "collapsedAncestor": false
+      },
+      {
+        "id": "shipping-standard-input",
+        "className": "",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "shipping-continue",
+        "className": "continue-btn",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "payment-header",
+        "className": "card-header",
+        "collapsedAncestor": false
+      },
+      {
+        "id": "card-name",
+        "className": "",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "card-number",
+        "className": "",
+        "collapsedAncestor": true
+      },
+      {
+        "id": "card-expiry",
+        "className": "",
+        "collapsedAncestor": true
+      }
+    ],
+    "reached_visually_collapsed_card_expiry": true,
+    "save_clear_status": {
+      "before": "",
+      "after_save": "No discoverable save/clear-progress control.",
+      "after_clear": "No discoverable save/clear-progress control."
+    }
+  },
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  }
+}

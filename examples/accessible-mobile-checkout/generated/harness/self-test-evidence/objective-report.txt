@@ -1,0 +1,138 @@
+Accessible mobile checkout objective report
+Fixture SHA-256: e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894
+Candidate: self-test-invalid
+human_use.applicability = applicable
+human_use.rationale: The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use.
+
+content-fidelity: FAIL
+  FAIL visible-canonical-text: Northstar Goods
+  FAIL visible-canonical-text: Synthetic checkout demonstration
+  FAIL visible-canonical-text: AUD 80.00
+  FAIL visible-canonical-text: AUD 8.50
+  FAIL visible-canonical-text: Standard — 3 to 5 business days
+  FAIL visible-canonical-text: AUD 5.00
+  FAIL visible-canonical-text: Express — 1 to 2 business days
+  FAIL visible-canonical-text: AUD 12.00
+  FAIL visible-canonical-text: Guest
+  FAIL required-content-hook: checkout-root
+  FAIL required-content-hook: synthetic-banner
+  FAIL required-content-hook: cart
+  FAIL required-content-hook: cart-line-bottle
+  FAIL required-content-hook: cart-line-throw
+  FAIL required-content-hook: subtotal
+  FAIL required-content-hook: tax
+  FAIL required-content-hook: shipping-standard
+  FAIL required-content-hook: shipping-express
+  FAIL required-content-hook: total
+  FAIL visible-synthetic-labelling: 
+  FAIL forbidden-scope-absent: account
+  FAIL forbidden-scope-absent: sign-in
+  FAIL forbidden-scope-absent: coupon
+  FAIL forbidden-scope-absent: recommendation
+  FAIL canonical-field-value: contact-name:
+  FAIL canonical-field-value: contact-email:
+  FAIL canonical-field-value: contact-phone:
+  FAIL canonical-field-value: address-line1:
+  FAIL canonical-field-value: address-city:
+  FAIL canonical-field-value: address-state:
+  FAIL canonical-field-value: address-postcode:
+  FAIL canonical-field-value: address-country:
+  FAIL canonical-field-value: card-number:
+  FAIL canonical-field-value: card-expiry:
+  FAIL canonical-field-value: card-security:
+  FAIL canonical-field-value: card-name:
+  FAIL canonical-standard-shipping-label: 
+  FAIL canonical-express-shipping-label: 
+semantic-accessibility-gate: FAIL
+  FAIL main-landmark: 
+  FAIL checkout-form: 
+  FAIL task-headings: 0
+  FAIL required-fieldsets: 0
+  FAIL task-section-hook: contact-section
+  FAIL task-section-hook: address-section
+  FAIL task-section-hook: shipping-section
+  FAIL task-section-hook: payment-section
+  FAIL task-section-hook: review-section
+  FAIL field-hook: contact-name
+  FAIL field-hook: contact-email
+  FAIL field-hook: contact-phone
+  FAIL field-hook: address-line1
+  FAIL field-hook: address-city
+  FAIL field-hook: address-state
+  FAIL field-hook: address-postcode
+  FAIL field-hook: address-country
+  FAIL field-hook: card-number
+  FAIL field-hook: card-expiry
+  FAIL field-hook: card-security
+  FAIL field-hook: card-name
+  FAIL status-live-semantics: 
+  FAIL error-live-semantics: 
+  FAIL confirmation-semantics: 
+  FAIL explicit-place-order-hook: 
+  FAIL explicit-review-control: Missing review-confirmation hook
+  FAIL edit-control-for-review-correction: 0
+  FAIL computed-text-contrast-samples: 0
+keyboard-completion-gate: FAIL
+  FAIL keyboard-focusable-controls: 0
+  FAIL keyboard-place-order-target: 
+  FAIL keyboard-text-entry-and-task-controls: 
+  FAIL keyboard-edit-control-available: None
+  FAIL keyboard-space-shipping: 
+  FAIL keyboard-space-review: 
+  FAIL keyboard-enter-place-order: 
+  FAIL keyboard-confirmation: 0
+error-recovery-gate: FAIL
+  FAIL empty-submit-actionable-summary: 
+  FAIL empty-submit-invalid-fields: 0
+  FAIL useful-error-focus: BODY
+  FAIL invalid-submit-summary: 
+  FAIL preserve-valid-safe-value: 
+  FAIL correction-and-resubmission-entry: 
+  FAIL corrected-resubmission-confirmation: 0
+mobile-touch-gate: FAIL
+  FAIL no-page-horizontal-overflow: 320x568: {'width': 320, 'scrollWidth': 908, 'height': 568, 'bodyScrollWidth': 900}
+  FAIL required-element-present: checkout-root at 320x568
+  FAIL required-element-present: synthetic-banner at 320x568
+  FAIL required-element-present: cart at 320x568
+  FAIL required-element-present: contact-section at 320x568
+  FAIL required-element-present: address-section at 320x568
+  FAIL required-element-present: shipping-section at 320x568
+  FAIL required-element-present: payment-section at 320x568
+  FAIL required-element-present: review-section at 320x568
+  FAIL required-element-present: place-order at 320x568
+  FAIL no-page-horizontal-overflow: 360x800: {'width': 360, 'scrollWidth': 908, 'height': 800, 'bodyScrollWidth': 900}
+  FAIL required-element-present: checkout-root at 360x800
+  FAIL required-element-present: synthetic-banner at 360x800
+  FAIL required-element-present: cart at 360x800
+  FAIL required-element-present: contact-section at 360x800
+  FAIL required-element-present: address-section at 360x800
+  FAIL required-element-present: shipping-section at 360x800
+  FAIL required-element-present: payment-section at 360x800
+  FAIL required-element-present: review-section at 360x800
+  FAIL required-element-present: place-order at 360x800
+  FAIL no-page-horizontal-overflow: 390x844: {'width': 390, 'scrollWidth': 908, 'height': 844, 'bodyScrollWidth': 900}
+  FAIL required-element-present: checkout-root at 390x844
+  FAIL required-element-present: synthetic-banner at 390x844
+  FAIL required-element-present: cart at 390x844
+  FAIL required-element-present: contact-section at 390x844
+  FAIL required-element-present: address-section at 390x844
+  FAIL required-element-present: shipping-section at 390x844
+  FAIL required-element-present: payment-section at 390x844
+  FAIL required-element-present: review-section at 390x844
+  FAIL required-element-present: place-order at 390x844
+resilience-gate: FAIL
+  FAIL safe-state-restored-after-reload: 0
+  FAIL reduced-motion-completes-once: 0
+offline-safety-gate: FAIL
+  FAIL valid-local-fixture-entry: 
+  FAIL review-required-before-placement: 
+  FAIL busy-status-during-placement: []
+  FAIL deterministic-single-confirmation: 0
+  FAIL deterministic-confirmation-id: 
+  FAIL confirmation-visible-after-explicit-placement: 
+  FAIL repeated-place-order-does-not-duplicate: 0
+
+Failed gate IDs: content-fidelity, semantic-accessibility-gate, keyboard-completion-gate, error-recovery-gate, mobile-touch-gate, resilience-gate, offline-safety-gate
+Blocking failure: yes
+Non-gating task-efficiency metrics: {"activations": 0, "completion_interactions": 1, "corrections": 4, "focusable_controls_traversed": 0}
+Screenshots: final.png, initial.png, keyboard-completion.png, viewport-320x568.png, viewport-360x800.png, viewport-390x844.png

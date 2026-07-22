@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.1",
+  "experiment_id": "accessible-mobile-checkout",
+  "track_id": "single-page",
+  "loop_id": "single-page-loop-02",
+  "model_role": "generator-single-page",
+  "model_id": "gpt-5.6-sol",
+  "hypothesis": "Optional compact completed-section summaries and grouped error navigation reduce traversal and error-state load while native autofill, native radios, and shape-valid synthetic validation reduce interaction burden without leaving the single-page landmarked paradigm.",
+  "parent_ids": [
+    "single-page-loop-01"
+  ],
+  "interaction_paradigm": "A single-page landmarked form with all contact, delivery, shipping, synthetic payment, review, placement, and confirmation sections present, directly editable, and paired with a persistent order summary; optional compaction never creates wizard steps or independent task cards.",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "qualitative_lenses": [
+    "discoverability",
+    "navigation",
+    "input_burden",
+    "error_prevention_recovery",
+    "feedback_status",
+    "accessibility",
+    "responsive_touch_ergonomics",
+    "interruption_resumption",
+    "latency_perception",
+    "destructive_actions",
+    "cognitive_load"
+  ],
+  "qualitative_evaluation": {
+    "status": "pending_independent_judges",
+    "scores": [],
+    "note": "Qualitative use-friction remains non-objective. The generator made no new_best claim."
+  },
+  "input_feedback": {
+    "sidecar": "judging/loop-01/aggregate/loop-02-feedback.json",
+    "entry_id": "single-page-loop-01",
+    "accepted_improvement_instruction": "Within the single-page landmarked paradigm, reduce traversal and error-state load with compact completed-section summaries or optional progressive disclosure that keeps landmarks and direct editability; restore appropriate autocomplete tokens, use native radio inputs styled as cards without duplicate ARIA roles, and relax exact-fixture validation to shape-valid synthetic inputs while retaining clear fixture hints and all frozen invariants.",
+    "evidence": [
+      {
+        "attribution": "judge-accessibility defect",
+        "source": "judging/loop-01/judge-accessibility/candidate-b.json",
+        "verbatim": "At 390px, the complete one-page form and 13-item error state are cognitively and physically long; the user must manage many fields before review."
+      },
+      {
+        "attribution": "judge-human-use input burden finding",
+        "source": "judging/loop-01/judge-human-use/candidate-b.json",
+        "verbatim": "Validation is strict-fixture: state must equal 'NSW' (case-sensitive), country must equal 'australia' (lowercased); card number must equal '4111111111111111'; expiry must equal '12/34'; CSC must equal '123'; cardholder must equal 'alex morgan'. Any real-world variation is rejected. All inputs also have autocomplete='off', which disables browser autofill / password-manager assistance — a documented accessibility anti-pattern for motor-constrained and cognitively-impaired users. The 'Synthetic value:' helper text and fixture-card do mitigate for sighted users who read them, but the underlying interaction burden is high. Evidence: candidate-b/app.js fieldRules + errorMessages, candidate-b/index.html autocomplete='off' on every input."
+      },
+      {
+        "attribution": "judge-human-use accessibility finding",
+        "source": "judging/loop-01/judge-human-use/candidate-b.json",
+        "verbatim": "Solid landmark tree (header/nav/main/aside/footer), fieldset+legend per section, aria-describedby chained, error summary role='alert' with tabindex=-1 that receives focus after invalid submit. Concerns: (a) Shipping uses a double-radio anti-pattern — <label class='choice-card' role='radio' aria-checked> wrapping a real <input type='radio' aria-hidden='true'> — screen-reader users may hear the group twice or miss state updates because aria-checked is set only via the keydown handler, not by the input's own change; (b) autocomplete='off' on every field is an anti-pattern for AT-assisted form filling; (c) no visible skip-link even though the section-nav helps sighted keyboard users. Evidence: candidate-b/index.html lines 171–184; candidate-b/app.js keydown handler on shipping-* elements."
+      },
+      {
+        "attribution": "judge-human-use cognitive load finding",
+        "source": "judging/loop-01/judge-human-use/candidate-b.json",
+        "verbatim": "All five sections are on one continuously scrolled page. Nav pills help orientation, but ~20 required fields plus fixture cards plus a review block are visible at once, which is heavy on a small viewport. The exact-match validation adds hidden rules ('why won't it accept 4111-1111-1111-1111 with dashes?') that a real cross-disability user must reason through. The review block is helpful but reprints only aggregate values rather than every field verbatim, so users must scroll back to correct."
+      }
+    ],
+    "raw_judge_files": [
+      "judging/loop-01/judge-accessibility/candidate-b.json",
+      "judging/loop-01/judge-human-use/candidate-b.json"
+    ]
+  },
+  "commands": {
+    "build": "Copied Loop 01 index.html, styles.css, and app.js, then edited only Loop 02 and Track metadata.",
+    "objective": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-single-page\\loop-02 --out .experiments\\accessible-mobile-checkout\\generated\\track-single-page\\loop-02\\evidence",
+    "supplemental": "Local Playwright assertions written to loop-02/evidence/improvement-checks.json; no network, dependency, or harness change.",
+    "judge": "Not run; Loop 02 independent qualitative judges are pending."
+  },
+  "objective_attempts": [
+    {
+      "attempt": 1,
+      "exit_code": 1,
+      "evidence_path": "evidence-attempt-01-failed",
+      "preserved": true,
+      "failed_gate_ids": [
+        "error-recovery-gate"
+      ]
+    },
+    {
+      "attempt": 2,
+      "exit_code": 0,
+      "evidence_path": "evidence",
+      "preserved": true,
+      "failed_gate_ids": []
+    }
+  ],
+  "objective_result": {
+    "status": "pass",
+    "blocking_failure": false,
+    "gate_states": {
+      "content-fidelity": "pass",
+      "semantic-accessibility-gate": "pass",
+      "keyboard-completion-gate": "pass",
+      "error-recovery-gate": "pass",
+      "mobile-touch-gate": "pass",
+      "resilience-gate": "pass",
+      "offline-safety-gate": "pass"
+    },
+    "metrics": {
+      "activations": 20,
+      "completion_interactions": 1,
+      "corrections": 4,
+      "focusable_controls_traversed": 25
+    },
+    "parent_metrics": {
+      "focusable_controls_traversed": 25,
+      "activations": 13,
+      "corrections": 4,
+      "completion_interactions": 1
+    },
+    "metrics_delta": {
+      "focusable_controls_traversed": 0,
+      "activations": 7,
+      "corrections": 0,
+      "completion_interactions": 0
+    },
+    "metrics_treatment": "Non-gating context only; neither lower nor higher counts override qualitative evidence."
+  },
+  "supplemental_improvement_checks": {
+    "status": "pass",
+    "path": "evidence/improvement-checks.json",
+    "sha256": "c27a869898924b7d12fb7986b5a3c72133e65a9cf7c5647fa34e947cb4872b45",
+    "objective_gate": false
+  },
+  "frozen_hashes": {
+    "experiment_brief_sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13",
+    "setup_prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928",
+    "canonical_fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+    "candidate_contract_sha256": "fcf55afd09246768a94b4394aa79ff35068cb371fa4ebe3a27dea154a0124304",
+    "run_checkout_gates_sha256": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563"
+  },
+  "artifact_hashes": {
+    "index.html": "a98b22c01b82253d12c727545f4f428c6b1ca29fb285f317f2cf79877fdd777b",
+    "styles.css": "16143f7d463306250f14396c41c43f60066841e9978fe6c66c41a1bcb701e90d",
+    "app.js": "1b8de8005067c91c697eb2ced16c6c046cd9f9460e346bd20978549a703c35e1",
+    "prompt-history.md": "8502dee356bc19b83ffdef848aca68c269f4a6d56edaff504670ff83d350322b",
+    "evidence/objective-report.json": "54b222c8c9a0e1faa0e7c505f4d1653066f1d6c37fce9bd06706a6a1bff40897",
+    "evidence-attempt-01-failed/objective-report.json": "3fcd096974c0ee20719543202086240b1edba0ae5328ff2382ec0e7f44966dbd"
+  },
+  "changed_files": [
+    "loop-02/index.html",
+    "loop-02/styles.css",
+    "loop-02/app.js",
+    "loop-02/metadata.json",
+    "loop-02/prompt-history.md",
+    "loop-02/self-observation.md",
+    "loop-02/status.json",
+    "loop-02/evidence/**",
+    "loop-02/evidence-attempt-01-failed/**",
+    "manifest-fragment.json"
+  ],
+  "lesson": {
+    "trigger": "Independent feedback tied long traversal, a 13-item error panorama, blanket autocomplete suppression, duplicate radio semantics, and exact-fixture rejection to avoidable cross-disability burden.",
+    "action": "Keep all landmarks and direct editing, but make completed-section compaction optional, group the summary by affected section with full details on demand, use native controls/autocomplete, and validate synthetic input shape rather than exact identity.",
+    "evidence": "The frozen harness passes all seven gates; supplemental local checks pass all five requested-change assertions, including a successful noncanonical shape-valid synthetic completion and native arrow-key radio update.",
+    "confidence": "high"
+  },
+  "decision": "needs_human_review",
+  "stop_reason": "Exactly one authorized improvement Loop completed. All objective gates pass, but Loop 02 qualitative judging was not authorized and remains pending, so no new_best promotion is claimed."
+}

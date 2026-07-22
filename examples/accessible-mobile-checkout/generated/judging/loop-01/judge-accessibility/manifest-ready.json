@@ -1,0 +1,468 @@
+{
+  "judge_id": "judge-accessibility",
+  "model": "gpt-5.6-terra",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "objective_reports": "All three pass; this raw qualitative record cannot override them.",
+  "records": [
+    {
+      "candidate": "candidate-a",
+      "model": "gpt-5.6-terra",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 3.55,
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+      ],
+      "lens_findings": {
+        "discoverability": {
+          "score": 4,
+          "finding": "Numbered card headings, Complete/Incomplete states, and always-present review identify the work, though four open cards dilute the first task.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "navigation": {
+          "score": 4,
+          "finding": "Keyboard-operated edit buttons moved focus to Contact, Address, Shipping, and Payment; all sections remained directly reachable.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "input_burden": {
+          "score": 3,
+          "finding": "The required data are not duplicated, but all inputs are exposed in one long mobile traversal.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "error_prevention_recovery": {
+          "score": 4,
+          "finding": "Empty submission produced a focused visible summary and retained filled values; linked correction path was operable.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "feedback_status": {
+          "score": 3,
+          "finding": "Visual card completion state is useful, but feedback is less prominent between task changes than in the wizard.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "accessibility": {
+          "score": 4,
+          "finding": "Keyboard shipping and review edits worked; accepted objective report passes, with visible focus and errors evident in screenshots.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "responsive_touch_ergonomics": {
+          "score": 3,
+          "finding": "No horizontal overflow at 320/360/390, but dense cards, compact radio rows, and very long scroll reduce mobile comfort.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "interruption_resumption": {
+          "score": 4,
+          "finding": "All safe values restored and card number/expiry/security code cleared after reload.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "latency_perception": {
+          "score": 3,
+          "finding": "Processing feedback completes safely, but the visual busy treatment is modest.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "destructive_actions": {
+          "score": 4,
+          "finding": "Review confirmation and duplicate-safe order placement reduce accidental finalisation; repeated activation yielded one confirmation.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        },
+        "cognitive_load": {
+          "score": 3,
+          "finding": "Clear card grouping helps, but simultaneous exposure of every task and heavy outlines create scanning load.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ]
+        }
+      },
+      "visual-information-clarity": {
+        "score": 3,
+        "kind": "qualitative_rubric",
+        "objective_gate": false,
+        "evidence_refs": [
+          "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+        ]
+      },
+      "next_loop_feedback": "Preserve independently editable cards, but collapse completed card details or add a concise review/status rail so mobile users do not repeatedly traverse the full form."
+    },
+    {
+      "candidate": "candidate-b",
+      "model": "gpt-5.6-terra",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 4.18,
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ],
+      "lens_findings": {
+        "discoverability": {
+          "score": 5,
+          "finding": "The opening title, section links, numbered headings, persistent summary, synthetic-value help, and explicit final review make requirements immediately findable.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "navigation": {
+          "score": 4,
+          "finding": "Every section link changed the hash in keyboard use and review edit controls focused the intended section; the long one-page return trip remains a cost.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "input_burden": {
+          "score": 3,
+          "finding": "Exact required fields and helpful formats avoid ambiguity, but all contact, address, payment, and review work are exposed in one extended pass.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "error_prevention_recovery": {
+          "score": 5,
+          "finding": "Empty submission focused the summary and rendered 13 linked, field-associated corrections while preserving all entries.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "feedback_status": {
+          "score": 4,
+          "finding": "Safe-progress restoration, error count, placing status, and single confirmation were explicit; the brief busy state is still sparse visually.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "accessibility": {
+          "score": 4,
+          "finding": "Space selected shipping, Enter placed the order, focus recovery worked, reduced-motion ran, and no runtime errors occurred; custom radio styling warrants caution.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "responsive_touch_ergonomics": {
+          "score": 4,
+          "finding": "All tested widths had no horizontal overflow and controls remained legible, although five compact section links and the full-page length constrain comfort.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "interruption_resumption": {
+          "score": 5,
+          "finding": "Reload restored every safe value and cleared every tested payment secret with an explicit restoration message.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "latency_perception": {
+          "score": 4,
+          "finding": "The busy state was observed on keyboard placement and repeat activation was safely prevented before a deterministic local confirmation.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "destructive_actions": {
+          "score": 5,
+          "finding": "Edit controls preserved data and repeated Place order yielded exactly one SYN-2048 confirmation.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        },
+        "cognitive_load": {
+          "score": 3,
+          "finding": "Strong hierarchy and help reduce ambiguity, but the full 13-item error panorama and long single page retain substantial working-memory demand.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ]
+        }
+      },
+      "visual-information-clarity": {
+        "score": 5,
+        "kind": "qualitative_rubric",
+        "objective_gate": false,
+        "evidence_refs": [
+          "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+        ]
+      },
+      "next_loop_feedback": "Keep the clear single-page landmarks and recovery pattern, but reduce the initial traversal burden with optional progressive disclosure or a compact completed-section summary."
+    },
+    {
+      "candidate": "candidate-c",
+      "model": "gpt-5.6-terra",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 4.27,
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+      ],
+      "lens_findings": {
+        "discoverability": {
+          "score": 5,
+          "finding": "Step 1 of 4 progress, clear Continue labels, persistent summary, save/resume controls, and review edits clearly expose the journey.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "navigation": {
+          "score": 5,
+          "finding": "Skip link, Back, Continue, and all four review Edit controls operated by keyboard and directed focus to the intended target.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "input_burden": {
+          "score": 3,
+          "finding": "Progressive disclosure limits simultaneous choices but does not reduce the required contact, address, payment, and review inputs.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "error_prevention_recovery": {
+          "score": 4,
+          "finding": "Invalid placement exposed a summary and focused Contact, but empty Continue actions advanced through three steps rather than preventing the premature move.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "feedback_status": {
+          "score": 5,
+          "finding": "Progress text, step-complete feedback, save and resume messages, busy status, and confirmation provide clear, timely state changes.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "accessibility": {
+          "score": 4,
+          "finding": "Keyboard actions, focus movement, skip link, reduced-motion operation, and accepted objective pass evidence were strong; hidden-step complexity remains a qualitative caveat.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "responsive_touch_ergonomics": {
+          "score": 4,
+          "finding": "No horizontal overflow at all tested viewports; full-width Continue controls and readable cards support touch, while small utility links are less forgiving.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "interruption_resumption": {
+          "score": 5,
+          "finding": "Save, clear, reload, and resumed-progress messages were actually operated; safe values restored and payment secrets cleared.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "latency_perception": {
+          "score": 4,
+          "finding": "Busy feedback appeared during local placement and repeat activation still produced only one confirmation.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "destructive_actions": {
+          "score": 3,
+          "finding": "Order placement is explicit and duplicate-safe, but Clear saved progress immediately reloads without undo or confirmation.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        },
+        "cognitive_load": {
+          "score": 5,
+          "finding": "One active task, explicit progress, and a concise review lower memory demand more effectively than the fully exposed alternatives.",
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ]
+        }
+      },
+      "visual-information-clarity": {
+        "score": 4,
+        "kind": "qualitative_rubric",
+        "objective_gate": false,
+        "evidence_refs": [
+          "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+          "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+        ]
+      },
+      "next_loop_feedback": "Validate and retain focus in the active step before revealing the next one, and add an undo/confirmation affordance to Clear saved progress without weakening resumability."
+    }
+  ],
+  "no_other_judge_notes_read": true
+}

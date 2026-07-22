@@ -1,0 +1,181 @@
+{
+  "experiment_id": "accessible-mobile-checkout",
+  "judge_orders": {
+    "judge-accessibility": [
+      "candidate-a",
+      "candidate-b",
+      "candidate-c"
+    ],
+    "judge-human-use": [
+      "candidate-c",
+      "candidate-b",
+      "candidate-a"
+    ]
+  },
+  "judge_terminal_status": {
+    "judge-accessibility": "judging/final/judge-accessibility/status.json",
+    "judge-human-use": "judging/final/judge-human-use/status.json"
+  },
+  "mapping_fixed_before_judging": true,
+  "mappings": [
+    {
+      "artifacts": [
+        {
+          "path": "judging/final/blind/candidate-a/index.html",
+          "sha256": "86f764a53de8785abbfa64f05834c28a6ef5f760514c67429ba72f847662d8a3"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/styles.css",
+          "sha256": "e945d2949741ce0e7a822a537c04bd6c95a6c4ed2bf5ebdbddd4295b047ebaa7"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/app.js",
+          "sha256": "64e78814110ae9acf8c0de9d20b041f77058d2a504043558296d2efc4db5394e"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/evidence/objective-report.json",
+          "sha256": "87b77336064e99510843d313300b784c9710ce86bdd55db668860c9fdfc16c06"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/evidence/objective-report.txt",
+          "sha256": "799bc7fb67575599e90d8296d0613ed32ca21d34f1f2284553d099eef280bd65"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/evidence/initial.png",
+          "sha256": "cdb3449487d0a1ba5afc67b9efc97212ba35523bff00cdd0831f279ac2e717d4"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/evidence/keyboard-completion.png",
+          "sha256": "2cb9e887b223df35487ef85424b369742893d5edfdb5b2a64d5d259aa2523584"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/evidence/final.png",
+          "sha256": "2cb9e887b223df35487ef85424b369742893d5edfdb5b2a64d5d259aa2523584"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/evidence/viewport-320x568.png",
+          "sha256": "2baf0713304922286e9ad195636532ada6bcf4ccdeb93509c76edd32b41e6bc0"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/evidence/viewport-360x800.png",
+          "sha256": "c93b59879098580a8b2daed900bfcffaea2ac5697473ea619832f690c54a11f6"
+        },
+        {
+          "path": "judging/final/blind/candidate-a/evidence/viewport-390x844.png",
+          "sha256": "678a46956a4e8986be67f0a667f7c58cb1896028ce778e3cde05dbba4f493ec2"
+        }
+      ],
+      "iteration_id": "synthesis-loop-02",
+      "label": "candidate-a"
+    },
+    {
+      "artifacts": [
+        {
+          "path": "judging/final/blind/candidate-b/index.html",
+          "sha256": "0b94c3e512ec293dc1a8c9a013ddd4408f698e7d97bfa3ce66e052546f97a37e"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/styles.css",
+          "sha256": "9e1dfcf492fb28a358d4720cc3e5a7c0a18a625e17fcb549cdb94307f32b850d"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/app.js",
+          "sha256": "9bbe3f43035a2f88cf749c0299f4ac6275a97f9420694aa4c5d9646697d22ef1"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/evidence/objective-report.json",
+          "sha256": "512eb60c830cc663a66061b2fbe128c5679adc5bb75a41f69b63bbd70f4f8cc8"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/evidence/objective-report.txt",
+          "sha256": "2246f845be24decb6ca2ec174692d2aef734a3487638e716cf605ea64213c7ae"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/evidence/initial.png",
+          "sha256": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/evidence/keyboard-completion.png",
+          "sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/evidence/final.png",
+          "sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/evidence/viewport-320x568.png",
+          "sha256": "ef0891c83646f03c553dcc0781db18460625150b6d7b408b4a525adec92d6313"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/evidence/viewport-360x800.png",
+          "sha256": "0bd146688840a43ba8bfce1bc1876ec687dc0d6a28efd484f6854f7bfc9b362c"
+        },
+        {
+          "path": "judging/final/blind/candidate-b/evidence/viewport-390x844.png",
+          "sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b"
+        }
+      ],
+      "iteration_id": "synthesis-loop-01",
+      "label": "candidate-b"
+    },
+    {
+      "artifacts": [
+        {
+          "path": "judging/final/blind/candidate-c/index.html",
+          "sha256": "a98b22c01b82253d12c727545f4f428c6b1ca29fb285f317f2cf79877fdd777b"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/styles.css",
+          "sha256": "16143f7d463306250f14396c41c43f60066841e9978fe6c66c41a1bcb701e90d"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/app.js",
+          "sha256": "1b8de8005067c91c697eb2ced16c6c046cd9f9460e346bd20978549a703c35e1"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/evidence/objective-report.json",
+          "sha256": "54b222c8c9a0e1faa0e7c505f4d1653066f1d6c37fce9bd06706a6a1bff40897"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/evidence/objective-report.txt",
+          "sha256": "2d7944a0e7e165fcd13b82d18281bfe84764b103dbd669698384f09a8a99b0ca"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/evidence/initial.png",
+          "sha256": "ab1cf8f2586c6f48ca08e87f3d540facf1357af44f183ba6d98ff509fa43d095"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/evidence/keyboard-completion.png",
+          "sha256": "cba4130748e0d306a16565d1156a6f7350c077305c5e7f691e90b26530fbcd66"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/evidence/final.png",
+          "sha256": "cba4130748e0d306a16565d1156a6f7350c077305c5e7f691e90b26530fbcd66"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/evidence/viewport-320x568.png",
+          "sha256": "73ad08d7a73e999786b94c6433448afc9877d52fa788d2e76d6a4395b09a4fee"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/evidence/viewport-360x800.png",
+          "sha256": "6f090174d20060ff5f1dc4a13a967121c1254152615b4bcbdd87183dc895ae3b"
+        },
+        {
+          "path": "judging/final/blind/candidate-c/evidence/viewport-390x844.png",
+          "sha256": "cba4130748e0d306a16565d1156a6f7350c077305c5e7f691e90b26530fbcd66"
+        }
+      ],
+      "iteration_id": "single-page-loop-02",
+      "label": "candidate-c"
+    }
+  ],
+  "required_pairwise": {
+    "champion_candidate_vs_strongest_parent": [
+      "candidate-a",
+      "candidate-c"
+    ],
+    "order_flipped_between_judges": true
+  },
+  "schema_version": "1.0",
+  "visibility": "revealed after both final judges reached terminal state"
+}

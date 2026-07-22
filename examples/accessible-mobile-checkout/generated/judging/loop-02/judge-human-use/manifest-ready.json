@@ -1,0 +1,205 @@
+{
+  "schema_version": "1.0",
+  "loop": "loop-02",
+  "kind": "raw_manifest_ready_qualitative_records",
+  "note": "One raw Manifest-ready record per blinded candidate. Each carries all 11 required lens_findings plus a separate visual-information-clarity score and synthesis feedback. This judge does not aggregate, does not choose a Champion, and does not modify Loop decisions.",
+  "records": [
+    {
+      "candidate": "candidate-c",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 3.0,
+      "actual_model_used": "claude-opus-4.7",
+      "evidence_refs": [
+        "judging/blind-loop-02/candidate-c/index.html",
+        "judging/blind-loop-02/candidate-c/app.js",
+        "judging/blind-loop-02/candidate-c/evidence/objective-report.json",
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/review-state.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/post-reload.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/reduced-motion.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/keyboard-focus-tour.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+      ],
+      "lens_findings": {
+        "discoverability": {"score": 3, "finding": "Numbered accordion headers with Incomplete/Complete badges provide structure. No skip link, no <nav>, no progress indicator, no synthetic-value preload for the fictional card."},
+        "navigation": {"score": 3, "finding": "Keyboard tour of 25 focusables is logically ordered; accordion aria-expanded/aria-controls are correct. But no skip link and no <nav>."},
+        "input_burden": {"score": 3, "finding": "Fields labelled with persistent help; Continue-per-card advances. No inline preload of fictional card / expiry / CVV values."},
+        "error_prevention_recovery": {"score": 3, "finding": "Empty submit surfaces role=alert error summary listing every missing field and focuses the alert. Flat 12-row list, generic 'Please enter a value' copy, no section grouping, no jump-to-field links."},
+        "feedback_status": {"score": 2, "finding": "aria-live=polite status and card-status badges update correctly, but the review checkbox silently unchecks on any non-checkbox input change with no announcement — hidden failure mode."},
+        "accessibility": {"score": 3, "finding": "Correct labels, aria-describedby, role=alert, aria-expanded/aria-controls, very strong 4px solid-black focus outline. Missing skip link and landmark diversity."},
+        "responsive_touch_ergonomics": {"score": 4, "finding": "No overflow at 320/360/390; large tap targets; objective 24x24 gate passes."},
+        "interruption_resumption": {"score": 4, "finding": "localStorage restores contact/address/shipping; card fields excluded and absent from storage after reload."},
+        "latency_perception": {"score": 3, "finding": "aria-busy toggled and 'Processing your order...' announced on submit path, but my run stayed blocked with 'errors in the form' while every card badge read Complete, indicating a fragile completion signal."},
+        "destructive_actions": {"score": 3, "finding": "placementStarted flag + disabled button; required review checkbox; per-section Edit buttons. Silent review-reset is destructive-safe but confusing; no explicit clear-progress action."},
+        "cognitive_load": {"score": 2, "finding": "Accordion-only pattern, 12-row generic error dump, no synthetic-value hints for payment, hidden review-reset state — highest cognitive load of the three."}
+      },
+      "visual_information_clarity": {
+        "score": 3,
+        "finding": "Stark black-outlined boxes with strong contrast but no color-coded state, no top-of-page progress, and no preloaded synthetic hints. Functional but visually minimal."
+      },
+      "strengths": [
+        "Very strong 4px solid-black focus outline",
+        "Correct accordion aria-expanded/aria-controls semantics",
+        "Complete per-field missing-value listing in error summary",
+        "Card fields excluded from storage after reload",
+        "No horizontal overflow at any frozen viewport"
+      ],
+      "defects": [
+        "No skip link and no <nav>/<header> landmarks",
+        "Silent review-checkbox reset on every non-checkbox input change with no live-region announcement",
+        "Flat 12-row error summary without section grouping or preserved-values reassurance",
+        "No preloaded synthetic card / expiry / CVV hints",
+        "Place order can reject with 'errors in the form' while every section badge reads Complete"
+      ],
+      "synthesis_feedback": {
+        "action": "reject_pattern",
+        "adopt": ["4px solid-black focus outline as a fallback"],
+        "reject": ["silent review-checkbox reset on non-checkbox input", "flat generic error summary", "accordion-only structure without progress indicator"],
+        "rationale": "The submission-gating state machine is fragile enough to leave users in an unrecoverable 'errors in the form' state without pointing at the failing field. Do not carry this pattern into the Champion."
+      }
+    },
+    {
+      "candidate": "candidate-b",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 4.09,
+      "actual_model_used": "claude-opus-4.7",
+      "evidence_refs": [
+        "judging/blind-loop-02/candidate-b/index.html",
+        "judging/blind-loop-02/candidate-b/app.js",
+        "judging/blind-loop-02/candidate-b/evidence/objective-report.json",
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/empty-submit.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/review-state.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/confirmation.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/post-reload.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/reduced-motion.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/keyboard-focus-tour.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+      ],
+      "lens_findings": {
+        "discoverability": {"score": 4, "finding": "Skip link + role=progressbar with aria-valuetext 'Step 1 of 4: Contact details' + four-chip step list + persistent order summary + Save/Clear-saved-progress affordances."},
+        "navigation": {"score": 4, "finding": "Skip link -> #wizard-form; Continue-to-delivery/payment/review advance cleanly; step-1 keyboard tour clean. Only <main> landmark; shipping fieldset lives inside the aside."},
+        "input_burden": {"score": 4, "finding": "Wizard chunking (3 fields + Continue); friendly per-field help; autocomplete tokens. No preloaded fictional card values."},
+        "error_prevention_recovery": {"score": 3, "finding": "Per-step validation catches errors early; role=alert summary exists but its whole-form empty-submit behaviour was not directly captured in this run."},
+        "feedback_status": {"score": 5, "finding": "role=status announces 'Order placed. Confirmation SYN-2048.' plus a full named-greeting confirmation card; role=progressbar aria-valuetext step announcement; strongest programmatic status of the three."},
+        "accessibility": {"score": 4, "finding": "Skip link, role=progressbar, role=status, role=alert, fieldset/legend, aria-describedby, aria-expanded on toggles, 3px focus outline. Only <main> landmark."},
+        "responsive_touch_ergonomics": {"score": 4, "finding": "No overflow at 320/360/390; large full-width buttons; wide radio rows; 24x24 gate passes."},
+        "interruption_resumption": {"score": 4, "finding": "northstar-wizard-checkout-v1 persists non-sensitive state + currentStep; card fields absent from storage; explicit 'Payment details are never saved' copy."},
+        "latency_perception": {"score": 4, "finding": "Immediate status announcement on Place order; one SYN-2048 rendered despite duplicate click; local simulation completed too quickly to observe aria-busy interstitial."},
+        "destructive_actions": {"score": 5, "finding": "Explicit two-step Clear-saved-progress dialog with plain-language explanation; Save-progress separate; Place order hidden until step 4; review checkbox required. Strongest of the three."},
+        "cognitive_load": {"score": 4, "finding": "Wizard chunking + friendly copy + progress indicator + persistent order summary. Weakness: shipping fieldset lives inside <aside>."}
+      },
+      "visual_information_clarity": {
+        "score": 4,
+        "finding": "Clean wizard chips, prominent dark-green primary button, distinct beige synthetic banner, grouped order summary. Focus indicators visible."
+      },
+      "strengths": [
+        "role=progressbar with descriptive aria-valuetext for authoritative step announcements",
+        "Save-progress + Clear-saved-progress with two-step confirmation dialog (strongest destructive-actions pattern)",
+        "Full SYN-2048 confirmation with named greeting",
+        "Wizard chunking structurally blocks premature Place order",
+        "Payment data absent from storage; explicit copy reassures users"
+      ],
+      "defects": [
+        "Only <main> landmark; shipping radios in <aside>",
+        "No preloaded synthetic card / expiry / CVV values",
+        "Skip link target is #wizard-form rather than first step heading",
+        "Whole-form error-summary state hard to observe because Place order is hidden until step 4"
+      ],
+      "synthesis_feedback": {
+        "action": "adopt_selective",
+        "adopt": [
+          "skip link + role=progressbar with aria-valuetext step announcement",
+          "Save-progress + Clear-saved-progress with two-step confirm dialog",
+          "friendly synthetic-context copy",
+          "named-greeting confirmation card"
+        ],
+        "reject": ["shipping fieldset inside order-summary <aside>"],
+        "rationale": "Bring B's progress announcement and destructive-actions dialog patterns into the Champion; do not mix cart chrome with input decisions; add landmark diversity when merging."
+      }
+    },
+    {
+      "candidate": "candidate-a",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 4.91,
+      "actual_model_used": "claude-opus-4.7",
+      "evidence_refs": [
+        "judging/blind-loop-02/candidate-a/index.html",
+        "judging/blind-loop-02/candidate-a/app.js",
+        "judging/blind-loop-02/candidate-a/evidence/objective-report.json",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/review-state.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/confirmation.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/post-reload.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/reduced-motion.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/keyboard-focus-tour.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+      ],
+      "lens_findings": {
+        "discoverability": {"score": 5, "finding": "<nav aria-label='Checkout sections'> anchor nav + skip link + kicker + 'All five sections are on this page' + numbered step badges + persistent order summary + 'Compact completed sections' toggle."},
+        "navigation": {"score": 5, "finding": "Three landmarks (main + nav + header); clean 25-focusable keyboard tour; Edit-per-section; anchor nav; double-ring focus outline."},
+        "input_burden": {"score": 5, "finding": "Inline 'Synthetic value:' hint per field; dedicated 'Fictional card to use' hint box; zero Continue clicks; autocomplete tokens."},
+        "error_prevention_recovery": {"score": 5, "finding": "'Check 13 items in 4 sections' summary with per-section counts, 'Your entries are preserved' reassurance, 'Show all 13 corrections' progressive disclosure, per-field friendly copy, focus onto #error-summary."},
+        "feedback_status": {"score": 5, "finding": "role=status announces 'Synthetic order placed once. Confirmation ID SYN-2048.' — 'once' explicitly conveys atomicity. Full confirmation card. Section state chips update inline."},
+        "accessibility": {"score": 5, "finding": "Full landmark set + skip link + role=alert aria-live=assertive + role=status aria-live=polite aria-atomic + aria-describedby + autocomplete + double-ring 4px focus outline."},
+        "responsive_touch_ergonomics": {"score": 5, "finding": "No overflow at 320/360/390; large targets; 24x24 gate passes; compact-completed toggle reduces vertical scroll."},
+        "interruption_resumption": {"score": 5, "finding": "northstar-safe-checkout persists non-sensitive fields + shipping; card fields absent from storage (no '4111' substring); explicit 'Payment details are cleared on reload and never saved' copy."},
+        "latency_perception": {"score": 4, "finding": "Status announces atomicity; duplicate submit blocked at DOM level (button removed). Small deduction — no directly-observed aria-busy interstitial."},
+        "destructive_actions": {"score": 5, "finding": "Place order button removed from the DOM after successful submit — strongest possible duplicate-submit block. Review checkbox with explicit rationale. Edit-per-section preserves data."},
+        "cognitive_load": {"score": 5, "finding": "Preloaded synthetic hints, compact-completed toggle, section badges, persistent totals, plain-language repeated fictional-context messaging."}
+      },
+      "visual_information_clarity": {
+        "score": 5,
+        "finding": "Coherent palette, numbered step circles, section state chips, distinct fictional-card hint box, prominent grand total, generous whitespace, hierarchical typography, dedicated Review section with per-section Edit affordances."
+      },
+      "strengths": [
+        "Full landmark set (main + nav + header) plus skip link",
+        "Preloaded synthetic-value hints on every field and a dedicated 'Fictional card to use' box",
+        "Error summary with per-section counts and preserved-values reassurance",
+        "Duplicate submit blocked at the DOM level",
+        "Optional 'Compact completed sections' progressive disclosure toggle",
+        "'Synthetic order placed once' status copy explicitly conveys atomicity",
+        "Double-ring 4px amber + 2px dark focus outline"
+      ],
+      "defects": [
+        "Removing Place order from the DOM after submit is a bold pattern users may not expect (small deduction on latency_perception)",
+        "Payment hint box literally shows the fictional card number on-screen — appropriate here but should not migrate outside a synthetic-demo"
+      ],
+      "synthesis_feedback": {
+        "action": "adopt_as_primary_template",
+        "adopt": [
+          "landmark trio + skip link",
+          "one-page anchor nav + Edit-per-section",
+          "inline synthetic-value hints + fictional-card hint box",
+          "error summary with per-section counts + preserved-values reassurance",
+          "DOM-level duplicate-submit blocking",
+          "compact-completed progressive disclosure",
+          "'placed once' atomicity status copy",
+          "double-ring focus outline"
+        ],
+        "reject": [],
+        "rationale": "Strongest human-use vehicle for the Champion across every lens; use as the primary template and layer in B's progressbar announcement and Clear-saved-progress dialog."
+      }
+    }
+  ]
+}

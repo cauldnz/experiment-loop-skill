@@ -1,0 +1,711 @@
+(() => {
+  "use strict";
+
+  const form = document.querySelector("#checkout-form");
+  const status = document.querySelector('[data-hook="status"]');
+  const errorSummary = document.querySelector('[data-hook="error-summary"]');
+  const confirmation = document.querySelector('[data-hook="confirmation"]');
+  const confirmationContent = document.querySelector("#confirmation-content");
+  const placeOrder = document.querySelector('[data-hook="place-order"]');
+  const reviewConfirmation = document.querySelector('[data-hook="review-confirmation"]');
+  const compactCompleted = document.querySelector("#compact-completed");
+  const progress = document.querySelector('[data-hook="progress"]');
+  const placedBanner = document.querySelector('[data-hook="placed-banner"]');
+  const skipLink = document.querySelector(".skip-link");
+  const storageKey = "northstar-synthesis-checkout";
+  const PLACED_CONFIRMATION_ID = "SYN-2048";
+  let placementStarted = false;
+  let orderPlaced = false;
+  let restoredPlaced = false;
+  let shippingAcknowledged = false;
+  let compactUserSet = false;
+
+  const safeFields = [
+    "contact-name",
+    "contact-email",
+    "contact-phone",
+    "address-line1",
+    "address-city",
+    "address-state",
+    "address-postcode",
+    "address-country"
+  ];
+
+  const fieldRules = {
+    "contact-name": value => value.trim().length >= 2,
+    "contact-email": value => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()),
+    "contact-phone": value => /^\+?[\d\s()-]{8,}$/.test(value.trim()) && value.replace(/\D/g, "").length >= 8,
+    "address-line1": value => value.trim().length >= 3,
+    "address-city": value => value.trim().length >= 2,
+    "address-state": value => /^[A-Za-z][A-Za-z .'-]{1,29}$/.test(value.trim()),
+    "address-postcode": value => /^\d{4}$/.test(value.trim()),
+    "address-country": value => /^[A-Za-z][A-Za-z .'-]{1,39}$/.test(value.trim()),
+    "card-number": value => /^\d{16}$/.test(value.replace(/[\s-]/g, "")),
+    "card-expiry": value => /^(0[1-9]|1[0-2])\/\d{2}$/.test(value.trim()),
+    "card-security": value => /^\d{3,4}$/.test(value.trim()),
+    "card-name": value => value.trim().length >= 2
+  };
+
+  const errorMessages = {
+    "contact-name": "Enter a synthetic full name with at least 2 characters.",
+    "contact-email": "Enter a complete email address, such as alex.morgan@example.invalid.",
+    "contact-phone": "Enter the synthetic phone number with at least 8 digits.",
+    "address-line1": "Enter a synthetic street address with at least 3 characters.",
+    "address-city": "Enter a synthetic city or suburb with at least 2 characters.",
+    "address-state": "Enter a synthetic state or region, such as NSW.",
+    "address-postcode": "Enter the 4-digit synthetic postcode.",
+    "address-country": "Enter a synthetic country name, such as Australia.",
+    "card-number": "Enter 16 synthetic digits; spaces and hyphens are accepted.",
+    "card-expiry": "Enter a synthetic expiry in MM/YY format, such as 12/34.",
+    "card-security": "Enter a 3- or 4-digit synthetic security code, such as 123.",
+    "card-name": "Enter a synthetic name on card with at least 2 characters."
+  };
+
+  const sectionFields = {
+    contact: ["contact-name", "contact-email", "contact-phone"],
+    delivery: ["address-line1", "address-city", "address-state", "address-postcode", "address-country"],
+    shipping: [],
+    payment: ["card-number", "card-expiry", "card-security", "card-name"]
+  };
+
+  const progressOrder = ["contact", "delivery", "shipping", "payment", "review"];
+  const progressLabels = {
+    contact: "Contact",
+    delivery: "Delivery address",
+    shipping: "Shipping method",
+    payment: "Payment",
+    review: "Review"
+  };
+
+  const problemGroups = {
+    contact: { label: "Contact", fields: sectionFields.contact },
+    delivery: { label: "Delivery address", fields: sectionFields.delivery },
+    payment: { label: "Synthetic payment", fields: sectionFields.payment },
+    review: { label: "Review", fields: ["review-confirmation"] }
+  };
+
+  function fieldFor(name) {
+    return document.querySelector(`[data-hook="${name}"]`);
+  }
+
+  function setStatus(message) {
+    status.textContent = message;
+  }
+
+  function readSafeState() {
+    try {
+      const value = localStorage.getItem(storageKey);
+      return value ? JSON.parse(value) : null;
+    } catch {
+      return null;
+    }
+  }
+
+  function persistSafeState(announce, patch) {
+    const previous = readSafeState() || {};
+    const fields = {};
+    safeFields.forEach(name => {
+      fields[name] = fieldFor(name).value;
+    });
+    const shipping = form.elements.shipping.value || "standard";
+    // Only non-sensitive values are ever written; payment fields are never stored.
+    const state = { fields, shipping };
+    if (typeof previous.compact === "boolean") {
+      state.compact = previous.compact;
+    }
+    if (previous.shippingAcknowledged || shippingAcknowledged) {
+      state.shippingAcknowledged = true;
+    }
+    if (previous.placed) {
+      state.placed = true;
+      state.confirmationId = previous.confirmationId || PLACED_CONFIRMATION_ID;
+    }
+    if (patch) {
+      Object.assign(state, patch);
+      if (patch.placed === false) {
+        delete state.placed;
+        delete state.confirmationId;
+      }
+    }
+    try {
+      localStorage.setItem(storageKey, JSON.stringify(state));
+      if (announce) {
+        setStatus("Safe contact, delivery and shipping progress saved on this device. Payment details are never saved.");
+      }
+    } catch {
+      if (announce) {
+        setStatus("Progress could not be saved. You can still complete this local demonstration.");
+      }
+    }
+  }
+
+  function saveSafeState() {
+    persistSafeState(false);
+  }
+
+  function restoreSafeState() {
+    const saved = readSafeState();
+    if (!saved || !saved.fields) {
+      return;
+    }
+    safeFields.forEach(name => {
+      if (typeof saved.fields[name] === "string") {
+        fieldFor(name).value = saved.fields[name];
+      }
+    });
+    const shipping = form.querySelector(`input[name="shipping"][value="${saved.shipping}"]`);
+    if (shipping) {
+      shipping.checked = true;
+    }
+    if (saved.shippingAcknowledged) {
+      shippingAcknowledged = true;
+    }
+    // Feedback #2: default compact-completed ON when restoration records a completed
+    // section, but let a remembered explicit user preference win and be persisted.
+    const anyCompleted = ["contact", "delivery"].some(sectionIsComplete);
+    if (typeof saved.compact === "boolean") {
+      compactCompleted.checked = saved.compact;
+      compactUserSet = true;
+    } else if (anyCompleted) {
+      compactCompleted.checked = true;
+    }
+    const restoredValues = safeFields.some(name => (saved.fields[name] || "").trim() !== "");
+    if (restoredValues) {
+      setStatus("Safe progress restored. Re-enter synthetic payment details; they were not saved.");
+    }
+    // Feedback #4: a persisted non-sensitive placed flag keeps placement disabled
+    // after reload and announces the existing synthetic order.
+    if (saved.placed) {
+      applyPlacedState(saved.confirmationId || PLACED_CONFIRMATION_ID);
+    }
+  }
+
+  function applyPlacedState(confId) {
+    orderPlaced = true;
+    restoredPlaced = true;
+    placementStarted = false;
+    placeOrder.disabled = true;
+    placeOrder.setAttribute("aria-busy", "false");
+    if (!document.querySelector('[data-hook="confirmation-id"]')) {
+      confirmationContent.innerHTML = `<p>Confirmation ID <strong class="confirmation-id" data-hook="confirmation-id">${confId}</strong></p>`;
+    }
+    confirmation.hidden = false;
+    if (placedBanner) {
+      placedBanner.textContent = `This synthetic order was already placed as ${confId}.`;
+      placedBanner.hidden = false;
+    }
+    updateProgress(true);
+    setStatus(`This synthetic order was already placed as ${confId}. Place order stays disabled after reload until you start a new synthetic order.`);
+  }
+
+  function resetPlacedState() {
+    if (!restoredPlaced && !orderPlaced) {
+      return;
+    }
+    orderPlaced = false;
+    restoredPlaced = false;
+    placementStarted = false;
+    placeOrder.disabled = false;
+    placeOrder.setAttribute("aria-busy", "false");
+    if (placedBanner) {
+      placedBanner.hidden = true;
+      placedBanner.textContent = "";
+    }
+    confirmation.hidden = true;
+    confirmationContent.innerHTML = "";
+    persistSafeState(false, { placed: false });
+  }
+
+  function handleEditAfterPlacement() {
+    if (restoredPlaced) {
+      resetPlacedState();
+      setStatus("Starting a new synthetic order. Your earlier local confirmation was SYN-2048.");
+    }
+  }
+
+  function updateTotals() {
+    const express = form.elements.shipping.value === "express";
+    const shippingAmount = express ? "AUD 12.00" : "AUD 5.00";
+    const total = express ? "AUD 100.50" : "AUD 93.50";
+    document.querySelector("[data-shipping-total]").textContent = shippingAmount;
+    document.querySelector('[data-hook="total"]').textContent = total;
+    document.querySelector("[data-total-summary]").textContent = total;
+    document.querySelector("[data-review-total]").textContent = total;
+    document.querySelector("#review-shipping").textContent = express
+      ? "Express — 1 to 2 business days · AUD 12.00"
+      : "Standard — 3 to 5 business days · AUD 5.00";
+  }
+
+  function updateReview() {
+    const values = safeFields.map(name => fieldFor(name).value.trim());
+    const [name, email, phone, street, city, stateName, postcode, country] = values;
+    const review = document.querySelector("#review-contact");
+    if (values.every(Boolean)) {
+      review.textContent = `${name} · ${email} · ${phone} · ${street}, ${city} ${stateName} ${postcode}, ${country}`;
+    } else {
+      review.textContent = "Enter your synthetic contact and address above.";
+    }
+  }
+
+  function sectionIsComplete(id) {
+    if (id === "shipping") {
+      return Boolean(form.elements.shipping.value);
+    }
+    if (id === "review") {
+      return reviewConfirmation.checked;
+    }
+    return sectionFields[id].every(name => fieldRules[name](fieldFor(name).value));
+  }
+
+  function sectionIsStarted(id) {
+    if (id === "shipping") {
+      return true;
+    }
+    if (id === "review") {
+      return reviewConfirmation.checked;
+    }
+    return sectionFields[id].some(name => fieldFor(name).value.trim() !== "");
+  }
+
+  function sectionSummary(id) {
+    if (id === "contact") {
+      return `${fieldFor("contact-name").value.trim()} · ${fieldFor("contact-email").value.trim()}`;
+    }
+    if (id === "delivery") {
+      return `${fieldFor("address-city").value.trim()} ${fieldFor("address-state").value.trim()} ${fieldFor("address-postcode").value.trim()}`;
+    }
+    if (id === "shipping") {
+      return form.elements.shipping.value === "express"
+        ? "Express — 1 to 2 business days · AUD 12.00"
+        : "Standard — 3 to 5 business days · AUD 5.00";
+    }
+    return "Synthetic card details entered; ending digits are shown only at review.";
+  }
+
+  // Independently understandable per-section completion state (task-cards Loop 01 contribution).
+  function stateBadge(id) {
+    const section = document.querySelector(`#${id}`);
+    if (!section) {
+      return;
+    }
+    const badge = section.querySelector("[data-section-state]");
+    if (!badge) {
+      return;
+    }
+    const complete = sectionIsComplete(id);
+    const started = sectionIsStarted(id);
+    const compacted = section.dataset.compacted === "true";
+    let label;
+    let cls;
+    if (id === "shipping" && !shippingAcknowledged) {
+      // Feedback #3: an untouched preselected default must not claim Complete.
+      label = "Default selected: Standard";
+      cls = "state-progress";
+    } else if (complete) {
+      label = compacted ? "Complete · compacted" : "Complete";
+      cls = "state-complete";
+    } else if (started) {
+      label = "In progress";
+      cls = "state-progress";
+    } else {
+      label = "Not started";
+      cls = "state-empty";
+    }
+    badge.textContent = label;
+    badge.classList.remove("state-empty", "state-progress", "state-complete");
+    badge.classList.add(cls);
+  }
+
+  function updateSectionStates() {
+    progressOrder.forEach(stateBadge);
+  }
+
+  // Visible progress semantics (resumable-wizard Loop 02 contribution) mapped to a one-page synthesis.
+  function updateProgress(placed) {
+    if (!progress) {
+      return;
+    }
+    if (placed) {
+      progress.setAttribute("aria-valuenow", "5");
+      progress.setAttribute("aria-valuetext", "Order placed. Confirmation SYN-2048.");
+      document.querySelectorAll(".progress-step").forEach(step => step.classList.add("is-complete"));
+      return;
+    }
+    const completed = progressOrder.filter(sectionIsComplete);
+    progress.setAttribute("aria-valuenow", String(completed.length));
+    const next = progressOrder.find(id => !sectionIsComplete(id));
+    const detail = next
+      ? `next: ${progressLabels[next]}.`
+      : "all sections complete; ready to place order.";
+    progress.setAttribute("aria-valuetext", `${completed.length} of 5 sections complete: ${detail}`);
+    document.querySelectorAll(".progress-step").forEach(step => {
+      const id = step.dataset.progressStep;
+      step.classList.toggle("is-complete", sectionIsComplete(id));
+    });
+  }
+
+  function setSectionCompacted(id, compacted) {
+    const section = document.querySelector(`#${id}`);
+    const body = section.querySelector("[data-section-body]");
+    const summary = section.querySelector("[data-completed-summary]");
+    if (!body || !summary) {
+      return;
+    }
+    const complete = sectionIsComplete(id);
+    // Feedback #3: an untouched preselected shipping default is not treated as a
+    // settled/complete section, so it is never auto-compacted out of view.
+    const compactEligible = complete && !(id === "shipping" && !shippingAcknowledged);
+    const shouldCompact = Boolean(
+      compacted && compactEligible && !orderPlaced && !section.contains(document.activeElement)
+    );
+    section.dataset.compacted = String(shouldCompact);
+    body.classList.toggle("compacted-body", shouldCompact);
+    if (shouldCompact) {
+      body.setAttribute("aria-hidden", "true");
+    } else {
+      body.removeAttribute("aria-hidden");
+    }
+    // Never leave a compacted section's descendants in the keyboard tab order,
+    // while keeping them present so the section can be re-expanded and edited.
+    body.querySelectorAll("input, select, textarea, button, a[href]").forEach(el => {
+      if (shouldCompact) {
+        if (el.getAttribute("data-compact-tabindex") === null) {
+          el.setAttribute("data-compact-tabindex", el.hasAttribute("tabindex") ? el.getAttribute("tabindex") : "__none__");
+        }
+        el.setAttribute("tabindex", "-1");
+      } else if (el.getAttribute("data-compact-tabindex") !== null) {
+        const prior = el.getAttribute("data-compact-tabindex");
+        if (prior === "__none__") {
+          el.removeAttribute("tabindex");
+        } else {
+          el.setAttribute("tabindex", prior);
+        }
+        el.removeAttribute("data-compact-tabindex");
+      }
+    });
+    summary.hidden = !shouldCompact;
+    const summaryText = summary.querySelector("[data-summary-text]");
+    if (summaryText) {
+      summaryText.textContent = complete ? sectionSummary(id) : "";
+    }
+    stateBadge(id);
+  }
+
+  function refreshCompactSections() {
+    Object.keys(sectionFields).forEach(id => setSectionCompacted(id, compactCompleted.checked));
+  }
+
+  function refreshDerived() {
+    updateReview();
+    updateSectionStates();
+    updateProgress(false);
+    refreshCompactSections();
+  }
+
+  function openSection(id, focus = true) {
+    if (id in sectionFields) {
+      setSectionCompacted(id, false);
+    }
+    const section = document.querySelector(`#${id}`);
+    section.scrollIntoView({ block: "start" });
+    if (focus) {
+      const firstControl = section.querySelector("input, select");
+      if (firstControl) {
+        firstControl.focus();
+      }
+    }
+  }
+
+  function clearFieldError(field) {
+    const error = document.querySelector(`#${field.id}-error`);
+    if (!error) {
+      return;
+    }
+    field.removeAttribute("aria-invalid");
+    field.setAttribute("aria-describedby", `${field.id}-help`);
+    error.hidden = true;
+    error.textContent = "";
+  }
+
+  function showFieldError(field, message) {
+    const error = document.querySelector(`#${field.id}-error`);
+    field.setAttribute("aria-invalid", "true");
+    field.setAttribute("aria-describedby", `${field.id}-help ${field.id}-error`);
+    error.textContent = message;
+    error.hidden = false;
+  }
+
+  function validate() {
+    const problems = [];
+    Object.entries(fieldRules).forEach(([name, rule]) => {
+      const field = fieldFor(name);
+      clearFieldError(field);
+      if (!rule(field.value)) {
+        const message = errorMessages[name];
+        showFieldError(field, message);
+        problems.push({ field, message, name });
+      }
+    });
+
+    const reviewError = document.querySelector("#review-confirmation-error");
+    reviewConfirmation.removeAttribute("aria-invalid");
+    reviewConfirmation.setAttribute("aria-describedby", "review-confirmation-help");
+    reviewError.hidden = true;
+    reviewError.textContent = "";
+    if (!reviewConfirmation.checked) {
+      const message = "Review the fictional order and select the confirmation checkbox.";
+      reviewConfirmation.setAttribute("aria-invalid", "true");
+      reviewConfirmation.setAttribute("aria-describedby", "review-confirmation-help review-confirmation-error");
+      reviewError.textContent = message;
+      reviewError.hidden = false;
+      problems.push({ field: reviewConfirmation, message, name: "review-confirmation" });
+    }
+    return problems;
+  }
+
+  function showErrorSummary(problems) {
+    const allLinks = problems.map(problem =>
+      `<li><a href="#${problem.field.id}">${problem.message}</a></li>`
+    ).join("");
+    const affectedGroups = Object.values(problemGroups).filter(group =>
+      problems.some(problem => group.fields.includes(problem.name))
+    );
+    const groupedLinks = Object.values(problemGroups).map(group => {
+      const groupProblems = problems.filter(problem => group.fields.includes(problem.name));
+      if (!groupProblems.length) {
+        return "";
+      }
+      const first = groupProblems[0];
+      const count = `${groupProblems.length} ${groupProblems.length === 1 ? "item" : "items"}`;
+      return `<li><a href="#${first.field.id}">${group.label}: ${count} need attention</a></li>`;
+    }).join("");
+    errorSummary.innerHTML = `<h2>Check ${problems.length} ${problems.length === 1 ? "item" : "items"} in ${affectedGroups.length} sections</h2><p>Your entries are preserved. Start with one link per affected section, or expand the full list.</p><ul>${groupedLinks}</ul><details><summary>Show all ${problems.length} corrections</summary><ul>${allLinks}</ul></details>`;
+    errorSummary.hidden = false;
+    errorSummary.focus();
+    setStatus(`Order not placed. ${problems.length} ${problems.length === 1 ? "item needs" : "items need"} attention.`);
+  }
+
+  function completeOrder() {
+    if (document.querySelector('[data-hook="confirmation-id"]')) {
+      return;
+    }
+    confirmationContent.innerHTML = '<p>Confirmation ID <strong class="confirmation-id" data-hook="confirmation-id">SYN-2048</strong></p>';
+    confirmation.hidden = false;
+    placementStarted = false;
+    orderPlaced = true;
+    placeOrder.disabled = true;
+    placeOrder.setAttribute("aria-busy", "false");
+    // Expand every section once placed so the completed order is fully visible.
+    refreshCompactSections();
+    updateProgress(true);
+    setStatus("Synthetic order placed once. Confirmation ID SYN-2048.");
+    // Feedback #4: persist only a non-sensitive placed flag / confirmation ID.
+    persistSafeState(false, { placed: true, confirmationId: PLACED_CONFIRMATION_ID });
+    confirmation.setAttribute("tabindex", "-1");
+    confirmation.focus();
+  }
+
+  form.addEventListener("submit", event => {
+    event.preventDefault();
+    if (placementStarted || document.querySelector('[data-hook="confirmation-id"]')) {
+      setStatus("This synthetic order is already confirmed as SYN-2048. No duplicate was created.");
+      return;
+    }
+    const problems = validate();
+    if (problems.length) {
+      problems.forEach(problem => {
+        const section = problem.field.closest(".task-section");
+        if (section && section.id in sectionFields) {
+          setSectionCompacted(section.id, false);
+        }
+      });
+      updateSectionStates();
+      updateProgress(false);
+      showErrorSummary(problems);
+      return;
+    }
+    errorSummary.hidden = true;
+    errorSummary.textContent = "";
+    placementStarted = true;
+    placeOrder.disabled = true;
+    placeOrder.setAttribute("aria-busy", "true");
+    setStatus("Placing local synthetic order. Please wait.");
+    window.setTimeout(completeOrder, 180);
+  });
+
+  Object.keys(fieldRules).forEach(name => {
+    const field = fieldFor(name);
+    field.addEventListener("input", () => {
+      handleEditAfterPlacement();
+      clearFieldError(field);
+      refreshDerived();
+    });
+    field.addEventListener("change", () => {
+      handleEditAfterPlacement();
+      clearFieldError(field);
+      refreshDerived();
+    });
+    // Step-local, focused validation (resumable-wizard Loop 02 contribution): validate a
+    // single field on blur without disturbing other fields or the grouped summary.
+    field.addEventListener("blur", () => {
+      if (field.value.trim() === "") {
+        clearFieldError(field);
+      } else if (!fieldRules[name](field.value)) {
+        showFieldError(field, errorMessages[name]);
+      } else {
+        clearFieldError(field);
+      }
+    });
+  });
+
+  safeFields.forEach(name => {
+    const field = fieldFor(name);
+    field.addEventListener("input", saveSafeState);
+    field.addEventListener("change", saveSafeState);
+  });
+
+  form.querySelectorAll('input[name="shipping"]').forEach(control => {
+    // Feedback #3: focusing or changing shipping acknowledges the default.
+    control.addEventListener("focus", () => {
+      if (!shippingAcknowledged) {
+        shippingAcknowledged = true;
+        persistSafeState(false, { shippingAcknowledged: true });
+        updateSectionStates();
+      }
+    });
+    control.addEventListener("change", () => {
+      shippingAcknowledged = true;
+      handleEditAfterPlacement();
+      updateTotals();
+      persistSafeState(false, { shippingAcknowledged: true });
+      refreshDerived();
+    });
+  });
+
+  reviewConfirmation.addEventListener("change", () => {
+    handleEditAfterPlacement();
+    const error = document.querySelector("#review-confirmation-error");
+    reviewConfirmation.removeAttribute("aria-invalid");
+    reviewConfirmation.setAttribute("aria-describedby", "review-confirmation-help");
+    error.hidden = true;
+    error.textContent = "";
+    updateSectionStates();
+    updateProgress(false);
+  });
+
+  document.querySelectorAll("[data-edit-target]").forEach(button => {
+    button.addEventListener("click", () => {
+      openSection(button.dataset.editTarget);
+      setStatus(`Editing ${button.dataset.editTarget}. Existing entries are preserved.`);
+    });
+  });
+
+  document.querySelectorAll("[data-edit-section]").forEach(button => {
+    button.addEventListener("click", () => {
+      const id = button.dataset.editSection;
+      openSection(id);
+      setStatus(`Editing ${id}. Existing entries are preserved.`);
+    });
+  });
+
+  compactCompleted.addEventListener("change", () => {
+    compactUserSet = true;
+    persistSafeState(false, { compact: compactCompleted.checked });
+    refreshCompactSections();
+    setStatus(compactCompleted.checked
+      ? "Compact view on. Completed sections use short summaries and remain directly editable."
+      : "Compact view off. All checkout fields are expanded.");
+  });
+
+  Object.keys(sectionFields).forEach(id => {
+    const section = document.querySelector(`#${id}`);
+    section.addEventListener("focusout", () => {
+      window.setTimeout(() => {
+        if (compactCompleted.checked && !section.contains(document.activeElement)) {
+          setSectionCompacted(id, true);
+        }
+      }, 0);
+    });
+  });
+
+  // Explicit Save progress control (resumable-wizard Loop 02 contribution).
+  const saveNow = document.querySelector('[data-action="save-now"]');
+  if (saveNow) {
+    saveNow.addEventListener("click", () => persistSafeState(true));
+  }
+
+  // Confirmed, cancellable Clear saved progress (resumable-wizard Loop 02 contribution).
+  const clearProgress = document.querySelector('[data-action="clear-progress"]');
+  const clearConfirm = document.querySelector("#clear-confirm");
+  const cancelClear = document.querySelector('[data-action="cancel-clear"]');
+  const confirmClear = document.querySelector('[data-action="confirm-clear"]');
+
+  if (clearProgress && clearConfirm) {
+    clearProgress.addEventListener("click", () => {
+      clearConfirm.hidden = false;
+      clearProgress.setAttribute("aria-expanded", "true");
+      setStatus("Clear saved progress needs confirmation. Choose \u201cYes, clear saved progress\u201d or Cancel below.");
+      if (cancelClear) {
+        cancelClear.focus();
+      }
+    });
+  }
+
+  if (cancelClear && clearConfirm) {
+    cancelClear.addEventListener("click", () => {
+      clearConfirm.hidden = true;
+      if (clearProgress) {
+        clearProgress.setAttribute("aria-expanded", "false");
+        clearProgress.focus();
+      }
+      setStatus("Clear saved progress was cancelled. Your saved progress is unchanged.");
+    });
+  }
+
+  if (confirmClear) {
+    confirmClear.addEventListener("click", () => {
+      try {
+        localStorage.removeItem(storageKey);
+      } catch {
+        /* storage unavailable */
+      }
+      window.location.reload();
+    });
+  }
+
+  if (clearConfirm) {
+    clearConfirm.addEventListener("keydown", event => {
+      if (event.key === "Escape" && cancelClear) {
+        event.preventDefault();
+        cancelClear.click();
+      }
+    });
+  }
+
+  // Feedback #1: move focus to the named checkout form start on skip activation,
+  // never leaving focus on BODY.
+  if (skipLink) {
+    skipLink.addEventListener("click", event => {
+      event.preventDefault();
+      const target = document.querySelector("#checkout-form");
+      if (target) {
+        if (!target.hasAttribute("tabindex")) {
+          target.setAttribute("tabindex", "-1");
+        }
+        target.focus();
+        if (document.activeElement !== target) {
+          const firstField = fieldFor("contact-name");
+          if (firstField) {
+            firstField.focus();
+          }
+        }
+        target.scrollIntoView({ block: "start" });
+        setStatus("Moved to the checkout form. Start with Contact.");
+      }
+    });
+  }
+
+  restoreSafeState();
+  updateTotals();
+  refreshDerived();
+})();

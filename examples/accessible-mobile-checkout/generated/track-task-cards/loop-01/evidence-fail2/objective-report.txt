@@ -1,0 +1,49 @@
+Accessible mobile checkout objective report
+Fixture SHA-256: e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894
+Candidate: loop-01
+human_use.applicability = applicable
+human_use.rationale: The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use.
+
+content-fidelity: FAIL
+  FAIL visible-canonical-text: Standard — 3 to 5 business days
+  FAIL visible-canonical-text: AUD 5.00
+  FAIL visible-canonical-text: Express — 1 to 2 business days
+  FAIL visible-canonical-text: AUD 12.00
+  FAIL canonical-field-value: address-country:
+  FAIL canonical-field-value: card-number:
+  FAIL canonical-field-value: card-expiry:
+  FAIL canonical-field-value: card-security:
+  FAIL canonical-field-value: card-name:
+  FAIL canonical-standard-shipping-label: 
+  FAIL canonical-express-shipping-label: 
+semantic-accessibility-gate: FAIL
+  FAIL task-headings: 3
+  FAIL accessible-name: address-line1:
+  FAIL accessible-name: address-city:
+  FAIL accessible-name: address-state:
+  FAIL accessible-name: address-postcode:
+  FAIL accessible-name: address-country:
+  FAIL accessible-name: card-number:
+  FAIL accessible-name: card-expiry:
+  FAIL accessible-name: card-security:
+  FAIL accessible-name: card-name:
+  FAIL computed-text-contrast-samples: 2
+  FAIL focus-contrast: focus contrast=7.136725946213922
+keyboard-completion-gate: FAIL
+  FAIL keyboard-text-entry-and-task-controls: 
+  FAIL keyboard-space-shipping: 
+error-recovery-gate: FAIL
+  FAIL correction-and-resubmission-entry: 
+mobile-touch-gate: PASS
+resilience-gate: FAIL
+  FAIL reduced-motion-completes-once: 1
+offline-safety-gate: FAIL
+  FAIL invalid-or-unreviewed-placement-blocked: 1
+  FAIL valid-local-fixture-entry: 
+  FAIL busy-status-during-placement: []
+  FAIL confirmation-visible-after-explicit-placement: 
+
+Failed gate IDs: content-fidelity, semantic-accessibility-gate, keyboard-completion-gate, error-recovery-gate, resilience-gate, offline-safety-gate
+Blocking failure: yes
+Non-gating task-efficiency metrics: {"activations": 696, "completion_interactions": 1, "corrections": 4, "focusable_controls_traversed": 10}
+Screenshots: final.png, initial.png, keyboard-completion.png, viewport-320x568.png, viewport-360x800.png, viewport-390x844.png

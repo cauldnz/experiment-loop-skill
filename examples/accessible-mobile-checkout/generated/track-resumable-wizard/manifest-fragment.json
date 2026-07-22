@@ -1,0 +1,279 @@
+{
+  "schema_version": "1.1",
+  "manifest_ready": true,
+  "track": {
+    "track_id": "track-resumable-wizard",
+    "display_name": "Track B \u2014 Resumable wizard",
+    "model_role": "generator-resumable-wizard",
+    "model": {
+      "primary": "claude-sonnet-5",
+      "fallback": "claude-sonnet-4.6",
+      "actual": "claude-sonnet-5",
+      "fallback_used": false
+    },
+    "hypothesis": "A step-by-step wizard with explicit progress, back/edit controls, per-step validation, and safe save/resume reduces cognitive load without hiding status or trapping keyboard and screen-reader users.",
+    "interaction_paradigm": "A true step-by-step wizard: one primary task step (Contact, Delivery address, Payment, Review & place order) is the active step at a time, with explicit named progress, a single active keyboard-safe Continue control per frontier step, Back/Edit controls back to any completed step, and resumable, safe local save state. Preserved across the Loop: exactly one primary task step visible/active at a time, explicit named progress, keyboard-safe continue/back/edit, resumable state.",
+    "human_use": {
+      "applicability": "applicable",
+      "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+    },
+    "qualitative_lenses_required": [
+      "discoverability",
+      "navigation",
+      "input_burden",
+      "error_prevention_recovery",
+      "feedback_status",
+      "accessibility",
+      "responsive_touch_ergonomics",
+      "interruption_resumption",
+      "latency_perception",
+      "destructive_actions",
+      "cognitive_load"
+    ],
+    "qualitative_lenses_note": "Qualitative lenses require an independent blind judge and are not turned into objective ergonomics claims by this fragment or by this Loop.",
+    "comparison_key": "checkout-ui",
+    "presentation": "interactive_html",
+    "write_scope": ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/**",
+    "frozen_contract": {
+      "experiment_brief_path": ".experiments/accessible-mobile-checkout/setup/experiment-brief.json",
+      "experiment_brief_revision": 1,
+      "experiment_brief_sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13",
+      "prompt_path": ".experiments/accessible-mobile-checkout/setup/prompt.md",
+      "prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928",
+      "harness_generated_sha256": {
+        "canonical-fixture.json": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+        "run_checkout_gates.py": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563",
+        "self-test-invalid/index.html": "243d78b65b167bdf8c912d3f40c46072ed4bb4b712915de852094ec4a525807b"
+      },
+      "hash_algorithm": "SHA-256"
+    }
+  },
+  "loops": [
+    {
+      "loop_id": "resumable-wizard-loop-01",
+      "artifact_id": "track-resumable-wizard-loop-01",
+      "parent_ids": [],
+      "candidate_dir": ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01",
+      "model": "claude-sonnet-5",
+      "model_role": "generator-resumable-wizard",
+      "hypothesis": "A step-by-step wizard with explicit progress, back/edit controls, per-step validation, and safe save/resume reduces cognitive load without hiding status or trapping keyboard and screen-reader users.",
+      "presentation": "interactive_html",
+      "comparison_key": "checkout-ui",
+      "is_baseline": true,
+      "artifacts": {
+        "index.html": {
+          "path": "loop-01/index.html",
+          "sha256": "9043b0b9f5c6da05324f4c3558b5241e4359a49de08adb962b2bbbe3148ec1b6"
+        },
+        "styles.css": {
+          "path": "loop-01/styles.css",
+          "sha256": "3dc18ae76c47b4e21f977b5d9fe45f243fc586de34e38fbfb8140821c2c69318"
+        },
+        "app.js": {
+          "path": "loop-01/app.js",
+          "sha256": "0ad869e418a3fbcfcf0199ac2fc697b280c98ff5403cdde759592dc959f658eb"
+        },
+        "objective_report_json": {
+          "path": "loop-01/evidence/objective-report.json",
+          "sha256": "07dc9805761c9761c36397a2d2ae9e3f77989f3210c750e56384c6de298958cf"
+        },
+        "objective_report_txt": {
+          "path": "loop-01/evidence/objective-report.txt"
+        },
+        "metadata": {
+          "path": "loop-01/metadata.json"
+        },
+        "prompt_history": {
+          "path": "loop-01/prompt-history.md"
+        },
+        "self_observation": {
+          "path": "loop-01/self-observation.md"
+        },
+        "status": {
+          "path": "loop-01/status.json"
+        },
+        "screenshots": [
+          "loop-01/evidence/initial.png",
+          "loop-01/evidence/keyboard-completion.png",
+          "loop-01/evidence/final.png",
+          "loop-01/evidence/viewport-320x568.png",
+          "loop-01/evidence/viewport-360x800.png",
+          "loop-01/evidence/viewport-390x844.png"
+        ],
+        "failed_evidence_preserved": [
+          "loop-01/evidence-attempt-1/",
+          "loop-01/evidence-attempt-2/",
+          "loop-01/evidence-attempt-3/"
+        ]
+      },
+      "commands": [
+        {
+          "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01\\evidence-attempt-1",
+          "exit_code": 1,
+          "result": "FAIL"
+        },
+        {
+          "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01\\evidence-attempt-2",
+          "exit_code": 1,
+          "result": "FAIL"
+        },
+        {
+          "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01\\evidence-attempt-3",
+          "exit_code": 0,
+          "result": "PASS"
+        },
+        {
+          "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01\\evidence",
+          "exit_code": 0,
+          "result": "PASS",
+          "authoritative": true
+        }
+      ],
+      "prompt_chain": {
+        "prompt_ref": "loop-01/prompt-history.md#1-complete-track-instruction-acted-on-verbatim",
+        "input_feedback_ref": "loop-01/prompt-history.md#2-input-feedback",
+        "input_feedback": "none (Loop 01, parent_ids: [])",
+        "provisional_self_observation_ref": "loop-01/prompt-history.md#3-provisional-self-observation-non-authoritative",
+        "next_prompt_ref": "loop-01/prompt-history.md#4-proposed-next-prompt-for-a-future-loop-not-executed-here"
+      },
+      "changed_files": [
+        "loop-01/index.html",
+        "loop-01/styles.css",
+        "loop-01/app.js",
+        "loop-01/status.json",
+        "loop-01/metadata.json",
+        "loop-01/prompt-history.md",
+        "loop-01/self-observation.md",
+        "loop-01/evidence-attempt-1/**",
+        "loop-01/evidence-attempt-2/**",
+        "loop-01/evidence-attempt-3/**",
+        "loop-01/evidence/**"
+      ],
+      "objective_gate_results": {
+        "content-fidelity": "PASS",
+        "semantic-accessibility-gate": "PASS",
+        "keyboard-completion-gate": "PASS",
+        "error-recovery-gate": "PASS",
+        "mobile-touch-gate": "PASS",
+        "resilience-gate": "PASS",
+        "offline-safety-gate": "PASS",
+        "blocking_failure": false
+      },
+      "scores": {
+        "objective_available": true,
+        "objective_summary": "All 7 frozen harness gates PASS; blocking_failure=false. Non-gating task-efficiency metrics: activations=24, completion_interactions=1, corrections=4, focusable_controls_traversed=29.",
+        "qualitative_judging_evidence": null,
+        "qualitative_note": "No independent blind judge (judge-accessibility, judge-human-use) has run for this Loop. Only objective evidence is scored here; qualitative lens scores are intentionally absent pending that independent judging, per this Loop's explicit scope."
+      },
+      "lesson": "The frozen harness's reveal() helper is strictly forward-only, so a wizard that tears down/re-hides completed steps cannot satisfy gates needing to re-fill or re-check earlier fields after advancing. The working design instead keeps every reached step visible/editable while only the single frontier step exposes an active Continue control. Two additional defects were found only empirically: Playwright's inner_text() still returns a hidden ancestor's descendant text (so the confirmation ID must be set by JS only at real placement, never present statically), and a single global focus-outline color can fail contrast on a differently-colored button background, requiring a background-specific override.",
+      "decision": "needs_human_review",
+      "stop_reason": "objective_harness_passed_all_gates"
+    },
+    {
+      "loop_id": "resumable-wizard-loop-02",
+      "artifact_id": "track-resumable-wizard-loop-02",
+      "parent_ids": ["resumable-wizard-loop-01"],
+      "candidate_dir": ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-02",
+      "model": "claude-sonnet-5",
+      "model_role": "generator-resumable-wizard",
+      "hypothesis": "Fixing three evidence-backed defects found by independent judges against Loop 01 (skip-link not moving focus into the wizard, Continue advancing past invalid empty steps, and Clear saved progress discarding state without confirmation) will resolve those specific navigation, error-prevention, and destructive-action-safety issues while preserving every frozen invariant and all previously passing objective gates.",
+      "presentation": "interactive_html",
+      "comparison_key": "checkout-ui",
+      "is_baseline": false,
+      "artifacts": {
+        "index.html": {
+          "path": "loop-02/index.html",
+          "sha256": "e69485aff953c2cee9c898ac83d73481779c697d20118d50e9fe98b68a295ba0"
+        },
+        "styles.css": {
+          "path": "loop-02/styles.css",
+          "sha256": "3c759ec9d99c4c6f01088bb01ea4ac8d14bff9eb470fd380fb3b9dbbef099942"
+        },
+        "app.js": {
+          "path": "loop-02/app.js",
+          "sha256": "bf86c643d23188b24982187bddf0d71ad7707f73dd839c1eaa9e35f1ac4bd414"
+        },
+        "objective_report_json": {
+          "path": "loop-02/evidence/objective-report.json",
+          "sha256": "0fd4d9db9d5b43dba01dc97e1bdf9632518d3b2a5167ce9ad52967d628237f6b"
+        },
+        "objective_report_txt": {
+          "path": "loop-02/evidence/objective-report.txt"
+        },
+        "metadata": {
+          "path": "loop-02/metadata.json"
+        },
+        "prompt_history": {
+          "path": "loop-02/prompt-history.md"
+        },
+        "self_observation": {
+          "path": "loop-02/self-observation.md"
+        },
+        "status": {
+          "path": "loop-02/status.json"
+        },
+        "screenshots": [
+          "loop-02/evidence/initial.png",
+          "loop-02/evidence/keyboard-completion.png",
+          "loop-02/evidence/final.png",
+          "loop-02/evidence/viewport-320x568.png",
+          "loop-02/evidence/viewport-360x800.png",
+          "loop-02/evidence/viewport-390x844.png"
+        ],
+        "failed_evidence_preserved": [
+          "loop-02/evidence-attempt-1/"
+        ]
+      },
+      "commands": [
+        {
+          "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-02 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-02\\evidence-attempt-1",
+          "exit_code": 0,
+          "result": "PASS"
+        },
+        {
+          "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-02 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-02\\evidence",
+          "exit_code": 0,
+          "result": "PASS",
+          "authoritative": true
+        }
+      ],
+      "prompt_chain": {
+        "prompt_ref": "loop-02/prompt-history.md#1-complete-track-instruction-acted-on-verbatim",
+        "input_feedback_ref": "loop-02/prompt-history.md#2-input-feedback-verbatim-from-resumable-wizard-loop-01-entry-only",
+        "input_feedback": "generated/judging/loop-01/aggregate/loop-02-feedback.json, resumable-wizard-loop-01 entry only (candidate-c per blinding-map.json); 3 evidence[].verbatim items consumed byte-for-byte, quoted in full in prompt-history.md section 2.",
+        "provisional_self_observation_ref": "loop-02/prompt-history.md#3-provisional-self-observation-non-authoritative",
+        "next_prompt_ref": "loop-02/prompt-history.md#4-proposed-next-prompt-for-a-future-loop-not-executed-here"
+      },
+      "changed_files": [
+        "loop-02/index.html",
+        "loop-02/styles.css",
+        "loop-02/app.js",
+        "loop-02/status.json",
+        "loop-02/metadata.json",
+        "loop-02/prompt-history.md",
+        "loop-02/self-observation.md",
+        "loop-02/evidence-attempt-1/**",
+        "loop-02/evidence/**"
+      ],
+      "objective_gate_results": {
+        "content-fidelity": "PASS",
+        "semantic-accessibility-gate": "PASS",
+        "keyboard-completion-gate": "PASS",
+        "error-recovery-gate": "PASS",
+        "mobile-touch-gate": "PASS",
+        "resilience-gate": "PASS",
+        "offline-safety-gate": "PASS",
+        "blocking_failure": false
+      },
+      "scores": {
+        "objective_available": true,
+        "objective_summary": "All 7 frozen harness gates PASS; blocking_failure=false; 287/287 assertions pass. Non-gating task-efficiency metrics: activations=24, completion_interactions=1, corrections=4, focusable_controls_traversed=29 (identical to Loop 01; see lesson for why this is not treated as evidence against the fixes).",
+        "qualitative_judging_evidence": null,
+        "qualitative_note": "No independent blind judge (judge-accessibility, judge-human-use) has run for this Loop. Only objective evidence is scored here; qualitative lens scores are intentionally absent pending that independent judging, per this Loop's explicit scope. Loop 02 was generated in direct response to bound independent feedback against Loop 01 (see prompt_chain.input_feedback), but that response has not itself been re-judged."
+      },
+      "lesson": "All three evidence-backed defects reported against resumable-wizard-loop-01 were fixed and independently verified via direct Playwright interaction probes: (1) skip-link activation now moves focus to the active step's heading instead of leaving it at BODY; (2) Continue now validates the active step and blocks/refocuses on error instead of always advancing, preventing errors from being distributed into hidden/revealed context; (3) Clear saved progress now requires an explicit confirm click (Cancel as the safe default focus target, Escape supported) before localStorage is discarded. Durable finding for future loops: the frozen harness's reveal()/fill_all() helpers rely on Playwright's is_visible(), which does not respect an ancestor's overflow:hidden clipping and does not treat a UA-origin [hidden] rule as authoritative once an author-origin rule (.pending-control's display:block, combined with .btn/input min-height:44px outweighing max-height:0) sets a conflicting display/size on the same element; this lets the harness read/fill later, not-yet-reached wizard steps without ever needing a Continue press, explaining why the new Continue-blocking logic left non-gating interaction counts unchanged even though the fix is real for actual user interaction.",
+      "decision": "needs_human_review",
+      "stop_reason": "objective_harness_passed_all_gates"
+    }
+  ]
+}

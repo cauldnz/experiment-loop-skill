@@ -1,0 +1,76 @@
+{
+  "candidate_label": "b",
+  "bundle_name": "candidate-b",
+  "role": "judge-human-use",
+  "scope": "final",
+  "experiment_id": "accessible-mobile-checkout",
+  "revision": 1,
+  "model": "claude-opus-4.7",
+  "operated_at": "2026-07-22T08:37:00+10:00",
+  "viewport_primary": {"width": 390, "height": 844},
+  "extra_viewports_screenshotted": [{"width": 320, "height": 568}, {"width": 360, "height": 800}],
+  "reduced_motion": "reduce",
+  "objective_gates_from_persisted_report": {
+    "content-fidelity": "PASS",
+    "semantic-accessibility-gate": "PASS",
+    "keyboard-completion-gate": "PASS",
+    "error-recovery-gate": "PASS",
+    "mobile-touch-gate": "PASS",
+    "resilience-gate": "PASS",
+    "offline-safety-gate": "PASS",
+    "failed_gate_ids": [],
+    "blocking_failure": false,
+    "harness_rerun": false,
+    "acceptance": "persisted objective report accepted as terminal"
+  },
+  "observed_operation_summary": {
+    "steps_recorded": 31,
+    "console_messages": 0,
+    "external_requests": 0,
+    "focus_hidden_ancestor_leaks_top_tab": 0,
+    "compact_mode_hidden_ancestor_leaks_top_tab": 0,
+    "touch_target_controls_measured": 47,
+    "touch_target_controls_below_24_that_are_interactive": 0,
+    "touch_target_controls_below_24_note": "The single below-24 hit is a P.field-help paragraph (data-hook selected but non-interactive); not counted as friction.",
+    "syn2048_confirmation_present": true,
+    "duplicate_submit_confirmation_nodes_before_after": {"before": 3, "after": 3},
+    "post_reload_state": {
+      "safe_fields_restored": true,
+      "payment_fields_empty": true,
+      "confirmation_visible_after_reload": false,
+      "place_order_disabled_after_reload": false
+    },
+    "clear_progress_dialog_flow": {
+      "confirm_button": true,
+      "cancel_button": true,
+      "escape_dismiss": true
+    },
+    "explicit_save_now_action": true,
+    "progressbar_landmark_present": true
+  },
+  "scorecard": {
+    "discoverability": {"score": 5, "evidence": "Section nav with five in-page anchors, skip link to #main-content, ten headings, error-summary region, explicit Save progress and Clear saved progress affordances, progressbar landmark for step state."},
+    "navigation": {"score": 5, "evidence": "Anchor links jump between sections; skip link works; Tab from top surfaces 58 focusable stops with zero hidden-ancestor leaks; error-summary link moves focus into the flagged field."},
+    "input_burden": {"score": 4, "evidence": "Standard flat form with grouped sections; explicit Save-progress adds one optional tap that improves confidence; no unnecessary steps or forced pagination."},
+    "error_prevention_recovery": {"score": 5, "evidence": "Blank submit surfaces grouped error summary and moves focus; inline error on invalid postcode after blur, cleared when '2000' re-entered; missing review checkbox triggers scoped review error only."},
+    "feedback_status": {"score": 5, "evidence": "Live status region announces save, shipping change, and post-confirmation duplicate-block ('Synthetic order placed once. Confirmation ID SYN-2048.'); progressbar valuenow/valuetext advertises step; aria-busy signalled during submit."},
+    "accessibility": {"score": 5, "evidence": "Landmarks (header/main/nav/footer), heading outline, progressbar landmark, skip link, no focus stops on hidden ancestors in normal or compact mode, keyboard-completable end-to-end."},
+    "responsive_touch_ergonomics": {"score": 5, "evidence": "47 interactive controls measured at 390x844; every truly interactive control >=24px on minor axis; layout renders cleanly at 320x568 and 360x800."},
+    "interruption_resumption": {"score": 4, "evidence": "Explicit Save progress and safe reload restore contact/delivery/shipping with payment fields empty; however after a successful placement a reload returns the user to an editable form with Place order re-enabled, weaker interruption/duplicate-safety across a reload boundary than the strongest candidate."},
+    "latency_perception": {"score": 5, "evidence": "Purely local, zero external requests (0/18 total); no perceptible submit latency; reduced-motion respected."},
+    "destructive_actions": {"score": 5, "evidence": "Clear-saved-progress opens a confirmation region with Cancel default-focused, dismissible with Cancel or Escape (values preserved); Confirm only clears once explicitly chosen; duplicate submit is a no-op with status message."},
+    "cognitive_load": {"score": 4, "evidence": "Well-organized sections and plain language, but the extra chrome (progressbar + save + clear + compact) adds a bit more to scan than the leanest candidate."},
+    "visual_information_clarity": {"score": 5, "evidence": "Progressbar surfaces where the shopper is; totals block readable; synthetic-value help text distinguishes fictional data; confirmation region visually and textually explicit."}
+  },
+  "unrounded_mean_of_12": 4.75,
+  "primary_qualitative_strengths": [
+    "Full destructive-safety triad on Clear-progress: Confirm + Cancel + Escape.",
+    "Explicit Save progress with live status announcement.",
+    "Progressbar landmark improves feedback and orientation.",
+    "Zero focus leaks in compact mode."
+  ],
+  "primary_qualitative_frictions": [
+    "Post-confirmation reload returns the form to editable state with Place order re-enabled; weaker duplicate-safety across a reload than the strongest candidate.",
+    "Slightly more chrome than the leanest candidate keeps cognitive load at 4 rather than 5."
+  ]
+}

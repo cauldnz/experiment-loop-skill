@@ -1,0 +1,24 @@
+{
+  "accepted_improvement_instruction": "Preserve the one-page synthesis, grouped recovery, safe storage boundary, confirmed clear flow, compact hidden descendants, and one SYN-2048 confirmation. Make the skip target programmatically focusable and move focus to the named checkout start. Default compact-completed on after safe restoration records a completed section and persist that preference. Label untouched preselected shipping as 'Default selected: Standard' until acknowledged. Persist only a non-sensitive placed flag so reload keeps placement disabled and announces the existing SYN-2048 order. Do not persist payment secrets or weaken any objective gate.",
+  "evidence": [
+    {
+      "instruction": "Make the skip destination programmatically focusable and move focus to the named checkout/form start on skip activation. Then test a progress-anchored compact/resume presentation at 320px and 390px that reduces the initial/error-state vertical panorama without introducing wizard steps or exposing descendants of compacted sections to keyboard focus. Preserve the observed grouped recovery, safe storage boundary, Escape-cancellable clear flow, and single SYN-2048 confirmation.",
+      "judge_id": "judge-accessibility",
+      "model_id": "gpt-5.6-terra",
+      "source": "judging/synthesis-loop-01/judge-accessibility/manifest-ready.json"
+    },
+    {
+      "instruction": "Reduce residual cognitive load at 390x844 without introducing wizard steps or making collapsed content keyboard-focusable. (1) Default compact-completed to ON when the safe-restore ledger records any completed section, and persist the user's preference in the ledger so revisits keep it. (2) Change the initial Shipping badge from 'Complete' to a user-neutral 'Default selected: Standard' (or 'Ready to review') until the user has focused or changed the choice; keep 'Complete' once the user has acknowledged shipping. (3) Persist a placed-flag in the safe-restore ledger so a post-confirmation reload keeps Place order disabled with a 'This synthetic order was already placed as SYN-2048.' banner. Do not persist payment secrets; do not weaken any harness gate.",
+      "judge_id": "judge-human-use",
+      "model_id": "claude-opus-4.7",
+      "source": "judging/synthesis-loop-01/judge-human-use/manifest-ready.json"
+    }
+  ],
+  "experiment_id": "accessible-mobile-checkout",
+  "objective_gate": false,
+  "panel_score": 4.681818181818182,
+  "schema_version": "1.0",
+  "source_iteration_id": "synthesis-loop-01",
+  "target_iteration_id": "synthesis-loop-02",
+  "visual_information_clarity": 4.5
+}

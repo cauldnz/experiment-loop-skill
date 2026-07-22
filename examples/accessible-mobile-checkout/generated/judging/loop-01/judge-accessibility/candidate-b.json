@@ -1,0 +1,174 @@
+{
+  "judge_id": "judge-accessibility",
+  "model": "gpt-5.6-terra",
+  "candidate": "candidate-b",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "objective_reports": {
+    "status": "pass",
+    "treatment": "accepted; qualitative scoring does not override objective gates"
+  },
+  "criterion_id": "human-use-quality",
+  "kind": "qualitative_rubric",
+  "objective_gate": false,
+  "score": 4.18,
+  "score_calculation": "Arithmetic mean of 11 integer lens scores: 46/11",
+  "evidence_refs": [
+    "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+  ],
+  "lens_findings": {
+    "discoverability": {
+      "score": 5,
+      "finding": "The opening title, section links, numbered headings, persistent summary, synthetic-value help, and explicit final review make requirements immediately findable.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "navigation": {
+      "score": 4,
+      "finding": "Every section link changed the hash in keyboard use and review edit controls focused the intended section; the long one-page return trip remains a cost.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "input_burden": {
+      "score": 3,
+      "finding": "Exact required fields and helpful formats avoid ambiguity, but all contact, address, payment, and review work are exposed in one extended pass.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "error_prevention_recovery": {
+      "score": 5,
+      "finding": "Empty submission focused the summary and rendered 13 linked, field-associated corrections while preserving all entries.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "feedback_status": {
+      "score": 4,
+      "finding": "Safe-progress restoration, error count, placing status, and single confirmation were explicit; the brief busy state is still sparse visually.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "accessibility": {
+      "score": 4,
+      "finding": "Space selected shipping, Enter placed the order, focus recovery worked, reduced-motion ran, and no runtime errors occurred; custom radio styling warrants caution.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "responsive_touch_ergonomics": {
+      "score": 4,
+      "finding": "All tested widths had no horizontal overflow and controls remained legible, although five compact section links and the full-page length constrain comfort.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "interruption_resumption": {
+      "score": 5,
+      "finding": "Reload restored every safe value and cleared every tested payment secret with an explicit restoration message.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "latency_perception": {
+      "score": 4,
+      "finding": "The busy state was observed on keyboard placement and repeat activation was safely prevented before a deterministic local confirmation.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "destructive_actions": {
+      "score": 5,
+      "finding": "Edit controls preserved data and repeated Place order yielded exactly one SYN-2048 confirmation.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    },
+    "cognitive_load": {
+      "score": 3,
+      "finding": "Strong hierarchy and help reduce ambiguity, but the full 13-item error panorama and long single page retain substantial working-memory demand.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+      ]
+    }
+  },
+  "visual_information_clarity": {
+    "criterion_id": "visual-information-clarity",
+    "kind": "qualitative_rubric",
+    "objective_gate": false,
+    "score": 5,
+    "finding": "The most polished hierarchy: restrained palette, reliable spacing, concise summary, and strong differentiated error treatment.",
+    "evidence_refs": [
+      "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+      "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+      "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+      "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+      "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+    ]
+  },
+  "strengths": [
+    "The structured one-page sequence gives strong orientation through numbered headings, working section links, contextual synthetic-value help, order summary, and explicit review.",
+    "The error state is exceptionally actionable: a focused summary, 13 linked corrections, field messages, preserved values, and a clear status.",
+    "Shipping selection, edit controls, safe resume, reduced motion, keyboard placement, and duplicate protection all operated without runtime errors."
+  ],
+  "defects": [
+    "At 390px, the complete one-page form and 13-item error state are cognitively and physically long; the user must manage many fields before review.",
+    "The custom keyboard shipping treatment worked for Space/Enter in the run, but its bespoke label-as-radio presentation is less immediately conventional than native radios."
+  ],
+  "uncertainty": "The run exercised Tab/Shift+Tab/Enter/Space but not every possible screen-reader command or radio-arrow interaction.",
+  "loop_02_recommendation": "Keep the clear single-page landmarks and recovery pattern, but reduce the initial traversal burden with optional progressive disclosure or a compact completed-section summary.",
+  "no_other_judge_notes_read": true
+}

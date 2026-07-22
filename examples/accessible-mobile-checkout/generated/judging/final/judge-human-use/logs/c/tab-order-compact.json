@@ -1,0 +1,384 @@
+[
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Edit contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Edit delivery",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Edit shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Edit payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-contact",
+    "text": "Edit contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-shipping",
+    "text": "Edit shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-payment",
+    "text": "Edit payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "review-confirmation",
+    "type": "checkbox",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "review-confirmation",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "submit",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "place-order",
+    "text": "Place order",
+    "hidden_ancestor": false
+  },
+  null,
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Skip to checkout form",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Delivery",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Review",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "SUMMARY",
+    "id": "order-title",
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Order summary AUD 93.50",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Contact: 3 items need attention",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Delivery address: 5 items need attention",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Synthetic payment: 4 items need attention",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Review: 1 item need attention",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "SUMMARY",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Show all 13 corrections",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "compact-completed",
+    "type": "checkbox",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Edit contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Edit delivery",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Edit shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Edit payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-contact",
+    "text": "Edit contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-shipping",
+    "text": "Edit shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-payment",
+    "text": "Edit payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "review-confirmation",
+    "type": "checkbox",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "review-confirmation",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "submit",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "place-order",
+    "text": "Place order",
+    "hidden_ancestor": false
+  },
+  null,
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Skip to checkout form",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Delivery",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Review",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "SUMMARY",
+    "id": "order-title",
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Order summary AUD 93.50",
+    "hidden_ancestor": false
+  }
+]

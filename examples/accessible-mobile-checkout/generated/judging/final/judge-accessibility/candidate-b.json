@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "label": "candidate-b",
+  "judge": "judge-accessibility",
+  "model": "gpt-5.6-terra",
+  "judged_at": "2026-07-21T22:43:13.707400+00:00",
+  "frozen_contract": {
+    "brief_sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13",
+    "prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928"
+  },
+  "objective_report": {
+    "acknowledged": true,
+    "harness_rerun": false,
+    "result": "Each persisted report is terminal: all seven gates pass, failed_gate_ids is empty, and external_requests is empty.",
+    "gates": [
+      "content-fidelity",
+      "semantic-accessibility-gate",
+      "keyboard-completion-gate",
+      "error-recovery-gate",
+      "mobile-touch-gate",
+      "resilience-gate",
+      "offline-safety-gate"
+    ],
+    "path": "../blind/candidate-b/evidence/objective-report.json"
+  },
+  "browser_operation": {
+    "transcript": "navigation-transcript-b.json",
+    "screenshots": "screenshots/b/",
+    "viewport": "390x844",
+    "reduced_motion": "reduce",
+    "keyboard": "exercised",
+    "console_errors": 0,
+    "external_requests": 0,
+    "control_coverage_count": 25
+  },
+  "scores": {
+    "discoverability": {
+      "score": 5,
+      "evidence": "Five labeled links, the compact choice, review edits, and a visible progress/status treatment made controls easy to find."
+    },
+    "navigation": {
+      "score": 4,
+      "evidence": "Every step link scrolled to its section and edit controls returned focus to the right input, but activating the skip link produced no identified focused target in this run."
+    },
+    "input_burden": {
+      "score": 4,
+      "evidence": "The same synthetic hints, compact option, and editable review avoid re-entry, while the one-page form still has a high initial field count."
+    },
+    "error_prevention_recovery": {
+      "score": 5,
+      "evidence": "Invalid submit focused error-summary and grouped 13 corrections by four sections while preserving entries; correction then completed."
+    },
+    "feedback_status": {
+      "score": 5,
+      "evidence": "Observed save status, completed-state feedback, shipping updates, and a local SYN-2048 confirmation provided clear state changes."
+    },
+    "accessibility": {
+      "score": 4,
+      "evidence": "Terminal semantic and keyboard gates passed and no console errors occurred, but the observed skip activation did not yield a named focused target."
+    },
+    "responsive_touch_ergonomics": {
+      "score": 5,
+      "evidence": "At 390x844, fields and action buttons were broad and clearly separated; terminal mobile-touch gate passed."
+    },
+    "interruption_resumption": {
+      "score": 4,
+      "evidence": "Safe fields restored and payment secrets cleared after reload, but the local confirmation was not present after a confirmation reload."
+    },
+    "latency_perception": {
+      "score": 4,
+      "evidence": "Immediate, local status and confirmation feedback communicate progress without a spinner or implied remote wait."
+    },
+    "destructive_actions": {
+      "score": 5,
+      "evidence": "Clear confirmation, Escape, Cancel, and affirmative clear paths were all exercised successfully."
+    },
+    "cognitive_load": {
+      "score": 4,
+      "evidence": "Progress feedback and per-section error grouping help orient users; the initial all-at-once layout remains information-dense."
+    }
+  },
+  "visual_information_clarity": {
+    "score": 5,
+    "evidence": "Clear status progression, high contrast navy actions, concise copy, and separated review cards support scanability."
+  },
+  "unrounded_mean_11_lenses": 4.454545454545454,
+  "findings": [
+    "Completed SYN-2048 once, with no console errors or external requests observed.",
+    "All 25 recorded operations completed, including safe save/reload and every destructive-action branch.",
+    "The skip-link focus observation and nonpersistent confirmation are the meaningful qualitative reservations."
+  ],
+  "uncertainty": "Qualitative scores reflect one independent browser-based accessibility judgment. Objective reports were accepted as terminal and not rerun.",
+  "no_champion_claim": true
+}

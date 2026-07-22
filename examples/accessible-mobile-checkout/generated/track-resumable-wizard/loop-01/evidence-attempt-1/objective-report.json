@@ -1,0 +1,1094 @@
+{
+  "blocking_failure": true,
+  "candidate": "loop-01",
+  "candidate_entrypoint": "index.html",
+  "experiment_id": "accessible-mobile-checkout",
+  "external_requests": [],
+  "failed_gate_ids": [
+    "content-fidelity",
+    "semantic-accessibility-gate",
+    "error-recovery-gate",
+    "resilience-gate",
+    "offline-safety-gate"
+  ],
+  "fixture_id": "northstar-goods-synthetic-checkout-v1",
+  "fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+  "gates": [
+    {
+      "assertions": [
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Northstar Goods",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Synthetic checkout demonstration",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Northstar Insulated Bottle",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Willow Cotton Throw",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 80.00",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 8.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Standard — 3 to 5 business days",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 5.00",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Express — 1 to 2 business days",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 12.00",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Guest",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "checkout-root",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "synthetic-banner",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "cart",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "cart-line-bottle",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "cart-line-throw",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "subtotal",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "tax",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "shipping-standard",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "shipping-express",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "total",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-synthetic-labelling",
+          "detail": "fictional demonstration only — northstar goods — synthetic checkout demonstration. every product, name, address, and payment value on this page is synthetic and fictional, created for accessibility testing purposes only. no real order is ever placed.",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "account",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "sign in",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "sign-in",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "coupon",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "recommendation",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "upsell",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "stock",
+          "status": "pass"
+        },
+        {
+          "assertion": "shipping-total-is-frozen-choice",
+          "detail": "Total: AUD 93.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "single-confirmation-hook",
+          "detail": "1",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "contact-name: Alex Morgan",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "contact-email: alex.morgan@example.invalid",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "contact-phone: +61 400 000 000",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-line1: 42 Fiction Lane",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-city: Sampleton",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-state: NSW",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-postcode: 2000",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-country: Australia",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-number: 4111 1111 1111 1111",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-expiry: 12/34",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-security: 123",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-name: Alex Morgan",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-standard-shipping-label",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-express-shipping-label",
+          "detail": "",
+          "status": "fail"
+        }
+      ],
+      "id": "content-fidelity",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "main-landmark",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "checkout-form",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "primary-heading",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "task-headings",
+          "detail": "10",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-fieldsets",
+          "detail": "4",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "contact-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "address-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "shipping-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "payment-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "review-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "contact-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "contact-name: Full name",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "contact-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "contact-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "contact-email",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "contact-email: Email address",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "contact-email",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "contact-email",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "contact-phone",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "contact-phone: Phone number",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "contact-phone",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "contact-phone",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-line1",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-line1: Street address",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-line1",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-line1",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-city",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-city: City or suburb",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-city",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-city",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-state",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-state: State or territory",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-state",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-state",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-postcode",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-postcode: Postcode",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-postcode",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-postcode",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-country",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-country: Country",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-country",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-country",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-number",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "card-number: Card number",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "card-number",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "card-number",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-expiry",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "card-expiry: Expiry (MM/YY)",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "card-expiry",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "card-expiry",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-security",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "card-security: Security code",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "card-security",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "card-security",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "card-name: Name on card",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "card-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "card-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "status-live-semantics",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "error-live-semantics",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "confirmation-semantics",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "explicit-place-order-hook",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "place-order-name",
+          "detail": "Place order",
+          "status": "pass"
+        },
+        {
+          "assertion": "place-order-control",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "explicit-review-control",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "edit-control-for-review-correction",
+          "detail": "4",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-focus-indicator",
+          "detail": "{'active': False, 'outlineColor': 'rgb(255, 255, 255)', 'outlineWidth': '3px', 'outlineStyle': 'none', 'boxShadow': 'none', 'borderColor': 'rgb(22, 58, 44)'}",
+          "status": "fail"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "synthetic-banner: 8.58 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "cart: 16.24 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "subtotal: 16.24 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "tax: 16.24 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "total: 16.24 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "status: 17.75 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "computed-text-contrast-samples",
+          "detail": "6",
+          "status": "pass"
+        },
+        {
+          "assertion": "non-text-control-contrast",
+          "detail": "place-order border: 1.00",
+          "status": "fail"
+        },
+        {
+          "assertion": "focus-contrast",
+          "detail": "focus contrast=12.532024848052176",
+          "status": "fail"
+        }
+      ],
+      "id": "semantic-accessibility-gate",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "keyboard-focusable-controls",
+          "detail": "9",
+          "status": "pass"
+        },
+        {
+          "assertion": "tab-order-remains-in-checkout",
+          "detail": "['<button type=\"button\" class=\"btn btn-primary\" data-hook=\"continue\" data-action=\"', '<body>\\n<a class=\"skip-link\" href=\"#wizard-form\">Skip to checkout steps</a>\\n<main', '<a class=\"skip-link\" href=\"#wizard-form\">Skip to checkout steps</a>', '<button type=\"button\" class=\"link-bu…",
+          "status": "pass"
+        },
+        {
+          "assertion": "shift-tab-operates",
+          "detail": "INPUT",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-place-order-target",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-text-entry-and-task-controls",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-edit-control-available",
+          "detail": "edit-contact",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-edit-activation",
+          "detail": "edit-contact",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-edit-restores-field",
+          "detail": "Alex Morgan",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-space-shipping",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-space-review",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-enter-place-order",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-confirmation",
+          "detail": "1",
+          "status": "pass"
+        }
+      ],
+      "id": "keyboard-completion-gate",
+      "status": "pass"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "empty-submit-actionable-summary",
+          "detail": "There are 13 problems to fix before this synthetic order can be placed: Enter your full name. Enter a valid email address, like name@example.com. Enter a valid phone number. Enter your street address. Enter your city or suburb. Enter your state or territory. Enter a 4-digit post…",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "contact-name: contact-name-help contact-name-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "contact-email: contact-email-help contact-email-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "contact-phone: contact-phone-help contact-phone-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-line1: address-line1-help address-line1-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-city: address-city-help address-city-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-state: address-state-help address-state-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-postcode: address-postcode-help address-postcode-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-country: address-country-help address-country-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "card-number: card-number-help card-number-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "card-expiry: card-expiry-help card-expiry-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "card-security: card-security-help card-security-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "card-name: card-name-help card-name-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "empty-submit-invalid-fields",
+          "detail": "12",
+          "status": "pass"
+        },
+        {
+          "assertion": "useful-error-focus",
+          "detail": "H2",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-submit-summary",
+          "detail": "There are 12 problems to fix before this synthetic order can be placed: Enter your full name. Enter a valid email address, like name@example.com. Enter a valid phone number. Enter your street address. Enter your city or suburb. Enter your state or territory. Enter a 4-digit post…",
+          "status": "pass"
+        },
+        {
+          "assertion": "preserve-valid-safe-value",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "correction-and-resubmission-entry",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "corrected-resubmission-confirmation",
+          "detail": "1",
+          "status": "pass"
+        }
+      ],
+      "id": "error-recovery-gate",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "no-page-horizontal-overflow",
+          "detail": "320x568: {'width': 320, 'scrollWidth': 320, 'height': 568, 'bodyScrollWidth': 320}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "checkout-root: {'x': 12, 'y': -622, 'width': 296, 'height': 1429.859375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "synthetic-banner: {'x': 12, 'y': -622, 'width': 296, 'height': 208.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "cart: {'x': 29, 'y': -103.09375, 'width': 262, 'height': 130}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "shipping-section: {'x': 29, 'y': 200.515625, 'width': 262, 'height': 282.171875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 0: {'x': 29, 'y': -145.09375, 'width': 132.453125, 'height': 34}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 1: {'x': 51, 'y': 314.6875, 'width': 24, 'height': 24}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 2: {'x': 51, 'y': 410.6875, 'width': 24, 'height': 24}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 3: {'x': 12, 'y': 531.6875, 'width': 118.859375, 'height': 34}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 4: {'x': 142.859375, 'y': 531.6875, 'width': 162.875, 'height': 34}",
+          "status": "pass"
+        },
+        {
+          "assertion": "no-page-horizontal-overflow",
+          "detail": "360x800: {'width': 360, 'scrollWidth': 360, 'height': 800, 'bodyScrollWidth': 360}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "checkout-root: {'x': 12, 'y': -599, 'width': 336, 'height': 1383.0625}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "synthetic-banner: {'x': 12, 'y': -599, 'width': 336, 'height': 185.578125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "cart: {'x': 29, 'y': -102.890625, 'width': 302, 'height': 130}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "shipping-section: {'x': 29, 'y': 200.71875, 'width': 302, 'height': 258.171875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 0: {'x': 29, 'y': -144.890625, 'width': 132.453125, 'height': 34}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 1: {'x': 51, 'y': 314.890625, 'width': 24, 'height': 24}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 2: {'x': 51, 'y': 386.890625, 'width': 24, 'height': 24}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 3: {'x': 12, 'y': 507.890625, 'width': 118.859375, 'height': 34}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 4: {'x': 142.859375, 'y': 507.890625, 'width': 162.875, 'height': 34}",
+          "status": "pass"
+        },
+        {
+          "assertion": "no-page-horizontal-overflow",
+          "detail": "390x844: {'width': 390, 'scrollWidth': 390, 'height': 844, 'bodyScrollWidth': 390}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "checkout-root: {'x': 12, 'y': -507, 'width': 366, 'height': 1291}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "synthetic-banner: {'x': 12, 'y': -507, 'width': 366, 'height': 162.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "cart: {'x': 29, 'y': -102.953125, 'width': 332, 'height': 130}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "shipping-section: {'x': 29, 'y': 200.65625, 'width': 332, 'height': 258.171875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 0: {'x': 29, 'y': -144.953125, 'width': 132.453125, 'height': 34}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 1: {'x': 51, 'y': 314.828125, 'width': 24, 'height': 24}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 2: {'x': 51, 'y': 386.828125, 'width': 24, 'height': 24}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 3: {'x': 12, 'y': 507.828125, 'width': 118.859375, 'height': 34}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 4: {'x': 142.859375, 'y': 507.828125, 'width': 162.875, 'height': 34}",
+          "status": "pass"
+        }
+      ],
+      "id": "mobile-touch-gate",
+      "status": "pass"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "4111",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "12/34",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "123",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "card-number",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "card-expiry",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "card-security",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "cvv",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "security-code",
+          "status": "pass"
+        },
+        {
+          "assertion": "safe-state-restored-after-reload",
+          "detail": "8",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-fields-cleared-after-reload",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "reduced-motion-nonessential-duration-max-10ms",
+          "detail": "[]",
+          "status": "pass"
+        },
+        {
+          "assertion": "reduced-motion-completes-once",
+          "detail": "1",
+          "status": "fail"
+        }
+      ],
+      "id": "resilience-gate",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "invalid-or-unreviewed-placement-blocked",
+          "detail": "1",
+          "status": "fail"
+        },
+        {
+          "assertion": "valid-local-fixture-entry",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "review-required-before-placement",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "busy-status-during-placement",
+          "detail": "[{'buttonState': True, 'statusText': 'placing your order…'}]",
+          "status": "pass"
+        },
+        {
+          "assertion": "deterministic-single-confirmation",
+          "detail": "1",
+          "status": "pass"
+        },
+        {
+          "assertion": "deterministic-confirmation-id",
+          "detail": "SYN-2048",
+          "status": "pass"
+        },
+        {
+          "assertion": "zero-external-runtime-requests",
+          "detail": "[]",
+          "status": "pass"
+        },
+        {
+          "assertion": "confirmation-visible-after-explicit-placement",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "repeated-place-order-does-not-duplicate",
+          "detail": "1",
+          "status": "pass"
+        }
+      ],
+      "id": "offline-safety-gate",
+      "status": "fail"
+    }
+  ],
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "metrics": {
+    "activations": 36,
+    "completion_interactions": 1,
+    "corrections": 4,
+    "focusable_controls_traversed": 9
+  },
+  "schema_version": "1.0",
+  "screenshots": [
+    "final.png",
+    "initial.png",
+    "keyboard-completion.png",
+    "viewport-320x568.png",
+    "viewport-360x800.png",
+    "viewport-390x844.png"
+  ]
+}

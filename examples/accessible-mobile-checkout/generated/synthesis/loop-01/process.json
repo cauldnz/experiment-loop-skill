@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0",
+  "loop_id": "synthesis-loop-01",
+  "track_id": "synthesis",
+  "model_role": "synthesizer",
+  "model": "claude-opus-4.8",
+  "objective_runs": [
+    {
+      "attempt": 1,
+      "role": "terminal-objective-run",
+      "command": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-01\\evidence",
+      "working_directory": "<skill-repository>",
+      "shell": "powershell",
+      "process_pid": 53728,
+      "process_handle_note": "Synchronous foreground PowerShell invocation; the harness spawned headless Chromium via Python Playwright and exited on its own.",
+      "start_utc": "2026-07-21T09:07:03.705Z",
+      "heartbeat_utc": "2026-07-21T09:07:12.389Z",
+      "end_utc": "2026-07-21T09:07:12.389Z",
+      "terminal_state": "completed",
+      "exit_code": 0,
+      "output_path": ".experiments/accessible-mobile-checkout/generated/synthesis/loop-01/evidence",
+      "objective_report": ".experiments/accessible-mobile-checkout/generated/synthesis/loop-01/evidence/objective-report.json",
+      "fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+      "harness_sha256": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563",
+      "blocking_failure": false,
+      "failed_gate_ids": [],
+      "gates": {
+        "content-fidelity": "pass",
+        "semantic-accessibility-gate": "pass",
+        "keyboard-completion-gate": "pass",
+        "error-recovery-gate": "pass",
+        "mobile-touch-gate": "pass",
+        "resilience-gate": "pass",
+        "offline-safety-gate": "pass"
+      },
+      "external_requests": [],
+      "reran_while_live": false
+    }
+  ],
+  "repair_attempts": 0,
+  "failed_attempt_artifacts": [],
+  "notes": "First terminal objective run passed all seven blocking gates with zero external requests; no repair attempt was required. The frozen harness and canonical fixture were read only and never modified."
+}

@@ -108,6 +108,7 @@ Use `-Runtime Copilot`, `-Runtime Claude`, `--runtime copilot`, or
 | `examples\visual-design-system` | Qualitative SVG design judging with cross-run synthesis | Open `generated\viewer.html` |
 | `examples\multilingual-dad-joke` | Language optimization with multi-model generator and judge panels | Open `generated\viewer.html` |
 | `examples\messy-csv-parser` | Objective architecture bake-off | Open `generated\viewer.html` |
+| `examples\accessible-mobile-checkout` | Accessibility-first browser/task gates, independent human-use judging, and recovery provenance | Open `generated\viewer.html` |
 
 Regenerate all snapshots manually with `python scripts\regenerate_examples.py`.
 Batch skill changes first: ordinary CI does not regenerate Examples or block on

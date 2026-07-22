@@ -1,0 +1,134 @@
+{
+  "candidate": "candidate-b",
+  "loop": "loop-02",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "scorer_id": "blind-human-use-panel",
+  "actual_model": "claude-opus-4.7",
+  "criterion_id": "human-use-quality",
+  "objective_gate": false,
+  "kind": "qualitative_rubric",
+  "raw_score_mean_11_lenses": 4.09,
+  "visual_information_clarity": 4,
+  "lens_findings": {
+    "discoverability": {
+      "score": 4,
+      "finding": "Wizard-style progress at top with role=progressbar aria-valuenow=1 aria-valuemax=4 aria-valuetext='Step 1 of 4: Contact details' and a visible four-step chip list (Contact / Delivery address / Payment / Review & place order). Skip link 'Skip to checkout steps' is the first Tab target. Prominent fictional-demo banner explains context. Order summary aside is always visible. Save-progress and Clear-saved-progress affordances are surfaced near the wizard controls. What is not on-screen for step 1 is deliberate — Place order and later steps are hidden until the wizard reaches them.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png",
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[semantic_snapshot]",
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[first_tab_focus]"
+      ]
+    },
+    "navigation": {
+      "score": 4,
+      "finding": "Skip link -> #wizard-form works and is the first tab stop. Continue-to-delivery / Continue-to-payment / Continue-to-review buttons advance the wizard cleanly. Later steps are not in the tab order until previously revealed (my keyboard tour on step 1 correctly enumerated only step-1 content + wizard controls). role=status live region announces state changes. Weaknesses: only <main> as a landmark (no <nav> or <header>); the shipping method fieldset lives inside the order-summary aside, which is an unusual location that mixes cart chrome with a controlled input.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[keyboard_focus_order]",
+        "blind-loop-02/candidate-b/index.html"
+      ]
+    },
+    "input_burden": {
+      "score": 4,
+      "finding": "Fields have friendly per-field help ('As it should appear on your order.', 'We only use this for synthetic order confirmation.', 'Used only for delivery updates on this synthetic order.'). Wizard chunking keeps each step small (3 fields + a Continue). autocomplete tokens are set correctly. Weakness: no preloaded synthetic values for the payment card, and each step requires an explicit Continue click even when validation passes automatically.",
+      "evidence_refs": [
+        "blind-loop-02/candidate-b/index.html",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png"
+      ]
+    },
+    "error_prevention_recovery": {
+      "score": 3,
+      "finding": "Per-step validation catches errors as the wizard advances, which prevents whole-form empty submission. An error-summary div with role=alert exists at the top of the wizard form. In my run the operator inadvertently opened the Clear-saved-progress dialog on step 1 (its 'Clear saved progress' button reports aria-expanded=false initially and was auto-expanded), so I could not observe empty-submit error-recovery text directly. From the DOM I can see the summary exists but its behaviour under invalid input was not captured in this run.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[empty_submit_state]",
+        "blind-loop-02/candidate-b/index.html"
+      ]
+    },
+    "feedback_status": {
+      "score": 5,
+      "finding": "Multiple live regions with correct politeness: role=status aria-live=polite for step announcements ('Order placed. Confirmation SYN-2048.'), role=progressbar with aria-valuetext ('Step 1 of 4: Contact details') that a screen reader announces on step change, and a full confirmation card ('Order confirmed — Thank you, Alex Morgan. This synthetic order is complete. Confirmation number: SYN-2048'). Save-progress and shipping-method changes trigger status updates. This candidate is the strongest on programmatic status.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[confirmation_state]",
+        "blind-loop-02/candidate-b/index.html"
+      ]
+    },
+    "accessibility": {
+      "score": 4,
+      "finding": "Skip link, role=progressbar with aria-valuetext, role=status aria-live=polite, role=alert error summary, aria-expanded on Save/Clear/Hide-item-details toggles, labelled fields with aria-describedby help, fieldset/legend around Contact and Shipping. Visible focus is a solid 3px outline (rgb 16,36,62 on light, rgb 255,255,255 on dark). Weaknesses: no <nav>/<header> landmarks; radios inside order-summary aside sit outside the natural form landmark; skip-link target is #wizard-form (the form element with tabindex=-1) rather than the specific step heading, so a screen reader needs one extra Tab to reach the first field.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[keyboard_focus_order]",
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[semantic_snapshot]"
+      ]
+    },
+    "responsive_touch_ergonomics": {
+      "score": 4,
+      "finding": "No horizontal overflow at 320x568, 360x800, or 390x844. Continue and Cancel buttons are full-width dark-green with white text (high contrast); radio rows have wide row-hit area with label wrapping. Objective 24x24 gate passes per frozen harness. The dense wizard-control row (Save / Clear) is comfortably tappable at 320.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[viewport]",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-320x568.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-360x800.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/viewport-390x844.png"
+      ]
+    },
+    "interruption_resumption": {
+      "score": 4,
+      "finding": "localStorage key 'northstar-wizard-checkout-v1' stores contact-name/email/phone, address-line1/city/state/postcode/country, shippingMethod, currentStep, highestRevealed. Card fields excluded. Explicit 'Save progress' button + auto-save on field change. After a mid-flow reload the contact and address-line1 values were restored, currentStep was preserved, and no '4111' substring appears in any storage key (cardInStorage:false). Explicit synthetic-privacy copy: 'Payment details are never saved, so there is nothing payment-related to clear.'",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[pre_reload_storage]",
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[post_reload_state]"
+      ]
+    },
+    "latency_perception": {
+      "score": 4,
+      "finding": "Place order fires with an immediate status announcement 'Order placed. Confirmation SYN-2048.' Duplicate submit attempted immediately; only one SYN-2048 is rendered in the confirmation panel (the syn2048Count=2 counts the status text + the confirmation heading, i.e. one order). Confirmation card includes 'Thank you, Alex Morgan.' inline, reducing uncertainty. Weakness: no explicit visible 'Processing…' interstitial captured in my run — the local simulation completed too quickly to observe an aria-busy gap.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[confirmation_state]",
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[duplicate_submit_attempted]"
+      ]
+    },
+    "destructive_actions": {
+      "score": 5,
+      "finding": "Strongest destructive-action safety of the three. Explicit two-step Clear-saved-progress affordance: a 'Clear saved progress' button expands a confirmation dialog with 'Cancel' and 'Yes, clear saved progress' options, prefaced by copy explaining what is cleared and that it cannot be undone. Save-progress is a distinct button. Place order is hidden until step 4, structurally preventing premature submission. Wizard chunking preserves prior values on Continue. Review acknowledgement checkbox required at step 4.",
+      "evidence_refs": [
+        "blind-loop-02/candidate-b/index.html",
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[empty_submit_state]"
+      ]
+    },
+    "cognitive_load": {
+      "score": 4,
+      "finding": "Wizard chunking (3 fields per step) keeps each screen focused. Copy is friendly, uses plain language, and repeatedly reassures 'synthetic', 'no real order is ever placed'. Progress indicator explicitly says 'Step X of 4' with a descriptive label. Order summary aside is available on every step. Weakness: mixing the Shipping fieldset inside the order-summary aside means shipping decisions live in a different landmark from other input decisions, which can force a mental context switch on step 3.",
+      "evidence_refs": [
+        "blind-loop-02/candidate-b/index.html",
+        "judging/loop-02/judge-human-use/screenshots/candidate-b/initial.png"
+      ]
+    }
+  },
+  "strengths": [
+    "Real skip link + role=progressbar with descriptive aria-valuetext — screen readers get an authoritative 'Step X of 4' announcement",
+    "Explicit Save-progress and Clear-saved-progress affordances with a two-step confirm dialog (strongest destructive-actions pattern)",
+    "Full SYN-2048 confirmation with named greeting; role=status aria-live=polite announces completion",
+    "Wizard chunking reduces per-screen cognitive load and structurally blocks premature Place order",
+    "Payment data absent from storage; explicit copy reassures users about payment privacy"
+  ],
+  "defects": [
+    "Only <main> landmark (no <nav> or <header>); shipping radios live inside the order-summary <aside>, mixing cart chrome with a required input",
+    "No preloaded synthetic card / expiry / CVV values; testers and low-vision users have no on-screen fictional-credential hint",
+    "Skip link jumps to #wizard-form (the form element) rather than directly to the first step heading; one extra Tab needed",
+    "Empty-submit whole-form error state is difficult to observe because Place order is hidden until step 4; per-step validation is good but forensic recovery paths are less visible"
+  ],
+  "uncertainty": [
+    "My automation opened the Clear-saved-progress dialog before place-order was reachable on step 1, so the whole-form error-summary content was not directly captured. Field-level validation on Continue was observed to work correctly."
+  ],
+  "console_errors": 0,
+  "page_errors": 0,
+  "synthesis_recommendation": {
+    "action": "adopt_selective",
+    "rationale": "Adopt the skip-link + role=progressbar with aria-valuetext pattern, the Save-progress / Clear-saved-progress + two-step confirm dialog, and the friendly synthetic-context copy. Do not adopt the shipping-fieldset-in-aside layout, and add landmark diversity (<nav>, <header>) plus preloaded synthetic-card hints when merging into the Champion.",
+    "evidence_refs": [
+      "blind-loop-02/candidate-b/index.html",
+      "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[semantic_snapshot]"
+    ]
+  }
+}

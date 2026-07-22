@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.1",
+  "loop_id": "synthesis-loop-02",
+  "track_id": "synthesis",
+  "model_role": "synthesizer",
+  "model": "claude-opus-4.8",
+  "state": "complete",
+  "objective_status": "pass",
+  "decision": "keep_for_synthesis",
+  "stop_reason": null,
+  "blockers": [],
+  "planned_loop": "8 of 8 (hard cap 11)",
+  "parent_ids": ["synthesis-loop-01"],
+  "ancestor_parent_ids": ["single-page-loop-02", "resumable-wizard-loop-02", "task-cards-loop-01"],
+  "start": "2026-07-21T21:55:55.616Z",
+  "heartbeat": "2026-07-21T22:30:00.000Z",
+  "end": "2026-07-21T22:30:00.000Z",
+  "current_phase": "terminal; all required outputs and the manifest-fragment synthesis-loop-02 entry are complete",
+  "phase_heartbeats": [
+    { "phase": "initialized_and_copied_loop01_files", "utc": "2026-07-21T21:55:55.616Z" },
+    { "phase": "applied_five_feedback_changes", "utc": "2026-07-21T22:02:00.000Z" },
+    { "phase": "ran_frozen_objective_harness", "utc": "2026-07-21T22:04:56.410Z" },
+    { "phase": "wrote_process_adoption_metadata_report", "utc": "2026-07-21T22:20:00.000Z" },
+    { "phase": "updated_manifest_fragment", "utc": "2026-07-21T22:28:00.000Z" },
+    { "phase": "terminal_status", "utc": "2026-07-21T22:30:00.000Z" }
+  ],
+  "objective_result": {
+    "all_seven_gates_pass": true,
+    "failed_gate_ids": [],
+    "blocking_failure": false,
+    "external_request_count": 0,
+    "process_pid": 3824,
+    "exit_code": 0,
+    "reran_while_live": false,
+    "repair_attempts": 0,
+    "failed_attempt_artifacts": [],
+    "gate_states": {
+      "content-fidelity": "pass",
+      "semantic-accessibility-gate": "pass",
+      "keyboard-completion-gate": "pass",
+      "error-recovery-gate": "pass",
+      "mobile-touch-gate": "pass",
+      "resilience-gate": "pass",
+      "offline-safety-gate": "pass"
+    },
+    "start_utc": "2026-07-21T22:04:38.0495550Z",
+    "end_utc": "2026-07-21T22:04:56.4096810Z"
+  },
+  "no_regression": {
+    "statement": "No objective pass-to-fail regression against synthesis-loop-01 or any of the three ancestor parent finalists on the shared canonical fixture; all comparators record failed_gate_ids: [] and zero external requests.",
+    "candidate_failed_gate_ids": [],
+    "comparators": ["synthesis-loop-01", "single-page-loop-02", "resumable-wizard-loop-02", "task-cards-loop-01"]
+  },
+  "qualitative_status": "pending_independent_judges",
+  "claims_withheld": {
+    "champion": false,
+    "new_best": false,
+    "promotion": false,
+    "qualitative_scores": false
+  },
+  "frozen_hashes": {
+    "experiment_brief_sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13",
+    "setup_prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928",
+    "canonical_fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+    "run_checkout_gates_sha256": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563",
+    "fixture_unchanged": true,
+    "harness_unchanged": true
+  },
+  "output_hashes": {
+    "index.html": "86f764a53de8785abbfa64f05834c28a6ef5f760514c67429ba72f847662d8a3",
+    "styles.css": "e945d2949741ce0e7a822a537c04bd6c95a6c4ed2bf5ebdbddd4295b047ebaa7",
+    "app.js": "64e78814110ae9acf8c0de9d20b041f77058d2a504043558296d2efc4db5394e",
+    "process.json": "fe44e4efcfaaf86ad2bd63ede49af0e3e6951f4372b2f52f5cb49ade222f998e",
+    "metadata.json": "3751fccfac3ab16e474b09a9c5e3ad36583417771f7a2b60ee43b4b452d7b5f2",
+    "adoption-rejection-matrix.json": "69ede9c6b8c741ade3576c67158de07c1fc69540c6542c35ade3e4647f966298",
+    "adoption-rejection-matrix.md": "396b4b16e6b60f817b0833cffae3b1a020a9ae2af1ccab799fa607f50978cda3",
+    "synthesis-report.md": "eefe1ae237df72bcb6d5950f93107a300d4737cefc9fa6b51efee3ae6079b04a",
+    "evidence/objective-report.json": "87b77336064e99510843d313300b784c9710ce86bdd55db668860c9fdfc16c06",
+    "evidence/objective-report.txt": "799bc7fb67575599e90d8296d0613ed32ca21d34f1f2284553d099eef280bd65",
+    "evidence/initial.png": "cdb3449487d0a1ba5afc67b9efc97212ba35523bff00cdd0831f279ac2e717d4",
+    "evidence/keyboard-completion.png": "2cb9e887b223df35487ef85424b369742893d5edfdb5b2a64d5d259aa2523584",
+    "evidence/final.png": "2cb9e887b223df35487ef85424b369742893d5edfdb5b2a64d5d259aa2523584",
+    "evidence/viewport-320x568.png": "2baf0713304922286e9ad195636532ada6bcf4ccdeb93509c76edd32b41e6bc0",
+    "evidence/viewport-360x800.png": "c93b59879098580a8b2daed900bfcffaea2ac5697473ea619832f690c54a11f6",
+    "evidence/viewport-390x844.png": "678a46956a4e8986be67f0a667f7c58cb1896028ce778e3cde05dbba4f493ec2",
+    "../manifest-fragment.json": "548df598a83782f53c5276885d1bc5bb0ce2d691fba842594e20d13f1f25ed10"
+  },
+  "output_hashes_note": "status.json omits its own SHA-256 (it is the terminal output and hashes every other loop-02 output plus the finalized synthesis/manifest-fragment.json). The manifest-fragment.json synthesis-loop-02 status artifact defers to this record for the status hash.",
+  "caveats_preserved": [
+    "path_remediation_procedural_caveat (permanent, procedural only)",
+    "reboot_interruption_recovery_caveat (permanent, inherited from synthesis-loop-01)"
+  ],
+  "safety": {
+    "network": "none",
+    "installs": "none",
+    "dependency_changes": "none",
+    "credentials": "none",
+    "harness_or_fixture_modified": false,
+    "wrote_only_within_loop_02_and_fragment": true,
+    "manifest_viewer_ledger_untouched": true,
+    "promotion_or_git_actions": "none"
+  }
+}

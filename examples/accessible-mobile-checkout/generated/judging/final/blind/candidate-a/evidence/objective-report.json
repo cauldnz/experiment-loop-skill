@@ -1,0 +1,1508 @@
+{
+  "blocking_failure": false,
+  "candidate": "loop-02",
+  "candidate_entrypoint": "index.html",
+  "experiment_id": "accessible-mobile-checkout",
+  "external_requests": [],
+  "failed_gate_ids": [],
+  "fixture_id": "northstar-goods-synthetic-checkout-v1",
+  "fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+  "gates": [
+    {
+      "assertions": [
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Northstar Goods",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Synthetic checkout demonstration",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Northstar Insulated Bottle",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Willow Cotton Throw",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 80.00",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 8.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Standard — 3 to 5 business days",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 5.00",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Express — 1 to 2 business days",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 12.00",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Guest",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "checkout-root",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "synthetic-banner",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "cart",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "cart-line-bottle",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "cart-line-throw",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "subtotal",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "tax",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "shipping-standard",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "shipping-express",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "total",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-synthetic-labelling",
+          "detail": "northstar goods — synthetic checkout demonstration all products, people, contact details, addresses, payment details and order data are fictional and synthetic. nothing is purchased and no request leaves this page.",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "account",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "sign in",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "sign-in",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "coupon",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "recommendation",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "upsell",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "stock",
+          "status": "pass"
+        },
+        {
+          "assertion": "shipping-total-is-frozen-choice",
+          "detail": "AUD 93.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "single-confirmation-hook",
+          "detail": "0",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "contact-name: Alex Morgan",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "contact-email: alex.morgan@example.invalid",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "contact-phone: +61 400 000 000",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-line1: 42 Fiction Lane",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-city: Sampleton",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-state: NSW",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-postcode: 2000",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-country: Australia",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-number: 4111 1111 1111 1111",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-expiry: 12/34",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-security: 123",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-name: Alex Morgan",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-standard-shipping-label",
+          "detail": "Standard — 3 to 5 business days AUD 5.00",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-express-shipping-label",
+          "detail": "Express — 1 to 2 business days AUD 12.00",
+          "status": "pass"
+        }
+      ],
+      "id": "content-fidelity",
+      "status": "pass"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "main-landmark",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "checkout-form",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "primary-heading",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-headings",
+          "detail": "9",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-fieldsets",
+          "detail": "5",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "contact-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "address-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "shipping-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "payment-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "review-section",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "contact-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "contact-name: Full name *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "contact-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "contact-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "contact-email",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "contact-email: Email *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "contact-email",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "contact-email",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "contact-phone",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "contact-phone: Phone *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "contact-phone",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "contact-phone",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-line1",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-line1: Street address *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-line1",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-line1",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-city",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-city: City or suburb *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-city",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-city",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-state",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-state: State *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-state",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-state",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-postcode",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-postcode: Postcode *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-postcode",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-postcode",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-country",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "address-country: Country *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "address-country",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "address-country",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-number",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "card-number: Card number *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "card-number",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "card-number",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-expiry",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "card-expiry: Expiry, MM/YY *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "card-expiry",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "card-expiry",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-security",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "card-security: Security code *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "card-security",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "card-security",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "accessible-name",
+          "detail": "card-name: Name on card *",
+          "status": "pass"
+        },
+        {
+          "assertion": "field-description",
+          "detail": "card-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-state",
+          "detail": "card-name",
+          "status": "pass"
+        },
+        {
+          "assertion": "status-live-semantics",
+          "detail": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "status": "pass"
+        },
+        {
+          "assertion": "error-live-semantics",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "confirmation-semantics",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "explicit-place-order-hook",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "place-order-name",
+          "detail": "Place order",
+          "status": "pass"
+        },
+        {
+          "assertion": "place-order-control",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "explicit-review-control",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "edit-control-for-review-correction",
+          "detail": "4",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-focus-indicator",
+          "detail": "{'active': True, 'outlineColor': 'rgb(255, 191, 71)', 'outlineWidth': '4px', 'outlineStyle': 'solid', 'boxShadow': 'rgb(11, 74, 111) 0px 0px 0px 2px', 'borderColor': 'rgb(255, 255, 255)'}",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "synthetic-banner: 11.92 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "cart: 16.29 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "subtotal: 7.80 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "tax: 7.80 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "total: 16.29 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "text-contrast",
+          "detail": "status: 12.12 < 4.50",
+          "status": "pass"
+        },
+        {
+          "assertion": "computed-text-contrast-samples",
+          "detail": "6",
+          "status": "pass"
+        },
+        {
+          "assertion": "non-text-control-contrast",
+          "detail": "place-order border: 9.45",
+          "status": "pass"
+        },
+        {
+          "assertion": "focus-contrast",
+          "detail": "focus contrast=5.755147062654523",
+          "status": "pass"
+        }
+      ],
+      "id": "semantic-accessibility-gate",
+      "status": "pass"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "keyboard-focusable-controls",
+          "detail": "28",
+          "status": "pass"
+        },
+        {
+          "assertion": "tab-order-remains-in-checkout",
+          "detail": "['review-confirmation', '<button type=\"submit\" class=\"primary-button\" data-hook=\"place-order\">Place order', '<body>\\n <a class=\"skip-link\" href=\"#checkout-form\">Skip to checkout form</a>\\n ', '<a class=\"skip-link\" href=\"#checkout-form\">Skip to checkout form</a>', '<a href=\"#cont…",
+          "status": "pass"
+        },
+        {
+          "assertion": "shift-tab-operates",
+          "detail": "A",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-place-order-target",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-text-entry-and-task-controls",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-edit-control-available",
+          "detail": "edit-contact",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-edit-activation",
+          "detail": "edit-contact",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-edit-restores-field",
+          "detail": "Alex Morgan",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-space-shipping",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-space-review",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-enter-place-order",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "keyboard-confirmation",
+          "detail": "1",
+          "status": "pass"
+        }
+      ],
+      "id": "keyboard-completion-gate",
+      "status": "pass"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "empty-submit-actionable-summary",
+          "detail": "Check 13 items in 4 sections Your entries are preserved. Start with one link per affected section, or expand the full list. Contact: 3 items need attention Delivery address: 5 items need attention Synthetic payment: 4 items need attention Review: 1 item need attention Show all 1…",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "contact-name: contact-name-help contact-name-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "contact-email: contact-email-help contact-email-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "contact-phone: contact-phone-help contact-phone-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-line1: address-line1-help address-line1-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-city: address-city-help address-city-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-state: address-state-help address-state-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-postcode: address-postcode-help address-postcode-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "address-country: address-country-help address-country-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "card-number: card-number-help card-number-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "card-expiry: card-expiry-help card-expiry-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "card-security: card-security-help card-security-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-field-error-association",
+          "detail": "card-name: card-name-help card-name-error",
+          "status": "pass"
+        },
+        {
+          "assertion": "empty-submit-invalid-fields",
+          "detail": "12",
+          "status": "pass"
+        },
+        {
+          "assertion": "useful-error-focus",
+          "detail": "error-summary",
+          "status": "pass"
+        },
+        {
+          "assertion": "invalid-submit-summary",
+          "detail": "Check 4 items in 2 sections Your entries are preserved. Start with one link per affected section, or expand the full list. Contact: 1 item need attention Synthetic payment: 3 items need attention Show all 4 corrections",
+          "status": "pass"
+        },
+        {
+          "assertion": "preserve-valid-safe-value",
+          "detail": "Alex Morgan",
+          "status": "pass"
+        },
+        {
+          "assertion": "correction-and-resubmission-entry",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "corrected-resubmission-confirmation",
+          "detail": "1",
+          "status": "pass"
+        }
+      ],
+      "id": "error-recovery-gate",
+      "status": "pass"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "no-page-horizontal-overflow",
+          "detail": "320x568: {'width': 320, 'scrollWidth': 320, 'height': 568, 'bodyScrollWidth': 320}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "checkout-root: {'x': 8, 'y': -4341.734375, 'width': 304, 'height': 5164.25}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "synthetic-banner: {'x': 0, 'y': -4504.015625, 'width': 320, 'height': 162.28125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "cart: {'x': 10, 'y': 54.375, 'width': 300, 'height': 351.953125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "contact-section: {'x': 8, 'y': -3201.125, 'width': 304, 'height': 493.5}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "address-section: {'x': 8, 'y': -2691.625, 'width': 304, 'height': 735.359375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "shipping-section: {'x': 8, 'y': -1940.265625, 'width': 304, 'height': 415.46875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "payment-section: {'x': 8, 'y': -1508.796875, 'width': 304, 'height': 885.90625}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "review-section: {'x': 8, 'y': -606.890625, 'width': 304, 'height': 1113.921875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "place-order: {'x': 22.59375, 'y': 440.4375, 'width': 274.8125, 'height': 52}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 0: {'x': 8, 'y': -4166.375, 'width': 93.765625, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 1: {'x': 106.5625, 'y': -4166.375, 'width': 97.9375, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 2: {'x': 209.296875, 'y': -4166.375, 'width': 102.703125, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 3: {'x': 8, 'y': -4121.203125, 'width': 155.859375, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 4: {'x': 168.65625, 'y': -4121.203125, 'width': 143.34375, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 5: {'x': 8, 'y': -3585.5625, 'width': 142.78125, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 6: {'x': 8, 'y': -3528.78125, 'width': 196, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 9: {'x': 21.796875, 'y': -3443.796875, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 11: {'x': 22.59375, 'y': -3056.984375, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 12: {'x': 22.59375, 'y': -2937.5, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 13: {'x': 22.59375, 'y': -2796.90625, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 15: {'x': 22.59375, 'y': -2523.484375, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 16: {'x': 22.59375, 'y': -2404, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 17: {'x': 22.59375, 'y': -2284.515625, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 18: {'x': 22.59375, 'y': -2165.03125, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 19: {'x': 22.59375, 'y': -2045.546875, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 21: {'x': 35.78125, 'y': -1710.546875, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 22: {'x': 35.78125, 'y': -1602.578125, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 24: {'x': 22.59375, 'y': -1155.0625, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 25: {'x': 22.59375, 'y': -1014.46875, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 26: {'x': 22.59375, 'y': -873.875, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 27: {'x': 22.59375, 'y': -733.28125, 'width': 274.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 28: {'x': 36.390625, 'y': -295.0625, 'width': 126.25, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 29: {'x': 36.390625, 'y': -241.484375, 'width': 131.5625, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 30: {'x': 36.390625, 'y': 9.265625, 'width': 136.234375, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 31: {'x': 36.390625, 'y': 62.84375, 'width': 137.21875, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 32: {'x': 37.390625, 'y': 154.625, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "320x568 target 33: {'x': 22.59375, 'y': 440.4375, 'width': 274.8125, 'height': 52}",
+          "status": "pass"
+        },
+        {
+          "assertion": "no-page-horizontal-overflow",
+          "detail": "360x800: {'width': 360, 'scrollWidth': 360, 'height': 800, 'bodyScrollWidth': 360}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "checkout-root: {'x': 8, 'y': -4269.734375, 'width': 344, 'height': 5067.984375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "synthetic-banner: {'x': 0, 'y': -4432.015625, 'width': 360, 'height': 162.28125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "cart: {'x': 10, 'y': 54.375, 'width': 340, 'height': 327.953125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "contact-section: {'x': 8, 'y': -3085.265625, 'width': 344, 'height': 472.390625}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "address-section: {'x': 8, 'y': -2596.875, 'width': 344, 'height': 735.359375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "shipping-section: {'x': 8, 'y': -1845.515625, 'width': 344, 'height': 391.46875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "payment-section: {'x': 8, 'y': -1438.046875, 'width': 344, 'height': 840.796875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "review-section: {'x': 8, 'y': -581.25, 'width': 344, 'height': 1064.015625}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "place-order: {'x': 22.59375, 'y': 416.171875, 'width': 314.8125, 'height': 52}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 0: {'x': 8, 'y': -4094.375, 'width': 107.09375, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 1: {'x': 119.890625, 'y': -4094.375, 'width': 111.265625, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 2: {'x': 235.953125, 'y': -4094.375, 'width': 116.046875, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 3: {'x': 8, 'y': -4049.203125, 'width': 175.859375, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 4: {'x': 188.65625, 'y': -4049.203125, 'width': 163.34375, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 5: {'x': 8, 'y': -3448.09375, 'width': 142.78125, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 6: {'x': 8, 'y': -3391.3125, 'width': 196, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 9: {'x': 21.796875, 'y': -3306.328125, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 11: {'x': 22.59375, 'y': -2941.125, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 12: {'x': 22.59375, 'y': -2821.640625, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 13: {'x': 22.59375, 'y': -2702.15625, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 15: {'x': 22.59375, 'y': -2428.734375, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 16: {'x': 22.59375, 'y': -2309.25, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 17: {'x': 22.59375, 'y': -2189.765625, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 18: {'x': 22.59375, 'y': -2070.28125, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 19: {'x': 22.59375, 'y': -1950.796875, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 21: {'x': 35.78125, 'y': -1615.796875, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 22: {'x': 35.78125, 'y': -1519.828125, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 24: {'x': 22.59375, 'y': -1108.3125, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 25: {'x': 22.59375, 'y': -967.71875, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 26: {'x': 22.59375, 'y': -848.234375, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 27: {'x': 22.59375, 'y': -707.640625, 'width': 314.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 28: {'x': 36.390625, 'y': -295.328125, 'width': 126.25, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 29: {'x': 36.390625, 'y': -241.75, 'width': 131.5625, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 30: {'x': 36.390625, 'y': 9, 'width': 136.234375, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 31: {'x': 36.390625, 'y': 62.578125, 'width': 137.21875, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 32: {'x': 37.390625, 'y': 154.359375, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "360x800 target 33: {'x': 22.59375, 'y': 416.171875, 'width': 314.8125, 'height': 52}",
+          "status": "pass"
+        },
+        {
+          "assertion": "no-page-horizontal-overflow",
+          "detail": "390x844: {'width': 390, 'scrollWidth': 390, 'height': 844, 'bodyScrollWidth': 390}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "checkout-root: {'x': 8, 'y': -4067.8125, 'width': 374, 'height': 4821.84375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "synthetic-banner: {'x': 0, 'y': -4208.015625, 'width': 390, 'height': 140.203125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "cart: {'x': 10, 'y': 54.375, 'width': 370, 'height': 327.953125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "contact-section: {'x': 8, 'y': -2943.265625, 'width': 374, 'height': 472.390625}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "address-section: {'x': 8, 'y': -2454.875, 'width': 374, 'height': 735.359375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "shipping-section: {'x': 8, 'y': -1703.515625, 'width': 374, 'height': 367.46875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "payment-section: {'x': 8, 'y': -1320.046875, 'width': 374, 'height': 795.6875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "review-section: {'x': 8, 'y': -508.359375, 'width': 374, 'height': 946.90625}",
+          "status": "pass"
+        },
+        {
+          "assertion": "required-element-not-clipped",
+          "detail": "place-order: {'x': 22.59375, 'y': 371.953125, 'width': 344.8125, 'height': 52}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 0: {'x': 8, 'y': -3892.453125, 'width': 84.703125, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 1: {'x': 97.5, 'y': -3892.453125, 'width': 88.875, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 2: {'x': 191.171875, 'y': -3892.453125, 'width': 93.640625, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 3: {'x': 289.609375, 'y': -3892.453125, 'width': 92.390625, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 4: {'x': 8, 'y': -3847.28125, 'width': 374, 'height': 40.375}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 5: {'x': 8, 'y': -3227.703125, 'width': 142.78125, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 6: {'x': 160.375, 'y': -3227.703125, 'width': 196, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 9: {'x': 21.796875, 'y': -3142.71875, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 11: {'x': 22.59375, 'y': -2799.125, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 12: {'x': 22.59375, 'y': -2679.640625, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 13: {'x': 22.59375, 'y': -2560.15625, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 15: {'x': 22.59375, 'y': -2286.734375, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 16: {'x': 22.59375, 'y': -2167.25, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 17: {'x': 22.59375, 'y': -2047.765625, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 18: {'x': 22.59375, 'y': -1928.28125, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 19: {'x': 22.59375, 'y': -1808.796875, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 21: {'x': 35.78125, 'y': -1485.796875, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 22: {'x': 35.78125, 'y': -1401.828125, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 24: {'x': 22.59375, 'y': -1014.3125, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 25: {'x': 22.59375, 'y': -873.71875, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 26: {'x': 22.59375, 'y': -754.234375, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 27: {'x': 22.59375, 'y': -613.640625, 'width': 344.8125, 'height': 48.78125}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 28: {'x': 36.390625, 'y': -246.4375, 'width': 126.25, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 29: {'x': 36.390625, 'y': -192.859375, 'width': 131.5625, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 30: {'x': 36.390625, 'y': 9.890625, 'width': 136.234375, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 31: {'x': 36.390625, 'y': 63.46875, 'width': 137.21875, 'height': 47.1875}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 32: {'x': 37.390625, 'y': 155.25, 'width': 28, 'height': 28}",
+          "status": "pass"
+        },
+        {
+          "assertion": "interactive-target-minimum",
+          "detail": "390x844 target 33: {'x': 22.59375, 'y': 371.953125, 'width': 344.8125, 'height': 52}",
+          "status": "pass"
+        }
+      ],
+      "id": "mobile-touch-gate",
+      "status": "pass"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "4111",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "12/34",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "123",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "card-number",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "card-expiry",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "card-security",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "cvv",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "security-code",
+          "status": "pass"
+        },
+        {
+          "assertion": "safe-state-restored-after-reload",
+          "detail": "8",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-fields-cleared-after-reload",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "reduced-motion-nonessential-duration-max-10ms",
+          "detail": "[]",
+          "status": "pass"
+        },
+        {
+          "assertion": "reduced-motion-completes-once",
+          "detail": "1",
+          "status": "pass"
+        }
+      ],
+      "id": "resilience-gate",
+      "status": "pass"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "invalid-or-unreviewed-placement-blocked",
+          "detail": "0",
+          "status": "pass"
+        },
+        {
+          "assertion": "valid-local-fixture-entry",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "review-required-before-placement",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "busy-status-during-placement",
+          "detail": "[{'buttonState': True, 'statusText': 'placing local synthetic order. please wait.'}]",
+          "status": "pass"
+        },
+        {
+          "assertion": "deterministic-single-confirmation",
+          "detail": "1",
+          "status": "pass"
+        },
+        {
+          "assertion": "deterministic-confirmation-id",
+          "detail": "SYN-2048",
+          "status": "pass"
+        },
+        {
+          "assertion": "zero-external-runtime-requests",
+          "detail": "[]",
+          "status": "pass"
+        },
+        {
+          "assertion": "confirmation-visible-after-explicit-placement",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "repeated-place-order-does-not-duplicate",
+          "detail": "1",
+          "status": "pass"
+        }
+      ],
+      "id": "offline-safety-gate",
+      "status": "pass"
+    }
+  ],
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "metrics": {
+    "activations": 20,
+    "completion_interactions": 1,
+    "corrections": 4,
+    "focusable_controls_traversed": 28
+  },
+  "schema_version": "1.0",
+  "screenshots": [
+    "final.png",
+    "initial.png",
+    "keyboard-completion.png",
+    "viewport-320x568.png",
+    "viewport-360x800.png",
+    "viewport-390x844.png"
+  ]
+}

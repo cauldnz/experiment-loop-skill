@@ -1,0 +1,1335 @@
+{
+  "candidate_label": "b",
+  "bundle_name": "candidate-b",
+  "iteration_id": "final",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "reduced_motion": "reduce",
+  "candidate_url": "file:///<experiment-workspace>/generated/judging/final/blind/candidate-b/index.html",
+  "steps": [
+    {
+      "step": 1,
+      "name": "initial_load",
+      "action": "goto file:",
+      "target": "candidate index.html",
+      "outcome": "loaded 390x844, reduced motion",
+      "details": {
+        "state": {
+          "progress_valuenow": "1",
+          "progress_valuetext": "1 of 5 sections complete: next: Contact.",
+          "error_summary_hidden": true,
+          "error_summary_text": "",
+          "status_text": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "BODY",
+            "id": null,
+            "name": null,
+            "text": "Skip to checkout form\n  \n    \n      Northstar Goods\n      Guest checkout\n    \n  "
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "delivery",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        },
+        "url": "file:///<experiment-workspace>/generated/judging/final/blind/candidate-b/index.html",
+        "skip_links": [
+          {
+            "tag": "A",
+            "role": null,
+            "aria_label": null,
+            "id": null,
+            "text": "Skip to checkout form"
+          }
+        ],
+        "landmark_counts": {
+          "header": 1,
+          "main": 1,
+          "nav": 1,
+          "footer": 1,
+          "aside": 1,
+          "landmark_role_notes": 2,
+          "progressbar": 1,
+          "skip_links": 1,
+          "headings": 10
+        }
+      }
+    },
+    {
+      "step": 2,
+      "name": "keyboard_tab_traverse",
+      "action": "Tab*60",
+      "target": "document",
+      "outcome": "captured focus order",
+      "details": {
+        "visible_focus_check": "tab_order in logs/tab-order.json",
+        "hidden_ancestor_leaks": [],
+        "count_focused": 58
+      }
+    },
+    {
+      "step": 3,
+      "name": "nav_click_#contact",
+      "action": "click section nav link",
+      "target": "#contact",
+      "outcome": "scrolled/anchor navigated",
+      "details": {
+        "y": 1269,
+        "hash": "#contact",
+        "clicked": true
+      }
+    },
+    {
+      "step": 4,
+      "name": "nav_click_#delivery",
+      "action": "click section nav link",
+      "target": "#delivery",
+      "outcome": "scrolled/anchor navigated",
+      "details": {
+        "y": 1757,
+        "hash": "#delivery",
+        "clicked": true
+      }
+    },
+    {
+      "step": 5,
+      "name": "nav_click_#shipping",
+      "action": "click section nav link",
+      "target": "#shipping",
+      "outcome": "scrolled/anchor navigated",
+      "details": {
+        "y": 2508,
+        "hash": "#shipping",
+        "clicked": true
+      }
+    },
+    {
+      "step": 6,
+      "name": "nav_click_#payment",
+      "action": "click section nav link",
+      "target": "#payment",
+      "outcome": "scrolled/anchor navigated",
+      "details": {
+        "y": 2892,
+        "hash": "#payment",
+        "clicked": true
+      }
+    },
+    {
+      "step": 7,
+      "name": "nav_click_#review",
+      "action": "click section nav link",
+      "target": "#review",
+      "outcome": "scrolled/anchor navigated",
+      "details": {
+        "y": 3704,
+        "hash": "#review",
+        "clicked": true
+      }
+    },
+    {
+      "step": 8,
+      "name": "touch_target_audit",
+      "action": "measure interactive rects",
+      "target": "all controls",
+      "outcome": "47 controls measured, 1 below 24x24 CSS px",
+      "details": {
+        "below_24": [
+          {
+            "tag": "P",
+            "id": "contact-name-help",
+            "data_hook": "field-help",
+            "text": "Synthetic value: Alex Morgan.",
+            "width": 345,
+            "height": 21,
+            "below_24": true
+          }
+        ],
+        "measured_count": 47
+      }
+    },
+    {
+      "step": 9,
+      "name": "empty_submit",
+      "action": "click Place order with all fields blank",
+      "target": "[data-hook=\"place-order\"]",
+      "outcome": "error summary appears, focus moved to summary, no confirmation",
+      "details": {
+        "state": {
+          "progress_valuenow": "1",
+          "progress_valuetext": "1 of 5 sections complete: next: Contact.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Order not placed. 13 items need attention.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "DIV",
+            "id": "error-summary",
+            "name": null,
+            "text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per "
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "delivery",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 10,
+      "name": "error_summary_link_click",
+      "action": "click first grouped link",
+      "target": "Contact: 3 items need attention",
+      "outcome": "focus/scroll should move to field",
+      "details": {
+        "active": {
+          "tag": "INPUT",
+          "id": "contact-name",
+          "name": "contact-name",
+          "text": ""
+        }
+      }
+    },
+    {
+      "step": 11,
+      "name": "fill_contact",
+      "action": "fill contact fields",
+      "target": "contact section",
+      "outcome": "values entered",
+      "details": {
+        "state_after": {
+          "progress_valuenow": "2",
+          "progress_valuetext": "2 of 5 sections complete: next: Delivery address.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Order not placed. 13 items need attention.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "INPUT",
+            "id": "contact-phone",
+            "name": "contact-phone",
+            "text": ""
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 12,
+      "name": "fill_delivery",
+      "action": "fill delivery fields",
+      "target": "delivery section",
+      "outcome": "values entered",
+      "details": {
+        "state_after": {
+          "progress_valuenow": "3",
+          "progress_valuetext": "3 of 5 sections complete: next: Payment.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Order not placed. 13 items need attention.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "INPUT",
+            "id": "address-country",
+            "name": "address-country",
+            "text": ""
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 13,
+      "name": "invalid_postcode_blur",
+      "action": "type invalid postcode then blur",
+      "target": "#address-postcode",
+      "outcome": "field-level error should appear inline",
+      "details": {
+        "state": {
+          "progress_valuenow": "2",
+          "progress_valuetext": "2 of 5 sections complete: next: Delivery address.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Order not placed. 13 items need attention.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "BODY",
+            "id": null,
+            "name": null,
+            "text": "Skip to checkout form\n  \n    \n      Northstar Goods\n      Guest checkout\n    \n  "
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "In progress",
+              "classes": "section-state state-progress"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 14,
+      "name": "correct_postcode",
+      "action": "restore valid postcode",
+      "target": "#address-postcode",
+      "outcome": "inline error should clear",
+      "details": {
+        "state": {
+          "progress_valuenow": "3",
+          "progress_valuetext": "3 of 5 sections complete: next: Payment.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Order not placed. 13 items need attention.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "BODY",
+            "id": null,
+            "name": null,
+            "text": "Skip to checkout form\n  \n    \n      Northstar Goods\n      Guest checkout\n    \n  "
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 15,
+      "name": "shipping_change_express",
+      "action": "select Express radio",
+      "target": "#shipping-express",
+      "outcome": "totals should update",
+      "details": {
+        "state": {
+          "progress_valuenow": "3",
+          "progress_valuetext": "3 of 5 sections complete: next: Payment.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Order not placed. 13 items need attention.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "INPUT",
+            "id": "shipping-express",
+            "name": "shipping",
+            "text": ""
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 12.00",
+            "grand": "AUD 100.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 16,
+      "name": "save_progress",
+      "action": "click Save progress",
+      "target": "[data-action=\"save-now\"]",
+      "outcome": "explicit save; status announces",
+      "details": {
+        "state": {
+          "progress_valuenow": "3",
+          "progress_valuetext": "3 of 5 sections complete: next: Payment.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Safe contact, delivery and shipping progress saved on this device. Payment details are never saved.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "BUTTON",
+            "id": null,
+            "name": null,
+            "text": "Save progress"
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 17,
+      "name": "payment_secret_check",
+      "action": "inspect localStorage after payment fill",
+      "target": "localStorage.*",
+      "outcome": "must not contain card-number/card-security/card-expiry",
+      "details": {
+        "localstorage": {
+          "keys": [
+            "northstar-synthesis-checkout"
+          ],
+          "results": [
+            {
+              "key": "northstar-synthesis-checkout",
+              "length": 282,
+              "has_card_number": false,
+              "has_card_security": false,
+              "has_card_expiry": false
+            }
+          ]
+        }
+      }
+    },
+    {
+      "step": 18,
+      "name": "compact_toggle_on",
+      "action": "toggle compact completed sections",
+      "target": "#compact-completed",
+      "outcome": "completed sections should compact; hidden fields removed from focus",
+      "details": {
+        "state": {
+          "progress_valuenow": "4",
+          "progress_valuetext": "4 of 5 sections complete: next: Review.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Compact view on. Completed sections use short summaries and remain directly editable.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": true,
+          "active_element": {
+            "tag": "INPUT",
+            "id": "compact-completed",
+            "name": null,
+            "text": ""
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete \u00b7 compacted",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete \u00b7 compacted",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete \u00b7 compacted",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Complete \u00b7 compacted",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        },
+        "section_visibility": {
+          "contact": {
+            "compacted": "true",
+            "body_hidden": true,
+            "summary_hidden": false,
+            "edit_visible": true
+          },
+          "delivery": {
+            "compacted": "true",
+            "body_hidden": true,
+            "summary_hidden": false,
+            "edit_visible": true
+          },
+          "shipping": {
+            "compacted": "true",
+            "body_hidden": true,
+            "summary_hidden": false,
+            "edit_visible": true
+          },
+          "payment": {
+            "compacted": "true",
+            "body_hidden": true,
+            "summary_hidden": false,
+            "edit_visible": true
+          },
+          "review": {
+            "compacted": null,
+            "body_hidden": false,
+            "summary_hidden": false,
+            "edit_visible": false
+          }
+        }
+      }
+    },
+    {
+      "step": 19,
+      "name": "compact_focus_audit",
+      "action": "Tab*40 after compact on",
+      "target": "document",
+      "outcome": "hidden-ancestor focus leaks: 0",
+      "details": {
+        "leaks": []
+      }
+    },
+    {
+      "step": 20,
+      "name": "edit_contact_from_compact",
+      "action": "click Edit contact",
+      "target": "#contact button[data-edit-section=\"contact\"], button[data-edit-section=\"contact\"]",
+      "outcome": "section re-expands and first field focused",
+      "details": {
+        "state": {
+          "progress_valuenow": "4",
+          "progress_valuetext": "4 of 5 sections complete: next: Review.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Editing contact. Existing entries are preserved.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": true,
+          "active_element": {
+            "tag": "INPUT",
+            "id": "contact-name",
+            "name": "contact-name",
+            "text": ""
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete \u00b7 compacted",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete \u00b7 compacted",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Complete \u00b7 compacted",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 21,
+      "name": "clear_progress_prompt",
+      "action": "click Clear saved progress",
+      "target": "[data-action=\"clear-progress\"]",
+      "outcome": "confirmation region appears, Cancel focused",
+      "details": {
+        "state": {
+          "progress_valuenow": "4",
+          "progress_valuetext": "4 of 5 sections complete: next: Review.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Clear saved progress needs confirmation. Choose \u201cYes, clear saved progress\u201d or Cancel below.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": true,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "BUTTON",
+            "id": null,
+            "name": null,
+            "text": "Cancel"
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 22,
+      "name": "clear_progress_cancel",
+      "action": "click Cancel in clear dialog",
+      "target": "[data-action=\"cancel-clear\"]",
+      "outcome": "confirmation hidden, focus returns to Clear button, values preserved",
+      "details": {
+        "state": {
+          "progress_valuenow": "4",
+          "progress_valuetext": "4 of 5 sections complete: next: Review.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Clear saved progress was cancelled. Your saved progress is unchanged.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "BUTTON",
+            "id": null,
+            "name": null,
+            "text": "Clear saved progress"
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 23,
+      "name": "clear_progress_escape",
+      "action": "Escape from clear dialog",
+      "target": "keydown Escape",
+      "outcome": "same as cancel: dialog dismisses without clearing",
+      "details": {
+        "state": {
+          "progress_valuenow": "4",
+          "progress_valuetext": "4 of 5 sections complete: next: Review.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 13 items in 4 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Contact: 3 items need attentionDelivery address: 5 items need attentionSynthetic payment: 4 items need attentionReview",
+          "status_text": "Clear saved progress was cancelled. Your saved progress is unchanged.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "BUTTON",
+            "id": null,
+            "name": null,
+            "text": "Clear saved progress"
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 24,
+      "name": "submit_without_review",
+      "action": "Place order without review checkbox",
+      "target": "form submit",
+      "outcome": "review error entry appears; other sections valid",
+      "details": {
+        "state": {
+          "progress_valuenow": "4",
+          "progress_valuetext": "4 of 5 sections complete: next: Review.",
+          "error_summary_hidden": false,
+          "error_summary_text": "Check 1 item in 1 sectionsYour entries are preserved. Start with one link per affected section, or expand the full list.Review: 1 item need attentionShow all 1 correctionsReview the fictional order and select the confirmation checkbox.",
+          "status_text": "Order not placed. 1 item needs attention.",
+          "confirmation_visible": false,
+          "place_order_disabled": false,
+          "place_order_present": true,
+          "place_order_aria_busy": null,
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "DIV",
+            "id": "error-summary",
+            "name": null,
+            "text": "Check 1 item in 1 sectionsYour entries are preserved. Start with one link per af"
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "review",
+              "text": "Not started",
+              "classes": "section-state state-empty"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred."
+        }
+      }
+    },
+    {
+      "step": 25,
+      "name": "valid_submit",
+      "action": "Place order with valid fields + review checked",
+      "target": "form submit",
+      "outcome": "confirmation should appear; place-order disabled",
+      "details": {
+        "state": {
+          "progress_valuenow": "5",
+          "progress_valuetext": "Order placed. Confirmation SYN-2048.",
+          "error_summary_hidden": true,
+          "error_summary_text": "",
+          "status_text": "Synthetic order placed once. Confirmation ID SYN-2048.",
+          "confirmation_visible": true,
+          "place_order_disabled": true,
+          "place_order_present": true,
+          "place_order_aria_busy": "false",
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "SECTION",
+            "id": null,
+            "name": null,
+            "text": "Order confirmed locally\n          This fictional, synthetic demonstration is com"
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "review",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n          Confirmation ID SYN-2048"
+        }
+      }
+    },
+    {
+      "step": 26,
+      "name": "confirmation_id_check",
+      "action": "look for SYN-2048 in confirmation region",
+      "target": "confirmation region",
+      "outcome": "SYN-2048 present: True",
+      "details": {
+        "confirmation_text_snippets": [
+          "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n          Confirmation ID SYN-2048",
+          "Confirmation ID SYN-2048"
+        ],
+        "has_syn2048": true
+      }
+    },
+    {
+      "step": 27,
+      "name": "duplicate_submit_attempted",
+      "action": "click Place order again after confirmation",
+      "target": "form submit",
+      "outcome": "no duplicate confirmation; status conveys already confirmed",
+      "details": {
+        "state": {
+          "progress_valuenow": "5",
+          "progress_valuetext": "Order placed. Confirmation SYN-2048.",
+          "error_summary_hidden": true,
+          "error_summary_text": "",
+          "status_text": "Synthetic order placed once. Confirmation ID SYN-2048.",
+          "confirmation_visible": true,
+          "place_order_disabled": true,
+          "place_order_present": true,
+          "place_order_aria_busy": "false",
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "BODY",
+            "id": null,
+            "name": null,
+            "text": "Skip to checkout form\n  \n    \n      Northstar Goods\n      Guest checkout\n    \n  "
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "review",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n          Confirmation ID SYN-2048"
+        }
+      }
+    },
+    {
+      "step": 28,
+      "name": "duplicate_dispatch_submit",
+      "action": "dispatchEvent(submit) after confirmation",
+      "target": "form",
+      "outcome": "confirmation nodes before 3 after 3",
+      "details": {
+        "double_dispatch": {
+          "before": 3,
+          "after": 3
+        },
+        "state": {
+          "progress_valuenow": "5",
+          "progress_valuetext": "Order placed. Confirmation SYN-2048.",
+          "error_summary_hidden": true,
+          "error_summary_text": "",
+          "status_text": "This synthetic order is already confirmed as SYN-2048. No duplicate was created.",
+          "confirmation_visible": true,
+          "place_order_disabled": true,
+          "place_order_present": true,
+          "place_order_aria_busy": "false",
+          "clear_confirm_visible": false,
+          "compact_completed": false,
+          "active_element": {
+            "tag": "BODY",
+            "id": null,
+            "name": null,
+            "text": "Skip to checkout form\n  \n    \n      Northstar Goods\n      Guest checkout\n    \n  "
+          },
+          "section_states": [
+            {
+              "section": "contact",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "delivery",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "shipping",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "payment",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            },
+            {
+              "section": "review",
+              "text": "Complete",
+              "classes": "section-state state-complete"
+            }
+          ],
+          "totals": {
+            "shipping": "AUD 5.00",
+            "grand": "AUD 93.50",
+            "subtotal": "AUD 80.00",
+            "tax": "AUD 8.50"
+          },
+          "confirmation_text": "Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n          Confirmation ID SYN-2048"
+        }
+      }
+    },
+    {
+      "step": 29,
+      "name": "network_summary",
+      "action": "read collected network log",
+      "target": "context",
+      "outcome": "0 external requests captured",
+      "details": {
+        "external_requests": [],
+        "total_requests_seen": 6
+      }
+    },
+    {
+      "step": 30,
+      "name": "reload_restore",
+      "action": "page.reload() after successful submit",
+      "target": "browser reload",
+      "outcome": "safe fields restore, payment fields empty, confirmation hidden, place-order re-enabled",
+      "details": {
+        "reload_state": {
+          "contact_name": "Alex Morgan",
+          "contact_email": "alex.morgan@example.invalid",
+          "contact_phone": "+61 400 000 000",
+          "address_line1": "42 Fiction Lane",
+          "address_city": "Sampleton",
+          "address_state": "NSW",
+          "address_postcode": "2000",
+          "address_country": "Australia",
+          "card_number": "",
+          "card_expiry": "",
+          "card_security": "",
+          "card_name": "",
+          "shipping_value": "standard",
+          "status": "Safe progress restored. Re-enter synthetic payment details; they were not saved.",
+          "confirmation_visible": false,
+          "place_order_disabled": false
+        }
+      }
+    },
+    {
+      "step": 31,
+      "name": "clear_confirm_action",
+      "action": "confirm Clear saved progress",
+      "target": "[data-action=\"confirm-clear\"]",
+      "outcome": "reloads, safe fields empty, localstorage cleared",
+      "details": {
+        "state": {
+          "contact_name": "",
+          "address_postcode": "",
+          "localstorage_keys": [],
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved."
+        }
+      }
+    }
+  ],
+  "console": [],
+  "external_requests": [],
+  "total_network_requests_including_local_asset_loads": 18
+}

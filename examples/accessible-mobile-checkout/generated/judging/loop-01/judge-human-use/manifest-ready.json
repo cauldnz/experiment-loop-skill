@@ -1,0 +1,110 @@
+{
+  "schema_version": "1.0",
+  "produced_by": "judge-human-use",
+  "judge_model": "claude-opus-4.7",
+  "loop": "loop-01",
+  "flipped_order": ["candidate-c", "candidate-b", "candidate-a"],
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "note": "Raw, single-judge manifest-ready qualitative records. Panel aggregation is by median and preserves dissent; these records do not aggregate with any other judge and do not choose a Champion. All three objective reports pass; these qualitative scores cannot override any objective gate.",
+  "records": [
+    {
+      "candidate_id": "candidate-c",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 4.27,
+      "score_scale": {"min": 1, "max": 5, "aggregation": "arithmetic_mean_of_11_lens_scores"},
+      "evidence_refs": [
+        "generated/judging/blind-loop-01/candidate-c/index.html",
+        "generated/judging/blind-loop-01/candidate-c/app.js",
+        "generated/judging/blind-loop-01/candidate-c/styles.css",
+        "generated/judging/blind-loop-01/candidate-c/evidence/objective-report.json",
+        "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+        "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+      ],
+      "lens_findings": {
+        "discoverability": {"score": 4, "finding": "Progress stepper (aria-valuetext narrated), persistent Order summary showing shipping method and totals, banner disclosing synthetic scope, and 'Continue to delivery address' CTA. Minor friction: shipping selection lives in the aside not the wizard body.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/screenshots/candidate-c/01-initial-390x844.png", "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json"]},
+        "navigation": {"score": 4, "finding": "Wizard with one active Continue at a time, Back per step, Edit-to-step buttons that focus step headings (tabindex=-1). Skip-link exists but activation left document.activeElement at BODY (target lacks tabindex=-1).", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-c.json"]},
+        "input_burden": {"score": 4, "finding": "Autocomplete tokens on every input; tolerant shape-only validation; explicit Save/Clear progress controls; wizard keeps 3–5 fields visible at once.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-c/app.js", "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/05-review-filled.png"]},
+        "error_prevention_recovery": {"score": 4, "finding": "Per-field aria-invalid + aria-describedby chained to help+error; error summary lists each problem as a button that navigates back to the offending step and focuses the field; nuanced 'you can continue now and fix them before placing your order' message.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-c/app.js"]},
+        "feedback_status": {"score": 5, "finding": "Polite aria-live status with running narration ('Step X complete', 'Placing your order…', 'Order placed. Confirmation SYN-2048.', 'Resumed your saved progress…'); aria-busy on Place order; progressbar aria-valuetext narrates each step.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-c.json"]},
+        "accessibility": {"score": 4, "finding": "Native semantics, pending steps aria-hidden with children tabindex=-1, main+aside landmarks, progressbar role. Minor: skip-link Enter left focus at BODY; radio-row labels carry tabindex='-1' (harmless).", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-c.json"]},
+        "responsive_touch_ergonomics": {"score": 4, "finding": "No horizontal scroll at 390x844 or 320x568; Continue/Back and radio rows are large; mobile-touch objective gate passes independently.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-c.json", "generated/judging/blind-loop-01/candidate-c/evidence/objective-report.json"]},
+        "interruption_resumption": {"score": 5, "finding": "Explicit Save + auto-persist; restores field values, step position, and shipping method; polite status about payment non-persistence; all four payment fields empty after reload.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-c.json"]},
+        "latency_perception": {"score": 4, "finding": "120 ms placement setTimeout; aria-busy set; polite status announces 'Placing your order…'; reduced-motion path succeeds.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-c/app.js"]},
+        "destructive_actions": {"score": 4, "finding": "Place order guarded by orderPlaced flag + aria-disabled=true after success; repeated activation yielded exactly one SYN-2048. Clear-saved-progress lacks confirm but payment was never stored to lose.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-c.json"]},
+        "cognitive_load": {"score": 5, "finding": "One task per view with clear title, help text per field, persistent visible summary + progress; review reprints every entered value verbatim including masked card last-4.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-c.json"]}
+      },
+      "visual_information_clarity": {"score": 4, "finding": "Clear typography, aside for summary, distinct sections, high-contrast dark green primary buttons, progress stepper visualization.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/screenshots/candidate-c/01-initial-390x844.png"]},
+      "next_loop_feedback": "Add tabindex='-1' to #wizard-form (or move the skip target to the first step heading) so activating the skip-link moves programmatic focus and screen-reader position, and consider narrating shipping-method changes in the polite status region so wizard-focused users know when Standard/Express is selected."
+    },
+    {
+      "candidate_id": "candidate-b",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 3.64,
+      "score_scale": {"min": 1, "max": 5, "aggregation": "arithmetic_mean_of_11_lens_scores"},
+      "evidence_refs": [
+        "generated/judging/blind-loop-01/candidate-b/index.html",
+        "generated/judging/blind-loop-01/candidate-b/app.js",
+        "generated/judging/blind-loop-01/candidate-b/styles.css",
+        "generated/judging/blind-loop-01/candidate-b/evidence/objective-report.json",
+        "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+        "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+      ],
+      "lens_findings": {
+        "discoverability": {"score": 4, "finding": "Site header, banner, section-nav pills, numbered step circles, order summary card at top, and a 'Fictional card to use' fixture panel in payment.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/screenshots/candidate-b/01-initial-390x844.png"]},
+        "navigation": {"score": 4, "finding": "Anchor pills jump between sections; Edit-{contact,shipping} scrollIntoView + focus target and narrate the move; first Tab focus goes to the section-nav 'Contact' anchor.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-b.json"]},
+        "input_burden": {"score": 2, "finding": "Exact-fixture validation (state must equal 'NSW', country 'australia', card '4111111111111111', name 'alex morgan', CSC '123', expiry '12/34'); autocomplete='off' on every input disables browser/AT autofill.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-b/app.js", "generated/judging/blind-loop-01/candidate-b/index.html"]},
+        "error_prevention_recovery": {"score": 4, "finding": "Empty submit produced 13 specific error messages via error summary that focuses itself; each item is a link; aria-invalid + aria-describedby chained; per-field error clears on input/change.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-b.json"]},
+        "feedback_status": {"score": 4, "finding": "Polite aria-live status with aria-atomic through the flow; assertive live on error summary; focus moves to confirmation section.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-b.json"]},
+        "accessibility": {"score": 3, "finding": "Solid landmark tree (header/nav/main/aside/footer), fieldset+legend, aria-describedby chained, focused error summary. Concerns: double-radio anti-pattern on shipping (role='radio' on labels wrapping aria-hidden real radios); autocomplete='off' everywhere; no true skip-link.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-b/index.html", "generated/judging/blind-loop-01/candidate-b/app.js"]},
+        "responsive_touch_ergonomics": {"score": 4, "finding": "No horizontal scroll at 320x568; choice-cards and Place-order are large tap targets; section anchors are pill-sized.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-b.json", "generated/judging/blind-loop-01/candidate-b/evidence/objective-report.json"]},
+        "interruption_resumption": {"score": 4, "finding": "Safe fields auto-persisted; restored on reload with 'Safe progress restored…' narration; all four payment fields empty after reload. No manual save/clear controls.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-b.json"]},
+        "latency_perception": {"score": 4, "finding": "180 ms placement setTimeout, placeOrder.disabled=true immediately, aria-busy='true' during processing.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-b/app.js"]},
+        "destructive_actions": {"score": 4, "finding": "Duplicate submit guarded twice (placementStarted flag + disabled button + status re-announce 'This synthetic order is already confirmed as SYN-2048…').", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-b.json"]},
+        "cognitive_load": {"score": 3, "finding": "All 5 sections + ~20 fields on one continuously scrolled page; nav pills help but density is high on small viewports; strict validation adds hidden rules; review does not reprint every field.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/screenshots/candidate-b/01-initial-390x844.png"]}
+      },
+      "visual_information_clarity": {"score": 4, "finding": "Rich visual hierarchy, section summary card, numbered circles, choice cards; feels professional and information-dense.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/screenshots/candidate-b/01-initial-390x844.png"]},
+      "next_loop_feedback": "Replace the double-radio shipping choice-card pattern with plain fieldset+legend + real radio inputs styled as cards, remove autocomplete='off' from every input, and relax input validation to shape-only checks so cross-disability users are not blocked by exact-match rules."
+    },
+    {
+      "candidate_id": "candidate-a",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 2.73,
+      "score_scale": {"min": 1, "max": 5, "aggregation": "arithmetic_mean_of_11_lens_scores"},
+      "evidence_refs": [
+        "generated/judging/blind-loop-01/candidate-a/index.html",
+        "generated/judging/blind-loop-01/candidate-a/app.js",
+        "generated/judging/blind-loop-01/candidate-a/styles.css",
+        "generated/judging/blind-loop-01/candidate-a/evidence/objective-report.json",
+        "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+        "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+      ],
+      "lens_findings": {
+        "discoverability": {"score": 3, "finding": "H1, banner, and 4 numbered task cards each with a live Incomplete/Complete badge. No progress indicator, no section-nav, and no persistent visible order summary — summary + Place order live only at the bottom.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/screenshots/candidate-a/01-initial-390x844.png"]},
+        "navigation": {"score": 3, "finding": "One long continuous form; no skip-link (audit shows skipLinks:[]); Edit-{section} buttons in the bottom summary focus the first input of the target card; first Tab focus lands on contact-name.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-a.json"]},
+        "input_burden": {"score": 3, "finding": "Autocomplete tokens present; permissive validation. But card-name (payment info) is persisted to localStorage between reloads (transcript reload persistence check payment.card-name = 'Alex Morgan').", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-a.json"]},
+        "error_prevention_recovery": {"score": 3, "finding": "Error summary with focus and per-field links; aria-invalid and aria-describedby wired; messages are generic ('Please enter a value') rather than field-specific.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-a.json"]},
+        "feedback_status": {"score": 3, "finding": "Status region is visually-hidden aria-live='assertive' — assertive is too strong for routine transitions and interrupts SR users; polite is correct. Complete/Incomplete badges are not in a live region.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-a/index.html", "generated/judging/blind-loop-01/candidate-a/app.js"]},
+        "accessibility": {"score": 3, "finding": "Native semantics, fieldset/legend, labels-for, aria-invalid, role='alert' error summary. No landmark aside/nav, no skip-link. Assertive aria-live misuse for routine updates.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-a/index.html"]},
+        "responsive_touch_ergonomics": {"score": 3, "finding": "No horizontal scroll at 320x568; mobile-touch objective gate passes. Edit-{section} buttons in review are small 2x2 layout.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-a.json", "generated/judging/blind-loop-01/candidate-a/evidence/objective-report.json"]},
+        "interruption_resumption": {"score": 2, "finding": "Auto-persist restores card-name on reload (payment-field leak). No user-visible Save or Clear controls; no aria-live announcement on restore; no explicit statement of what will or will not persist.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/navigation-transcript-a.json"]},
+        "latency_perception": {"score": 2, "finding": "Hard-coded 500 ms placement setTimeout in non-reduced-motion mode; aria-busy is set but the delay is arbitrarily long for a local synthetic op. Confirmation not visible when sampled at 500 ms after click.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-a/app.js", "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json"]},
+        "destructive_actions": {"score": 2, "finding": "Place order button is disabled only inside the 500 ms setTimeout callback; no placementStarted flag; rapid re-clicks during the busy window schedule additional setTimeouts.", "evidence_refs": ["generated/judging/blind-loop-01/candidate-a/app.js"]},
+        "cognitive_load": {"score": 3, "finding": "Task cards + bottom summary is reasonable IA; badges help sighted users. But no persistent visible order summary or progress indicator; bottom block conflates 'Order Summary and Review'.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/screenshots/candidate-a/01-initial-390x844.png"]}
+      },
+      "visual_information_clarity": {"score": 3, "finding": "Flatter design with less visual hierarchy; no persistent totals visible until scroll to bottom; section boxes are thick-bordered but plain.", "evidence_refs": ["generated/judging/loop-01/judge-human-use/screenshots/candidate-a/01-initial-390x844.png"]},
+      "next_loop_feedback": "Exclude card-name from the persistence allowlist and add a placementStarted flag that disables the submit path immediately on the first click of Place order (not inside the setTimeout callback); reduce the non-reduced-motion setTimeout from 500 ms to ~150 ms and change the status region aria-live from 'assertive' to 'polite' for routine flow transitions."
+    }
+  ]
+}

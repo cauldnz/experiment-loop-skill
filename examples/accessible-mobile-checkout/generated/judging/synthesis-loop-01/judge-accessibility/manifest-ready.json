@@ -1,0 +1,153 @@
+{
+  "schema_version": "1.0",
+  "records": [
+    {
+      "schema_version": "1.0",
+      "label": "candidate-a",
+      "iteration_id": "synthesis-loop-01",
+      "judge_id": "judge-accessibility",
+      "model_id": "gpt-5.6-terra",
+      "role": "approved independent accessibility-focused blind judge",
+      "evaluated_at": "2026-07-21T21:36:32.127279Z",
+      "objective_gate": {
+        "acknowledged": "pass",
+        "source": ".experiments/accessible-mobile-checkout/generated/synthesis/loop-01/evidence/objective-report.json",
+        "rerun": false,
+        "note": "Objective result accepted as terminal and not used to erase qualitative defects."
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scores": {
+        "discoverability": 5,
+        "navigation": 4,
+        "input_burden": 4,
+        "error_prevention_recovery": 5,
+        "feedback_status": 5,
+        "accessibility": 4,
+        "responsive_touch_ergonomics": 4,
+        "interruption_resumption": 5,
+        "latency_perception": 4,
+        "destructive_actions": 5,
+        "cognitive_load": 4
+      },
+      "mean_11_lenses_unrounded": 4.454545454545454,
+      "visual_information_clarity": {
+        "score": 4,
+        "finding": "Clear typography, restrained high-contrast navy/cream hierarchy, grouped cards and prominent total/status surfaces are legible in the captured 390px states. The dense full-form initial state and many visible panels prevent a 5."
+      },
+      "lens_findings": {
+        "discoverability": {
+          "score": 5,
+          "finding": "The synthetic banner, clear H1, five named section links, numbered section headings, progressbar, visible order summary, and direct labels make the checkout\u2019s purpose and available tasks explicit."
+        },
+        "navigation": {
+          "score": 4,
+          "finding": "All five anchor links changed hash/position; compact and review Edit controls opened the exact section and focused its first control; Tab/Shift+Tab order was logical. Deduction: Enter on the skip link set #checkout-form but focus landed on BODY because the form target is not programmatically focusable."
+        },
+        "input_burden": {
+          "score": 4,
+          "finding": "Field-level synthetic examples, input modes, persistent totals, direct section edits, radio shipping and a single review confirmation reduce hesitation. The full 13-field, five-section form remains long at 390px."
+        },
+        "error_prevention_recovery": {
+          "score": 5,
+          "finding": "Empty submit focused an actionable grouped summary (13 items, four sections); its first link focused contact-name. Invalid fields received messages/aria-invalid; a later invalid-payment submit retained valid contact/delivery values."
+        },
+        "feedback_status": {
+          "score": 5,
+          "finding": "Progress exposes completed/next section text, saving/restoring/clearing status is announced, a short local busy state appears before confirmation, and successful placement reports SYN-2048."
+        },
+        "accessibility": {
+          "score": 4,
+          "finding": "Observed landmark structure, labelled native fields/fieldsets, semantic status/alert/progressbar, visible keyboard focus, native radio arrows, no trap, safe compaction, and reduced-motion behavior are strong. The non-focused skip destination prevents a top score."
+        },
+        "responsive_touch_ergonomics": {
+          "score": 4,
+          "finding": "At 390x844 there was no horizontal overflow; cards/buttons/inputs are generally generous and measured minimum interactive dimensions were 24x24px. The exact-minimum native radio/checkbox footprint and long one-page reach keep this below excellent."
+        },
+        "interruption_resumption": {
+          "score": 5,
+          "finding": "Explicit save preserved only eight safe fields plus shipping; reload restored them and left all four payment fields blank. Clear uses confirmation, Cancel and Escape, then correctly clears/reloads."
+        },
+        "latency_perception": {
+          "score": 4,
+          "finding": "Placement exposes an immediate 'Placing local synthetic order' busy status and resolves to a focused confirmation after the short local delay. Focus temporarily fell to BODY while the disabled action handed off, so feedback is good but not seamless."
+        },
+        "destructive_actions": {
+          "score": 5,
+          "finding": "Clear is explicit, describes scope and irreversibility, focuses Cancel, supports Escape and preserves data on cancellation. Confirming clear erased storage. Placement disabled its button and a duplicate native submit kept exactly one confirmation."
+        },
+        "cognitive_load": {
+          "score": 4,
+          "finding": "One-page orientation, five-step progress, compact completed sections and concise section status reduce re-orientation. Initial completion still exposes a long multi-section mobile form; the full error panorama can be demanding despite its grouping."
+        }
+      },
+      "strengths": [
+        "Strong semantic and keyboard recovery path: focused grouped error summary, field links, preserved values and visible invalid states.",
+        "Safe interruption model: explicit save/restore, payment exclusion from storage, confirmed cancellable clear and Escape recovery.",
+        "Direct single-page navigation remains available after compaction; hidden completed bodies yielded zero exposed focusable descendants.",
+        "Atomic local order placement gave one focused SYN-2048 confirmation, with no observed console or external-request issue."
+      ],
+      "defects": [
+        "The skip link changes the fragment but leaves focus on BODY because #checkout-form is not focusable; keyboard/screen-reader users do not land at a named form start.",
+        "The otherwise capable one-page layout remains vertically dense at a 390px mobile viewport, especially before completion or when an all-section error summary is shown.",
+        "The smallest measured interactive targets are exactly 24x24px, meeting the frozen minimum but leaving limited motor-error margin for radio/checkbox affordances."
+      ],
+      "uncertainty": [
+        "Observed with local Chromium/Playwright at 390x844 only; no speech output from a real screen reader, switch device, magnifier, or cross-browser/assistive-technology combination was exercised.",
+        "Latency perception is based on the local 180ms synthetic hand-off, not real payment/network latency.",
+        "Objective gates are accepted terminal evidence; they were not rerun by this judge."
+      ],
+      "preserved_prior_hypothesis": "Prior dissent proposed combining direct one-page orientation with explicit save/restore and confirmed clearing. This candidate was judged on its own observed behavior; no prior score was inherited.",
+      "evidence_refs": [
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/synthesis/loop-01/evidence/objective-report.json",
+          "observation": "Persisted objective terminal result is acknowledged as pass; failed gate IDs are empty and external requests are zero. It was not rerun."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/navigation-transcript-a.json#actions[Keyboard Enter on empty Place order]",
+          "observation": "Empty submit produced a focused, grouped error summary for 13 items in four sections and 13 invalid fields."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/navigation-transcript-a.json#actions[Reload restores safe fields only]",
+          "observation": "All eight safe contact/delivery fields restored after reload; four payment fields were empty."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/navigation-transcript-a.json#actions[Keyboard Space enables compact completed sections]",
+          "observation": "Contact, delivery, shipping and payment compacted with zero exposed focusable descendants in hidden bodies."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/navigation-transcript-a.json#actions[Observe local confirmation]",
+          "observation": "One SYN-2048 confirmation was focused after local busy feedback."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/navigation-transcript-a.json#checks",
+          "observation": "390px viewport had no horizontal overflow, target minima were 24x24px, reduced-motion matched with 0.01ms motion, zero console errors, and zero external requests."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/screenshots/01-initial-390x844.png",
+          "observation": "Initial mobile state."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/screenshots/02-error-recovery-390x844.png",
+          "observation": "Error-recovery state."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/screenshots/03-save-clear-confirmation-390x844.png",
+          "observation": "Save/clear confirmation state."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/screenshots/04-compact-edit-390x844.png",
+          "observation": "Compact/edit state."
+        },
+        {
+          "ref": ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/screenshots/05-confirmation-390x844.png",
+          "observation": "Confirmation state."
+        }
+      ],
+      "improvement_instruction_for_synthesis_loop_02": "Make the skip destination programmatically focusable and move focus to the named checkout/form start on skip activation. Then test a progress-anchored compact/resume presentation at 320px and 390px that reduces the initial/error-state vertical panorama without introducing wizard steps or exposing descendants of compacted sections to keyboard focus. Preserve the observed grouped recovery, safe storage boundary, Escape-cancellable clear flow, and single SYN-2048 confirmation.",
+      "decision": "qualitative evidence submitted; no Champion claim"
+    }
+  ]
+}

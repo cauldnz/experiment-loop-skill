@@ -1,0 +1,130 @@
+{
+  "candidate": "candidate-b",
+  "model": "gpt-5.6-terra",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "criterion_id": "human-use-quality",
+  "objective_gate": false,
+  "human_use_quality_raw_mean": 4.545454545454546,
+  "lens_findings": [
+    {
+      "lens": "discoverability",
+      "score": 4,
+      "finding": "The step labels, active stage, and direct skip target orient the user, though the next requirement is intentionally deferred.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-b/initial.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "navigation",
+      "score": 4,
+      "finding": "The keyboard run reached no hidden content; Back and review Edit were exercised, but returning through a multi-stage path requires more navigation than a single page.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "input_burden",
+      "score": 4,
+      "finding": "Progressive disclosure limits the active fields, offset by Continue and Back activations.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "error_prevention_recovery",
+      "score": 5,
+      "finding": "Empty-step validation was exercised; errors are step-local and the completed route corrected to confirmation.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-b/error.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "feedback_status",
+      "score": 5,
+      "finding": "Status clearly reports save, restore, cancellation, and local confirmation; completed cards say what was retained.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "accessibility",
+      "score": 5,
+      "finding": "Skip focus, keyboard exposure check, reduced motion, and no console/runtime errors were observed; later steps stayed out of the tested initial tab order.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "responsive_touch_ergonomics",
+      "score": 4,
+      "finding": "All frozen widths had no horizontal overflow; the long review is readable but requires scrolling around the sticky summary.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "interruption_resumption",
+      "score": 5,
+      "finding": "A reload restored contact values while payment was empty, and Save progress was explicitly operated.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "latency_perception",
+      "score": 4,
+      "finding": "Reduced motion had no long duration and duplicate activation yielded one confirmation; the final confirmation is clear but the busy interval is brief.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "destructive_actions",
+      "score": 5,
+      "finding": "Clear saved progress opens a dedicated confirmation and Cancel was exercised before proceeding; duplicate submit gave one confirmation.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-b/clear-progress-confirmation.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    },
+    {
+      "lens": "cognitive_load",
+      "score": 5,
+      "finding": "One active task, concise completed summaries, progress labels, and review edits minimize working-memory demand.",
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png",
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+      ]
+    }
+  ],
+  "visual_information_clarity": {
+    "score": 5,
+    "evidence_refs": [
+      "judging/loop-02/judge-accessibility/screenshots/candidate-b/initial.png",
+      "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png"
+    ]
+  },
+  "strengths": [
+    "Per-step errors, explicit progress, safe save/resume, review edits, and clear-progress confirmation form a coherent recovery model.",
+    "The completed compact states preserve concise summaries and explicit edit paths."
+  ],
+  "defects": [
+    "The review screen is tall at mobile width and the sticky summary competes with the review checkbox/action near the fold.",
+    "Step progression adds activations compared with a fully visible form."
+  ],
+  "uncertainty": "The flow was operated in a fresh local context. The objective report was accepted as passing and was not rerun.",
+  "synthesis_adoption_rejection_recommendation": "Adopt the explicit clear-progress confirmation/cancel treatment and step-local validation; retain this candidate as the strongest qualitative synthesis starting point. Reject copying its extra step transitions when they do not lower cognitive load.",
+  "objective_reports": "Accepted as pass; not rerun or overridden."
+}

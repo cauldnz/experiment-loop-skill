@@ -1,0 +1,1934 @@
+{
+  "candidate_label": "candidate-a",
+  "environment": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "browser": "local Chromium via Python Playwright",
+    "reduced_motion": "reduce",
+    "network": "offline file bundle"
+  },
+  "actions": [
+    {
+      "action": "load at 390x844 with reduced motion",
+      "outcome": "loaded"
+    },
+    {
+      "action": "keyboard: Tab then activate Skip to checkout form",
+      "outcome": {
+        "focused_before_activate": "Skip to checkout form",
+        "focused_after_activate": "checkout-form"
+      }
+    },
+    {
+      "action": "activate step link: Contact",
+      "outcome": {
+        "scroll_y": 1285
+      }
+    },
+    {
+      "action": "activate step link: Delivery",
+      "outcome": {
+        "scroll_y": 1773
+      }
+    },
+    {
+      "action": "activate step link: Shipping",
+      "outcome": {
+        "scroll_y": 2524
+      }
+    },
+    {
+      "action": "activate step link: Payment",
+      "outcome": {
+        "scroll_y": 2908
+      }
+    },
+    {
+      "action": "activate step link: Review",
+      "outcome": {
+        "scroll_y": 3720
+      }
+    },
+    {
+      "action": "submit invalid checkout to observe error prevention",
+      "outcome": {
+        "focused_id": "error-summary",
+        "invalid_ids": [
+          "checkout-form",
+          "",
+          "contact-name",
+          "contact-email",
+          "contact-phone",
+          "",
+          "address-line1",
+          "address-city",
+          "address-state",
+          "address-postcode",
+          "address-country",
+          "",
+          "card-number",
+          "card-expiry",
+          "card-security",
+          "card-name",
+          "",
+          "review-confirmation"
+        ],
+        "alert_text": [
+          "Check 13 items in 4 sections\n\nYour entries are preserved. Start with one link per affected section, or expand the full list.\n\nContact: 3 items need attention\nDelivery address: 5 items need attention\nSynthetic payment: 4 items need attention\nReview: 1 item need attention\nShow all 13 corrections"
+        ]
+      }
+    },
+    {
+      "action": "fill contact-name",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill contact-phone",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill address-line1",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill address-city",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill address-state",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill address-postcode",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill address-country",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill card-number",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill card-expiry",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill card-security",
+      "outcome": "completed"
+    },
+    {
+      "action": "fill card-name",
+      "outcome": "completed"
+    },
+    {
+      "action": "select shipping-express",
+      "outcome": "completed"
+    },
+    {
+      "action": "select shipping-standard",
+      "outcome": "completed"
+    },
+    {
+      "action": "save safe progress",
+      "outcome": {
+        "status": [
+          "Safe contact, delivery and shipping progress saved on this device. Payment details are never saved.",
+          "",
+          "\n          Order confirmed locally\n          This fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n          \n        "
+        ],
+        "alerts": [
+          "Check 13 items in 4 sections\n\nYour entries are preserved. Start with one link per affected section, or expand the full list.\n\nContact: 3 items need attention\nDelivery address: 5 items need attention\nSynthetic payment: 4 items need attention\nReview: 1 item need attention\nShow all 13 corrections"
+        ]
+      }
+    },
+    {
+      "action": "reload after save",
+      "outcome": {
+        "contact_restored": "Alex Morgan",
+        "address_restored": "42 Fiction Lane",
+        "payment_number_after_reload": "",
+        "payment_cvv_after_reload": ""
+      }
+    },
+    {
+      "action": "open clear-progress confirmation then Escape",
+      "outcome": "completed"
+    },
+    {
+      "action": "open clear-progress confirmation then Cancel",
+      "outcome": "completed"
+    },
+    {
+      "action": "confirm clear saved progress",
+      "outcome": "completed"
+    },
+    {
+      "action": "enable Compact completed sections",
+      "outcome": {
+        "checked": true
+      }
+    },
+    {
+      "action": "activate Edit contact",
+      "outcome": {
+        "focused_id": "contact-name"
+      }
+    },
+    {
+      "action": "activate Edit delivery",
+      "outcome": {
+        "focused_id": "address-line1"
+      }
+    },
+    {
+      "action": "activate Edit shipping",
+      "outcome": {
+        "focused_id": "shipping-standard"
+      }
+    },
+    {
+      "action": "activate Edit payment",
+      "outcome": {
+        "focused_id": "card-number"
+      }
+    },
+    {
+      "action": "place canonical synthetic order",
+      "outcome": {
+        "syn_2048_visible": true,
+        "status": [
+          "Synthetic order placed once. Confirmation ID SYN-2048.",
+          "",
+          "Order confirmed locally\n\nThis fictional, synthetic demonstration is complete. No payment or external transaction occurred.\n\nConfirmation ID SYN-2048"
+        ],
+        "alerts": [
+          ""
+        ]
+      }
+    },
+    {
+      "action": "attempt duplicate Place order activation",
+      "outcome": {
+        "place_order_button_count": 1,
+        "confirmation_count": 2
+      }
+    },
+    {
+      "action": "reload after confirmation",
+      "outcome": {
+        "syn_2048_present": true,
+        "payment_number_after_confirmation_reload": "",
+        "payment_cvv_after_confirmation_reload": ""
+      }
+    }
+  ],
+  "console": [],
+  "requests": [
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/index.html",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/styles.css",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/app.js",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/index.html",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/styles.css",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/app.js",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/index.html",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/styles.css",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/app.js",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/index.html",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/styles.css",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/app.js",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/index.html",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/styles.css",
+    "file:///<skill-repository>/.experiments/accessible-mobile-checkout/generated/judging/final/blind/candidate-a/app.js"
+  ],
+  "initial_controls": [
+    {
+      "index": 0,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Skip to checkout form",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 8,
+        "y": -65,
+        "width": 204,
+        "height": 49
+      }
+    },
+    {
+      "index": 1,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Contact",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 8,
+        "y": 368,
+        "width": 85,
+        "height": 40
+      }
+    },
+    {
+      "index": 2,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Delivery",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 98,
+        "y": 368,
+        "width": 89,
+        "height": 40
+      }
+    },
+    {
+      "index": 3,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Shipping",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 191,
+        "y": 368,
+        "width": 94,
+        "height": 40
+      }
+    },
+    {
+      "index": 4,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Payment",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 290,
+        "y": 368,
+        "width": 92,
+        "height": 40
+      }
+    },
+    {
+      "index": 5,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Review",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 8,
+        "y": 413,
+        "width": 374,
+        "height": 40
+      }
+    },
+    {
+      "index": 6,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Save progress",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 8,
+        "y": 1056,
+        "width": 143,
+        "height": 47
+      }
+    },
+    {
+      "index": 7,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Clear saved progress",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 160,
+        "y": 1056,
+        "width": 196,
+        "height": 47
+      }
+    },
+    {
+      "index": 8,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Cancel",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 9,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Yes, clear saved progress",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 10,
+      "tag": "input",
+      "type": "checkbox",
+      "id": "compact-completed",
+      "name": null,
+      "role": null,
+      "text": "on",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "Compact completed sections",
+      "disabled": false,
+      "required": false,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 22,
+        "y": 1141,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "index": 11,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit contact",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 12,
+      "tag": "input",
+      "type": "text",
+      "id": "contact-name",
+      "name": "contact-name",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "contact-name-help",
+      "label": "Full name *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 1485,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 13,
+      "tag": "input",
+      "type": "email",
+      "id": "contact-email",
+      "name": "contact-email",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "contact-email-help",
+      "label": "Email *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 1604,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 14,
+      "tag": "input",
+      "type": "tel",
+      "id": "contact-phone",
+      "name": "contact-phone",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "contact-phone-help",
+      "label": "Phone *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 1724,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 15,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit delivery",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 16,
+      "tag": "input",
+      "type": "text",
+      "id": "address-line1",
+      "name": "address-line1",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "address-line1-help",
+      "label": "Street address *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 1997,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 17,
+      "tag": "input",
+      "type": "text",
+      "id": "address-city",
+      "name": "address-city",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "address-city-help",
+      "label": "City or suburb *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 2117,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 18,
+      "tag": "input",
+      "type": "text",
+      "id": "address-state",
+      "name": "address-state",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "address-state-help",
+      "label": "State *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 2236,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 19,
+      "tag": "input",
+      "type": "text",
+      "id": "address-postcode",
+      "name": "address-postcode",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "address-postcode-help",
+      "label": "Postcode *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 2356,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 20,
+      "tag": "input",
+      "type": "text",
+      "id": "address-country",
+      "name": "address-country",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "address-country-help",
+      "label": "Country *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 2475,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 21,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit shipping",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 22,
+      "tag": "input",
+      "type": "radio",
+      "id": "shipping-standard",
+      "name": "shipping",
+      "role": null,
+      "text": "standard",
+      "aria_label": null,
+      "aria_describedby": "shipping-standard-help",
+      "label": "Standard \u2014 3 to 5 business days\nAUD 5.00",
+      "disabled": false,
+      "required": true,
+      "checked": true,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": 2798,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "index": 23,
+      "tag": "input",
+      "type": "radio",
+      "id": "shipping-express",
+      "name": "shipping",
+      "role": null,
+      "text": "express",
+      "aria_label": null,
+      "aria_describedby": "shipping-express-help",
+      "label": "Express \u2014 1 to 2 business days\nAUD 12.00",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": 2882,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "index": 24,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit payment",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 25,
+      "tag": "input",
+      "type": "text",
+      "id": "card-number",
+      "name": "card-number",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "card-number-help",
+      "label": "Card number *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 3270,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 26,
+      "tag": "input",
+      "type": "text",
+      "id": "card-expiry",
+      "name": "card-expiry",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "card-expiry-help",
+      "label": "Expiry, MM/YY *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 3410,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 27,
+      "tag": "input",
+      "type": "text",
+      "id": "card-security",
+      "name": "card-security",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "card-security-help",
+      "label": "Security code *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 3530,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 28,
+      "tag": "input",
+      "type": "text",
+      "id": "card-name",
+      "name": "card-name",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "card-name-help",
+      "label": "Name on card *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 3670,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 29,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit contact",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": 4014,
+        "width": 126,
+        "height": 47
+      }
+    },
+    {
+      "index": 30,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit delivery",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": 4067,
+        "width": 132,
+        "height": 47
+      }
+    },
+    {
+      "index": 31,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit shipping",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": 4270,
+        "width": 136,
+        "height": 47
+      }
+    },
+    {
+      "index": 32,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit payment",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": 4323,
+        "width": 137,
+        "height": 47
+      }
+    },
+    {
+      "index": 33,
+      "tag": "input",
+      "type": "checkbox",
+      "id": "review-confirmation",
+      "name": null,
+      "role": null,
+      "text": "on",
+      "aria_label": null,
+      "aria_describedby": "review-confirmation-help",
+      "label": "I reviewed the fictional order and understand that Place order creates only a local synthetic confirmation.",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 37,
+        "y": 4415,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "index": 34,
+      "tag": "button",
+      "type": "submit",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Place order",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 4632,
+        "width": 345,
+        "height": 52
+      }
+    }
+  ],
+  "initial_text": "Skip to checkout form\n\nNorthstar Goods\n\nGUEST CHECKOUT\n\nNorthstar Goods \u2014 Synthetic checkout demonstration\nAll products, people, contact details, addresses, payment details and order data are fictional and synthetic. Nothing is purchased and no request leaves this page.\n\nONE-PAGE CHECKOUT\n\nComplete your synthetic order\n\nAll five sections are on this page. Required fields are marked *\nrequired\n.\n\nContact\nDelivery\nShipping\nPayment\nReview\n1\nContact\n2\nDelivery\n3\nShipping\n4\nPayment\n5\nReview\nOrder summary\nAUD 93.50\nNorthstar Insulated Bottle\nQuantity 1\nAUD 32.00\nWillow Cotton Throw\nQuantity 1\nAUD 48.00\nSubtotal\nAUD 80.00\nShipping\nAUD 5.00\nTax\nAUD 8.50\nTotal\nAUD 93.50\nCheckout details\nYour safe progress can be restored after a reload. Synthetic payment details are never saved.\nSave progress\nClear saved progress\nCompact completed sections\n\nCompleted sections become short summaries with an Edit button. Hidden fields are removed from keyboard focus. On a resumed checkout this is on by default when a section is already complete; your choice is remembered. Every section stays on this page.\n\n1\nContact\n\nFor this fictional delivery only.\n\nNot started\nContact details\nFull name * \n\nSynthetic value: Alex Morgan.\n\nEmail * \n\nSynthetic value: alex.morgan@example.invalid.\n\nPhone * \n\nSynthetic value: +61 400 000 000.\n\n2\nDelivery address\n\nUse the synthetic Australian address shown below.\n\nNot started\nDelivery address\nStreet address * \n\nSynthetic value: 42 Fiction Lane.\n\nCity or suburb * \n\nSynthetic value: Sampleton.\n\nState * \n\nSynthetic value: NSW.\n\nPostcode * \n\nSynthetic value: 2000.\n\nCountry * \n\nSynthetic value: Australia.\n\n3\nShipping method\n\nSelect one fictional delivery speed. Change it any time before placing the order.\n\nDefault selected: Standard\nChoose a shipping method\nStandard \u2014 3 to 5 business days\nAUD 5.00\nExpress \u2014 1 to 2 business days\nAUD 12.00\n4\nSynthetic payment\n\nDemonstration values only. Payment fields are cleared on reload and never saved.\n\nNot started\nFictional card for this synthetic demonstration\n4111 1111 1111 1111 \u00b7 expiry 12/34 \u00b7 security code 123 \u00b7 Alex Morgan\nSynthetic card details\nCard number * \n\nUse synthetic digits only. Canonical demonstration value: 4111 1111 1111 1111.\n\nExpiry, MM/YY * \n\nCanonical synthetic demonstration value: 12/34.\n\nSecurity code * \n\nUse 3 or 4 synthetic digits. Canonical demonstration value: 123.\n\nName on card * \n\nCanonical synthetic demonstration value: Alex Morgan.\n\n5\nReview and place order\n\nCheck the fictional details before the local confirmation.\n\nNot started\nReview confirmation\nContact and delivery\n\nEnter your synthetic contact and address above.\n\nEdit contact\nEdit delivery\nShipping and payment\n\nStandard \u2014 3 to 5 business days \u00b7 AUD 5.00\n\nPayment: synthetic card ending 1111 after entry; payment details are not saved.\n\nEdit shipping\nEdit payment\nI reviewed the fictional order and understand that Place order creates only a local synthetic confirmation.\n\nRequired before the local demonstration can finish.\n\nDue now\nAUD 93.50\nPlace order\nLocal, network-free accessibility prototype \u00b7 fictional and synthetic data only",
+  "control_coverage": [
+    {
+      "control": "Contact",
+      "operation": "click",
+      "result": "activated"
+    },
+    {
+      "control": "Delivery",
+      "operation": "click",
+      "result": "activated"
+    },
+    {
+      "control": "Shipping",
+      "operation": "click",
+      "result": "activated"
+    },
+    {
+      "control": "Payment",
+      "operation": "click",
+      "result": "activated"
+    },
+    {
+      "control": "Review",
+      "operation": "click",
+      "result": "activated"
+    },
+    {
+      "control": "Email",
+      "operation": "invalid then corrected",
+      "result": "corrected"
+    },
+    {
+      "control": "contact-name",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "contact-phone",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "address-line1",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "address-city",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "address-state",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "address-postcode",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "address-country",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "card-number",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "card-expiry",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "card-security",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "card-name",
+      "operation": "fill",
+      "result": "filled"
+    },
+    {
+      "control": "shipping-express",
+      "operation": "select",
+      "result": "selected"
+    },
+    {
+      "control": "shipping-standard",
+      "operation": "select",
+      "result": "selected"
+    },
+    {
+      "control": "Clear saved progress",
+      "operation": "Escape, Cancel, confirm",
+      "result": "all paths exercised"
+    },
+    {
+      "control": "Edit contact",
+      "operation": "click",
+      "result": "activated"
+    },
+    {
+      "control": "Edit delivery",
+      "operation": "click",
+      "result": "activated"
+    },
+    {
+      "control": "Edit shipping",
+      "operation": "click",
+      "result": "activated"
+    },
+    {
+      "control": "Edit payment",
+      "operation": "click",
+      "result": "activated"
+    },
+    {
+      "control": "review-confirmation",
+      "operation": "check",
+      "result": "checked"
+    }
+  ],
+  "keyboard_traversal": [
+    "Place order",
+    "Skip to checkout form\n  \n    \n      Northstar Goods\n      Gu",
+    "Skip to checkout form",
+    "Contact",
+    "Delivery",
+    "Shipping",
+    "Payment",
+    "Review",
+    "order-title",
+    "Save progress",
+    "Clear saved progress",
+    "compact-completed"
+  ],
+  "final_controls": [
+    {
+      "index": 0,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Skip to checkout form",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 8,
+        "y": -65,
+        "width": 204,
+        "height": 49
+      }
+    },
+    {
+      "index": 1,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Contact",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 8,
+        "y": -4014,
+        "width": 85,
+        "height": 40
+      }
+    },
+    {
+      "index": 2,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Delivery",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 98,
+        "y": -4014,
+        "width": 89,
+        "height": 40
+      }
+    },
+    {
+      "index": 3,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Shipping",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 191,
+        "y": -4014,
+        "width": 94,
+        "height": 40
+      }
+    },
+    {
+      "index": 4,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Payment",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 290,
+        "y": -4014,
+        "width": 92,
+        "height": 40
+      }
+    },
+    {
+      "index": 5,
+      "tag": "a",
+      "type": null,
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Review",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 8,
+        "y": -3969,
+        "width": 374,
+        "height": 40
+      }
+    },
+    {
+      "index": 6,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Save progress",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 8,
+        "y": -3229,
+        "width": 143,
+        "height": 47
+      }
+    },
+    {
+      "index": 7,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Clear saved progress",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 160,
+        "y": -3229,
+        "width": 196,
+        "height": 47
+      }
+    },
+    {
+      "index": 8,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Cancel",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 9,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Yes, clear saved progress",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 10,
+      "tag": "input",
+      "type": "checkbox",
+      "id": "compact-completed",
+      "name": null,
+      "role": null,
+      "text": "on",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "Compact completed sections",
+      "disabled": false,
+      "required": false,
+      "checked": true,
+      "visible": true,
+      "box": {
+        "x": 22,
+        "y": -3144,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "index": 11,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit contact",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 12,
+      "tag": "input",
+      "type": "text",
+      "id": "contact-name",
+      "name": "contact-name",
+      "role": null,
+      "text": "Alex Morgan",
+      "aria_label": null,
+      "aria_describedby": "contact-name-help",
+      "label": "Full name *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -2800,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 13,
+      "tag": "input",
+      "type": "email",
+      "id": "contact-email",
+      "name": "contact-email",
+      "role": null,
+      "text": "alex.morgan@example.invalid",
+      "aria_label": null,
+      "aria_describedby": "contact-email-help",
+      "label": "Email *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -2681,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 14,
+      "tag": "input",
+      "type": "tel",
+      "id": "contact-phone",
+      "name": "contact-phone",
+      "role": null,
+      "text": "+61 400 000 000",
+      "aria_label": null,
+      "aria_describedby": "contact-phone-help",
+      "label": "Phone *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -2561,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 15,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit delivery",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 16,
+      "tag": "input",
+      "type": "text",
+      "id": "address-line1",
+      "name": "address-line1",
+      "role": null,
+      "text": "42 Fiction Lane",
+      "aria_label": null,
+      "aria_describedby": "address-line1-help",
+      "label": "Street address *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -2288,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 17,
+      "tag": "input",
+      "type": "text",
+      "id": "address-city",
+      "name": "address-city",
+      "role": null,
+      "text": "Sampleton",
+      "aria_label": null,
+      "aria_describedby": "address-city-help",
+      "label": "City or suburb *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -2168,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 18,
+      "tag": "input",
+      "type": "text",
+      "id": "address-state",
+      "name": "address-state",
+      "role": null,
+      "text": "NSW",
+      "aria_label": null,
+      "aria_describedby": "address-state-help",
+      "label": "State *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -2049,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 19,
+      "tag": "input",
+      "type": "text",
+      "id": "address-postcode",
+      "name": "address-postcode",
+      "role": null,
+      "text": "2000",
+      "aria_label": null,
+      "aria_describedby": "address-postcode-help",
+      "label": "Postcode *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -1929,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 20,
+      "tag": "input",
+      "type": "text",
+      "id": "address-country",
+      "name": "address-country",
+      "role": null,
+      "text": "Australia",
+      "aria_label": null,
+      "aria_describedby": "address-country-help",
+      "label": "Country *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -1810,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 21,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit shipping",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 22,
+      "tag": "input",
+      "type": "radio",
+      "id": "shipping-standard",
+      "name": "shipping",
+      "role": null,
+      "text": "standard",
+      "aria_label": null,
+      "aria_describedby": "shipping-standard-help",
+      "label": "Standard \u2014 3 to 5 business days\nAUD 5.00",
+      "disabled": false,
+      "required": true,
+      "checked": true,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": -1487,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "index": 23,
+      "tag": "input",
+      "type": "radio",
+      "id": "shipping-express",
+      "name": "shipping",
+      "role": null,
+      "text": "express",
+      "aria_label": null,
+      "aria_describedby": "shipping-express-help",
+      "label": "Express \u2014 1 to 2 business days\nAUD 12.00",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": -1403,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "index": 24,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit payment",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": false,
+      "box": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0
+      }
+    },
+    {
+      "index": 25,
+      "tag": "input",
+      "type": "text",
+      "id": "card-number",
+      "name": "card-number",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "card-number-help",
+      "label": "Card number *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -1016,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 26,
+      "tag": "input",
+      "type": "text",
+      "id": "card-expiry",
+      "name": "card-expiry",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "card-expiry-help",
+      "label": "Expiry, MM/YY *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -875,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 27,
+      "tag": "input",
+      "type": "text",
+      "id": "card-security",
+      "name": "card-security",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "card-security-help",
+      "label": "Security code *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -755,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 28,
+      "tag": "input",
+      "type": "text",
+      "id": "card-name",
+      "name": "card-name",
+      "role": null,
+      "text": "",
+      "aria_label": null,
+      "aria_describedby": "card-name-help",
+      "label": "Name on card *",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": -615,
+        "width": 345,
+        "height": 49
+      }
+    },
+    {
+      "index": 29,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit contact",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": -248,
+        "width": 126,
+        "height": 47
+      }
+    },
+    {
+      "index": 30,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit delivery",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": -194,
+        "width": 132,
+        "height": 47
+      }
+    },
+    {
+      "index": 31,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit shipping",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": 9,
+        "width": 136,
+        "height": 47
+      }
+    },
+    {
+      "index": 32,
+      "tag": "button",
+      "type": "button",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Edit payment",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": false,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 36,
+        "y": 62,
+        "width": 137,
+        "height": 47
+      }
+    },
+    {
+      "index": 33,
+      "tag": "input",
+      "type": "checkbox",
+      "id": "review-confirmation",
+      "name": null,
+      "role": null,
+      "text": "on",
+      "aria_label": null,
+      "aria_describedby": "review-confirmation-help",
+      "label": "I reviewed the fictional order and understand that Place order creates only a local synthetic confirmation.",
+      "disabled": false,
+      "required": true,
+      "checked": false,
+      "visible": true,
+      "box": {
+        "x": 37,
+        "y": 154,
+        "width": 28,
+        "height": 28
+      }
+    },
+    {
+      "index": 34,
+      "tag": "button",
+      "type": "submit",
+      "id": null,
+      "name": null,
+      "role": null,
+      "text": "Place order",
+      "aria_label": null,
+      "aria_describedby": null,
+      "label": "",
+      "disabled": true,
+      "required": false,
+      "checked": null,
+      "visible": true,
+      "box": {
+        "x": 23,
+        "y": 371,
+        "width": 345,
+        "height": 52
+      }
+    }
+  ],
+  "external_requests": []
+}

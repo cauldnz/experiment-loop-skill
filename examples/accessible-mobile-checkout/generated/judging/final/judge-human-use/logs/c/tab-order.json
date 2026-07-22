@@ -1,0 +1,584 @@
+[
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Skip to checkout form",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Delivery",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Review",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "SUMMARY",
+    "id": "order-title",
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Order summary AUD 93.50",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "compact-completed",
+    "type": "checkbox",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "contact-name",
+    "type": "text",
+    "name": "contact-name",
+    "aria_label": null,
+    "data_hook": "contact-name",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "contact-email",
+    "type": "email",
+    "name": "contact-email",
+    "aria_label": null,
+    "data_hook": "contact-email",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "contact-phone",
+    "type": "tel",
+    "name": "contact-phone",
+    "aria_label": null,
+    "data_hook": "contact-phone",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-line1",
+    "type": "text",
+    "name": "address-line1",
+    "aria_label": null,
+    "data_hook": "address-line1",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-city",
+    "type": "text",
+    "name": "address-city",
+    "aria_label": null,
+    "data_hook": "address-city",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-state",
+    "type": "text",
+    "name": "address-state",
+    "aria_label": null,
+    "data_hook": "address-state",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-postcode",
+    "type": "text",
+    "name": "address-postcode",
+    "aria_label": null,
+    "data_hook": "address-postcode",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-country",
+    "type": "text",
+    "name": "address-country",
+    "aria_label": null,
+    "data_hook": "address-country",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "shipping-standard",
+    "type": "radio",
+    "name": "shipping",
+    "aria_label": null,
+    "data_hook": null,
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-number",
+    "type": "text",
+    "name": "card-number",
+    "aria_label": null,
+    "data_hook": "card-number",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-expiry",
+    "type": "text",
+    "name": "card-expiry",
+    "aria_label": null,
+    "data_hook": "card-expiry",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-security",
+    "type": "text",
+    "name": "card-security",
+    "aria_label": null,
+    "data_hook": "card-security",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-name",
+    "type": "text",
+    "name": "card-name",
+    "aria_label": null,
+    "data_hook": "card-name",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-contact",
+    "text": "Edit contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-shipping",
+    "text": "Edit shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-payment",
+    "text": "Edit payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "review-confirmation",
+    "type": "checkbox",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "review-confirmation",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "submit",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "place-order",
+    "text": "Place order",
+    "hidden_ancestor": false
+  },
+  null,
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Skip to checkout form",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Delivery",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Review",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "SUMMARY",
+    "id": "order-title",
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Order summary AUD 93.50",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "compact-completed",
+    "type": "checkbox",
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "contact-name",
+    "type": "text",
+    "name": "contact-name",
+    "aria_label": null,
+    "data_hook": "contact-name",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "contact-email",
+    "type": "email",
+    "name": "contact-email",
+    "aria_label": null,
+    "data_hook": "contact-email",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "contact-phone",
+    "type": "tel",
+    "name": "contact-phone",
+    "aria_label": null,
+    "data_hook": "contact-phone",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-line1",
+    "type": "text",
+    "name": "address-line1",
+    "aria_label": null,
+    "data_hook": "address-line1",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-city",
+    "type": "text",
+    "name": "address-city",
+    "aria_label": null,
+    "data_hook": "address-city",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-state",
+    "type": "text",
+    "name": "address-state",
+    "aria_label": null,
+    "data_hook": "address-state",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-postcode",
+    "type": "text",
+    "name": "address-postcode",
+    "aria_label": null,
+    "data_hook": "address-postcode",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-country",
+    "type": "text",
+    "name": "address-country",
+    "aria_label": null,
+    "data_hook": "address-country",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "shipping-standard",
+    "type": "radio",
+    "name": "shipping",
+    "aria_label": null,
+    "data_hook": null,
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-number",
+    "type": "text",
+    "name": "card-number",
+    "aria_label": null,
+    "data_hook": "card-number",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-expiry",
+    "type": "text",
+    "name": "card-expiry",
+    "aria_label": null,
+    "data_hook": "card-expiry",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-security",
+    "type": "text",
+    "name": "card-security",
+    "aria_label": null,
+    "data_hook": "card-security",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-name",
+    "type": "text",
+    "name": "card-name",
+    "aria_label": null,
+    "data_hook": "card-name",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-contact",
+    "text": "Edit contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-shipping",
+    "text": "Edit shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "button",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "edit-payment",
+    "text": "Edit payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "review-confirmation",
+    "type": "checkbox",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "review-confirmation",
+    "text": "",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "type": "submit",
+    "name": null,
+    "aria_label": null,
+    "data_hook": "place-order",
+    "text": "Place order",
+    "hidden_ancestor": false
+  },
+  null,
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Skip to checkout form",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Contact",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Delivery",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Shipping",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Payment",
+    "hidden_ancestor": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "type": null,
+    "name": null,
+    "aria_label": null,
+    "data_hook": null,
+    "text": "Review",
+    "hidden_ancestor": false
+  }
+]

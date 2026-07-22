@@ -1,0 +1,952 @@
+{
+  "champion": {
+    "caveats": [
+      {
+        "evidence_refs": [
+          "final-judge-accessibility-candidate-a-json",
+          "human-use-quality"
+        ],
+        "text": "The one-page mobile form remains information-dense before sections become eligible for compaction."
+      },
+      {
+        "evidence_refs": [
+          "final-judge-accessibility-candidate-a-json",
+          "semantic-accessibility-gate"
+        ],
+        "text": "Screen-reader speech output and real switch/magnifier hardware were not directly exercised; browser semantics and operation were tested."
+      },
+      {
+        "evidence_refs": [
+          "synthesis-loop-01-status",
+          "synthesis-loop-02-status"
+        ],
+        "text": "Permanent procedural provenance caveats cover the remediated root-path violation and the reboot recovery; functional hashes remained valid."
+      }
+    ],
+    "iteration_id": "synthesis-loop-02",
+    "reasons": [
+      {
+        "evidence_refs": [
+          "synthesis-loop-02-objective-report",
+          "offline-safety-gate"
+        ],
+        "text": "All seven objective gates pass with zero external requests and no pass-to-fail regression against any parent."
+      },
+      {
+        "evidence_refs": [
+          "final-judge-accessibility-pairwise-json",
+          "final-judge-human-use-pairwise-json"
+        ],
+        "text": "Both independent judges preferred the Champion candidate over the strongest parent in opposite observed orders."
+      },
+      {
+        "evidence_refs": [
+          "human-use-quality",
+          "synthesis-loop-02-checkout-ui"
+        ],
+        "text": "The final human-use aggregate is highest, with improved skip focus, explicit safe progress controls, and cross-reload duplicate safety."
+      }
+    ],
+    "summary": "Synthesis Loop 02 is the final Champion: it passes all seven frozen objective gates, wins both independent flipped-order comparisons against the strongest parent, and has the highest final per-lens panel aggregate."
+  },
+  "records": [
+    {
+      "decision": "new_best",
+      "decision_rationale": "Synthesis Loop 02 is the final Champion: it passes all seven frozen objective gates, wins both independent flipped-order comparisons against the strongest parent, and has the highest final per-lens panel aggregate.",
+      "iteration_id": "synthesis-loop-02",
+      "judge_feedback": "Final blind panel consensus selects this iteration over both its immediate synthesis parent and the strongest primary-Track parent.",
+      "judging_evidence": {
+        "criterion_id": "human-use-quality",
+        "evidence_refs": [
+          "judging/final/judge-accessibility/candidate-a.json",
+          "judging/final/judge-accessibility/candidate-a.md",
+          "judging/final/judge-accessibility/candidate-b.json",
+          "judging/final/judge-accessibility/candidate-b.md",
+          "judging/final/judge-accessibility/candidate-c.json",
+          "judging/final/judge-accessibility/candidate-c.md",
+          "judging/final/judge-accessibility/judge_browser.py",
+          "judging/final/judge-accessibility/manifest-ready.json",
+          "judging/final/judge-accessibility/navigation-transcript-a.json",
+          "judging/final/judge-accessibility/navigation-transcript-b.json",
+          "judging/final/judge-accessibility/navigation-transcript-c.json",
+          "judging/final/judge-accessibility/pairwise.json",
+          "judging/final/judge-accessibility/pairwise.md",
+          "judging/final/judge-accessibility/screenshots/a/01-initial-reduced-motion.png",
+          "judging/final/judge-accessibility/screenshots/a/02-skip-link-focus.png",
+          "judging/final/judge-accessibility/screenshots/a/03-invalid-submission.png",
+          "judging/final/judge-accessibility/screenshots/a/04-filled-shipping.png",
+          "judging/final/judge-accessibility/screenshots/a/05-reload-safe-resume.png",
+          "judging/final/judge-accessibility/screenshots/a/06-clear-confirmation.png",
+          "judging/final/judge-accessibility/screenshots/a/07-compact-completed.png",
+          "judging/final/judge-accessibility/screenshots/a/08-confirmation-syn-2048.png",
+          "judging/final/judge-accessibility/screenshots/a/09-post-confirmation-reload.png",
+          "judging/final/judge-accessibility/screenshots/a-initial-unique.png",
+          "judging/final/judge-accessibility/screenshots/a-invalid-unique.png",
+          "judging/final/judge-accessibility/screenshots/b/01-initial-reduced-motion.png",
+          "judging/final/judge-accessibility/screenshots/b/02-skip-link-focus.png",
+          "judging/final/judge-accessibility/screenshots/b/03-invalid-submission.png",
+          "judging/final/judge-accessibility/screenshots/b/04-filled-shipping.png",
+          "judging/final/judge-accessibility/screenshots/b/05-reload-safe-resume.png",
+          "judging/final/judge-accessibility/screenshots/b/06-clear-confirmation.png",
+          "judging/final/judge-accessibility/screenshots/b/07-compact-completed.png",
+          "judging/final/judge-accessibility/screenshots/b/08-confirmation-syn-2048.png",
+          "judging/final/judge-accessibility/screenshots/b/09-post-confirmation-reload.png",
+          "judging/final/judge-accessibility/screenshots/b-initial-unique.png",
+          "judging/final/judge-accessibility/screenshots/b-invalid-unique.png",
+          "judging/final/judge-accessibility/screenshots/c/01-initial-reduced-motion.png",
+          "judging/final/judge-accessibility/screenshots/c/02-skip-link-focus.png",
+          "judging/final/judge-accessibility/screenshots/c/03-invalid-submission.png",
+          "judging/final/judge-accessibility/screenshots/c/04-filled-shipping.png",
+          "judging/final/judge-accessibility/screenshots/c/05-reload-safe-resume.png",
+          "judging/final/judge-accessibility/screenshots/c/06-clear-confirmation.png",
+          "judging/final/judge-accessibility/screenshots/c/07-compact-completed.png",
+          "judging/final/judge-accessibility/screenshots/c/08-confirmation-syn-2048.png",
+          "judging/final/judge-accessibility/screenshots/c/09-post-confirmation-reload.png",
+          "judging/final/judge-accessibility/screenshots/c-initial-unique.png",
+          "judging/final/judge-accessibility/screenshots/c-invalid-unique.png",
+          "judging/final/judge-accessibility/status.json",
+          "judging/final/judge-accessibility/write_judgment.py",
+          "judging/final/judge-human-use/candidate-a.json",
+          "judging/final/judge-human-use/candidate-a.md",
+          "judging/final/judge-human-use/candidate-b.json",
+          "judging/final/judge-human-use/candidate-b.md",
+          "judging/final/judge-human-use/candidate-c.json",
+          "judging/final/judge-human-use/candidate-c.md",
+          "judging/final/judge-human-use/logs/a/console.json",
+          "judging/final/judge-human-use/logs/a/landmarks.json",
+          "judging/final/judge-human-use/logs/a/network.json",
+          "judging/final/judge-human-use/logs/a/tab-order-compact.json",
+          "judging/final/judge-human-use/logs/a/tab-order.json",
+          "judging/final/judge-human-use/logs/a/touch-targets.json",
+          "judging/final/judge-human-use/logs/b/console.json",
+          "judging/final/judge-human-use/logs/b/landmarks.json",
+          "judging/final/judge-human-use/logs/b/network.json",
+          "judging/final/judge-human-use/logs/b/tab-order-compact.json",
+          "judging/final/judge-human-use/logs/b/tab-order.json",
+          "judging/final/judge-human-use/logs/b/touch-targets.json",
+          "judging/final/judge-human-use/logs/c/console.json",
+          "judging/final/judge-human-use/logs/c/landmarks.json",
+          "judging/final/judge-human-use/logs/c/network.json",
+          "judging/final/judge-human-use/logs/c/tab-order-compact.json",
+          "judging/final/judge-human-use/logs/c/tab-order.json",
+          "judging/final/judge-human-use/logs/c/touch-targets.json",
+          "judging/final/judge-human-use/logs/run-summary.json",
+          "judging/final/judge-human-use/manifest-ready.json",
+          "judging/final/judge-human-use/navigation-transcript-a.json",
+          "judging/final/judge-human-use/navigation-transcript-b.json",
+          "judging/final/judge-human-use/navigation-transcript-c.json",
+          "judging/final/judge-human-use/pairwise.json",
+          "judging/final/judge-human-use/pairwise.md",
+          "judging/final/judge-human-use/screenshots/a/01-initial-390x844.png",
+          "judging/final/judge-human-use/screenshots/a/01a-viewport-320x568.png",
+          "judging/final/judge-human-use/screenshots/a/01a-viewport-360x800.png",
+          "judging/final/judge-human-use/screenshots/a/02-empty-submit-error-summary.png",
+          "judging/final/judge-human-use/screenshots/a/03-error-recovery-invalid-postcode.png",
+          "judging/final/judge-human-use/screenshots/a/04-compact-completed-on.png",
+          "judging/final/judge-human-use/screenshots/a/05-edit-compact-section.png",
+          "judging/final/judge-human-use/screenshots/a/06-clear-confirm-dialog.png",
+          "judging/final/judge-human-use/screenshots/a/07-review-required-error.png",
+          "judging/final/judge-human-use/screenshots/a/08-confirmation.png",
+          "judging/final/judge-human-use/screenshots/a/09-post-reload-restored.png",
+          "judging/final/judge-human-use/screenshots/a/10-after-clear-confirmed.png",
+          "judging/final/judge-human-use/screenshots/b/01-initial-390x844.png",
+          "judging/final/judge-human-use/screenshots/b/01a-viewport-320x568.png",
+          "judging/final/judge-human-use/screenshots/b/01a-viewport-360x800.png",
+          "judging/final/judge-human-use/screenshots/b/02-empty-submit-error-summary.png",
+          "judging/final/judge-human-use/screenshots/b/03-error-recovery-invalid-postcode.png",
+          "judging/final/judge-human-use/screenshots/b/04-compact-completed-on.png",
+          "judging/final/judge-human-use/screenshots/b/05-edit-compact-section.png",
+          "judging/final/judge-human-use/screenshots/b/06-clear-confirm-dialog.png",
+          "judging/final/judge-human-use/screenshots/b/07-review-required-error.png",
+          "judging/final/judge-human-use/screenshots/b/08-confirmation.png",
+          "judging/final/judge-human-use/screenshots/b/09-post-reload-restored.png",
+          "judging/final/judge-human-use/screenshots/b/10-after-clear-confirmed.png",
+          "judging/final/judge-human-use/screenshots/c/01-initial-390x844.png",
+          "judging/final/judge-human-use/screenshots/c/01a-viewport-320x568.png",
+          "judging/final/judge-human-use/screenshots/c/01a-viewport-360x800.png",
+          "judging/final/judge-human-use/screenshots/c/02-empty-submit-error-summary.png",
+          "judging/final/judge-human-use/screenshots/c/03-error-recovery-invalid-postcode.png",
+          "judging/final/judge-human-use/screenshots/c/04-compact-completed-on.png",
+          "judging/final/judge-human-use/screenshots/c/05-edit-compact-section.png",
+          "judging/final/judge-human-use/screenshots/c/07-review-required-error.png",
+          "judging/final/judge-human-use/screenshots/c/08-confirmation.png",
+          "judging/final/judge-human-use/screenshots/c/09-post-reload-restored.png",
+          "judging/final/judge-human-use/scripts/operate.py",
+          "judging/final/judge-human-use/status.json"
+        ],
+        "iteration_id": "synthesis-loop-02",
+        "kind": "qualitative_rubric",
+        "lens_findings": [
+          {
+            "finding": "judge-accessibility (5): The visible five-step links, numbered sections, order total, and concise safety copy made the next action apparent. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "discoverability"
+          },
+          {
+            "finding": "judge-accessibility (5): All five links changed scroll position; keyboard Tab then Enter on the skip link focused checkout-form. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "navigation"
+          },
+          {
+            "finding": "judge-accessibility (4): One-page entry still asks for many fields, but synthetic exemplar text, input modes, and compact completed sections reduce recall and repeat work. | judge-human-use (4): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "input_burden"
+          },
+          {
+            "finding": "judge-accessibility (5): Invalid submit focused error-summary with an actionable 13-item, four-section summary; correction and completion preserved entered data. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "error_prevention_recovery"
+          },
+          {
+            "finding": "judge-accessibility (5): Observed save status, section status/compact summaries, and local confirmation status with SYN-2048 were explicit. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "feedback_status"
+          },
+          {
+            "finding": "judge-accessibility (5): Skip target focus, keyboard completion, visible focus/large controls, linked errors, no console errors, and the terminal semantic gate all support this score. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "accessibility"
+          },
+          {
+            "finding": "judge-accessibility (5): 390x844 inspection showed full-width fields and large shipping, edit, and place-order targets; terminal mobile gate passed. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "responsive_touch_ergonomics"
+          },
+          {
+            "finding": "judge-accessibility (5): Manual safe save restored contact and address after reload while card number and security code were empty; confirmation SYN-2048 remained after reload without payment details. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "interruption_resumption"
+          },
+          {
+            "finding": "judge-accessibility (4): Immediate local section, save, validation, and confirmation feedback makes waiting unlikely; the long one-page form remains visually substantial. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "latency_perception"
+          },
+          {
+            "finding": "judge-accessibility (5): Clear progress required an explicit confirmation and both Escape and Cancel preserved work before the affirmative clear path. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "destructive_actions"
+          },
+          {
+            "finding": "judge-accessibility (4): Progressive compact summaries, review edits, and error grouping help, though the full five-section single page is dense before compaction. | judge-human-use (4): see judging/final/judge-human-use/candidate-a.json",
+            "lens": "cognitive_load"
+          }
+        ],
+        "objective_gate": false,
+        "score": 4.7727272727272725,
+        "scorer_id": "blind-human-use-panel"
+      },
+      "next_loop_feedback": "Stop: planned convergence is established and all objective and final qualitative comparisons pass.",
+      "next_loop_feedback_ref": "judging/final/aggregate/pairwise-aggregate.json",
+      "panel_judges": [
+        {
+          "judge_id": "judge-accessibility",
+          "model_id": "gpt-5.6-terra"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "model_id": "claude-opus-4.7"
+        }
+      ],
+      "raw_judge_artifacts": [
+        {
+          "id": "final-judge-accessibility-candidate-a-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/candidate-a.json",
+          "sha256": "435e1980f7a630bacdd21e2813eb79c58124791833f0776898251f7f6506ef56"
+        },
+        {
+          "id": "final-judge-accessibility-candidate-a-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/candidate-a.md",
+          "sha256": "6f63493c0e05c146023ee5cea25abbe3a5cdae9a631717036120fb96c9351c99"
+        },
+        {
+          "id": "final-judge-accessibility-candidate-b-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/candidate-b.json",
+          "sha256": "5dcad8b954b986bb9718473a581d532e545ed25c03f5c8cb9c74c0eb8f6c3797"
+        },
+        {
+          "id": "final-judge-accessibility-candidate-b-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/candidate-b.md",
+          "sha256": "639b0bde03f592ad90a592d67ff418c36097018ec51be1e4b0d6387aec4c603d"
+        },
+        {
+          "id": "final-judge-accessibility-candidate-c-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/candidate-c.json",
+          "sha256": "9dabecdcc513032a6c46b7db9c9bf3bdf8684d10af342c8ae31f5d79a10ce56f"
+        },
+        {
+          "id": "final-judge-accessibility-candidate-c-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/candidate-c.md",
+          "sha256": "b9cf55c7ba64320a8c59c0e75387c87b89a3ef5a9a0bc302ca7c919199cd0a8c"
+        },
+        {
+          "id": "final-judge-accessibility-judge-browser-py",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/judge_browser.py",
+          "sha256": "4084eddf0483b178ae2f48da5c5951a33ea5c18bffc721bc68c64809e27d5dc0"
+        },
+        {
+          "id": "final-judge-accessibility-manifest-ready-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/manifest-ready.json",
+          "sha256": "00efd99fd7acffb37ff8f9e027557bf2459f4946d8e3cb5751e44b8f8c2b993b"
+        },
+        {
+          "id": "final-judge-accessibility-navigation-transcript-a-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/navigation-transcript-a.json",
+          "sha256": "1a8c05e391ce73f1a85f2562808627d60326bf244873fc4d20d6e38b9066a7a2"
+        },
+        {
+          "id": "final-judge-accessibility-navigation-transcript-b-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/navigation-transcript-b.json",
+          "sha256": "a5fd9f3db4b717707ee67dc1cc5d6a5e900223752086cce03fe728c29d3d181f"
+        },
+        {
+          "id": "final-judge-accessibility-navigation-transcript-c-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/navigation-transcript-c.json",
+          "sha256": "dc56db5dd1165b479fee0790e6a3e40ed672151e8d5e78ef101eef90062cccbe"
+        },
+        {
+          "id": "final-judge-accessibility-pairwise-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/pairwise.json",
+          "sha256": "ec4259768e37b2e56930a3c2e932d7de896c5aca6e462b7a6baf5ac9d504bca7"
+        },
+        {
+          "id": "final-judge-accessibility-pairwise-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/pairwise.md",
+          "sha256": "ee314bf6f93ec50423757c1f6128371214d48fd565b7c084f7bd2c0e071b601a"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-01-initial-reduced-motion-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a/01-initial-reduced-motion.png",
+          "sha256": "cdb3449487d0a1ba5afc67b9efc97212ba35523bff00cdd0831f279ac2e717d4"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-02-skip-link-focus-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a/02-skip-link-focus.png",
+          "sha256": "4c16f0acf21c856e00c6f1bda0a2a419cffb535834c11a51df0445bcdc9fc58a"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-03-invalid-submission-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a/03-invalid-submission.png",
+          "sha256": "3215aec4954a83820b0cec38f737ebf9c96cddf8ab82e04c93c75cdc2ea0334b"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-04-filled-shipping-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a/04-filled-shipping.png",
+          "sha256": "0e717c75780291d263fa6c17132a43c67278580758564fa9983324d532561fd9"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-05-reload-safe-resume-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a/05-reload-safe-resume.png",
+          "sha256": "b94418099d53254fb8310d4ce44378126bc4afe61013d387e3d4f558ec953578"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-06-clear-confirmation-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a/06-clear-confirmation.png",
+          "sha256": "70329b801a90101188401e1bda004bb754d9dcf5e220d1371c5ae8c4f78d42c1"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-07-compact-completed-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a/07-compact-completed.png",
+          "sha256": "cf218c8971307076aba6ea6675662aeadb9761a23cf9f2ef9e558fc72f7acd0c"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-08-confirmation-syn-2048-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a/08-confirmation-syn-2048.png",
+          "sha256": "678a46956a4e8986be67f0a667f7c58cb1896028ce778e3cde05dbba4f493ec2"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-09-post-confirmation-reload-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a/09-post-confirmation-reload.png",
+          "sha256": "23a184ae98b5276444d4df364b861e3c06d267df6b88501d4e687ff1308163c6"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-initial-unique-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a-initial-unique.png",
+          "sha256": "cdb3449487d0a1ba5afc67b9efc97212ba35523bff00cdd0831f279ac2e717d4"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-a-invalid-unique-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/a-invalid-unique.png",
+          "sha256": "3215aec4954a83820b0cec38f737ebf9c96cddf8ab82e04c93c75cdc2ea0334b"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-01-initial-reduced-motion-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b/01-initial-reduced-motion.png",
+          "sha256": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-02-skip-link-focus-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b/02-skip-link-focus.png",
+          "sha256": "6845b693665579eeac8c069178b3d8258efcb2d22e36d161b59252c2b4022f98"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-03-invalid-submission-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b/03-invalid-submission.png",
+          "sha256": "5c30a6e4ecb75417dced99cdd9b7e98ded8b68e3e1ecb31a3cb9c0af0d1acf40"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-04-filled-shipping-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b/04-filled-shipping.png",
+          "sha256": "34ceeefba4330b7256d3700e181ca4fbdeb7dcdc2d205d60d4b5794facabe21b"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-05-reload-safe-resume-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b/05-reload-safe-resume.png",
+          "sha256": "d903cf89282d5973c986983a81773fdc93c10a8df21f72093216242605b79587"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-06-clear-confirmation-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b/06-clear-confirmation.png",
+          "sha256": "9e855f05e9dad26db6bf2d50b4873f2a141a3fdeb8f4f12805c6dd5b00070fc5"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-07-compact-completed-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b/07-compact-completed.png",
+          "sha256": "33460152f1881343427b3a432ea34997e127598734f977ff8ddf6f2f6ae4dfa5"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-08-confirmation-syn-2048-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b/08-confirmation-syn-2048.png",
+          "sha256": "7d010a834067fa14ea8b1926abf53f734fd83b7be49cb3c0e04414810f7a4d3a"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-09-post-confirmation-reload-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b/09-post-confirmation-reload.png",
+          "sha256": "ccc8a1435247f66593009cbb1da54356f8f78ada7ea597819bedda4f440ae4ed"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-initial-unique-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b-initial-unique.png",
+          "sha256": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-b-invalid-unique-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/b-invalid-unique.png",
+          "sha256": "5c30a6e4ecb75417dced99cdd9b7e98ded8b68e3e1ecb31a3cb9c0af0d1acf40"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-01-initial-reduced-motion-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c/01-initial-reduced-motion.png",
+          "sha256": "ab1cf8f2586c6f48ca08e87f3d540facf1357af44f183ba6d98ff509fa43d095"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-02-skip-link-focus-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c/02-skip-link-focus.png",
+          "sha256": "74616de39a9bcd25f65f26fde9340e07003201d0d61962aa5dd0b886385494b2"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-03-invalid-submission-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c/03-invalid-submission.png",
+          "sha256": "350cbbfcbe79251c7724458d3090df8a87d4b1290e3da3dd6abadf60612bab5c"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-04-filled-shipping-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c/04-filled-shipping.png",
+          "sha256": "fb2ae6175a4c1799324135bdf04066f5aed05b8a8e7dd0e67ea25f73e4ed3f49"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-05-reload-safe-resume-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c/05-reload-safe-resume.png",
+          "sha256": "bbbc9da2604d7e279bdc0234ffe8bf62557e6b7014d057b295fc98a22f2a81ee"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-06-clear-confirmation-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c/06-clear-confirmation.png",
+          "sha256": "bbbc9da2604d7e279bdc0234ffe8bf62557e6b7014d057b295fc98a22f2a81ee"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-07-compact-completed-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c/07-compact-completed.png",
+          "sha256": "b1b4809b21888993ce990d2ee76e9e1a2be63e5d0c22208eff6f6aa33ca2580d"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-08-confirmation-syn-2048-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c/08-confirmation-syn-2048.png",
+          "sha256": "fc42ee4d9617d915c029d48fbb0a0879d74aa470ce7a57f3939f781f9bef831d"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-09-post-confirmation-reload-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c/09-post-confirmation-reload.png",
+          "sha256": "eef9032d0522dfe4b79a1cada93a3bccac9bd75c009810050d1b609f8a4ecd2c"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-initial-unique-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c-initial-unique.png",
+          "sha256": "ab1cf8f2586c6f48ca08e87f3d540facf1357af44f183ba6d98ff509fa43d095"
+        },
+        {
+          "id": "final-judge-accessibility-screenshots-c-invalid-unique-png",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/screenshots/c-invalid-unique.png",
+          "sha256": "350cbbfcbe79251c7724458d3090df8a87d4b1290e3da3dd6abadf60612bab5c"
+        },
+        {
+          "id": "final-judge-accessibility-status-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/status.json",
+          "sha256": "90abec22012805bc0f9b6140db043a6291aad5cebf62661e7159753c58f680fd"
+        },
+        {
+          "id": "final-judge-accessibility-write-judgment-py",
+          "judge_id": "judge-accessibility",
+          "path": "judging/final/judge-accessibility/write_judgment.py",
+          "sha256": "5b72c96608a5fbeb5441f0ece8341af22d390e5173efa46528034dbcab713df7"
+        },
+        {
+          "id": "final-judge-human-use-candidate-a-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/candidate-a.json",
+          "sha256": "6adb55433441e13cc9328824fff4c242cf4b0a34f142f300d3b3cb0b9652bc6e"
+        },
+        {
+          "id": "final-judge-human-use-candidate-a-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/candidate-a.md",
+          "sha256": "d73fc7acd1790bfa748394b8b468f06cf86d2b280774872d02d92815d4d61de5"
+        },
+        {
+          "id": "final-judge-human-use-candidate-b-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/candidate-b.json",
+          "sha256": "5f74c27f253eaf8674128793f44cc5bc90aecfe6cdd8953eb8848ed224b89291"
+        },
+        {
+          "id": "final-judge-human-use-candidate-b-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/candidate-b.md",
+          "sha256": "f4a6ee053c8175aed3c7882604fc7f2c3e7b3f9654d9002cf35f43b9430794d8"
+        },
+        {
+          "id": "final-judge-human-use-candidate-c-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/candidate-c.json",
+          "sha256": "c960b2ad6ca6255681cdcab4acf0c45ed3228fa9ae3b2a22ec8363a729a1ced5"
+        },
+        {
+          "id": "final-judge-human-use-candidate-c-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/candidate-c.md",
+          "sha256": "c61cbde503974f309ab9bf3bf63e1fcb955f096a028d40327ba16c707fe52964"
+        },
+        {
+          "id": "final-judge-human-use-logs-a-console-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/a/console.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "id": "final-judge-human-use-logs-a-landmarks-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/a/landmarks.json",
+          "sha256": "5b5dc61b83fa9502d4cd0b2cb0364c23ead6af3d28d4142ee68fbd229bcb3555"
+        },
+        {
+          "id": "final-judge-human-use-logs-a-network-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/a/network.json",
+          "sha256": "73790fbc239ca421b712e413c34a96dae2b1a4a0cf0871d24750cf0ce9a37aac"
+        },
+        {
+          "id": "final-judge-human-use-logs-a-tab-order-compact-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/a/tab-order-compact.json",
+          "sha256": "d4b6cd411b2ebb60801d9cffb97233a344d3f093fea624d6755d07ff5a2e1eef"
+        },
+        {
+          "id": "final-judge-human-use-logs-a-tab-order-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/a/tab-order.json",
+          "sha256": "64a921cd1c1dff8a7d2fbe0ca9a39bc2ce02f4d934bf2b471e7f8366f6565ed0"
+        },
+        {
+          "id": "final-judge-human-use-logs-a-touch-targets-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/a/touch-targets.json",
+          "sha256": "72affcfbd97876b12654fd8f6b31db2ff4152ef14ca34270db4a49426761ba27"
+        },
+        {
+          "id": "final-judge-human-use-logs-b-console-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/b/console.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "id": "final-judge-human-use-logs-b-landmarks-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/b/landmarks.json",
+          "sha256": "5b5dc61b83fa9502d4cd0b2cb0364c23ead6af3d28d4142ee68fbd229bcb3555"
+        },
+        {
+          "id": "final-judge-human-use-logs-b-network-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/b/network.json",
+          "sha256": "73790fbc239ca421b712e413c34a96dae2b1a4a0cf0871d24750cf0ce9a37aac"
+        },
+        {
+          "id": "final-judge-human-use-logs-b-tab-order-compact-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/b/tab-order-compact.json",
+          "sha256": "d4b6cd411b2ebb60801d9cffb97233a344d3f093fea624d6755d07ff5a2e1eef"
+        },
+        {
+          "id": "final-judge-human-use-logs-b-tab-order-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/b/tab-order.json",
+          "sha256": "64a921cd1c1dff8a7d2fbe0ca9a39bc2ce02f4d934bf2b471e7f8366f6565ed0"
+        },
+        {
+          "id": "final-judge-human-use-logs-b-touch-targets-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/b/touch-targets.json",
+          "sha256": "0334fd0c2294eb243f107825db1e5c19891f215089b766f3bfdb424b85bec997"
+        },
+        {
+          "id": "final-judge-human-use-logs-c-console-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/c/console.json",
+          "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+        },
+        {
+          "id": "final-judge-human-use-logs-c-landmarks-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/c/landmarks.json",
+          "sha256": "e6ddb91b5ffdc06e3162b7d0bc427ae626892a7da8f72f1df863656dc51f988f"
+        },
+        {
+          "id": "final-judge-human-use-logs-c-network-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/c/network.json",
+          "sha256": "b74322020bcdff1272f78f9c016b55270e92a2e0fe94f1a0f70064deb517d0ea"
+        },
+        {
+          "id": "final-judge-human-use-logs-c-tab-order-compact-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/c/tab-order-compact.json",
+          "sha256": "9d3183fa050e0830633d8238b21d261a02455ac4fb0d6f2a05e16283091b5274"
+        },
+        {
+          "id": "final-judge-human-use-logs-c-tab-order-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/c/tab-order.json",
+          "sha256": "a7b0f46738984aff2a6818269f46e8a6c4030346c2beb72945dab9a6d2e19a86"
+        },
+        {
+          "id": "final-judge-human-use-logs-c-touch-targets-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/c/touch-targets.json",
+          "sha256": "2043788d0c2b0ffaac5f13c28c1cdfa0cd3195dacca467084c6923975f45159b"
+        },
+        {
+          "id": "final-judge-human-use-logs-run-summary-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/logs/run-summary.json",
+          "sha256": "5a49e6ba834551b81e9533b4af003901bb24590e867f779e61a9cb78365e5ebe"
+        },
+        {
+          "id": "final-judge-human-use-manifest-ready-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/manifest-ready.json",
+          "sha256": "4181969d0efb1d633c59f143dee3b390bac7db06c8d09db4b6fda0c62282cd75"
+        },
+        {
+          "id": "final-judge-human-use-navigation-transcript-a-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/navigation-transcript-a.json",
+          "sha256": "93c4d4f433a1d6d68819c993bffe5df26c2cfb2fc6375b98d9f972396131b729"
+        },
+        {
+          "id": "final-judge-human-use-navigation-transcript-b-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/navigation-transcript-b.json",
+          "sha256": "00be53b4d7a363fcd78ea69c15545b02e72a6d0b78caaf6b3d132a66de3dcb65"
+        },
+        {
+          "id": "final-judge-human-use-navigation-transcript-c-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/navigation-transcript-c.json",
+          "sha256": "96f1f6e67777aa6d9354fe4f156a197ab4f41bbc51fe1562336631445fc64fae"
+        },
+        {
+          "id": "final-judge-human-use-pairwise-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/pairwise.json",
+          "sha256": "7c756313badc77d254cb7c0dcb97ed6879c3505e4faad974c4142141f503973a"
+        },
+        {
+          "id": "final-judge-human-use-pairwise-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/pairwise.md",
+          "sha256": "dcb962dd50901aef40147d4c0e104a6bca7ac5460ea272213a229656ed572fd6"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-01-initial-390x844-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/01-initial-390x844.png",
+          "sha256": "7d03761ba506bae0994ddd8f07bc348d1a356283b4fa002a0280c93c9d278019"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-01a-viewport-320x568-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/01a-viewport-320x568.png",
+          "sha256": "13958f852d8ac877b41d7058c093c6100d75c66f42c3e52388f704b05e83291c"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-01a-viewport-360x800-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/01a-viewport-360x800.png",
+          "sha256": "da5cc3f19ea8b5a7c8caa023cef8244920543060af681b752b328f447160597c"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-02-empty-submit-error-summary-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/02-empty-submit-error-summary.png",
+          "sha256": "225482348e6665133b80dce4bc0262d9ab0a2f1c99aeaf9feb48a1c673ccf20c"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-03-error-recovery-invalid-postcode-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/03-error-recovery-invalid-postcode.png",
+          "sha256": "57de69164dfdb925ae41e849eab96511e966b4a255c5f1a6f780d00a8ccb0e8a"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-04-compact-completed-on-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/04-compact-completed-on.png",
+          "sha256": "b83180c3bd83fd3aa01b34c08a625ae288efff21d7dd60d442b45be908a4f779"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-05-edit-compact-section-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/05-edit-compact-section.png",
+          "sha256": "5c03287ed573f65b623613e88d31a74b28e1e495b4faa1995d4f3f232c6dc33a"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-06-clear-confirm-dialog-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/06-clear-confirm-dialog.png",
+          "sha256": "dde87bccf8f523635acaa7eec22fb19cab2b4b429378e2e5c370016767743e6b"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-07-review-required-error-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/07-review-required-error.png",
+          "sha256": "ef0f2fb79e8bab1d9468d2b705a2c6595574a0dab982c6cd259ef056886cee4e"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-08-confirmation-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/08-confirmation.png",
+          "sha256": "832d9acb09e6cb278ad84e81d18f9ede86bc3eb0dca48195f940661310c91812"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-09-post-reload-restored-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/09-post-reload-restored.png",
+          "sha256": "27a780afa20c3c9b6975f144c2a5be9fbbb314258ba4e18f5e3c908d8aceaa15"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-a-10-after-clear-confirmed-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/a/10-after-clear-confirmed.png",
+          "sha256": "72cf29df16c06b87a8d8c2e4dcf90f230738474cac247864c291f01d82a292f0"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-01-initial-390x844-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/01-initial-390x844.png",
+          "sha256": "c14ddf59e885f8ea5336847aa97f8cb10bec1837790940f06b726b2ac7a0459d"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-01a-viewport-320x568-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/01a-viewport-320x568.png",
+          "sha256": "e55d70c768e9e70992ebfacd6316df61a35ca0913f11ee93f8845e2f547a3b26"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-01a-viewport-360x800-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/01a-viewport-360x800.png",
+          "sha256": "12fa40dd21730aab49f0c233191f579f00ba373651b5d9186e9a0b236817733a"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-02-empty-submit-error-summary-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/02-empty-submit-error-summary.png",
+          "sha256": "7faf6be3a241e0bcf151f35247ad3260eb2d74a2c5e64fae36801eeec88f4a14"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-03-error-recovery-invalid-postcode-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/03-error-recovery-invalid-postcode.png",
+          "sha256": "30701bc4352bda3a65d0f5302410efb3545949014261cccb2b3a0716d2d5664f"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-04-compact-completed-on-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/04-compact-completed-on.png",
+          "sha256": "9dbb51051214fbcb08c812ca8e4b6a672254aebb62a8db00dcf63d88f4f900bf"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-05-edit-compact-section-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/05-edit-compact-section.png",
+          "sha256": "196df8f4753826ec009ea96932d3ed9af039358190e5ee4a040045c33b050fa4"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-06-clear-confirm-dialog-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/06-clear-confirm-dialog.png",
+          "sha256": "14718c6d76c87eca8a3bbec19f543b52c66b213556f76274bde240552a6ca23c"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-07-review-required-error-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/07-review-required-error.png",
+          "sha256": "4da184e88606406ed95278cc34928689f9ef720ec45e6d0690fa8c15c7068883"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-08-confirmation-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/08-confirmation.png",
+          "sha256": "8b245b7009fb27688ec268295cfa22719f554b093ad77898431f95cca038dac4"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-09-post-reload-restored-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/09-post-reload-restored.png",
+          "sha256": "f2ea8170b6beeef07b2b79b5358699865ad35bfa9bac70d3ca099eda339eb391"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-b-10-after-clear-confirmed-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/b/10-after-clear-confirmed.png",
+          "sha256": "799d1912a84d344c3da24be5d426b408b43cec862017d305750bc6d8e2d236b7"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-01-initial-390x844-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/01-initial-390x844.png",
+          "sha256": "e1459338b1bdf6357989b4472559979f4d2974cd4f43a42e708b7adff0adcb84"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-01a-viewport-320x568-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/01a-viewport-320x568.png",
+          "sha256": "bf510b6a925bfcaee28fbfb8e2931d5f452bfc548ad390af721f85c932830046"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-01a-viewport-360x800-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/01a-viewport-360x800.png",
+          "sha256": "419ad90d426b20f1f01b6b435ec00c6f79a603f785f29ec9b1c676644a357709"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-02-empty-submit-error-summary-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/02-empty-submit-error-summary.png",
+          "sha256": "0a58a5d4a41a9d72b4c61d5f59b9b83b2f19aa60bfe077801e6f38b021f53af7"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-03-error-recovery-invalid-postcode-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/03-error-recovery-invalid-postcode.png",
+          "sha256": "3d16f468415acfdc14541e500e65b36200c94f26e415b50c8bb0b591e3e6e109"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-04-compact-completed-on-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/04-compact-completed-on.png",
+          "sha256": "e013d8f57c7f082762a7416c482443988feca9d290a7d3b54b1a7f48c46a151f"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-05-edit-compact-section-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/05-edit-compact-section.png",
+          "sha256": "bfbbf5513e0412cf592448c0a1ace2a9bfe157c10c8865faee08f98ec98c385b"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-07-review-required-error-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/07-review-required-error.png",
+          "sha256": "a5d6968d4a032aaf2326f46e10cf0350c36f0d0185124cc9a8bfc1ec36d1b267"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-08-confirmation-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/08-confirmation.png",
+          "sha256": "d9c811510e35983f3fce805f5d8a64b1335fdd6475e46bde529d67b76f7c595b"
+        },
+        {
+          "id": "final-judge-human-use-screenshots-c-09-post-reload-restored-png",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/screenshots/c/09-post-reload-restored.png",
+          "sha256": "a95afac6c630030196814bae0f13eaff162a63d23fda274abd21c391193f2d74"
+        },
+        {
+          "id": "final-judge-human-use-scripts-operate-py",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/scripts/operate.py",
+          "sha256": "f937f0d566f1d075e79672f0ff055214f3426af1b8d6e668017bb726d23aae72"
+        },
+        {
+          "id": "final-judge-human-use-status-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/final/judge-human-use/status.json",
+          "sha256": "804761a51592300ff5bd790ed26ed289e521757f0b40df13497ab31bedca2058"
+        }
+      ],
+      "scores": [
+        {
+          "criterion_id": "human-use-quality",
+          "notes": "Final mean of 11 per-lens medians from two independent blind judges.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.7727272727272725
+        },
+        {
+          "criterion_id": "visual-information-clarity",
+          "notes": "Final median of two independent blind judge scores.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 5.0
+        }
+      ],
+      "track_id": "synthesis"
+    }
+  ],
+  "schema_version": "1.0",
+  "source_loop": "final"
+}

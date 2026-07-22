@@ -1,0 +1,87 @@
+Accessible mobile checkout objective report
+Fixture SHA-256: e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894
+Candidate: loop-01
+human_use.applicability = applicable
+human_use.rationale: The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use.
+
+content-fidelity: FAIL
+  FAIL visible-canonical-text: Standard — 3 to 5 business days
+  FAIL visible-canonical-text: AUD 5.00
+  FAIL visible-canonical-text: Express — 1 to 2 business days
+  FAIL visible-canonical-text: AUD 12.00
+  FAIL visible-canonical-text: Guest
+  FAIL canonical-field-value: address-line1:
+  FAIL canonical-field-value: address-city:
+  FAIL canonical-field-value: address-state:
+  FAIL canonical-field-value: address-postcode:
+  FAIL canonical-field-value: address-country:
+  FAIL canonical-field-value: card-number:
+  FAIL canonical-field-value: card-expiry:
+  FAIL canonical-field-value: card-security:
+  FAIL canonical-field-value: card-name:
+  FAIL canonical-standard-shipping-label: 
+  FAIL canonical-express-shipping-label: 
+semantic-accessibility-gate: FAIL
+  FAIL required-fieldsets: 1
+  FAIL field-description: address-line1
+  FAIL field-description: address-city
+  FAIL field-description: address-state
+  FAIL field-description: address-postcode
+  FAIL field-description: address-country
+  FAIL field-description: card-number
+  FAIL field-description: card-expiry
+  FAIL field-description: card-security
+  FAIL field-description: card-name
+  FAIL error-live-semantics: 
+  FAIL confirmation-semantics: 
+  FAIL edit-control-for-review-correction: 0
+keyboard-completion-gate: FAIL
+  FAIL keyboard-text-entry-and-task-controls: 
+  FAIL keyboard-edit-control-available: None
+  FAIL keyboard-space-shipping: 
+error-recovery-gate: FAIL
+  FAIL correction-and-resubmission-entry: 
+mobile-touch-gate: FAIL
+  FAIL interactive-target-minimum: 320x568 target 0: {'x': 58, 'y': 215.34375, 'width': 204.890625, 'height': 21}
+  FAIL interactive-target-minimum: 320x568 target 1: {'x': 58, 'y': 239.34375, 'width': 125.0625, 'height': 21}
+  FAIL interactive-target-minimum: 320x568 target 2: {'x': 58, 'y': 263.34375, 'width': 214.984375, 'height': 21}
+  FAIL interactive-target-minimum: 320x568 target 3: {'x': 58, 'y': 287.34375, 'width': 164.046875, 'height': 21}
+  FAIL interactive-target-minimum: 320x568 target 4: {'x': 58, 'y': 311.34375, 'width': 156.65625, 'height': 21}
+  FAIL interactive-target-minimum: 320x568 target 5: {'x': 58, 'y': 335.34375, 'width': 203.34375, 'height': 21}
+  FAIL interactive-target-minimum: 320x568 target 6: {'x': 58, 'y': 359.34375, 'width': 196.828125, 'height': 21}
+  FAIL interactive-target-minimum: 320x568 target 7: {'x': 58, 'y': 383.34375, 'width': 216.5, 'height': 21}
+  FAIL interactive-target-minimum: 320x568 target 8: {'x': 58, 'y': 407.34375, 'width': 199.234375, 'height': 21}
+  FAIL interactive-target-minimum: 320x568 target 31: {'x': 20, 'y': 1736.71875, 'width': 17.3125, 'height': 24}
+  FAIL interactive-target-minimum: 360x800 target 0: {'x': 58, 'y': 215.34375, 'width': 204.890625, 'height': 21}
+  FAIL interactive-target-minimum: 360x800 target 1: {'x': 58, 'y': 239.34375, 'width': 125.0625, 'height': 21}
+  FAIL interactive-target-minimum: 360x800 target 2: {'x': 58, 'y': 263.34375, 'width': 214.984375, 'height': 21}
+  FAIL interactive-target-minimum: 360x800 target 3: {'x': 58, 'y': 287.34375, 'width': 164.046875, 'height': 21}
+  FAIL interactive-target-minimum: 360x800 target 4: {'x': 58, 'y': 311.34375, 'width': 156.65625, 'height': 21}
+  FAIL interactive-target-minimum: 360x800 target 5: {'x': 58, 'y': 335.34375, 'width': 203.34375, 'height': 21}
+  FAIL interactive-target-minimum: 360x800 target 6: {'x': 58, 'y': 359.34375, 'width': 196.828125, 'height': 21}
+  FAIL interactive-target-minimum: 360x800 target 7: {'x': 58, 'y': 383.34375, 'width': 216.5, 'height': 21}
+  FAIL interactive-target-minimum: 360x800 target 8: {'x': 58, 'y': 407.34375, 'width': 199.234375, 'height': 21}
+  FAIL interactive-target-minimum: 360x800 target 31: {'x': 20, 'y': 1658.71875, 'width': 19.859375, 'height': 24}
+  FAIL interactive-target-minimum: 390x844 target 0: {'x': 58, 'y': 215.34375, 'width': 204.890625, 'height': 21}
+  FAIL interactive-target-minimum: 390x844 target 1: {'x': 58, 'y': 239.34375, 'width': 125.0625, 'height': 21}
+  FAIL interactive-target-minimum: 390x844 target 2: {'x': 58, 'y': 263.34375, 'width': 214.984375, 'height': 21}
+  FAIL interactive-target-minimum: 390x844 target 3: {'x': 58, 'y': 287.34375, 'width': 164.046875, 'height': 21}
+  FAIL interactive-target-minimum: 390x844 target 4: {'x': 58, 'y': 311.34375, 'width': 156.65625, 'height': 21}
+  FAIL interactive-target-minimum: 390x844 target 5: {'x': 58, 'y': 335.34375, 'width': 203.34375, 'height': 21}
+  FAIL interactive-target-minimum: 390x844 target 6: {'x': 58, 'y': 359.34375, 'width': 196.828125, 'height': 21}
+  FAIL interactive-target-minimum: 390x844 target 7: {'x': 58, 'y': 383.34375, 'width': 216.5, 'height': 21}
+  FAIL interactive-target-minimum: 390x844 target 8: {'x': 58, 'y': 407.34375, 'width': 199.234375, 'height': 21}
+  FAIL interactive-target-minimum: 390x844 target 31: {'x': 20, 'y': 1637.71875, 'width': 21.765625, 'height': 24}
+resilience-gate: FAIL
+  FAIL safe-state-restored-after-reload: 3
+  FAIL reduced-motion-completes-once: 1
+offline-safety-gate: FAIL
+  FAIL invalid-or-unreviewed-placement-blocked: 1
+  FAIL valid-local-fixture-entry: 
+  FAIL busy-status-during-placement: []
+  FAIL confirmation-visible-after-explicit-placement: 
+
+Failed gate IDs: content-fidelity, semantic-accessibility-gate, keyboard-completion-gate, error-recovery-gate, mobile-touch-gate, resilience-gate, offline-safety-gate
+Blocking failure: yes
+Non-gating task-efficiency metrics: {"activations": 12, "completion_interactions": 1, "corrections": 4, "focusable_controls_traversed": 10}
+Screenshots: final.png, initial.png, keyboard-completion.png, viewport-320x568.png, viewport-360x800.png, viewport-390x844.png

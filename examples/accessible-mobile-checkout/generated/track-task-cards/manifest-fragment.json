@@ -1,0 +1,69 @@
+{
+  "track_id": "track-task-cards",
+  "iterations": [
+    {
+      "loop_id": "task-cards-loop-01",
+      "presentation": "interactive_html",
+      "comparison_key": "checkout-ui",
+      "decision": "needs_human_review",
+      "artifacts": [
+        {
+          "id": "index.html",
+          "path": "loop-01/index.html",
+          "sha256": "e58a80dcc62f48c7fb1d69db030ea0eb4b137732d82f1983f7044b15648423bb"
+        },
+        {
+          "id": "styles.css",
+          "path": "loop-01/styles.css",
+          "sha256": "c7ed54feb1be76fa3b5d359d2e0031e289c5eccc74f43cb196fffc5bd0d264ce"
+        },
+        {
+          "id": "app.js",
+          "path": "loop-01/app.js",
+          "sha256": "88bde428c328c657bbb34dd779df39aad08c3c78c67b5ddcd711481d6692eadc"
+        }
+      ],
+      "prompt_chain": [
+        "prompt.md"
+      ],
+      "scores": {
+        "activations": 22,
+        "completion_interactions": 1,
+        "corrections": 4,
+        "focusable_controls_traversed": 20
+      }
+    },
+    {
+      "loop_id": "task-cards-loop-02",
+      "presentation": "interactive_html",
+      "comparison_key": "checkout-ui",
+      "decision": "needs_human_review",
+      "artifacts": [
+        {
+          "id": "index.html",
+          "path": "loop-02/index.html",
+          "sha256": "4f6f25e1137dc153ed947b3df26bde1a9be218d1c8a0dd150b85e52adb152631"
+        },
+        {
+          "id": "styles.css",
+          "path": "loop-02/styles.css",
+          "sha256": "886d52e8048511717f73d80006c6a650d283753d7dc6bbe1f76731a17e76c57e"
+        },
+        {
+          "id": "app.js",
+          "path": "loop-02/app.js",
+          "sha256": "21713cb008d574523f7912c5a1360925c6b515eddf738bd3ca05615d33975724"
+        }
+      ],
+      "prompt_chain": [
+        "prompt-history.md"
+      ],
+      "scores": {
+        "activations": 26,
+        "completion_interactions": 1,
+        "corrections": 4,
+        "focusable_controls_traversed": 27
+      }
+    }
+  ]
+}

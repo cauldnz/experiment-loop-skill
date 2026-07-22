@@ -1,0 +1,380 @@
+[
+  {
+    "tag": "A",
+    "id": null,
+    "data_hook": null,
+    "text": "Skip to checkout form",
+    "width": 204,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "DIV",
+    "id": null,
+    "data_hook": "synthetic-banner",
+    "text": "Northstar Goods \u2014 Synthetic checkout demonstration\n      All",
+    "width": 390,
+    "height": 140,
+    "below_24": false
+  },
+  {
+    "tag": "MAIN",
+    "id": "main-content",
+    "data_hook": "checkout-root",
+    "text": "One-page checkout\n      Complete your synthetic order\n      ",
+    "width": 374,
+    "height": 4060,
+    "below_24": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "data_hook": null,
+    "text": "Contact",
+    "width": 85,
+    "height": 40,
+    "below_24": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "data_hook": null,
+    "text": "Delivery",
+    "width": 89,
+    "height": 40,
+    "below_24": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "data_hook": null,
+    "text": "Shipping",
+    "width": 94,
+    "height": 40,
+    "below_24": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "data_hook": null,
+    "text": "Payment",
+    "width": 92,
+    "height": 40,
+    "below_24": false
+  },
+  {
+    "tag": "A",
+    "id": null,
+    "data_hook": null,
+    "text": "Review",
+    "width": 374,
+    "height": 40,
+    "below_24": false
+  },
+  {
+    "tag": "DIV",
+    "id": null,
+    "data_hook": "cart",
+    "text": "Northstar Insulated Bottle\n                Quantity 1\n      ",
+    "width": 370,
+    "height": 328,
+    "below_24": false
+  },
+  {
+    "tag": "DIV",
+    "id": null,
+    "data_hook": "cart-line-bottle",
+    "text": "Northstar Insulated Bottle\n                Quantity 1\n      ",
+    "width": 348,
+    "height": 76,
+    "below_24": false
+  },
+  {
+    "tag": "DIV",
+    "id": null,
+    "data_hook": "cart-line-throw",
+    "text": "Willow Cotton Throw\n                Quantity 1\n             ",
+    "width": 348,
+    "height": 76,
+    "below_24": false
+  },
+  {
+    "tag": "DD",
+    "id": null,
+    "data_hook": "subtotal",
+    "text": "AUD 80.00",
+    "width": 75,
+    "height": 24,
+    "below_24": false
+  },
+  {
+    "tag": "DD",
+    "id": null,
+    "data_hook": "tax",
+    "text": "AUD 8.50",
+    "width": 66,
+    "height": 24,
+    "below_24": false
+  },
+  {
+    "tag": "DD",
+    "id": null,
+    "data_hook": "total",
+    "text": "AUD 93.50",
+    "width": 92,
+    "height": 26,
+    "below_24": false
+  },
+  {
+    "tag": "DIV",
+    "id": "checkout-status",
+    "data_hook": "status",
+    "text": "Your safe progress can be restored after a reload.",
+    "width": 374,
+    "height": 77,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "compact-completed",
+    "data_hook": null,
+    "text": "",
+    "width": 24,
+    "height": 24,
+    "below_24": false
+  },
+  {
+    "tag": "SECTION",
+    "id": "contact",
+    "data_hook": "contact-section",
+    "text": "1\n            \n              Contact\n              For this ",
+    "width": 374,
+    "height": 462,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "contact-name",
+    "data_hook": "contact-name",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "contact-email",
+    "data_hook": "contact-email",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "contact-phone",
+    "data_hook": "contact-phone",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "SECTION",
+    "id": "delivery",
+    "data_hook": "address-section",
+    "text": "2\n            \n              Delivery address\n              ",
+    "width": 374,
+    "height": 725,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-line1",
+    "data_hook": "address-line1",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-city",
+    "data_hook": "address-city",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-state",
+    "data_hook": "address-state",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-postcode",
+    "data_hook": "address-postcode",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "address-country",
+    "data_hook": "address-country",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "SECTION",
+    "id": "shipping",
+    "data_hook": "shipping-section",
+    "text": "3\n            \n              Shipping method\n              S",
+    "width": 374,
+    "height": 311,
+    "below_24": false
+  },
+  {
+    "tag": "LABEL",
+    "id": null,
+    "data_hook": "shipping-standard",
+    "text": "Standard \u2014 3 to 5 business days\n                AUD 5.00",
+    "width": 345,
+    "height": 74,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "shipping-standard",
+    "data_hook": null,
+    "text": "",
+    "width": 24,
+    "height": 24,
+    "below_24": false
+  },
+  {
+    "tag": "LABEL",
+    "id": null,
+    "data_hook": "shipping-express",
+    "text": "Express \u2014 1 to 2 business days\n                AUD 12.00",
+    "width": 345,
+    "height": 74,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "shipping-express",
+    "data_hook": null,
+    "text": "",
+    "width": 24,
+    "height": 24,
+    "below_24": false
+  },
+  {
+    "tag": "SECTION",
+    "id": "payment",
+    "data_hook": "payment-section",
+    "text": "4\n            \n              Synthetic payment\n             ",
+    "width": 374,
+    "height": 741,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-number",
+    "data_hook": "card-number",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-expiry",
+    "data_hook": "card-expiry",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-security",
+    "data_hook": "card-security",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "card-name",
+    "data_hook": "card-name",
+    "text": "",
+    "width": 345,
+    "height": 49,
+    "below_24": false
+  },
+  {
+    "tag": "SECTION",
+    "id": "review",
+    "data_hook": "review-section",
+    "text": "5\n            \n              Review and place order\n        ",
+    "width": 374,
+    "height": 790,
+    "below_24": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "data_hook": "edit-contact",
+    "text": "Edit contact",
+    "width": 126,
+    "height": 47,
+    "below_24": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "data_hook": "edit-shipping",
+    "text": "Edit shipping",
+    "width": 136,
+    "height": 47,
+    "below_24": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "data_hook": "edit-payment",
+    "text": "Edit payment",
+    "width": 137,
+    "height": 47,
+    "below_24": false
+  },
+  {
+    "tag": "INPUT",
+    "id": "review-confirmation",
+    "data_hook": "review-confirmation",
+    "text": "",
+    "width": 24,
+    "height": 24,
+    "below_24": false
+  },
+  {
+    "tag": "BUTTON",
+    "id": null,
+    "data_hook": "place-order",
+    "text": "Place order",
+    "width": 345,
+    "height": 52,
+    "below_24": false
+  }
+]

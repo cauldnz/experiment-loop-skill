@@ -1,0 +1,12 @@
+{
+  "schema_version": "1.0",
+  "loop_id": "synthesis-loop-01",
+  "judge_id": "judge-human-use",
+  "role": "judge-human-use",
+  "model": "claude-opus-4.7",
+  "candidates_evaluated": ["candidate-a"],
+  "pairwise_deferred": true,
+  "deferred_reason": "Only one synthesis candidate exists in Synthesis Loop 01. Any A/B preference from this judge would be fabricated. Pairwise preference is deferred until Synthesis Loop 02 (candidate-vs-candidate) or the final Champion-vs-strongest-parent-finalist comparison, whichever the orchestrator schedules next.",
+  "no_fabricated_preferences": true,
+  "pairs": []
+}

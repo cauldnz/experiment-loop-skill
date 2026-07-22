@@ -1,0 +1,52 @@
+{
+  "judge_id": "judge-accessibility",
+  "model": "gpt-5.6-terra",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "objective_reports": "All pass and are not rank inputs for this qualitative comparison.",
+  "comparisons": [
+    {
+      "pair": [
+        "candidate-a",
+        "candidate-b"
+      ],
+      "preference": "candidate-b",
+      "confidence": "high",
+      "rationale": "B retains A's direct editability but gives much stronger hierarchy, working in-page orientation, contextual help, and a more actionable recovery presentation. A's task-card status is useful, but its all-open mobile form and heavy outlines increase scanning burden.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/candidate-a.md",
+        "judging/loop-01/judge-accessibility/candidate-b.md"
+      ]
+    },
+    {
+      "pair": [
+        "candidate-b",
+        "candidate-c"
+      ],
+      "preference": "candidate-c",
+      "confidence": "moderate",
+      "rationale": "C's explicit step-by-step progression, save/resume controls, and compact review reduce cognitive load and make interruption handling clearer. B is visually clearer and has stronger immediate invalid-submission recovery; C's empty-step advancement and unconfirmed Clear action prevent high confidence.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/candidate-b.md",
+        "judging/loop-01/judge-accessibility/candidate-c.md"
+      ]
+    },
+    {
+      "pair": [
+        "candidate-a",
+        "candidate-c"
+      ],
+      "preference": "candidate-c",
+      "confidence": "high",
+      "rationale": "C provides clearer progress, more focused task sequencing, stronger feedback, and explicit save/resume behaviour. A is fully operable but presents more simultaneous content and visual noise.",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/candidate-a.md",
+        "judging/loop-01/judge-accessibility/candidate-c.md"
+      ]
+    }
+  ],
+  "no_identity_inference": true,
+  "no_other_judge_notes_read": true
+}

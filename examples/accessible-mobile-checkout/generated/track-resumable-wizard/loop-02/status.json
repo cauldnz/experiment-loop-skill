@@ -1,0 +1,22 @@
+{
+  "loop_id": "resumable-wizard-loop-02",
+  "track_id": "track-resumable-wizard",
+  "model_role": "generator-resumable-wizard",
+  "model": "claude-sonnet-5",
+  "status": "completed",
+  "started_at": "2026-07-21T07:30:00Z",
+  "heartbeat": "2026-07-21T07:55:00Z",
+  "completed_at": "2026-07-21T08:01:29Z",
+  "objective_gate_results": {
+    "content-fidelity": "PASS",
+    "semantic-accessibility-gate": "PASS",
+    "keyboard-completion-gate": "PASS",
+    "error-recovery-gate": "PASS",
+    "mobile-touch-gate": "PASS",
+    "resilience-gate": "PASS",
+    "offline-safety-gate": "PASS",
+    "blocking_failure": false
+  },
+  "decision": "needs_human_review",
+  "stop_reason": "objective_harness_passed_all_gates"
+}

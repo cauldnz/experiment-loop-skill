@@ -1,0 +1,64 @@
+{
+  "aggregation": "per_lens_median_then_mean",
+  "dissent": {
+    "accessibility": "Skip-link focus failure and exact-minimum targets prevent top scores.",
+    "human_use": "Residual issues are compact default, initial shipping status, and post-confirmation reload state.",
+    "preserved": true
+  },
+  "experiment_id": "accessible-mobile-checkout",
+  "human_use_quality": 4.681818181818182,
+  "iteration_id": "synthesis-loop-01",
+  "judge_scores": {
+    "judge-accessibility": {
+      "mean": 4.454545454545454,
+      "model_id": "gpt-5.6-terra",
+      "scores": {
+        "accessibility": 4,
+        "cognitive_load": 4,
+        "destructive_actions": 5,
+        "discoverability": 5,
+        "error_prevention_recovery": 5,
+        "feedback_status": 5,
+        "input_burden": 4,
+        "interruption_resumption": 5,
+        "latency_perception": 4,
+        "navigation": 4,
+        "responsive_touch_ergonomics": 4
+      },
+      "visual_information_clarity": 4
+    },
+    "judge-human-use": {
+      "mean": 4.909090909090909,
+      "model_id": "claude-opus-4.7",
+      "scores": {
+        "accessibility": 5,
+        "cognitive_load": 4,
+        "destructive_actions": 5,
+        "discoverability": 5,
+        "error_prevention_recovery": 5,
+        "feedback_status": 5,
+        "input_burden": 5,
+        "interruption_resumption": 5,
+        "latency_perception": 5,
+        "navigation": 5,
+        "responsive_touch_ergonomics": 5
+      },
+      "visual_information_clarity": 5
+    }
+  },
+  "lens_medians": {
+    "accessibility": 4.5,
+    "cognitive_load": 4.0,
+    "destructive_actions": 5.0,
+    "discoverability": 5.0,
+    "error_prevention_recovery": 5.0,
+    "feedback_status": 5.0,
+    "input_burden": 4.5,
+    "interruption_resumption": 5.0,
+    "latency_perception": 4.5,
+    "navigation": 4.5,
+    "responsive_touch_ergonomics": 4.5
+  },
+  "schema_version": "1.0",
+  "visual_information_clarity": 4.5
+}

@@ -1,0 +1,815 @@
+{
+  "candidate_dir": "<experiment-workspace>/generated/judging/blind-loop-02/candidate-c",
+  "steps": [
+    {
+      "step": "viewport",
+      "t": "18:32:10",
+      "size": "320x568",
+      "overflow": {
+        "docW": 320,
+        "winW": 320,
+        "bodyOverflowX": "visible"
+      }
+    },
+    {
+      "step": "viewport",
+      "t": "18:32:11",
+      "size": "360x800",
+      "overflow": {
+        "docW": 360,
+        "winW": 360,
+        "bodyOverflowX": "visible"
+      }
+    },
+    {
+      "step": "viewport",
+      "t": "18:32:11",
+      "size": "390x844",
+      "overflow": {
+        "docW": 390,
+        "winW": 390,
+        "bodyOverflowX": "visible"
+      }
+    },
+    {
+      "step": "semantic_snapshot",
+      "t": "18:32:12",
+      "data": {
+        "title": "Northstar Goods Checkout",
+        "landmarks": {
+          "main": 1,
+          "nav": 0,
+          "header": 0
+        },
+        "h1": [
+          "Checkout"
+        ],
+        "h2": [
+          "There is a problem",
+          "1. Contact",
+          "2. Delivery Address",
+          "3. Shipping Method",
+          "4. Synthetic Payment",
+          "Order Summary and Review",
+          "Order Confirmed"
+        ],
+        "statusRegions": [
+          {
+            "role": "alert-like",
+            "live": "polite",
+            "text": ""
+          },
+          {
+            "role": "status",
+            "live": null,
+            "text": "Order Confirmed\n      Thank you for your synthetic order.\n      Confirmation ID:"
+          }
+        ],
+        "errorSummary": {
+          "tag": "div",
+          "role": "alert",
+          "tabindex": "-1",
+          "hidden": true,
+          "text": "There is a problem"
+        },
+        "skipLink": null,
+        "accordionCount": 4,
+        "expandedStates": [
+          {
+            "text": "1. Contact\nIncomplete",
+            "expanded": "true",
+            "controls": "contact-content",
+            "hidden": false
+          },
+          {
+            "text": "2. Delivery Address\nIncomplete",
+            "expanded": "false",
+            "controls": "address-content",
+            "hidden": true
+          },
+          {
+            "text": "3. Shipping Method\nComplete",
+            "expanded": "false",
+            "controls": "shipping-content",
+            "hidden": true
+          },
+          {
+            "text": "4. Synthetic Payment\nIncomplete",
+            "expanded": "false",
+            "controls": "payment-content",
+            "hidden": true
+          }
+        ],
+        "focusable": 29,
+        "firstHeaders": [
+          "1. Contact",
+          "2. Delivery Address",
+          "3. Shipping Method",
+          "4. Synthetic Payment",
+          "Order Summary and Review"
+        ]
+      }
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:32:12",
+      "clicked": [
+        "2. Delivery Address\nIncomplete",
+        "3. Shipping Method\nComplete",
+        "4. Synthetic Payment\nIncomplete"
+      ]
+    },
+    {
+      "step": "click",
+      "t": "18:32:12",
+      "target": "empty-place-order",
+      "selector": "button[data-hook=\"place-order\"]"
+    },
+    {
+      "step": "empty_submit_state",
+      "t": "18:32:13",
+      "state": {
+        "errorText": "There is a problem\n      Full Name: Please enter a valueEmail Address: Please enter a valuePhone Number: Please enter a valueAddress Line 1: Please enter a valueCity: Please enter a valueState / Province: Please enter a valuePostcode: Please enter a valueCountry: Please enter a valueName on Card: Please enter a valueCard Number: Please enter a valueExpiry (MM/YY): Please enter a valueSecurity Code",
+        "errorHidden": false,
+        "focusedTag": "div",
+        "focusedId": "",
+        "focusedText": "There is a problem\nFull Name: Please enter a value\nEmail Add"
+      }
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:32:13",
+      "clicked": [
+        "1. Contact\nIncomplete",
+        "2. Delivery Address\nIncomplete",
+        "3. Shipping Method\nComplete"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:32:13",
+      "target": "contact.name",
+      "selector": "#contact-name",
+      "value": "Alex Morgan"
+    },
+    {
+      "step": "fill",
+      "t": "18:32:13",
+      "target": "contact.email",
+      "selector": "#contact-email",
+      "value": "alex.morgan@example.invalid"
+    },
+    {
+      "step": "fill",
+      "t": "18:32:13",
+      "target": "contact.phone",
+      "selector": "#contact-phone",
+      "value": "+61 400 000 000"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:33:43",
+      "target": "contact-continue",
+      "tried": [
+        "#contact-continue",
+        "[data-hook=\"continue\"][data-next=\"address\"]",
+        "button:has-text(\"Continue to Address\")",
+        "button:has-text(\"Continue to Delivery\")",
+        "button[data-action=\"next\"]",
+        "button:has-text(\"Continue to delivery\")"
+      ]
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:33:43",
+      "clicked": [
+        "1. Contact\nComplete",
+        "2. Delivery Address\nIncomplete",
+        "4. Synthetic Payment\nIncomplete"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:33:43",
+      "target": "address.line1",
+      "selector": "#address-line1",
+      "value": "42 Fiction Lane"
+    },
+    {
+      "step": "fill",
+      "t": "18:33:43",
+      "target": "address.city",
+      "selector": "#address-city",
+      "value": "Sampleton"
+    },
+    {
+      "step": "fill",
+      "t": "18:33:43",
+      "target": "address.state",
+      "selector": "#address-state",
+      "value": "NSW"
+    },
+    {
+      "step": "fill",
+      "t": "18:33:43",
+      "target": "address.postcode",
+      "selector": "#address-postcode",
+      "value": "2000"
+    },
+    {
+      "step": "fill",
+      "t": "18:33:43",
+      "target": "address.country",
+      "selector": "#address-country",
+      "value": "Australia"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:36:13",
+      "target": "address-continue",
+      "tried": [
+        "#address-continue",
+        "[data-hook=\"continue\"][data-next=\"shipping\"]",
+        "button:has-text(\"Continue to Shipping\")",
+        "button:has-text(\"Continue to shipping\")",
+        "button:has-text(\"Continue to Payment\")"
+      ]
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:36:13",
+      "clicked": [
+        "1. Contact\nComplete",
+        "2. Delivery Address\nComplete",
+        "3. Shipping Method\nComplete"
+      ]
+    },
+    {
+      "step": "click",
+      "t": "18:36:13",
+      "target": "shipping-continue",
+      "selector": "#shipping-continue"
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:36:13",
+      "clicked": [
+        "1. Contact\nComplete",
+        "2. Delivery Address\nComplete",
+        "3. Shipping Method\nComplete"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:36:13",
+      "target": "payment.card",
+      "selector": "#card-number",
+      "value": "4111 1111 1111 1111"
+    },
+    {
+      "step": "fill",
+      "t": "18:36:13",
+      "target": "payment.expiry",
+      "selector": "#card-expiry",
+      "value": "12/34"
+    },
+    {
+      "step": "fill",
+      "t": "18:36:13",
+      "target": "payment.cvv",
+      "selector": "input[autocomplete=\"cc-csc\"]",
+      "value": "123"
+    },
+    {
+      "step": "fill",
+      "t": "18:36:13",
+      "target": "payment.name",
+      "selector": "#card-name",
+      "value": "Alex Morgan"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:36:13",
+      "target": "payment-continue",
+      "tried": [
+        "#payment-continue",
+        "[data-hook=\"continue\"][data-next=\"review\"]",
+        "button:has-text(\"Continue to Review\")",
+        "button:has-text(\"Continue to review\")"
+      ]
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:36:13",
+      "clicked": [
+        "1. Contact\nComplete",
+        "2. Delivery Address\nComplete",
+        "4. Synthetic Payment\nComplete"
+      ]
+    },
+    {
+      "step": "pre_submit_state",
+      "t": "18:36:13",
+      "state": {
+        "localStorage": {
+          "northstar-checkout-progress": "{\"contact-name\":\"Alex Morgan\",\"contact-email\":\"alex.morgan@example.invalid\",\"contact-phone\":\"+61 400 000 000\",\"address-line1\":\"42 Fiction Lane\",\"address-city\":\"Sampleton\",\"address-state\":\"NSW\",\"address-postcode\":\"2000\",\"address-country\":\"Australia\",\"shipping-method\":\"standard\"}"
+        },
+        "sessionStorage": {},
+        "inputValues": {
+          "contact-name": "Alex Morgan",
+          "contact-email": "alex.morgan@example.invalid",
+          "contact-phone": "+61 400 000 000",
+          "address-line1": "42 Fiction Lane",
+          "address-city": "Sampleton",
+          "address-state": "NSW",
+          "address-postcode": "2000",
+          "address-country": "Australia",
+          "shipping-method": "standard",
+          "card-name": "Alex Morgan",
+          "card-number": "4111 1111 1111 1111",
+          "card-expiry": "12/34",
+          "card-security": "123"
+        },
+        "confirmationText": 0,
+        "confirmationVisible": false
+      }
+    },
+    {
+      "step": "review_checkbox",
+      "t": "18:36:13",
+      "results": [
+        {
+          "id": "review-confirmation",
+          "name": "review-confirmation",
+          "label": "I have reviewed my order and confirm it is correct.  review-confirmation review-confirmation",
+          "checked": true
+        }
+      ]
+    },
+    {
+      "step": "click",
+      "t": "18:36:13",
+      "target": "place-order",
+      "selector": "button[data-hook=\"place-order\"]"
+    },
+    {
+      "step": "click",
+      "t": "18:36:13",
+      "target": "place-order-duplicate",
+      "selector": "button[data-hook=\"place-order\"]"
+    },
+    {
+      "step": "duplicate_submit_attempted",
+      "t": "18:36:13",
+      "found": true
+    },
+    {
+      "step": "confirmation_visible",
+      "t": "18:36:19",
+      "confirmed": false
+    },
+    {
+      "step": "confirmation_state",
+      "t": "18:36:19",
+      "state": {
+        "syn2048Count": 0,
+        "statusRegionsText": [
+          "There are errors in the form. Please correct them to proceed.",
+          "Order Confirmed\n      Thank you for your synthetic order.\n      Confirmation ID:"
+        ]
+      }
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:36:20",
+      "clicked": [
+        "2. Delivery Address\nComplete",
+        "3. Shipping Method\nComplete",
+        "4. Synthetic Payment\nIncomplete"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:36:20",
+      "target": "resume.contact.name",
+      "selector": "#contact-name",
+      "value": "Alex Morgan"
+    },
+    {
+      "step": "fill",
+      "t": "18:36:20",
+      "target": "resume.contact.email",
+      "selector": "#contact-email",
+      "value": "alex.morgan@example.invalid"
+    },
+    {
+      "step": "fill",
+      "t": "18:36:20",
+      "target": "resume.contact.phone",
+      "selector": "#contact-phone",
+      "value": "+61 400 000 000"
+    },
+    {
+      "step": "click_missing",
+      "t": "18:37:50",
+      "target": "resume-persist-trigger",
+      "tried": [
+        "#contact-continue",
+        "[data-hook=\"continue\"][data-next=\"address\"]",
+        "button:has-text(\"Continue to Address\")",
+        "button:has-text(\"Continue to Delivery\")",
+        "button[data-action=\"save-now\"]",
+        "button:has-text(\"Save progress\")"
+      ]
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:37:50",
+      "clicked": [
+        "1. Contact\nComplete",
+        "2. Delivery Address\nComplete",
+        "3. Shipping Method\nComplete"
+      ]
+    },
+    {
+      "step": "fill",
+      "t": "18:37:50",
+      "target": "resume.address.line1",
+      "selector": "#address-line1",
+      "value": "42 Fiction Lane"
+    },
+    {
+      "step": "fill",
+      "t": "18:37:50",
+      "target": "resume.payment.card-preload",
+      "selector": "#card-number",
+      "value": "4111 1111 1111 1111"
+    },
+    {
+      "step": "fill",
+      "t": "18:37:50",
+      "target": "resume.payment.exp-preload",
+      "selector": "#card-expiry",
+      "value": "12/34"
+    },
+    {
+      "step": "fill",
+      "t": "18:37:50",
+      "target": "resume.payment.cvv-preload",
+      "selector": "input[autocomplete=\"cc-csc\"]",
+      "value": "123"
+    },
+    {
+      "step": "pre_reload_storage",
+      "t": "18:37:50",
+      "storage": {
+        "localStorage": {
+          "northstar-checkout-progress": "{\"contact-name\":\"Alex Morgan\",\"contact-email\":\"alex.morgan@example.invalid\",\"contact-phone\":\"+61 400 000 000\",\"address-line1\":\"42 Fiction Lane\",\"address-city\":\"Sampleton\",\"address-state\":\"NSW\",\"address-postcode\":\"2000\",\"address-country\":\"Australia\",\"shipping-method\":\"standard\"}"
+        },
+        "sessionStorage": {}
+      }
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:37:51",
+      "clicked": [
+        "2. Delivery Address\nComplete",
+        "3. Shipping Method\nComplete",
+        "4. Synthetic Payment\nIncomplete"
+      ]
+    },
+    {
+      "step": "post_reload_state",
+      "t": "18:37:51",
+      "state": {
+        "cardNumber": "",
+        "cardCvv": null,
+        "cardExp": "",
+        "contactName": "Alex Morgan",
+        "contactEmail": "alex.morgan@example.invalid",
+        "contactPhone": "+61 400 000 000",
+        "addressLine1": "42 Fiction Lane",
+        "localStorage": {
+          "northstar-checkout-progress": "{\"contact-name\":\"Alex Morgan\",\"contact-email\":\"alex.morgan@example.invalid\",\"contact-phone\":\"+61 400 000 000\",\"address-line1\":\"42 Fiction Lane\",\"address-city\":\"Sampleton\",\"address-state\":\"NSW\",\"address-postcode\":\"2000\",\"address-country\":\"Australia\",\"shipping-method\":\"standard\"}"
+        },
+        "sessionStorage": {},
+        "cardInStorage": false
+      }
+    },
+    {
+      "step": "reduced_motion_findings",
+      "t": "18:37:52",
+      "motion": []
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:37:52",
+      "clicked": [
+        "2. Delivery Address\nIncomplete",
+        "3. Shipping Method\nComplete",
+        "4. Synthetic Payment\nIncomplete"
+      ]
+    },
+    {
+      "step": "first_tab_focus",
+      "t": "18:37:52",
+      "text": "1. Contact\n            Incomplete"
+    },
+    {
+      "step": "reveal_sections",
+      "t": "18:37:52",
+      "clicked": [
+        "2. Delivery Address\nIncomplete",
+        "3. Shipping Method\nComplete",
+        "4. Synthetic Payment\nIncomplete"
+      ]
+    },
+    {
+      "step": "keyboard_focus_order",
+      "t": "18:37:52",
+      "count": 25,
+      "first_10": [
+        {
+          "tag": "input",
+          "id": "contact-name",
+          "name": "contact-name",
+          "type": "text",
+          "role": null,
+          "label": "Full Name",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-name-help",
+          "data": "contact-name",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "input#contact-name|contact-name|contact-name|"
+        },
+        {
+          "tag": "input",
+          "id": "contact-email",
+          "name": "contact-email",
+          "type": "email",
+          "role": null,
+          "label": "Email Address",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-email-help",
+          "data": "contact-email",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "input#contact-email|contact-email|contact-email|"
+        },
+        {
+          "tag": "input",
+          "id": "contact-phone",
+          "name": "contact-phone",
+          "type": "tel",
+          "role": null,
+          "label": "Phone Number",
+          "text": "",
+          "aria": null,
+          "describedby": "contact-phone-help",
+          "data": "contact-phone",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "input#contact-phone|contact-phone|contact-phone|"
+        },
+        {
+          "tag": "button",
+          "id": "contact-continue",
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Continue to Address",
+          "aria": null,
+          "describedby": null,
+          "data": "continue",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "button#contact-continue|None|continue|Continue to Address"
+        },
+        {
+          "tag": "button",
+          "id": "address-header",
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "2. Delivery Address\nIncomplete",
+          "aria": null,
+          "describedby": null,
+          "data": null,
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "button#address-header|None|None|2. Delivery Address\nIncomplete"
+        },
+        {
+          "tag": "input",
+          "id": "address-line1",
+          "name": "address-line1",
+          "type": "text",
+          "role": null,
+          "label": "Address Line 1",
+          "text": "",
+          "aria": null,
+          "describedby": "address-line1-help",
+          "data": "address-line1",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "input#address-line1|address-line1|address-line1|"
+        },
+        {
+          "tag": "input",
+          "id": "address-city",
+          "name": "address-city",
+          "type": "text",
+          "role": null,
+          "label": "City",
+          "text": "",
+          "aria": null,
+          "describedby": "address-city-help",
+          "data": "address-city",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "input#address-city|address-city|address-city|"
+        },
+        {
+          "tag": "input",
+          "id": "address-state",
+          "name": "address-state",
+          "type": "text",
+          "role": null,
+          "label": "State / Province",
+          "text": "",
+          "aria": null,
+          "describedby": "address-state-help",
+          "data": "address-state",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "input#address-state|address-state|address-state|"
+        },
+        {
+          "tag": "input",
+          "id": "address-postcode",
+          "name": "address-postcode",
+          "type": "text",
+          "role": null,
+          "label": "Postcode",
+          "text": "",
+          "aria": null,
+          "describedby": "address-postcode-help",
+          "data": "address-postcode",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "input#address-postcode|address-postcode|address-postcode|"
+        },
+        {
+          "tag": "input",
+          "id": "address-country",
+          "name": "address-country",
+          "type": "text",
+          "role": null,
+          "label": "Country",
+          "text": "",
+          "aria": null,
+          "describedby": "address-country-help",
+          "data": "address-country",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "input#address-country|address-country|address-country|"
+        }
+      ],
+      "last_5": [
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Edit Address",
+          "aria": null,
+          "describedby": null,
+          "data": "edit-address",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "button#None|None|edit-address|Edit Address"
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Edit Shipping",
+          "aria": null,
+          "describedby": null,
+          "data": "edit-shipping",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "button#None|None|edit-shipping|Edit Shipping"
+        },
+        {
+          "tag": "button",
+          "id": null,
+          "name": null,
+          "type": "button",
+          "role": null,
+          "label": null,
+          "text": "Edit Payment",
+          "aria": null,
+          "describedby": null,
+          "data": "edit-payment",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "button#None|None|edit-payment|Edit Payment"
+        },
+        {
+          "tag": "input",
+          "id": "review-confirmation",
+          "name": "review-confirmation",
+          "type": "checkbox",
+          "role": null,
+          "label": "I have reviewed my order and confirm it is correct.",
+          "text": "",
+          "aria": null,
+          "describedby": null,
+          "data": "review-confirmation",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "input#review-confirmation|review-confirmation|review-confirmation|"
+        },
+        {
+          "tag": "button",
+          "id": "place-order",
+          "name": null,
+          "type": "submit",
+          "role": null,
+          "label": null,
+          "text": "Place order",
+          "aria": null,
+          "describedby": null,
+          "data": "place-order",
+          "visibleFocus": {
+            "outline": "solid 4px rgb(0, 0, 0)",
+            "boxShadow": "none"
+          },
+          "key": "button#place-order|None|place-order|Place order"
+        }
+      ]
+    },
+    {
+      "step": "keyboard_reach",
+      "t": "18:37:52",
+      "contact_reached": true,
+      "payment_reached": true
+    }
+  ],
+  "console": [],
+  "page_errors": [],
+  "screenshots": [
+    "viewport-320x568",
+    "viewport-360x800",
+    "viewport-390x844",
+    "initial",
+    "empty-submit",
+    "review-state",
+    "confirmation",
+    "post-reload",
+    "reduced-motion",
+    "keyboard-focus-tour"
+  ],
+  "started_at": "2026-07-21T18:32:09",
+  "completed": true,
+  "ended_at": "2026-07-21T18:37:52"
+}

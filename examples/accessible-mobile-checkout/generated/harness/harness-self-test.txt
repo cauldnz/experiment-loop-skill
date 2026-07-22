@@ -1,0 +1,27 @@
+Harness self-test: invalid fixture rejection
+human_use.applicability = applicable
+human_use.rationale: The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use.
+Command:
+python .experiments\accessible-mobile-checkout\generated\harness\run_checkout_gates.py --candidate .experiments\accessible-mobile-checkout\generated\harness\self-test-invalid --out .experiments\accessible-mobile-checkout\generated\harness\self-test-evidence
+
+Result: rejected as required
+Exit code: 1
+Blocking failure: true
+Failed gate IDs:
+- content-fidelity
+- semantic-accessibility-gate
+- keyboard-completion-gate
+- error-recovery-gate
+- mobile-touch-gate
+- resilience-gate
+- offline-safety-gate
+
+Evidence:
+- self-test-evidence/objective-report.json
+- self-test-evidence/objective-report.txt
+- self-test-evidence/initial.png
+- self-test-evidence/keyboard-completion.png
+- self-test-evidence/viewport-320x568.png
+- self-test-evidence/viewport-360x800.png
+- self-test-evidence/viewport-390x844.png
+- self-test-evidence/final.png
