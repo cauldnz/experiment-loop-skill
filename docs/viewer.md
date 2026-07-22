@@ -1,8 +1,19 @@
 # Viewer
 
 The Viewer is the standalone, offline handoff and incremental inspection surface
-for every Experiment. Open `viewer.html` directly from disk; it has no runtime
-network dependency.
+for every Experiment. Open `viewer.html` directly from disk in a normal browser;
+it has no runtime network dependency.
+
+> **Do not open the Viewer via `file://` in an in-app WebView (e.g. the GitHub
+> Copilot desktop app Browser canvas).** A `file:///…` URL has an empty authority
+> and is not a valid `http::Uri`; the app's WebView host (wry/WebView2) panics
+> with `InvalidUri(InvalidFormat)` and can terminate the app. Serve the Viewer
+> over loopback instead, which renders identically:
+>
+> ```text
+> python scripts/serve_viewer.py --dir <generated-root>
+> # then open the printed http://127.0.0.1:<port>/viewer.html URL
+> ```
 
 ## Incremental viewing
 
