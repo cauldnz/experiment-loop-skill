@@ -491,6 +491,20 @@ Watch mode is optional, dependency-free, and local. It only rebuilds static HTML
 it performs no model or network calls. It also watches canonical JSON sidecars
 under `human-feedback/`. Stop it with Ctrl+C.
 
+When opening a Viewer in the GitHub Copilot App Browser canvas on Windows,
+**never use a `file://` URL while affected Wry versions remain deployed**.
+Wry 0.55.1 can abort the host while handling IPC from a local-file page. Serve
+the generated directory on loopback instead:
+
+```text
+python -m http.server 0 --bind 127.0.0.1 --directory <generated-root>
+```
+
+Open `http://127.0.0.1:<printed-port>/viewer.html` in the canvas using the
+ephemeral port printed by Python, then stop the server after review. This
+transport workaround does not change the deterministic, self-contained Viewer
+artifact.
+
 ### 6b. Intake and disposition human feedback
 
 The Viewer is the primary human-review surface. Its **Human feedback** action
