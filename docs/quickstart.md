@@ -124,6 +124,13 @@ navigation judge and Evidence Gate before treating it as complete.
 Human steering is shown separately from model judge notes, including pending
 intake during an attended checkpoint.
 
+When sharing the Viewer through the GitHub Copilot App Browser canvas on
+Windows, do not use a `file://` URL while affected Wry versions remain
+deployed. Serve its generated directory with `python -m http.server 0 --bind
+127.0.0.1 --directory <generated-root>` and open
+`http://127.0.0.1:<printed-port>/viewer.html` using the ephemeral port Python
+prints. Direct disk opening remains supported in ordinary browsers.
+
 For complete examples, see:
 
 - `examples\route-optimizer` for quantitative judging;

@@ -1,8 +1,23 @@
 # Viewer
 
 The Viewer is the standalone, offline handoff and incremental inspection surface
-for every Experiment. Open `viewer.html` directly from disk; it has no runtime
-network dependency.
+for every Experiment. It has no runtime network dependency and can be opened
+directly from disk in an ordinary browser.
+
+While affected Wry versions remain deployed, do not open a `file://` Viewer in
+the GitHub Copilot App Browser canvas on Windows. App 1.0.25 can terminate in
+Wry's IPC handler when it converts a local file URL into an HTTP URI
+([github/app#2177](https://github.com/github/app/issues/2177)). Serve the
+generated directory over loopback instead:
+
+```text
+python -m http.server 0 --bind 127.0.0.1 --directory <generated-root>
+```
+
+Use the ephemeral port printed by Python to open
+`http://127.0.0.1:<printed-port>/viewer.html` in the Browser canvas, then stop
+the server when review is complete. Loopback serving is only a safe transport
+for the canvas; the generated Viewer remains deterministic and self-contained.
 
 ## Incremental viewing
 
