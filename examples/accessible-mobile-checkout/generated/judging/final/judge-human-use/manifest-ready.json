@@ -1,0 +1,141 @@
+{
+  "role": "judge-human-use",
+  "scope": "final",
+  "experiment_id": "accessible-mobile-checkout",
+  "revision": 1,
+  "model": "claude-opus-4.7",
+  "produced_at": "2026-07-22T08:38:30+10:00",
+  "champion_claim": null,
+  "champion_claim_note": "This judge does not claim Manifest Champion; champion selection is out of scope for judge-human-use.",
+  "objective_pass_acknowledgement_all_three": true,
+  "harness_rerun": false,
+  "fixed_order_operated": ["candidate-c", "candidate-b", "candidate-a"],
+  "records": [
+    {
+      "candidate_label": "a",
+      "bundle_name": "candidate-a",
+      "unrounded_mean_of_12": 4.833333333333333,
+      "sub_scores": {
+        "discoverability": 5,
+        "navigation": 5,
+        "input_burden": 4,
+        "error_prevention_recovery": 5,
+        "feedback_status": 5,
+        "accessibility": 5,
+        "responsive_touch_ergonomics": 5,
+        "interruption_resumption": 5,
+        "latency_perception": 5,
+        "destructive_actions": 5,
+        "cognitive_load": 4,
+        "visual_information_clarity": 5
+      },
+      "visual_information_clarity_score": 5,
+      "primary_strengths": [
+        "Post-confirmation reload preserves confirmation and keeps Place order disabled — strongest interruption/duplicate-safety observed.",
+        "Full Confirm + Cancel + Escape destructive-safety on Clear-progress dialog.",
+        "Explicit Save-progress with live status announcement.",
+        "Progressbar landmark improves feedback and orientation."
+      ],
+      "primary_frictions": [
+        "Slightly more chrome than the leanest candidate keeps cognitive load at 4 rather than 5."
+      ],
+      "evidence_refs": {
+        "scorecard_json": "candidate-a.json",
+        "scorecard_md": "candidate-a.md",
+        "transcript": "navigation-transcript-a.json",
+        "screenshots_dir": "screenshots/a",
+        "logs_dir": "logs/a",
+        "objective_report_persisted": "../blind/candidate-a/evidence/objective-report.json"
+      },
+      "pairwise_refs": [
+        "pairwise.json#candidate-c vs candidate-a",
+        "pairwise.json#candidate-b vs candidate-a"
+      ]
+    },
+    {
+      "candidate_label": "b",
+      "bundle_name": "candidate-b",
+      "unrounded_mean_of_12": 4.75,
+      "sub_scores": {
+        "discoverability": 5,
+        "navigation": 5,
+        "input_burden": 4,
+        "error_prevention_recovery": 5,
+        "feedback_status": 5,
+        "accessibility": 5,
+        "responsive_touch_ergonomics": 5,
+        "interruption_resumption": 4,
+        "latency_perception": 5,
+        "destructive_actions": 5,
+        "cognitive_load": 4,
+        "visual_information_clarity": 5
+      },
+      "visual_information_clarity_score": 5,
+      "primary_strengths": [
+        "Full Confirm + Cancel + Escape destructive-safety on Clear-progress dialog.",
+        "Explicit Save-progress with live status announcement.",
+        "Progressbar landmark improves feedback and orientation.",
+        "Zero focus leaks in compact mode."
+      ],
+      "primary_frictions": [
+        "Post-confirmation reload returns the form to editable state with Place order re-enabled; weaker cross-reload duplicate-safety than the strongest candidate.",
+        "Slightly more chrome than the leanest candidate keeps cognitive load at 4 rather than 5."
+      ],
+      "evidence_refs": {
+        "scorecard_json": "candidate-b.json",
+        "scorecard_md": "candidate-b.md",
+        "transcript": "navigation-transcript-b.json",
+        "screenshots_dir": "screenshots/b",
+        "logs_dir": "logs/b",
+        "objective_report_persisted": "../blind/candidate-b/evidence/objective-report.json"
+      },
+      "pairwise_refs": [
+        "pairwise.json#candidate-c vs candidate-b",
+        "pairwise.json#candidate-b vs candidate-a"
+      ]
+    },
+    {
+      "candidate_label": "c",
+      "bundle_name": "candidate-c",
+      "unrounded_mean_of_12": 4.333333333333333,
+      "sub_scores": {
+        "discoverability": 4,
+        "navigation": 5,
+        "input_burden": 4,
+        "error_prevention_recovery": 5,
+        "feedback_status": 4,
+        "accessibility": 5,
+        "responsive_touch_ergonomics": 5,
+        "interruption_resumption": 3,
+        "latency_perception": 5,
+        "destructive_actions": 3,
+        "cognitive_load": 5,
+        "visual_information_clarity": 4
+      },
+      "visual_information_clarity_score": 4,
+      "primary_strengths": [
+        "Leanest UI: fewest optional controls to reason about (lowest cognitive load).",
+        "Autosave on input/change removes the need for an explicit Save tap.",
+        "Same clean error/inline recovery pattern as the other candidates."
+      ],
+      "primary_frictions": [
+        "No user-initiated Clear saved progress affordance — no Confirm/Cancel/Escape destructive-safety pattern present.",
+        "No explicit Save progress button; user must trust silent autosave.",
+        "No progressbar landmark; progress state is not surfaced explicitly.",
+        "Post-confirmation reload re-editable with Place order re-enabled — weaker cross-reload duplicate-safety than the strongest candidate."
+      ],
+      "evidence_refs": {
+        "scorecard_json": "candidate-c.json",
+        "scorecard_md": "candidate-c.md",
+        "transcript": "navigation-transcript-c.json",
+        "screenshots_dir": "screenshots/c",
+        "logs_dir": "logs/c",
+        "objective_report_persisted": "../blind/candidate-c/evidence/objective-report.json"
+      },
+      "pairwise_refs": [
+        "pairwise.json#candidate-c vs candidate-b",
+        "pairwise.json#candidate-c vs candidate-a"
+      ]
+    }
+  ]
+}

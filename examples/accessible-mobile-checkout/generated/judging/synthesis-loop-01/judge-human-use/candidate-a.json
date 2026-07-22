@@ -1,0 +1,211 @@
+{
+  "schema_version": "1.0",
+  "loop_id": "synthesis-loop-01",
+  "candidate_id": "candidate-a",
+  "judge_id": "judge-human-use",
+  "role": "judge-human-use",
+  "model_role": "judge-human-use",
+  "model": "claude-opus-4.7",
+  "actual_model": "claude-opus-4.7",
+  "viewport": {"width": 390, "height": 844},
+  "reduced_motion": "reduce",
+  "generator_and_paradigm_labels_ignored": true,
+  "objective_gate_ack": {
+    "source_report": "synthesis/loop-01/evidence/objective-report.json",
+    "all_gates_passed": true,
+    "failed_gate_ids": [],
+    "external_requests": 0,
+    "note": "Objective terminal pass accepted verbatim; harness was not rerun."
+  },
+  "scores": {
+    "discoverability": 5,
+    "navigation": 5,
+    "input_burden": 5,
+    "error_prevention_recovery": 5,
+    "feedback_status": 5,
+    "accessibility": 5,
+    "responsive_touch_ergonomics": 5,
+    "interruption_resumption": 5,
+    "latency_perception": 5,
+    "destructive_actions": 5,
+    "cognitive_load": 4,
+    "visual_information_clarity": 5
+  },
+  "unrounded_mean_of_11_lenses": 4.909090909090909,
+  "lens_findings": {
+    "discoverability": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/logs/landmarks.json",
+        "judge-human-use/screenshots/01-initial-390x844.png",
+        "judge-human-use/navigation-transcript-a.json#steps[initial_load]"
+      ],
+      "notes": "Skip link to #checkout-form; distinct <header>, <main data-hook=checkout-root>, <aside>, <nav aria-label=Checkout sections>, and <footer> landmarks; role=note synthetic banner clearly labels the fictional demonstration; role=progressbar with aria-valuenow/aria-valuemax=5 and descriptive aria-valuetext ('N of 5 sections complete: next: <label>.'); five numbered step badges; H1 form intro and H2 per section. AT users encounter multiple orientation cues without duplicative role explosions."
+    },
+    "navigation": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/logs/tab-order.json",
+        "judge-human-use/logs/tab-order-compact.json",
+        "judge-human-use/navigation-transcript-a.json#steps[nav_click_#contact..#review]",
+        "judge-human-use/navigation-transcript-a.json#steps[edit_contact_from_compact]"
+      ],
+      "notes": "Section-nav anchors move to each section without page transitions. Every review-section Edit button and every compact-summary Edit button opens the target section and focuses its first control. Tab order in both expanded and compact modes stayed on visible controls with no focus trap. No 'Continue' click is required to progress. Anchor navigation coexists cleanly with the compact-completed state."
+    },
+    "input_burden": {
+      "score": 5,
+      "evidence_refs": [
+        "candidate index.html per-field <p class=\"help\">Synthetic value: ...</p>",
+        "judge-human-use/navigation-transcript-a.json#steps[fill_contact,fill_delivery]",
+        "judge-human-use/navigation-transcript-a.json#steps[shipping_change_express]"
+      ],
+      "notes": "Inline synthetic-value hints on every field remove guessing about what to enter for this demonstration. Autocomplete tokens (name/email/tel, shipping/postal-code, cc-*) are present, so a switch or voice user can leverage native completion. Shipping is preselected to Standard so users without a preference perform zero clicks. Fields are grouped into fieldsets with visible legends, keeping SR-user context light. A single-page layout removes multi-screen Continue navigation."
+    },
+    "error_prevention_recovery": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/screenshots/02-empty-submit-error-summary.png",
+        "judge-human-use/navigation-transcript-a.json#steps[empty_submit]",
+        "judge-human-use/navigation-transcript-a.json#steps[error_summary_link_click]",
+        "judge-human-use/screenshots/03-error-recovery-invalid-postcode.png",
+        "judge-human-use/navigation-transcript-a.json#steps[invalid_postcode_blur,correct_postcode]"
+      ],
+      "notes": "Empty submit produced 'Check 13 items in 4 sections' with per-section grouped links (Contact 3, Delivery 5, Payment 4, Review), a preserved-values reassurance, and a details/summary full list; focus moved to #error-summary (role=alert, aria-live=assertive, tabindex=-1). Clicking the first grouped link moved focus to #contact-name. On blur with an invalid postcode ('abcd') the field error appeared inline with aria-invalid and aria-describedby including the error id; restoring '2000' cleared it. Values were preserved through submit-time validation."
+    },
+    "feedback_status": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/navigation-transcript-a.json#steps[save_progress]",
+        "judge-human-use/navigation-transcript-a.json#steps[valid_submit]",
+        "judge-human-use/navigation-transcript-a.json#steps[shipping_change_express]"
+      ],
+      "notes": "role=status polite live region announces 'Safe contact, delivery and shipping progress saved on this device...' after explicit Save. aria-valuetext on the progressbar updates from '0 of 5 ... start with Contact.' through '1 of 5 ... next: Delivery address.' to 'Order placed. Confirmation SYN-2048.'. On submit, aria-busy=true is set on Place order and aria-busy=false when the confirmation is inserted. Section-state badges (Not started / In progress / Complete) provide additional non-live status."
+    },
+    "accessibility": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/logs/tab-order.json",
+        "judge-human-use/logs/tab-order-compact.json (0 hidden-ancestor focus leaks)",
+        "judge-human-use/navigation-transcript-a.json#steps[compact_focus_audit]",
+        "candidate app.js setSectionCompacted uses [hidden] on data-section-body"
+      ],
+      "notes": "Native semantics used first: labels bound by for/id, fieldsets with legends, real inputs with types, real radios, native details/summary. `hidden` (not display:none or aria-hidden gymnastics) is used to collapse completed section bodies, so compacted content leaves the tab order. Verified 0 hidden-ancestor leaks across 40 Tab presses after compact-on. reduced-motion honored (page loaded correctly with prefers-reduced-motion=reduce). ARIA is applied only where native semantics fall short (role=progressbar, role=note, role=alert, role=status, aria-describedby wiring, aria-invalid on error, aria-expanded on the Clear-progress control)."
+    },
+    "responsive_touch_ergonomics": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/logs/touch-targets.json",
+        "judge-human-use/screenshots/01-initial-390x844.png",
+        "judge-human-use/screenshots/04-compact-completed-on.png"
+      ],
+      "notes": "At 390×844 with device_scale_factor=2, is_mobile=true, has_touch=true: of 47 audited controls only 1 was <24px (a non-interactive <p class=\"help\"> field-help paragraph — a false positive from a broad selector; every real interactive control (a, button, input, select, choice-card label) measured ≥24px in both dimensions. No horizontal overflow observed; the aside collapses via native details/summary. Shipping choice-cards are full-width tappable regions. Confirmation region receives focus via tabindex=-1 without shifting layout."
+    },
+    "interruption_resumption": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/navigation-transcript-a.json#steps[save_progress,payment_secret_check,reload_restore,clear_confirm_action]",
+        "judge-human-use/screenshots/09-post-reload-restored.png",
+        "judge-human-use/screenshots/10-after-clear-confirmed.png"
+      ],
+      "notes": "Explicit 'Save progress' button in addition to autosave-on-input. localStorage key `northstar-synthesis-checkout` contained only the 8 safe field keys plus shipping — no card-number/card-security/card-expiry (verified by regex and by explicit key list). After reload, all 8 safe fields restored, payment fields empty, status live-region announced 'Safe progress restored. Re-enter synthetic payment details; they were not saved.' Confirming Clear saved progress deleted the storage and reloaded to an empty page."
+    },
+    "latency_perception": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/navigation-transcript-a.json#steps[valid_submit]",
+        "candidate app.js window.setTimeout(completeOrder, 180) with aria-busy"
+      ],
+      "notes": "Every interaction other than placement responded within one frame. Placement uses a 180 ms simulated delay with aria-busy=true and a 'Placing local synthetic order. Please wait.' polite-status message, so any perceived wait is explained. No network requests were fired (external_requests=0), so no unbounded-wait risk exists. Reduced-motion did not slow feedback."
+    },
+    "destructive_actions": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/screenshots/06-clear-confirm-dialog.png",
+        "judge-human-use/navigation-transcript-a.json#steps[clear_progress_prompt,clear_progress_cancel,clear_progress_escape,clear_confirm_action]",
+        "judge-human-use/navigation-transcript-a.json#steps[duplicate_submit_attempted,duplicate_dispatch_submit]",
+        "judge-human-use/screenshots/08-confirmation-SYN-2048.png"
+      ],
+      "notes": "Two-step Clear saved progress: first click reveals a labelled confirmation group and moves focus to Cancel (the safer choice); Escape acts as Cancel; Cancel returns focus to the trigger and preserves the storage; only the explicit 'Yes, clear saved progress' button clears and reloads. Place order flow: after successful submit the button is disabled (place_order_disabled=true) and a duplicate click and a synthetic form.dispatchEvent(submit) both left the confirmation-id count at 1. No unlabelled destructive controls were observed."
+    },
+    "cognitive_load": {
+      "score": 4,
+      "evidence_refs": [
+        "judge-human-use/screenshots/01-initial-390x844.png",
+        "judge-human-use/screenshots/04-compact-completed-on.png",
+        "judge-human-use/navigation-transcript-a.json#steps[empty_submit].details.state.section_states",
+        "judge-human-use/navigation-transcript-a.json#steps[reload_restore]"
+      ],
+      "notes": "One-page checkout on 390×844 is inherently dense: header + banner + intro + section-nav + progressbar + full order summary + 5 sections + review + place-order fit above a scrollable panorama. The compact-completed disclosure is a strong mitigator but is opt-in (default off), so first-time cognitive-load-sensitive users see the full page. Section-state badges also mark Shipping as 'Complete' from initial load because Standard is preselected, which is technically true but can feel like the system claiming credit for work the user did not do. After a successful submit, reloading the page re-enables Place order (place_order_disabled=false) — a distraction risk if the user reloads intending to review the confirmation."
+    },
+    "visual_information_clarity": {
+      "score": 5,
+      "evidence_refs": [
+        "judge-human-use/screenshots/01-initial-390x844.png",
+        "judge-human-use/screenshots/02-empty-submit-error-summary.png",
+        "judge-human-use/screenshots/07-review-required-error.png",
+        "judge-human-use/screenshots/08-confirmation-SYN-2048.png"
+      ],
+      "notes": "Persistent order summary with subtotal/shipping/tax/total; Review section restates the due amount adjacent to Place order; section-state badges use distinct classes (state-empty / state-progress / state-complete); the progressbar list mirrors section order with numeric badges; the confirmation card presents SYN-2048 in a large emphasised span. No overlapping controls or clipped text observed at 390×844."
+    }
+  },
+  "strengths": [
+    "Landmark trio + skip link + section-nav + progressbar cover discoverability more than once, without duplication.",
+    "Section-grouped error summary ('Check 13 items in 4 sections') with per-group counts, preserved-values reassurance, and a details/summary full list — the strongest observed error-recovery ergonomics.",
+    "`hidden` (not display:none / aria-hidden) on collapsed content — verified zero hidden-ancestor focus leaks across 40 Tab presses in compact mode.",
+    "Explicit two-step Clear saved progress with Cancel-focused-by-default, Escape dismissal, and unmodified storage on cancel.",
+    "Payment secrets provably absent from localStorage after fill (regex + explicit key list); safe-only restoration on reload with a status announcement.",
+    "Duplicate placement blocked both by the disabled button and by an idempotency guard on form submit (`document.querySelector('[data-hook=\"confirmation-id\"]')`); dispatchEvent(submit) after confirmation left confirmation-id count at 1.",
+    "Zero external network requests during a full realistic journey plus reload."
+  ],
+  "defects": [
+    {
+      "severity": "minor",
+      "lens": "cognitive_load",
+      "description": "compact-completed disclosure is off by default; on the smallest viewport the initial page shows every field of every section, elevating scanning burden for cognitive-load-sensitive users.",
+      "evidence_refs": [
+        "judge-human-use/screenshots/01-initial-390x844.png",
+        "judge-human-use/screenshots/04-compact-completed-on.png"
+      ]
+    },
+    {
+      "severity": "minor",
+      "lens": "cognitive_load / feedback_status",
+      "description": "Shipping section badge reads 'Complete' from initial load (because Standard is preselected). The state is technically correct but can be misread as 'the system claimed I already did this'.",
+      "evidence_refs": [
+        "judge-human-use/navigation-transcript-a.json#steps[empty_submit].details.state.section_states"
+      ]
+    },
+    {
+      "severity": "minor",
+      "lens": "destructive_actions / cognitive_load",
+      "description": "After a successful submit, reloading re-enables Place order (place_order_disabled=false) because the placed-flag is not persisted in the safe-restore ledger. A user reloading to review the confirmation could re-arm placement.",
+      "evidence_refs": [
+        "judge-human-use/navigation-transcript-a.json#steps[reload_restore]",
+        "judge-human-use/screenshots/09-post-reload-restored.png"
+      ]
+    }
+  ],
+  "uncertainty": [
+    "Screen-reader speech ordering was not captured; conclusions about aria-valuetext / role=alert double-announcement are inferred from DOM state, not observed against JAWS/NVDA/VoiceOver.",
+    "Visible-focus contrast against every background swatch was not measured pixel-by-pixel; the objective harness's contrast check is accepted for that dimension.",
+    "The compact-completed disclosure was toggled in one direction per section state; long-form real-user cognitive load under repeated switching was not stress-tested."
+  ],
+  "residual_friction": [
+    "Dense first-view on 390×844 without compact-on default.",
+    "Non-user-actioned Shipping 'Complete' label can mislead.",
+    "Placed-flag does not survive reload."
+  ],
+  "improvement_instruction_for_synthesis_loop_02": {
+    "instruction": "Reduce residual cognitive load at 390×844 without introducing wizard steps or making collapsed content keyboard-focusable. Specifically: (1) default the compact-completed disclosure to ON when the safe-restore ledger already contains any completed section, and persist the user's compact preference in the ledger so revisits keep it; (2) change the initial Shipping badge from 'Complete' to a user-neutral 'Default selected: Standard' (or 'Ready to review') until the user has focused/changed the choice, keeping the current 'Complete' state after the user acknowledges shipping; (3) persist a placed-flag in the safe-restore ledger so that after a successful SYN-2048 submit and a reload, Place order remains disabled and a status banner reads 'This synthetic order was already placed as SYN-2048.' The changes must not weaken the harness's error-recovery, keyboard-completion, or offline-safety gates and must not persist any payment secret.",
+    "evidence_refs": [
+      "judge-human-use/screenshots/01-initial-390x844.png",
+      "judge-human-use/screenshots/04-compact-completed-on.png",
+      "judge-human-use/navigation-transcript-a.json#steps[empty_submit].details.state.section_states",
+      "judge-human-use/navigation-transcript-a.json#steps[reload_restore]"
+    ]
+  },
+  "pairwise": {
+    "deferred": true,
+    "reason": "Only one synthesis candidate is present in Synthesis Loop 01; pairwise preference is deferred until Synthesis Loop 02 / final Champion-vs-parent comparison."
+  }
+}

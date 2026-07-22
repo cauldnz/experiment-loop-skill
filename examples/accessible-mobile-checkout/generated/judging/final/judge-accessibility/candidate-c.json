@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "label": "candidate-c",
+  "judge": "judge-accessibility",
+  "model": "gpt-5.6-terra",
+  "judged_at": "2026-07-21T22:43:13.707400+00:00",
+  "frozen_contract": {
+    "brief_sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13",
+    "prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928"
+  },
+  "objective_report": {
+    "acknowledged": true,
+    "harness_rerun": false,
+    "result": "Each persisted report is terminal: all seven gates pass, failed_gate_ids is empty, and external_requests is empty.",
+    "gates": [
+      "content-fidelity",
+      "semantic-accessibility-gate",
+      "keyboard-completion-gate",
+      "error-recovery-gate",
+      "mobile-touch-gate",
+      "resilience-gate",
+      "offline-safety-gate"
+    ],
+    "path": "../blind/candidate-c/evidence/objective-report.json"
+  },
+  "browser_operation": {
+    "transcript": "navigation-transcript-c.json",
+    "screenshots": "screenshots/c/",
+    "viewport": "390x844",
+    "reduced_motion": "reduce",
+    "keyboard": "exercised",
+    "console_errors": 0,
+    "external_requests": 0,
+    "control_coverage_count": 25
+  },
+  "scores": {
+    "discoverability": {
+      "score": 4,
+      "evidence": "Core links, fields, shipping choices, compacting, and edits were discoverable, but there was no discoverable save or clear-progress control."
+    },
+    "navigation": {
+      "score": 4,
+      "evidence": "Step links and edit controls worked and moved focus to their inputs; skip activation did not expose an identified target in this run."
+    },
+    "input_burden": {
+      "score": 4,
+      "evidence": "Automatic safe restoration and compact summaries reduce repeated entry, though users lose an explicit moment to choose when saved progress is stored."
+    },
+    "error_prevention_recovery": {
+      "score": 5,
+      "evidence": "Invalid submit focused a detailed, grouped error summary and preserved all entries; corrected canonical completion succeeded."
+    },
+    "feedback_status": {
+      "score": 4,
+      "evidence": "Section and order feedback are clear, but automatic saving is less explicit and there is no observed clear confirmation/status path."
+    },
+    "accessibility": {
+      "score": 4,
+      "evidence": "All objective accessibility gates passed, controls completed by browser automation, and no console errors occurred; the skip-focus observation remains a reservation."
+    },
+    "responsive_touch_ergonomics": {
+      "score": 5,
+      "evidence": "The 390x844 layout kept fields, radios, edits, and submission controls large and separated; the mobile gate passed."
+    },
+    "interruption_resumption": {
+      "score": 4,
+      "evidence": "Contact/address restored while card number and security code cleared on reload; confirmation itself was absent after confirmation reload."
+    },
+    "latency_perception": {
+      "score": 4,
+      "evidence": "Local validation and confirmation were immediate, and automatic resume minimizes explicit save steps."
+    },
+    "destructive_actions": {
+      "score": 2,
+      "evidence": "No clear-progress control or confirmation was discoverable, so clear/cancel/Escape could not be offered or exercised."
+    },
+    "cognitive_load": {
+      "score": 4,
+      "evidence": "Structured errors, compact completed sections, and review edits reduce orientation load; invisible auto-save/clear absence makes persistence less predictable."
+    }
+  },
+  "visual_information_clarity": {
+    "score": 4,
+    "evidence": "The visual hierarchy and touch layout are clear, but the error-heavy long page and reduced persistence affordance clarity are less reassuring."
+  },
+  "unrounded_mean_11_lenses": 4.0,
+  "findings": [
+    "Canonical SYN-2048 completion succeeded once with no console errors or external requests observed.",
+    "Automatic safe restoration preserved contact/address and cleared payment secrets after reload.",
+    "No clear-progress control or confirmation was discoverable; this is a qualitative control/reversibility regression despite passed objective gates."
+  ],
+  "uncertainty": "Qualitative scores reflect one independent browser-based accessibility judgment. Objective reports were accepted as terminal and not rerun.",
+  "no_champion_claim": true
+}

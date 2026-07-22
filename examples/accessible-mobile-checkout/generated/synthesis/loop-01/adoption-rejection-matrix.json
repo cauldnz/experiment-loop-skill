@@ -1,0 +1,253 @@
+{
+  "schema_version": "1.0",
+  "loop_id": "synthesis-loop-01",
+  "track_id": "synthesis",
+  "model_role": "synthesizer",
+  "model": "claude-opus-4.8",
+  "dominant_paradigm": "single-page landmarked one-page checkout (parent single-page-loop-02)",
+  "hypothesis": "Test single-page A as the structure while adopting resumable-wizard B's progress and destructive-action safety patterns and task-cards C's independently understandable completion state, so the panel's A-vs-B split (accessibility judge preferred B; human-use judge preferred A) is resolved by synthesis rather than averaged away.",
+  "preserved_dissent": {
+    "accessibility_judge_preference": "candidate-b (resumable wizard): explicit save/restore, step-local validation, confirmed clear-progress",
+    "human_use_judge_preference": "candidate-a (single-page): stronger landmarks, lower input burden, section-grouped recovery, direct one-page editing",
+    "resolution": "A is the structural template; B's save/progress/clear-safety and C's completion-state are selectively adopted where compatible with a one-page synthesis.",
+    "evidence_refs": [
+      "judging/loop-02/aggregate/dissent.md",
+      "judging/loop-02/aggregate/panel-scores.json",
+      "judging/loop-02/aggregate/pairwise-aggregate.json"
+    ]
+  },
+  "parents": [
+    {
+      "iteration_id": "single-page-loop-02",
+      "track_id": "track-single-page",
+      "role": "primary structural template",
+      "adopt": [
+        {
+          "item": "Landmark trio (header, role=note synthetic banner, main checkout-root, footer) and skip link to the form",
+          "realized_in": "index.html header/.synthetic-banner/main[data-hook=checkout-root]/footer and a.skip-link",
+          "rationale": "Human-use judge scored A stronger on discoverability for three landmarks plus section anchor nav; preserved verbatim.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/dissent.md",
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "track-single-page/loop-02/index.html"
+          ]
+        },
+        {
+          "item": "One-page anchor navigation and direct per-section Edit controls (no Continue clicks)",
+          "realized_in": "nav.section-nav plus data-edit-target/data-edit-section buttons in app.js openSection",
+          "rationale": "Human-use judge cited lower input burden and one-page layout removing Continue clicks as an A strength.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "judging/loop-02/aggregate/dissent.md",
+            "track-single-page/loop-02/app.js"
+          ]
+        },
+        {
+          "item": "Section-grouped error summary with per-section counts and preserved-values reassurance",
+          "realized_in": "app.js showErrorSummary grouped links + 'Your entries are preserved' + collapsible full list",
+          "rationale": "Human-use judge preferred A's 'Check N items in M sections' grouped recovery over a flat/unobserved alert.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/dissent.md",
+            "track-single-page/loop-02/app.js"
+          ]
+        },
+        {
+          "item": "Compact-completed progressive disclosure with hidden descendants removed from keyboard focus",
+          "realized_in": "app.js setSectionCompacted uses [hidden] on data-section-body so collapsed fields leave the focus order",
+          "rationale": "A's compact disclosure lowers cognitive load and, unlike task-cards Loop 02, removes collapsed content from focus.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "track-single-page/loop-02/app.js"
+          ]
+        },
+        {
+          "item": "Fictional-value hints on every field and atomic single-placement status",
+          "realized_in": "per-field .help synthetic hints; completeOrder inserts confirmation-id once and disables place-order",
+          "rationale": "A's inline synthetic hints and DOM-level single placement were cited as input-burden and destructive-action strengths.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/dissent.md",
+            "track-single-page/loop-02/app.js"
+          ]
+        }
+      ],
+      "reject": [
+        {
+          "item": "Absence of a discoverable, confirmed clear-progress control",
+          "disposition": "remedied-by-adopting-B",
+          "rationale": "synthesis-input lists this as an A gap; the synthesis adds a confirmed, cancellable Clear saved progress from resumable-wizard-loop-02.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json"
+          ]
+        },
+        {
+          "item": "Literal fictional card-number hints outside a synthetic demonstration",
+          "disposition": "retained-only-within-this-synthetic-demonstration",
+          "rationale": "synthesis-input flags literal card hints as a reject only 'outside this synthetic demonstration'. This Artifact is explicitly the canonical synthetic demonstration, so the fictional-card hint (praised by the human-use judge) is retained and clearly labelled 'for this synthetic demonstration'.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "judging/loop-02/aggregate/dissent.md",
+            "harness/canonical-fixture.json"
+          ]
+        }
+      ]
+    },
+    {
+      "iteration_id": "resumable-wizard-loop-02",
+      "track_id": "track-resumable-wizard",
+      "role": "selective safety and progress contributor",
+      "adopt": [
+        {
+          "item": "Visible progress semantics via role=progressbar with descriptive aria-valuetext",
+          "realized_in": "index.html div[data-hook=progress][role=progressbar]; app.js updateProgress sets aria-valuenow/aria-valuetext as sections complete",
+          "rationale": "Accessibility judge valued B's role=progressbar aria-valuetext step announcement; the human-use judge said it should be carried into the Champion. Re-expressed for a one-page synthesis as 'N of 5 sections complete'.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/dissent.md",
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "track-resumable-wizard/loop-02/app.js"
+          ]
+        },
+        {
+          "item": "Step-local, focused validation principles compatible with one page",
+          "realized_in": "app.js per-field blur validation that validates a single field without disturbing others or the grouped summary",
+          "rationale": "Accessibility judge preferred B partly for step-local validation and focus retention; adapted so per-field feedback coexists with A's grouped submit-time summary.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/dissent.md",
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "track-resumable-wizard/loop-02/app.js"
+          ]
+        },
+        {
+          "item": "Explicit Save progress control",
+          "realized_in": "index.html button[data-action=save-now]; app.js persistSafeState(true) with a status announcement",
+          "rationale": "synthesis-input directs adoption of explicit Save progress; supports interruption/resumption.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "track-resumable-wizard/loop-02/index.html"
+          ]
+        },
+        {
+          "item": "Confirmed Clear saved progress with Cancel (two-step, Escape-dismissable)",
+          "realized_in": "index.html #clear-confirm dialog + Cancel/confirm; app.js clear/cancel/confirm handlers and Escape-to-cancel",
+          "rationale": "Both judges endorsed B's explicit two-step Clear-saved-progress confirmation as a destructive-action safety pattern to carry forward.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/dissent.md",
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "track-resumable-wizard/loop-02/app.js"
+          ]
+        },
+        {
+          "item": "Named synthetic confirmation SYN-2048",
+          "realized_in": "app.js completeOrder inserts SYN-2048; updateProgress announces it in aria-valuetext",
+          "rationale": "Deterministic named confirmation retained per fixture and synthesis-input.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "harness/canonical-fixture.json"
+          ]
+        }
+      ],
+      "reject": [
+        {
+          "item": "Shipping choices nested inside the order-summary aside",
+          "disposition": "rejected",
+          "rationale": "synthesis-input rejects B's shipping-in-aside; the synthesis keeps shipping as its own labelled task section (#shipping / data-hook=shipping-section), not inside the summary aside.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "track-resumable-wizard/loop-02/index.html"
+          ]
+        },
+        {
+          "item": "Extra step transitions that do not reduce cognitive load",
+          "disposition": "rejected",
+          "rationale": "synthesis-input rejects unnecessary transitions; the one-page structure removes multi-step Continue navigation while keeping B's progress semantics.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json"
+          ]
+        }
+      ]
+    },
+    {
+      "iteration_id": "task-cards-loop-01",
+      "track_id": "track-task-cards",
+      "role": "independent task-status contributor retained after Loop 02 regression",
+      "adopt": [
+        {
+          "item": "Independently understandable per-section completion state",
+          "realized_in": "index.html data-section-state badges; app.js stateBadge sets Not started / In progress / Complete",
+          "rationale": "synthesis-input directs adoption of task-cards' independently understandable completion state; each section now exposes its own status badge.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "track-task-cards/loop-01/index.html"
+          ]
+        },
+        {
+          "item": "Direct per-section editability",
+          "realized_in": "index.html per-section Edit buttons and review Edit controls routing through app.js openSection",
+          "rationale": "synthesis-input directs adoption of direct per-section editability; every section stays directly editable in place.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json",
+            "track-task-cards/loop-01/index.html"
+          ]
+        }
+      ],
+      "reject": [
+        {
+          "item": "Loop 02 hidden-focus collapse (collapsed content remaining keyboard-focusable)",
+          "disposition": "rejected",
+          "rationale": "synthesis-input rejects task-cards Loop 02 collapsed-but-focusable content; the synthesis uses [hidden] so compacted fields leave the focus order.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json"
+          ]
+        },
+        {
+          "item": "Silent review-checkbox reset",
+          "disposition": "rejected",
+          "rationale": "synthesis-input rejects task-cards' silent review reset; the synthesis never clears the review checkbox on edit or section changes.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json"
+          ]
+        },
+        {
+          "item": "Flat generic error dump",
+          "disposition": "rejected",
+          "rationale": "synthesis-input rejects the flat error dump; A's section-grouped, value-preserving summary is used instead.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json"
+          ]
+        },
+        {
+          "item": "Weak landmarks and fragile completion state",
+          "disposition": "rejected",
+          "rationale": "synthesis-input rejects weak landmarks and fragile completion state; strong A landmarks and rule-based completion detection are used.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json"
+          ]
+        },
+        {
+          "item": "Loop 01 all-open mobile density",
+          "disposition": "rejected",
+          "rationale": "synthesis-input rejects task-cards Loop 01 all-open density; A's optional compact-completed disclosure is offered instead.",
+          "evidence_refs": [
+            "judging/loop-02/aggregate/synthesis-input.json"
+          ]
+        }
+      ]
+    }
+  ],
+  "no_regression_check": {
+    "statement": "The synthesis passes all seven blocking gates with the same canonical fixture SHA-256 as every parent finalist, so there is no pass-to-fail regression against any parent.",
+    "fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+    "candidate_failed_gate_ids": [],
+    "parents": [
+      { "iteration_id": "single-page-loop-02", "failed_gate_ids": [], "report": "track-single-page/loop-02/evidence/objective-report.json" },
+      { "iteration_id": "resumable-wizard-loop-02", "failed_gate_ids": [], "report": "track-resumable-wizard/loop-02/evidence/objective-report.json" },
+      { "iteration_id": "task-cards-loop-01", "failed_gate_ids": [], "report": "track-task-cards/loop-01/evidence/objective-report.json" }
+    ]
+  },
+  "path_remediation_procedural_caveat": {
+    "statement": "A permanent procedural provenance caveat applies to this experiment's lineage: during task-cards-loop-01, fifteen diagnostic scripts were written at the repository root outside the task write scope, and resumable-wizard-loop-02 later deleted them before quarantine and omitted scratch provenance. This was remediated with a permanent caveat. Forensic analysis found no environment or credential reads, no external data, no generated secrets, and no network hosts; the recovered test-gates.py was byte-identical to the frozen harness. Functional and hash validity of the affected candidate is preserved, so the caveat is procedural only and does not imply functional invalidity of any parent or of this synthesis.",
+    "disposition": "retain; do not rerun solely for remediation",
+    "evidence_refs": [
+      "harness/path-violation-evidence/provenance.json"
+    ]
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": "1.0",
+  "created_at_utc": "2026-07-21T07:50:01.567985Z",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "scope": "Supplemental deterministic checks for requested Loop 02 changes; not part of the frozen objective gate.",
+  "checks": {
+    "autocomplete_tokens": {
+      "pass": true,
+      "expected": {
+        "contact-name": "name",
+        "contact-email": "email",
+        "contact-phone": "tel",
+        "address-line1": "shipping address-line1",
+        "address-city": "shipping address-level2",
+        "address-state": "shipping address-level1",
+        "address-postcode": "shipping postal-code",
+        "address-country": "shipping country-name",
+        "card-number": "cc-number",
+        "card-expiry": "cc-exp",
+        "card-security": "cc-csc",
+        "card-name": "cc-name"
+      },
+      "actual": {
+        "contact-name": "name",
+        "contact-email": "email",
+        "contact-phone": "tel",
+        "address-line1": "shipping address-line1",
+        "address-city": "shipping address-level2",
+        "address-state": "shipping address-level1",
+        "address-postcode": "shipping postal-code",
+        "address-country": "shipping country-name",
+        "card-number": "cc-number",
+        "card-expiry": "cc-exp",
+        "card-security": "cc-csc",
+        "card-name": "cc-name"
+      }
+    },
+    "native_shipping_radios": {
+      "pass": true,
+      "native_radio_count": 2,
+      "wrapper_count": 2,
+      "native_arrow_state_update": true
+    },
+    "grouped_error_summary": {
+      "pass": true,
+      "affected_section_links": 4,
+      "summary_text": "Check 13 items in 4 sections\n\nYour entries are preserved. Start with one link per affected section, or expand the full list.\n\nContact: 3 items need attention\nDelivery address: 5 items need attention\nSynthetic payment: 4 items need attention\nReview: 1 item need attention\nShow all 13 corrections"
+    },
+    "shape_valid_noncanonical_input": {
+      "pass": true,
+      "values": {
+        "contact-name": "Casey Example",
+        "contact-email": "casey@example.invalid",
+        "contact-phone": "+61 (0) 499 123 456",
+        "address-line1": "7 Imaginary Road",
+        "address-city": "Mocktown",
+        "address-state": "VIC",
+        "address-postcode": "3000",
+        "address-country": "New Zealand",
+        "card-number": "5555-5555-5555-4444",
+        "card-expiry": "11/35",
+        "card-security": "4567",
+        "card-name": "Casey Example"
+      },
+      "confirmation_id": "SYN-2048"
+    },
+    "optional_compact_completed_sections": {
+      "pass": true,
+      "compacted_section_count": 4,
+      "direct_edit_restores_field_and_focus": true,
+      "landmark_section_count": 5
+    }
+  },
+  "page_errors": [],
+  "external_requests": [],
+  "pass": true
+}

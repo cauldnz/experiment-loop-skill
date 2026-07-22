@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Northstar Goods — Synthetic checkout demonstration</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell">
+      <p class="brand">Northstar Goods</p>
+      <p class="eyebrow">Guest checkout</p>
+    </div>
+  </header>
+
+  <div class="synthetic-banner" data-hook="synthetic-banner" role="note">
+    <div class="shell">
+      <strong>Northstar Goods — Synthetic checkout demonstration</strong>
+      <span>All products, people, contact details, addresses, payment details and order data are fictional and synthetic. Nothing is purchased.</span>
+    </div>
+  </div>
+
+  <main id="main-content" class="shell" data-hook="checkout-root">
+    <div class="intro">
+      <p class="kicker">One-page checkout</p>
+      <h1>Complete your synthetic order</h1>
+      <p>All five sections are on this page. Required fields are marked <span aria-hidden="true">*</span><span class="visually-hidden">required</span>.</p>
+    </div>
+
+    <nav class="section-nav" aria-label="Checkout sections">
+      <a href="#contact">Contact</a>
+      <a href="#delivery">Delivery</a>
+      <a href="#shipping">Shipping</a>
+      <a href="#payment">Payment</a>
+      <a href="#review">Review</a>
+    </nav>
+
+    <div class="checkout-layout">
+      <aside class="order-summary" aria-labelledby="order-title">
+        <details open>
+          <summary id="order-title">Order summary <span class="summary-total" data-total-summary>AUD 93.50</span></summary>
+          <div class="order-body" data-hook="cart">
+            <div class="cart-line" data-hook="cart-line-bottle">
+              <div>
+                <strong>Northstar Insulated Bottle</strong>
+                <span>Quantity 1</span>
+              </div>
+              <span>AUD 32.00</span>
+            </div>
+            <div class="cart-line" data-hook="cart-line-throw">
+              <div>
+                <strong>Willow Cotton Throw</strong>
+                <span>Quantity 1</span>
+              </div>
+              <span>AUD 48.00</span>
+            </div>
+            <dl class="totals">
+              <div>
+                <dt>Subtotal</dt>
+                <dd data-hook="subtotal">AUD 80.00</dd>
+              </div>
+              <div>
+                <dt>Shipping</dt>
+                <dd data-shipping-total>AUD 5.00</dd>
+              </div>
+              <div>
+                <dt>Tax</dt>
+                <dd data-hook="tax">AUD 8.50</dd>
+              </div>
+              <div class="grand-total">
+                <dt>Total</dt>
+                <dd data-hook="total">AUD 93.50</dd>
+              </div>
+            </dl>
+          </div>
+        </details>
+      </aside>
+
+      <form id="checkout-form" novalidate aria-labelledby="form-title">
+        <h2 id="form-title" class="visually-hidden">Checkout details</h2>
+
+        <div id="error-summary" class="error-summary" data-hook="error-summary" role="alert" aria-live="assertive" tabindex="-1" hidden></div>
+        <div id="checkout-status" class="status" data-hook="status" role="status" aria-live="polite" aria-atomic="true">Your safe progress can be restored after a reload.</div>
+
+        <section id="contact" class="task-section" data-hook="contact-section" aria-labelledby="contact-title">
+          <div class="section-heading">
+            <span class="step-number" aria-hidden="true">1</span>
+            <div>
+              <h2 id="contact-title">Contact</h2>
+              <p>For this fictional delivery only.</p>
+            </div>
+          </div>
+          <fieldset>
+            <legend class="visually-hidden">Contact details</legend>
+            <div class="field">
+              <label for="contact-name">Full name <span aria-hidden="true">*</span></label>
+              <input id="contact-name" data-hook="contact-name" name="contact-name" type="text" required autocomplete="off" aria-describedby="contact-name-help">
+              <p class="help" id="contact-name-help">Synthetic value: Alex Morgan.</p>
+              <p class="field-error" id="contact-name-error" data-hook="field-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="contact-email">Email <span aria-hidden="true">*</span></label>
+              <input id="contact-email" data-hook="contact-email" name="contact-email" type="email" required autocomplete="off" aria-describedby="contact-email-help">
+              <p class="help" id="contact-email-help">Synthetic value: alex.morgan@example.invalid.</p>
+              <p class="field-error" id="contact-email-error" data-hook="field-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="contact-phone">Phone <span aria-hidden="true">*</span></label>
+              <input id="contact-phone" data-hook="contact-phone" name="contact-phone" type="tel" required autocomplete="off" aria-describedby="contact-phone-help">
+              <p class="help" id="contact-phone-help">Synthetic value: +61 400 000 000.</p>
+              <p class="field-error" id="contact-phone-error" data-hook="field-error" hidden></p>
+            </div>
+          </fieldset>
+        </section>
+
+        <section id="delivery" class="task-section" data-hook="address-section" aria-labelledby="delivery-title">
+          <div class="section-heading">
+            <span class="step-number" aria-hidden="true">2</span>
+            <div>
+              <h2 id="delivery-title">Delivery address</h2>
+              <p>Use the synthetic Australian address shown below.</p>
+            </div>
+          </div>
+          <fieldset>
+            <legend class="visually-hidden">Delivery address</legend>
+            <div class="field field-wide">
+              <label for="address-line1">Street address <span aria-hidden="true">*</span></label>
+              <input id="address-line1" data-hook="address-line1" name="address-line1" type="text" required autocomplete="off" aria-describedby="address-line1-help">
+              <p class="help" id="address-line1-help">Synthetic value: 42 Fiction Lane.</p>
+              <p class="field-error" id="address-line1-error" data-hook="field-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="address-city">City or suburb <span aria-hidden="true">*</span></label>
+              <input id="address-city" data-hook="address-city" name="address-city" type="text" required autocomplete="off" aria-describedby="address-city-help">
+              <p class="help" id="address-city-help">Synthetic value: Sampleton.</p>
+              <p class="field-error" id="address-city-error" data-hook="field-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="address-state">State <span aria-hidden="true">*</span></label>
+              <input id="address-state" data-hook="address-state" name="address-state" type="text" required autocomplete="off" aria-describedby="address-state-help">
+              <p class="help" id="address-state-help">Synthetic value: NSW.</p>
+              <p class="field-error" id="address-state-error" data-hook="field-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="address-postcode">Postcode <span aria-hidden="true">*</span></label>
+              <input id="address-postcode" data-hook="address-postcode" name="address-postcode" type="text" inputmode="numeric" required autocomplete="off" aria-describedby="address-postcode-help">
+              <p class="help" id="address-postcode-help">Synthetic value: 2000.</p>
+              <p class="field-error" id="address-postcode-error" data-hook="field-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="address-country">Country <span aria-hidden="true">*</span></label>
+              <input id="address-country" data-hook="address-country" name="address-country" type="text" required autocomplete="off" aria-describedby="address-country-help">
+              <p class="help" id="address-country-help">Synthetic value: Australia.</p>
+              <p class="field-error" id="address-country-error" data-hook="field-error" hidden></p>
+            </div>
+          </fieldset>
+        </section>
+
+        <section id="shipping" class="task-section" data-hook="shipping-section" aria-labelledby="shipping-title">
+          <div class="section-heading">
+            <span class="step-number" aria-hidden="true">3</span>
+            <div>
+              <h2 id="shipping-title">Shipping method</h2>
+              <p>Select one fictional delivery speed.</p>
+            </div>
+          </div>
+          <fieldset class="choice-group">
+            <legend class="visually-hidden">Shipping method</legend>
+            <label class="choice-card" data-hook="shipping-standard" type="radio" role="radio" aria-checked="true" tabindex="0">
+              <input type="radio" name="shipping" value="standard" checked required tabindex="-1" aria-hidden="true" aria-describedby="shipping-standard-help">
+              <span>
+                <strong>Standard — 3 to 5 business days</strong>
+                <span id="shipping-standard-help">AUD 5.00</span>
+              </span>
+            </label>
+            <label class="choice-card" data-hook="shipping-express" type="radio" role="radio" aria-checked="false" tabindex="0">
+              <input type="radio" name="shipping" value="express" required tabindex="-1" aria-hidden="true" aria-describedby="shipping-express-help">
+              <span>
+                <strong>Express — 1 to 2 business days</strong>
+                <span id="shipping-express-help">AUD 12.00</span>
+              </span>
+            </label>
+          </fieldset>
+        </section>
+
+        <section id="payment" class="task-section" data-hook="payment-section" aria-labelledby="payment-title">
+          <div class="section-heading">
+            <span class="step-number" aria-hidden="true">4</span>
+            <div>
+              <h2 id="payment-title">Synthetic payment</h2>
+              <p>Demonstration values only. Payment fields are cleared on reload and never saved.</p>
+            </div>
+          </div>
+          <div class="fixture-card" role="note">
+            <strong>Fictional card to use</strong>
+            <span>4111 1111 1111 1111 · expiry 12/34 · security code 123 · Alex Morgan</span>
+          </div>
+          <fieldset>
+            <legend class="visually-hidden">Synthetic card details</legend>
+            <div class="field field-wide">
+              <label for="card-number">Card number <span aria-hidden="true">*</span></label>
+              <input id="card-number" data-hook="card-number" name="card-number" type="text" inputmode="numeric" required autocomplete="off" aria-describedby="card-number-help">
+              <p class="help" id="card-number-help">Enter the 16-digit synthetic card number shown above.</p>
+              <p class="field-error" id="card-number-error" data-hook="field-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="card-expiry">Expiry, MM/YY <span aria-hidden="true">*</span></label>
+              <input id="card-expiry" data-hook="card-expiry" name="card-expiry" type="text" inputmode="numeric" required autocomplete="off" aria-describedby="card-expiry-help">
+              <p class="help" id="card-expiry-help">Use 12/34 for this demonstration.</p>
+              <p class="field-error" id="card-expiry-error" data-hook="field-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="card-security">Security code <span aria-hidden="true">*</span></label>
+              <input id="card-security" data-hook="card-security" name="card-security" type="text" inputmode="numeric" required autocomplete="off" aria-describedby="card-security-help">
+              <p class="help" id="card-security-help">Use the 3-digit synthetic code.</p>
+              <p class="field-error" id="card-security-error" data-hook="field-error" hidden></p>
+            </div>
+            <div class="field field-wide">
+              <label for="card-name">Name on card <span aria-hidden="true">*</span></label>
+              <input id="card-name" data-hook="card-name" name="card-name" type="text" required autocomplete="off" aria-describedby="card-name-help">
+              <p class="help" id="card-name-help">Synthetic value: Alex Morgan.</p>
+              <p class="field-error" id="card-name-error" data-hook="field-error" hidden></p>
+            </div>
+          </fieldset>
+        </section>
+
+        <section id="review" class="task-section review-section" data-hook="review-section" aria-labelledby="review-title">
+          <div class="section-heading">
+            <span class="step-number" aria-hidden="true">5</span>
+            <div>
+              <h2 id="review-title">Review and place order</h2>
+              <p>Check the fictional details before the local confirmation.</p>
+            </div>
+          </div>
+          <fieldset>
+            <legend class="visually-hidden">Review confirmation</legend>
+            <div class="review-grid">
+              <div>
+                <h3>Contact and delivery</h3>
+                <p id="review-contact">Enter your synthetic contact and address above.</p>
+                <button type="button" class="secondary-button" data-hook="edit-contact" data-edit-target="contact">Edit contact</button>
+              </div>
+              <div>
+                <h3>Shipping and payment</h3>
+                <p id="review-shipping">Standard — 3 to 5 business days · AUD 5.00</p>
+                <p>Payment: synthetic card ending 1111 after entry; payment details are not saved.</p>
+                <button type="button" class="secondary-button" data-hook="edit-shipping" data-edit-target="shipping">Edit shipping</button>
+              </div>
+            </div>
+            <label class="review-check">
+              <input id="review-confirmation" data-hook="review-confirmation" type="checkbox" required aria-describedby="review-confirmation-help">
+              <span>I reviewed the fictional order and understand that Place order creates only a local synthetic confirmation.</span>
+            </label>
+            <p class="help" id="review-confirmation-help">Required before the local demonstration can finish.</p>
+            <p class="field-error" id="review-confirmation-error" data-hook="field-error" hidden></p>
+          </fieldset>
+          <div class="place-order-row">
+            <div>
+              <span>Due now</span>
+              <strong data-review-total>AUD 93.50</strong>
+            </div>
+            <button type="submit" class="primary-button" data-hook="place-order">Place order</button>
+          </div>
+        </section>
+
+        <section class="confirmation" data-hook="confirmation" role="status" aria-live="polite" aria-atomic="true" hidden>
+          <h2>Order confirmed locally</h2>
+          <p>This fictional, synthetic demonstration is complete. No payment or external transaction occurred.</p>
+          <div id="confirmation-content"></div>
+        </section>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">Local, network-free accessibility prototype · fictional and synthetic data only</div>
+  </footer>
+</body>
+</html>

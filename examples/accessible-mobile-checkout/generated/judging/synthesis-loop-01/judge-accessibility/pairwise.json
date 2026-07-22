@@ -1,0 +1,16 @@
+{
+  "schema_version": "1.0",
+  "judge_id": "judge-accessibility",
+  "model_id": "gpt-5.6-terra",
+  "iteration_id": "synthesis-loop-01",
+  "state": "deferred",
+  "preference": null,
+  "compared_labels": [
+    "candidate-a"
+  ],
+  "reason": "Only one synthesis candidate is present. No A/B preference is fabricated; pairwise evaluation is deferred to Synthesis Loop 02/final comparison.",
+  "evidence_refs": [
+    ".experiments/accessible-mobile-checkout/generated/synthesis/loop-01/index.html",
+    ".experiments/accessible-mobile-checkout/generated/judging/synthesis-loop-01/judge-accessibility/candidate-a.json"
+  ]
+}

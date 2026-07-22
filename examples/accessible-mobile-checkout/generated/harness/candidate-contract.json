@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "contract_id": "accessible-mobile-checkout-candidate-hooks-v1",
+  "description": "Track-neutral hooks for a standalone local checkout. Native HTML semantics remain authoritative; hooks make cross-paradigm assertions stable.",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "runtime": {
+    "entrypoint": "index.html",
+    "local_only": true,
+    "external_resources": false,
+    "server_required": false
+  },
+  "hook_attribute": "data-hook",
+  "required_hooks": {
+    "checkout-root": "One element containing the complete checkout.",
+    "synthetic-banner": "Visible banner identifying the fictional synthetic demonstration.",
+    "cart": "Cart/order summary containing both required product lines.",
+    "cart-line-bottle": "Element containing Northstar Insulated Bottle, quantity, and price.",
+    "cart-line-throw": "Element containing Willow Cotton Throw, quantity, and price.",
+    "subtotal": "Element exposing AUD 80.00.",
+    "tax": "Element exposing AUD 8.50.",
+    "shipping-standard": "Element/control exposing Standard — 3 to 5 business days and AUD 5.00.",
+    "shipping-express": "Element/control exposing Express — 1 to 2 business days and AUD 12.00.",
+    "total": "Element exposing the selected shipping total (AUD 93.50 or AUD 100.50).",
+    "contact-section": "Contact task section or step.",
+    "address-section": "Delivery address task section or step.",
+    "shipping-section": "Shipping method task section or step.",
+    "payment-section": "Synthetic payment task section or step.",
+    "review-section": "Review task section or step.",
+    "contact-name": "Required text input for Alex Morgan.",
+    "contact-email": "Required email input for alex.morgan@example.invalid.",
+    "contact-phone": "Required telephone input for +61 400 000 000.",
+    "address-line1": "Required text input for 42 Fiction Lane.",
+    "address-city": "Required text input for Sampleton.",
+    "address-state": "Required text input/select for NSW.",
+    "address-postcode": "Required text input for 2000.",
+    "address-country": "Required country input/select for Australia.",
+    "card-number": "Required synthetic card-number input.",
+    "card-expiry": "Required synthetic expiry input.",
+    "card-security": "Required synthetic security-code input.",
+    "card-name": "Required payment-name input for Alex Morgan.",
+    "review-confirmation": "Required checkable control explicitly confirming review before placement.",
+    "place-order": "Explicit Place order submit control.",
+    "error-summary": "Actionable error summary, hidden or empty until an invalid submission.",
+    "status": "Live/status region for save, validation, busy, and completion feedback.",
+    "confirmation": "Confirmation region shown only after successful placement.",
+    "confirmation-id": "Element inside confirmation exposing exactly SYN-2048."
+  },
+  "optional_hooks": {
+    "progress": "Progress indicator with a useful accessible name/value.",
+    "continue": "Step/section advance control; may occur more than once.",
+    "back": "Step/section back control.",
+    "edit-contact": "Review edit control for contact.",
+    "edit-address": "Review edit control for address.",
+    "edit-shipping": "Review edit control for shipping.",
+    "edit-payment": "Review edit control for payment.",
+    "field-help": "Description text associated with a field.",
+    "field-error": "Inline error associated with one field.",
+    "focus-indicator": "Element whose visible focus indicator can be measured.",
+    "checkout-interactive": "Custom interactive target not discoverable as a native button/input/select/textarea/link."
+  },
+  "field_contract": {
+    "required": true,
+    "accessible_label": "Each field has a native label or aria-label/aria-labelledby.",
+    "description": "Each field has aria-describedby or an associated data-hook=field-help description.",
+    "error": "After invalid submission, each invalid field has aria-invalid=true and aria-describedby pointing to its error.",
+    "native_preferred": true
+  },
+  "interaction_contract": {
+    "place_order_text": "Place order",
+    "review_must_be_explicit": true,
+    "at_least_one_edit_hook": [
+      "edit-contact",
+      "edit-address",
+      "edit-shipping",
+      "edit-payment"
+    ],
+    "confirmation_id": "SYN-2048",
+    "all_controls_keyboard_operable": true,
+    "no_focus_trap": true
+  }
+}

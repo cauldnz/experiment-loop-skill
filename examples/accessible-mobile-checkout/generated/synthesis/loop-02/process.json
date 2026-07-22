@@ -1,0 +1,60 @@
+{
+  "schema_version": "1.1",
+  "loop_id": "synthesis-loop-02",
+  "track_id": "synthesis",
+  "model_role": "synthesizer",
+  "model": "claude-opus-4.8",
+  "objective_command": {
+    "cwd": "<skill-repository>",
+    "executable": "python",
+    "argv": [
+      "python",
+      ".experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py",
+      "--candidate",
+      ".experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-02",
+      "--out",
+      ".experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-02\\evidence"
+    ],
+    "command_string": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-02 --out .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-02\\evidence"
+  },
+  "runs": [
+    {
+      "attempt": 1,
+      "process_handle_pid": 3824,
+      "start_utc": "2026-07-21T22:04:38.0495550Z",
+      "heartbeat_utc": "2026-07-21T22:04:47.0000000Z",
+      "end_utc": "2026-07-21T22:04:56.4096810Z",
+      "terminal_state": "exited",
+      "exit_code": 0,
+      "exit_code_provenance": "Deterministic from harness main(): for --candidate invocation it returns 1 if report.blocking_failure else 0; objective-report.json recorded blocking_failure=false, so exit_code=0.",
+      "stdout": "",
+      "stderr": "",
+      "objective_report_relpath": "synthesis/loop-02/evidence/objective-report.json",
+      "rerun": false,
+      "notes": "First and only terminal run. No live/indeterminate state; process fully exited before any record was written. Not rerun."
+    }
+  ],
+  "failed_attempts_preserved": [],
+  "repair_attempts_used": 0,
+  "external_runtime_requests": 0,
+  "result": {
+    "all_seven_gates_pass": true,
+    "failed_gate_ids": [],
+    "blocking_failure": false,
+    "external_requests": 0,
+    "fixture_sha256_unchanged": true,
+    "harness_sha256_unchanged": true
+  },
+  "frozen_hashes": {
+    "canonical_fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+    "run_checkout_gates_sha256": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563"
+  },
+  "safety": {
+    "network": "none",
+    "installs": "none",
+    "dependency_changes": "none",
+    "credentials": "none",
+    "harness_or_fixture_modified": false,
+    "notes": "Objective command run exactly as specified from repository root against the unchanged frozen harness and canonical fictional fixture."
+  }
+}

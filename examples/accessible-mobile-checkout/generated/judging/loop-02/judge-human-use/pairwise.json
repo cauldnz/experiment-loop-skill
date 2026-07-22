@@ -1,0 +1,47 @@
+{
+  "loop": "loop-02",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "flipped_order": ["candidate-c", "candidate-b", "candidate-a"],
+  "pairs": [
+    {
+      "pair": "c_vs_b",
+      "preferred": "candidate-b",
+      "confidence": "high",
+      "rationale": "Candidate-b outperforms candidate-c on 10 of 11 lenses. B has a real skip link, role=progressbar with aria-valuetext 'Step 1 of 4', Save-progress and Clear-saved-progress with a two-step confirm dialog, full SYN-2048 confirmation with a named greeting, and a working feedback_status live region. Candidate-c has no skip link, no landmark diversity, a silent review-checkbox reset on any input change, and produced a 'errors in the form' state during my run despite every accordion section reporting Complete. C's advantages (very strong 4px black focus outline, comprehensive per-field error listing) are outweighed by B's structural clarity and destructive-action safety.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[confirmation_state]",
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[confirmation_state]",
+        "judging/loop-02/judge-human-use/candidate-c.json",
+        "judging/loop-02/judge-human-use/candidate-b.json"
+      ]
+    },
+    {
+      "pair": "b_vs_a",
+      "preferred": "candidate-a",
+      "confidence": "high",
+      "rationale": "Both candidates complete SYN-2048 cleanly with correct payment privacy and both have skip links. Candidate-a is stronger on discoverability (three landmarks vs one, section anchor nav, numbered step badges), input_burden (inline synthetic-value hints on every field including a fictional-card hint box), error_prevention_recovery ('Check 13 items in 4 sections' summary with per-section counts and preserved-values reassurance vs an unobserved role=alert div in B), destructive_actions (Place order button removed from the DOM after successful submit vs a still-visible button with an internal placement flag in B), and cognitive_load (compact-completed progressive disclosure, one-page layout removing Continue clicks). Candidate-b's edge is its explicit two-step Clear-saved-progress dialog and its explicit role=progressbar aria-valuetext step announcement, both of which should be carried into the Champion; but overall a is materially stronger.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[empty_submit_state]",
+        "judging/loop-02/judge-human-use/navigation-transcript-b.json#steps[empty_submit_state]",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[duplicate_submit_attempted]",
+        "judging/loop-02/judge-human-use/candidate-a.json",
+        "judging/loop-02/judge-human-use/candidate-b.json"
+      ]
+    },
+    {
+      "pair": "c_vs_a",
+      "preferred": "candidate-a",
+      "confidence": "high",
+      "rationale": "Candidate-a is superior to candidate-c on every one of the 11 lenses. A completes SYN-2048; c did not in my run even though the frozen objective report passes, indicating a fragile submission state machine (silent review-checkbox reset). A has a landmark trio + skip link vs c's <main>-only, preloaded synthetic-value hints vs c's blank card fields, a section-grouped error summary vs c's flat 12-row 'Please enter a value' list, DOM-level duplicate-submit blocking vs c's placementStarted flag, and compact-completed progressive disclosure vs c's accordion-only pattern. c's only unique strength is its 4px solid-black focus outline, which is worth adopting as a fallback but does not offset the structural gaps.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/candidate-c.json",
+        "judging/loop-02/judge-human-use/candidate-a.json"
+      ]
+    }
+  ],
+  "overall_ranking": ["candidate-a", "candidate-b", "candidate-c"],
+  "note": "Identity map, orchestrator directory, and other judge notes were not read. Preferences are strictly evidence-driven from operator transcripts, screenshots, and the bundled files."
+}

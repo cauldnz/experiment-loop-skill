@@ -1,0 +1,17 @@
+PRE-GENERATOR PREFLIGHT 2026-07-21T15:58:25.7928732+10:00
+
+> experiment-loop-navigation-judge@1.0.0 test
+> node --test
+
+✔ validates the canonical human feedback intake export (7352.0533ms)
+✔ normalizes graph state for a wide multi-track Viewer (7966.8843ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 15645.2142
+PYTHON PLAYWRIGHT PREFLIGHT: PASS
+VIEWER ADAPTER SHA256 bc4a4096a076144199e472ed3232e1e76eca36b033f47e85b349f47a9cd006eb

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northstar Goods Checkout</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div data-hook="synthetic-banner" class="banner">
+    Northstar Goods — Synthetic checkout demonstration (Fictional) - Guest checkout
+  </div>
+
+  <main data-hook="checkout-root" class="checkout-container">
+    <h1>Checkout</h1>
+    
+    <div data-hook="status" class="visually-hidden" aria-live="assertive"></div>
+
+    <div data-hook="error-summary" class="error-summary hidden" tabindex="-1" role="alert">
+      <h2>There is a problem</h2>
+      <ul id="error-list"></ul>
+    </div>
+
+    <form id="checkout-form" novalidate>
+      <div class="task-cards">
+        
+        <!-- Contact -->
+        <section data-hook="contact-section" class="task-card">
+          <div class="card-header">
+            <h2 class="card-title">1. Contact</h2>
+            <span class="card-status" id="contact-status">Incomplete</span>
+          </div>
+          <div class="card-content">
+            <fieldset>
+              <legend class="visually-hidden">Contact Information</legend>
+              <div class="field">
+                <label for="contact-name">Full Name</label>
+                <span id="contact-name-help" class="help-text" data-hook="field-help">Required. Enter your full name (e.g., Alex Morgan).</span>
+                <input type="text" id="contact-name" name="contact-name" data-hook="contact-name" required aria-describedby="contact-name-help" autocomplete="name">
+                <span id="contact-name-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+              <div class="field">
+                <label for="contact-email">Email Address</label>
+                <span id="contact-email-help" class="help-text" data-hook="field-help">Required. For order updates.</span>
+                <input type="email" id="contact-email" name="contact-email" data-hook="contact-email" required aria-describedby="contact-email-help" autocomplete="email">
+                <span id="contact-email-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+              <div class="field">
+                <label for="contact-phone">Phone Number</label>
+                <span id="contact-phone-help" class="help-text" data-hook="field-help">Required. Include country code.</span>
+                <input type="tel" id="contact-phone" name="contact-phone" data-hook="contact-phone" required aria-describedby="contact-phone-help" autocomplete="tel">
+                <span id="contact-phone-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- Address -->
+        <section data-hook="address-section" class="task-card">
+          <div class="card-header">
+            <h2 class="card-title">2. Delivery Address</h2>
+            <span class="card-status" id="address-status">Incomplete</span>
+          </div>
+          <div class="card-content">
+            <fieldset>
+              <legend class="visually-hidden">Delivery Address</legend>
+              <div class="field">
+                <label for="address-line1">Address Line 1</label>
+                <span id="address-line1-help" class="help-text" data-hook="field-help">Required.</span>
+                <input type="text" id="address-line1" name="address-line1" data-hook="address-line1" required aria-describedby="address-line1-help" autocomplete="address-line1">
+                <span id="address-line1-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+              <div class="field">
+                <label for="address-city">City</label>
+                <span id="address-city-help" class="help-text" data-hook="field-help">Required.</span>
+                <input type="text" id="address-city" name="address-city" data-hook="address-city" required aria-describedby="address-city-help" autocomplete="address-level2">
+                <span id="address-city-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+              <div class="field">
+                <label for="address-state">State / Province</label>
+                <span id="address-state-help" class="help-text" data-hook="field-help">Required.</span>
+                <input type="text" id="address-state" name="address-state" data-hook="address-state" required aria-describedby="address-state-help" autocomplete="address-level1">
+                <span id="address-state-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+              <div class="field">
+                <label for="address-postcode">Postcode</label>
+                <span id="address-postcode-help" class="help-text" data-hook="field-help">Required.</span>
+                <input type="text" id="address-postcode" name="address-postcode" data-hook="address-postcode" required aria-describedby="address-postcode-help" autocomplete="postal-code">
+                <span id="address-postcode-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+              <div class="field">
+                <label for="address-country">Country</label>
+                <span id="address-country-help" class="help-text" data-hook="field-help">Required. Enter your country.</span>
+                <input type="text" id="address-country" name="address-country" data-hook="address-country" required aria-describedby="address-country-help" autocomplete="country">
+                <span id="address-country-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- Shipping -->
+        <section data-hook="shipping-section" class="task-card">
+          <div class="card-header">
+            <h2 class="card-title">3. Shipping Method</h2>
+            <span class="card-status" id="shipping-status">Incomplete</span>
+          </div>
+          <div class="card-content">
+            <fieldset>
+              <legend>Select Shipping Method</legend>
+              <span id="shipping-error" class="field-error hidden" data-hook="field-error"></span>
+              <div class="radio-option" data-hook="shipping-standard">
+                <input type="radio" id="shipping-standard-input" name="shipping-method" value="standard" required checked>
+                <label for="shipping-standard-input">Standard — 3 to 5 business days (AUD 5.00)</label>
+              </div>
+              <div class="radio-option" data-hook="shipping-express">
+                <input type="radio" id="shipping-express-input" name="shipping-method" value="express" required>
+                <label for="shipping-express-input">Express — 1 to 2 business days (AUD 12.00)</label>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+        <!-- Payment -->
+        <section data-hook="payment-section" class="task-card">
+          <div class="card-header">
+            <h2 class="card-title">4. Synthetic Payment</h2>
+            <span class="card-status" id="payment-status">Incomplete</span>
+          </div>
+          <div class="card-content">
+            <fieldset>
+              <legend class="visually-hidden">Payment Information</legend>
+              <p><strong>Note:</strong> This is a synthetic demonstration. Do not enter real payment details.</p>
+              <div class="field">
+                <label for="card-name">Name on Card</label>
+                <span id="card-name-help" class="help-text" data-hook="field-help">Required.</span>
+                <input type="text" id="card-name" name="card-name" data-hook="card-name" required aria-describedby="card-name-help" autocomplete="cc-name">
+                <span id="card-name-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+              <div class="field">
+                <label for="card-number">Card Number</label>
+                <span id="card-number-help" class="help-text" data-hook="field-help">Required. 16 digits.</span>
+                <input type="text" id="card-number" name="card-number" data-hook="card-number" required aria-describedby="card-number-help" autocomplete="cc-number">
+                <span id="card-number-error" class="field-error hidden" data-hook="field-error"></span>
+              </div>
+              <div class="field-row">
+                <div class="field">
+                  <label for="card-expiry">Expiry (MM/YY)</label>
+                  <span id="card-expiry-help" class="help-text" data-hook="field-help">Required.</span>
+                  <input type="text" id="card-expiry" name="card-expiry" data-hook="card-expiry" required aria-describedby="card-expiry-help" autocomplete="cc-exp">
+                  <span id="card-expiry-error" class="field-error hidden" data-hook="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="card-security">Security Code</label>
+                  <span id="card-security-help" class="help-text" data-hook="field-help">Required. 3 digits.</span>
+                  <input type="text" id="card-security" name="card-security" data-hook="card-security" required aria-describedby="card-security-help" autocomplete="cc-csc">
+                  <span id="card-security-error" class="field-error hidden" data-hook="field-error"></span>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- Always available review / cart surface -->
+      <section data-hook="review-section" class="order-summary">
+        <h2>Order Summary and Review</h2>
+        <div data-hook="cart" class="cart">
+          <div data-hook="cart-line-bottle" class="cart-line">
+            <span>Northstar Insulated Bottle (x1)</span>
+            <span>AUD 32.00</span>
+          </div>
+          <div data-hook="cart-line-throw" class="cart-line">
+            <span>Willow Cotton Throw (x1)</span>
+            <span>AUD 48.00</span>
+          </div>
+          <hr>
+          <div class="totals-line">
+            <span>Subtotal</span>
+            <span data-hook="subtotal">AUD 80.00</span>
+          </div>
+          <div class="totals-line">
+            <span>Shipping (<span id="shipping-method-display">Standard</span>)</span>
+            <span></span>
+          </div>
+          <div class="totals-line">
+            <span>Tax</span>
+            <span data-hook="tax">AUD 8.50</span>
+          </div>
+          <div class="totals-line totals-total">
+            <span>Total</span>
+            <span data-hook="total">AUD 93.50</span>
+          </div>
+        </div>
+
+        <div class="review-edits">
+          <button type="button" class="edit-link" data-hook="edit-contact" data-target="contact">Edit Contact</button>
+          <button type="button" class="edit-link" data-hook="edit-address" data-target="address">Edit Address</button>
+          <button type="button" class="edit-link" data-hook="edit-shipping" data-target="shipping">Edit Shipping</button>
+          <button type="button" class="edit-link" data-hook="edit-payment" data-target="payment">Edit Payment</button>
+        </div>
+
+        <fieldset class="review-confirmation-fieldset">
+          <legend class="visually-hidden">Order Confirmation</legend>
+          <div class="checkbox-option">
+            <input type="checkbox" id="review-confirmation" name="review-confirmation" data-hook="review-confirmation" required>
+            <label for="review-confirmation">I have reviewed my order and confirm it is correct.</label>
+            <span id="review-confirmation-error" class="field-error hidden" data-hook="field-error"></span>
+          </div>
+        </fieldset>
+        
+        <button type="submit" id="place-order" data-hook="place-order" class="submit-btn">Place order</button>
+      </section>
+
+    </form>
+
+    <div id="confirmation" data-hook="confirmation" class="hidden" tabindex="-1" role="status">
+      <h2>Order Confirmed</h2>
+      <p>Thank you for your synthetic order.</p>
+      <p>Confirmation ID: <strong data-hook="confirmation-id"></strong></p>
+    </div>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,1786 @@
+{
+  "aggregation": {
+    "judge_count": 2,
+    "method": "per_lens_median_then_mean",
+    "rounded_raw_summary_values_not_used": true,
+    "visual_information_clarity": "median"
+  },
+  "experiment_id": "accessible-mobile-checkout",
+  "human_use": {
+    "applicability": "applicable",
+    "objective_gate": false,
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "iterations": [
+    {
+      "decision": "keep_for_synthesis",
+      "decision_rationale": "All seven objective gates pass. Independent pairwise consensus ranks this baseline below the wizard while preserving evidence-backed strengths useful for synthesis; retain it without final Champion promotion.",
+      "human_use_quality": {
+        "calculation": "mean of 11 per-lens panel medians",
+        "exact_fraction": "69/22",
+        "lens_medians": [
+          {
+            "aggregated_finding": "judge-accessibility: Numbered card headings, Complete/Incomplete states, and always-present review identify the work, though four open cards dilute the first task. | judge-human-use: H1 'Checkout', banner disclosing synthetic scope, and 4 numbered task cards each with a live 'Incomplete/Complete' badge in the top-right corner (visible on initial screenshot). Users can see at a glance which section is done. However, there is no progress indicator, no section-nav, and no persistent visible order summary — the summary + Place order live only at the bottom of the page after all four task cards, so a user must know to scroll to complete the flow. Evidence: screenshots/candidate-a/01-initial-390x844.png; transcript audit landmarks/headings extra (nav:0, aside:0).",
+            "lens": "discoverability",
+            "median": 3.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "Numbered card headings, Complete/Incomplete states, and always-present review identify the work, though four open cards dilute the first task.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/01-initial-390x844.png",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "H1 'Checkout', banner disclosing synthetic scope, and 4 numbered task cards each with a live 'Incomplete/Complete' badge in the top-right corner (visible on initial screenshot). Users can see at a glance which section is done. However, there is no progress indicator, no section-nav, and no persistent visible order summary — the summary + Place order live only at the bottom of the page after all four task cards, so a user must know to scroll to complete the flow. Evidence: screenshots/candidate-a/01-initial-390x844.png; transcript audit landmarks/headings extra (nav:0, aside:0).",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Keyboard-operated edit buttons moved focus to Contact, Address, Shipping, and Payment; all sections remained directly reachable. | judge-human-use: One long continuous form; no skip-link (transcript 'audit landmarks/headings' extra shows skipLinks: []); Edit contact/address/shipping/payment buttons live in the bottom summary and focus the first input of the target section. First Tab focus lands on the contact-name input (transcript 'keyboard: first Tab focus' -> INPUT#contact-name). Keyboard users must Tab through every focusable to reach Place order.",
+            "lens": "navigation",
+            "median": 3.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "Keyboard-operated edit buttons moved focus to Contact, Address, Shipping, and Payment; all sections remained directly reachable.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "One long continuous form; no skip-link (transcript 'audit landmarks/headings' extra shows skipLinks: []); Edit contact/address/shipping/payment buttons live in the bottom summary and focus the first input of the target section. First Tab focus lands on the contact-name input (transcript 'keyboard: first Tab focus' -> INPUT#contact-name). Keyboard users must Tab through every focusable to reach Place order.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: The required data are not duplicated, but all inputs are exposed in one long mobile traversal. | judge-human-use: Autocomplete tokens are present on all inputs, which helps AT autofill. Validation is permissive ('Please enter a value' for empty fields, checks only for '@' in email). Section-level Complete/Incomplete badges give per-section progress. Down-side: card-name (payment info) is persisted to localStorage between reloads (transcript 'reload persistence check' extra shows payment.card-name = 'Alex Morgan' — the code excludes card-number/expiry/security but not card-name), so users returning after interruption see a partial payment leftover.",
+            "lens": "input_burden",
+            "median": 3.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "The required data are not duplicated, but all inputs are exposed in one long mobile traversal.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "Autocomplete tokens are present on all inputs, which helps AT autofill. Validation is permissive ('Please enter a value' for empty fields, checks only for '@' in email). Section-level Complete/Incomplete badges give per-section progress. Down-side: card-name (payment info) is persisted to localStorage between reloads (transcript 'reload persistence check' extra shows payment.card-name = 'Alex Morgan' — the code excludes card-number/expiry/security but not card-name), so users returning after interruption see a partial payment leftover.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Empty submission produced a focused visible summary and retained filled values; linked correction path was operable. | judge-human-use: Error summary at the top with h2 'There is a problem' and per-field links that focus the field on click. aria-invalid + aria-describedby are wired on invalid inputs. Messages are generic ('Please enter a value', 'Please enter a valid email address') rather than field-specific — less actionable than candidates B or C. On invalid submit the error summary receives focus and the assertive status region announces 'There are errors in the form. Please correct them to proceed.' Evidence: transcript 'post-invalid-submit report' errorSummaryVisible=true.",
+            "lens": "error_prevention_recovery",
+            "median": 3.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "Empty submission produced a focused visible summary and retained filled values; linked correction path was operable.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "Error summary at the top with h2 'There is a problem' and per-field links that focus the field on click. aria-invalid + aria-describedby are wired on invalid inputs. Messages are generic ('Please enter a value', 'Please enter a valid email address') rather than field-specific — less actionable than candidates B or C. On invalid submit the error summary receives focus and the assertive status region announces 'There are errors in the form. Please correct them to proceed.' Evidence: transcript 'post-invalid-submit report' errorSummaryVisible=true.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Visual card completion state is useful, but feedback is less prominent between task changes than in the wizard. | judge-human-use: Status region is visually-hidden with aria-live='assertive'. Using assertive for routine transitions ('Processing your order...', 'Order successfully placed.') is stronger than necessary and interrupts screen-reader users; polite would be the appropriate level per WCAG guidance. No aria-live coupling on the Complete/Incomplete badges so screen-reader users get no announcement when a section becomes complete. Evidence: candidate-a/index.html line 17, candidate-a/app.js lines 122–124 and 240–260.",
+            "lens": "feedback_status",
+            "median": 3.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "Visual card completion state is useful, but feedback is less prominent between task changes than in the wizard.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-a/index.html",
+                  "generated/judging/blind-loop-01/candidate-a/app.js",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "Status region is visually-hidden with aria-live='assertive'. Using assertive for routine transitions ('Processing your order...', 'Order successfully placed.') is stronger than necessary and interrupts screen-reader users; polite would be the appropriate level per WCAG guidance. No aria-live coupling on the Complete/Incomplete badges so screen-reader users get no announcement when a section becomes complete. Evidence: candidate-a/index.html line 17, candidate-a/app.js lines 122–124 and 240–260.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Keyboard shipping and review edits worked; accepted objective report passes, with visible focus and errors evident in screenshots. | judge-human-use: Native semantics: fieldset/legend, labels-for, aria-invalid, error summary with role='alert' and tabindex=-1 that receives focus. H1 + numbered H2s. No landmark <aside>/<nav>, no skip-link. aria-live='assertive' on status region is misused for routine updates. Payment leakage on reload (see input_burden) is a soft privacy concern. Card-name field carries autocomplete='cc-name' but reload restore uses localStorage rather than browser autofill — this bypasses the user's own storage preferences.",
+            "lens": "accessibility",
+            "median": 3.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "Keyboard shipping and review edits worked; accepted objective report passes, with visible focus and errors evident in screenshots.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-a/index.html",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "Native semantics: fieldset/legend, labels-for, aria-invalid, error summary with role='alert' and tabindex=-1 that receives focus. H1 + numbered H2s. No landmark <aside>/<nav>, no skip-link. aria-live='assertive' on status region is misused for routine updates. Payment leakage on reload (see input_burden) is a soft privacy concern. Card-name field carries autocomplete='cc-name' but reload restore uses localStorage rather than browser autofill — this bypasses the user's own storage preferences.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: No horizontal overflow at 320/360/390, but dense cards, compact radio rows, and very long scroll reduce mobile comfort. | judge-human-use: At 320x568 no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Buttons and inputs meet the mobile-touch objective gate. The Edit-{Contact/Address/Shipping/Payment} buttons in the review section are small and closely spaced 2x2, which is tighter than the corresponding controls in candidates B and C.",
+            "lens": "responsive_touch_ergonomics",
+            "median": 3.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "No horizontal overflow at 320/360/390, but dense cards, compact radio rows, and very long scroll reduce mobile comfort.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/blind-loop-01/candidate-a/evidence/objective-report.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "At 320x568 no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Buttons and inputs meet the mobile-touch objective gate. The Edit-{Contact/Address/Shipping/Payment} buttons in the review section are small and closely spaced 2x2, which is tighter than the corresponding controls in candidates B and C.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: All safe values restored and card number/expiry/security code cleared after reload. | judge-human-use: Auto-persists on every input; restores on reload — but card-name is restored too (transcript 'reload persistence check' extra payment.card-name = 'Alex Morgan'), which is a payment-field leak. No user-visible Save or Clear controls, no aria-live announcement on restore, and no explicit statement to the user about what will or will not persist.",
+            "lens": "interruption_resumption",
+            "median": 3.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "All safe values restored and card number/expiry/security code cleared after reload.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "Auto-persists on every input; restores on reload — but card-name is restored too (transcript 'reload persistence check' extra payment.card-name = 'Alex Morgan'), which is a payment-field leak. No user-visible Save or Clear controls, no aria-live announcement on restore, and no explicit statement to the user about what will or will not persist.",
+                "raw_score": 2,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Processing feedback completes safely, but the visual busy treatment is modest. | judge-human-use: Placement setTimeout is 500 ms (hard-coded slow) except under prefers-reduced-motion where it is 0 (candidate-a/app.js lines 250–260). aria-busy is set on the checkout root and status announces 'Processing your order...', but the delay is arbitrarily long for a purely local synthetic operation and the confirmation region only receives focus after the timeout. During my run, the confirmation was still not visible when I sampled 500 ms after click (transcript 'confirmation state' extra confirmationVisible=false, confirmationId='' at the sample instant); it did appear before I sampled again in the duplicate-safety report.",
+            "lens": "latency_perception",
+            "median": 2.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "Processing feedback completes safely, but the visual busy treatment is modest.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-a/app.js",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "Placement setTimeout is 500 ms (hard-coded slow) except under prefers-reduced-motion where it is 0 (candidate-a/app.js lines 250–260). aria-busy is set on the checkout root and status announces 'Processing your order...', but the delay is arbitrarily long for a purely local synthetic operation and the confirmation region only receives focus after the timeout. During my run, the confirmation was still not visible when I sampled 500 ms after click (transcript 'confirmation state' extra confirmationVisible=false, confirmationId='' at the sample instant); it did appear before I sampled again in the duplicate-safety report.",
+                "raw_score": 2,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Review confirmation and duplicate-safe order placement reduce accidental finalisation; repeated activation yielded one confirmation. | judge-human-use: Duplicate-submit safety is weak. Place order button is disabled only inside the 500 ms setTimeout callback — during that window, additional clicks or Enter presses schedule additional setTimeouts that all set the confirmation ID and re-focus the confirmation region. In practice a single SYN-2048 rendered, but there is no explicit placementStarted flag guarding submit, unlike candidate B. There is no user-facing destructive control (no Clear progress), so users cannot deliberately reset — this is safer for accidental data loss but leaves the persisted card-name until submit clears storage.",
+            "lens": "destructive_actions",
+            "median": 3.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "Review confirmation and duplicate-safe order placement reduce accidental finalisation; repeated activation yielded one confirmation.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-a/app.js",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "Duplicate-submit safety is weak. Place order button is disabled only inside the 500 ms setTimeout callback — during that window, additional clicks or Enter presses schedule additional setTimeouts that all set the confirmation ID and re-focus the confirmation region. In practice a single SYN-2048 rendered, but there is no explicit placementStarted flag guarding submit, unlike candidate B. There is no user-facing destructive control (no Clear progress), so users cannot deliberately reset — this is safer for accidental data loss but leaves the persisted card-name until submit clears storage.",
+                "raw_score": 2,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Clear card grouping helps, but simultaneous exposure of every task and heavy outlines create scanning load. | judge-human-use: Four task cards + bottom summary is a reasonable IA, and the per-section Incomplete/Complete badges are helpful for sighted users. However the absence of a persistent visible order summary or progress indicator, plus the merging of 'Order Summary and Review' into one bottom block (which also contains Edit buttons, the confirmation checkbox and Place order), forces users to hold more state in working memory. Evidence: screenshots/candidate-a/01-initial-390x844.png; screenshots/candidate-a/05-review-filled.png.",
+            "lens": "cognitive_load",
+            "median": 3.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+                ],
+                "raw_finding": "Clear card grouping helps, but simultaneous exposure of every task and heavy outlines create scanning load.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-a.json"
+              },
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/01-initial-390x844.png",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+                ],
+                "raw_finding": "Four task cards + bottom summary is a reasonable IA, and the per-section Incomplete/Complete badges are helpful for sighted users. However the absence of a persistent visible order summary or progress indicator, plus the merging of 'Order Summary and Review' into one bottom block (which also contains Edit buttons, the confirmation checkbox and Place order), forces users to hold more state in working memory. Evidence: screenshots/candidate-a/01-initial-390x844.png; screenshots/candidate-a/05-review-filled.png.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-a.json"
+              }
+            ]
+          }
+        ],
+        "value": 3.1363636363636362
+      },
+      "iteration_id": "task-cards-loop-01",
+      "label": "candidate-a",
+      "raw_judge_artifacts": [
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-a.json",
+          "sha256": "015114b8909c73c363d3d97441baa5ec1dfd48bf60900ca54b3332c084f0632a"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-a.md",
+          "sha256": "dbe00a282860f8f63716a2dec0fdf90b210f20b0e2c9646c534024c94363b89b"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.json",
+          "sha256": "1cff467a31536b60764f152b83574948c32a52a50d3cdadd9ff0ef5ba3e09c96"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.md",
+          "sha256": "716f42c0d42709ac27b0f0f48537eaceb087532347827893745f52385ef9760d"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/manifest-ready.json",
+          "sha256": "2bcab420a84e3f341f9350bf0c146f68c849583b700fb1a7936eeb0364e89f6c"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/status.json",
+          "sha256": "9c342431e64c5f95c00842c0c593ce476aded4c5540efe7a4a1dd2a391e80d23"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-a.json",
+          "sha256": "6d13924afe95184cc9d673ff735b472395ac8bbb8220424499e7257115a57743"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-a.md",
+          "sha256": "bd0bb984bbb6ff8476d0eac5f55ed8ae8eeecab641554f947209b9d8d1a09257"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.json",
+          "sha256": "5ecd7646a169c69225a900c8c5ab5ac497d701fb4f3d1622c7dd7abb89a17849"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.md",
+          "sha256": "8bc07d24ea5ddb97b184bf557a8be4ce1fa5fce550c35c906ecfab7e70eb15b1"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/manifest-ready.json",
+          "sha256": "5bf7ecea82058292395459869233aae87cb5fd0ba13aadcaf5128db2beed7719"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/status.json",
+          "sha256": "447c0c126fe8f2fee243d22eb68e796fe9c5fc2950639a597fa2918146368930"
+        }
+      ],
+      "raw_judges": [
+        {
+          "defects": [
+            "All four task cards are open at once on mobile, creating a long, visually repetitive form before review.",
+            "The high-contrast, heavy double-outline treatment makes cards and primary action visually noisy rather than prioritising content."
+          ],
+          "evaluation_order": 1,
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+          ],
+          "exact_fraction": "39/11",
+          "judge_id": "judge-accessibility",
+          "loop_02_recommendation": "Preserve independently editable cards, but collapse completed card details or add a concise review/status rail so mobile users do not repeatedly traverse the full form.",
+          "model": "gpt-5.6-terra",
+          "recomputed_unrounded_primary_mean": 3.5454545454545454,
+          "reported_primary_mean": 3.55,
+          "strengths": [
+            "All task cards, review edits, keyboard shipping selection, safe reload, reduced motion, and confirmation were operable with no console or runtime errors.",
+            "Focused error summary and persistent Complete/Incomplete card states make recovery and work status visible."
+          ],
+          "uncertainty": "Screen-reader speech output and real switch-scanning dwell burden were not available; semantic objective results are accepted as passing."
+        },
+        {
+          "defects": [
+            {
+              "finding": "Payment field card-name is persisted to localStorage across reloads (transcript 'reload persistence check' extra payment.card-name = 'Alex Morgan'). The code excludes only card-number/expiry/security. Cardholder name is payment data and should not be persisted.",
+              "lens": "interruption_resumption",
+              "severity": "significant"
+            },
+            {
+              "finding": "No placementStarted guard; Place order button is disabled only after the 500 ms setTimeout resolves, so rapid re-clicks during the busy window queue additional setTimeouts.",
+              "lens": "destructive_actions",
+              "severity": "significant"
+            },
+            {
+              "finding": "Status region is aria-live='assertive' for routine transitions (should be polite); Complete/Incomplete badges are not in a live region so screen-reader users get no per-section completion announcement.",
+              "lens": "accessibility",
+              "severity": "moderate"
+            },
+            {
+              "finding": "Hard-coded 500 ms placement delay for a purely local synthetic confirmation with no meaningful interim feedback beyond a hidden aria-busy.",
+              "lens": "latency_perception",
+              "severity": "moderate"
+            },
+            {
+              "finding": "Field error messages default to generic 'Please enter a value' rather than field-specific guidance.",
+              "lens": "error_prevention_recovery",
+              "severity": "moderate"
+            },
+            {
+              "finding": "No skip-link, no section-nav, no progress indicator, and no persistent order summary — the summary + Place order live only at the bottom of the page.",
+              "lens": "discoverability",
+              "severity": "minor"
+            }
+          ],
+          "evaluation_order": 3,
+          "evidence_refs": [
+            "generated/judging/blind-loop-01/candidate-a/index.html",
+            "generated/judging/blind-loop-01/candidate-a/app.js",
+            "generated/judging/blind-loop-01/candidate-a/styles.css",
+            "generated/judging/blind-loop-01/candidate-a/evidence/objective-report.json",
+            "generated/judging/loop-01/judge-human-use/navigation-transcript-a.json",
+            "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/"
+          ],
+          "exact_fraction": "30/11",
+          "judge_id": "judge-human-use",
+          "loop_02_recommendation": {
+            "change": "Exclude card-name from the persistence allowlist and add a placementStarted flag that disables the submit path immediately on the first click of Place order (not inside the setTimeout callback); also reduce the non-reduced-motion setTimeout from 500 ms to ≈150 ms and change the status region aria-live from 'assertive' to 'polite' for routine flow transitions.",
+            "evidence_ref": "generated/judging/blind-loop-01/candidate-a/app.js lines 17 and 42 (persist filter), lines 179–260 (submit + timeout), and generated/judging/loop-01/judge-human-use/navigation-transcript-a.json entry 'reload persistence check'",
+            "priority": "high"
+          },
+          "model": "claude-opus-4.7",
+          "recomputed_unrounded_primary_mean": 2.727272727272727,
+          "reported_primary_mean": 2.73,
+          "strengths": [
+            "Per-section Incomplete/Complete badge is a clear sighted-user progress cue.",
+            "Reduced-motion path completes without delay (setTimeout 0 under prefers-reduced-motion).",
+            "Section semantics + fieldset/legend + labels + error summary meet the accessibility gate baseline.",
+            "Edit-{section} buttons in the review block focus the first input of the correct task card."
+          ],
+          "uncertainty": [
+            "Blinded evidence; Track paradigm inferred from artifact behaviour (task cards with completion badges).",
+            "Confirmation visibility at 500 ms was not visible when sampled by Playwright but did render before the duplicate-safety sample; end-user perceived latency may be shorter than described but is still noticeably higher than the 120–180 ms of the other candidates."
+          ]
+        }
+      ],
+      "track_id": "track-task-cards",
+      "visual_information_clarity": {
+        "calculation": "median of two raw judge scores",
+        "raw_inputs": [
+          {
+            "judge_id": "judge-accessibility",
+            "model": "gpt-5.6-terra",
+            "raw_evidence_refs": [
+              "judging/loop-01/judge-accessibility/navigation-transcript-a.json",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-a/initial-390.png",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-a/error.png",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-a/review.png",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-a/confirmation.png"
+            ],
+            "raw_finding": "Information is readable but the dense all-open cards and heavy outlines make hierarchy visually louder than necessary.",
+            "raw_score": 3
+          },
+          {
+            "judge_id": "judge-human-use",
+            "model": "claude-opus-4.7",
+            "raw_evidence_refs": [
+              "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/01-initial-390x844.png"
+            ],
+            "raw_finding": "Flatter design with less visual hierarchy; no persistent totals visible until scroll to bottom; section boxes are thick-bordered but plain.",
+            "raw_score": 3
+          }
+        ],
+        "value": 3.0
+      }
+    },
+    {
+      "decision": "keep_for_synthesis",
+      "decision_rationale": "All seven objective gates pass. Independent pairwise consensus ranks this baseline below the wizard while preserving evidence-backed strengths useful for synthesis; retain it without final Champion promotion.",
+      "human_use_quality": {
+        "calculation": "mean of 11 per-lens panel medians",
+        "exact_fraction": "43/11",
+        "lens_medians": [
+          {
+            "aggregated_finding": "judge-accessibility: The opening title, section links, numbered headings, persistent summary, synthetic-value help, and explicit final review make requirements immediately findable. | judge-human-use: Site header, banner disclosing synthetic scope, and an in-page 'Checkout sections' nav (Contact/Delivery/Shipping/Payment/Review) as anchor pills. Numbered section circles reinforce the 5-step arc. Order summary card at the top of the flow with running total. Payment section carries a 'Fictional card to use' fixture panel that reveals the exact demo values. Evidence: screenshots/candidate-b/01-initial-390x844.png; transcript audit landmarks/headings extra (nav:1, aside:1, main:1).",
+            "lens": "discoverability",
+            "median": 4.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "The opening title, section links, numbered headings, persistent summary, synthetic-value help, and explicit final review make requirements immediately findable.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/01-initial-390x844.png",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "Site header, banner disclosing synthetic scope, and an in-page 'Checkout sections' nav (Contact/Delivery/Shipping/Payment/Review) as anchor pills. Numbered section circles reinforce the 5-step arc. Order summary card at the top of the flow with running total. Payment section carries a 'Fictional card to use' fixture panel that reveals the exact demo values. Evidence: screenshots/candidate-b/01-initial-390x844.png; transcript audit landmarks/headings extra (nav:1, aside:1, main:1).",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Every section link changed the hash in keyboard use and review edit controls focused the intended section; the long one-page return trip remains a cost. | judge-human-use: Anchor pills jump between sections; Edit contact/Edit shipping buttons call scrollIntoView + focus the first field of the target section and narrate the move. First Tab focus lands on the section-nav 'Contact' anchor (transcript 'keyboard: first Tab focus'). Missing a true skip-link, but the section-nav row functions similarly for sighted keyboard users; screen-reader users get a labelled nav landmark.",
+            "lens": "navigation",
+            "median": 4.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "Every section link changed the hash in keyboard use and review edit controls focused the intended section; the long one-page return trip remains a cost.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "Anchor pills jump between sections; Edit contact/Edit shipping buttons call scrollIntoView + focus the first field of the target section and narrate the move. First Tab focus lands on the section-nav 'Contact' anchor (transcript 'keyboard: first Tab focus'). Missing a true skip-link, but the section-nav row functions similarly for sighted keyboard users; screen-reader users get a labelled nav landmark.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Exact required fields and helpful formats avoid ambiguity, but all contact, address, payment, and review work are exposed in one extended pass. | judge-human-use: Validation is strict-fixture: state must equal 'NSW' (case-sensitive), country must equal 'australia' (lowercased); card number must equal '4111111111111111'; expiry must equal '12/34'; CSC must equal '123'; cardholder must equal 'alex morgan'. Any real-world variation is rejected. All inputs also have autocomplete='off', which disables browser autofill / password-manager assistance — a documented accessibility anti-pattern for motor-constrained and cognitively-impaired users. The 'Synthetic value:' helper text and fixture-card do mitigate for sighted users who read them, but the underlying interaction burden is high. Evidence: candidate-b/app.js fieldRules + errorMessages, candidate-b/index.html autocomplete='off' on every input.",
+            "lens": "input_burden",
+            "median": 2.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "Exact required fields and helpful formats avoid ambiguity, but all contact, address, payment, and review work are exposed in one extended pass.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-b/app.js",
+                  "generated/judging/blind-loop-01/candidate-b/index.html",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "Validation is strict-fixture: state must equal 'NSW' (case-sensitive), country must equal 'australia' (lowercased); card number must equal '4111111111111111'; expiry must equal '12/34'; CSC must equal '123'; cardholder must equal 'alex morgan'. Any real-world variation is rejected. All inputs also have autocomplete='off', which disables browser autofill / password-manager assistance — a documented accessibility anti-pattern for motor-constrained and cognitively-impaired users. The 'Synthetic value:' helper text and fixture-card do mitigate for sighted users who read them, but the underlying interaction burden is high. Evidence: candidate-b/app.js fieldRules + errorMessages, candidate-b/index.html autocomplete='off' on every input.",
+                "raw_score": 2,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Empty submission focused the summary and rendered 13 linked, field-associated corrections while preserving all entries. | judge-human-use: Empty submit produced 13 highly specific error messages routed through a single error summary that focuses itself and lists each item as a link ('Enter the synthetic phone number with at least 8 digits.', 'Select NSW for this demonstration.', 'Enter the 4-digit synthetic postcode.'). aria-invalid + aria-describedby chained to the correct help+error IDs; on correction each field's error is cleared on input/change. Evidence: transcript 'post-invalid-submit report' errorSummaryVisible=true, invalidsCount ~13.",
+            "lens": "error_prevention_recovery",
+            "median": 4.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "Empty submission focused the summary and rendered 13 linked, field-associated corrections while preserving all entries.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "Empty submit produced 13 highly specific error messages routed through a single error summary that focuses itself and lists each item as a link ('Enter the synthetic phone number with at least 8 digits.', 'Select NSW for this demonstration.', 'Enter the 4-digit synthetic postcode.'). aria-invalid + aria-describedby chained to the correct help+error IDs; on correction each field's error is cleared on input/change. Evidence: transcript 'post-invalid-submit report' errorSummaryVisible=true, invalidsCount ~13.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Safe-progress restoration, error count, placing status, and single confirmation were explicit; the brief busy state is still sparse visually. | judge-human-use: Polite aria-live status region with aria-atomic='true' updates through the flow: 'Safe contact, delivery and shipping progress saved…', 'Placing local synthetic order. Please wait.', 'Synthetic order placed once. Confirmation ID SYN-2048.' Assertive live on the error summary. Focus moves to confirmation section on completion (transcript 'confirmation state' activeElement=SECTION).",
+            "lens": "feedback_status",
+            "median": 4.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "Safe-progress restoration, error count, placing status, and single confirmation were explicit; the brief busy state is still sparse visually.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "Polite aria-live status region with aria-atomic='true' updates through the flow: 'Safe contact, delivery and shipping progress saved…', 'Placing local synthetic order. Please wait.', 'Synthetic order placed once. Confirmation ID SYN-2048.' Assertive live on the error summary. Focus moves to confirmation section on completion (transcript 'confirmation state' activeElement=SECTION).",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Space selected shipping, Enter placed the order, focus recovery worked, reduced-motion ran, and no runtime errors occurred; custom radio styling warrants caution. | judge-human-use: Solid landmark tree (header/nav/main/aside/footer), fieldset+legend per section, aria-describedby chained, error summary role='alert' with tabindex=-1 that receives focus after invalid submit. Concerns: (a) Shipping uses a double-radio anti-pattern — <label class='choice-card' role='radio' aria-checked> wrapping a real <input type='radio' aria-hidden='true'> — screen-reader users may hear the group twice or miss state updates because aria-checked is set only via the keydown handler, not by the input's own change; (b) autocomplete='off' on every field is an anti-pattern for AT-assisted form filling; (c) no visible skip-link even though the section-nav helps sighted keyboard users. Evidence: candidate-b/index.html lines 171–184; candidate-b/app.js keydown handler on shipping-* elements.",
+            "lens": "accessibility",
+            "median": 3.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "Space selected shipping, Enter placed the order, focus recovery worked, reduced-motion ran, and no runtime errors occurred; custom radio styling warrants caution.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-b/index.html",
+                  "generated/judging/blind-loop-01/candidate-b/app.js",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "Solid landmark tree (header/nav/main/aside/footer), fieldset+legend per section, aria-describedby chained, error summary role='alert' with tabindex=-1 that receives focus after invalid submit. Concerns: (a) Shipping uses a double-radio anti-pattern — <label class='choice-card' role='radio' aria-checked> wrapping a real <input type='radio' aria-hidden='true'> — screen-reader users may hear the group twice or miss state updates because aria-checked is set only via the keydown handler, not by the input's own change; (b) autocomplete='off' on every field is an anti-pattern for AT-assisted form filling; (c) no visible skip-link even though the section-nav helps sighted keyboard users. Evidence: candidate-b/index.html lines 171–184; candidate-b/app.js keydown handler on shipping-* elements.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: All tested widths had no horizontal overflow and controls remained legible, although five compact section links and the full-page length constrain comfort. | judge-human-use: At 320x568 no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Shipping choice-cards and Place-order button are large tap targets; section anchors are pill-sized. Mobile-touch objective gate passes independently.",
+            "lens": "responsive_touch_ergonomics",
+            "median": 4.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "All tested widths had no horizontal overflow and controls remained legible, although five compact section links and the full-page length constrain comfort.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/blind-loop-01/candidate-b/evidence/objective-report.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "At 320x568 no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Shipping choice-cards and Place-order button are large tap targets; section anchors are pill-sized. Mobile-touch objective gate passes independently.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Reload restored every safe value and cleared every tested payment secret with an explicit restoration message. | judge-human-use: Safe fields (contact + delivery + shipping) are auto-persisted on input; on reload they are restored and the status region announces 'Safe progress restored. Re-enter synthetic payment details; they were not saved.' Reload persistence check (transcript) shows payment: {card-*: '' } across all four payment fields. No manual save or clear controls — users cannot deliberately discard progress without clearing site data.",
+            "lens": "interruption_resumption",
+            "median": 4.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "Reload restored every safe value and cleared every tested payment secret with an explicit restoration message.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "Safe fields (contact + delivery + shipping) are auto-persisted on input; on reload they are restored and the status region announces 'Safe progress restored. Re-enter synthetic payment details; they were not saved.' Reload persistence check (transcript) shows payment: {card-*: '' } across all four payment fields. No manual save or clear controls — users cannot deliberately discard progress without clearing site data.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: The busy state was observed on keyboard placement and repeat activation was safely prevented before a deterministic local confirmation. | judge-human-use: 180 ms placement setTimeout, placeOrder.disabled=true immediately, aria-busy='true' during processing, then narrated 'Synthetic order placed once. Confirmation ID SYN-2048.' Perceived latency is short.",
+            "lens": "latency_perception",
+            "median": 4.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "The busy state was observed on keyboard placement and repeat activation was safely prevented before a deterministic local confirmation.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-b/app.js",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "180 ms placement setTimeout, placeOrder.disabled=true immediately, aria-busy='true' during processing, then narrated 'Synthetic order placed once. Confirmation ID SYN-2048.' Perceived latency is short.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Edit controls preserved data and repeated Place order yielded exactly one SYN-2048 confirmation. | judge-human-use: No user-facing destructive control beyond Place order itself. Place order is guarded by a placementStarted flag and disabled after success; a second Enter/click after completion re-narrates 'This synthetic order is already confirmed as SYN-2048. No duplicate was created.' Transcript 'duplicate-safety report' confIds: ['SYN-2048'], placeOrderDisabled=true.",
+            "lens": "destructive_actions",
+            "median": 4.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "Edit controls preserved data and repeated Place order yielded exactly one SYN-2048 confirmation.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "No user-facing destructive control beyond Place order itself. Place order is guarded by a placementStarted flag and disabled after success; a second Enter/click after completion re-narrates 'This synthetic order is already confirmed as SYN-2048. No duplicate was created.' Transcript 'duplicate-safety report' confIds: ['SYN-2048'], placeOrderDisabled=true.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Strong hierarchy and help reduce ambiguity, but the full 13-item error panorama and long single page retain substantial working-memory demand. | judge-human-use: All five sections are on one continuously scrolled page. Nav pills help orientation, but ~20 required fields plus fixture cards plus a review block are visible at once, which is heavy on a small viewport. The exact-match validation adds hidden rules ('why won't it accept 4111-1111-1111-1111 with dashes?') that a real cross-disability user must reason through. The review block is helpful but reprints only aggregate values rather than every field verbatim, so users must scroll back to correct.",
+            "lens": "cognitive_load",
+            "median": 3.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+                ],
+                "raw_finding": "Strong hierarchy and help reduce ambiguity, but the full 13-item error panorama and long single page retain substantial working-memory demand.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-b.json"
+              },
+              {
+                "evaluation_order": 2,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/01-initial-390x844.png",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+                ],
+                "raw_finding": "All five sections are on one continuously scrolled page. Nav pills help orientation, but ~20 required fields plus fixture cards plus a review block are visible at once, which is heavy on a small viewport. The exact-match validation adds hidden rules ('why won't it accept 4111-1111-1111-1111 with dashes?') that a real cross-disability user must reason through. The review block is helpful but reprints only aggregate values rather than every field verbatim, so users must scroll back to correct.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-human-use/candidate-b.json"
+              }
+            ]
+          }
+        ],
+        "value": 3.909090909090909
+      },
+      "iteration_id": "single-page-loop-01",
+      "label": "candidate-b",
+      "raw_judge_artifacts": [
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-b.json",
+          "sha256": "0a65367efa657c027f19507b0094d89439df57721e69b64f7b3bcc9e34317e56"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-b.md",
+          "sha256": "bf4ea889784c7afbca6ac1e702760ccaee86b6c18f61130c352295432cce5873"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.json",
+          "sha256": "1cff467a31536b60764f152b83574948c32a52a50d3cdadd9ff0ef5ba3e09c96"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.md",
+          "sha256": "716f42c0d42709ac27b0f0f48537eaceb087532347827893745f52385ef9760d"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/manifest-ready.json",
+          "sha256": "2bcab420a84e3f341f9350bf0c146f68c849583b700fb1a7936eeb0364e89f6c"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/status.json",
+          "sha256": "9c342431e64c5f95c00842c0c593ce476aded4c5540efe7a4a1dd2a391e80d23"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-b.json",
+          "sha256": "3dfca0fa70183204a39a47fc65a6fc3cf7c7d3d6f867b35e57980fc8f7180759"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-b.md",
+          "sha256": "f5ac076e29547876568fd0d9a4f9393c7dbad16dea3a1c6ae5073b280050ee12"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.json",
+          "sha256": "5ecd7646a169c69225a900c8c5ab5ac497d701fb4f3d1622c7dd7abb89a17849"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.md",
+          "sha256": "8bc07d24ea5ddb97b184bf557a8be4ce1fa5fce550c35c906ecfab7e70eb15b1"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/manifest-ready.json",
+          "sha256": "5bf7ecea82058292395459869233aae87cb5fd0ba13aadcaf5128db2beed7719"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/status.json",
+          "sha256": "447c0c126fe8f2fee243d22eb68e796fe9c5fc2950639a597fa2918146368930"
+        }
+      ],
+      "raw_judges": [
+        {
+          "defects": [
+            "At 390px, the complete one-page form and 13-item error state are cognitively and physically long; the user must manage many fields before review.",
+            "The custom keyboard shipping treatment worked for Space/Enter in the run, but its bespoke label-as-radio presentation is less immediately conventional than native radios."
+          ],
+          "evaluation_order": 2,
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+          ],
+          "exact_fraction": "46/11",
+          "judge_id": "judge-accessibility",
+          "loop_02_recommendation": "Keep the clear single-page landmarks and recovery pattern, but reduce the initial traversal burden with optional progressive disclosure or a compact completed-section summary.",
+          "model": "gpt-5.6-terra",
+          "recomputed_unrounded_primary_mean": 4.181818181818182,
+          "reported_primary_mean": 4.18,
+          "strengths": [
+            "The structured one-page sequence gives strong orientation through numbered headings, working section links, contextual synthetic-value help, order summary, and explicit review.",
+            "The error state is exceptionally actionable: a focused summary, 13 linked corrections, field messages, preserved values, and a clear status.",
+            "Shipping selection, edit controls, safe resume, reduced motion, keyboard placement, and duplicate protection all operated without runtime errors."
+          ],
+          "uncertainty": "The run exercised Tab/Shift+Tab/Enter/Space but not every possible screen-reader command or radio-arrow interaction."
+        },
+        {
+          "defects": [
+            {
+              "finding": "Exact-fixture validation (state must equal 'NSW', country 'australia', card '4111111111111111', name 'alex morgan', etc.) turns the checkout into a memory test of the fictional values. Real cross-disability users, especially those with cognitive impairment, will hit rejection loops.",
+              "lens": "input_burden",
+              "severity": "significant"
+            },
+            {
+              "finding": "autocomplete='off' on every input disables browser and AT autofill — a documented anti-pattern that penalises motor-constrained and cognitively-impaired users.",
+              "lens": "accessibility",
+              "severity": "significant"
+            },
+            {
+              "finding": "Custom role='radio' on <label> elements wrapping aria-hidden real radios (double-radio pattern) creates ambiguity for screen-readers and relies on a keydown handler to update aria-checked.",
+              "lens": "accessibility",
+              "severity": "moderate"
+            },
+            {
+              "finding": "All five sections and ~20 required fields load in one continuous scroll; the review block does not reprint every entered value verbatim.",
+              "lens": "cognitive_load",
+              "severity": "minor"
+            }
+          ],
+          "evaluation_order": 2,
+          "evidence_refs": [
+            "generated/judging/blind-loop-01/candidate-b/index.html",
+            "generated/judging/blind-loop-01/candidate-b/app.js",
+            "generated/judging/blind-loop-01/candidate-b/styles.css",
+            "generated/judging/blind-loop-01/candidate-b/evidence/objective-report.json",
+            "generated/judging/loop-01/judge-human-use/navigation-transcript-b.json",
+            "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/"
+          ],
+          "exact_fraction": "40/11",
+          "judge_id": "judge-human-use",
+          "loop_02_recommendation": {
+            "change": "Replace the double-radio shipping choice-card pattern with a plain <fieldset><legend>+ real <input type='radio'> pairs styled as cards, remove autocomplete='off' from every input, and relax the input validation to shape-only checks (email regex, 4-digit postcode, 16-digit numeric card ignoring spaces, MM/YY, 3-digit CSC) — keep the Synthetic-value hints for guidance, but accept legitimate variations so cross-disability users are not blocked by exact-match rules.",
+            "evidence_ref": "generated/judging/blind-loop-01/candidate-b/app.js lines 25–38 (fieldRules), generated/judging/blind-loop-01/candidate-b/index.html lines 171–184 (shipping choice-cards)",
+            "priority": "high"
+          },
+          "model": "claude-opus-4.7",
+          "recomputed_unrounded_primary_mean": 3.6363636363636362,
+          "reported_primary_mean": 3.64,
+          "strengths": [
+            "Error messages are among the most specific and actionable observed — they name the exact field and expected format.",
+            "aria-live status region combined with focused error summary gives strong feedback loops on both success and failure.",
+            "Section-nav anchor pills give sighted keyboard users a fast way to jump around the long single-page flow.",
+            "Duplicate submit is guarded twice (placementStarted flag + disabled button + status re-announce)."
+          ],
+          "uncertainty": [
+            "Blinded evidence; Track paradigm inferred from artifact behaviour (single-page landmarked checkout).",
+            "Screen-reader announcement fidelity of the double-radio pattern is inferred from ARIA and DOM structure, not measured with an actual AT."
+          ]
+        }
+      ],
+      "track_id": "track-single-page",
+      "visual_information_clarity": {
+        "calculation": "median of two raw judge scores",
+        "raw_inputs": [
+          {
+            "judge_id": "judge-accessibility",
+            "model": "gpt-5.6-terra",
+            "raw_evidence_refs": [
+              "judging/loop-01/judge-accessibility/navigation-transcript-b.json",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-b/initial-390.png",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-b/error.png",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-b/review.png",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-b/confirmation.png"
+            ],
+            "raw_finding": "The most polished hierarchy: restrained palette, reliable spacing, concise summary, and strong differentiated error treatment.",
+            "raw_score": 5
+          },
+          {
+            "judge_id": "judge-human-use",
+            "model": "claude-opus-4.7",
+            "raw_evidence_refs": [
+              "generated/judging/loop-01/judge-human-use/screenshots/candidate-b/01-initial-390x844.png"
+            ],
+            "raw_finding": "Rich visual hierarchy, section summary card, numbered circles, choice cards; feels professional and information-dense.",
+            "raw_score": 4
+          }
+        ],
+        "value": 4.5
+      }
+    },
+    {
+      "decision": "new_best",
+      "decision_rationale": "All seven objective gates pass. The independent panel gives this Loop the highest primary qualitative aggregate and both judges prefer it in every pairwise comparison; it is the interim Track baseline champion only, not the final Experiment Champion.",
+      "human_use_quality": {
+        "calculation": "mean of 11 per-lens panel medians",
+        "exact_fraction": "47/11",
+        "lens_medians": [
+          {
+            "aggregated_finding": "judge-accessibility: Step 1 of 4 progress, clear Continue labels, persistent summary, save/resume controls, and review edits clearly expose the journey. | judge-human-use: Progress stepper (aria-valuetext narrated), persistent Order summary with shipping method and totals, banner disclosing synthetic scope, and 'Continue to delivery address' button label make the flow obvious. Slight friction: shipping selection lives in the aside not the wizard body, so users who ignore the summary card may not know when it was set. Evidence: screenshots/candidate-c/01-initial-390x844.png; navigation-transcript-c.json audit landmarks/headings extra.",
+            "lens": "discoverability",
+            "median": 4.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "Step 1 of 4 progress, clear Continue labels, persistent summary, save/resume controls, and review edits clearly expose the journey.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/01-initial-390x844.png",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "Progress stepper (aria-valuetext narrated), persistent Order summary with shipping method and totals, banner disclosing synthetic scope, and 'Continue to delivery address' button label make the flow obvious. Slight friction: shipping selection lives in the aside not the wizard body, so users who ignore the summary card may not know when it was set. Evidence: screenshots/candidate-c/01-initial-390x844.png; navigation-transcript-c.json audit landmarks/headings extra.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Skip link, Back, Continue, and all four review Edit controls operated by keyboard and directed focus to the intended target. | judge-human-use: Wizard exposes exactly one active Continue at a time; Back per step; Edit buttons on review jump back to the correct step and focus its heading (tabindex=-1). Skip-link 'Skip to checkout steps' is the first Tab stop, but pressing Enter left the active element at BODY rather than the wizard-form target (skip target lacks tabindex=-1), so screen-reader users may not perceive the jump. Evidence: transcript entries 'keyboard: first Tab focus' and 'keyboard: activated skip-link'.",
+            "lens": "navigation",
+            "median": 4.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "Skip link, Back, Continue, and all four review Edit controls operated by keyboard and directed focus to the intended target.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "Wizard exposes exactly one active Continue at a time; Back per step; Edit buttons on review jump back to the correct step and focus its heading (tabindex=-1). Skip-link 'Skip to checkout steps' is the first Tab stop, but pressing Enter left the active element at BODY rather than the wizard-form target (skip target lacks tabindex=-1), so screen-reader users may not perceive the jump. Evidence: transcript entries 'keyboard: first Tab focus' and 'keyboard: activated skip-link'.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Progressive disclosure limits simultaneous choices but does not reduce the required contact, address, payment, and review inputs. | judge-human-use: Autocomplete tokens present on every input; validation is tolerant (any 4-digit postcode, any 12–19 digit card number, generic phone). Explicit 'Save progress' and 'Clear saved progress' buttons let users pause. Wizard grouping keeps at most 3–5 fields visible at once. Evidence: candidate-c/app.js fieldMessage(); screenshots/candidate-c/05-review-filled.png.",
+            "lens": "input_burden",
+            "median": 3.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "Progressive disclosure limits simultaneous choices but does not reduce the required contact, address, payment, and review inputs.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-c/app.js",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/05-review-filled.png",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "Autocomplete tokens present on every input; validation is tolerant (any 4-digit postcode, any 12–19 digit card number, generic phone). Explicit 'Save progress' and 'Clear saved progress' buttons let users pause. Wizard grouping keeps at most 3–5 fields visible at once. Evidence: candidate-c/app.js fieldMessage(); screenshots/candidate-c/05-review-filled.png.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Invalid placement exposed a summary and focused Contact, but empty Continue actions advanced through three steps rather than preventing the premature move. | judge-human-use: Per-field aria-invalid + aria-describedby chained to help+error; error summary lists each problem as a button that navigates back to the offending step and focuses the field. Continue past step with residual errors uses a nuanced status ('N item(s) still need attention — you can continue now and fix them before placing your order') so users are never blocked by partial validity. Evidence: candidate-c/app.js renderErrorSummary, handleContinue.",
+            "lens": "error_prevention_recovery",
+            "median": 4.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "Invalid placement exposed a summary and focused Contact, but empty Continue actions advanced through three steps rather than preventing the premature move.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-c/app.js",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "Per-field aria-invalid + aria-describedby chained to help+error; error summary lists each problem as a button that navigates back to the offending step and focuses the field. Continue past step with residual errors uses a nuanced status ('N item(s) still need attention — you can continue now and fix them before placing your order') so users are never blocked by partial validity. Evidence: candidate-c/app.js renderErrorSummary, handleContinue.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Progress text, step-complete feedback, save and resume messages, busy status, and confirmation provide clear, timely state changes. | judge-human-use: Polite aria-live status region receives running updates ('Step X complete', 'Placing your order…', 'Order placed. Confirmation SYN-2048.', 'Resumed your saved progress…'). aria-busy on Place order during placement. Progress bar aria-valuetext narrates each step. Evidence: transcript entries 'confirmation state' + 'reduced-motion: completed flow'; candidate-c/index.html progressbar role.",
+            "lens": "feedback_status",
+            "median": 5.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "Progress text, step-complete feedback, save and resume messages, busy status, and confirmation provide clear, timely state changes.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "Polite aria-live status region receives running updates ('Step X complete', 'Placing your order…', 'Order placed. Confirmation SYN-2048.', 'Resumed your saved progress…'). aria-busy on Place order during placement. Progress bar aria-valuetext narrates each step. Evidence: transcript entries 'confirmation state' + 'reduced-motion: completed flow'; candidate-c/index.html progressbar role.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Keyboard actions, focus movement, skip link, reduced-motion operation, and accepted objective pass evidence were strong; hidden-step complexity remains a qualitative caveat. | judge-human-use: Native semantics (fieldset/legend, labels-for, submit form); pending steps set aria-hidden=true and children tabindex=-1 so they are cleanly out of the reading and tab order; H1 present, one main landmark and aside for summary; role='progressbar' with narrated aria-valuetext. Focus is moved to the placed order confirmation. Minor issue: skip-link Enter left focus at BODY (target lacks tabindex=-1). radio-row labels carry tabindex='-1' which is unusual but not harmful. No custom radio role over real radio inputs. Evidence: transcript 'audit landmarks/headings' and 'keyboard: activated skip-link'.",
+            "lens": "accessibility",
+            "median": 4.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "Keyboard actions, focus movement, skip link, reduced-motion operation, and accepted objective pass evidence were strong; hidden-step complexity remains a qualitative caveat.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "Native semantics (fieldset/legend, labels-for, submit form); pending steps set aria-hidden=true and children tabindex=-1 so they are cleanly out of the reading and tab order; H1 present, one main landmark and aside for summary; role='progressbar' with narrated aria-valuetext. Focus is moved to the placed order confirmation. Minor issue: skip-link Enter left focus at BODY (target lacks tabindex=-1). radio-row labels carry tabindex='-1' which is unusual but not harmful. No custom radio role over real radio inputs. Evidence: transcript 'audit landmarks/headings' and 'keyboard: activated skip-link'.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: No horizontal overflow at all tested viewports; full-width Continue controls and readable cards support touch, while small utility links are less forgiving. | judge-human-use: At 390x844 and 320x568, no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Continue/Back buttons are large, radio rows span the full width, and the primary CTA has generous padding. Mobile-touch objective gate passes independently.",
+            "lens": "responsive_touch_ergonomics",
+            "median": 4.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "No horizontal overflow at all tested viewports; full-width Continue controls and readable cards support touch, while small utility links are less forgiving.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/blind-loop-01/candidate-c/evidence/objective-report.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "At 390x844 and 320x568, no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Continue/Back buttons are large, radio rows span the full width, and the primary CTA has generous padding. Mobile-touch objective gate passes independently.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Save, clear, reload, and resumed-progress messages were actually operated; safe values restored and payment secrets cleared. | judge-human-use: Explicit Save progress control + auto-persist on input; hydrateFromStorage restores field values, step position, and shipping method; announces 'Resumed your saved progress. Payment details are never saved and must be re-entered.' On reload, payment fields (card-number/expiry/security/name) all cleared to empty (transcript 'reload persistence check' extra shows payment: null across all four). Clear saved progress button provides a deliberate reset path.",
+            "lens": "interruption_resumption",
+            "median": 5.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "Save, clear, reload, and resumed-progress messages were actually operated; safe values restored and payment secrets cleared.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "Explicit Save progress control + auto-persist on input; hydrateFromStorage restores field values, step position, and shipping method; announces 'Resumed your saved progress. Payment details are never saved and must be re-entered.' On reload, payment fields (card-number/expiry/security/name) all cleared to empty (transcript 'reload persistence check' extra shows payment: null across all four). Clear saved progress button provides a deliberate reset path.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Busy feedback appeared during local placement and repeat activation still produced only one confirmation. | judge-human-use: Placement setTimeout is 120 ms; aria-busy set on Place order, status announces 'Placing your order…' immediately. Perceived latency is short and narrated. Reduced-motion path still succeeds and produces SYN-2048.",
+            "lens": "latency_perception",
+            "median": 4.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "Busy feedback appeared during local placement and repeat activation still produced only one confirmation.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/blind-loop-01/candidate-c/app.js",
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "Placement setTimeout is 120 ms; aria-busy set on Place order, status announces 'Placing your order…' immediately. Perceived latency is short and narrated. Reduced-motion path still succeeds and produces SYN-2048.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: Order placement is explicit and duplicate-safe, but Clear saved progress immediately reloads without undo or confirmation. | judge-human-use: Two destructive controls exist: Clear saved progress (reloads the page after wipe) and repeated Place order. Place order is guarded by state.orderPlaced flag and sets aria-disabled=true after first success — repeated activations produced exactly one SYN-2048 (transcript 'duplicate-safety report' confIds: ['SYN-2048'], placeOrderAriaDisabled: 'true'). Clear saved progress has no confirm dialog or undo, but its label is unambiguous and payment data was never stored to lose.",
+            "lens": "destructive_actions",
+            "median": 3.5,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "Order placement is explicit and duplicate-safe, but Clear saved progress immediately reloads without undo or confirmation.",
+                "raw_score": 3,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "Two destructive controls exist: Clear saved progress (reloads the page after wipe) and repeated Place order. Place order is guarded by state.orderPlaced flag and sets aria-disabled=true after first success — repeated activations produced exactly one SYN-2048 (transcript 'duplicate-safety report' confIds: ['SYN-2048'], placeOrderAriaDisabled: 'true'). Clear saved progress has no confirm dialog or undo, but its label is unambiguous and payment data was never stored to lose.",
+                "raw_score": 4,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          },
+          {
+            "aggregated_finding": "judge-accessibility: One active task, explicit progress, and a concise review lower memory demand more effectively than the fully exposed alternatives. | judge-human-use: One task per view with clear title, help text under each field, a persistent visible summary and progress. Review step reprints every entered value ('Alex Morgan · alex.morgan@example.invalid · +61 400 000 000', '42 Fiction Lane, Sampleton NSW 2000, Australia', 'Synthetic card ending 1111, expires 12/34') so the user can verify without scrolling. Evidence: transcript 'review content' extra.",
+            "lens": "cognitive_load",
+            "median": 5.0,
+            "raw_inputs": [
+              {
+                "evaluation_order": 3,
+                "judge_id": "judge-accessibility",
+                "model": "gpt-5.6-terra",
+                "raw_evidence_refs": [
+                  "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+                  "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+                ],
+                "raw_finding": "One active task, explicit progress, and a concise review lower memory demand more effectively than the fully exposed alternatives.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-accessibility/candidate-c.json"
+              },
+              {
+                "evaluation_order": 1,
+                "judge_id": "judge-human-use",
+                "model": "claude-opus-4.7",
+                "raw_evidence_refs": [
+                  "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+                  "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+                ],
+                "raw_finding": "One task per view with clear title, help text under each field, a persistent visible summary and progress. Review step reprints every entered value ('Alex Morgan · alex.morgan@example.invalid · +61 400 000 000', '42 Fiction Lane, Sampleton NSW 2000, Australia', 'Synthetic card ending 1111, expires 12/34') so the user can verify without scrolling. Evidence: transcript 'review content' extra.",
+                "raw_score": 5,
+                "source_record": "judging/loop-01/judge-human-use/candidate-c.json"
+              }
+            ]
+          }
+        ],
+        "value": 4.2727272727272725
+      },
+      "iteration_id": "resumable-wizard-loop-01",
+      "label": "candidate-c",
+      "raw_judge_artifacts": [
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-c.json",
+          "sha256": "3bdaf20b2937c923f9ccb6168d14aae25792b9b13ab39d167b20dd133f33e893"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-c.md",
+          "sha256": "121b41b86802e4c34bcad00c6b70b4fc4956700b0bc08a1a2cf48c4b6bff67f4"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.json",
+          "sha256": "1cff467a31536b60764f152b83574948c32a52a50d3cdadd9ff0ef5ba3e09c96"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.md",
+          "sha256": "716f42c0d42709ac27b0f0f48537eaceb087532347827893745f52385ef9760d"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/manifest-ready.json",
+          "sha256": "2bcab420a84e3f341f9350bf0c146f68c849583b700fb1a7936eeb0364e89f6c"
+        },
+        {
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/status.json",
+          "sha256": "9c342431e64c5f95c00842c0c593ce476aded4c5540efe7a4a1dd2a391e80d23"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-c.json",
+          "sha256": "3ab5883ab35b0578aeffad645f7187727aff7d8febc2bfd423126e82db475c45"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-c.md",
+          "sha256": "824a0f85aeebfc3ffabc44d78629fb5625e78cbbfbc3ebb83b84defd0d7d8432"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.json",
+          "sha256": "5ecd7646a169c69225a900c8c5ab5ac497d701fb4f3d1622c7dd7abb89a17849"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.md",
+          "sha256": "8bc07d24ea5ddb97b184bf557a8be4ce1fa5fce550c35c906ecfab7e70eb15b1"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/manifest-ready.json",
+          "sha256": "5bf7ecea82058292395459869233aae87cb5fd0ba13aadcaf5128db2beed7719"
+        },
+        {
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/status.json",
+          "sha256": "447c0c126fe8f2fee243d22eb68e796fe9c5fc2950639a597fa2918146368930"
+        }
+      ],
+      "raw_judges": [
+        {
+          "defects": [
+            "Continue advanced each empty step rather than holding the user at the invalid task; this allows premature progression and distributes errors across hidden/revealed context.",
+            "Clear saved progress immediately reloads and discards saved state without confirmation, undo, or a grace period."
+          ],
+          "evaluation_order": 3,
+          "evidence_refs": [
+            "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+          ],
+          "exact_fraction": "47/11",
+          "judge_id": "judge-accessibility",
+          "loop_02_recommendation": "Validate and retain focus in the active step before revealing the next one, and add an undo/confirmation affordance to Clear saved progress without weakening resumability.",
+          "model": "gpt-5.6-terra",
+          "recomputed_unrounded_primary_mean": 4.2727272727272725,
+          "reported_primary_mean": 4.27,
+          "strengths": [
+            "Explicit step progress, a single visible next action, Save/Clear controls, resumable state messaging, summary, and editable review make the path highly legible.",
+            "The valid canonical journey, review edits, reduced-motion run, safe resume, payment-secret clearing, keyboard order placement, and one confirmation all worked with no console/runtime errors.",
+            "The focused first field after invalid placement and the error-summary recovery controls support correction across concealed/revealed steps."
+          ],
+          "uncertainty": "No assistive-technology speech output was available; qualitative judgement is based on browser operation, rendered states, and accepted objective evidence."
+        },
+        {
+          "defects": [
+            {
+              "finding": "Skip-link target (#wizard-form) lacks tabindex=-1 so activation left document.activeElement at BODY; assistive-tech users may not perceive the jump.",
+              "lens": "navigation",
+              "severity": "minor"
+            },
+            {
+              "finding": "Shipping method lives inside the Order summary aside rather than a wizard step; users focused on the wizard body may not realise when it was chosen.",
+              "lens": "discoverability",
+              "severity": "minor"
+            },
+            {
+              "finding": "radio-row labels carry tabindex='-1' which is unusual pattern; harmless because the inner input remains focusable, but confusing to reviewers.",
+              "lens": "accessibility",
+              "severity": "cosmetic"
+            }
+          ],
+          "evaluation_order": 1,
+          "evidence_refs": [
+            "generated/judging/blind-loop-01/candidate-c/index.html",
+            "generated/judging/blind-loop-01/candidate-c/app.js",
+            "generated/judging/blind-loop-01/candidate-c/styles.css",
+            "generated/judging/blind-loop-01/candidate-c/evidence/objective-report.json",
+            "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+            "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/"
+          ],
+          "exact_fraction": "47/11",
+          "judge_id": "judge-human-use",
+          "loop_02_recommendation": {
+            "change": "Add tabindex='-1' to #wizard-form (or move the skip target to the first step heading) so activating the skip-link moves programmatic focus and screen-reader position, and consider narrating shipping-method changes in the polite status region so wizard-focused users know when Standard/Express is selected.",
+            "evidence_ref": "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json entries 'keyboard: first Tab focus' and 'keyboard: activated skip-link'",
+            "priority": "medium"
+          },
+          "model": "claude-opus-4.7",
+          "recomputed_unrounded_primary_mean": 4.2727272727272725,
+          "reported_primary_mean": 4.27,
+          "strengths": [
+            "Wizard grouping keeps working memory low and gives explicit control ('Continue', 'Back', 'Edit', 'Save progress').",
+            "Review step reprints every field verbatim, including a card-masked last-4 that still confirms entry without exposing the full PAN.",
+            "Interruption resumption is the strongest of the three: explicit save/clear controls, restored step position, and status message about payment non-persistence.",
+            "Progress bar with aria-valuetext narration is the clearest orientation cue for screen-reader users."
+          ],
+          "uncertainty": [
+            "Blinded evidence; Track paradigm inferred from artifact behaviour only (wizard with progressive reveal).",
+            "Screen-reader announcement fidelity was not measured with an actual AT; findings rely on ARIA attributes, live regions, and focus movement observed via Playwright."
+          ]
+        }
+      ],
+      "track_id": "track-resumable-wizard",
+      "visual_information_clarity": {
+        "calculation": "median of two raw judge scores",
+        "raw_inputs": [
+          {
+            "judge_id": "judge-accessibility",
+            "model": "gpt-5.6-terra",
+            "raw_evidence_refs": [
+              "judging/loop-01/judge-accessibility/navigation-transcript-c.json",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+              "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+            ],
+            "raw_finding": "Clear task and progress hierarchy, though repeated bordered boxes and visible summary consume appreciable vertical space.",
+            "raw_score": 4
+          },
+          {
+            "judge_id": "judge-human-use",
+            "model": "claude-opus-4.7",
+            "raw_evidence_refs": [
+              "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/01-initial-390x844.png"
+            ],
+            "raw_finding": "Clear typography, aside for summary, distinct sections, high-contrast dark green primary buttons, progress stepper visualization.",
+            "raw_score": 4
+          }
+        ],
+        "value": 4.0
+      }
+    }
+  ],
+  "judge_orders": [
+    {
+      "judge_id": "judge-accessibility",
+      "model": "gpt-5.6-terra",
+      "order": [
+        "candidate-a",
+        "candidate-b",
+        "candidate-c"
+      ]
+    },
+    {
+      "judge_id": "judge-human-use",
+      "model": "claude-opus-4.7",
+      "order": [
+        "candidate-c",
+        "candidate-b",
+        "candidate-a"
+      ]
+    }
+  ],
+  "loop": "loop-01",
+  "schema_normalization": [
+    {
+      "mapping": {
+        "candidate": "label",
+        "lens_findings.<lens>.evidence_refs": "raw_evidence_refs",
+        "lens_findings.<lens>.finding": "raw_finding",
+        "lens_findings.<lens>.score": "raw_lens_score",
+        "score": "reported_raw_primary_mean",
+        "visual_information_clarity.score": "raw_visual_information_clarity"
+      },
+      "source": "judge-accessibility/candidate-*.json"
+    },
+    {
+      "mapping": {
+        "candidate_id": "label",
+        "human_use_quality_mean_11": "reported_raw_primary_mean",
+        "lens_findings.<lens>": "raw_finding",
+        "lens_scores.<lens>": "raw_lens_score",
+        "operation_evidence + manifest-ready.records[].lens_findings.<lens>.evidence_refs": "raw_evidence_refs",
+        "visual_information_clarity": "raw_visual_information_clarity"
+      },
+      "source": "judge-human-use/candidate-*.json"
+    },
+    {
+      "mapping": {
+        "comparisons[].confidence": "confidence",
+        "comparisons[].pair": "pair",
+        "comparisons[].preference": "preferred",
+        "comparisons[].rationale": "rationale"
+      },
+      "source": "judge-accessibility/pairwise.json"
+    },
+    {
+      "mapping": {
+        "pairs[].confidence": "confidence",
+        "pairs[].pair": "pair (split on _vs_)",
+        "pairs[].preferred": "preferred",
+        "pairs[].rationale": "rationale"
+      },
+      "source": "judge-human-use/pairwise.json"
+    },
+    {
+      "aggregation": "For each real Loop and lens, median([judge-accessibility integer score, judge-human-use integer score]); with two judges this is their exact midpoint. human-use-quality is the arithmetic mean of the 11 unrounded lens medians. visual-information-clarity is the median of its two raw scores."
+    }
+  ],
+  "schema_version": "1.0"
+}

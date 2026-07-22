@@ -1,0 +1,135 @@
+{
+  "candidate": "candidate-a",
+  "loop": "loop-02",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "scorer_id": "blind-human-use-panel",
+  "actual_model": "claude-opus-4.7",
+  "criterion_id": "human-use-quality",
+  "objective_gate": false,
+  "kind": "qualitative_rubric",
+  "raw_score_mean_11_lenses": 4.91,
+  "visual_information_clarity": 5,
+  "lens_findings": {
+    "discoverability": {
+      "score": 5,
+      "finding": "Best-in-class discoverability. A dedicated <nav aria-label='Checkout sections'> exposes anchor links Contact / Delivery / Shipping / Payment / Review across the top; skip link 'Skip to checkout form' is the first Tab target; kicker 'One-page checkout' + 'All five sections are on this page. Required fields are marked *' immediately sets the mental model. Numbered step badges (1..5) render on every section with a state chip. Order summary is at the top with a persistent grand total. A 'Compact completed sections' checkbox offers optional progressive disclosure. Every landmark and section is discoverable from the top of the page.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[semantic_snapshot]",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[first_tab_focus]"
+      ]
+    },
+    "navigation": {
+      "score": 5,
+      "finding": "Three landmarks (main:1, nav:1, header:1) and skip link work as expected. Keyboard tour of 25 focusables walked cleanly from the section nav through every field to Place order without a trap. Each completed section exposes an Edit-<section> button. Because every section is on one page, users can jump non-linearly via anchor nav or Edit buttons without losing state. Focus outline is highly visible (solid 4px amber outline plus an inner 2px dark ring — a double-ring pattern that survives any background).",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[keyboard_focus_order]",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[semantic_snapshot].data.landmarks"
+      ]
+    },
+    "input_burden": {
+      "score": 5,
+      "finding": "Every field carries a preloaded synthetic-value hint inline ('Synthetic value: Alex Morgan.', 'Synthetic value: alex.morgan@example.invalid.', 'Synthetic value: 42 Fiction Lane.', 'Synthetic value: Sampleton.', etc.) and payment includes a highlighted 'Fictional card to use — 4111 1111 1111 1111 · expiry 12/34 · security code 123 · Alex Morgan' hint box. autocomplete tokens are set. One-page layout means zero Continue clicks between sections. Optional 'Compact completed sections' further reduces visual burden after progression.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+        "blind-loop-02/candidate-a/index.html"
+      ]
+    },
+    "error_prevention_recovery": {
+      "score": 5,
+      "finding": "Strongest error-recovery pattern I observed. Empty submit produced an error summary titled 'Check 13 items in 4 sections' followed by 'Your entries are preserved. Start with one link per affected section, or expand the full list.' with per-section counts ('Contact: 3 items need attention', 'Delivery address: 5 items need attention', 'Synthetic payment: 4 items need attention', 'Review: 1 item need attention') and a 'Show all 13 corrections' progressive-disclosure trigger. Per-field messages are actionable ('Enter a synthetic full name with at least 2 characters', 'Enter a complete email address, such as alex.morgan@example…'). Focus landed on #error-summary (tabindex=-1). This exceeds every other candidate's error-recovery UX.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[empty_submit_state]",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/empty-submit.png"
+      ]
+    },
+    "feedback_status": {
+      "score": 5,
+      "finding": "role=status aria-live=polite aria-atomic=true region on load carries 'Your safe progress can be restored after a reload.' On submit the status becomes 'Synthetic order placed once. Confirmation ID SYN-2048.' The word 'once' explicitly conveys atomicity. Full confirmation card: 'Order confirmed locally — This fictional, synthetic demonstration is complete. No payment or external transaction.' Section state badges (Complete / Incomplete) update inline. Multiple live regions with correct politeness (polite for status, assertive for error alert). Best programmatic status of the three.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[confirmation_state]",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[semantic_snapshot]"
+      ]
+    },
+    "accessibility": {
+      "score": 5,
+      "finding": "<main>, <nav>, <header> landmarks all present; role=note synthetic banner; skip link; role=alert aria-live=assertive tabindex=-1 error summary; role=status aria-live=polite aria-atomic=true status region; aria-describedby on every field; autocomplete tokens throughout; aria-hidden='true' on decorative asterisks with sibling .visually-hidden 'required' text; labels bound with 'for'. Visible focus is a double-ring pattern (4px amber outer + 2px dark inner box-shadow) that reads on both light and dark backgrounds. No accessibility gap I could isolate.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[keyboard_focus_order]",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[semantic_snapshot]"
+      ]
+    },
+    "responsive_touch_ergonomics": {
+      "score": 5,
+      "finding": "No horizontal overflow at 320, 360, or 390. Buttons are large, full-width where sensible, with clear labels. The 24x24 objective gate passes. Section headings and radio rows retain generous hit area at 320. The 'Compact completed sections' toggle further reduces vertical scroll load on narrow devices without changing target sizes.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[viewport]",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-320x568.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-360x800.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/viewport-390x844.png"
+      ]
+    },
+    "interruption_resumption": {
+      "score": 5,
+      "finding": "localStorage key 'northstar-safe-checkout' persists a fields object (contact + address) and shipping. Card fields explicitly excluded — after a mid-flow reload the storage inspection shows no '4111' substring anywhere (cardInStorage:false) and all card inputs restore to empty. Contact-name, email, phone, address line1/city/state/postcode/country, and shipping method were all restored. Explicit helper copy: 'Payment details are cleared on reload and never saved.' and 'Your safe progress can be restored after a reload.' set expectations before the reload.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[pre_reload_storage]",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[post_reload_state]"
+      ]
+    },
+    "latency_perception": {
+      "score": 4,
+      "finding": "Status region announces 'Synthetic order placed once. Confirmation ID SYN-2048.' — the 'once' conveys atomicity. Confirmation banner is populated with fictional-context copy. My duplicate-click attempt failed because the Place order button was removed from the DOM after the first successful submit (my click_first found no button, timing out — strongest possible signal of duplicate-submit prevention). Small deduction: I could not directly observe an aria-busy interstitial because the DOM changed too fast for the operator to capture.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[duplicate_submit_attempted]",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[confirmation_state]"
+      ]
+    },
+    "destructive_actions": {
+      "score": 5,
+      "finding": "Duplicate submit is blocked at the DOM level — the Place order button is removed after the first successful submit (verified by my duplicate click_missing). The review checkbox is required with explicit rationale copy: 'I reviewed the fictional order and understand that Place order creates only a local synthetic confirmation.' Edit-<section> buttons per completed section preserve entered data. Section state chips reflect progression. Explicit 'Payment details are cleared on reload and never saved' reassurance. No back-navigation or reset that silently discards work was observed.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[duplicate_submit_attempted]",
+        "blind-loop-02/candidate-a/index.html"
+      ]
+    },
+    "cognitive_load": {
+      "score": 5,
+      "finding": "Lowest cognitive-load candidate. Preloaded synthetic value hints under every field remove decision effort. Optional 'Compact completed sections' toggle collapses done work to a summary + Edit button so users only see what remains. Section badges, one-page layout, persistent order summary, and 'Due now AUD 93.50' pre-submit label all reduce working-memory demand. Copy consistently repeats 'fictional / synthetic / no external transaction'. Error summary uses per-section counts and preserved-values reassurance, which reduces the anxiety and memory burden of recovery.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/screenshots/candidate-a/initial.png",
+        "judging/loop-02/judge-human-use/navigation-transcript-a.json#steps[empty_submit_state]"
+      ]
+    }
+  },
+  "strengths": [
+    "Full landmark set (main + nav + header) plus skip link — cross-disability navigation is the easiest of the three",
+    "Preloaded synthetic-value hints on every field and a dedicated 'Fictional card to use' box (4111 1111 1111 1111 · 12/34 · 123 · Alex Morgan)",
+    "Error summary with per-section counts ('Contact: 3 items need attention'), preserved-values reassurance, and per-field friendly copy",
+    "Duplicate submit blocked at the DOM level — Place order button is removed after successful submission",
+    "Optional 'Compact completed sections' toggle for progressive disclosure",
+    "Explicit review checkbox rationale ('I reviewed the fictional order and understand that Place order creates only a local synthetic confirmation')",
+    "Double-ring 4px amber + 2px dark focus outline is visible on any background",
+    "role=status aria-live=polite phrasing 'Synthetic order placed once' conveys atomicity"
+  ],
+  "defects": [
+    "Removing Place order from the DOM after submit is a bold pattern that some users expect to see 'disabled' rather than gone; while safer, it may momentarily surprise repeat testers. Small deduction on latency_perception only.",
+    "Extremely dense payment hint box literally states the fictional card number; this is intentional in a synthetic demo but should not migrate to any real checkout without heavy reframing."
+  ],
+  "uncertainty": [
+    "I could not directly observe an aria-busy interstitial because the DOM changed between the click and the next inspection tick; the submit event is fast enough that the interstitial may not render visibly on desktop but is likely fine on a real mobile device."
+  ],
+  "console_errors": 0,
+  "page_errors": 0,
+  "synthesis_recommendation": {
+    "action": "adopt_as_primary_template",
+    "rationale": "This candidate is the strongest human-use vehicle for the synthesis Champion across every lens. Adopt as the primary template: landmark trio + skip link, one-page anchor nav + Edit-per-section, preloaded synthetic-value hints, error summary with per-section counts + preserved-values reassurance, DOM-level duplicate-submit blocking, optional compact-completed toggle, and the atomicity-signalling 'placed once' status copy.",
+    "evidence_refs": [
+      "blind-loop-02/candidate-a/index.html",
+      "judging/loop-02/judge-human-use/navigation-transcript-a.json"
+    ]
+  }
+}

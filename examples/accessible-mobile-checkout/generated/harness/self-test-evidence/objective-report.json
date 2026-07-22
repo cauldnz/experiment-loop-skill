@@ -1,0 +1,781 @@
+{
+  "blocking_failure": true,
+  "candidate": "self-test-invalid",
+  "candidate_entrypoint": "index.html",
+  "experiment_id": "accessible-mobile-checkout",
+  "external_requests": [],
+  "failed_gate_ids": [
+    "content-fidelity",
+    "semantic-accessibility-gate",
+    "keyboard-completion-gate",
+    "error-recovery-gate",
+    "mobile-touch-gate",
+    "resilience-gate",
+    "offline-safety-gate"
+  ],
+  "fixture_id": "northstar-goods-synthetic-checkout-v1",
+  "fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+  "gates": [
+    {
+      "assertions": [
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Northstar Goods",
+          "status": "fail"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Synthetic checkout demonstration",
+          "status": "fail"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Northstar Insulated Bottle",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Willow Cotton Throw",
+          "status": "pass"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 80.00",
+          "status": "fail"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 8.50",
+          "status": "fail"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Standard — 3 to 5 business days",
+          "status": "fail"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 5.00",
+          "status": "fail"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Express — 1 to 2 business days",
+          "status": "fail"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "AUD 12.00",
+          "status": "fail"
+        },
+        {
+          "assertion": "visible-canonical-text",
+          "detail": "Guest",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "checkout-root",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "synthetic-banner",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "cart",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "cart-line-bottle",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "cart-line-throw",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "subtotal",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "tax",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "shipping-standard",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "shipping-express",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-content-hook",
+          "detail": "total",
+          "status": "fail"
+        },
+        {
+          "assertion": "visible-synthetic-labelling",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "account",
+          "status": "fail"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "sign in",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "sign-in",
+          "status": "fail"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "coupon",
+          "status": "fail"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "recommendation",
+          "status": "fail"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "upsell",
+          "status": "pass"
+        },
+        {
+          "assertion": "forbidden-scope-absent",
+          "detail": "stock",
+          "status": "pass"
+        },
+        {
+          "assertion": "shipping-total-is-frozen-choice",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "single-confirmation-hook",
+          "detail": "0",
+          "status": "pass"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "contact-name:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "contact-email:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "contact-phone:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-line1:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-city:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-state:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-postcode:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "address-country:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-number:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-expiry:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-security:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-field-value",
+          "detail": "card-name:",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-standard-shipping-label",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "canonical-express-shipping-label",
+          "detail": "",
+          "status": "fail"
+        }
+      ],
+      "id": "content-fidelity",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "main-landmark",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "checkout-form",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "primary-heading",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "task-headings",
+          "detail": "0",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-fieldsets",
+          "detail": "0",
+          "status": "fail"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "contact-section",
+          "status": "fail"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "address-section",
+          "status": "fail"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "shipping-section",
+          "status": "fail"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "payment-section",
+          "status": "fail"
+        },
+        {
+          "assertion": "task-section-hook",
+          "detail": "review-section",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "contact-name",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "contact-email",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "contact-phone",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-line1",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-city",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-state",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-postcode",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "address-country",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-number",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-expiry",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-security",
+          "status": "fail"
+        },
+        {
+          "assertion": "field-hook",
+          "detail": "card-name",
+          "status": "fail"
+        },
+        {
+          "assertion": "status-live-semantics",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "error-live-semantics",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "confirmation-semantics",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "explicit-place-order-hook",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "explicit-review-control",
+          "detail": "Missing review-confirmation hook",
+          "status": "fail"
+        },
+        {
+          "assertion": "edit-control-for-review-correction",
+          "detail": "0",
+          "status": "fail"
+        },
+        {
+          "assertion": "computed-text-contrast-samples",
+          "detail": "0",
+          "status": "fail"
+        }
+      ],
+      "id": "semantic-accessibility-gate",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "keyboard-focusable-controls",
+          "detail": "0",
+          "status": "fail"
+        },
+        {
+          "assertion": "keyboard-place-order-target",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "keyboard-text-entry-and-task-controls",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "keyboard-edit-control-available",
+          "detail": "None",
+          "status": "fail"
+        },
+        {
+          "assertion": "keyboard-space-shipping",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "keyboard-space-review",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "keyboard-enter-place-order",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "keyboard-confirmation",
+          "detail": "0",
+          "status": "fail"
+        }
+      ],
+      "id": "keyboard-completion-gate",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "empty-submit-actionable-summary",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "empty-submit-invalid-fields",
+          "detail": "0",
+          "status": "fail"
+        },
+        {
+          "assertion": "useful-error-focus",
+          "detail": "BODY",
+          "status": "fail"
+        },
+        {
+          "assertion": "invalid-submit-summary",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "preserve-valid-safe-value",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "correction-and-resubmission-entry",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "corrected-resubmission-confirmation",
+          "detail": "0",
+          "status": "fail"
+        }
+      ],
+      "id": "error-recovery-gate",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "no-page-horizontal-overflow",
+          "detail": "320x568: {'width': 320, 'scrollWidth': 908, 'height': 568, 'bodyScrollWidth': 900}",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "checkout-root at 320x568",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "synthetic-banner at 320x568",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "cart at 320x568",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "contact-section at 320x568",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "address-section at 320x568",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "shipping-section at 320x568",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "payment-section at 320x568",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "review-section at 320x568",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "place-order at 320x568",
+          "status": "fail"
+        },
+        {
+          "assertion": "no-page-horizontal-overflow",
+          "detail": "360x800: {'width': 360, 'scrollWidth': 908, 'height': 800, 'bodyScrollWidth': 900}",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "checkout-root at 360x800",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "synthetic-banner at 360x800",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "cart at 360x800",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "contact-section at 360x800",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "address-section at 360x800",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "shipping-section at 360x800",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "payment-section at 360x800",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "review-section at 360x800",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "place-order at 360x800",
+          "status": "fail"
+        },
+        {
+          "assertion": "no-page-horizontal-overflow",
+          "detail": "390x844: {'width': 390, 'scrollWidth': 908, 'height': 844, 'bodyScrollWidth': 900}",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "checkout-root at 390x844",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "synthetic-banner at 390x844",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "cart at 390x844",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "contact-section at 390x844",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "address-section at 390x844",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "shipping-section at 390x844",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "payment-section at 390x844",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "review-section at 390x844",
+          "status": "fail"
+        },
+        {
+          "assertion": "required-element-present",
+          "detail": "place-order at 390x844",
+          "status": "fail"
+        }
+      ],
+      "id": "mobile-touch-gate",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "4111",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "12/34",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "123",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "card-number",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "card-expiry",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "card-security",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "cvv",
+          "status": "pass"
+        },
+        {
+          "assertion": "payment-secret-not-persisted",
+          "detail": "security-code",
+          "status": "pass"
+        },
+        {
+          "assertion": "safe-state-restored-after-reload",
+          "detail": "0",
+          "status": "fail"
+        },
+        {
+          "assertion": "payment-fields-cleared-after-reload",
+          "detail": "",
+          "status": "pass"
+        },
+        {
+          "assertion": "reduced-motion-nonessential-duration-max-10ms",
+          "detail": "[]",
+          "status": "pass"
+        },
+        {
+          "assertion": "reduced-motion-completes-once",
+          "detail": "0",
+          "status": "fail"
+        }
+      ],
+      "id": "resilience-gate",
+      "status": "fail"
+    },
+    {
+      "assertions": [
+        {
+          "assertion": "invalid-or-unreviewed-placement-blocked",
+          "detail": "0",
+          "status": "pass"
+        },
+        {
+          "assertion": "valid-local-fixture-entry",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "review-required-before-placement",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "busy-status-during-placement",
+          "detail": "[]",
+          "status": "fail"
+        },
+        {
+          "assertion": "deterministic-single-confirmation",
+          "detail": "0",
+          "status": "fail"
+        },
+        {
+          "assertion": "deterministic-confirmation-id",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "zero-external-runtime-requests",
+          "detail": "[]",
+          "status": "pass"
+        },
+        {
+          "assertion": "confirmation-visible-after-explicit-placement",
+          "detail": "",
+          "status": "fail"
+        },
+        {
+          "assertion": "repeated-place-order-does-not-duplicate",
+          "detail": "0",
+          "status": "fail"
+        }
+      ],
+      "id": "offline-safety-gate",
+      "status": "fail"
+    }
+  ],
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "metrics": {
+    "activations": 0,
+    "completion_interactions": 1,
+    "corrections": 4,
+    "focusable_controls_traversed": 0
+  },
+  "schema_version": "1.0",
+  "screenshots": [
+    "final.png",
+    "initial.png",
+    "keyboard-completion.png",
+    "viewport-320x568.png",
+    "viewport-360x800.png",
+    "viewport-390x844.png"
+  ]
+}

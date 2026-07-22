@@ -1,0 +1,68 @@
+{
+  "experiment_id": "accessible-mobile-checkout",
+  "pairwise_path": "judging/loop-02/aggregate/pairwise-aggregate.json",
+  "panel_scores_path": "judging/loop-02/aggregate/panel-scores.json",
+  "parent_ids": [
+    "single-page-loop-02",
+    "resumable-wizard-loop-02",
+    "task-cards-loop-01"
+  ],
+  "provenance_path": "harness/path-violation-evidence/provenance.json",
+  "required_synthesis_constraints": [
+    "Create a fresh synthesis candidate; do not mutate a parent.",
+    "Keep all seven frozen objective gates blocking and use the unchanged harness.",
+    "Use true multi-parent lineage exactly as listed.",
+    "Write an explicit adoption/rejection matrix with evidence references.",
+    "Preserve the permanent path-remediation procedural caveat."
+  ],
+  "schema_version": "1.0",
+  "synthesis_loop_id": "synthesis-loop-01",
+  "track_finalists": [
+    {
+      "adopt": [
+        "landmark trio and skip link",
+        "one-page anchor navigation and direct Edit controls",
+        "section-grouped error summary with preserved-values reassurance",
+        "compact-completed progressive disclosure with hidden descendants excluded from focus",
+        "fictional-value hints and atomic single-placement status"
+      ],
+      "iteration_id": "single-page-loop-02",
+      "reject": [
+        "lack of a discoverable confirmed clear-progress control",
+        "literal fictional card-number hints outside this synthetic demonstration"
+      ],
+      "role": "primary structural template",
+      "track_id": "track-single-page"
+    },
+    {
+      "adopt": [
+        "step-local validation and focus retention",
+        "role=progressbar with descriptive aria-valuetext",
+        "Save progress plus explicit Clear saved progress confirmation and Cancel",
+        "named synthetic confirmation"
+      ],
+      "iteration_id": "resumable-wizard-loop-02",
+      "reject": [
+        "shipping choices nested inside order-summary aside",
+        "extra step transitions when they do not reduce cognitive load"
+      ],
+      "role": "selective safety and progress contributor",
+      "track_id": "track-resumable-wizard"
+    },
+    {
+      "adopt": [
+        "independently understandable section completion state",
+        "direct per-section editability"
+      ],
+      "iteration_id": "task-cards-loop-01",
+      "reject": [
+        "Loop 01 all-open mobile density",
+        "Loop 02 collapsed content that remains keyboard-focusable",
+        "silent review-checkbox reset",
+        "flat generic error dump"
+      ],
+      "role": "independent task-status contributor retained after Loop 02 regression",
+      "track_id": "track-task-cards"
+    }
+  ]
+}

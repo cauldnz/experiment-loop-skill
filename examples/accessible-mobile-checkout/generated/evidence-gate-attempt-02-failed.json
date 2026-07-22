@@ -1,0 +1,86 @@
+{
+  "checks": [
+    {
+      "detail": {},
+      "name": "manifest_parse",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "schema_version": "1.1"
+      },
+      "name": "manifest_schema",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "errors": [
+          "Champion reason references unknown evidence offline-safety",
+          "Champion caveat references unknown evidence cognitive-load",
+          "Champion caveat references unknown evidence accessibility",
+          "Champion caveat references unknown evidence synthesis-loop-01-recovery-inventory"
+        ]
+      },
+      "name": "manifest_semantics",
+      "required": true,
+      "status": "fail"
+    },
+    {
+      "detail": {
+        "checked": 484
+      },
+      "name": "artifact_integrity",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 11290206
+      },
+      "name": "viewer_present",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 11290206,
+        "sha256": "b140e211b4324cb360b310b7083c8fd1c807a6470967e6c86ab03370f5d7c46c"
+      },
+      "name": "viewer_determinism",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "checks": [
+          "self_contained",
+          "embedded_json",
+          "javascript",
+          "links",
+          "accessibility"
+        ]
+      },
+      "name": "viewer_static",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "browser": {
+          "name": "chromium",
+          "playwright": "1.61.1",
+          "version": "149.0.7827.55"
+        },
+        "viewer_sha256": "b140e211b4324cb360b310b7083c8fd1c807a6470967e6c86ab03370f5d7c46c"
+      },
+      "name": "navigation_evidence",
+      "required": true,
+      "status": "pass"
+    }
+  ],
+  "run_dir": ".",
+  "schema_version": "1.0",
+  "status": "fail"
+}

@@ -1,0 +1,112 @@
+{
+  "checks": [
+    {
+      "detail": {},
+      "name": "manifest_parse",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "schema_version": "1.1"
+      },
+      "name": "manifest_schema",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "errors": [
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/candidate-b.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/candidate-b.md",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/pairwise.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/pairwise.md",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/manifest-ready.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/status.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/candidate-b.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/candidate-b.md",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/navigation-transcript-b.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/pairwise.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/pairwise.md",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/manifest-ready.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/status.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/candidate-a.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/candidate-a.md",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/pairwise.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/pairwise.md",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/manifest-ready.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-accessibility/status.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/candidate-a.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/candidate-a.md",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/navigation-transcript-a.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/pairwise.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/pairwise.md",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/manifest-ready.json",
+          "human-use judging evidence references unknown Artifact judging/loop-02/judge-human-use/status.json",
+          "human-use judging evidence references unknown Artifact judging/synthesis-loop-01/judge-accessibility/candidate-a.json",
+          "human-use judging evidence references unknown Artifact judging/synthesis-loop-01/judge-accessibility/candidate-a.md"
+        ]
+      },
+      "name": "manifest_semantics",
+      "required": true,
+      "status": "fail"
+    },
+    {
+      "detail": {
+        "checked": 484
+      },
+      "name": "artifact_integrity",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 11294382
+      },
+      "name": "viewer_present",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 11294382,
+        "sha256": "17229c2e578a432dbdfe68841b21affe5796bd13e48a83a7c0d6d24312eb50e2"
+      },
+      "name": "viewer_determinism",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "checks": [
+          "self_contained",
+          "embedded_json",
+          "javascript",
+          "links",
+          "accessibility"
+        ]
+      },
+      "name": "viewer_static",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "browser": {
+          "name": "chromium",
+          "playwright": "1.61.1",
+          "version": "149.0.7827.55"
+        },
+        "viewer_sha256": "17229c2e578a432dbdfe68841b21affe5796bd13e48a83a7c0d6d24312eb50e2"
+      },
+      "name": "navigation_evidence",
+      "required": true,
+      "status": "pass"
+    }
+  ],
+  "run_dir": ".",
+  "schema_version": "1.0",
+  "status": "fail"
+}

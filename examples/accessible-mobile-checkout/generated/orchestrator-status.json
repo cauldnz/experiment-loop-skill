@@ -1,0 +1,136 @@
+{
+  "aggregate_scores": {
+    "resumable-wizard-loop-01": {
+      "human-use-quality": 4.2727272727272725,
+      "visual-information-clarity": 4
+    },
+    "single-page-loop-01": {
+      "human-use-quality": 3.909090909090909,
+      "visual-information-clarity": 4.5
+    },
+    "task-cards-loop-01": {
+      "human-use-quality": 3.1363636363636362,
+      "visual-information-clarity": 3
+    }
+  },
+  "assembly_determinism": {
+    "byte_identical": true,
+    "manifest_sha256_first": "a0cfaf9fa924d5ada819d48d289ddfd4242713887a1450552dffb136c61702ab",
+    "manifest_sha256_second": "a0cfaf9fa924d5ada819d48d289ddfd4242713887a1450552dffb136c61702ab",
+    "status": "pass"
+  },
+  "blockers": [
+    "Five expected Loops remain unmerged.",
+    "Final pairwise and synthesis judging remain pending.",
+    "The overall Experiment Champion cannot be selected until minimum Loops and synthesis are complete."
+  ],
+  "commands": [
+    {
+      "command": "python .experiments\\accessible-mobile-checkout\\generated\\assemble_experiment.py",
+      "exit_code": 0,
+      "note": "Two final consecutive assembly runs produced byte-identical Manifest and pre-annotation assembly-status bytes.",
+      "result": "pass",
+      "run_count": 5
+    },
+    {
+      "command": "python .experiments\\accessible-mobile-checkout\\generated\\build_viewer.py --data .experiments\\accessible-mobile-checkout\\generated --out .experiments\\accessible-mobile-checkout\\generated\\viewer.html",
+      "exit_code": 0,
+      "note": "Two final consecutive rebuilds after Loop 01 panel aggregation produced identical bytes; no Navigation Evidence or Evidence Gate was run.",
+      "result": "pass",
+      "run_count": 10
+    }
+  ],
+  "end": {
+    "status": "completed_in_progress_assembly",
+    "timestamp": "2026-07-21T17:09:39.3608011+10:00"
+  },
+  "experiment_id": "accessible-mobile-checkout",
+  "heartbeat": {
+    "status": "viewer_rebuilt_and_verified",
+    "timestamp": "2026-07-21T17:09:39.3608011+10:00"
+  },
+  "loop_01_aggregation": {
+    "aggregate_path": "judging/loop-01/aggregate/manifest-ready.json",
+    "evidence_cutoff": "2026-07-21T17:45:00+10:00",
+    "feedback_path": "judging/loop-01/aggregate/loop-02-feedback.json",
+    "loop_02_started": false,
+    "mapping_path": "judging/loop-01/blinding-map.json",
+    "mapping_revealed": true,
+    "status": "completed",
+    "timestamp_source": "judging/loop-01/judge-human-use/status.json completed_at"
+  },
+  "merged_loop_ids": [
+    "resumable-wizard-loop-01",
+    "single-page-loop-01",
+    "task-cards-loop-01"
+  ],
+  "outputs": {
+    "assembler": ".experiments/accessible-mobile-checkout/generated/assemble_experiment.py",
+    "assembly_status": ".experiments/accessible-mobile-checkout/generated/manifest-assembly-status.json",
+    "manifest": ".experiments/accessible-mobile-checkout/generated/manifest.json",
+    "orchestrator_status": ".experiments/accessible-mobile-checkout/generated/orchestrator-status.json",
+    "viewer": ".experiments/accessible-mobile-checkout/generated/viewer.html"
+  },
+  "pending_work": {
+    "champion": "pending; resumable-wizard-loop-01 is interim Loop 01 baseline champion only",
+    "expected_loop_ids": [
+      "resumable-wizard-loop-02",
+      "single-page-loop-02",
+      "synthesis-loop-01",
+      "synthesis-loop-02",
+      "task-cards-loop-02"
+    ],
+    "final_judging": [
+      "blind-pairwise-finalists",
+      "synthesis-loop-judging",
+      "champion-vs-strongest-parent-flipped-pairwise"
+    ],
+    "judge_results": [],
+    "live_loop_ids": []
+  },
+  "provisional_decisions": {
+    "resumable-wizard-loop-01": "new_best",
+    "single-page-loop-01": "keep_for_synthesis",
+    "task-cards-loop-01": "keep_for_synthesis"
+  },
+  "role": "orchestrator-manifest-assembler",
+  "schema_version": "1.0",
+  "start": {
+    "status": "started",
+    "timestamp": "2026-07-21T17:02:14.551+10:00"
+  },
+  "terminal_status": "success_interim_loop_01_panel_aggregated",
+  "validation": {
+    "artifact_integrity": {
+      "referenced_artifact_count": 188,
+      "status": "pass"
+    },
+    "final_evidence_gate": "not_run_as_directed",
+    "frozen_hashes": "pass",
+    "manifest_schema_v1_1": {
+      "diagnostics": [
+        "Overall Experiment Champion fields are intentionally absent while minimum Loops and synthesis remain incomplete.",
+        "Skill commit and full skill-tree SHA-256 are not present in stable approved evidence and were not invented."
+      ],
+      "status": "expected_interim_failure"
+    },
+    "navigation_evidence": "not_run_as_directed",
+    "terminal_fragment_gate": "pass"
+  },
+  "viewer": {
+    "build_diagnostics": {
+      "first": "none",
+      "second": "none"
+    },
+    "build_status": "pass",
+    "byte_identical": true,
+    "bytes": 10719048,
+    "experiment_champion_pending_visible": true,
+    "independent_panel_scores_visible": true,
+    "interim_baseline_champion_visible": true,
+    "sha256_first": "67e1e98688da19c62345edfdda590c26675eb0fdf7745b726e37ca28cf74cf42",
+    "sha256_second": "67e1e98688da19c62345edfdda590c26675eb0fdf7745b726e37ca28cf74cf42",
+    "state": "in_progress",
+    "validation_diagnostic_visible": true
+  }
+}

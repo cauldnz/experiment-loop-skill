@@ -1,0 +1,1939 @@
+{
+  "judge_id": "judge-accessibility",
+  "model_id": "gpt-5.6-terra",
+  "candidate": "candidate-a",
+  "iteration": "synthesis-loop-01",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "actions": [
+    {
+      "action": "Load local candidate at 390x844",
+      "outcome": {
+        "landmarks": {
+          "header": 1,
+          "main": 1,
+          "nav": 1,
+          "aside": 1,
+          "footer": 1,
+          "form": 1,
+          "synthetic_note": 2,
+          "progressbar": 1,
+          "status": 2,
+          "alert": 1,
+          "headings": [
+            "Complete your synthetic order",
+            "Checkout details",
+            "Contact",
+            "Delivery address",
+            "Shipping method",
+            "Synthetic payment",
+            "Review and place order",
+            "Contact and delivery",
+            "Shipping and payment",
+            "Order confirmed locally"
+          ]
+        },
+        "controls_discovered": 36,
+        "initial_status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved."
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "",
+        "scrollY": 0,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Keyboard skip link",
+      "outcome": {
+        "hash": "#checkout-form",
+        "focus_after_enter": {
+          "tag": "BODY",
+          "id": null,
+          "text": "Skip to checkout form\n\nNorthstar Goods\n\nGUEST CHECKOUT\n\nNorthstar Goods \u2014 Synthetic checkout demonstration\nAll products,",
+          "hash": "#checkout-form",
+          "scrollY": 32
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#checkout-form",
+        "scrollY": 32,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Activate section navigation #contact",
+      "outcome": {
+        "before": {
+          "hash": "#checkout-form",
+          "scrollY": 32,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        },
+        "after": {
+          "hash": "#contact",
+          "scrollY": 49,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact",
+        "scrollY": 49,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Activate section navigation #delivery",
+      "outcome": {
+        "before": {
+          "hash": "#contact",
+          "scrollY": 49,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        },
+        "after": {
+          "hash": "#delivery",
+          "scrollY": 46,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#delivery",
+        "scrollY": 46,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Activate section navigation #shipping",
+      "outcome": {
+        "before": {
+          "hash": "#delivery",
+          "scrollY": 46,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        },
+        "after": {
+          "hash": "#shipping",
+          "scrollY": 23,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#shipping",
+        "scrollY": 23,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Activate section navigation #payment",
+      "outcome": {
+        "before": {
+          "hash": "#shipping",
+          "scrollY": 23,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        },
+        "after": {
+          "hash": "#payment",
+          "scrollY": 22,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#payment",
+        "scrollY": 22,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Activate section navigation #review",
+      "outcome": {
+        "before": {
+          "hash": "#payment",
+          "scrollY": 22,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        },
+        "after": {
+          "hash": "#review",
+          "scrollY": 22,
+          "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+          "errorHidden": true,
+          "confirmationHidden": true,
+          "active": "BODY"
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#review",
+        "scrollY": 22,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Keyboard Space on order-summary disclosure",
+      "outcome": {
+        "open": false
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#review",
+        "scrollY": 298,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "order-title"
+      }
+    },
+    {
+      "action": "Keyboard Space reopens order-summary disclosure",
+      "outcome": {
+        "open": true
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#review",
+        "scrollY": 942,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "order-title"
+      }
+    },
+    {
+      "action": "Keyboard Enter on empty Place order",
+      "outcome": {
+        "error_summary": "Check 13 items in 4 sections\n\nYour entries are preserved. Start with one link per affected section, or expand the full list.\n\nContact: 3 items need attention\nDelivery address: 5 items need attention\nSynthetic payment: 4 items need attention\nReview: 1 item need attention\nShow all 13 corrections",
+        "invalid_field_count": 13,
+        "focus": {
+          "tag": "DIV",
+          "id": "error-summary",
+          "text": "Check 13 items in 4 sections\n\nYour entries are preserved. Start with one link per affected section, or expand the full l",
+          "hash": "#review",
+          "scrollY": 1590
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#review",
+        "scrollY": 1590,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "error-summary"
+      }
+    },
+    {
+      "action": "Activate first grouped error-summary link",
+      "outcome": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "contact-name",
+          "text": "",
+          "hash": "#contact-name",
+          "scrollY": 688
+        },
+        "target": "contact-name"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 688,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "contact-name"
+      }
+    },
+    {
+      "action": "Fill #contact-name",
+      "outcome": {
+        "value": "Alex Morgan"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 704,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "contact-name"
+      }
+    },
+    {
+      "action": "Fill #contact-email",
+      "outcome": {
+        "value": "alex.morgan@example.invalid"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 730,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "contact-email"
+      }
+    },
+    {
+      "action": "Fill #contact-phone",
+      "outcome": {
+        "value": "+61 400 000 000"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 733,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "contact-phone"
+      }
+    },
+    {
+      "action": "Fill #address-line1",
+      "outcome": {
+        "value": "42 Fiction Lane"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 735,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "address-line1"
+      }
+    },
+    {
+      "action": "Fill #address-city",
+      "outcome": {
+        "value": "Sampleton"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 744,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "address-city"
+      }
+    },
+    {
+      "action": "Fill #address-state",
+      "outcome": {
+        "value": "NSW"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 746,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "address-state"
+      }
+    },
+    {
+      "action": "Fill #address-postcode",
+      "outcome": {
+        "value": "2000"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 748,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "address-postcode"
+      }
+    },
+    {
+      "action": "Fill #address-country",
+      "outcome": {
+        "value": "Australia"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 748,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "address-country"
+      }
+    },
+    {
+      "action": "Keyboard ArrowDown selects Express shipping",
+      "outcome": {
+        "express_checked": true,
+        "total": "AUD 100.50"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 829,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "shipping-express"
+      }
+    },
+    {
+      "action": "Keyboard ArrowUp returns Standard shipping",
+      "outcome": {
+        "standard_checked": true,
+        "total": "AUD 93.50"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 900,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "shipping-standard"
+      }
+    },
+    {
+      "action": "Fill #card-number",
+      "outcome": {
+        "value": "synthetic payment entered"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 900,
+        "status": "Order not placed. 13 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "card-number"
+      }
+    },
+    {
+      "action": "Submit with invalid payment after valid contact/delivery",
+      "outcome": {
+        "preserved_contact_email": "alex.morgan@example.invalid",
+        "card_error": "Enter 16 synthetic digits; spaces and hyphens are accepted.",
+        "summary_visible": true
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 992,
+        "status": "Order not placed. 5 items need attention.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "error-summary"
+      }
+    },
+    {
+      "action": "Keyboard Space saves safe progress",
+      "outcome": {
+        "status": "Safe contact, delivery and shipping progress saved on this device. Payment details are never saved.",
+        "saved_keys": [
+          "fields",
+          "shipping"
+        ],
+        "stored_field_keys": [
+          "address-city",
+          "address-country",
+          "address-line1",
+          "address-postcode",
+          "address-state",
+          "contact-email",
+          "contact-name",
+          "contact-phone"
+        ],
+        "contains_payment_secret": false
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 1064,
+        "status": "Safe contact, delivery and shipping progress saved on this device. Payment details are never saved.",
+        "errorHidden": false,
+        "confirmationHidden": true,
+        "active": "BUTTON"
+      }
+    },
+    {
+      "action": "Reload restores safe fields only",
+      "outcome": {
+        "restored_safe_values": {
+          "#contact-name": "Alex Morgan",
+          "#contact-email": "alex.morgan@example.invalid",
+          "#contact-phone": "+61 400 000 000",
+          "#address-line1": "42 Fiction Lane",
+          "#address-city": "Sampleton",
+          "#address-state": "NSW",
+          "#address-postcode": "2000",
+          "#address-country": "Australia"
+        },
+        "payment_values_after_reload": {
+          "#card-number": "",
+          "#card-expiry": "",
+          "#card-security": "",
+          "#card-name": ""
+        },
+        "status": "Safe progress restored. Re-enter synthetic payment details; they were not saved."
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 271,
+        "status": "Safe progress restored. Re-enter synthetic payment details; they were not saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Keyboard Enter opens clear-progress confirmation",
+      "outcome": {
+        "dialog_visible": true,
+        "focus": {
+          "tag": "BUTTON",
+          "id": null,
+          "text": "Cancel",
+          "hash": "#contact-name",
+          "scrollY": 548
+        },
+        "aria_expanded": "true"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 571,
+        "status": "Clear saved progress needs confirmation. Choose \u201cYes, clear saved progress\u201d or Cancel below.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "cancel-clear"
+      }
+    },
+    {
+      "action": "Escape dismisses clear-progress confirmation",
+      "outcome": {
+        "dialog_visible": false,
+        "status": "Clear saved progress was cancelled. Your saved progress is unchanged.",
+        "stored": true
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 867,
+        "status": "Clear saved progress was cancelled. Your saved progress is unchanged.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "clear-progress"
+      }
+    },
+    {
+      "action": "Activate Cancel clear-progress control",
+      "outcome": {
+        "dialog_visible": false,
+        "stored": true
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 540,
+        "status": "Clear saved progress was cancelled. Your saved progress is unchanged.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "clear-progress"
+      }
+    },
+    {
+      "action": "Activate Yes, clear saved progress",
+      "outcome": {
+        "stored_after_clear": null,
+        "safe_name_after_reload": ""
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 897,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Fill #contact-name",
+      "outcome": {
+        "value": "Alex Morgan"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 897,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "contact-name"
+      }
+    },
+    {
+      "action": "Fill #contact-email",
+      "outcome": {
+        "value": "alex.morgan@example.invalid"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 897,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "contact-email"
+      }
+    },
+    {
+      "action": "Fill #contact-phone",
+      "outcome": {
+        "value": "+61 400 000 000"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 897,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "contact-phone"
+      }
+    },
+    {
+      "action": "Fill #address-line1",
+      "outcome": {
+        "value": "42 Fiction Lane"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 897,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "address-line1"
+      }
+    },
+    {
+      "action": "Fill #address-city",
+      "outcome": {
+        "value": "Sampleton"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 897,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "address-city"
+      }
+    },
+    {
+      "action": "Fill #address-state",
+      "outcome": {
+        "value": "NSW"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 900,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "address-state"
+      }
+    },
+    {
+      "action": "Fill #address-postcode",
+      "outcome": {
+        "value": "2000"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 902,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "address-postcode"
+      }
+    },
+    {
+      "action": "Fill #address-country",
+      "outcome": {
+        "value": "Australia"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 902,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "address-country"
+      }
+    },
+    {
+      "action": "Pointer activation of Express shipping control",
+      "outcome": {
+        "express_checked": true,
+        "total": "AUD 100.50"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2036,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "shipping-express"
+      }
+    },
+    {
+      "action": "Fill #card-number",
+      "outcome": {
+        "value": "synthetic payment entered"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2036,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "card-number"
+      }
+    },
+    {
+      "action": "Fill #card-expiry",
+      "outcome": {
+        "value": "synthetic payment entered"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2057,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "card-expiry"
+      }
+    },
+    {
+      "action": "Fill #card-security",
+      "outcome": {
+        "value": "synthetic payment entered"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2059,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "card-security"
+      }
+    },
+    {
+      "action": "Fill #card-name",
+      "outcome": {
+        "value": "synthetic payment entered"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2059,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "card-name"
+      }
+    },
+    {
+      "action": "Keyboard Space confirms review",
+      "outcome": {
+        "review_checked": true,
+        "progress": "5 of 5 sections complete: all sections complete; ready to place order."
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2084,
+        "status": "Your safe progress can be restored after a reload. Synthetic payment details are never saved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "review-confirmation"
+      }
+    },
+    {
+      "action": "Keyboard Space enables compact completed sections",
+      "outcome": {
+        "compacted_sections": [
+          {
+            "id": "contact",
+            "compacted": "true",
+            "hidden": true,
+            "focusableHidden": 0
+          },
+          {
+            "id": "delivery",
+            "compacted": "true",
+            "hidden": true,
+            "focusableHidden": 0
+          },
+          {
+            "id": "shipping",
+            "compacted": "true",
+            "hidden": true,
+            "focusableHidden": 0
+          },
+          {
+            "id": "payment",
+            "compacted": "true",
+            "hidden": true,
+            "focusableHidden": 0
+          }
+        ],
+        "status": "Compact view on. Completed sections use short summaries and remain directly editable."
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 1963,
+        "status": "Compact view on. Completed sections use short summaries and remain directly editable.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "compact-completed"
+      }
+    },
+    {
+      "action": "Activate compact-section Edit contact",
+      "outcome": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "contact-name",
+          "text": "Alex Morgan",
+          "hash": "#contact-name",
+          "scrollY": 739
+        },
+        "compacted": "false"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 739,
+        "status": "Editing contact. Existing entries are preserved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "contact-name"
+      }
+    },
+    {
+      "action": "Activate compact-section Edit delivery",
+      "outcome": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "address-line1",
+          "text": "42 Fiction Lane",
+          "hash": "#contact-name",
+          "scrollY": 1256
+        },
+        "compacted": "false"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 1256,
+        "status": "Editing delivery. Existing entries are preserved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "address-line1"
+      }
+    },
+    {
+      "action": "Activate compact-section Edit shipping",
+      "outcome": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "shipping-standard",
+          "text": "standard",
+          "hash": "#contact-name",
+          "scrollY": 1720
+        },
+        "compacted": "false"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 1739,
+        "status": "Editing shipping. Existing entries are preserved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "shipping-standard"
+      }
+    },
+    {
+      "action": "Activate compact-section Edit payment",
+      "outcome": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "card-number",
+          "text": "4111 1111 1111 1111",
+          "hash": "#contact-name",
+          "scrollY": 1623
+        },
+        "compacted": "false"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 1623,
+        "status": "Editing payment. Existing entries are preserved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "card-number"
+      }
+    },
+    {
+      "action": "Activate review Edit contact",
+      "outcome": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "contact-name",
+          "text": "Alex Morgan",
+          "hash": "#contact-name",
+          "scrollY": 2909
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2909,
+        "status": "Editing contact. Existing entries are preserved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "contact-name"
+      }
+    },
+    {
+      "action": "Activate review Edit delivery",
+      "outcome": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "address-line1",
+          "text": "42 Fiction Lane",
+          "hash": "#contact-name",
+          "scrollY": 2639
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2639,
+        "status": "Editing delivery. Existing entries are preserved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "address-line1"
+      }
+    },
+    {
+      "action": "Activate review Edit shipping",
+      "outcome": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "shipping-standard",
+          "text": "standard",
+          "hash": "#contact-name",
+          "scrollY": 2689
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2689,
+        "status": "Editing shipping. Existing entries are preserved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "shipping-standard"
+      }
+    },
+    {
+      "action": "Activate review Edit payment",
+      "outcome": {
+        "focus": {
+          "tag": "INPUT",
+          "id": "card-number",
+          "text": "4111 1111 1111 1111",
+          "hash": "#contact-name",
+          "scrollY": 3146
+        }
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 3146,
+        "status": "Editing payment. Existing entries are preserved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "card-number"
+      }
+    },
+    {
+      "action": "Verify review confirmation survives edits",
+      "outcome": {
+        "review_checked": true
+      },
+      "view_or_state_changed": false,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 3146,
+        "status": "Editing payment. Existing entries are preserved.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "card-number"
+      }
+    },
+    {
+      "action": "Keyboard Enter begins local placement",
+      "outcome": {
+        "status_during_delay": "Placing local synthetic order. Please wait.",
+        "busy": "true"
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2691,
+        "status": "Placing local synthetic order. Please wait.",
+        "errorHidden": true,
+        "confirmationHidden": true,
+        "active": "BODY"
+      }
+    },
+    {
+      "action": "Observe local confirmation",
+      "outcome": {
+        "confirmation_count": 1,
+        "confirmation_id": "SYN-2048",
+        "focus": {
+          "tag": "SECTION",
+          "id": null,
+          "text": "Order confirmed locally\n\nThis fictional, synthetic demonstration is complete. No payment or external transaction occurre",
+          "hash": "#contact-name",
+          "scrollY": 2586
+        },
+        "status": "Synthetic order placed once. Confirmation ID SYN-2048."
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2586,
+        "status": "Synthetic order placed once. Confirmation ID SYN-2048.",
+        "errorHidden": true,
+        "confirmationHidden": false,
+        "active": "confirmation"
+      }
+    },
+    {
+      "action": "Attempt duplicate native form submission after confirmation",
+      "outcome": {
+        "confirmation_count": 1,
+        "status": "This synthetic order is already confirmed as SYN-2048. No duplicate was created.",
+        "place_order_disabled": true
+      },
+      "view_or_state_changed": true,
+      "observed_state": {
+        "hash": "#contact-name",
+        "scrollY": 2941,
+        "status": "This synthetic order is already confirmed as SYN-2048. No duplicate was created.",
+        "errorHidden": true,
+        "confirmationHidden": false,
+        "active": "confirmation"
+      }
+    }
+  ],
+  "keyboard": [
+    {
+      "action": "Tab",
+      "ordinal": 1,
+      "focus": {
+        "tag": "A",
+        "id": null,
+        "text": "Skip to checkout form",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 2,
+      "focus": {
+        "tag": "A",
+        "id": null,
+        "text": "Contact",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 3,
+      "focus": {
+        "tag": "A",
+        "id": null,
+        "text": "Delivery",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 4,
+      "focus": {
+        "tag": "A",
+        "id": null,
+        "text": "Shipping",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 5,
+      "focus": {
+        "tag": "A",
+        "id": null,
+        "text": "Payment",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 6,
+      "focus": {
+        "tag": "A",
+        "id": null,
+        "text": "Review",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 7,
+      "focus": {
+        "tag": "SUMMARY",
+        "id": "order-title",
+        "text": "Order summary\nAUD 93.50",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 8,
+      "focus": {
+        "tag": "BUTTON",
+        "id": null,
+        "text": "Save progress",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 9,
+      "focus": {
+        "tag": "BUTTON",
+        "id": null,
+        "text": "Clear saved progress",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 10,
+      "focus": {
+        "tag": "INPUT",
+        "id": "compact-completed",
+        "text": "on",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 11,
+      "focus": {
+        "tag": "INPUT",
+        "id": "contact-name",
+        "text": "",
+        "hash": "",
+        "scrollY": 0
+      }
+    },
+    {
+      "action": "Tab",
+      "ordinal": 12,
+      "focus": {
+        "tag": "INPUT",
+        "id": "contact-email",
+        "text": "",
+        "hash": "",
+        "scrollY": 2
+      }
+    },
+    {
+      "action": "Shift+Tab",
+      "focus": {
+        "tag": "INPUT",
+        "id": "contact-name",
+        "text": "",
+        "hash": "",
+        "scrollY": 2
+      }
+    },
+    {
+      "action": "Enter on skip link",
+      "focus": {
+        "tag": "BODY",
+        "id": null,
+        "text": "Skip to checkout form\n\nNorthstar Goods\n\nGUEST CHECKOUT\n\nNorthstar Goods \u2014 Synthetic checkout demonstration\nAll products,",
+        "hash": "#checkout-form",
+        "scrollY": 32
+      },
+      "visible": true
+    },
+    {
+      "action": "ArrowDown on shipping radio",
+      "focus": {
+        "tag": "INPUT",
+        "id": "shipping-express",
+        "text": "express",
+        "hash": "#contact-name",
+        "scrollY": 775
+      },
+      "checked": true,
+      "total": "AUD 100.50"
+    },
+    {
+      "action": "ArrowUp on shipping radio",
+      "focus": {
+        "tag": "INPUT",
+        "id": "shipping-standard",
+        "text": "standard",
+        "hash": "#contact-name",
+        "scrollY": 886
+      },
+      "checked_standard": true,
+      "total": "AUD 93.50"
+    },
+    {
+      "action": "Space on review confirmation",
+      "focus": {
+        "tag": "INPUT",
+        "id": "review-confirmation",
+        "text": "on",
+        "hash": "#contact-name",
+        "scrollY": 2071
+      },
+      "checked": true
+    }
+  ],
+  "controls": [
+    {
+      "ordinal": 1,
+      "tag": "a",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Skip to checkout form",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 2,
+      "tag": "a",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Contact",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 3,
+      "tag": "a",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Delivery",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 4,
+      "tag": "a",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Shipping",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 5,
+      "tag": "a",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Payment",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 6,
+      "tag": "a",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Review",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 7,
+      "tag": "summary",
+      "id": "order-title",
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Order summary AUD 93.50",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 8,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": "save-now",
+      "edit_target": null,
+      "label": "Save progress",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 9,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": "clear-progress",
+      "action": "clear-progress",
+      "edit_target": null,
+      "label": "Clear saved progress",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 10,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": "cancel-clear",
+      "action": "cancel-clear",
+      "edit_target": null,
+      "label": "Cancel",
+      "hidden": true,
+      "disabled": false
+    },
+    {
+      "ordinal": 11,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": "confirm-clear",
+      "action": "confirm-clear",
+      "edit_target": null,
+      "label": "Yes, clear saved progress",
+      "hidden": true,
+      "disabled": false
+    },
+    {
+      "ordinal": 12,
+      "tag": "input",
+      "id": "compact-completed",
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Compact completed sections",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 13,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": "contact",
+      "label": "Edit contact",
+      "hidden": true,
+      "disabled": false
+    },
+    {
+      "ordinal": 14,
+      "tag": "input",
+      "id": "contact-name",
+      "name": "contact-name",
+      "hook": "contact-name",
+      "action": null,
+      "edit_target": null,
+      "label": "Full name *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 15,
+      "tag": "input",
+      "id": "contact-email",
+      "name": "contact-email",
+      "hook": "contact-email",
+      "action": null,
+      "edit_target": null,
+      "label": "Email *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 16,
+      "tag": "input",
+      "id": "contact-phone",
+      "name": "contact-phone",
+      "hook": "contact-phone",
+      "action": null,
+      "edit_target": null,
+      "label": "Phone *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 17,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": "delivery",
+      "label": "Edit delivery",
+      "hidden": true,
+      "disabled": false
+    },
+    {
+      "ordinal": 18,
+      "tag": "input",
+      "id": "address-line1",
+      "name": "address-line1",
+      "hook": "address-line1",
+      "action": null,
+      "edit_target": null,
+      "label": "Street address *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 19,
+      "tag": "input",
+      "id": "address-city",
+      "name": "address-city",
+      "hook": "address-city",
+      "action": null,
+      "edit_target": null,
+      "label": "City or suburb *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 20,
+      "tag": "input",
+      "id": "address-state",
+      "name": "address-state",
+      "hook": "address-state",
+      "action": null,
+      "edit_target": null,
+      "label": "State *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 21,
+      "tag": "input",
+      "id": "address-postcode",
+      "name": "address-postcode",
+      "hook": "address-postcode",
+      "action": null,
+      "edit_target": null,
+      "label": "Postcode *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 22,
+      "tag": "input",
+      "id": "address-country",
+      "name": "address-country",
+      "hook": "address-country",
+      "action": null,
+      "edit_target": null,
+      "label": "Country *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 23,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": "shipping",
+      "label": "Edit shipping",
+      "hidden": true,
+      "disabled": false
+    },
+    {
+      "ordinal": 24,
+      "tag": "input",
+      "id": "shipping-standard",
+      "name": "shipping",
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Standard \u2014 3 to 5 business days AUD 5.00",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 25,
+      "tag": "input",
+      "id": "shipping-express",
+      "name": "shipping",
+      "hook": null,
+      "action": null,
+      "edit_target": null,
+      "label": "Express \u2014 1 to 2 business days AUD 12.00",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 26,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": null,
+      "action": null,
+      "edit_target": "payment",
+      "label": "Edit payment",
+      "hidden": true,
+      "disabled": false
+    },
+    {
+      "ordinal": 27,
+      "tag": "input",
+      "id": "card-number",
+      "name": "card-number",
+      "hook": "card-number",
+      "action": null,
+      "edit_target": null,
+      "label": "Card number *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 28,
+      "tag": "input",
+      "id": "card-expiry",
+      "name": "card-expiry",
+      "hook": "card-expiry",
+      "action": null,
+      "edit_target": null,
+      "label": "Expiry, MM/YY *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 29,
+      "tag": "input",
+      "id": "card-security",
+      "name": "card-security",
+      "hook": "card-security",
+      "action": null,
+      "edit_target": null,
+      "label": "Security code *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 30,
+      "tag": "input",
+      "id": "card-name",
+      "name": "card-name",
+      "hook": "card-name",
+      "action": null,
+      "edit_target": null,
+      "label": "Name on card *",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 31,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": "edit-contact",
+      "action": null,
+      "edit_target": "contact",
+      "label": "Edit contact",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 32,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": "edit-address",
+      "action": null,
+      "edit_target": "delivery",
+      "label": "Edit delivery",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 33,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": "edit-shipping",
+      "action": null,
+      "edit_target": "shipping",
+      "label": "Edit shipping",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 34,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": "edit-payment",
+      "action": null,
+      "edit_target": "payment",
+      "label": "Edit payment",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 35,
+      "tag": "input",
+      "id": "review-confirmation",
+      "name": null,
+      "hook": "review-confirmation",
+      "action": null,
+      "edit_target": null,
+      "label": "I reviewed the fictional order and understand that Place order creates only a local synthetic confirmation.",
+      "hidden": false,
+      "disabled": false
+    },
+    {
+      "ordinal": 36,
+      "tag": "button",
+      "id": null,
+      "name": null,
+      "hook": "place-order",
+      "action": null,
+      "edit_target": null,
+      "label": "Place order",
+      "hidden": false,
+      "disabled": false
+    }
+  ],
+  "landmarks": {
+    "header": 1,
+    "main": 1,
+    "nav": 1,
+    "aside": 1,
+    "footer": 1,
+    "form": 1,
+    "synthetic_note": 2,
+    "progressbar": 1,
+    "status": 2,
+    "alert": 1,
+    "headings": [
+      "Complete your synthetic order",
+      "Checkout details",
+      "Contact",
+      "Delivery address",
+      "Shipping method",
+      "Synthetic payment",
+      "Review and place order",
+      "Contact and delivery",
+      "Shipping and payment",
+      "Order confirmed locally"
+    ]
+  },
+  "console": [],
+  "requests": [
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index.html",
+      "resource_type": "document"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/styles.css",
+      "resource_type": "stylesheet"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.js",
+      "resource_type": "script"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index.html",
+      "resource_type": "document"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/styles.css",
+      "resource_type": "stylesheet"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.js",
+      "resource_type": "script"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index.html",
+      "resource_type": "document"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/styles.css",
+      "resource_type": "stylesheet"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.js",
+      "resource_type": "script"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index.html",
+      "resource_type": "document"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/styles.css",
+      "resource_type": "stylesheet"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.js",
+      "resource_type": "script"
+    }
+  ],
+  "external_requests": [],
+  "checks": {
+    "mobile_390": {
+      "document_scroll_width": 390,
+      "viewport_width": 390,
+      "overflow": false,
+      "minimum_target_height": 24,
+      "minimum_target_width": 24,
+      "targets": [
+        {
+          "label": "Skip to checkout form",
+          "width": 203.796875,
+          "height": 48.78125
+        },
+        {
+          "label": "Contact",
+          "width": 84.703125,
+          "height": 40.375
+        },
+        {
+          "label": "Delivery",
+          "width": 88.875,
+          "height": 40.375
+        },
+        {
+          "label": "Shipping",
+          "width": 93.640625,
+          "height": 40.375
+        },
+        {
+          "label": "Payment",
+          "width": 92.390625,
+          "height": 40.375
+        },
+        {
+          "label": "Review",
+          "width": 374,
+          "height": 40.375
+        },
+        {
+          "label": "Order summary\nAUD 100.50",
+          "width": 370,
+          "height": 52.375
+        },
+        {
+          "label": "Save progress",
+          "width": 142.78125,
+          "height": 47.1875
+        },
+        {
+          "label": "Clear saved progress",
+          "width": 196,
+          "height": 47.1875
+        },
+        {
+          "label": "on",
+          "width": 24,
+          "height": 24
+        },
+        {
+          "label": "Edit contact",
+          "width": 126.25,
+          "height": 47.1875
+        },
+        {
+          "label": "Edit delivery",
+          "width": 131.5625,
+          "height": 47.1875
+        },
+        {
+          "label": "Edit shipping",
+          "width": 136.234375,
+          "height": 47.1875
+        },
+        {
+          "label": "Edit payment",
+          "width": 137.21875,
+          "height": 47.1875
+        },
+        {
+          "label": "Edit contact",
+          "width": 126.25,
+          "height": 47.1875
+        },
+        {
+          "label": "Edit delivery",
+          "width": 131.5625,
+          "height": 47.1875
+        },
+        {
+          "label": "Edit shipping",
+          "width": 136.234375,
+          "height": 47.1875
+        },
+        {
+          "label": "Edit payment",
+          "width": 137.21875,
+          "height": 47.1875
+        },
+        {
+          "label": "on",
+          "width": 24,
+          "height": 24
+        },
+        {
+          "label": "Place order",
+          "width": 344.8125,
+          "height": 52
+        }
+      ]
+    },
+    "reduced_motion": {
+      "media_matches": true,
+      "transition_duration": "1e-05s",
+      "animation_duration": "1e-05s",
+      "scroll_behavior": "auto"
+    },
+    "console_error_count": 0,
+    "one_confirmation": true
+  },
+  "screenshots": [
+    "screenshots/01-initial-390x844.png",
+    "screenshots/02-error-recovery-390x844.png",
+    "screenshots/03-save-clear-confirmation-390x844.png",
+    "screenshots/04-compact-edit-390x844.png",
+    "screenshots/05-confirmation-390x844.png"
+  ]
+}

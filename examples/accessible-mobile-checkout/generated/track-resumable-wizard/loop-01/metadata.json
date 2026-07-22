@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "loop_id": "resumable-wizard-loop-01",
+  "track_id": "track-resumable-wizard",
+  "model_role": "generator-resumable-wizard",
+  "model": "claude-sonnet-5",
+  "parent_ids": [],
+  "hypothesis": "A step-by-step wizard with explicit progress, back/edit controls, per-step validation, and safe save/resume reduces cognitive load without hiding status or trapping keyboard and screen-reader users.",
+  "interaction_paradigm": "A true step-by-step wizard: exactly one primary task step (Contact, Delivery address, Payment, Review & place order) is the active step at a time, with explicit named progress (\"Step N of 4: <name>\"), a single active keyboard-safe Continue control per frontier step, Back and Edit controls to return to any completed step, and resumable/safe local save state. Steps not yet reached remain in the DOM but are hidden accessibly (aria-hidden, removed from tab order, visually collapsed) until the wizard journey reaches them; once a step is reached it stays reachable/editable rather than being torn out of the page, so earlier answers remain visible and correctable without ever navigating backward through a forward-only revealer.",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "qualitative_lenses_required": [
+    "discoverability",
+    "navigation",
+    "input_burden",
+    "error_prevention_recovery",
+    "feedback_status",
+    "accessibility",
+    "responsive_touch_ergonomics",
+    "interruption_resumption",
+    "latency_perception",
+    "destructive_actions",
+    "cognitive_load"
+  ],
+  "qualitative_lenses_note": "These lenses are qualitative only in this metadata and in self-observation.md; no objective ergonomics claims are derived from them. Only the frozen harness's pass/fail assertions and metrics below are treated as objective evidence.",
+  "frozen_contract": {
+    "experiment_brief_path": ".experiments/accessible-mobile-checkout/setup/experiment-brief.json",
+    "experiment_brief_revision": 1,
+    "experiment_brief_sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13",
+    "prompt_path": ".experiments/accessible-mobile-checkout/setup/prompt.md",
+    "prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928",
+    "harness_dir": ".experiments/accessible-mobile-checkout/generated/harness",
+    "harness_generated_sha256": {
+      "canonical-fixture.json": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+      "run_checkout_gates.py": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563",
+      "self-test-invalid/index.html": "243d78b65b167bdf8c912d3f40c46072ed4bb4b712915de852094ec4a525807b"
+    },
+    "hash_algorithm": "SHA-256",
+    "scratch_root_not_written": ".experiments/accessible-mobile-checkout/generated/harness/scratch"
+  },
+  "candidate_artifact_sha256": {
+    "index.html": "9043b0b9f5c6da05324f4c3558b5241e4359a49de08adb962b2bbbe3148ec1b6",
+    "styles.css": "3dc18ae76c47b4e21f977b5d9fe45f243fc586de34e38fbfb8140821c2c69318",
+    "app.js": "0ad869e418a3fbcfcf0199ac2fc697b280c98ff5403cdde759592dc959f658eb"
+  },
+  "commands": [
+    {
+      "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01\\evidence-attempt-1",
+      "exit_code": 1,
+      "result": "FAIL",
+      "note": "First candidate: strict single-step-visible design. 5 of 7 gates failed (content-fidelity, semantic-accessibility-gate, error-recovery-gate, resilience-gate, offline-safety-gate). Evidence preserved untouched in evidence-attempt-1/."
+    },
+    {
+      "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01\\evidence-attempt-2",
+      "exit_code": 1,
+      "result": "FAIL",
+      "note": "Second candidate: rearchitected to progressive-disclosure wizard (revealed steps stay reachable; single frontier Continue control); fixed shipping-hook text, primary heading, guest-checkout text, and non-text-control-contrast. 2 of 7 gates still failed (semantic-accessibility-gate: focus-contrast too low on dark-green buttons; offline-safety-gate: invalid-or-unreviewed-placement-blocked reported 1 instead of 0). Evidence preserved untouched in evidence-attempt-2/."
+    },
+    {
+      "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01\\evidence-attempt-3",
+      "exit_code": 0,
+      "result": "PASS",
+      "note": "Third candidate: fixed .btn-primary:focus outline-color (was too low contrast against the dark-green button background) and made the confirmation number populate only via JS on real placement (the static HTML previously always contained the literal confirmation text, which the harness's inner_text()-based confirmation_count() read even while the confirmation region was hidden). All 7 gates passed; blocking_failure=false. Preserved as an additional verification run in evidence-attempt-3/."
+    },
+    {
+      "cmd": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\track-resumable-wizard\\loop-01\\evidence",
+      "exit_code": 0,
+      "result": "PASS",
+      "note": "Final, required run using the exact --out path specified by the task. All 7 gates passed; blocking_failure=false. This is the authoritative evidence directory for this Loop."
+    }
+  ],
+  "changed_files": [
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/index.html",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/styles.css",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/app.js",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/status.json",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/metadata.json",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/prompt-history.md",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/self-observation.md",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/evidence-attempt-1/**",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/evidence-attempt-2/**",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/evidence-attempt-3/**",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/loop-01/evidence/**",
+    ".experiments/accessible-mobile-checkout/generated/track-resumable-wizard/manifest-fragment.json"
+  ],
+  "objective_gate_results": {
+    "content-fidelity": "PASS",
+    "semantic-accessibility-gate": "PASS",
+    "keyboard-completion-gate": "PASS",
+    "error-recovery-gate": "PASS",
+    "mobile-touch-gate": "PASS",
+    "resilience-gate": "PASS",
+    "offline-safety-gate": "PASS",
+    "blocking_failure": false
+  },
+  "non_gating_task_efficiency_metrics": {
+    "activations": 24,
+    "completion_interactions": 1,
+    "corrections": 4,
+    "focusable_controls_traversed": 29
+  },
+  "lesson": "The frozen harness's reveal() helper is strictly forward-only (it only ever presses the 'continue' hook, never 'back'). A wizard design where each step is torn away/re-hidden once the user advances past it is therefore structurally incompatible with gates that need to re-fill or re-check an earlier step's fields after the wizard has moved on (error-recovery-gate's preserve-valid-safe-value, resilience-gate's reduced-motion-completes-once). The fix is a 'progressive disclosure' wizard: once a step is reached it stays visible and reachable forever (supporting edit-in-place and forward-only re-fill), while exactly one 'frontier' step's Continue control is ever visible, so reveal() always finds a single unambiguous next step. Two further pitfalls were non-obvious from the harness source alone and only surfaced empirically: (1) Playwright's inner_text() still returns an element's static text even when an ancestor carries the `hidden` attribute, so confirmation_count() will count a statically-present 'SYN-2048' string even before an order is really placed \u2014 the confirmation ID must be set by JS only at the moment of real placement, never present in the initial HTML. (2) a solid CSS :focus outline color that has strong contrast against a light page background can still fail the focus-contrast check on a differently-colored (e.g. dark) button background \u2014 focus-ring color needs to be verified per background, not assumed globally sufficient.",
+  "decision": "needs_human_review",
+  "decision_note": "All frozen objective gates pass with blocking_failure=false. No independent judge was run and no promotion/new_best/self-scoring claim is made, per task scope. This Loop's evidence is offered for independent human/judge review only.",
+  "stop_reason": "objective_harness_passed_all_gates"
+}

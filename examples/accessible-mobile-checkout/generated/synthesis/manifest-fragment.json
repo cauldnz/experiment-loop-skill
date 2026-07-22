@@ -1,0 +1,694 @@
+{
+  "schema_version": "1.1",
+  "experiment_id": "accessible-mobile-checkout",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "track": {
+    "id": "synthesis",
+    "label": "Synthesis of finalists",
+    "hypothesis": "A single fresh synthesis candidate can resolve the Loop 02 A-vs-B panel dissent by combining single-page A's landmarked one-page structure with resumable-wizard B's progress and destructive-action safety patterns and task-cards C's independently understandable per-section completion state, without averaging the dissent away and without leaving the one-page paradigm.",
+    "model_role": "synthesizer",
+    "model_id": "claude-opus-4.8",
+    "allowed_change_scope": ".experiments/accessible-mobile-checkout/generated/synthesis/** only; the shared harness, parent Tracks, judges, Manifest, Viewer, and process ledger are read-only.",
+    "interaction_paradigm": "One landmarked one-page checkout with all sections present and directly editable, per-section completion state, a progressbar, explicit save and confirmed clear-progress safety, a section-grouped value-preserving error summary, and a persistent order summary.",
+    "lineage": {
+      "kind": "true_multi_parent_synthesis",
+      "parent_ids": [
+        "single-page-loop-02",
+        "resumable-wizard-loop-02",
+        "task-cards-loop-01"
+      ],
+      "parent_roles": {
+        "single-page-loop-02": "primary structural template",
+        "resumable-wizard-loop-02": "selective safety and progress contributor",
+        "task-cards-loop-01": "independent task-status contributor retained after Loop 02 regression"
+      },
+      "note": "No parent Artifact was mutated; a fresh synthesis candidate was authored."
+    }
+  },
+  "iterations": [
+    {
+      "id": "synthesis-loop-01",
+      "track_id": "synthesis",
+      "parent_ids": [
+        "single-page-loop-02",
+        "resumable-wizard-loop-02",
+        "task-cards-loop-01"
+      ],
+      "model_id": "claude-opus-4.8",
+      "model_role": "synthesizer",
+      "hypothesis": "Test single-page A as the structure while adopting resumable-wizard B's progress and destructive-action safety patterns and task-cards C's independently understandable completion state, so the panel's A-vs-B split (accessibility judge preferred B; human-use judge preferred A) is resolved by synthesis rather than averaged away.",
+      "outcome": "The single terminal frozen objective run (PID 53728) exited 0 with all seven blocking gates passing, no failed gate IDs, no blocking failure, zero external requests, and no repair attempt. Records were completed under one owner-authorized post-reboot continuation without rerunning the objective command. Independent qualitative judging of this synthesis Loop remains pending; no qualitative score, Champion, or new_best is claimed.",
+      "human_use": {
+        "applicability": "applicable",
+        "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+      },
+      "commands": {
+        "build": "Authored a fresh standalone local index.html, styles.css, and app.js under synthesis/loop-01 by synthesizing three parent finalists; no parent was mutated.",
+        "run": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-01\\evidence",
+        "run_provenance": "Terminal command copied verbatim from synthesis/loop-01/process.json. It was NOT rerun during recovery.",
+        "judge": "Not run; independent qualitative judges are pending."
+      },
+      "artifacts": [
+        {
+          "id": "synthesis-loop-01-checkout-ui",
+          "kind": "interactive_html",
+          "role": "primary-output",
+          "label": "Synthesized single-page synthetic mobile checkout",
+          "path": "synthesis/loop-01/index.html",
+          "sha256": "0b94c3e512ec293dc1a8c9a013ddd4408f698e7d97bfa3ce66e052546f97a37e",
+          "presentation": {
+            "mode": "interactive_html",
+            "featured": true,
+            "primary": true,
+            "caption": "One-page landmarked checkout combining A's structure, B's progress/save/clear safety, and C's per-section completion state.",
+            "alt_text": "A fictional and synthetic single-page mobile checkout for Northstar Goods with per-section completion badges and a progress bar.",
+            "comparison_key": "checkout-ui"
+          }
+        },
+        {
+          "id": "synthesis-loop-01-styles",
+          "kind": "code",
+          "role": "supporting-output",
+          "label": "Synthesis local checkout styles",
+          "path": "synthesis/loop-01/styles.css",
+          "sha256": "9e1dfcf492fb28a358d4720cc3e5a7c0a18a625e17fcb549cdb94307f32b850d",
+          "presentation": { "mode": "text", "featured": false, "primary": false, "comparison_key": "checkout-source" }
+        },
+        {
+          "id": "synthesis-loop-01-script",
+          "kind": "code",
+          "role": "supporting-output",
+          "label": "Synthesis local checkout behaviour",
+          "path": "synthesis/loop-01/app.js",
+          "sha256": "9bbe3f43035a2f88cf749c0299f4ac6275a97f9420694aa4c5d9646697d22ef1",
+          "presentation": { "mode": "text", "featured": false, "primary": false, "comparison_key": "checkout-source" }
+        },
+        {
+          "id": "synthesis-loop-01-process",
+          "kind": "data",
+          "role": "process-record",
+          "label": "Terminal objective process record",
+          "path": "synthesis/loop-01/process.json",
+          "sha256": "71c2997367302c951005ecb03e0b5d769c195a7e7658862e1cae3dcd90f7f04f",
+          "presentation": { "mode": "json", "featured": false, "primary": false, "comparison_key": "objective-process" }
+        },
+        {
+          "id": "synthesis-loop-01-objective-report",
+          "kind": "data",
+          "role": "objective-evidence",
+          "label": "Passing frozen objective report",
+          "path": "synthesis/loop-01/evidence/objective-report.json",
+          "sha256": "512eb60c830cc663a66061b2fbe128c5679adc5bb75a41f69b63bbd70f4f8cc8",
+          "presentation": { "mode": "json", "featured": true, "primary": false, "caption": "All seven frozen objective gates pass.", "comparison_key": "objective-checkout-gates" }
+        },
+        {
+          "id": "synthesis-loop-01-objective-log",
+          "kind": "text",
+          "role": "objective-evidence",
+          "label": "Readable passing objective log",
+          "path": "synthesis/loop-01/evidence/objective-report.txt",
+          "sha256": "2246f845be24decb6ca2ec174692d2aef734a3487638e716cf605ea64213c7ae",
+          "presentation": { "mode": "text", "featured": false, "primary": false, "comparison_key": "objective-checkout-gates" }
+        },
+        {
+          "id": "synthesis-loop-01-initial",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "Initial mobile state",
+          "path": "synthesis/loop-01/evidence/initial.png",
+          "sha256": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93",
+          "presentation": { "mode": "image", "featured": false, "primary": false, "caption": "Harness-captured initial state at the default mobile viewport.", "alt_text": "Initial state of the synthetic Northstar Goods synthesis checkout.", "comparison_key": "checkout-state-initial" }
+        },
+        {
+          "id": "synthesis-loop-01-keyboard-completion",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "Keyboard completion",
+          "path": "synthesis/loop-01/evidence/keyboard-completion.png",
+          "sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b",
+          "presentation": { "mode": "image", "featured": true, "primary": false, "caption": "Harness-captured state after keyboard-only completion.", "alt_text": "Completed synthetic synthesis checkout showing the local confirmation state.", "comparison_key": "checkout-state-complete" }
+        },
+        {
+          "id": "synthesis-loop-01-final",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "Final harness state",
+          "path": "synthesis/loop-01/evidence/final.png",
+          "sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b",
+          "presentation": { "mode": "image", "featured": false, "primary": false, "caption": "Final state from the passing frozen harness run.", "alt_text": "Final synthetic synthesis checkout state with one local confirmation.", "comparison_key": "checkout-state-final" }
+        },
+        {
+          "id": "synthesis-loop-01-viewport-320",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "320 by 568 viewport",
+          "path": "synthesis/loop-01/evidence/viewport-320x568.png",
+          "sha256": "ef0891c83646f03c553dcc0781db18460625150b6d7b408b4a525adec92d6313",
+          "presentation": { "mode": "image", "featured": true, "primary": false, "caption": "Frozen mobile harness capture at 320 by 568 CSS pixels.", "alt_text": "The synthesis checkout rendered at 320 by 568 CSS pixels.", "comparison_key": "checkout-mobile-320" }
+        },
+        {
+          "id": "synthesis-loop-01-viewport-360",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "360 by 800 viewport",
+          "path": "synthesis/loop-01/evidence/viewport-360x800.png",
+          "sha256": "0bd146688840a43ba8bfce1bc1876ec687dc0d6a28efd484f6854f7bfc9b362c",
+          "presentation": { "mode": "image", "featured": true, "primary": false, "caption": "Frozen mobile harness capture at 360 by 800 CSS pixels.", "alt_text": "The synthesis checkout rendered at 360 by 800 CSS pixels.", "comparison_key": "checkout-mobile-360" }
+        },
+        {
+          "id": "synthesis-loop-01-viewport-390",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "390 by 844 viewport",
+          "path": "synthesis/loop-01/evidence/viewport-390x844.png",
+          "sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b",
+          "presentation": { "mode": "image", "featured": true, "primary": false, "caption": "Frozen mobile harness capture at 390 by 844 CSS pixels.", "alt_text": "The completed synthesis checkout rendered at 390 by 844 CSS pixels.", "comparison_key": "checkout-mobile-390" }
+        },
+        {
+          "id": "synthesis-loop-01-adoption-matrix-json",
+          "kind": "data",
+          "role": "synthesis-evidence",
+          "label": "Adoption / rejection matrix (data)",
+          "path": "synthesis/loop-01/adoption-rejection-matrix.json",
+          "sha256": "3f6c9fc01cb5629738a71a58851e4f0e174427bdf70edafbdcb05db861557630",
+          "presentation": { "mode": "json", "featured": true, "primary": false, "caption": "Per-parent adopt/reject decisions with evidence references.", "comparison_key": "synthesis-adoption-matrix" }
+        },
+        {
+          "id": "synthesis-loop-01-adoption-matrix-md",
+          "kind": "text",
+          "role": "synthesis-evidence",
+          "label": "Adoption / rejection matrix (readable)",
+          "path": "synthesis/loop-01/adoption-rejection-matrix.md",
+          "sha256": "034c3e68b9a00f0d69f4b36e1a1b25da485ed2432cd99a6f4b610e62efd4429b",
+          "presentation": { "mode": "text", "featured": false, "primary": false, "comparison_key": "synthesis-adoption-matrix" }
+        },
+        {
+          "id": "synthesis-loop-01-metadata",
+          "kind": "data",
+          "role": "loop-record",
+          "label": "Synthesis Loop 01 metadata",
+          "path": "synthesis/loop-01/metadata.json",
+          "sha256": "ae13d675495e1167c8878b828380149291ec8fe5e59a36aa71cb3f41c8f335b0",
+          "presentation": { "mode": "json", "featured": false, "primary": false, "comparison_key": "loop-record" }
+        },
+        {
+          "id": "synthesis-loop-01-report",
+          "kind": "text",
+          "role": "synthesis-report",
+          "label": "Synthesis report",
+          "path": "synthesis/loop-01/synthesis-report.md",
+          "sha256": "226a9a3a4d84eec4caebd52d45147580761801aa9e96ca963419d8903b64cf8b",
+          "presentation": { "mode": "text", "featured": true, "primary": false, "caption": "Evidence-only synthesis report; independent qualitative judging pending.", "comparison_key": "synthesis-report" }
+        },
+        {
+          "id": "synthesis-loop-01-status",
+          "kind": "data",
+          "role": "loop-record",
+          "label": "Recovered terminal status",
+          "path": "synthesis/loop-01/status.json",
+          "sha256": "537174a7d299a860afd0af7f44a30b9b4f9a85d6ad7b5065d052de34b7d1c101",
+          "presentation": { "mode": "json", "featured": false, "primary": false, "comparison_key": "loop-record" }
+        },
+        {
+          "id": "synthesis-recovery-inventory",
+          "kind": "data",
+          "role": "recovery-evidence",
+          "label": "Immutable recovery inventory",
+          "path": "synthesis/recovery/recovery-inventory.json",
+          "sha256": "74d30090793837c19b3e22bec442dba26d07a0c3cbba4b1ccc40b719f071ded0",
+          "presentation": { "mode": "json", "featured": false, "primary": false, "caption": "Launch-frozen inventory of 14 immutable functional outputs.", "comparison_key": "recovery-evidence" }
+        },
+        {
+          "id": "synthesis-recovery-ledger-event",
+          "kind": "data",
+          "role": "recovery-evidence",
+          "label": "Process-ledger reconciliation event sidecar",
+          "path": "synthesis/recovery/reconciliation-ledger-event.json",
+          "sha256": null,
+          "sha256_note": "Deferred to avoid circular hashing: this sidecar references the fragment and is finalized after it. Its exact SHA-256 is recorded in synthesis/recovery/post-recovery-verification.json.",
+          "presentation": { "mode": "json", "featured": false, "primary": false, "caption": "Sidecar for the orchestrator to append to the global process ledger.", "comparison_key": "recovery-evidence" }
+        },
+        {
+          "id": "synthesis-recovery-post-verification",
+          "kind": "data",
+          "role": "recovery-evidence",
+          "label": "Post-recovery hash verification",
+          "path": "synthesis/recovery/post-recovery-verification.json",
+          "sha256": null,
+          "sha256_note": "Deferred: this record is finalized last and hashes every other output but not itself.",
+          "presentation": { "mode": "json", "featured": false, "primary": false, "caption": "Proof that all 14 immutable hashes still match and new records exist.", "comparison_key": "recovery-evidence" }
+        }
+      ],
+      "scores": [
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "task-efficiency", "value": 28, "unit": "focusable_controls_traversed", "notes": "Non-gating: 20 activations, 4 corrections, 1 completion. Within the parents' range (20-29). Counts do not override pending qualitative evidence." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "content-fidelity", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "semantic-accessibility-gate", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "keyboard-completion-gate", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "error-recovery-gate", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "mobile-touch-gate", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "resilience-gate", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "offline-safety-gate", "value": 1, "unit": "binary_pass", "notes": "Pass. Zero external requests." }
+      ],
+      "quality_gates": {
+        "content-fidelity": "pass",
+        "semantic-accessibility-gate": "pass",
+        "keyboard-completion-gate": "pass",
+        "error-recovery-gate": "pass",
+        "mobile-touch-gate": "pass",
+        "resilience-gate": "pass",
+        "offline-safety-gate": "pass",
+        "blocking_failure": false
+      },
+      "objective_attempts": [
+        { "attempt": 1, "role": "terminal-objective-run", "exit_code": 0, "evidence_path": "evidence", "preserved": true, "failed_gate_ids": [], "process_pid": 53728, "reran_while_live": false }
+      ],
+      "metrics": {
+        "activations": 20,
+        "completion_interactions": 1,
+        "corrections": 4,
+        "focusable_controls_traversed": 28
+      },
+      "no_regression": {
+        "fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+        "candidate_failed_gate_ids": [],
+        "parents": [
+          { "iteration_id": "single-page-loop-02", "failed_gate_ids": [], "report": "track-single-page/loop-02/evidence/objective-report.json" },
+          { "iteration_id": "resumable-wizard-loop-02", "failed_gate_ids": [], "report": "track-resumable-wizard/loop-02/evidence/objective-report.json" },
+          { "iteration_id": "task-cards-loop-01", "failed_gate_ids": [], "report": "track-task-cards/loop-01/evidence/objective-report.json" }
+        ],
+        "statement": "No pass-to-fail regression against any parent finalist on the shared canonical fixture."
+      },
+      "judging_evidence": [
+        {
+          "scorer_id": "blind-human-use-panel",
+          "status": "pending_independent_judges",
+          "scores": [],
+          "required_lenses": [
+            "discoverability",
+            "navigation",
+            "input_burden",
+            "error_prevention_recovery",
+            "feedback_status",
+            "accessibility",
+            "responsive_touch_ergonomics",
+            "interruption_resumption",
+            "latency_perception",
+            "destructive_actions",
+            "cognitive_load"
+          ],
+          "note": "No synthesis-Loop qualitative judge was run. Generator/synthesizer-authored qualitative scores are prohibited and no Champion or new_best decision is claimed.",
+          "preserved_parent_dissent": {
+            "accessibility_judge_preference": "candidate-b",
+            "human_use_judge_preference": "candidate-a",
+            "resolution": "A structure + B safety/progress + C completion-state; dissent preserved, not averaged.",
+            "evidence_refs": [
+              "judging/loop-02/aggregate/dissent.md",
+              "judging/loop-02/aggregate/panel-scores.json",
+              "judging/loop-02/aggregate/pairwise-aggregate.json"
+            ]
+          }
+        }
+      ],
+      "prompt": {
+        "synthesis_input_sidecar": "judging/loop-02/aggregate/synthesis-input.json",
+        "track_prompt": "Execute exactly one synthesizer Loop that fuses the three named parent finalists into a fresh one-page synthesis candidate, preserving all frozen invariants and the seven blocking gates, running the unchanged harness, writing an evidence-referenced adoption/rejection matrix, and leaving independent qualitative review pending.",
+        "input_feedback": "Bound the Loop 02 aggregate synthesis input (judging/loop-02/aggregate/synthesis-input.json) with parent_ids single-page-loop-02, resumable-wizard-loop-02, task-cards-loop-01 and its per-parent adopt/reject direction.",
+        "input_feedback_refs": [
+          "judging/loop-02/aggregate/synthesis-input.json",
+          "judging/loop-02/aggregate/dissent.md",
+          "judging/loop-02/aggregate/panel-scores.json",
+          "judging/loop-02/aggregate/pairwise-aggregate.json"
+        ],
+        "judge_feedback": "Consumed independent Loop 02 panel comparison evidence to direct adoption/rejection and to preserve the A-vs-B dissent. No synthesis-Loop judge was run.",
+        "next_prompt": "Authorize synthesis-loop-02 only after independent identity-blind judges operate this synthesis Loop against all eleven frozen lenses and preserve dissent; then apply exactly one evidence-backed refinement while preserving the one-page landmarked synthesis paradigm and every frozen invariant.",
+        "next_synthesis_hypothesis": "Reduce residual 320px one-page cognitive load by strengthening the compact-completed disclosure default and progress-anchored resume, without wizard steps or keyboard-focusable collapsed content, keeping all seven gates blocking and the harness unchanged."
+      },
+      "changed_files": [
+        "synthesis/loop-01/index.html",
+        "synthesis/loop-01/styles.css",
+        "synthesis/loop-01/app.js",
+        "synthesis/loop-01/process.json",
+        "synthesis/loop-01/evidence/**",
+        "synthesis/loop-01/adoption-rejection-matrix.json",
+        "synthesis/loop-01/adoption-rejection-matrix.md",
+        "synthesis/loop-01/metadata.json",
+        "synthesis/loop-01/synthesis-report.md",
+        "synthesis/loop-01/status.json",
+        "synthesis/manifest-fragment.json",
+        "synthesis/recovery/reconciliation-ledger-event.json",
+        "synthesis/recovery/post-recovery-verification.json"
+      ],
+      "changed_files_note": "The functional Artifact/evidence/matrix files were authored and frozen before the reboot and are immutable; recovery did not modify them. metadata.json, synthesis-report.md, status.json, this fragment, and the two recovery sidecars are the records completed during the authorized post-reboot continuation.",
+      "lesson": {
+        "trigger": "The Loop 02 panel dissent was a genuine A-vs-B split that averaging would have destroyed.",
+        "action": "Resolve dissent by structured synthesis: adopt A as the one-page structural template and selectively graft B's progress and destructive-action safety plus C's independent completion state, recording each adopt/reject decision against judge evidence.",
+        "evidence": "The fresh synthesis candidate passed all seven blocking gates on the first terminal objective run with zero external requests and no repair, with no pass-to-fail regression against any parent finalist.",
+        "confidence": "high"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": null,
+      "recovery": {
+        "classification": "agent_interrupted_after_terminal_objective_pass",
+        "objective_command_rerun": false,
+        "immutable_inventory": "synthesis/recovery/recovery-inventory.json",
+        "immutable_inventory_sha256": "74d30090793837c19b3e22bec442dba26d07a0c3cbba4b1ccc40b719f071ded0",
+        "ledger_sidecar": "synthesis/recovery/reconciliation-ledger-event.json",
+        "post_verification": "synthesis/recovery/post-recovery-verification.json",
+        "note": "Records completed under one owner-authorized post-reboot continuation; the objective command was not rerun."
+      }
+    },
+    {
+      "id": "synthesis-loop-02",
+      "track_id": "synthesis",
+      "parent_ids": [
+        "synthesis-loop-01"
+      ],
+      "ancestor_parent_ids": [
+        "single-page-loop-02",
+        "resumable-wizard-loop-02",
+        "task-cards-loop-01"
+      ],
+      "lineage_note": "Immediate hill-climb of synthesis-loop-01 (parent_ids exactly ['synthesis-loop-01']); ancestor_parent_ids preserves the true multi-parent ancestry. A fresh copy of the Loop 01 functional files was authored into loop-02 and only the five evidence-backed panel-feedback changes were applied; synthesis-loop-01 was not mutated.",
+      "model_id": "claude-opus-4.8",
+      "model_role": "synthesizer",
+      "hypothesis": "Adopt every synthesis-loop-01 panel-feedback item (focus-safe non-BODY skip destination; lower default vertical density via persisted default-on compaction after safe restore that never leaves hidden descendants focusable; user-neutral shipping default until acknowledged; a persisted non-sensitive placed flag keeping reload-placement disabled and announcing the existing SYN-2048 order; a larger touch-target margin) while preserving every frozen invariant and keeping all seven objective gates blocking.",
+      "outcome": "The single terminal frozen objective run (PID 3824) exited 0 with all seven blocking gates passing, no failed gate IDs, no blocking failure, zero external requests, and no repair attempt. All five Loop 01 panel-feedback items were realized on a fresh loop-02 candidate copied from Loop 01, and the three-parent adoption/rejection decisions were inherited unchanged. Independent qualitative judging of this synthesis Loop remains pending; no qualitative score, Champion, or new_best is claimed.",
+      "human_use": {
+        "applicability": "applicable",
+        "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+      },
+      "commands": {
+        "build": "Copied synthesis/loop-01 index.html, styles.css, and app.js verbatim into synthesis/loop-02, then applied only the five evidence-backed panel-feedback changes; synthesis-loop-01 was not mutated.",
+        "run": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-02 --out .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-02\\evidence",
+        "run_provenance": "Run exactly as specified from the repository root against the unchanged frozen harness and canonical fixture. Terminal; NOT rerun. See synthesis/loop-02/process.json.",
+        "judge": "Not run; independent qualitative final judges are pending."
+      },
+      "artifacts": [
+        {
+          "id": "synthesis-loop-02-checkout-ui",
+          "kind": "interactive_html",
+          "role": "primary-output",
+          "label": "Synthesis Loop 02 single-page synthetic mobile checkout",
+          "path": "synthesis/loop-02/index.html",
+          "sha256": "86f764a53de8785abbfa64f05834c28a6ef5f760514c67429ba72f847662d8a3",
+          "presentation": {
+            "mode": "interactive_html",
+            "featured": true,
+            "primary": true,
+            "caption": "Loop 01 one-page synthesis hill-climbed with a focus-safe skip target, default-on safe-restore compaction, user-neutral shipping default, and a persisted placed-order flag.",
+            "alt_text": "A fictional and synthetic single-page mobile checkout for Northstar Goods with per-section completion badges, a progress bar, and a placed-order banner.",
+            "comparison_key": "checkout-ui"
+          }
+        },
+        {
+          "id": "synthesis-loop-02-styles",
+          "kind": "code",
+          "role": "supporting-output",
+          "label": "Synthesis Loop 02 local checkout styles",
+          "path": "synthesis/loop-02/styles.css",
+          "sha256": "e945d2949741ce0e7a822a537c04bd6c95a6c4ed2bf5ebdbddd4295b047ebaa7",
+          "presentation": { "mode": "text", "featured": false, "primary": false, "comparison_key": "checkout-source" }
+        },
+        {
+          "id": "synthesis-loop-02-script",
+          "kind": "code",
+          "role": "supporting-output",
+          "label": "Synthesis Loop 02 local checkout behaviour",
+          "path": "synthesis/loop-02/app.js",
+          "sha256": "64e78814110ae9acf8c0de9d20b041f77058d2a504043558296d2efc4db5394e",
+          "presentation": { "mode": "text", "featured": false, "primary": false, "comparison_key": "checkout-source" }
+        },
+        {
+          "id": "synthesis-loop-02-process",
+          "kind": "data",
+          "role": "process-record",
+          "label": "Terminal objective process record",
+          "path": "synthesis/loop-02/process.json",
+          "sha256": "fe44e4efcfaaf86ad2bd63ede49af0e3e6951f4372b2f52f5cb49ade222f998e",
+          "presentation": { "mode": "json", "featured": false, "primary": false, "comparison_key": "objective-process" }
+        },
+        {
+          "id": "synthesis-loop-02-objective-report",
+          "kind": "data",
+          "role": "objective-evidence",
+          "label": "Passing frozen objective report",
+          "path": "synthesis/loop-02/evidence/objective-report.json",
+          "sha256": "87b77336064e99510843d313300b784c9710ce86bdd55db668860c9fdfc16c06",
+          "presentation": { "mode": "json", "featured": true, "primary": false, "caption": "All seven frozen objective gates pass.", "comparison_key": "objective-checkout-gates" }
+        },
+        {
+          "id": "synthesis-loop-02-objective-log",
+          "kind": "text",
+          "role": "objective-evidence",
+          "label": "Readable passing objective log",
+          "path": "synthesis/loop-02/evidence/objective-report.txt",
+          "sha256": "799bc7fb67575599e90d8296d0613ed32ca21d34f1f2284553d099eef280bd65",
+          "presentation": { "mode": "text", "featured": false, "primary": false, "comparison_key": "objective-checkout-gates" }
+        },
+        {
+          "id": "synthesis-loop-02-initial",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "Initial mobile state",
+          "path": "synthesis/loop-02/evidence/initial.png",
+          "sha256": "cdb3449487d0a1ba5afc67b9efc97212ba35523bff00cdd0831f279ac2e717d4",
+          "presentation": { "mode": "image", "featured": false, "primary": false, "caption": "Harness-captured initial state at the default mobile viewport.", "alt_text": "Initial state of the synthetic Northstar Goods Loop 02 synthesis checkout.", "comparison_key": "checkout-state-initial" }
+        },
+        {
+          "id": "synthesis-loop-02-keyboard-completion",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "Keyboard completion",
+          "path": "synthesis/loop-02/evidence/keyboard-completion.png",
+          "sha256": "2cb9e887b223df35487ef85424b369742893d5edfdb5b2a64d5d259aa2523584",
+          "presentation": { "mode": "image", "featured": true, "primary": false, "caption": "Harness-captured state after keyboard-only completion.", "alt_text": "Completed synthetic Loop 02 synthesis checkout showing the local confirmation state.", "comparison_key": "checkout-state-complete" }
+        },
+        {
+          "id": "synthesis-loop-02-final",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "Final harness state",
+          "path": "synthesis/loop-02/evidence/final.png",
+          "sha256": "2cb9e887b223df35487ef85424b369742893d5edfdb5b2a64d5d259aa2523584",
+          "presentation": { "mode": "image", "featured": false, "primary": false, "caption": "Final state from the passing frozen harness run.", "alt_text": "Final synthetic Loop 02 synthesis checkout state with one local confirmation.", "comparison_key": "checkout-state-final" }
+        },
+        {
+          "id": "synthesis-loop-02-viewport-320",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "320 by 568 viewport",
+          "path": "synthesis/loop-02/evidence/viewport-320x568.png",
+          "sha256": "2baf0713304922286e9ad195636532ada6bcf4ccdeb93509c76edd32b41e6bc0",
+          "presentation": { "mode": "image", "featured": true, "primary": false, "caption": "Frozen mobile harness capture at 320 by 568 CSS pixels.", "alt_text": "The Loop 02 synthesis checkout rendered at 320 by 568 CSS pixels.", "comparison_key": "checkout-mobile-320" }
+        },
+        {
+          "id": "synthesis-loop-02-viewport-360",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "360 by 800 viewport",
+          "path": "synthesis/loop-02/evidence/viewport-360x800.png",
+          "sha256": "c93b59879098580a8b2daed900bfcffaea2ac5697473ea619832f690c54a11f6",
+          "presentation": { "mode": "image", "featured": true, "primary": false, "caption": "Frozen mobile harness capture at 360 by 800 CSS pixels.", "alt_text": "The Loop 02 synthesis checkout rendered at 360 by 800 CSS pixels.", "comparison_key": "checkout-mobile-360" }
+        },
+        {
+          "id": "synthesis-loop-02-viewport-390",
+          "kind": "image",
+          "role": "objective-evidence",
+          "label": "390 by 844 viewport",
+          "path": "synthesis/loop-02/evidence/viewport-390x844.png",
+          "sha256": "678a46956a4e8986be67f0a667f7c58cb1896028ce778e3cde05dbba4f493ec2",
+          "presentation": { "mode": "image", "featured": true, "primary": false, "caption": "Frozen mobile harness capture at 390 by 844 CSS pixels.", "alt_text": "The Loop 02 synthesis checkout rendered at 390 by 844 CSS pixels.", "comparison_key": "checkout-mobile-390" }
+        },
+        {
+          "id": "synthesis-loop-02-adoption-matrix-json",
+          "kind": "data",
+          "role": "synthesis-evidence",
+          "label": "Adoption / rejection matrix (data)",
+          "path": "synthesis/loop-02/adoption-rejection-matrix.json",
+          "sha256": "69ede9c6b8c741ade3576c67158de07c1fc69540c6542c35ade3e4647f966298",
+          "presentation": { "mode": "json", "featured": true, "primary": false, "caption": "Loop 01 feedback adoption plus inherited three-parent decisions, with evidence references.", "comparison_key": "synthesis-adoption-matrix" }
+        },
+        {
+          "id": "synthesis-loop-02-adoption-matrix-md",
+          "kind": "text",
+          "role": "synthesis-evidence",
+          "label": "Adoption / rejection matrix (readable)",
+          "path": "synthesis/loop-02/adoption-rejection-matrix.md",
+          "sha256": "396b4b16e6b60f817b0833cffae3b1a020a9ae2af1ccab799fa607f50978cda3",
+          "presentation": { "mode": "text", "featured": false, "primary": false, "comparison_key": "synthesis-adoption-matrix" }
+        },
+        {
+          "id": "synthesis-loop-02-metadata",
+          "kind": "data",
+          "role": "loop-record",
+          "label": "Synthesis Loop 02 metadata",
+          "path": "synthesis/loop-02/metadata.json",
+          "sha256": "3751fccfac3ab16e474b09a9c5e3ad36583417771f7a2b60ee43b4b452d7b5f2",
+          "presentation": { "mode": "json", "featured": false, "primary": false, "comparison_key": "loop-record" }
+        },
+        {
+          "id": "synthesis-loop-02-report",
+          "kind": "text",
+          "role": "synthesis-report",
+          "label": "Synthesis report",
+          "path": "synthesis/loop-02/synthesis-report.md",
+          "sha256": "eefe1ae237df72bcb6d5950f93107a300d4737cefc9fa6b51efee3ae6079b04a",
+          "presentation": { "mode": "text", "featured": true, "primary": false, "caption": "Loop 02 synthesis report with observed improvements, no-regression, limitations, and final-judge handoff; independent qualitative judging pending.", "comparison_key": "synthesis-report" }
+        },
+        {
+          "id": "synthesis-loop-02-status",
+          "kind": "data",
+          "role": "loop-record",
+          "label": "Terminal status",
+          "path": "synthesis/loop-02/status.json",
+          "sha256": null,
+          "sha256_note": "Deferred to avoid circular hashing: per the execution contract, status.json is finalized as the terminal output after this fragment is complete, so its SHA-256 cannot be embedded here. status.json itself records the exact hashes of every other loop-02 output.",
+          "presentation": { "mode": "json", "featured": false, "primary": false, "comparison_key": "loop-record" }
+        }
+      ],
+      "scores": [
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "task-efficiency", "value": 28, "unit": "focusable_controls_traversed", "notes": "Non-gating: 20 activations, 4 corrections, 1 completion. Counts do not override pending qualitative evidence." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "content-fidelity", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "semantic-accessibility-gate", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "keyboard-completion-gate", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "error-recovery-gate", "value": 1, "unit": "binary_pass", "notes": "Pass." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "mobile-touch-gate", "value": 1, "unit": "binary_pass", "notes": "Pass. Touch targets raised to 28px, above the 24px floor." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "resilience-gate", "value": 1, "unit": "binary_pass", "notes": "Pass. Only non-sensitive flags persisted; payment secrets never stored." },
+        { "scorer_id": "objective-checkout-gates", "criterion_id": "offline-safety-gate", "value": 1, "unit": "binary_pass", "notes": "Pass. Zero external requests." }
+      ],
+      "quality_gates": {
+        "content-fidelity": "pass",
+        "semantic-accessibility-gate": "pass",
+        "keyboard-completion-gate": "pass",
+        "error-recovery-gate": "pass",
+        "mobile-touch-gate": "pass",
+        "resilience-gate": "pass",
+        "offline-safety-gate": "pass",
+        "blocking_failure": false
+      },
+      "objective_attempts": [
+        { "attempt": 1, "role": "terminal-objective-run", "exit_code": 0, "evidence_path": "evidence", "preserved": true, "failed_gate_ids": [], "process_pid": 3824, "reran_while_live": false }
+      ],
+      "metrics": {
+        "activations": 20,
+        "completion_interactions": 1,
+        "corrections": 4,
+        "focusable_controls_traversed": 28
+      },
+      "no_regression": {
+        "fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+        "candidate_failed_gate_ids": [],
+        "comparators": [
+          { "iteration_id": "synthesis-loop-01", "failed_gate_ids": [], "report": "synthesis/loop-01/evidence/objective-report.json" },
+          { "iteration_id": "single-page-loop-02", "failed_gate_ids": [], "report": "track-single-page/loop-02/evidence/objective-report.json" },
+          { "iteration_id": "resumable-wizard-loop-02", "failed_gate_ids": [], "report": "track-resumable-wizard/loop-02/evidence/objective-report.json" },
+          { "iteration_id": "task-cards-loop-01", "failed_gate_ids": [], "report": "track-task-cards/loop-01/evidence/objective-report.json" }
+        ],
+        "statement": "No pass-to-fail regression against synthesis-loop-01 or any of the three ancestor parent finalists on the shared canonical fixture."
+      },
+      "judging_evidence": [
+        {
+          "scorer_id": "blind-human-use-panel",
+          "status": "pending_independent_judges",
+          "scores": [],
+          "required_lenses": [
+            "discoverability",
+            "navigation",
+            "input_burden",
+            "error_prevention_recovery",
+            "feedback_status",
+            "accessibility",
+            "responsive_touch_ergonomics",
+            "interruption_resumption",
+            "latency_perception",
+            "destructive_actions",
+            "cognitive_load"
+          ],
+          "note": "No synthesis-Loop qualitative judge was run for Loop 02. Synthesizer-authored qualitative scores are prohibited and no Champion or new_best decision is claimed. The Loop 01 panel_score (4.68) and visual_information_clarity (4.5) are prior independent-judge inputs cited only as the source of the adopted feedback.",
+          "input_feedback_refs": [
+            "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json",
+            "judging/synthesis-loop-01/aggregate/panel-scores.json",
+            "judging/synthesis-loop-01/aggregate/dissent.md",
+            "judging/synthesis-loop-01/judge-accessibility/manifest-ready.json",
+            "judging/synthesis-loop-01/judge-human-use/manifest-ready.json"
+          ]
+        }
+      ],
+      "prompt": {
+        "frozen_prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928",
+        "prompt_chain": [
+          { "step": 1, "role": "frozen_experiment_prompt", "ref": "setup/prompt.md", "sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928", "summary": "Frozen experiment prompt and contract." },
+          { "step": 2, "role": "parent_synthesis_record", "ref": "synthesis/loop-01/metadata.json", "summary": "synthesis-loop-01 established the one-page A+B+C synthesis this Loop hill-climbs." },
+          { "step": 3, "role": "loop_01_panel_feedback_input", "ref": "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json", "summary": "Accepted improvement instruction plus per-judge evidence (judge-accessibility gpt-5.6-terra; judge-human-use claude-opus-4.7): focus-safe skip target, persisted default-on compaction, user-neutral shipping default, persisted non-sensitive placed flag, larger targets, no weakened gate." },
+          { "step": 4, "role": "synthesizer_action", "summary": "Copied Loop 01 functional files into loop-02, applied exactly the five feedback changes, ran the unchanged objective harness (all seven gates pass, zero external requests), authored records." }
+        ],
+        "track_prompt": "Execute exactly one synthesizer hill-climb Loop on synthesis-loop-01 that adopts all Loop 01 panel feedback while preserving every frozen invariant and the seven blocking gates, running the unchanged harness, writing an evidence-referenced adoption/rejection matrix, and leaving independent qualitative review pending.",
+        "input_feedback": "Bound the loop-02 changes to the synthesis-loop-01 aggregate feedback and its two per-judge manifests, realizing each of the five instructions in the adoption/rejection matrix.",
+        "input_feedback_refs": [
+          "judging/synthesis-loop-01/aggregate/synthesis-loop-02-feedback.json",
+          "judging/synthesis-loop-01/aggregate/panel-scores.json",
+          "judging/synthesis-loop-01/aggregate/dissent.md",
+          "judging/synthesis-loop-01/judge-accessibility/manifest-ready.json",
+          "judging/synthesis-loop-01/judge-human-use/manifest-ready.json"
+        ],
+        "judge_feedback": "Consumed independent Loop 01 synthesis-judge feedback to direct the five adopted changes and to preserve the inherited A-vs-B dissent. No synthesis-Loop judge was run for Loop 02.",
+        "next_prompt": "Route synthesis-loop-02 to independent, identity-blind qualitative final judges to operate this Loop against all eleven frozen human-use lenses and preserve dissent. This is planned Loop 8 of 8 (hard cap 11); do not author a further synthesis Loop, do not promote, and do not edit the Manifest/Viewer/process ledger.",
+        "final_judge_handoff": "keep_for_synthesis pending independent final judges; all seven objective gates pass with no regression, but qualitative human-use judging and any Champion decision remain outside this synthesizer's authority."
+      },
+      "changed_files": [
+        "synthesis/loop-02/index.html",
+        "synthesis/loop-02/styles.css",
+        "synthesis/loop-02/app.js",
+        "synthesis/loop-02/process.json",
+        "synthesis/loop-02/evidence/**",
+        "synthesis/loop-02/adoption-rejection-matrix.json",
+        "synthesis/loop-02/adoption-rejection-matrix.md",
+        "synthesis/loop-02/metadata.json",
+        "synthesis/loop-02/synthesis-report.md",
+        "synthesis/loop-02/status.json",
+        "synthesis/manifest-fragment.json"
+      ],
+      "changed_files_note": "Functional changes (index.html, styles.css, app.js) are relative to synthesis-loop-01, which was copied verbatim into loop-02 first and not mutated. The only file changed outside synthesis/loop-02 is the additive synthesis-loop-02 entry in synthesis/manifest-fragment.json, which preserves the immutable synthesis-loop-01 entry.",
+      "lesson": {
+        "trigger": "synthesis-loop-01 passed every objective gate but left independent-judge frictions: a skip target that could drop focus to BODY, high initial vertical density, a preselected shipping section over-claiming Complete, and no post-reload placement memory.",
+        "action": "Hill-climb by adopting each panel-feedback item as a small, evidence-backed change on a verbatim copy of the passing candidate, using a reveal-safe visually-hidden compaction that stays operable for the frozen harness while removing descendants from keyboard focus, and persisting only non-sensitive flags.",
+        "evidence": "The fresh loop-02 candidate passed all seven blocking gates on the first terminal objective run (PID 3824, exit 0) with zero external requests and no repair, with no pass-to-fail regression against Loop 01 or any of the three ancestor finalists.",
+        "confidence": "high"
+      },
+      "decision": "keep_for_synthesis",
+      "stop_reason": null
+    }
+  ],
+  "champion": null,
+  "new_best_claimed": false,
+  "promotion_claimed": false,
+  "qualitative_scores_claimed": false,
+  "caveats": {
+    "path_remediation_procedural_caveat": {
+      "permanence": "permanent",
+      "statement": "During task-cards-loop-01, fifteen diagnostic scripts were written at the repository root outside the task write scope; resumable-wizard-loop-02 later deleted them before quarantine and omitted scratch provenance. This was remediated with a permanent caveat. Forensics found no environment/credential reads, no external data, no generated secrets, and no network hosts, and the recovered test-gates.py was byte-identical to the frozen harness. Functional and hash validity is preserved; the caveat is procedural only and does not imply functional invalidity of any parent or of this synthesis.",
+      "evidence_refs": ["harness/path-violation-evidence/provenance.json"]
+    },
+    "reboot_interruption_recovery_caveat": {
+      "permanence": "permanent",
+      "statement": "The synthesis Loop records were completed by a single owner-authorized post-reboot continuation. The original synthesis-loop-01 agent did not survive a PC reboot; the objective run had already completed (PID 53728, exit 0, all seven gates pass) and both matrices were written before the interruption. The persisted status was stale. The objective command was not rerun, and all fourteen immutable outputs were hash-verified against the launch recovery inventory before and after writing.",
+      "recovery_classification": "agent_interrupted_after_terminal_objective_pass",
+      "evidence_refs": [
+        "synthesis/recovery/recovery-inventory.json",
+        "synthesis/recovery/reconciliation-ledger-event.json",
+        "synthesis/recovery/post-recovery-verification.json"
+      ]
+    }
+  },
+  "frozen_hashes": {
+    "experiment_brief_sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13",
+    "setup_prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928",
+    "approval_sha256": "350165d1839c4a0fec1863621039ae56c57e04549aeb6756a50917f3f4f93f10",
+    "canonical_fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+    "run_checkout_gates_sha256": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563"
+  },
+  "hash_ordering_note": "This fragment omits its own SHA-256 and references only records finalized before it (status/report/metadata/process and the recovery inventory) plus the immutable functional Artifacts by exact SHA-256. The reconciliation-ledger-event.json and post-recovery-verification.json entries defer their hashes because they are finalized after this fragment; their exact SHA-256 values are recorded in synthesis/recovery/post-recovery-verification.json. The synthesis-loop-02 status.json hash is likewise deferred: per the execution contract, loop-02 status.json is finalized as the terminal output after this fragment, so its SHA-256 is recorded inside status.json itself (which hashes every other loop-02 output) rather than here."
+}

@@ -1,0 +1,103 @@
+{
+  "experiment_id": "accessible-mobile-checkout",
+  "frozen_contract": {
+    "brief_revision": 1,
+    "invariants_unchanged": true,
+    "track_paradigms_unchanged": true
+  },
+  "human_use": {
+    "applicability": "applicable",
+    "objective_gate": false,
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "resumable-wizard-loop-01": {
+    "accepted_improvement_instruction": "Within the resumable-wizard paradigm, make skip-link activation move programmatic focus to the checkout steps, validate and retain focus in an empty active step before advancing, and require confirmation or provide undo before clearing saved progress. Preserve explicit progress, Back/Edit, safe resume, and all frozen invariants.",
+    "evidence": [
+      {
+        "attribution": "judge-human-use navigation finding",
+        "source": "judging/loop-01/judge-human-use/candidate-c.json",
+        "verbatim": "Wizard exposes exactly one active Continue at a time; Back per step; Edit buttons on review jump back to the correct step and focus its heading (tabindex=-1). Skip-link 'Skip to checkout steps' is the first Tab stop, but pressing Enter left the active element at BODY rather than the wizard-form target (skip target lacks tabindex=-1), so screen-reader users may not perceive the jump. Evidence: transcript entries 'keyboard: first Tab focus' and 'keyboard: activated skip-link'."
+      },
+      {
+        "attribution": "judge-accessibility defect",
+        "source": "judging/loop-01/judge-accessibility/candidate-c.json",
+        "verbatim": "Continue advanced each empty step rather than holding the user at the invalid task; this allows premature progression and distributes errors across hidden/revealed context."
+      },
+      {
+        "attribution": "judge-accessibility defect",
+        "source": "judging/loop-01/judge-accessibility/candidate-c.json",
+        "verbatim": "Clear saved progress immediately reloads and discards saved state without confirmation, undo, or a grace period."
+      }
+    ],
+    "next_iteration_id": "resumable-wizard-loop-02",
+    "track_id": "track-resumable-wizard"
+  },
+  "schema_version": "1.0",
+  "single-page-loop-01": {
+    "accepted_improvement_instruction": "Within the single-page landmarked paradigm, reduce traversal and error-state load with compact completed-section summaries or optional progressive disclosure that keeps landmarks and direct editability; restore appropriate autocomplete tokens, use native radio inputs styled as cards without duplicate ARIA roles, and relax exact-fixture validation to shape-valid synthetic inputs while retaining clear fixture hints and all frozen invariants.",
+    "evidence": [
+      {
+        "attribution": "judge-accessibility defect",
+        "source": "judging/loop-01/judge-accessibility/candidate-b.json",
+        "verbatim": "At 390px, the complete one-page form and 13-item error state are cognitively and physically long; the user must manage many fields before review."
+      },
+      {
+        "attribution": "judge-human-use input burden finding",
+        "source": "judging/loop-01/judge-human-use/candidate-b.json",
+        "verbatim": "Validation is strict-fixture: state must equal 'NSW' (case-sensitive), country must equal 'australia' (lowercased); card number must equal '4111111111111111'; expiry must equal '12/34'; CSC must equal '123'; cardholder must equal 'alex morgan'. Any real-world variation is rejected. All inputs also have autocomplete='off', which disables browser autofill / password-manager assistance — a documented accessibility anti-pattern for motor-constrained and cognitively-impaired users. The 'Synthetic value:' helper text and fixture-card do mitigate for sighted users who read them, but the underlying interaction burden is high. Evidence: candidate-b/app.js fieldRules + errorMessages, candidate-b/index.html autocomplete='off' on every input."
+      },
+      {
+        "attribution": "judge-human-use accessibility finding",
+        "source": "judging/loop-01/judge-human-use/candidate-b.json",
+        "verbatim": "Solid landmark tree (header/nav/main/aside/footer), fieldset+legend per section, aria-describedby chained, error summary role='alert' with tabindex=-1 that receives focus after invalid submit. Concerns: (a) Shipping uses a double-radio anti-pattern — <label class='choice-card' role='radio' aria-checked> wrapping a real <input type='radio' aria-hidden='true'> — screen-reader users may hear the group twice or miss state updates because aria-checked is set only via the keydown handler, not by the input's own change; (b) autocomplete='off' on every field is an anti-pattern for AT-assisted form filling; (c) no visible skip-link even though the section-nav helps sighted keyboard users. Evidence: candidate-b/index.html lines 171–184; candidate-b/app.js keydown handler on shipping-* elements."
+      },
+      {
+        "attribution": "judge-human-use cognitive load finding",
+        "source": "judging/loop-01/judge-human-use/candidate-b.json",
+        "verbatim": "All five sections are on one continuously scrolled page. Nav pills help orientation, but ~20 required fields plus fixture cards plus a review block are visible at once, which is heavy on a small viewport. The exact-match validation adds hidden rules ('why won't it accept 4111-1111-1111-1111 with dashes?') that a real cross-disability user must reason through. The review block is helpful but reprints only aggregate values rather than every field verbatim, so users must scroll back to correct."
+      }
+    ],
+    "next_iteration_id": "single-page-loop-02",
+    "track_id": "track-single-page"
+  },
+  "source_loop": "loop-01",
+  "status": "manifest_ready_not_started",
+  "target_loop": "loop-02",
+  "task-cards-loop-01": {
+    "accepted_improvement_instruction": "Within the independently completable task-cards paradigm, reduce all-open density by collapsing completed detail or adding a concise status/review rail; exclude card-name from persistence, add an immediate placementStarted guard, use polite live announcements for routine transitions, and replace the hard-coded 500 ms delay with short deterministic feedback. Preserve all frozen invariants. Treat the sparse fragment and omitted internal failed-attempt declarations only as an evidence caveat; do not reconstruct or modify those attempts.",
+    "evidence": [
+      {
+        "attribution": "judge-accessibility defect",
+        "source": "judging/loop-01/judge-accessibility/candidate-a.json",
+        "verbatim": "All four task cards are open at once on mobile, creating a long, visually repetitive form before review."
+      },
+      {
+        "attribution": "judge-human-use interruption/resumption finding",
+        "source": "judging/loop-01/judge-human-use/candidate-a.json",
+        "verbatim": "Auto-persists on every input; restores on reload — but card-name is restored too (transcript 'reload persistence check' extra payment.card-name = 'Alex Morgan'), which is a payment-field leak. No user-visible Save or Clear controls, no aria-live announcement on restore, and no explicit statement to the user about what will or will not persist."
+      },
+      {
+        "attribution": "judge-human-use destructive-actions finding",
+        "source": "judging/loop-01/judge-human-use/candidate-a.json",
+        "verbatim": "Duplicate-submit safety is weak. Place order button is disabled only inside the 500 ms setTimeout callback — during that window, additional clicks or Enter presses schedule additional setTimeouts that all set the confirmation ID and re-focus the confirmation region. In practice a single SYN-2048 rendered, but there is no explicit placementStarted flag guarding submit, unlike candidate B. There is no user-facing destructive control (no Clear progress), so users cannot deliberately reset — this is safer for accidental data loss but leaves the persisted card-name until submit clears storage."
+      },
+      {
+        "attribution": "judge-human-use feedback/status finding",
+        "source": "judging/loop-01/judge-human-use/candidate-a.json",
+        "verbatim": "Status region is visually-hidden with aria-live='assertive'. Using assertive for routine transitions ('Processing your order...', 'Order successfully placed.') is stronger than necessary and interrupts screen-reader users; polite would be the appropriate level per WCAG guidance. No aria-live coupling on the Complete/Incomplete badges so screen-reader users get no announcement when a section becomes complete. Evidence: candidate-a/index.html line 17, candidate-a/app.js lines 122–124 and 240–260."
+      },
+      {
+        "attribution": "judge-human-use latency finding",
+        "source": "judging/loop-01/judge-human-use/candidate-a.json",
+        "verbatim": "Placement setTimeout is 500 ms (hard-coded slow) except under prefers-reduced-motion where it is 0 (candidate-a/app.js lines 250–260). aria-busy is set on the checkout root and status announces 'Processing your order...', but the delay is arbitrarily long for a purely local synthetic operation and the confirmation region only receives focus after the timeout. During my run, the confirmation was still not visible when I sampled 500 ms after click (transcript 'confirmation state' extra confirmationVisible=false, confirmationId='' at the sample instant); it did appear before I sampled again in the duplicate-safety report."
+      },
+      {
+        "attribution": "orchestrator evidence caveat (observed after reveal; not a reconstructed judge finding)",
+        "source": "track-task-cards/manifest-fragment.json and track-task-cards/loop-01/evidence-fail{1..8}/",
+        "verbatim": "The task-cards manifest fragment declares only index.html, styles.css, and app.js, while eight preserved evidence-fail directories exist. The fragment does not declare those internal failed-attempt Artifacts; preserve this as a provenance caveat and do not reconstruct their history."
+      }
+    ],
+    "next_iteration_id": "task-cards-loop-02",
+    "track_id": "track-task-cards"
+  }
+}

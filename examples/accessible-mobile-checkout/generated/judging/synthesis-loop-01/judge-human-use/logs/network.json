@@ -1,0 +1,96 @@
+{
+  "total_requests": 18,
+  "external_requests": [],
+  "sample_requests": [
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/style",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/style",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.j",
+      "resource_type": "script",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.j",
+      "resource_type": "script",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/style",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/style",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.j",
+      "resource_type": "script",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.j",
+      "resource_type": "script",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/index",
+      "resource_type": "document",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/style",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/style",
+      "resource_type": "stylesheet",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.j",
+      "resource_type": "script",
+      "method": "GET"
+    },
+    {
+      "url": "file:///<experiment-workspace>/generated/synthesis/loop-01/app.j",
+      "resource_type": "script",
+      "method": "GET"
+    }
+  ]
+}

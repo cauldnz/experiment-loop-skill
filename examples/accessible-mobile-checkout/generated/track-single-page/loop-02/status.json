@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "accessible-mobile-checkout",
+  "track_id": "single-page",
+  "loop_id": "single-page-loop-02",
+  "parent_ids": [
+    "single-page-loop-01"
+  ],
+  "model_role": "generator-single-page",
+  "model_id": "gpt-5.6-sol",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "status": "completed",
+  "phase": "terminal",
+  "started_at_utc": "2026-07-21T07:44:27.2414187Z",
+  "heartbeat_utc": "2026-07-21T07:52:23.5917683Z",
+  "completed_at_utc": "2026-07-21T07:52:23.5917683Z",
+  "latest_artifact": "manifest-fragment.json",
+  "objective_command": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\track-single-page\\loop-02 --out .experiments\\accessible-mobile-checkout\\generated\\track-single-page\\loop-02\\evidence",
+  "objective_exit_code": 0,
+  "objective_gate_states": {
+    "content-fidelity": "pass",
+    "semantic-accessibility-gate": "pass",
+    "keyboard-completion-gate": "pass",
+    "error-recovery-gate": "pass",
+    "mobile-touch-gate": "pass",
+    "resilience-gate": "pass",
+    "offline-safety-gate": "pass"
+  },
+  "blocking_failure": false,
+  "decision": "needs_human_review",
+  "blockers": [],
+  "preserved_failed_attempts": [
+    "evidence-attempt-01-failed"
+  ],
+  "metrics": {
+    "focusable_controls_traversed": 25,
+    "activations": 20,
+    "corrections": 4,
+    "completion_interactions": 1
+  },
+  "parent_metrics": {
+    "focusable_controls_traversed": 25,
+    "activations": 13,
+    "corrections": 4,
+    "completion_interactions": 1
+  },
+  "metrics_delta": {
+    "focusable_controls_traversed": 0,
+    "activations": 7,
+    "corrections": 0,
+    "completion_interactions": 0
+  }
+}

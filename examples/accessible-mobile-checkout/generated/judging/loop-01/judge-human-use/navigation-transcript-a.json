@@ -1,0 +1,277 @@
+{
+  "candidate": "candidate-a",
+  "started_at": "2026-07-21T17:18:22",
+  "entries": [
+    {
+      "t": "2026-07-21T17:18:14",
+      "action": "goto initial page 390x844",
+      "outcome": "loaded"
+    },
+    {
+      "t": "2026-07-21T17:18:15",
+      "action": "initial screenshot",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/01-initial-390x844.png"
+    },
+    {
+      "t": "2026-07-21T17:18:15",
+      "action": "audit landmarks/headings",
+      "outcome": "captured",
+      "extra": {
+        "main": 1,
+        "nav": 0,
+        "aside": 0,
+        "headings": [
+          {
+            "tag": "H1",
+            "text": "Checkout"
+          },
+          {
+            "tag": "H2",
+            "text": "There is a problem"
+          },
+          {
+            "tag": "H2",
+            "text": "1. Contact"
+          },
+          {
+            "tag": "H2",
+            "text": "2. Delivery Address"
+          },
+          {
+            "tag": "H2",
+            "text": "3. Shipping Method"
+          },
+          {
+            "tag": "H2",
+            "text": "4. Synthetic Payment"
+          },
+          {
+            "tag": "H2",
+            "text": "Order Summary and Review"
+          },
+          {
+            "tag": "H2",
+            "text": "Order Confirmed"
+          }
+        ],
+        "skipLinks": [],
+        "landmarks": [
+          {
+            "tag": "DIV",
+            "role": "alert"
+          },
+          {
+            "tag": "DIV",
+            "role": "status"
+          }
+        ],
+        "liveRegions": [
+          {
+            "live": "assertive",
+            "atomic": null,
+            "role": null
+          }
+        ],
+        "synthBannerText": "Northstar Goods \u2014 Synthetic checkout demonstration (Fictional) - Guest checkout",
+        "buttonCount": 5,
+        "focusableCount": 20
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:15",
+      "action": "click place-order with empty form",
+      "outcome": "invalid submit attempted"
+    },
+    {
+      "t": "2026-07-21T17:18:15",
+      "action": "error summary state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/02-error-summary.png"
+    },
+    {
+      "t": "2026-07-21T17:18:15",
+      "action": "post-invalid-submit report",
+      "outcome": "captured",
+      "extra": {
+        "errorSummaryVisible": true,
+        "errorSummaryText": "There is a problem\n      Full Name: Please enter a valueEmail Address: Please enter a valuePhone Number: Please enter a valueAddress Line 1: Please enter a valueCity: Please enter a valueState / Province: Please enter a valuePostcode: Please enter a valueCountry: Please enter a valueName on Card: Please enter a valueCard Number: Please enter a valueExpiry (MM/YY): Please enter a valueSecurity Code: Please enter a valueI have reviewed my order and confirm it is correct.: You must confirm to proce",
+        "errorSummaryFocused": true,
+        "invalidsCount": 13,
+        "invalids": [
+          "contact-name",
+          "contact-email",
+          "contact-phone",
+          "address-line1",
+          "address-city",
+          "address-state",
+          "address-postcode",
+          "address-country",
+          "card-name",
+          "card-number",
+          "card-expiry",
+          "card-security",
+          "review-confirmation"
+        ],
+        "visibleFieldErrors": [
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "Please enter a value",
+          "You must confirm to proceed"
+        ],
+        "statusText": "There are errors in the form. Please correct them to proceed.",
+        "activeElement": "DIV"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:15",
+      "action": "filled safe + payment before reload",
+      "outcome": "attempted"
+    },
+    {
+      "t": "2026-07-21T17:18:15",
+      "action": "pre-reload state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/03-pre-reload.png"
+    },
+    {
+      "t": "2026-07-21T17:18:16",
+      "action": "reload persistence check",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/04-post-reload.png",
+      "extra": {
+        "safe": {
+          "contact-name": "Alex Morgan",
+          "contact-email": "alex.morgan@example.invalid",
+          "address-line1": "42 Fiction Lane",
+          "address-postcode": "2000"
+        },
+        "payment": {
+          "card-number": "",
+          "card-expiry": "",
+          "card-security": "",
+          "card-name": "Alex Morgan"
+        }
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:17",
+      "action": "filled complete form (mouse fill)",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/05-review-filled.png"
+    },
+    {
+      "t": "2026-07-21T17:18:17",
+      "action": "review content",
+      "outcome": "captured",
+      "extra": {
+        "reviewFields": [],
+        "totalText": "AUD 93.50"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:17",
+      "action": "click Place order",
+      "outcome": "clicked"
+    },
+    {
+      "t": "2026-07-21T17:18:17",
+      "action": "confirmation state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/06-confirmation.png",
+      "extra": {
+        "confirmationVisible": false,
+        "confirmationText": "Order Confirmed\n      Thank you for your synthetic order.\n      Confirmation ID:",
+        "confirmationId": "",
+        "activeElement": "BODY"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:17",
+      "action": "second Place order attempt",
+      "outcome": "button disabled or missing (good)"
+    },
+    {
+      "t": "2026-07-21T17:18:17",
+      "action": "duplicate-safety report",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/07-after-duplicate.png",
+      "extra": {
+        "confIds": [
+          "SYN-2048"
+        ],
+        "placeOrderDisabled": true,
+        "placeOrderAriaDisabled": null
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:18",
+      "action": "keyboard: fresh navigation start",
+      "outcome": "loaded"
+    },
+    {
+      "t": "2026-07-21T17:18:18",
+      "action": "keyboard: first Tab focus",
+      "outcome": "INPUT#contact-name text="
+    },
+    {
+      "t": "2026-07-21T17:18:20",
+      "action": "keyboard: form completed by keyboard entry",
+      "outcome": "attempted"
+    },
+    {
+      "t": "2026-07-21T17:18:20",
+      "action": "keyboard: review screenshot",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/08-keyboard-review.png"
+    },
+    {
+      "t": "2026-07-21T17:18:20",
+      "action": "keyboard: confirmation state",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/09-keyboard-confirmation.png",
+      "extra": {
+        "confirmationVisible": false,
+        "confirmationId": "",
+        "activeElement": "BODY"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:21",
+      "action": "reduced-motion: loaded",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/10-reduced-motion-initial.png"
+    },
+    {
+      "t": "2026-07-21T17:18:21",
+      "action": "reduced-motion: completed flow",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/11-reduced-motion-confirmation.png",
+      "extra": {
+        "confirmationId": "SYN-2048"
+      }
+    },
+    {
+      "t": "2026-07-21T17:18:22",
+      "action": "320x568: viewport initial",
+      "outcome": "captured",
+      "screenshot": "generated/judging/loop-01/judge-human-use/screenshots/candidate-a/12-viewport-320-initial.png",
+      "extra": {
+        "scrollWidth": 320,
+        "clientWidth": 320,
+        "hasHorizontalScroll": false
+      }
+    }
+  ],
+  "console_messages": [],
+  "page_errors": []
+}

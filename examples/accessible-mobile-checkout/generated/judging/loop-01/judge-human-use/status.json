@@ -1,0 +1,56 @@
+{
+  "judge": "judge-human-use",
+  "model": "claude-opus-4.7",
+  "loop": "loop-01",
+  "state": "completed",
+  "started_at": "2026-07-21T17:14:28+10:00",
+  "last_heartbeat": "2026-07-21T17:45:00+10:00",
+  "completed_at": "2026-07-21T17:45:00+10:00",
+  "flipped_order": ["candidate-c", "candidate-b", "candidate-a"],
+  "human_use_applicability": "applicable",
+  "human_use_rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use.",
+  "artifacts": {
+    "status": "status.json",
+    "candidate_records": [
+      "candidate-c.json", "candidate-c.md",
+      "candidate-b.json", "candidate-b.md",
+      "candidate-a.json", "candidate-a.md"
+    ],
+    "navigation_transcripts": [
+      "navigation-transcript-c.json",
+      "navigation-transcript-b.json",
+      "navigation-transcript-a.json"
+    ],
+    "pairwise": ["pairwise.json", "pairwise.md"],
+    "manifest_ready": "manifest-ready.json",
+    "judge_prompt": "judge-prompt.md",
+    "screenshots_root": "screenshots/",
+    "driver_script": "drive_bundles.py"
+  },
+  "raw_scores": {
+    "candidate-c": {"human_use_quality_mean_11": 4.27, "visual_information_clarity": 4},
+    "candidate-b": {"human_use_quality_mean_11": 3.64, "visual_information_clarity": 4},
+    "candidate-a": {"human_use_quality_mean_11": 2.73, "visual_information_clarity": 3}
+  },
+  "pairwise_preferences": [
+    {"pair": "candidate-c_vs_candidate-b", "preferred": "candidate-c", "confidence": "high"},
+    {"pair": "candidate-b_vs_candidate-a", "preferred": "candidate-b", "confidence": "high"},
+    {"pair": "candidate-c_vs_candidate-a", "preferred": "candidate-c", "confidence": "high"}
+  ],
+  "major_defects": {
+    "candidate-c": ["skip-link activation left focus at BODY (target lacks tabindex=-1)"],
+    "candidate-b": ["exact-fixture validation raises input_burden", "autocomplete='off' on every input", "double-radio ARIA anti-pattern on shipping"],
+    "candidate-a": ["card-name payment field persisted to localStorage across reloads", "no placementStarted guard on Place order during 500 ms busy window", "aria-live='assertive' misused for routine transitions", "hard-coded 500 ms placement delay"]
+  },
+  "page_errors_observed": {"candidate-a": 0, "candidate-b": 0, "candidate-c": 0},
+  "objective_gates_note": "All three candidates pass their frozen objective reports; qualitative scores are advisory and cannot override objective gates.",
+  "no_champion_selected": true,
+  "no_other_judge_output_read": true,
+  "blockers": [],
+  "notes": [
+    "Independent blind judge; no other-judge output read.",
+    "Bundles read only from generated/judging/blind-loop-01/candidate-{a,b,c}/.",
+    "Each candidate operated in a separate fresh Playwright chromium context (mouse+touch 390x844 primary, keyboard-only, reduced-motion 390x844, and 320x568 viewports)."
+  ]
+}
+

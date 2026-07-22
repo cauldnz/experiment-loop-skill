@@ -1,0 +1,135 @@
+{
+  "candidate": "candidate-c",
+  "loop": "loop-02",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "scorer_id": "blind-human-use-panel",
+  "actual_model": "claude-opus-4.7",
+  "criterion_id": "human-use-quality",
+  "objective_gate": false,
+  "kind": "qualitative_rubric",
+  "raw_score_mean_11_lenses": 3.0,
+  "visual_information_clarity": 3,
+  "lens_findings": {
+    "discoverability": {
+      "score": 3,
+      "finding": "Accordion pattern with numbered card headers (1. Contact, 2. Delivery Address, 3. Shipping Method, 4. Synthetic Payment) plus Incomplete/Complete pill badges makes overall structure discoverable. However there is no skip link, no <nav> landmark, no progress indicator, and no inline synthetic-value hints beyond a single 'e.g., Alex Morgan' example on Full Name. First-time cross-disability users have only the visible headings to orient by.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png",
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[semantic_snapshot]"
+      ]
+    },
+    "navigation": {
+      "score": 3,
+      "finding": "Keyboard tour of 25 focusables enumerated a logical order (contact fields → contact continue → address header → address fields → shipping options → payment → review checkbox → place order). Accordion headers are proper <button aria-expanded> and expose the correct hidden state via aria-controls. But no skip link and no <nav> landmark; screen-reader users must Tab through the synthetic banner and every field to reach the primary action. Edit Address / Edit Shipping / Edit Payment buttons appear late in the tab order.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[keyboard_focus_order]",
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[semantic_snapshot].data.skipLink"
+      ]
+    },
+    "input_burden": {
+      "score": 3,
+      "finding": "Fields are individually labelled with a persistent 'Required. Enter your full name (e.g., Alex Morgan)' hint per field, autocomplete attributes set. Per-card Continue button focuses the next section. However each section requires an extra Continue click even when fields are complete, and there is no inline preload/hint for the synthetic card/expiry/CVV values, so a low-vision or cognitively burdened user must invent them.",
+      "evidence_refs": [
+        "blind-loop-02/candidate-c/index.html",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/initial.png"
+      ]
+    },
+    "error_prevention_recovery": {
+      "score": 3,
+      "finding": "Empty submit produced a role=alert error summary titled 'There is a problem' listing every missing field individually ('Full Name: Please enter a value', 'Email Address: Please enter a value', etc.) and moved focus to the alert div. Values are preserved and can be corrected inline. Weaknesses: no section grouping in the summary (12 identical 'Please enter a value' lines is high cognitive load); no jump-to-field links from the summary; error message copy is generic; no reassurance that existing entries are preserved.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[empty_submit_state]",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/empty-submit.png"
+      ]
+    },
+    "feedback_status": {
+      "score": 2,
+      "finding": "aria-live=polite status region exists and updates ('There are errors in the form. Please correct them to proceed.'), aria-busy toggles on submit, and card headers auto-update to Complete when fields validate. Material defect: the review checkbox silently unchecks on every non-checkbox input change (see app.js resetting reviewCheckbox.checked=false whenever any other input fires input/change). No status announcement, no field-level highlight — a screen-reader user who returns to a completed section to edit will not know the review acknowledgement was invalidated. In my run the form reported 'errors in the form' even after every card said Complete and the review box was ticked, meaning users can be left in a state where the form claims errors without indicating which ones.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[confirmation_state]",
+        "blind-loop-02/candidate-c/app.js"
+      ]
+    },
+    "accessibility": {
+      "score": 3,
+      "finding": "Named form controls with visible <label for>, aria-describedby help text, role=alert error summary with tabindex=-1, aria-expanded/aria-controls on section headers, aria-live=polite status region, hidden state toggled via .hidden class matching aria-expanded. Focus outline is a very high-contrast solid 4px black on every focusable — excellent visible focus. Weaknesses: no <nav>/<header> landmarks (only <main>), no skip link, review-confirmation checkbox has no aria-live announcement when it is silently reset.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[keyboard_focus_order]",
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[semantic_snapshot]"
+      ]
+    },
+    "responsive_touch_ergonomics": {
+      "score": 4,
+      "finding": "No horizontal overflow at 320x568, 360x800, or 390x844 (docW == winW in every walk). Tap targets are visually large — thick black-outlined buttons with generous padding, radio labels with full-row hit area. Objective 24x24 gate passes per the frozen harness report. Compact bold visual style keeps target areas obvious on all three widths.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[viewport]",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-320x568.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-360x800.png",
+        "judging/loop-02/judge-human-use/screenshots/candidate-c/viewport-390x844.png"
+      ]
+    },
+    "interruption_resumption": {
+      "score": 4,
+      "finding": "localStorage key 'northstar-checkout-progress' persists contact-name/email/phone, address-line1/city/state/postcode/country, and shipping-method. loadProgress explicitly excludes card-number/expiry/security/name — I inspected localStorage and sessionStorage after a mid-flow reload and no '4111' substring appears anywhere (cardInStorage:false). After reload, contact and address values were restored and card fields were empty. Payment privacy invariant is honoured.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[pre_reload_storage]",
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[post_reload_state]"
+      ]
+    },
+    "latency_perception": {
+      "score": 3,
+      "finding": "On submit the code sets submitBtn.disabled=true, aria-busy='true' on the checkout root, and statusRegion 'Processing your order...' before rendering the confirmation. This is programmatically correct. In my run the form's own validation rejected submission ('There are errors in the form. Please correct them to proceed.') even after every card showed Complete and the review checkbox was ticked, so the busy state and confirmation region text 'Confirmation ID:' remained un-populated (SYN-2048 count was 0). Objective harness reports pass, so completion is achievable under the frozen fixture, but a real user hitting the same silent-reset pattern would experience unpredictable latency/completion feedback.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[confirmation_state]",
+        "blind-loop-02/candidate-c/app.js"
+      ]
+    },
+    "destructive_actions": {
+      "score": 3,
+      "finding": "Duplicate submit is guarded by a placementStarted flag plus submitBtn.disabled=true. A review-confirmation checkbox must be ticked before Place order is accepted. Edit-Contact/Address/Shipping/Payment buttons in the review card let users go back without losing data. Weaknesses: the review checkbox silently unchecks whenever any other input fires input/change — the pattern is destructive-safe but confusing (users may re-tick and re-submit without realising a subsequent stray focus/blur invalidated it again). There is no explicit clear-progress action, so users cannot deliberately clear saved state.",
+      "evidence_refs": [
+        "blind-loop-02/candidate-c/app.js",
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[duplicate_submit_attempted]"
+      ]
+    },
+    "cognitive_load": {
+      "score": 2,
+      "finding": "Accordion-only pattern hides most of the checkout at any moment, forcing a step-by-step mental model with no persistent progress indicator. The empty-submit error summary dumps 12 near-identical 'Please enter a value' rows without section grouping. There is no visible reassurance that entries are preserved during correction, no synthetic-value preload for card/expiry/CVV (a mild burden for testers), and the silent review-checkbox reset creates a hidden state machine users must model themselves. Load is materially higher than either alternative.",
+      "evidence_refs": [
+        "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[empty_submit_state]",
+        "blind-loop-02/candidate-c/app.js"
+      ]
+    }
+  },
+  "strengths": [
+    "Very strong 4px solid-black visible focus outline (works on any background)",
+    "Correct aria-expanded/aria-controls accordion semantics matching actual hidden state",
+    "Verbose per-field error listing on empty submit with focus moved to the alert",
+    "Card fields fully excluded from localStorage; safe non-sensitive resume",
+    "No horizontal overflow at any of the three frozen viewports",
+    "Deterministic aria-busy + 'Processing your order...' + explicit Place order button"
+  ],
+  "defects": [
+    "No skip link and no <nav>/<header> landmarks — cross-disability navigation is materially harder",
+    "Review checkbox silently unchecks on any non-checkbox input change, with no visible or announced feedback (breaks feedback_status and cognitive_load)",
+    "Empty-submit summary is a 12-item flat list with no section grouping, jump-to-field links, or 'entries preserved' reassurance",
+    "No synthetic-value preload for card/expiry/CVV; testers must invent inputs a real user would not need to invent",
+    "Place order can reject with a generic status ('There are errors in the form.') while every section badge reads Complete, leaving users without a signal of which field failed"
+  ],
+  "uncertainty": [
+    "My automated fill dispatches input/change events in bursts; the review-checkbox reset behaviour combined with rapid event ordering may have produced a validation state a slow human typist would not reach. Objective harness reports pass, so completion is achievable — but the underlying silent-reset pattern is still a real UX defect."
+  ],
+  "console_errors": 0,
+  "page_errors": 0,
+  "synthesis_recommendation": {
+    "action": "reject_pattern",
+    "rationale": "The silent review-checkbox reset on any input change is the strongest single reason to reject this candidate's submission-gating pattern for the synthesis. The accordion structure itself is acceptable and the focus outline is worth adopting, but the submission state machine as written creates a hidden failure mode that violates the feedback_status invariant and is unsafe for cognitively burdened or screen-reader users.",
+    "evidence_refs": [
+      "blind-loop-02/candidate-c/app.js",
+      "judging/loop-02/judge-human-use/navigation-transcript-c.json#steps[confirmation_state]"
+    ]
+  }
+}

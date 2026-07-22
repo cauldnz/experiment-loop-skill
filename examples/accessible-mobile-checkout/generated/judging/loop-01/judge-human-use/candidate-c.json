@@ -1,0 +1,66 @@
+{
+  "candidate_id": "candidate-c",
+  "loop": "loop-01",
+  "judge": "judge-human-use",
+  "judge_model": "claude-opus-4.7",
+  "judged_at": "2026-07-21T17:36:00+10:00",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "objective_gate_note": "All seven objective gates pass per generated/judging/blind-loop-01/candidate-c/evidence/objective-report.json. Qualitative human-use scores are not objective gates and are not used to override them.",
+  "operation_evidence": {
+    "navigation_transcript": "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json",
+    "screenshots_dir": "generated/judging/loop-01/judge-human-use/screenshots/candidate-c/",
+    "runtime_errors_observed": 0,
+    "console_messages_observed": 0
+  },
+  "lens_scores": {
+    "discoverability": 4,
+    "navigation": 4,
+    "input_burden": 4,
+    "error_prevention_recovery": 4,
+    "feedback_status": 5,
+    "accessibility": 4,
+    "responsive_touch_ergonomics": 4,
+    "interruption_resumption": 5,
+    "latency_perception": 4,
+    "destructive_actions": 4,
+    "cognitive_load": 5
+  },
+  "human_use_quality_mean_11": 4.27,
+  "visual_information_clarity": 4,
+  "lens_findings": {
+    "discoverability": "Progress stepper (aria-valuetext narrated), persistent Order summary with shipping method and totals, banner disclosing synthetic scope, and 'Continue to delivery address' button label make the flow obvious. Slight friction: shipping selection lives in the aside not the wizard body, so users who ignore the summary card may not know when it was set. Evidence: screenshots/candidate-c/01-initial-390x844.png; navigation-transcript-c.json audit landmarks/headings extra.",
+    "navigation": "Wizard exposes exactly one active Continue at a time; Back per step; Edit buttons on review jump back to the correct step and focus its heading (tabindex=-1). Skip-link 'Skip to checkout steps' is the first Tab stop, but pressing Enter left the active element at BODY rather than the wizard-form target (skip target lacks tabindex=-1), so screen-reader users may not perceive the jump. Evidence: transcript entries 'keyboard: first Tab focus' and 'keyboard: activated skip-link'.",
+    "input_burden": "Autocomplete tokens present on every input; validation is tolerant (any 4-digit postcode, any 12–19 digit card number, generic phone). Explicit 'Save progress' and 'Clear saved progress' buttons let users pause. Wizard grouping keeps at most 3–5 fields visible at once. Evidence: candidate-c/app.js fieldMessage(); screenshots/candidate-c/05-review-filled.png.",
+    "error_prevention_recovery": "Per-field aria-invalid + aria-describedby chained to help+error; error summary lists each problem as a button that navigates back to the offending step and focuses the field. Continue past step with residual errors uses a nuanced status ('N item(s) still need attention — you can continue now and fix them before placing your order') so users are never blocked by partial validity. Evidence: candidate-c/app.js renderErrorSummary, handleContinue.",
+    "feedback_status": "Polite aria-live status region receives running updates ('Step X complete', 'Placing your order…', 'Order placed. Confirmation SYN-2048.', 'Resumed your saved progress…'). aria-busy on Place order during placement. Progress bar aria-valuetext narrates each step. Evidence: transcript entries 'confirmation state' + 'reduced-motion: completed flow'; candidate-c/index.html progressbar role.",
+    "accessibility": "Native semantics (fieldset/legend, labels-for, submit form); pending steps set aria-hidden=true and children tabindex=-1 so they are cleanly out of the reading and tab order; H1 present, one main landmark and aside for summary; role='progressbar' with narrated aria-valuetext. Focus is moved to the placed order confirmation. Minor issue: skip-link Enter left focus at BODY (target lacks tabindex=-1). radio-row labels carry tabindex='-1' which is unusual but not harmful. No custom radio role over real radio inputs. Evidence: transcript 'audit landmarks/headings' and 'keyboard: activated skip-link'.",
+    "responsive_touch_ergonomics": "At 390x844 and 320x568, no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Continue/Back buttons are large, radio rows span the full width, and the primary CTA has generous padding. Mobile-touch objective gate passes independently.",
+    "interruption_resumption": "Explicit Save progress control + auto-persist on input; hydrateFromStorage restores field values, step position, and shipping method; announces 'Resumed your saved progress. Payment details are never saved and must be re-entered.' On reload, payment fields (card-number/expiry/security/name) all cleared to empty (transcript 'reload persistence check' extra shows payment: null across all four). Clear saved progress button provides a deliberate reset path.",
+    "latency_perception": "Placement setTimeout is 120 ms; aria-busy set on Place order, status announces 'Placing your order…' immediately. Perceived latency is short and narrated. Reduced-motion path still succeeds and produces SYN-2048.",
+    "destructive_actions": "Two destructive controls exist: Clear saved progress (reloads the page after wipe) and repeated Place order. Place order is guarded by state.orderPlaced flag and sets aria-disabled=true after first success — repeated activations produced exactly one SYN-2048 (transcript 'duplicate-safety report' confIds: ['SYN-2048'], placeOrderAriaDisabled: 'true'). Clear saved progress has no confirm dialog or undo, but its label is unambiguous and payment data was never stored to lose.",
+    "cognitive_load": "One task per view with clear title, help text under each field, a persistent visible summary and progress. Review step reprints every entered value ('Alex Morgan · alex.morgan@example.invalid · +61 400 000 000', '42 Fiction Lane, Sampleton NSW 2000, Australia', 'Synthetic card ending 1111, expires 12/34') so the user can verify without scrolling. Evidence: transcript 'review content' extra."
+  },
+  "strengths": [
+    "Wizard grouping keeps working memory low and gives explicit control ('Continue', 'Back', 'Edit', 'Save progress').",
+    "Review step reprints every field verbatim, including a card-masked last-4 that still confirms entry without exposing the full PAN.",
+    "Interruption resumption is the strongest of the three: explicit save/clear controls, restored step position, and status message about payment non-persistence.",
+    "Progress bar with aria-valuetext narration is the clearest orientation cue for screen-reader users."
+  ],
+  "defects": [
+    {"severity": "minor", "lens": "navigation", "finding": "Skip-link target (#wizard-form) lacks tabindex=-1 so activation left document.activeElement at BODY; assistive-tech users may not perceive the jump."},
+    {"severity": "minor", "lens": "discoverability", "finding": "Shipping method lives inside the Order summary aside rather than a wizard step; users focused on the wizard body may not realise when it was chosen."},
+    {"severity": "cosmetic", "lens": "accessibility", "finding": "radio-row labels carry tabindex='-1' which is unusual pattern; harmless because the inner input remains focusable, but confusing to reviewers."}
+  ],
+  "uncertainty": [
+    "Blinded evidence; Track paradigm inferred from artifact behaviour only (wizard with progressive reveal).",
+    "Screen-reader announcement fidelity was not measured with an actual AT; findings rely on ARIA attributes, live regions, and focus movement observed via Playwright."
+  ],
+  "loop_02_recommendation": {
+    "priority": "medium",
+    "change": "Add tabindex='-1' to #wizard-form (or move the skip target to the first step heading) so activating the skip-link moves programmatic focus and screen-reader position, and consider narrating shipping-method changes in the polite status region so wizard-focused users know when Standard/Express is selected.",
+    "evidence_ref": "generated/judging/loop-01/judge-human-use/navigation-transcript-c.json entries 'keyboard: first Tab focus' and 'keyboard: activated skip-link'"
+  }
+}

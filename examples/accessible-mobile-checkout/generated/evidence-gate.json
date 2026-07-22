@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "run_dir": ".",
+  "status": "pass",
+  "checks": [
+    {
+      "name": "manifest_parse",
+      "status": "pass",
+      "detail": {},
+      "required": true
+    },
+    {
+      "name": "manifest_schema",
+      "status": "pass",
+      "detail": {
+        "schema_version": "1.1"
+      },
+      "required": true
+    },
+    {
+      "name": "manifest_semantics",
+      "status": "pass",
+      "detail": {
+        "tracks": 4,
+        "loops": 8,
+        "champion": "synthesis-loop-02"
+      },
+      "required": true
+    },
+    {
+      "name": "artifact_integrity",
+      "status": "pass",
+      "detail": {
+        "checked": 485
+      },
+      "required": true
+    },
+    {
+      "name": "viewer_present",
+      "status": "pass",
+      "detail": {
+        "bytes": 11340875
+      },
+      "required": true
+    },
+    {
+      "name": "viewer_determinism",
+      "status": "pass",
+      "detail": {
+        "sha256": "8e9d53b6bd623705905a488f0c57210c3ebdfbd5fd1ef3bbb237d2c47330e952",
+        "bytes": 11340875
+      },
+      "required": true
+    },
+    {
+      "name": "viewer_static",
+      "status": "pass",
+      "detail": {
+        "checks": [
+          "self_contained",
+          "embedded_json",
+          "javascript",
+          "links",
+          "accessibility"
+        ]
+      },
+      "required": true
+    },
+    {
+      "name": "navigation_evidence",
+      "status": "pass",
+      "detail": {
+        "viewer_sha256": "8e9d53b6bd623705905a488f0c57210c3ebdfbd5fd1ef3bbb237d2c47330e952",
+        "browser": {
+          "name": "chromium",
+          "version": "149.0.7827.55",
+          "playwright": "1.61.1"
+        }
+      },
+      "required": true
+    }
+  ]
+}

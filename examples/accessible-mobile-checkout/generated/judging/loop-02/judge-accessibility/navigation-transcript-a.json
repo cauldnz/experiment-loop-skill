@@ -1,0 +1,455 @@
+{
+  "candidate": "candidate-a",
+  "fresh_context": true,
+  "actions": [
+    {
+      "action": "keyboard-and-collapsed-exposure",
+      "outcome": "checked",
+      "result": [
+        {
+          "key": "Tab",
+          "focus": {
+            "id": "",
+            "tag": "A",
+            "text": "Skip to checkout form"
+          }
+        },
+        {
+          "key": "Enter",
+          "focus": ""
+        },
+        {
+          "key": "Tab x45",
+          "focus": {
+            "id": "review-confirmation",
+            "hidden": false,
+            "tabindex": null
+          }
+        },
+        {
+          "key": "Shift+Tab",
+          "focus": ""
+        }
+      ]
+    },
+    {
+      "action": "empty-submit",
+      "outcome": "error-state"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-name"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-email"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-phone"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-line1"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-city"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-state"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-postcode"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-country"
+    },
+    {
+      "action": "shipping",
+      "outcome": "express-selected"
+    },
+    {
+      "action": "reload-resume",
+      "outcome": "checked",
+      "contact_restored": "Alex Morgan",
+      "payment_empty": true
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-name"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-email"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-phone"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-line1"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-city"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-state"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-postcode"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-country"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-number"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-expiry"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-security"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-name"
+    },
+    {
+      "action": "compact-completed",
+      "outcome": "activated"
+    },
+    {
+      "action": "edit-review",
+      "outcome": "contact-opened"
+    },
+    {
+      "action": "duplicate-submit",
+      "outcome": "checked",
+      "confirmation_count": 1
+    }
+  ],
+  "console_errors": [],
+  "page_errors": [],
+  "screenshots": [
+    "judging/loop-02/judge-accessibility/screenshots/candidate-a/initial.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-a/error.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-a/confirmation.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-a/viewport-320x568.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-a/viewport-360x800.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-a/viewport-390x844.png"
+  ],
+  "keyboard": [
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "",
+        "tag": "A",
+        "text": "Skip to checkout form"
+      }
+    },
+    {
+      "key": "Enter",
+      "focus": ""
+    },
+    {
+      "key": "Tab x45",
+      "focus": {
+        "id": "review-confirmation",
+        "hidden": false,
+        "tabindex": null
+      }
+    },
+    {
+      "key": "Shift+Tab",
+      "focus": ""
+    }
+  ],
+  "viewport_motion": [
+    {
+      "viewport": "320x568",
+      "scroll_width": 320,
+      "client_width": 320
+    },
+    {
+      "viewport": "360x800",
+      "scroll_width": 360,
+      "client_width": 360
+    },
+    {
+      "viewport": "390x844",
+      "scroll_width": 390,
+      "client_width": 390
+    }
+  ],
+  "resume": {
+    "contact_restored": "Alex Morgan",
+    "payment_empty": true
+  },
+  "confirmation_count": 1,
+  "reduced_motion": {
+    "matches": true,
+    "long_duration": 0
+  },
+  "supplemental_checks": {
+    "compacted_keyboard_focuses": [
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "review-confirmation",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "order-title",
+        "hidden": false
+      },
+      {
+        "id": "compact-completed",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "review-confirmation",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "order-title",
+        "hidden": false
+      },
+      {
+        "id": "compact-completed",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "review-confirmation",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      },
+      {
+        "id": "order-title",
+        "hidden": false
+      },
+      {
+        "id": "compact-completed",
+        "hidden": false
+      },
+      {
+        "id": "",
+        "hidden": false
+      }
+    ],
+    "hidden_focus_count": 0
+  },
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  }
+}

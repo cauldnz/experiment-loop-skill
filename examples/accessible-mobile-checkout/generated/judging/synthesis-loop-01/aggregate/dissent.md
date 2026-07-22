@@ -1,0 +1,3 @@
+# Synthesis Loop 01 panel dissent
+
+Both judges support the synthesis direction, but they emphasize different remaining defects. The accessibility judge observed that activating the skip link changes the fragment while leaving focus on `BODY`, and noted exact-minimum targets and initial density. The human-use judge scored the candidate more highly but identified compact mode defaulting off, premature Shipping `Complete` status, and placement state not surviving reload. Synthesis Loop 02 must address all evidence-backed findings without changing the one-page paradigm or weakening objective gates.

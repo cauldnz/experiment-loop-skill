@@ -1,0 +1,53 @@
+{
+  "judge_id": "blind-human-use-panel:judge-human-use",
+  "loop": "loop-02",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "state": "complete",
+  "started_at": "2026-07-21T18:22:53+10:00",
+  "ended_at": "2026-07-21T19:00:00+10:00",
+  "evaluation_order": ["candidate-c", "candidate-b", "candidate-a"],
+  "actual_model_used": "claude-opus-4.7",
+  "raw_scores": {
+    "candidate-c": {"mean_11_lenses": 3.0, "visual_information_clarity": 3},
+    "candidate-b": {"mean_11_lenses": 4.09, "visual_information_clarity": 4},
+    "candidate-a": {"mean_11_lenses": 4.91, "visual_information_clarity": 5}
+  },
+  "overall_ranking_by_this_judge": ["candidate-a", "candidate-b", "candidate-c"],
+  "pairwise_preferences": {
+    "c_vs_b": "candidate-b",
+    "b_vs_a": "candidate-a",
+    "c_vs_a": "candidate-a"
+  },
+  "artifacts": [
+    "status.json",
+    "candidate-a.json", "candidate-a.md",
+    "candidate-b.json", "candidate-b.md",
+    "candidate-c.json", "candidate-c.md",
+    "navigation-transcript-a.json",
+    "navigation-transcript-b.json",
+    "navigation-transcript-c.json",
+    "pairwise.json", "pairwise.md",
+    "manifest-ready.json",
+    "judge-prompt.md",
+    "screenshots/candidate-a/*.png",
+    "screenshots/candidate-b/*.png",
+    "screenshots/candidate-c/*.png"
+  ],
+  "heartbeats": [
+    {"timestamp": "2026-07-21T18:22:53+10:00", "note": "initialized status; identity-free bundles enumerated; playwright available"},
+    {"timestamp": "2026-07-21T18:37:52+10:00", "note": "candidate-c operator run complete; viewport walk, keyboard tour, reload, reduced motion collected"},
+    {"timestamp": "2026-07-21T18:40:32+10:00", "note": "candidate-b operator run complete; SYN-2048 confirmed; card excluded from storage"},
+    {"timestamp": "2026-07-21T18:42:30+10:00", "note": "candidate-a operator run complete; SYN-2048 confirmed; duplicate place-order button was removed post-submit"},
+    {"timestamp": "2026-07-21T19:00:00+10:00", "note": "manifest-ready, pairwise, candidate-*.json/.md, judge-prompt.md written; terminal state"}
+  ],
+  "major_defects_summary": [
+    "candidate-c: silent review-checkbox reset on any non-checkbox input change; missing skip link and landmark diversity; flat 12-row generic error dump; my run left in unrecoverable 'errors in the form' state",
+    "candidate-b: only <main> landmark; shipping fieldset inside order-summary <aside>; no preloaded fictional-card hints; skip target is #wizard-form rather than first step heading",
+    "candidate-a: removing Place order from the DOM after submit may surprise repeat users (minor); payment hint literally reveals fictional card number (appropriate for demo, not for real checkout)"
+  ],
+  "blockers": [],
+  "note": "No other judge notes, no orchestrator map, and no identity map were read. Write scope was limited to judge-human-use/**. Objective harness and its reports were not modified or rerun."
+}

@@ -1,0 +1,206 @@
+{
+  "candidate": "candidate-b",
+  "fresh_context": true,
+  "actions": [
+    {
+      "action": "keyboard-and-collapsed-exposure",
+      "outcome": "checked",
+      "result": [
+        {
+          "key": "Tab",
+          "focus": {
+            "id": "",
+            "tag": "A",
+            "text": "Skip to checkout steps"
+          }
+        },
+        {
+          "key": "Enter",
+          "focus": ""
+        },
+        {
+          "key": "Tab x45",
+          "focus": {
+            "id": "",
+            "hidden": false,
+            "tabindex": null
+          }
+        },
+        {
+          "key": "Shift+Tab",
+          "focus": ""
+        }
+      ]
+    },
+    {
+      "action": "empty-step",
+      "outcome": "error-state"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-name"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-email"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-phone"
+    },
+    {
+      "action": "reload-resume",
+      "outcome": "checked",
+      "contact_restored": "Alex Morgan",
+      "payment_empty": true
+    },
+    {
+      "action": "clear-progress",
+      "outcome": "confirmation-and-cancel-tested"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-name"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-email"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "contact-phone"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-line1"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-city"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-state"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-postcode"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "address-country"
+    },
+    {
+      "action": "back",
+      "outcome": "activated"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-number"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-expiry"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-security"
+    },
+    {
+      "action": "fill",
+      "outcome": "entered",
+      "field": "card-name"
+    },
+    {
+      "action": "edit-review",
+      "outcome": "contact-opened"
+    },
+    {
+      "action": "duplicate-submit",
+      "outcome": "checked",
+      "confirmation_count": 1
+    }
+  ],
+  "console_errors": [],
+  "page_errors": [],
+  "screenshots": [
+    "judging/loop-02/judge-accessibility/screenshots/candidate-b/initial.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-b/error.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-b/clear-progress-confirmation.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-b/confirmation.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-b/viewport-320x568.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-b/viewport-360x800.png",
+    "judging/loop-02/judge-accessibility/screenshots/candidate-b/viewport-390x844.png"
+  ],
+  "keyboard": [
+    {
+      "key": "Tab",
+      "focus": {
+        "id": "",
+        "tag": "A",
+        "text": "Skip to checkout steps"
+      }
+    },
+    {
+      "key": "Enter",
+      "focus": ""
+    },
+    {
+      "key": "Tab x45",
+      "focus": {
+        "id": "",
+        "hidden": false,
+        "tabindex": null
+      }
+    },
+    {
+      "key": "Shift+Tab",
+      "focus": ""
+    }
+  ],
+  "viewport_motion": [
+    {
+      "viewport": "320x568",
+      "scroll_width": 320,
+      "client_width": 320
+    },
+    {
+      "viewport": "360x800",
+      "scroll_width": 360,
+      "client_width": 360
+    },
+    {
+      "viewport": "390x844",
+      "scroll_width": 390,
+      "client_width": 390
+    }
+  ],
+  "resume": {
+    "contact_restored": "Alex Morgan",
+    "payment_empty": true
+  },
+  "confirmation_count": 1,
+  "reduced_motion": {
+    "matches": true,
+    "long_duration": 0
+  },
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  }
+}

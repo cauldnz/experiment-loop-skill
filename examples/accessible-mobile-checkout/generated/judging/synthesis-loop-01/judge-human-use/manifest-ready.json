@@ -1,0 +1,102 @@
+{
+  "schema_version": "1.1",
+  "record_type": "judging_evidence",
+  "loop_id": "synthesis-loop-01",
+  "candidate_label": "candidate-a",
+  "iteration_id": "synthesis-loop-01",
+  "track_id": "synthesis",
+  "judge_id": "judge-human-use",
+  "judge_role": "judge-human-use",
+  "judge_model_role": "judge-human-use",
+  "judge_model": "claude-opus-4.7",
+  "actual_model": "claude-opus-4.7",
+  "fallback_used": false,
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "scores": {
+    "discoverability": 5,
+    "navigation": 5,
+    "input_burden": 5,
+    "error_prevention_recovery": 5,
+    "feedback_status": 5,
+    "accessibility": 5,
+    "responsive_touch_ergonomics": 5,
+    "interruption_resumption": 5,
+    "latency_perception": 5,
+    "destructive_actions": 5,
+    "cognitive_load": 4
+  },
+  "visual_information_clarity": 5,
+  "unrounded_mean_of_11_lenses": 4.909090909090909,
+  "findings": {
+    "strengths": [
+      "Landmark trio + skip link + section-nav + progressbar cover discoverability more than once, without duplication.",
+      "Section-grouped error summary with per-group counts, preserved-values reassurance, and a details/summary full list.",
+      "`hidden` on collapsed content — 0 hidden-ancestor focus leaks across 40 Tab presses in compact mode.",
+      "Two-step Clear-saved-progress with Cancel-focused-by-default, Escape dismissal, and unmodified storage on cancel.",
+      "Payment secrets absent from localStorage; safe-only restoration on reload with a status announcement.",
+      "Duplicate placement blocked by both the disabled button and an idempotency guard on submit; dispatchEvent(submit) after confirmation did not double-fire.",
+      "Zero external network requests across a full realistic journey plus a reload."
+    ],
+    "defects": [
+      {"severity": "minor", "lens": "cognitive_load", "description": "compact-completed off by default; dense first view on 390x844."},
+      {"severity": "minor", "lens": "cognitive_load", "description": "Shipping badge reads 'Complete' from initial load because Standard is preselected."},
+      {"severity": "minor", "lens": "destructive_actions", "description": "Placed-flag not persisted; after a successful submit and a reload Place order re-enables."}
+    ],
+    "uncertainty": [
+      "Screen-reader speech ordering not directly captured; conclusions about live-region ordering inferred from DOM state.",
+      "Visible-focus contrast against every background not measured pixel-by-pixel; objective harness contrast check accepted.",
+      "Compact-completed disclosure not stress-tested under repeated toggling."
+    ],
+    "residual_friction": [
+      "Dense first-view on 390x844 without compact-on default.",
+      "Non-user-actioned Shipping 'Complete' label may mislead.",
+      "Placed-flag does not survive reload."
+    ]
+  },
+  "evidence_refs": [
+    "judging/synthesis-loop-01/judge-human-use/candidate-a.json",
+    "judging/synthesis-loop-01/judge-human-use/candidate-a.md",
+    "judging/synthesis-loop-01/judge-human-use/navigation-transcript-a.json",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/01-initial-390x844.png",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/02-empty-submit-error-summary.png",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/03-error-recovery-invalid-postcode.png",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/04-compact-completed-on.png",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/05-edit-compact-section.png",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/06-clear-confirm-dialog.png",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/07-review-required-error.png",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/08-confirmation-SYN-2048.png",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/09-post-reload-restored.png",
+    "judging/synthesis-loop-01/judge-human-use/screenshots/10-after-clear-confirmed.png",
+    "judging/synthesis-loop-01/judge-human-use/logs/landmarks.json",
+    "judging/synthesis-loop-01/judge-human-use/logs/tab-order.json",
+    "judging/synthesis-loop-01/judge-human-use/logs/tab-order-compact.json",
+    "judging/synthesis-loop-01/judge-human-use/logs/touch-targets.json",
+    "judging/synthesis-loop-01/judge-human-use/logs/console.json",
+    "judging/synthesis-loop-01/judge-human-use/logs/network.json"
+  ],
+  "objective_gate_ack": {
+    "source_report": "synthesis/loop-01/evidence/objective-report.json",
+    "all_gates_passed": true,
+    "failed_gate_ids": [],
+    "external_requests": 0,
+    "harness_rerun": false
+  },
+  "feedback": {
+    "target_iteration_id": "synthesis-loop-02",
+    "improvement_instruction": "Reduce residual cognitive load at 390x844 without introducing wizard steps or making collapsed content keyboard-focusable. (1) Default compact-completed to ON when the safe-restore ledger records any completed section, and persist the user's preference in the ledger so revisits keep it. (2) Change the initial Shipping badge from 'Complete' to a user-neutral 'Default selected: Standard' (or 'Ready to review') until the user has focused or changed the choice; keep 'Complete' once the user has acknowledged shipping. (3) Persist a placed-flag in the safe-restore ledger so a post-confirmation reload keeps Place order disabled with a 'This synthetic order was already placed as SYN-2048.' banner. Do not persist payment secrets; do not weaken any harness gate.",
+    "evidence_refs": [
+      "judging/synthesis-loop-01/judge-human-use/screenshots/01-initial-390x844.png",
+      "judging/synthesis-loop-01/judge-human-use/screenshots/04-compact-completed-on.png",
+      "judging/synthesis-loop-01/judge-human-use/navigation-transcript-a.json"
+    ]
+  },
+  "pairwise": {
+    "deferred": true,
+    "reason": "Only one synthesis candidate is present in Synthesis Loop 01; pairwise is deferred until Synthesis Loop 02 or final Champion-vs-strongest-parent comparison."
+  },
+  "champion_claim": null,
+  "notes": "No Champion is claimed by this judge. Generator identity and parent labels were ignored during scoring. The sibling judge-accessibility directory was not read."
+}

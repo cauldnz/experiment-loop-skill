@@ -1,0 +1,456 @@
+/* Northstar Goods — Synthetic checkout demonstration (Resumable Wizard)
+   All colors chosen to keep normal text >= 4.5:1, large text/non-text/focus >= 3:1
+   against their backgrounds. No CSS transitions or animations are used anywhere,
+   so behavior is identical regardless of prefers-reduced-motion. */
+
+:root {
+  --ink: #101828;
+  --ink-muted: #3f4a5a;
+  --bg: #ffffff;
+  --bg-alt: #f3f5f7;
+  --border: #6b7684;
+  --accent: #163a2c;
+  --accent-contrast: #ffffff;
+  --error: #7a1913;
+  --error-bg: #fdeceb;
+  --focus-ring: #10243e;
+  --banner-bg: #fdf3d8;
+  --banner-ink: #5a4200;
+}
+
+* {
+  box-sizing: border-box;
+  transition: none;
+  animation: none;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+body {
+  padding-bottom: 48px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: -100px;
+  background: var(--ink);
+  color: #ffffff;
+  padding: 12px 16px;
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+main {
+  display: block;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+h1, h2, h3 {
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: 1.25rem;
+  margin: 0 0 8px;
+}
+
+h2:focus {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 3px;
+}
+
+h3 {
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 4px;
+}
+
+p {
+  margin: 0 0 8px;
+}
+
+.banner {
+  background: var(--banner-bg);
+  color: var(--banner-ink);
+  border: 1px solid #c7a54d;
+  padding: 12px;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+.progress {
+  margin: 16px 0;
+}
+
+.progress-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.progress-step {
+  flex: 1 1 auto;
+  min-width: 70px;
+  text-align: center;
+  padding: 8px 4px;
+  border: 2px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.progress-step .step-num {
+  display: block;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.progress-step.is-current {
+  border-color: var(--accent);
+  background: var(--bg-alt);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.progress-step.is-complete {
+  border-style: solid;
+  border-color: var(--ink-muted);
+}
+
+.status-region {
+  min-height: 1.5em;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 8px 0;
+}
+
+.status-region:not(:empty) {
+  border-left: 4px solid var(--accent);
+  padding-left: 10px;
+}
+
+.order-summary {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 16px 0;
+}
+
+.order-summary h2 {
+  margin-top: 0;
+}
+
+.cart-lines {
+  list-style: none;
+  margin: 8px 0;
+  padding: 0;
+}
+
+.cart-lines li {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 12px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.item-name {
+  flex: 1 1 60%;
+}
+
+.totals {
+  margin: 12px 0 0;
+}
+
+.totals-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+}
+
+.totals-row dt, .totals-row dd {
+  margin: 0;
+}
+
+.total-row {
+  border-top: 2px solid var(--ink);
+  margin-top: 8px;
+  padding-top: 8px;
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.shipping-picker {
+  margin-top: 16px;
+}
+
+fieldset {
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 12px;
+  margin: 0 0 16px;
+}
+
+legend {
+  font-weight: 700;
+  padding: 0 6px;
+}
+
+.radio-row, .checkbox-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px 4px;
+  min-height: 24px;
+  cursor: pointer;
+}
+
+input[type="radio"], input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  accent-color: var(--accent);
+  flex-shrink: 0;
+}
+
+.wizard-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin: 8px 0 16px;
+}
+
+.link-button {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--ink);
+  text-decoration: underline;
+  font-size: 0.9rem;
+  padding: 8px 12px;
+  min-height: 24px;
+  min-width: 24px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.error-summary {
+  background: var(--error-bg);
+  border: 2px solid var(--error);
+  color: var(--error);
+  border-radius: 6px;
+  padding: 12px;
+  margin: 0 0 16px;
+}
+
+.error-summary-heading {
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.error-summary ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.error-link {
+  background: none;
+  border: none;
+  color: var(--error);
+  text-decoration: underline;
+  font: inherit;
+  padding: 6px 0;
+  min-height: 24px;
+  cursor: pointer;
+}
+
+.step {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  margin: 0 0 16px;
+}
+
+.step-pending {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  pointer-events: none;
+}
+
+.pending-control {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.step-intro {
+  color: var(--ink-muted);
+}
+
+.field-row {
+  margin: 0 0 16px;
+}
+
+.field-row-inline {
+  display: flex;
+  gap: 12px;
+}
+
+.field-half {
+  flex: 1 1 0;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+input[type="text"], input[type="email"], input[type="tel"] {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+.field-help {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+  margin: 4px 0 0;
+}
+
+.field-error {
+  color: var(--error);
+  font-size: 0.85rem;
+  font-weight: 700;
+  margin: 4px 0 0;
+}
+
+input[aria-invalid="true"] {
+  border-color: var(--error);
+  border-width: 2px;
+}
+
+.step-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.btn {
+  min-height: 44px;
+  min-width: 24px;
+  padding: 10px 18px;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+  border-color: var(--accent-contrast);
+}
+
+/* The dark green button background does not have enough contrast against
+   the site-wide dark-navy focus ring, so primary buttons use a light
+   focus outline instead — still a solid, visible outline, just recoloured
+   for this specific background. */
+.btn-primary:focus {
+  outline-color: var(--accent-contrast);
+}
+
+.btn-secondary {
+  background: var(--bg);
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn-place-order[aria-busy="true"] {
+  opacity: 0.85;
+}
+
+.btn-place-order[aria-disabled="true"] {
+  opacity: 0.7;
+}
+
+.review-block {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 0;
+}
+
+.review-block p {
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.confirmation {
+  border: 2px solid var(--accent);
+  background: var(--bg-alt);
+  border-radius: 8px;
+  padding: 16px;
+  margin-top: 16px;
+}
+
+.synthetic-note {
+  color: var(--ink-muted);
+  font-size: 0.85rem;
+}
+
+:focus {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+@media (max-width: 400px) {
+  main {
+    padding: 12px;
+  }
+
+  .progress-step {
+    min-width: 60px;
+    font-size: 0.72rem;
+  }
+
+  .field-row-inline {
+    flex-direction: column;
+  }
+}

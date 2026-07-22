@@ -1,0 +1,83 @@
+{
+  "role": "judge-human-use",
+  "scope": "final",
+  "experiment_id": "accessible-mobile-checkout",
+  "revision": 1,
+  "model": "claude-opus-4.7",
+  "produced_at": "2026-07-22T08:38:00+10:00",
+  "objective_pass_acknowledgement_all_three": true,
+  "harness_rerun": false,
+  "fixed_comparison_order": [
+    "candidate-c vs candidate-b",
+    "candidate-c vs candidate-a",
+    "candidate-b vs candidate-a"
+  ],
+  "note_on_ordering": "Comparison sequence with candidate-c first (then a) is the required final strongest-parent-versus-candidate ordering; it is flipped from the sibling judge who observed A then C. Ordering does not change the preferred candidate — that emerges from the observed friction differences.",
+  "comparisons": [
+    {
+      "pair": "candidate-c vs candidate-b",
+      "preferred": "candidate-b",
+      "confidence": "medium-high",
+      "objective_pass_acknowledgement": "Both candidates pass all seven gates as persisted; harness not rerun.",
+      "regression_assessment": "Neither candidate regresses on any of the seven objective gates. Compared to candidate-c, candidate-b adds an explicit Save-progress control, a Clear-progress destructive-safety dialog (Confirm + Cancel + Escape) and a progressbar landmark. Compared to candidate-b, candidate-c drops those features. No functional regression versus objective gates in either direction.",
+      "concrete_observed_rationale": [
+        "candidate-b exposes a progressbar landmark with valuenow/valuetext that surfaces where the user is in the flow; candidate-c has no progressbar landmark.",
+        "candidate-b provides an explicit Save-progress button with a live status announcement; candidate-c autosaves silently on input/change, so a user cannot deliberately verify that state was saved.",
+        "candidate-b offers a full Confirm + Cancel + Escape destructive-safety flow on Clear-saved-progress (Cancel default-focused, Escape dismisses, Confirm required); candidate-c offers no user-initiated Clear-progress affordance at all.",
+        "candidate-c has fewer controls overall (42 vs 47) which is a small cognitive-load win, but not large enough to offset the missing feedback and destructive-safety affordances."
+      ],
+      "uncertainty": "The cognitive-load advantage of candidate-c is real and could be preferred by users who dislike optional chrome; scoring reflects a modest but not overwhelming preference.",
+      "evidence_refs": [
+        "navigation-transcript-c.json (steps 16, 21, 28-29)",
+        "navigation-transcript-b.json (steps 16, 21, 22, 23, 30-31)",
+        "logs/c/landmarks.json (progressbar: 0)",
+        "logs/b/landmarks.json (progressbar: 1)"
+      ]
+    },
+    {
+      "pair": "candidate-c vs candidate-a",
+      "preferred": "candidate-a",
+      "confidence": "high",
+      "required_final_strongest_parent_versus_candidate": true,
+      "objective_pass_acknowledgement": "Both candidates pass all seven gates as persisted; harness not rerun.",
+      "regression_assessment": "Neither candidate regresses on any of the seven objective gates. Candidate-a additionally provides explicit Save-progress, a full Clear-progress destructive-safety flow, a progressbar landmark, and — uniquely among the three — preserves the confirmation region and keeps Place order disabled across a post-confirmation reload. Candidate-c is functionally lighter but drops those affordances.",
+      "concrete_observed_rationale": [
+        "candidate-a preserves duplicate-safety even across a browser reload: after successful placement, page.reload() still shows the confirmation region and Place order remains disabled (place_order_disabled=true, confirmation_visible=true after reload). candidate-c returns the form to editable state with Place order re-enabled after a reload.",
+        "candidate-a provides explicit Save-progress with live status announcement; candidate-c does not.",
+        "candidate-a provides a full Confirm + Cancel + Escape destructive-safety flow on Clear-saved-progress; candidate-c offers no user-initiated Clear-progress affordance at all.",
+        "candidate-a exposes a progressbar landmark; candidate-c has no progressbar landmark.",
+        "candidate-c's leaner UI is a real cognitive-load win but is materially outweighed by the additional interruption-safety, feedback and destructive-safety affordances in candidate-a."
+      ],
+      "uncertainty": "None material — the four observed friction gaps for candidate-c all touch on affordances the task brief actively probes.",
+      "evidence_refs": [
+        "navigation-transcript-a.json (steps 16, 21, 22, 23, 30-31)",
+        "navigation-transcript-c.json (steps 16, 21, 28-29)",
+        "logs/a/landmarks.json (progressbar: 1)",
+        "logs/c/landmarks.json (progressbar: 0)",
+        "candidate-a.json.observed_operation_summary.post_reload_state",
+        "candidate-c.json.observed_operation_summary.post_reload_state"
+      ],
+      "observed_pair_ordering_by_this_judge": "candidate-c then candidate-a (flipped from sibling judge who observed A then C); the flip is procedural and does not alter the preferred candidate."
+    },
+    {
+      "pair": "candidate-b vs candidate-a",
+      "preferred": "candidate-a",
+      "confidence": "medium",
+      "objective_pass_acknowledgement": "Both candidates pass all seven gates as persisted; harness not rerun.",
+      "regression_assessment": "Neither candidate regresses on any of the seven objective gates. Candidate-a and candidate-b are structurally very similar; the observed difference is that candidate-a preserves the confirmation region and keeps Place order disabled across a post-confirmation reload, while candidate-b returns the form to editable state with Place order re-enabled after reload.",
+      "concrete_observed_rationale": [
+        "candidate-a: after page.reload() following successful placement, reload_state.confirmation_visible=true and reload_state.place_order_disabled=true. candidate-b: reload_state.confirmation_visible=false and reload_state.place_order_disabled=false.",
+        "Both share: explicit Save-progress with live status, full Confirm + Cancel + Escape Clear-progress destructive-safety, progressbar landmark, identical navigation and error-recovery patterns.",
+        "The differentiator is a stronger cross-reload duplicate-safety guarantee in candidate-a; candidate-b's cross-reload behaviour still keeps payment fields empty but does not preserve the placed-order state."
+      ],
+      "uncertainty": "The cross-reload behaviour is a single but decisive difference. Users who deliberately reload after placing an order might find candidate-a's behaviour surprising if they expect a fresh session; a design case could be argued either way, but from a friction/harm-avoidance standpoint the preserved confirmation is safer.",
+      "evidence_refs": [
+        "navigation-transcript-a.json (step 30 reload_restore)",
+        "navigation-transcript-b.json (step 30 reload_restore)",
+        "candidate-a.json.observed_operation_summary.post_reload_state",
+        "candidate-b.json.observed_operation_summary.post_reload_state"
+      ]
+    }
+  ],
+  "dissent_notes": "None to preserve at this step. If a downstream reviewer weighs cognitive-load parsimony above interruption/destructive-safety affordances, the c-vs-b and c-vs-a comparisons could shift toward candidate-c; the b-vs-a comparison would still stand on the cross-reload duplicate-safety evidence."
+}

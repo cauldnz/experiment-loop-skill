@@ -1,0 +1,477 @@
+{
+  "judge_id": "judge-accessibility",
+  "candidate": "candidate-c",
+  "operation_mode": "fresh Playwright browser context; local file UI; no objective evidence changed",
+  "viewport_checks": [
+    {
+      "width": 320,
+      "height": 568,
+      "scrollWidth": 320,
+      "clientWidth": 320,
+      "hasHorizontalOverflow": false
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "scrollWidth": 360,
+      "clientWidth": 360,
+      "hasHorizontalOverflow": false
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "hasHorizontalOverflow": false
+    }
+  ],
+  "discovered_controls": [
+    {
+      "index": 0,
+      "tag": "a",
+      "id": null,
+      "type": null,
+      "text": "Skip to checkout steps"
+    },
+    {
+      "index": 1,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Hide item details"
+    },
+    {
+      "index": 2,
+      "tag": "input",
+      "id": "shipping-standard",
+      "type": "radio",
+      "text": "standard"
+    },
+    {
+      "index": 3,
+      "tag": "input",
+      "id": "shipping-express",
+      "type": "radio",
+      "text": "express"
+    },
+    {
+      "index": 4,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Save progress"
+    },
+    {
+      "index": 5,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Clear saved progress"
+    },
+    {
+      "index": 6,
+      "tag": "input",
+      "id": "contact-name",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 7,
+      "tag": "input",
+      "id": "contact-email",
+      "type": "email",
+      "text": ""
+    },
+    {
+      "index": 8,
+      "tag": "input",
+      "id": "contact-phone",
+      "type": "tel",
+      "text": ""
+    },
+    {
+      "index": 9,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Continue to delivery address"
+    },
+    {
+      "index": 10,
+      "tag": "input",
+      "id": "address-line1",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 11,
+      "tag": "input",
+      "id": "address-city",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 12,
+      "tag": "input",
+      "id": "address-state",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 13,
+      "tag": "input",
+      "id": "address-postcode",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 14,
+      "tag": "input",
+      "id": "address-country",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 15,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Back to contact details"
+    },
+    {
+      "index": 16,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Continue to payment"
+    },
+    {
+      "index": 17,
+      "tag": "input",
+      "id": "card-number",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 18,
+      "tag": "input",
+      "id": "card-expiry",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 19,
+      "tag": "input",
+      "id": "card-security",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 20,
+      "tag": "input",
+      "id": "card-name",
+      "type": "text",
+      "text": ""
+    },
+    {
+      "index": 21,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Back to delivery address"
+    },
+    {
+      "index": 22,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Continue to review"
+    },
+    {
+      "index": 23,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Edit"
+    },
+    {
+      "index": 24,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Edit"
+    },
+    {
+      "index": 25,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Edit"
+    },
+    {
+      "index": 26,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Edit"
+    },
+    {
+      "index": 27,
+      "tag": "input",
+      "id": "review-confirmation",
+      "type": "checkbox",
+      "text": "on"
+    },
+    {
+      "index": 28,
+      "tag": "button",
+      "id": null,
+      "type": "button",
+      "text": "Back to payment"
+    },
+    {
+      "index": 29,
+      "tag": "button",
+      "id": null,
+      "type": "submit",
+      "text": "Place order"
+    }
+  ],
+  "actions": [
+    {
+      "action": "Keyboard Tab then Shift+Tab orientation",
+      "outcome": "A",
+      "status": "passed"
+    },
+    {
+      "action": "Activate skip link by Enter",
+      "outcome": "BODY",
+      "status": "passed"
+    },
+    {
+      "action": "Toggle summary closed and open",
+      "outcome": "true",
+      "status": "passed"
+    },
+    {
+      "action": "Continue empty step 1",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Continue empty step 2",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Continue empty step 3",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Submit empty review checkout",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Confirm error summary is focused or visible",
+      "outcome": {
+        "visible": true,
+        "active": "contact-name"
+      },
+      "status": "passed"
+    },
+    {
+      "action": "Follow first error-summary recovery control",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Fill all checkout fields after recovery",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise Back navigation from payment",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Return to payment by review Edit payment",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise Back navigation from delivery",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Return to delivery by review Edit address",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise Back navigation from review",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Return to review by review Edit contact",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Choose Express shipping by pointer",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Choose Standard shipping by keyboard Space",
+      "outcome": "standard",
+      "status": "passed"
+    },
+    {
+      "action": "Save non-sensitive progress",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise review control edit-contact",
+      "outcome": "H2",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise review control edit-address",
+      "outcome": "H2",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise review control edit-shipping",
+      "outcome": "shipping-standard",
+      "status": "passed"
+    },
+    {
+      "action": "Exercise review control edit-payment",
+      "outcome": "H2",
+      "status": "passed"
+    },
+    {
+      "action": "Clear saved progress and reload",
+      "outcome": "",
+      "status": "passed"
+    },
+    {
+      "action": "Rebuild contact after clear",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Continue contact after clear",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Rebuild delivery after clear",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Continue delivery after clear",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Rebuild payment after clear",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Continue payment after clear",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Reload for interruption-resumption check",
+      "outcome": "<Response url='file:///<experiment-workspace>/generated/judging/blind-loop-01/candidate-c/index.html' request=<Request url='file:///<experiment-workspace>/generated/judging/blind-loop-01/candidate-c/index.html' method='GET'>>",
+      "status": "passed"
+    },
+    {
+      "action": "Verify safe values restore and payment secrets clear",
+      "outcome": {
+        "safe": {
+          "contact-name": "Alex Morgan",
+          "contact-email": "alex.morgan@example.invalid",
+          "contact-phone": "+61 400 000 000",
+          "address-line1": "42 Fiction Lane",
+          "address-city": "Sampleton",
+          "address-state": "NSW",
+          "address-postcode": "2000",
+          "address-country": "Australia"
+        },
+        "payment": {
+          "card-number": "",
+          "card-expiry": "",
+          "card-security": ""
+        }
+      },
+      "status": "passed"
+    },
+    {
+      "action": "Enable reduced-motion and reload",
+      "outcome": {
+        "reduced": true,
+        "maxTransition": 0
+      },
+      "status": "passed"
+    },
+    {
+      "action": "Re-enter payment after reduced-motion reload",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Review and explicitly confirm",
+      "outcome": "completed",
+      "status": "passed"
+    },
+    {
+      "action": "Place order by keyboard Enter",
+      "outcome": "true",
+      "status": "passed"
+    },
+    {
+      "action": "Repeat Place order during or after processing",
+      "outcome": {
+        "disabled": false,
+        "ariaDisabled": null,
+        "busy": "true"
+      },
+      "status": "passed"
+    },
+    {
+      "action": "Verify one local confirmation after repeated activation",
+      "outcome": {
+        "count": 1,
+        "confirmation": "SYN-2048",
+        "status": "Order placed. Confirmation SYN-2048."
+      },
+      "status": "passed"
+    }
+  ],
+  "console_errors": [],
+  "page_errors": [],
+  "screenshots": [
+    "judging/loop-01/judge-accessibility/screenshots/candidate-c/initial-390.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-c/mobile-320.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-c/mobile-360.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-c/error.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-c/review.png",
+    "judging/loop-01/judge-accessibility/screenshots/candidate-c/confirmation.png"
+  ],
+  "defects_observed": [],
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "promoted_viewer_sha256": "8e9d53b6bd623705905a488f0c57210c3ebdfbd5fd1ef3bbb237d2c47330e952",
+  "promoted_navigation_evidence_sha256": "0d8bf2e2f25243d79cfc4489bf52643a6b0bcc193a7163ade6709823df08374d",
+  "promoted_evidence_gate_sha256": "08d62ec6b9fdc0b627b3eaa7370a2fb832a09d2519fb0bab36a2a5ca89095be2",
+  "promoted_evidence_gate_status": "pass",
+  "promoted_tree_sha256": "888786d73127fbb64555af099881baa04a746a393568b3d515fb64f93a9e712a",
+  "source_binding": {
+    "experiment_id": "accessible-mobile-checkout",
+    "revision": 1,
+    "brief_sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13",
+    "prompt_sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928",
+    "approval_sha256": "350165d1839c4a0fec1863621039ae56c57e04549aeb6756a50917f3f4f93f10",
+    "source_tree_sha256": "60ae446577201a2051b92109d7f06d860aac2feb894eeb0ff1ead7fa4c675d56",
+    "source_manifest_sha256": "054aa05628d56b07116d8f606ee741b03f9a8d1937487be80ce820032b085e4e",
+    "source_viewer_sha256": "ef9a10641d1ef7aeb615bebbcdfe98285198a2097d9bf9805ed9b73917d472fd",
+    "source_navigation_evidence_sha256": "761bd7745419db81aa9a5a77e3a0ae079c364d9a440d53ece8064cc9a89232b0",
+    "source_evidence_gate_sha256": "12947f84aca6a936db514a3b1b3633d7c6d4a32cbd2e33bbb9092cc96ebc82fc",
+    "source_navigation_status": "pass",
+    "source_evidence_gate_status": "pass",
+    "procedural_caveat": "The canonical run includes preserved path-scope-remediation and reboot-recovery provenance. Promotion copied the gated functional outputs and did not rerun a model Experiment.",
+    "maintained_prompt_sha256": "4ea9651bdd16b7bcb4995d736a8d266764bd8a25e56cd4223e7426c68d554c7b",
+    "repository_provenance": {
+      "skill_commit": "f1732c346c002689ec587129251ff09527f7f460",
+      "skill_tree_sha256": "192ff34fa395fab6daf3054c8af41ad4d2cce3be0bc50571bcff5105cd2b6d1f",
+      "prompt_sha256": "4ea9651bdd16b7bcb4995d736a8d266764bd8a25e56cd4223e7426c68d554c7b",
+      "copilot_cli_version": "GitHub Copilot CLI 1.0.71.\nRun 'copilot update' to check for updates.",
+      "orchestrator_model": "gpt-5.6-sol"
+    }
+  }
+}

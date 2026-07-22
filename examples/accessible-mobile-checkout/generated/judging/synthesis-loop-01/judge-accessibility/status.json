@@ -1,0 +1,51 @@
+{
+  "state": "completed",
+  "judge_id": "judge-accessibility",
+  "model_id": "gpt-5.6-terra",
+  "started_at": "2026-07-21T21:33:36.1078868Z",
+  "heartbeat_at": "2026-07-21T21:36:32.127279Z",
+  "completed_at": "2026-07-21T21:36:32.127279Z",
+  "phase": "completed",
+  "blockers": [],
+  "evaluation_order": [
+    "candidate-a"
+  ],
+  "objective_gate_acknowledged": "pass",
+  "objective_harness_rerun": false,
+  "output_paths": [
+    "candidate-a.json",
+    "candidate-a.md",
+    "manifest-ready.json",
+    "pairwise.json",
+    "pairwise.md",
+    "navigation-transcript-a.json",
+    "screenshots\\01-initial-390x844.png",
+    "screenshots\\02-error-recovery-390x844.png",
+    "screenshots\\03-save-clear-confirmation-390x844.png",
+    "screenshots\\04-compact-edit-390x844.png",
+    "screenshots\\05-confirmation-390x844.png",
+    "status.json"
+  ],
+  "output_hashes_sha256": {
+    "candidate-a.json": "15f9512cbf0665dc764807c7937067a6a1fcfcdd1698283167c1f4c2c4e63ef3",
+    "candidate-a.md": "869191ee5d63629ca7ab80aeb2bb9403294101184f7082f96e01651ba7fdb90e",
+    "manifest-ready.json": "868bff62450a9cf7940e3330fe362c66de952f4a039ec688cb975801b5999713",
+    "pairwise.json": "d76fe78eb287b41c0f7b37d11c73f13e41685ca02fbdae60c626241beeda676d",
+    "pairwise.md": "db8bda0cf7084873169f1284fb7928cb25a4564bb1287d1d1772f53ae5b927ee",
+    "navigation-transcript-a.json": "7d3606a857e7dad5ee89740af1e38f97e74b51e2a85fc9bb0cfbcbfeb7258a8e",
+    "screenshots\\01-initial-390x844.png": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93",
+    "screenshots\\02-error-recovery-390x844.png": "b204a90a7e86ec88c117bae131dc2da461ed20ac252c385776286b0ce3860d5a",
+    "screenshots\\03-save-clear-confirmation-390x844.png": "804484b19d089cc0888ef8995f36e1747d7a9a1817517ceeb6e5a08a596e12f2",
+    "screenshots\\04-compact-edit-390x844.png": "88af20f780619d77599d9010d46f00cbb3ef5800a517b258c696c8c9af58b981",
+    "screenshots\\05-confirmation-390x844.png": "da34fcc703e74eb943a3feca6bb0d6e6fb55d45bff82657d973642074683f5aa"
+  },
+  "browser_operation": {
+    "viewport": "390x844",
+    "controls_exercised": 36,
+    "actions_recorded": 56,
+    "keyboard_actions_recorded": 17,
+    "console_errors": 0,
+    "external_requests": 0,
+    "one_confirmation": true
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "files": [
+    {
+      "path": "index.html",
+      "sha256": "a98b22c01b82253d12c727545f4f428c6b1ca29fb285f317f2cf79877fdd777b"
+    },
+    {
+      "path": "styles.css",
+      "sha256": "16143f7d463306250f14396c41c43f60066841e9978fe6c66c41a1bcb701e90d"
+    },
+    {
+      "path": "app.js",
+      "sha256": "1b8de8005067c91c697eb2ced16c6c046cd9f9460e346bd20978549a703c35e1"
+    },
+    {
+      "path": "evidence/final.png",
+      "sha256": "cba4130748e0d306a16565d1156a6f7350c077305c5e7f691e90b26530fbcd66"
+    },
+    {
+      "path": "evidence/improvement-checks.json",
+      "sha256": "c27a869898924b7d12fb7986b5a3c72133e65a9cf7c5647fa34e947cb4872b45"
+    },
+    {
+      "path": "evidence/initial.png",
+      "sha256": "ab1cf8f2586c6f48ca08e87f3d540facf1357af44f183ba6d98ff509fa43d095"
+    },
+    {
+      "path": "evidence/keyboard-completion.png",
+      "sha256": "cba4130748e0d306a16565d1156a6f7350c077305c5e7f691e90b26530fbcd66"
+    },
+    {
+      "path": "evidence/objective-report.json",
+      "sha256": "54b222c8c9a0e1faa0e7c505f4d1653066f1d6c37fce9bd06706a6a1bff40897"
+    },
+    {
+      "path": "evidence/objective-report.txt",
+      "sha256": "2d7944a0e7e165fcd13b82d18281bfe84764b103dbd669698384f09a8a99b0ca"
+    },
+    {
+      "path": "evidence/viewport-320x568.png",
+      "sha256": "73ad08d7a73e999786b94c6433448afc9877d52fa788d2e76d6a4395b09a4fee"
+    },
+    {
+      "path": "evidence/viewport-360x800.png",
+      "sha256": "6f090174d20060ff5f1dc4a13a967121c1254152615b4bcbdd87183dc895ae3b"
+    },
+    {
+      "path": "evidence/viewport-390x844.png",
+      "sha256": "cba4130748e0d306a16565d1156a6f7350c077305c5e7f691e90b26530fbcd66"
+    }
+  ],
+  "identity_blind": true,
+  "label": "candidate-a",
+  "objective_report_pass_required": true,
+  "schema_version": "1.0"
+}

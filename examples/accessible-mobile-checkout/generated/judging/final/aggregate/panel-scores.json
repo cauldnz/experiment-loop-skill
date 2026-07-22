@@ -1,0 +1,315 @@
+{
+  "aggregation": "per_lens_median_then_mean",
+  "candidates": [
+    {
+      "human_use_quality": 4.7727272727272725,
+      "iteration_id": "synthesis-loop-02",
+      "label": "candidate-a",
+      "lens_findings": [
+        {
+          "finding": "judge-accessibility (5): The visible five-step links, numbered sections, order total, and concise safety copy made the next action apparent. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "discoverability"
+        },
+        {
+          "finding": "judge-accessibility (5): All five links changed scroll position; keyboard Tab then Enter on the skip link focused checkout-form. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "navigation"
+        },
+        {
+          "finding": "judge-accessibility (4): One-page entry still asks for many fields, but synthetic exemplar text, input modes, and compact completed sections reduce recall and repeat work. | judge-human-use (4): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "input_burden"
+        },
+        {
+          "finding": "judge-accessibility (5): Invalid submit focused error-summary with an actionable 13-item, four-section summary; correction and completion preserved entered data. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "error_prevention_recovery"
+        },
+        {
+          "finding": "judge-accessibility (5): Observed save status, section status/compact summaries, and local confirmation status with SYN-2048 were explicit. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "feedback_status"
+        },
+        {
+          "finding": "judge-accessibility (5): Skip target focus, keyboard completion, visible focus/large controls, linked errors, no console errors, and the terminal semantic gate all support this score. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "accessibility"
+        },
+        {
+          "finding": "judge-accessibility (5): 390x844 inspection showed full-width fields and large shipping, edit, and place-order targets; terminal mobile gate passed. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "responsive_touch_ergonomics"
+        },
+        {
+          "finding": "judge-accessibility (5): Manual safe save restored contact and address after reload while card number and security code were empty; confirmation SYN-2048 remained after reload without payment details. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "interruption_resumption"
+        },
+        {
+          "finding": "judge-accessibility (4): Immediate local section, save, validation, and confirmation feedback makes waiting unlikely; the long one-page form remains visually substantial. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "latency_perception"
+        },
+        {
+          "finding": "judge-accessibility (5): Clear progress required an explicit confirmation and both Escape and Cancel preserved work before the affirmative clear path. | judge-human-use (5): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "destructive_actions"
+        },
+        {
+          "finding": "judge-accessibility (4): Progressive compact summaries, review edits, and error grouping help, though the full five-section single page is dense before compaction. | judge-human-use (4): see judging/final/judge-human-use/candidate-a.json",
+          "lens": "cognitive_load"
+        }
+      ],
+      "lens_medians": {
+        "accessibility": 5.0,
+        "cognitive_load": 4.0,
+        "destructive_actions": 5.0,
+        "discoverability": 5.0,
+        "error_prevention_recovery": 5.0,
+        "feedback_status": 5.0,
+        "input_burden": 4.0,
+        "interruption_resumption": 5.0,
+        "latency_perception": 4.5,
+        "navigation": 5.0,
+        "responsive_touch_ergonomics": 5.0
+      },
+      "raw_judge_scores": {
+        "judge-accessibility": {
+          "mean_11": 4.7272727272727275,
+          "scores": {
+            "accessibility": 5,
+            "cognitive_load": 4,
+            "destructive_actions": 5,
+            "discoverability": 5,
+            "error_prevention_recovery": 5,
+            "feedback_status": 5,
+            "input_burden": 4,
+            "interruption_resumption": 5,
+            "latency_perception": 4,
+            "navigation": 5,
+            "responsive_touch_ergonomics": 5
+          },
+          "visual_information_clarity": 5
+        },
+        "judge-human-use": {
+          "mean_11": 4.818181818181818,
+          "scores": {
+            "accessibility": 5,
+            "cognitive_load": 4,
+            "destructive_actions": 5,
+            "discoverability": 5,
+            "error_prevention_recovery": 5,
+            "feedback_status": 5,
+            "input_burden": 4,
+            "interruption_resumption": 5,
+            "latency_perception": 5,
+            "navigation": 5,
+            "responsive_touch_ergonomics": 5
+          },
+          "visual_information_clarity": 5
+        }
+      },
+      "visual_information_clarity": 5.0
+    },
+    {
+      "human_use_quality": 4.590909090909091,
+      "iteration_id": "synthesis-loop-01",
+      "label": "candidate-b",
+      "lens_findings": [
+        {
+          "finding": "judge-accessibility (5): Five labeled links, the compact choice, review edits, and a visible progress/status treatment made controls easy to find. | judge-human-use (5): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "discoverability"
+        },
+        {
+          "finding": "judge-accessibility (4): Every step link scrolled to its section and edit controls returned focus to the right input, but activating the skip link produced no identified focused target in this run. | judge-human-use (5): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "navigation"
+        },
+        {
+          "finding": "judge-accessibility (4): The same synthetic hints, compact option, and editable review avoid re-entry, while the one-page form still has a high initial field count. | judge-human-use (4): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "input_burden"
+        },
+        {
+          "finding": "judge-accessibility (5): Invalid submit focused error-summary and grouped 13 corrections by four sections while preserving entries; correction then completed. | judge-human-use (5): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "error_prevention_recovery"
+        },
+        {
+          "finding": "judge-accessibility (5): Observed save status, completed-state feedback, shipping updates, and a local SYN-2048 confirmation provided clear state changes. | judge-human-use (5): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "feedback_status"
+        },
+        {
+          "finding": "judge-accessibility (4): Terminal semantic and keyboard gates passed and no console errors occurred, but the observed skip activation did not yield a named focused target. | judge-human-use (5): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "accessibility"
+        },
+        {
+          "finding": "judge-accessibility (5): At 390x844, fields and action buttons were broad and clearly separated; terminal mobile-touch gate passed. | judge-human-use (5): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "responsive_touch_ergonomics"
+        },
+        {
+          "finding": "judge-accessibility (4): Safe fields restored and payment secrets cleared after reload, but the local confirmation was not present after a confirmation reload. | judge-human-use (4): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "interruption_resumption"
+        },
+        {
+          "finding": "judge-accessibility (4): Immediate, local status and confirmation feedback communicate progress without a spinner or implied remote wait. | judge-human-use (5): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "latency_perception"
+        },
+        {
+          "finding": "judge-accessibility (5): Clear confirmation, Escape, Cancel, and affirmative clear paths were all exercised successfully. | judge-human-use (5): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "destructive_actions"
+        },
+        {
+          "finding": "judge-accessibility (4): Progress feedback and per-section error grouping help orient users; the initial all-at-once layout remains information-dense. | judge-human-use (4): see judging/final/judge-human-use/candidate-b.json",
+          "lens": "cognitive_load"
+        }
+      ],
+      "lens_medians": {
+        "accessibility": 4.5,
+        "cognitive_load": 4.0,
+        "destructive_actions": 5.0,
+        "discoverability": 5.0,
+        "error_prevention_recovery": 5.0,
+        "feedback_status": 5.0,
+        "input_burden": 4.0,
+        "interruption_resumption": 4.0,
+        "latency_perception": 4.5,
+        "navigation": 4.5,
+        "responsive_touch_ergonomics": 5.0
+      },
+      "raw_judge_scores": {
+        "judge-accessibility": {
+          "mean_11": 4.454545454545454,
+          "scores": {
+            "accessibility": 4,
+            "cognitive_load": 4,
+            "destructive_actions": 5,
+            "discoverability": 5,
+            "error_prevention_recovery": 5,
+            "feedback_status": 5,
+            "input_burden": 4,
+            "interruption_resumption": 4,
+            "latency_perception": 4,
+            "navigation": 4,
+            "responsive_touch_ergonomics": 5
+          },
+          "visual_information_clarity": 5
+        },
+        "judge-human-use": {
+          "mean_11": 4.7272727272727275,
+          "scores": {
+            "accessibility": 5,
+            "cognitive_load": 4,
+            "destructive_actions": 5,
+            "discoverability": 5,
+            "error_prevention_recovery": 5,
+            "feedback_status": 5,
+            "input_burden": 4,
+            "interruption_resumption": 4,
+            "latency_perception": 5,
+            "navigation": 5,
+            "responsive_touch_ergonomics": 5
+          },
+          "visual_information_clarity": 5
+        }
+      },
+      "visual_information_clarity": 5.0
+    },
+    {
+      "human_use_quality": 4.181818181818182,
+      "iteration_id": "single-page-loop-02",
+      "label": "candidate-c",
+      "lens_findings": [
+        {
+          "finding": "judge-accessibility (4): Core links, fields, shipping choices, compacting, and edits were discoverable, but there was no discoverable save or clear-progress control. | judge-human-use (4): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "discoverability"
+        },
+        {
+          "finding": "judge-accessibility (4): Step links and edit controls worked and moved focus to their inputs; skip activation did not expose an identified target in this run. | judge-human-use (5): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "navigation"
+        },
+        {
+          "finding": "judge-accessibility (4): Automatic safe restoration and compact summaries reduce repeated entry, though users lose an explicit moment to choose when saved progress is stored. | judge-human-use (4): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "input_burden"
+        },
+        {
+          "finding": "judge-accessibility (5): Invalid submit focused a detailed, grouped error summary and preserved all entries; corrected canonical completion succeeded. | judge-human-use (5): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "error_prevention_recovery"
+        },
+        {
+          "finding": "judge-accessibility (4): Section and order feedback are clear, but automatic saving is less explicit and there is no observed clear confirmation/status path. | judge-human-use (4): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "feedback_status"
+        },
+        {
+          "finding": "judge-accessibility (4): All objective accessibility gates passed, controls completed by browser automation, and no console errors occurred; the skip-focus observation remains a reservation. | judge-human-use (5): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "accessibility"
+        },
+        {
+          "finding": "judge-accessibility (5): The 390x844 layout kept fields, radios, edits, and submission controls large and separated; the mobile gate passed. | judge-human-use (5): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "responsive_touch_ergonomics"
+        },
+        {
+          "finding": "judge-accessibility (4): Contact/address restored while card number and security code cleared on reload; confirmation itself was absent after confirmation reload. | judge-human-use (3): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "interruption_resumption"
+        },
+        {
+          "finding": "judge-accessibility (4): Local validation and confirmation were immediate, and automatic resume minimizes explicit save steps. | judge-human-use (5): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "latency_perception"
+        },
+        {
+          "finding": "judge-accessibility (2): No clear-progress control or confirmation was discoverable, so clear/cancel/Escape could not be offered or exercised. | judge-human-use (3): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "destructive_actions"
+        },
+        {
+          "finding": "judge-accessibility (4): Structured errors, compact completed sections, and review edits reduce orientation load; invisible auto-save/clear absence makes persistence less predictable. | judge-human-use (5): see judging/final/judge-human-use/candidate-c.json",
+          "lens": "cognitive_load"
+        }
+      ],
+      "lens_medians": {
+        "accessibility": 4.5,
+        "cognitive_load": 4.5,
+        "destructive_actions": 2.5,
+        "discoverability": 4.0,
+        "error_prevention_recovery": 5.0,
+        "feedback_status": 4.0,
+        "input_burden": 4.0,
+        "interruption_resumption": 3.5,
+        "latency_perception": 4.5,
+        "navigation": 4.5,
+        "responsive_touch_ergonomics": 5.0
+      },
+      "raw_judge_scores": {
+        "judge-accessibility": {
+          "mean_11": 4.0,
+          "scores": {
+            "accessibility": 4,
+            "cognitive_load": 4,
+            "destructive_actions": 2,
+            "discoverability": 4,
+            "error_prevention_recovery": 5,
+            "feedback_status": 4,
+            "input_burden": 4,
+            "interruption_resumption": 4,
+            "latency_perception": 4,
+            "navigation": 4,
+            "responsive_touch_ergonomics": 5
+          },
+          "visual_information_clarity": 4
+        },
+        "judge-human-use": {
+          "mean_11": 4.363636363636363,
+          "scores": {
+            "accessibility": 5,
+            "cognitive_load": 5,
+            "destructive_actions": 3,
+            "discoverability": 4,
+            "error_prevention_recovery": 5,
+            "feedback_status": 4,
+            "input_burden": 4,
+            "interruption_resumption": 3,
+            "latency_perception": 5,
+            "navigation": 5,
+            "responsive_touch_ergonomics": 5
+          },
+          "visual_information_clarity": 4
+        }
+      },
+      "visual_information_clarity": 4.0
+    }
+  ],
+  "experiment_id": "accessible-mobile-checkout",
+  "ranking": [
+    "synthesis-loop-02",
+    "synthesis-loop-01",
+    "single-page-loop-02"
+  ],
+  "schema_version": "1.0"
+}

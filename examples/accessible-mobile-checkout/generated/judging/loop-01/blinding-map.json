@@ -1,0 +1,63 @@
+{
+  "experiment_id": "accessible-mobile-checkout",
+  "judges": [
+    {
+      "evaluation_order": [
+        "candidate-a",
+        "candidate-b",
+        "candidate-c"
+      ],
+      "judge_id": "judge-accessibility",
+      "model": "gpt-5.6-terra",
+      "status_path": "judging/loop-01/judge-accessibility/status.json"
+    },
+    {
+      "evaluation_order": [
+        "candidate-c",
+        "candidate-b",
+        "candidate-a"
+      ],
+      "judge_id": "judge-human-use",
+      "model": "claude-opus-4.7",
+      "status_path": "judging/loop-01/judge-human-use/status.json"
+    }
+  ],
+  "loop": "loop-01",
+  "mapping_fixed_before_judging": true,
+  "mapping_reveal_timestamp_source": {
+    "field": "completed_at",
+    "note": "Latest recorded terminal judge timestamp; judge-accessibility records a terminal heartbeat message without a timestamp.",
+    "path": "judging/loop-01/judge-human-use/status.json"
+  },
+  "mapping_revealed_at": "2026-07-21T17:45:00+10:00",
+  "mappings": [
+    {
+      "judge_evaluation_order": {
+        "judge-accessibility": 1,
+        "judge-human-use": 3
+      },
+      "label": "candidate-a",
+      "loop_id": "task-cards-loop-01",
+      "track_id": "track-task-cards"
+    },
+    {
+      "judge_evaluation_order": {
+        "judge-accessibility": 2,
+        "judge-human-use": 2
+      },
+      "label": "candidate-b",
+      "loop_id": "single-page-loop-01",
+      "track_id": "track-single-page"
+    },
+    {
+      "judge_evaluation_order": {
+        "judge-accessibility": 3,
+        "judge-human-use": 1
+      },
+      "label": "candidate-c",
+      "loop_id": "resumable-wizard-loop-01",
+      "track_id": "track-resumable-wizard"
+    }
+  ],
+  "schema_version": "1.0"
+}

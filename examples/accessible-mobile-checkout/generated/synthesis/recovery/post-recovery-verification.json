@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "record_kind": "post_recovery_verification",
+  "experiment_id": "accessible-mobile-checkout",
+  "loop_id": "synthesis-loop-01",
+  "continuation_task_identity": "synthesis-loop-01-recovery",
+  "verified_at_utc": "2026-07-21T21:27:30.000Z",
+  "self_hash_excluded": true,
+  "self_hash_note": "This record hashes every other required output but deliberately does not hash itself, to avoid a self-referential hash.",
+  "immutable_inventory": {
+    "path": "synthesis/recovery/recovery-inventory.json",
+    "launch_sha256": "74d30090793837c19b3e22bec442dba26d07a0c3cbba4b1ccc40b719f071ded0",
+    "current_sha256": "74d30090793837c19b3e22bec442dba26d07a0c3cbba4b1ccc40b719f071ded0",
+    "match": true
+  },
+  "immutable_outputs_verification": {
+    "count": 14,
+    "all_match_launch_inventory": true,
+    "checked_before_writing": true,
+    "checked_after_writing": true,
+    "outputs": [
+      { "path": "synthesis/loop-01/index.html", "expected_sha256": "0b94c3e512ec293dc1a8c9a013ddd4408f698e7d97bfa3ce66e052546f97a37e", "actual_sha256": "0b94c3e512ec293dc1a8c9a013ddd4408f698e7d97bfa3ce66e052546f97a37e", "match": true },
+      { "path": "synthesis/loop-01/styles.css", "expected_sha256": "9e1dfcf492fb28a358d4720cc3e5a7c0a18a625e17fcb549cdb94307f32b850d", "actual_sha256": "9e1dfcf492fb28a358d4720cc3e5a7c0a18a625e17fcb549cdb94307f32b850d", "match": true },
+      { "path": "synthesis/loop-01/app.js", "expected_sha256": "9bbe3f43035a2f88cf749c0299f4ac6275a97f9420694aa4c5d9646697d22ef1", "actual_sha256": "9bbe3f43035a2f88cf749c0299f4ac6275a97f9420694aa4c5d9646697d22ef1", "match": true },
+      { "path": "synthesis/loop-01/process.json", "expected_sha256": "71c2997367302c951005ecb03e0b5d769c195a7e7658862e1cae3dcd90f7f04f", "actual_sha256": "71c2997367302c951005ecb03e0b5d769c195a7e7658862e1cae3dcd90f7f04f", "match": true },
+      { "path": "synthesis/loop-01/evidence/objective-report.json", "expected_sha256": "512eb60c830cc663a66061b2fbe128c5679adc5bb75a41f69b63bbd70f4f8cc8", "actual_sha256": "512eb60c830cc663a66061b2fbe128c5679adc5bb75a41f69b63bbd70f4f8cc8", "match": true },
+      { "path": "synthesis/loop-01/evidence/objective-report.txt", "expected_sha256": "2246f845be24decb6ca2ec174692d2aef734a3487638e716cf605ea64213c7ae", "actual_sha256": "2246f845be24decb6ca2ec174692d2aef734a3487638e716cf605ea64213c7ae", "match": true },
+      { "path": "synthesis/loop-01/evidence/initial.png", "expected_sha256": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93", "actual_sha256": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93", "match": true },
+      { "path": "synthesis/loop-01/evidence/keyboard-completion.png", "expected_sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b", "actual_sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b", "match": true },
+      { "path": "synthesis/loop-01/evidence/final.png", "expected_sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b", "actual_sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b", "match": true },
+      { "path": "synthesis/loop-01/evidence/viewport-320x568.png", "expected_sha256": "ef0891c83646f03c553dcc0781db18460625150b6d7b408b4a525adec92d6313", "actual_sha256": "ef0891c83646f03c553dcc0781db18460625150b6d7b408b4a525adec92d6313", "match": true },
+      { "path": "synthesis/loop-01/evidence/viewport-360x800.png", "expected_sha256": "0bd146688840a43ba8bfce1bc1876ec687dc0d6a28efd484f6854f7bfc9b362c", "actual_sha256": "0bd146688840a43ba8bfce1bc1876ec687dc0d6a28efd484f6854f7bfc9b362c", "match": true },
+      { "path": "synthesis/loop-01/evidence/viewport-390x844.png", "expected_sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b", "actual_sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b", "match": true },
+      { "path": "synthesis/loop-01/adoption-rejection-matrix.json", "expected_sha256": "3f6c9fc01cb5629738a71a58851e4f0e174427bdf70edafbdcb05db861557630", "actual_sha256": "3f6c9fc01cb5629738a71a58851e4f0e174427bdf70edafbdcb05db861557630", "match": true },
+      { "path": "synthesis/loop-01/adoption-rejection-matrix.md", "expected_sha256": "034c3e68b9a00f0d69f4b36e1a1b25da485ed2432cd99a6f4b610e62efd4429b", "actual_sha256": "034c3e68b9a00f0d69f4b36e1a1b25da485ed2432cd99a6f4b610e62efd4429b", "match": true }
+    ]
+  },
+  "new_required_records_verification": {
+    "all_exist": true,
+    "records": [
+      { "path": "synthesis/loop-01/metadata.json", "exists": true, "sha256": "ae13d675495e1167c8878b828380149291ec8fe5e59a36aa71cb3f41c8f335b0" },
+      { "path": "synthesis/loop-01/synthesis-report.md", "exists": true, "sha256": "226a9a3a4d84eec4caebd52d45147580761801aa9e96ca963419d8903b64cf8b" },
+      { "path": "synthesis/loop-01/status.json", "exists": true, "sha256": "537174a7d299a860afd0af7f44a30b9b4f9a85d6ad7b5065d052de34b7d1c101" },
+      { "path": "synthesis/manifest-fragment.json", "exists": true, "sha256": "cd847abb4de5bef8a0192613edcc6d4b4dbad63c7f09fb7e5a1b0aa3ea54c553" },
+      { "path": "synthesis/recovery/reconciliation-ledger-event.json", "exists": true, "sha256": "ec91b3f9f660f02da99f6ddaf115c8295d5655f7425ea73ffc0a84fb8677abcc" }
+    ]
+  },
+  "objective_command_rerun": false,
+  "writes_outside_scope": [],
+  "scope_confirmation": "All writes during this recovery were confined to .experiments/accessible-mobile-checkout/generated/synthesis/**. No immutable functional output was modified; no objective, harness, browser, generator, or judge command was rerun; and the global process ledger was not edited.",
+  "hash_ordering_compliance": {
+    "statement": "Ordering avoided circular hashes. Immutable functional Artifacts carry exact SHA-256. The fragment omitted its own hash and referenced only records finalized before it (metadata, report, status, process, inventory) plus immutable Artifacts. The ledger sidecar listed hashes available before itself (including the fragment) and deferred this verification record's hash. This verification record hashes the immutable outputs plus the finalized metadata, report, status, fragment, and ledger sidecar, but does not hash itself.",
+    "compliant": true
+  },
+  "result": "PASS",
+  "summary": "All 14 immutable functional outputs still match the launch recovery inventory (SHA-256 74d30090793837c19b3e22bec442dba26d07a0c3cbba4b1ccc40b719f071ded0). All five newly authored required records exist and are hashed. Recovery is complete: state=completed, terminal_status=completed_after_reboot_reconciliation, objective_status=pass, decision=keep_for_synthesis, stop_reason=null. No Champion, new_best, promotion, or qualitative score is claimed; independent qualitative synthesis judging remains pending."
+}

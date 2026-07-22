@@ -1,0 +1,33 @@
+{
+  "judge_id": "judge-accessibility",
+  "loop": "01",
+  "state": "complete",
+  "model": "gpt-5.6-terra",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "candidate_order": [
+    "candidate-a",
+    "candidate-b",
+    "candidate-c"
+  ],
+  "heartbeats": [
+    {
+      "phase": "start",
+      "timestamp": "2026-07-21T17:14:28.984+10:00",
+      "message": "Independent blind judge initialized."
+    },
+    {
+      "phase": "operation",
+      "message": "Fresh cached-Python-Playwright contexts completed in required A, B, C order; transcripts and screenshots recorded."
+    },
+    {
+      "phase": "terminal",
+      "message": "Raw qualitative records, pairwise preferences, and manifest-ready records written; no aggregation or Champion decision made."
+    }
+  ],
+  "objective_reports": "All passed and were not overridden.",
+  "blockers": [],
+  "no_other_judge_notes_read": true
+}

@@ -1,0 +1,50 @@
+{
+  "schema_version": "1.0",
+  "experiment_id": "accessible-mobile-checkout",
+  "role": "harness-author",
+  "model": "gpt-5.6-luna",
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "state": "completed",
+  "heartbeat_utc": "2026-07-21T06:15:00.476Z",
+  "outputs": [
+    "canonical-fixture.json",
+    "candidate-contract.json",
+    "run_checkout_gates.py",
+    "self-test-invalid/index.html",
+    "harness-self-test.json",
+    "harness-self-test.txt",
+    "frozen-hashes.json",
+    "process-ledger.json",
+    "status.json",
+    "preflight.log",
+    "self-test-evidence/objective-report.json",
+    "self-test-evidence/objective-report.txt",
+    "self-test-evidence/initial.png",
+    "self-test-evidence/keyboard-completion.png",
+    "self-test-evidence/viewport-320x568.png",
+    "self-test-evidence/viewport-360x800.png",
+    "self-test-evidence/viewport-390x844.png",
+    "self-test-evidence/final.png"
+  ],
+  "commands": [
+    "python -m py_compile .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py",
+    "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\harness\\self-test-invalid --out .experiments\\accessible-mobile-checkout\\generated\\harness\\self-test-evidence"
+  ],
+  "final_result": {
+    "self_test": "pass: deliberately defective fixture rejected",
+    "exit_code": 1,
+    "failed_gate_ids": [
+      "content-fidelity",
+      "semantic-accessibility-gate",
+      "keyboard-completion-gate",
+      "error-recovery-gate",
+      "mobile-touch-gate",
+      "resilience-gate",
+      "offline-safety-gate"
+    ],
+    "unimplemented_objective_requirements": []
+  }
+}

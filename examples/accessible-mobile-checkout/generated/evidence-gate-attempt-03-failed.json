@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "detail": {},
+      "name": "manifest_parse",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "schema_version": "1.1"
+      },
+      "name": "manifest_schema",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "errors": [
+          "Champion caveat references unknown evidence synthesis-recovery-inventory"
+        ]
+      },
+      "name": "manifest_semantics",
+      "required": true,
+      "status": "fail"
+    },
+    {
+      "detail": {
+        "checked": 484
+      },
+      "name": "artifact_integrity",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 11290234
+      },
+      "name": "viewer_present",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "bytes": 11290234,
+        "sha256": "4dbe2cbbbace0974328a9148da8bfd832193190c565c1def07abdc9cc6dec0ff"
+      },
+      "name": "viewer_determinism",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "checks": [
+          "self_contained",
+          "embedded_json",
+          "javascript",
+          "links",
+          "accessibility"
+        ]
+      },
+      "name": "viewer_static",
+      "required": true,
+      "status": "pass"
+    },
+    {
+      "detail": {
+        "browser": {
+          "name": "chromium",
+          "playwright": "1.61.1",
+          "version": "149.0.7827.55"
+        },
+        "viewer_sha256": "4dbe2cbbbace0974328a9148da8bfd832193190c565c1def07abdc9cc6dec0ff"
+      },
+      "name": "navigation_evidence",
+      "required": true,
+      "status": "pass"
+    }
+  ],
+  "run_dir": ".",
+  "schema_version": "1.0",
+  "status": "fail"
+}

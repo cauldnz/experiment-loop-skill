@@ -1,0 +1,291 @@
+{
+  "consensus": {
+    "all_pairs_unanimous": true,
+    "note": "Consensus supports provisional Loop decisions only; the Experiment Champion remains pending minimum Loops and synthesis.",
+    "ranking": [
+      "resumable-wizard-loop-01",
+      "single-page-loop-01",
+      "task-cards-loop-01"
+    ],
+    "single_page_over_task_cards": {
+      "of": 2,
+      "votes": 2
+    },
+    "wizard_over_single_page": {
+      "of": 2,
+      "votes": 2
+    },
+    "wizard_over_task_cards": {
+      "of": 2,
+      "votes": 2
+    }
+  },
+  "experiment_id": "accessible-mobile-checkout",
+  "loop": "loop-01",
+  "mapping_revealed": true,
+  "normalization": [
+    {
+      "mapping": {
+        "comparisons[].confidence": "confidence",
+        "comparisons[].pair": "pair",
+        "comparisons[].preference": "preferred",
+        "comparisons[].rationale": "rationale"
+      },
+      "source": "judge-accessibility/pairwise.json"
+    },
+    {
+      "mapping": {
+        "pairs[].confidence": "confidence",
+        "pairs[].pair": "pair (split on _vs_)",
+        "pairs[].preferred": "preferred",
+        "pairs[].rationale": "rationale"
+      },
+      "source": "judge-human-use/pairwise.json"
+    }
+  ],
+  "normalized_preferences": [
+    {
+      "confidence": "high",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/candidate-a.md",
+        "judging/loop-01/judge-accessibility/candidate-b.md"
+      ],
+      "judge_id": "judge-accessibility",
+      "model": "gpt-5.6-terra",
+      "pair": [
+        "candidate-a",
+        "candidate-b"
+      ],
+      "preferred": "candidate-b",
+      "preferred_iteration_id": "single-page-loop-01",
+      "rationale": "B retains A's direct editability but gives much stronger hierarchy, working in-page orientation, contextual help, and a more actionable recovery presentation. A's task-card status is useful, but its all-open mobile form and heavy outlines increase scanning burden.",
+      "source": "judging/loop-01/judge-accessibility/pairwise.json"
+    },
+    {
+      "confidence": "moderate",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/candidate-b.md",
+        "judging/loop-01/judge-accessibility/candidate-c.md"
+      ],
+      "judge_id": "judge-accessibility",
+      "model": "gpt-5.6-terra",
+      "pair": [
+        "candidate-b",
+        "candidate-c"
+      ],
+      "preferred": "candidate-c",
+      "preferred_iteration_id": "resumable-wizard-loop-01",
+      "rationale": "C's explicit step-by-step progression, save/resume controls, and compact review reduce cognitive load and make interruption handling clearer. B is visually clearer and has stronger immediate invalid-submission recovery; C's empty-step advancement and unconfirmed Clear action prevent high confidence.",
+      "source": "judging/loop-01/judge-accessibility/pairwise.json"
+    },
+    {
+      "confidence": "high",
+      "evidence_refs": [
+        "judging/loop-01/judge-accessibility/candidate-a.md",
+        "judging/loop-01/judge-accessibility/candidate-c.md"
+      ],
+      "judge_id": "judge-accessibility",
+      "model": "gpt-5.6-terra",
+      "pair": [
+        "candidate-a",
+        "candidate-c"
+      ],
+      "preferred": "candidate-c",
+      "preferred_iteration_id": "resumable-wizard-loop-01",
+      "rationale": "C provides clearer progress, more focused task sequencing, stronger feedback, and explicit save/resume behaviour. A is fully operable but presents more simultaneous content and visual noise.",
+      "source": "judging/loop-01/judge-accessibility/pairwise.json"
+    },
+    {
+      "confidence": "high",
+      "evidence_refs": [],
+      "judge_id": "judge-human-use",
+      "model": "claude-opus-4.7",
+      "pair": [
+        "candidate-c",
+        "candidate-b"
+      ],
+      "preferred": "candidate-c",
+      "preferred_iteration_id": "resumable-wizard-loop-01",
+      "rationale": "Candidate C wins on input_burden (tolerant validation vs candidate B's exact-fixture match on state/country/card/name/CSC), cognitive_load (one wizard step visible at a time vs a single-page with ~20 required fields), interruption_resumption (explicit Save/Clear controls and restored step position vs auto-only), and feedback_status (progress bar with narrated aria-valuetext plus polite status vs assertive-only error live region). Candidate B is slightly stronger on error message specificity but suffers from double-radio ARIA on shipping and autocomplete='off' on every input, both anti-patterns that penalise motor- and cognitively-impaired users. Screens: screenshots/candidate-c/01-initial-390x844.png vs screenshots/candidate-b/01-initial-390x844.png.",
+      "source": "judging/loop-01/judge-human-use/pairwise.json"
+    },
+    {
+      "confidence": "high",
+      "evidence_refs": [],
+      "judge_id": "judge-human-use",
+      "model": "claude-opus-4.7",
+      "pair": [
+        "candidate-b",
+        "candidate-a"
+      ],
+      "preferred": "candidate-b",
+      "preferred_iteration_id": "single-page-loop-01",
+      "rationale": "Candidate B wins on error_prevention_recovery (highly specific messages vs candidate A's generic 'Please enter a value'), feedback_status (polite aria-live + focused error summary vs A's misused assertive routine updates), latency_perception (180 ms placement vs A's 500 ms), destructive_actions (placementStarted flag + disabled-immediately vs A's disable-only-inside-callback), interruption_resumption (no payment-field leak vs A restoring card-name), navigation (section-nav pills vs no skip-link/no nav), and discoverability (visible order summary + numbered steps vs A's bottom-only summary). Candidate A retains marginal advantages in cognitive_load-per-view (fewer visible fields at once) but the missing skip-link, missing landmark aside, aria-live misuse, and payment leakage outweigh that. Screens: screenshots/candidate-b/01-initial-390x844.png vs screenshots/candidate-a/01-initial-390x844.png.",
+      "source": "judging/loop-01/judge-human-use/pairwise.json"
+    },
+    {
+      "confidence": "high",
+      "evidence_refs": [],
+      "judge_id": "judge-human-use",
+      "model": "claude-opus-4.7",
+      "pair": [
+        "candidate-c",
+        "candidate-a"
+      ],
+      "preferred": "candidate-c",
+      "preferred_iteration_id": "resumable-wizard-loop-01",
+      "rationale": "Candidate C wins across almost every lens: it has a narrated progress bar (feedback_status), explicit Save/Clear controls with restored step position (interruption_resumption), 120 ms placement with aria-busy narration (latency_perception), aria-disabled Place order + orderPlaced flag (destructive_actions), field-specific error messages routed to the correct step (error_prevention_recovery), single-active-continue wizard grouping (cognitive_load), skip-link present (discoverability/navigation), and no payment-field persistence (interruption_resumption). Candidate A has no skip-link, no landmark aside, misuses assertive aria-live, restores card-name on reload, and imposes a 500 ms placement delay. Screens: screenshots/candidate-c/01-initial-390x844.png vs screenshots/candidate-a/01-initial-390x844.png.",
+      "source": "judging/loop-01/judge-human-use/pairwise.json"
+    }
+  ],
+  "raw_pairwise_sources": [
+    {
+      "judge_id": "judge-accessibility",
+      "path": "judging/loop-01/judge-accessibility/pairwise.json",
+      "raw": {
+        "comparisons": [
+          {
+            "confidence": "high",
+            "evidence_refs": [
+              "judging/loop-01/judge-accessibility/candidate-a.md",
+              "judging/loop-01/judge-accessibility/candidate-b.md"
+            ],
+            "pair": [
+              "candidate-a",
+              "candidate-b"
+            ],
+            "preference": "candidate-b",
+            "rationale": "B retains A's direct editability but gives much stronger hierarchy, working in-page orientation, contextual help, and a more actionable recovery presentation. A's task-card status is useful, but its all-open mobile form and heavy outlines increase scanning burden."
+          },
+          {
+            "confidence": "moderate",
+            "evidence_refs": [
+              "judging/loop-01/judge-accessibility/candidate-b.md",
+              "judging/loop-01/judge-accessibility/candidate-c.md"
+            ],
+            "pair": [
+              "candidate-b",
+              "candidate-c"
+            ],
+            "preference": "candidate-c",
+            "rationale": "C's explicit step-by-step progression, save/resume controls, and compact review reduce cognitive load and make interruption handling clearer. B is visually clearer and has stronger immediate invalid-submission recovery; C's empty-step advancement and unconfirmed Clear action prevent high confidence."
+          },
+          {
+            "confidence": "high",
+            "evidence_refs": [
+              "judging/loop-01/judge-accessibility/candidate-a.md",
+              "judging/loop-01/judge-accessibility/candidate-c.md"
+            ],
+            "pair": [
+              "candidate-a",
+              "candidate-c"
+            ],
+            "preference": "candidate-c",
+            "rationale": "C provides clearer progress, more focused task sequencing, stronger feedback, and explicit save/resume behaviour. A is fully operable but presents more simultaneous content and visual noise."
+          }
+        ],
+        "human_use": {
+          "applicability": "applicable",
+          "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+        },
+        "judge_id": "judge-accessibility",
+        "model": "gpt-5.6-terra",
+        "no_identity_inference": true,
+        "no_other_judge_notes_read": true,
+        "objective_reports": "All pass and are not rank inputs for this qualitative comparison."
+      },
+      "sha256": "1cff467a31536b60764f152b83574948c32a52a50d3cdadd9ff0ef5ba3e09c96"
+    },
+    {
+      "judge_id": "judge-human-use",
+      "path": "judging/loop-01/judge-human-use/pairwise.json",
+      "raw": {
+        "flipped_order": [
+          "candidate-c",
+          "candidate-b",
+          "candidate-a"
+        ],
+        "human_use": {
+          "applicability": "applicable",
+          "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+        },
+        "identity_note": "No attempt was made to infer or reveal Track or model identity from bundle contents. Comparisons are strictly artifact-behaviour based.",
+        "judge": "judge-human-use",
+        "judge_model": "claude-opus-4.7",
+        "loop": "loop-01",
+        "no_champion_selection": true,
+        "note": "All three objective reports pass; qualitative preferences here do not override any objective gate. Pairwise preferences are advisory raw judge input; final aggregation is by panel median with dissent preserved.",
+        "pairs": [
+          {
+            "confidence": "high",
+            "lens_deltas_favouring_b": [
+              "error_prevention_recovery"
+            ],
+            "lens_deltas_favouring_c": [
+              "input_burden",
+              "cognitive_load",
+              "interruption_resumption",
+              "feedback_status"
+            ],
+            "lens_deltas_neutral": [
+              "discoverability",
+              "navigation",
+              "responsive_touch_ergonomics",
+              "latency_perception",
+              "destructive_actions"
+            ],
+            "pair": "candidate-c_vs_candidate-b",
+            "preferred": "candidate-c",
+            "rationale": "Candidate C wins on input_burden (tolerant validation vs candidate B's exact-fixture match on state/country/card/name/CSC), cognitive_load (one wizard step visible at a time vs a single-page with ~20 required fields), interruption_resumption (explicit Save/Clear controls and restored step position vs auto-only), and feedback_status (progress bar with narrated aria-valuetext plus polite status vs assertive-only error live region). Candidate B is slightly stronger on error message specificity but suffers from double-radio ARIA on shipping and autocomplete='off' on every input, both anti-patterns that penalise motor- and cognitively-impaired users. Screens: screenshots/candidate-c/01-initial-390x844.png vs screenshots/candidate-b/01-initial-390x844.png."
+          },
+          {
+            "confidence": "high",
+            "lens_deltas_favouring_a": [],
+            "lens_deltas_favouring_b": [
+              "error_prevention_recovery",
+              "feedback_status",
+              "latency_perception",
+              "destructive_actions",
+              "interruption_resumption",
+              "navigation",
+              "discoverability",
+              "responsive_touch_ergonomics"
+            ],
+            "lens_deltas_neutral": [
+              "input_burden",
+              "cognitive_load",
+              "accessibility"
+            ],
+            "pair": "candidate-b_vs_candidate-a",
+            "preferred": "candidate-b",
+            "rationale": "Candidate B wins on error_prevention_recovery (highly specific messages vs candidate A's generic 'Please enter a value'), feedback_status (polite aria-live + focused error summary vs A's misused assertive routine updates), latency_perception (180 ms placement vs A's 500 ms), destructive_actions (placementStarted flag + disabled-immediately vs A's disable-only-inside-callback), interruption_resumption (no payment-field leak vs A restoring card-name), navigation (section-nav pills vs no skip-link/no nav), and discoverability (visible order summary + numbered steps vs A's bottom-only summary). Candidate A retains marginal advantages in cognitive_load-per-view (fewer visible fields at once) but the missing skip-link, missing landmark aside, aria-live misuse, and payment leakage outweigh that. Screens: screenshots/candidate-b/01-initial-390x844.png vs screenshots/candidate-a/01-initial-390x844.png."
+          },
+          {
+            "confidence": "high",
+            "lens_deltas_favouring_a": [],
+            "lens_deltas_favouring_c": [
+              "discoverability",
+              "navigation",
+              "input_burden",
+              "error_prevention_recovery",
+              "feedback_status",
+              "accessibility",
+              "interruption_resumption",
+              "latency_perception",
+              "destructive_actions",
+              "cognitive_load"
+            ],
+            "lens_deltas_neutral": [
+              "responsive_touch_ergonomics"
+            ],
+            "pair": "candidate-c_vs_candidate-a",
+            "preferred": "candidate-c",
+            "rationale": "Candidate C wins across almost every lens: it has a narrated progress bar (feedback_status), explicit Save/Clear controls with restored step position (interruption_resumption), 120 ms placement with aria-busy narration (latency_perception), aria-disabled Place order + orderPlaced flag (destructive_actions), field-specific error messages routed to the correct step (error_prevention_recovery), single-active-continue wizard grouping (cognitive_load), skip-link present (discoverability/navigation), and no payment-field persistence (interruption_resumption). Candidate A has no skip-link, no landmark aside, misuses assertive aria-live, restores card-name on reload, and imposes a 500 ms placement delay. Screens: screenshots/candidate-c/01-initial-390x844.png vs screenshots/candidate-a/01-initial-390x844.png."
+          }
+        ]
+      },
+      "sha256": "5ecd7646a169c69225a900c8c5ab5ac497d701fb4f3d1622c7dd7abb89a17849"
+    }
+  ],
+  "schema_version": "1.0"
+}

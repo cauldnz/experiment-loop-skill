@@ -11,9 +11,10 @@ the Evidence Gate report, and a standalone Viewer, and may be replaced wholesale
 | `examples/visual-design-system/prompt.md` | Visual judging and synthesis | `examples/visual-design-system/generated/viewer.html` |
 | `examples/multilingual-dad-joke/prompt.md` | Multi-model generation and judging | `examples/multilingual-dad-joke/generated/viewer.html` |
 | `examples/messy-csv-parser/prompt.md` | Objective architecture bake-off | `examples/messy-csv-parser/generated/viewer.html` |
+| `examples/accessible-mobile-checkout/prompt.md` | Accessibility-first mobile browser/task gates and independent human-use judging | `examples/accessible-mobile-checkout/generated/viewer.html` |
 
 At a deliberate release checkpoint, after batching related skill changes,
-regenerate all four transactionally:
+regenerate all five transactionally:
 
 ```text
 python scripts/regenerate_examples.py

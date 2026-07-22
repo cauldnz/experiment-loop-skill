@@ -1,0 +1,560 @@
+{
+  "aggregation": "median per lens, then unrounded mean of 11 medians; visual-information-clarity median",
+  "dissent_sidecar": "judging/loop-01/aggregate/dissent.md",
+  "experiment_id": "accessible-mobile-checkout",
+  "feedback_sidecar": "judging/loop-01/aggregate/loop-02-feedback.json",
+  "human_use": {
+    "applicability": "applicable",
+    "objective_gate": false,
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "interim_baseline_champion": {
+    "experiment_champion": "pending",
+    "iteration_id": "resumable-wizard-loop-01",
+    "scope": "Loop 01 Track baseline only"
+  },
+  "normalization_documented_in": "judging/loop-01/aggregate/panel-scores.json",
+  "pairwise_sidecar": "judging/loop-01/aggregate/pairwise-aggregate.json",
+  "produced_by": "approved-experiment-orchestrator",
+  "records": [
+    {
+      "decision": "keep_for_synthesis",
+      "decision_rationale": "All seven objective gates pass. Independent pairwise consensus ranks this baseline below the wizard while preserving evidence-backed strengths useful for synthesis; retain it without final Champion promotion.",
+      "iteration_id": "task-cards-loop-01",
+      "judge_feedback": "Merged independent panel evidence is in judging/loop-01/aggregate/panel-scores.json; dissent is preserved in judging/loop-01/aggregate/dissent.md.",
+      "judging_evidence": {
+        "criterion_id": "human-use-quality",
+        "evidence_refs": [
+          "task-cards-loop-01-judge-accessibility-candidate-a-json",
+          "task-cards-loop-01-judge-accessibility-candidate-a-md",
+          "task-cards-loop-01-judge-accessibility-pairwise-json",
+          "task-cards-loop-01-judge-accessibility-pairwise-md",
+          "task-cards-loop-01-judge-accessibility-manifest-ready-json",
+          "task-cards-loop-01-judge-accessibility-status-json",
+          "task-cards-loop-01-judge-human-use-candidate-a-json",
+          "task-cards-loop-01-judge-human-use-candidate-a-md",
+          "task-cards-loop-01-judge-human-use-pairwise-json",
+          "task-cards-loop-01-judge-human-use-pairwise-md",
+          "task-cards-loop-01-judge-human-use-manifest-ready-json",
+          "task-cards-loop-01-judge-human-use-status-json"
+        ],
+        "iteration_id": "task-cards-loop-01",
+        "kind": "qualitative_rubric",
+        "lens_findings": [
+          {
+            "finding": "judge-accessibility: Numbered card headings, Complete/Incomplete states, and always-present review identify the work, though four open cards dilute the first task. | judge-human-use: H1 'Checkout', banner disclosing synthetic scope, and 4 numbered task cards each with a live 'Incomplete/Complete' badge in the top-right corner (visible on initial screenshot). Users can see at a glance which section is done. However, there is no progress indicator, no section-nav, and no persistent visible order summary — the summary + Place order live only at the bottom of the page after all four task cards, so a user must know to scroll to complete the flow. Evidence: screenshots/candidate-a/01-initial-390x844.png; transcript audit landmarks/headings extra (nav:0, aside:0).",
+            "lens": "discoverability"
+          },
+          {
+            "finding": "judge-accessibility: Keyboard-operated edit buttons moved focus to Contact, Address, Shipping, and Payment; all sections remained directly reachable. | judge-human-use: One long continuous form; no skip-link (transcript 'audit landmarks/headings' extra shows skipLinks: []); Edit contact/address/shipping/payment buttons live in the bottom summary and focus the first input of the target section. First Tab focus lands on the contact-name input (transcript 'keyboard: first Tab focus' -> INPUT#contact-name). Keyboard users must Tab through every focusable to reach Place order.",
+            "lens": "navigation"
+          },
+          {
+            "finding": "judge-accessibility: The required data are not duplicated, but all inputs are exposed in one long mobile traversal. | judge-human-use: Autocomplete tokens are present on all inputs, which helps AT autofill. Validation is permissive ('Please enter a value' for empty fields, checks only for '@' in email). Section-level Complete/Incomplete badges give per-section progress. Down-side: card-name (payment info) is persisted to localStorage between reloads (transcript 'reload persistence check' extra shows payment.card-name = 'Alex Morgan' — the code excludes card-number/expiry/security but not card-name), so users returning after interruption see a partial payment leftover.",
+            "lens": "input_burden"
+          },
+          {
+            "finding": "judge-accessibility: Empty submission produced a focused visible summary and retained filled values; linked correction path was operable. | judge-human-use: Error summary at the top with h2 'There is a problem' and per-field links that focus the field on click. aria-invalid + aria-describedby are wired on invalid inputs. Messages are generic ('Please enter a value', 'Please enter a valid email address') rather than field-specific — less actionable than candidates B or C. On invalid submit the error summary receives focus and the assertive status region announces 'There are errors in the form. Please correct them to proceed.' Evidence: transcript 'post-invalid-submit report' errorSummaryVisible=true.",
+            "lens": "error_prevention_recovery"
+          },
+          {
+            "finding": "judge-accessibility: Visual card completion state is useful, but feedback is less prominent between task changes than in the wizard. | judge-human-use: Status region is visually-hidden with aria-live='assertive'. Using assertive for routine transitions ('Processing your order...', 'Order successfully placed.') is stronger than necessary and interrupts screen-reader users; polite would be the appropriate level per WCAG guidance. No aria-live coupling on the Complete/Incomplete badges so screen-reader users get no announcement when a section becomes complete. Evidence: candidate-a/index.html line 17, candidate-a/app.js lines 122–124 and 240–260.",
+            "lens": "feedback_status"
+          },
+          {
+            "finding": "judge-accessibility: Keyboard shipping and review edits worked; accepted objective report passes, with visible focus and errors evident in screenshots. | judge-human-use: Native semantics: fieldset/legend, labels-for, aria-invalid, error summary with role='alert' and tabindex=-1 that receives focus. H1 + numbered H2s. No landmark <aside>/<nav>, no skip-link. aria-live='assertive' on status region is misused for routine updates. Payment leakage on reload (see input_burden) is a soft privacy concern. Card-name field carries autocomplete='cc-name' but reload restore uses localStorage rather than browser autofill — this bypasses the user's own storage preferences.",
+            "lens": "accessibility"
+          },
+          {
+            "finding": "judge-accessibility: No horizontal overflow at 320/360/390, but dense cards, compact radio rows, and very long scroll reduce mobile comfort. | judge-human-use: At 320x568 no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Buttons and inputs meet the mobile-touch objective gate. The Edit-{Contact/Address/Shipping/Payment} buttons in the review section are small and closely spaced 2x2, which is tighter than the corresponding controls in candidates B and C.",
+            "lens": "responsive_touch_ergonomics"
+          },
+          {
+            "finding": "judge-accessibility: All safe values restored and card number/expiry/security code cleared after reload. | judge-human-use: Auto-persists on every input; restores on reload — but card-name is restored too (transcript 'reload persistence check' extra payment.card-name = 'Alex Morgan'), which is a payment-field leak. No user-visible Save or Clear controls, no aria-live announcement on restore, and no explicit statement to the user about what will or will not persist.",
+            "lens": "interruption_resumption"
+          },
+          {
+            "finding": "judge-accessibility: Processing feedback completes safely, but the visual busy treatment is modest. | judge-human-use: Placement setTimeout is 500 ms (hard-coded slow) except under prefers-reduced-motion where it is 0 (candidate-a/app.js lines 250–260). aria-busy is set on the checkout root and status announces 'Processing your order...', but the delay is arbitrarily long for a purely local synthetic operation and the confirmation region only receives focus after the timeout. During my run, the confirmation was still not visible when I sampled 500 ms after click (transcript 'confirmation state' extra confirmationVisible=false, confirmationId='' at the sample instant); it did appear before I sampled again in the duplicate-safety report.",
+            "lens": "latency_perception"
+          },
+          {
+            "finding": "judge-accessibility: Review confirmation and duplicate-safe order placement reduce accidental finalisation; repeated activation yielded one confirmation. | judge-human-use: Duplicate-submit safety is weak. Place order button is disabled only inside the 500 ms setTimeout callback — during that window, additional clicks or Enter presses schedule additional setTimeouts that all set the confirmation ID and re-focus the confirmation region. In practice a single SYN-2048 rendered, but there is no explicit placementStarted flag guarding submit, unlike candidate B. There is no user-facing destructive control (no Clear progress), so users cannot deliberately reset — this is safer for accidental data loss but leaves the persisted card-name until submit clears storage.",
+            "lens": "destructive_actions"
+          },
+          {
+            "finding": "judge-accessibility: Clear card grouping helps, but simultaneous exposure of every task and heavy outlines create scanning load. | judge-human-use: Four task cards + bottom summary is a reasonable IA, and the per-section Incomplete/Complete badges are helpful for sighted users. However the absence of a persistent visible order summary or progress indicator, plus the merging of 'Order Summary and Review' into one bottom block (which also contains Edit buttons, the confirmation checkbox and Place order), forces users to hold more state in working memory. Evidence: screenshots/candidate-a/01-initial-390x844.png; screenshots/candidate-a/05-review-filled.png.",
+            "lens": "cognitive_load"
+          }
+        ],
+        "objective_gate": false,
+        "score": 3.1363636363636362,
+        "scorer_id": "blind-human-use-panel"
+      },
+      "label": "candidate-a",
+      "next_loop_feedback": "Within the independently completable task-cards paradigm, reduce all-open density by collapsing completed detail or adding a concise status/review rail; exclude card-name from persistence, add an immediate placementStarted guard, use polite live announcements for routine transitions, and replace the hard-coded 500 ms delay with short deterministic feedback. Preserve all frozen invariants. Treat the sparse fragment and omitted internal failed-attempt declarations only as an evidence caveat; do not reconstruct or modify those attempts.",
+      "next_loop_feedback_ref": "judging/loop-01/aggregate/loop-02-feedback.json#/task-cards-loop-01",
+      "objective_gates": "all_seven_pass",
+      "panel_judges": [
+        {
+          "evaluation_order": 1,
+          "judge_id": "judge-accessibility",
+          "model": "gpt-5.6-terra"
+        },
+        {
+          "evaluation_order": 3,
+          "judge_id": "judge-human-use",
+          "model": "claude-opus-4.7"
+        }
+      ],
+      "raw_judge_artifacts": [
+        {
+          "id": "task-cards-loop-01-judge-accessibility-candidate-a-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-a.json",
+          "sha256": "015114b8909c73c363d3d97441baa5ec1dfd48bf60900ca54b3332c084f0632a"
+        },
+        {
+          "id": "task-cards-loop-01-judge-accessibility-candidate-a-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-a.md",
+          "sha256": "dbe00a282860f8f63716a2dec0fdf90b210f20b0e2c9646c534024c94363b89b"
+        },
+        {
+          "id": "task-cards-loop-01-judge-accessibility-pairwise-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.json",
+          "sha256": "1cff467a31536b60764f152b83574948c32a52a50d3cdadd9ff0ef5ba3e09c96"
+        },
+        {
+          "id": "task-cards-loop-01-judge-accessibility-pairwise-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.md",
+          "sha256": "716f42c0d42709ac27b0f0f48537eaceb087532347827893745f52385ef9760d"
+        },
+        {
+          "id": "task-cards-loop-01-judge-accessibility-manifest-ready-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/manifest-ready.json",
+          "sha256": "2bcab420a84e3f341f9350bf0c146f68c849583b700fb1a7936eeb0364e89f6c"
+        },
+        {
+          "id": "task-cards-loop-01-judge-accessibility-status-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/status.json",
+          "sha256": "9c342431e64c5f95c00842c0c593ce476aded4c5540efe7a4a1dd2a391e80d23"
+        },
+        {
+          "id": "task-cards-loop-01-judge-human-use-candidate-a-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-a.json",
+          "sha256": "6d13924afe95184cc9d673ff735b472395ac8bbb8220424499e7257115a57743"
+        },
+        {
+          "id": "task-cards-loop-01-judge-human-use-candidate-a-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-a.md",
+          "sha256": "bd0bb984bbb6ff8476d0eac5f55ed8ae8eeecab641554f947209b9d8d1a09257"
+        },
+        {
+          "id": "task-cards-loop-01-judge-human-use-pairwise-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.json",
+          "sha256": "5ecd7646a169c69225a900c8c5ab5ac497d701fb4f3d1622c7dd7abb89a17849"
+        },
+        {
+          "id": "task-cards-loop-01-judge-human-use-pairwise-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.md",
+          "sha256": "8bc07d24ea5ddb97b184bf557a8be4ce1fa5fce550c35c906ecfab7e70eb15b1"
+        },
+        {
+          "id": "task-cards-loop-01-judge-human-use-manifest-ready-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/manifest-ready.json",
+          "sha256": "5bf7ecea82058292395459869233aae87cb5fd0ba13aadcaf5128db2beed7719"
+        },
+        {
+          "id": "task-cards-loop-01-judge-human-use-status-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/status.json",
+          "sha256": "447c0c126fe8f2fee243d22eb68e796fe9c5fc2950639a597fa2918146368930"
+        }
+      ],
+      "scores": [
+        {
+          "criterion_id": "human-use-quality",
+          "notes": "Panel median-by-lens aggregate; exact 69/22.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 3.1363636363636362
+        },
+        {
+          "criterion_id": "visual-information-clarity",
+          "notes": "Median of the two raw judge scores.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 3.0
+        }
+      ],
+      "track_id": "track-task-cards"
+    },
+    {
+      "decision": "keep_for_synthesis",
+      "decision_rationale": "All seven objective gates pass. Independent pairwise consensus ranks this baseline below the wizard while preserving evidence-backed strengths useful for synthesis; retain it without final Champion promotion.",
+      "iteration_id": "single-page-loop-01",
+      "judge_feedback": "Merged independent panel evidence is in judging/loop-01/aggregate/panel-scores.json; dissent is preserved in judging/loop-01/aggregate/dissent.md.",
+      "judging_evidence": {
+        "criterion_id": "human-use-quality",
+        "evidence_refs": [
+          "single-page-loop-01-judge-accessibility-candidate-b-json",
+          "single-page-loop-01-judge-accessibility-candidate-b-md",
+          "single-page-loop-01-judge-accessibility-pairwise-json",
+          "single-page-loop-01-judge-accessibility-pairwise-md",
+          "single-page-loop-01-judge-accessibility-manifest-ready-json",
+          "single-page-loop-01-judge-accessibility-status-json",
+          "single-page-loop-01-judge-human-use-candidate-b-json",
+          "single-page-loop-01-judge-human-use-candidate-b-md",
+          "single-page-loop-01-judge-human-use-pairwise-json",
+          "single-page-loop-01-judge-human-use-pairwise-md",
+          "single-page-loop-01-judge-human-use-manifest-ready-json",
+          "single-page-loop-01-judge-human-use-status-json"
+        ],
+        "iteration_id": "single-page-loop-01",
+        "kind": "qualitative_rubric",
+        "lens_findings": [
+          {
+            "finding": "judge-accessibility: The opening title, section links, numbered headings, persistent summary, synthetic-value help, and explicit final review make requirements immediately findable. | judge-human-use: Site header, banner disclosing synthetic scope, and an in-page 'Checkout sections' nav (Contact/Delivery/Shipping/Payment/Review) as anchor pills. Numbered section circles reinforce the 5-step arc. Order summary card at the top of the flow with running total. Payment section carries a 'Fictional card to use' fixture panel that reveals the exact demo values. Evidence: screenshots/candidate-b/01-initial-390x844.png; transcript audit landmarks/headings extra (nav:1, aside:1, main:1).",
+            "lens": "discoverability"
+          },
+          {
+            "finding": "judge-accessibility: Every section link changed the hash in keyboard use and review edit controls focused the intended section; the long one-page return trip remains a cost. | judge-human-use: Anchor pills jump between sections; Edit contact/Edit shipping buttons call scrollIntoView + focus the first field of the target section and narrate the move. First Tab focus lands on the section-nav 'Contact' anchor (transcript 'keyboard: first Tab focus'). Missing a true skip-link, but the section-nav row functions similarly for sighted keyboard users; screen-reader users get a labelled nav landmark.",
+            "lens": "navigation"
+          },
+          {
+            "finding": "judge-accessibility: Exact required fields and helpful formats avoid ambiguity, but all contact, address, payment, and review work are exposed in one extended pass. | judge-human-use: Validation is strict-fixture: state must equal 'NSW' (case-sensitive), country must equal 'australia' (lowercased); card number must equal '4111111111111111'; expiry must equal '12/34'; CSC must equal '123'; cardholder must equal 'alex morgan'. Any real-world variation is rejected. All inputs also have autocomplete='off', which disables browser autofill / password-manager assistance — a documented accessibility anti-pattern for motor-constrained and cognitively-impaired users. The 'Synthetic value:' helper text and fixture-card do mitigate for sighted users who read them, but the underlying interaction burden is high. Evidence: candidate-b/app.js fieldRules + errorMessages, candidate-b/index.html autocomplete='off' on every input.",
+            "lens": "input_burden"
+          },
+          {
+            "finding": "judge-accessibility: Empty submission focused the summary and rendered 13 linked, field-associated corrections while preserving all entries. | judge-human-use: Empty submit produced 13 highly specific error messages routed through a single error summary that focuses itself and lists each item as a link ('Enter the synthetic phone number with at least 8 digits.', 'Select NSW for this demonstration.', 'Enter the 4-digit synthetic postcode.'). aria-invalid + aria-describedby chained to the correct help+error IDs; on correction each field's error is cleared on input/change. Evidence: transcript 'post-invalid-submit report' errorSummaryVisible=true, invalidsCount ~13.",
+            "lens": "error_prevention_recovery"
+          },
+          {
+            "finding": "judge-accessibility: Safe-progress restoration, error count, placing status, and single confirmation were explicit; the brief busy state is still sparse visually. | judge-human-use: Polite aria-live status region with aria-atomic='true' updates through the flow: 'Safe contact, delivery and shipping progress saved…', 'Placing local synthetic order. Please wait.', 'Synthetic order placed once. Confirmation ID SYN-2048.' Assertive live on the error summary. Focus moves to confirmation section on completion (transcript 'confirmation state' activeElement=SECTION).",
+            "lens": "feedback_status"
+          },
+          {
+            "finding": "judge-accessibility: Space selected shipping, Enter placed the order, focus recovery worked, reduced-motion ran, and no runtime errors occurred; custom radio styling warrants caution. | judge-human-use: Solid landmark tree (header/nav/main/aside/footer), fieldset+legend per section, aria-describedby chained, error summary role='alert' with tabindex=-1 that receives focus after invalid submit. Concerns: (a) Shipping uses a double-radio anti-pattern — <label class='choice-card' role='radio' aria-checked> wrapping a real <input type='radio' aria-hidden='true'> — screen-reader users may hear the group twice or miss state updates because aria-checked is set only via the keydown handler, not by the input's own change; (b) autocomplete='off' on every field is an anti-pattern for AT-assisted form filling; (c) no visible skip-link even though the section-nav helps sighted keyboard users. Evidence: candidate-b/index.html lines 171–184; candidate-b/app.js keydown handler on shipping-* elements.",
+            "lens": "accessibility"
+          },
+          {
+            "finding": "judge-accessibility: All tested widths had no horizontal overflow and controls remained legible, although five compact section links and the full-page length constrain comfort. | judge-human-use: At 320x568 no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Shipping choice-cards and Place-order button are large tap targets; section anchors are pill-sized. Mobile-touch objective gate passes independently.",
+            "lens": "responsive_touch_ergonomics"
+          },
+          {
+            "finding": "judge-accessibility: Reload restored every safe value and cleared every tested payment secret with an explicit restoration message. | judge-human-use: Safe fields (contact + delivery + shipping) are auto-persisted on input; on reload they are restored and the status region announces 'Safe progress restored. Re-enter synthetic payment details; they were not saved.' Reload persistence check (transcript) shows payment: {card-*: '' } across all four payment fields. No manual save or clear controls — users cannot deliberately discard progress without clearing site data.",
+            "lens": "interruption_resumption"
+          },
+          {
+            "finding": "judge-accessibility: The busy state was observed on keyboard placement and repeat activation was safely prevented before a deterministic local confirmation. | judge-human-use: 180 ms placement setTimeout, placeOrder.disabled=true immediately, aria-busy='true' during processing, then narrated 'Synthetic order placed once. Confirmation ID SYN-2048.' Perceived latency is short.",
+            "lens": "latency_perception"
+          },
+          {
+            "finding": "judge-accessibility: Edit controls preserved data and repeated Place order yielded exactly one SYN-2048 confirmation. | judge-human-use: No user-facing destructive control beyond Place order itself. Place order is guarded by a placementStarted flag and disabled after success; a second Enter/click after completion re-narrates 'This synthetic order is already confirmed as SYN-2048. No duplicate was created.' Transcript 'duplicate-safety report' confIds: ['SYN-2048'], placeOrderDisabled=true.",
+            "lens": "destructive_actions"
+          },
+          {
+            "finding": "judge-accessibility: Strong hierarchy and help reduce ambiguity, but the full 13-item error panorama and long single page retain substantial working-memory demand. | judge-human-use: All five sections are on one continuously scrolled page. Nav pills help orientation, but ~20 required fields plus fixture cards plus a review block are visible at once, which is heavy on a small viewport. The exact-match validation adds hidden rules ('why won't it accept 4111-1111-1111-1111 with dashes?') that a real cross-disability user must reason through. The review block is helpful but reprints only aggregate values rather than every field verbatim, so users must scroll back to correct.",
+            "lens": "cognitive_load"
+          }
+        ],
+        "objective_gate": false,
+        "score": 3.909090909090909,
+        "scorer_id": "blind-human-use-panel"
+      },
+      "label": "candidate-b",
+      "next_loop_feedback": "Within the single-page landmarked paradigm, reduce traversal and error-state load with compact completed-section summaries or optional progressive disclosure that keeps landmarks and direct editability; restore appropriate autocomplete tokens, use native radio inputs styled as cards without duplicate ARIA roles, and relax exact-fixture validation to shape-valid synthetic inputs while retaining clear fixture hints and all frozen invariants.",
+      "next_loop_feedback_ref": "judging/loop-01/aggregate/loop-02-feedback.json#/single-page-loop-01",
+      "objective_gates": "all_seven_pass",
+      "panel_judges": [
+        {
+          "evaluation_order": 2,
+          "judge_id": "judge-accessibility",
+          "model": "gpt-5.6-terra"
+        },
+        {
+          "evaluation_order": 2,
+          "judge_id": "judge-human-use",
+          "model": "claude-opus-4.7"
+        }
+      ],
+      "raw_judge_artifacts": [
+        {
+          "id": "single-page-loop-01-judge-accessibility-candidate-b-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-b.json",
+          "sha256": "0a65367efa657c027f19507b0094d89439df57721e69b64f7b3bcc9e34317e56"
+        },
+        {
+          "id": "single-page-loop-01-judge-accessibility-candidate-b-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-b.md",
+          "sha256": "bf4ea889784c7afbca6ac1e702760ccaee86b6c18f61130c352295432cce5873"
+        },
+        {
+          "id": "single-page-loop-01-judge-accessibility-pairwise-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.json",
+          "sha256": "1cff467a31536b60764f152b83574948c32a52a50d3cdadd9ff0ef5ba3e09c96"
+        },
+        {
+          "id": "single-page-loop-01-judge-accessibility-pairwise-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.md",
+          "sha256": "716f42c0d42709ac27b0f0f48537eaceb087532347827893745f52385ef9760d"
+        },
+        {
+          "id": "single-page-loop-01-judge-accessibility-manifest-ready-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/manifest-ready.json",
+          "sha256": "2bcab420a84e3f341f9350bf0c146f68c849583b700fb1a7936eeb0364e89f6c"
+        },
+        {
+          "id": "single-page-loop-01-judge-accessibility-status-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/status.json",
+          "sha256": "9c342431e64c5f95c00842c0c593ce476aded4c5540efe7a4a1dd2a391e80d23"
+        },
+        {
+          "id": "single-page-loop-01-judge-human-use-candidate-b-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-b.json",
+          "sha256": "3dfca0fa70183204a39a47fc65a6fc3cf7c7d3d6f867b35e57980fc8f7180759"
+        },
+        {
+          "id": "single-page-loop-01-judge-human-use-candidate-b-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-b.md",
+          "sha256": "f5ac076e29547876568fd0d9a4f9393c7dbad16dea3a1c6ae5073b280050ee12"
+        },
+        {
+          "id": "single-page-loop-01-judge-human-use-pairwise-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.json",
+          "sha256": "5ecd7646a169c69225a900c8c5ab5ac497d701fb4f3d1622c7dd7abb89a17849"
+        },
+        {
+          "id": "single-page-loop-01-judge-human-use-pairwise-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.md",
+          "sha256": "8bc07d24ea5ddb97b184bf557a8be4ce1fa5fce550c35c906ecfab7e70eb15b1"
+        },
+        {
+          "id": "single-page-loop-01-judge-human-use-manifest-ready-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/manifest-ready.json",
+          "sha256": "5bf7ecea82058292395459869233aae87cb5fd0ba13aadcaf5128db2beed7719"
+        },
+        {
+          "id": "single-page-loop-01-judge-human-use-status-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/status.json",
+          "sha256": "447c0c126fe8f2fee243d22eb68e796fe9c5fc2950639a597fa2918146368930"
+        }
+      ],
+      "scores": [
+        {
+          "criterion_id": "human-use-quality",
+          "notes": "Panel median-by-lens aggregate; exact 43/11.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 3.909090909090909
+        },
+        {
+          "criterion_id": "visual-information-clarity",
+          "notes": "Median of the two raw judge scores.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.5
+        }
+      ],
+      "track_id": "track-single-page"
+    },
+    {
+      "decision": "new_best",
+      "decision_rationale": "All seven objective gates pass. The independent panel gives this Loop the highest primary qualitative aggregate and both judges prefer it in every pairwise comparison; it is the interim Track baseline champion only, not the final Experiment Champion.",
+      "iteration_id": "resumable-wizard-loop-01",
+      "judge_feedback": "Merged independent panel evidence is in judging/loop-01/aggregate/panel-scores.json; dissent is preserved in judging/loop-01/aggregate/dissent.md.",
+      "judging_evidence": {
+        "criterion_id": "human-use-quality",
+        "evidence_refs": [
+          "resumable-wizard-loop-01-judge-accessibility-candidate-c-json",
+          "resumable-wizard-loop-01-judge-accessibility-candidate-c-md",
+          "resumable-wizard-loop-01-judge-accessibility-pairwise-json",
+          "resumable-wizard-loop-01-judge-accessibility-pairwise-md",
+          "resumable-wizard-loop-01-judge-accessibility-manifest-ready-json",
+          "resumable-wizard-loop-01-judge-accessibility-status-json",
+          "resumable-wizard-loop-01-judge-human-use-candidate-c-json",
+          "resumable-wizard-loop-01-judge-human-use-candidate-c-md",
+          "resumable-wizard-loop-01-judge-human-use-pairwise-json",
+          "resumable-wizard-loop-01-judge-human-use-pairwise-md",
+          "resumable-wizard-loop-01-judge-human-use-manifest-ready-json",
+          "resumable-wizard-loop-01-judge-human-use-status-json"
+        ],
+        "iteration_id": "resumable-wizard-loop-01",
+        "kind": "qualitative_rubric",
+        "lens_findings": [
+          {
+            "finding": "judge-accessibility: Step 1 of 4 progress, clear Continue labels, persistent summary, save/resume controls, and review edits clearly expose the journey. | judge-human-use: Progress stepper (aria-valuetext narrated), persistent Order summary with shipping method and totals, banner disclosing synthetic scope, and 'Continue to delivery address' button label make the flow obvious. Slight friction: shipping selection lives in the aside not the wizard body, so users who ignore the summary card may not know when it was set. Evidence: screenshots/candidate-c/01-initial-390x844.png; navigation-transcript-c.json audit landmarks/headings extra.",
+            "lens": "discoverability"
+          },
+          {
+            "finding": "judge-accessibility: Skip link, Back, Continue, and all four review Edit controls operated by keyboard and directed focus to the intended target. | judge-human-use: Wizard exposes exactly one active Continue at a time; Back per step; Edit buttons on review jump back to the correct step and focus its heading (tabindex=-1). Skip-link 'Skip to checkout steps' is the first Tab stop, but pressing Enter left the active element at BODY rather than the wizard-form target (skip target lacks tabindex=-1), so screen-reader users may not perceive the jump. Evidence: transcript entries 'keyboard: first Tab focus' and 'keyboard: activated skip-link'.",
+            "lens": "navigation"
+          },
+          {
+            "finding": "judge-accessibility: Progressive disclosure limits simultaneous choices but does not reduce the required contact, address, payment, and review inputs. | judge-human-use: Autocomplete tokens present on every input; validation is tolerant (any 4-digit postcode, any 12–19 digit card number, generic phone). Explicit 'Save progress' and 'Clear saved progress' buttons let users pause. Wizard grouping keeps at most 3–5 fields visible at once. Evidence: candidate-c/app.js fieldMessage(); screenshots/candidate-c/05-review-filled.png.",
+            "lens": "input_burden"
+          },
+          {
+            "finding": "judge-accessibility: Invalid placement exposed a summary and focused Contact, but empty Continue actions advanced through three steps rather than preventing the premature move. | judge-human-use: Per-field aria-invalid + aria-describedby chained to help+error; error summary lists each problem as a button that navigates back to the offending step and focuses the field. Continue past step with residual errors uses a nuanced status ('N item(s) still need attention — you can continue now and fix them before placing your order') so users are never blocked by partial validity. Evidence: candidate-c/app.js renderErrorSummary, handleContinue.",
+            "lens": "error_prevention_recovery"
+          },
+          {
+            "finding": "judge-accessibility: Progress text, step-complete feedback, save and resume messages, busy status, and confirmation provide clear, timely state changes. | judge-human-use: Polite aria-live status region receives running updates ('Step X complete', 'Placing your order…', 'Order placed. Confirmation SYN-2048.', 'Resumed your saved progress…'). aria-busy on Place order during placement. Progress bar aria-valuetext narrates each step. Evidence: transcript entries 'confirmation state' + 'reduced-motion: completed flow'; candidate-c/index.html progressbar role.",
+            "lens": "feedback_status"
+          },
+          {
+            "finding": "judge-accessibility: Keyboard actions, focus movement, skip link, reduced-motion operation, and accepted objective pass evidence were strong; hidden-step complexity remains a qualitative caveat. | judge-human-use: Native semantics (fieldset/legend, labels-for, submit form); pending steps set aria-hidden=true and children tabindex=-1 so they are cleanly out of the reading and tab order; H1 present, one main landmark and aside for summary; role='progressbar' with narrated aria-valuetext. Focus is moved to the placed order confirmation. Minor issue: skip-link Enter left focus at BODY (target lacks tabindex=-1). radio-row labels carry tabindex='-1' which is unusual but not harmful. No custom radio role over real radio inputs. Evidence: transcript 'audit landmarks/headings' and 'keyboard: activated skip-link'.",
+            "lens": "accessibility"
+          },
+          {
+            "finding": "judge-accessibility: No horizontal overflow at all tested viewports; full-width Continue controls and readable cards support touch, while small utility links are less forgiving. | judge-human-use: At 390x844 and 320x568, no horizontal scroll (transcript '320x568: viewport initial' hasHorizontalScroll=false). Continue/Back buttons are large, radio rows span the full width, and the primary CTA has generous padding. Mobile-touch objective gate passes independently.",
+            "lens": "responsive_touch_ergonomics"
+          },
+          {
+            "finding": "judge-accessibility: Save, clear, reload, and resumed-progress messages were actually operated; safe values restored and payment secrets cleared. | judge-human-use: Explicit Save progress control + auto-persist on input; hydrateFromStorage restores field values, step position, and shipping method; announces 'Resumed your saved progress. Payment details are never saved and must be re-entered.' On reload, payment fields (card-number/expiry/security/name) all cleared to empty (transcript 'reload persistence check' extra shows payment: null across all four). Clear saved progress button provides a deliberate reset path.",
+            "lens": "interruption_resumption"
+          },
+          {
+            "finding": "judge-accessibility: Busy feedback appeared during local placement and repeat activation still produced only one confirmation. | judge-human-use: Placement setTimeout is 120 ms; aria-busy set on Place order, status announces 'Placing your order…' immediately. Perceived latency is short and narrated. Reduced-motion path still succeeds and produces SYN-2048.",
+            "lens": "latency_perception"
+          },
+          {
+            "finding": "judge-accessibility: Order placement is explicit and duplicate-safe, but Clear saved progress immediately reloads without undo or confirmation. | judge-human-use: Two destructive controls exist: Clear saved progress (reloads the page after wipe) and repeated Place order. Place order is guarded by state.orderPlaced flag and sets aria-disabled=true after first success — repeated activations produced exactly one SYN-2048 (transcript 'duplicate-safety report' confIds: ['SYN-2048'], placeOrderAriaDisabled: 'true'). Clear saved progress has no confirm dialog or undo, but its label is unambiguous and payment data was never stored to lose.",
+            "lens": "destructive_actions"
+          },
+          {
+            "finding": "judge-accessibility: One active task, explicit progress, and a concise review lower memory demand more effectively than the fully exposed alternatives. | judge-human-use: One task per view with clear title, help text under each field, a persistent visible summary and progress. Review step reprints every entered value ('Alex Morgan · alex.morgan@example.invalid · +61 400 000 000', '42 Fiction Lane, Sampleton NSW 2000, Australia', 'Synthetic card ending 1111, expires 12/34') so the user can verify without scrolling. Evidence: transcript 'review content' extra.",
+            "lens": "cognitive_load"
+          }
+        ],
+        "objective_gate": false,
+        "score": 4.2727272727272725,
+        "scorer_id": "blind-human-use-panel"
+      },
+      "label": "candidate-c",
+      "next_loop_feedback": "Within the resumable-wizard paradigm, make skip-link activation move programmatic focus to the checkout steps, validate and retain focus in an empty active step before advancing, and require confirmation or provide undo before clearing saved progress. Preserve explicit progress, Back/Edit, safe resume, and all frozen invariants.",
+      "next_loop_feedback_ref": "judging/loop-01/aggregate/loop-02-feedback.json#/resumable-wizard-loop-01",
+      "objective_gates": "all_seven_pass",
+      "panel_judges": [
+        {
+          "evaluation_order": 3,
+          "judge_id": "judge-accessibility",
+          "model": "gpt-5.6-terra"
+        },
+        {
+          "evaluation_order": 1,
+          "judge_id": "judge-human-use",
+          "model": "claude-opus-4.7"
+        }
+      ],
+      "raw_judge_artifacts": [
+        {
+          "id": "resumable-wizard-loop-01-judge-accessibility-candidate-c-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-c.json",
+          "sha256": "3bdaf20b2937c923f9ccb6168d14aae25792b9b13ab39d167b20dd133f33e893"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-accessibility-candidate-c-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/candidate-c.md",
+          "sha256": "121b41b86802e4c34bcad00c6b70b4fc4956700b0bc08a1a2cf48c4b6bff67f4"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-accessibility-pairwise-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.json",
+          "sha256": "1cff467a31536b60764f152b83574948c32a52a50d3cdadd9ff0ef5ba3e09c96"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-accessibility-pairwise-md",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/pairwise.md",
+          "sha256": "716f42c0d42709ac27b0f0f48537eaceb087532347827893745f52385ef9760d"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-accessibility-manifest-ready-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/manifest-ready.json",
+          "sha256": "2bcab420a84e3f341f9350bf0c146f68c849583b700fb1a7936eeb0364e89f6c"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-accessibility-status-json",
+          "judge_id": "judge-accessibility",
+          "path": "judging/loop-01/judge-accessibility/status.json",
+          "sha256": "9c342431e64c5f95c00842c0c593ce476aded4c5540efe7a4a1dd2a391e80d23"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-human-use-candidate-c-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-c.json",
+          "sha256": "3ab5883ab35b0578aeffad645f7187727aff7d8febc2bfd423126e82db475c45"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-human-use-candidate-c-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/candidate-c.md",
+          "sha256": "824a0f85aeebfc3ffabc44d78629fb5625e78cbbfbc3ebb83b84defd0d7d8432"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-human-use-pairwise-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.json",
+          "sha256": "5ecd7646a169c69225a900c8c5ab5ac497d701fb4f3d1622c7dd7abb89a17849"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-human-use-pairwise-md",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/pairwise.md",
+          "sha256": "8bc07d24ea5ddb97b184bf557a8be4ce1fa5fce550c35c906ecfab7e70eb15b1"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-human-use-manifest-ready-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/manifest-ready.json",
+          "sha256": "5bf7ecea82058292395459869233aae87cb5fd0ba13aadcaf5128db2beed7719"
+        },
+        {
+          "id": "resumable-wizard-loop-01-judge-human-use-status-json",
+          "judge_id": "judge-human-use",
+          "path": "judging/loop-01/judge-human-use/status.json",
+          "sha256": "447c0c126fe8f2fee243d22eb68e796fe9c5fc2950639a597fa2918146368930"
+        }
+      ],
+      "scores": [
+        {
+          "criterion_id": "human-use-quality",
+          "notes": "Panel median-by-lens aggregate; exact 47/11.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.2727272727272725
+        },
+        {
+          "criterion_id": "visual-information-clarity",
+          "notes": "Median of the two raw judge scores.",
+          "scorer_id": "blind-human-use-panel",
+          "value": 4.0
+        }
+      ],
+      "track_id": "track-resumable-wizard"
+    }
+  ],
+  "schema_version": "1.0",
+  "source_loop": "loop-01"
+}

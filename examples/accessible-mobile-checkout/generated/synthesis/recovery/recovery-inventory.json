@@ -1,0 +1,185 @@
+{
+  "approval_binding_validation": {
+    "installed_skill_validator_caveat": "The current user-installed skill validator targets a newer brief schema and rejected the frozen repository brief's human_use field. The repository-pinned validator was used because it is part of the approved revision-1 contract.",
+    "require_approved": true,
+    "result": "EXPERIMENT SETUP: PASS",
+    "validator": "scripts/validate_experiment_setup.py"
+  },
+  "experiment_id": "accessible-mobile-checkout",
+  "frozen_inputs": [
+    {
+      "bytes": 45369,
+      "created_utc": "2026-07-21T05:41:09.000504+00:00",
+      "modified_utc": "2026-07-21T05:56:35.239654+00:00",
+      "path": "setup/experiment-brief.json",
+      "sha256": "ddec5caa3b16f4b11f2eb62d089c1375cd19d1ab1b3aeb31a834654628ebda13"
+    },
+    {
+      "bytes": 19510,
+      "created_utc": "2026-07-21T05:41:09.002518+00:00",
+      "modified_utc": "2026-07-21T05:50:02.563856+00:00",
+      "path": "setup/prompt.md",
+      "sha256": "86d73090fa414abcb6c33721cfc10177b4482b2516bb897750ea188e95f99928"
+    },
+    {
+      "bytes": 541,
+      "created_utc": "2026-07-21T05:56:46.259839+00:00",
+      "modified_utc": "2026-07-21T05:56:46.259839+00:00",
+      "path": "setup/approval.json",
+      "sha256": "350165d1839c4a0fec1863621039ae56c57e04549aeb6756a50917f3f4f93f10"
+    },
+    {
+      "bytes": 3608,
+      "created_utc": "2026-07-21T06:00:20.962140+00:00",
+      "modified_utc": "2026-07-21T06:10:33.973297+00:00",
+      "path": "generated/harness/canonical-fixture.json",
+      "sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894"
+    },
+    {
+      "bytes": 49175,
+      "created_utc": "2026-07-21T06:01:30.367746+00:00",
+      "modified_utc": "2026-07-21T06:14:30.999629+00:00",
+      "path": "generated/harness/run_checkout_gates.py",
+      "sha256": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563"
+    }
+  ],
+  "immutable_outputs": [
+    {
+      "bytes": 20761,
+      "created_utc": "2026-07-21T09:03:56.663410+00:00",
+      "modified_utc": "2026-07-21T09:03:56.663410+00:00",
+      "path": "synthesis/loop-01/index.html",
+      "sha256": "0b94c3e512ec293dc1a8c9a013ddd4408f698e7d97bfa3ce66e052546f97a37e"
+    },
+    {
+      "bytes": 14848,
+      "created_utc": "2026-07-21T09:05:01.647611+00:00",
+      "modified_utc": "2026-07-21T09:05:01.648144+00:00",
+      "path": "synthesis/loop-01/styles.css",
+      "sha256": "9e1dfcf492fb28a358d4720cc3e5a7c0a18a625e17fcb549cdb94307f32b850d"
+    },
+    {
+      "bytes": 20841,
+      "created_utc": "2026-07-21T09:06:38.507251+00:00",
+      "modified_utc": "2026-07-21T09:06:38.507251+00:00",
+      "path": "synthesis/loop-01/app.js",
+      "sha256": "9bbe3f43035a2f88cf749c0299f4ac6275a97f9420694aa4c5d9646697d22ef1"
+    },
+    {
+      "bytes": 2262,
+      "created_utc": "2026-07-21T09:08:15.080045+00:00",
+      "modified_utc": "2026-07-21T09:08:15.080045+00:00",
+      "path": "synthesis/loop-01/process.json",
+      "sha256": "71c2997367302c951005ecb03e0b5d769c195a7e7658862e1cae3dcd90f7f04f"
+    },
+    {
+      "bytes": 50452,
+      "created_utc": "2026-07-21T09:07:12.271884+00:00",
+      "modified_utc": "2026-07-21T09:07:12.273343+00:00",
+      "path": "synthesis/loop-01/evidence/objective-report.json",
+      "sha256": "512eb60c830cc663a66061b2fbe128c5679adc5bb75a41f69b63bbd70f4f8cc8"
+    },
+    {
+      "bytes": 993,
+      "created_utc": "2026-07-21T09:07:12.274489+00:00",
+      "modified_utc": "2026-07-21T09:07:12.274489+00:00",
+      "path": "synthesis/loop-01/evidence/objective-report.txt",
+      "sha256": "2246f845be24decb6ca2ec174692d2aef734a3487638e716cf605ea64213c7ae"
+    },
+    {
+      "bytes": 200285,
+      "created_utc": "2026-07-21T09:07:06.568704+00:00",
+      "modified_utc": "2026-07-21T09:07:06.569704+00:00",
+      "path": "synthesis/loop-01/evidence/initial.png",
+      "sha256": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93"
+    },
+    {
+      "bytes": 211019,
+      "created_utc": "2026-07-21T09:07:07.797179+00:00",
+      "modified_utc": "2026-07-21T09:07:07.798182+00:00",
+      "path": "synthesis/loop-01/evidence/keyboard-completion.png",
+      "sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b"
+    },
+    {
+      "bytes": 211019,
+      "created_utc": "2026-07-21T09:07:12.181244+00:00",
+      "modified_utc": "2026-07-21T09:07:12.181775+00:00",
+      "path": "synthesis/loop-01/evidence/final.png",
+      "sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b"
+    },
+    {
+      "bytes": 209295,
+      "created_utc": "2026-07-21T09:07:09.471955+00:00",
+      "modified_utc": "2026-07-21T09:07:09.471955+00:00",
+      "path": "synthesis/loop-01/evidence/viewport-320x568.png",
+      "sha256": "ef0891c83646f03c553dcc0781db18460625150b6d7b408b4a525adec92d6313"
+    },
+    {
+      "bytes": 213226,
+      "created_utc": "2026-07-21T09:07:09.895923+00:00",
+      "modified_utc": "2026-07-21T09:07:09.905914+00:00",
+      "path": "synthesis/loop-01/evidence/viewport-360x800.png",
+      "sha256": "0bd146688840a43ba8bfce1bc1876ec687dc0d6a28efd484f6854f7bfc9b362c"
+    },
+    {
+      "bytes": 211019,
+      "created_utc": "2026-07-21T09:07:10.314823+00:00",
+      "modified_utc": "2026-07-21T09:07:10.315833+00:00",
+      "path": "synthesis/loop-01/evidence/viewport-390x844.png",
+      "sha256": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b"
+    },
+    {
+      "bytes": 14611,
+      "created_utc": "2026-07-21T09:09:19.043634+00:00",
+      "modified_utc": "2026-07-21T09:09:19.044642+00:00",
+      "path": "synthesis/loop-01/adoption-rejection-matrix.json",
+      "sha256": "3f6c9fc01cb5629738a71a58851e4f0e174427bdf70edafbdcb05db861557630"
+    },
+    {
+      "bytes": 7221,
+      "created_utc": "2026-07-21T09:09:50.239453+00:00",
+      "modified_utc": "2026-07-21T09:09:50.239453+00:00",
+      "path": "synthesis/loop-01/adoption-rejection-matrix.md",
+      "sha256": "034c3e68b9a00f0d69f4b36e1a1b25da485ed2432cd99a6f4b610e62efd4429b"
+    }
+  ],
+  "loop_id": "synthesis-loop-01",
+  "missing_outputs_at_recovery": [
+    "synthesis/loop-01/metadata.json",
+    "synthesis/loop-01/synthesis-report.md",
+    "synthesis/manifest-fragment.json",
+    "terminal synthesis/loop-01/status.json",
+    "process-ledger synthesis reconciliation event"
+  ],
+  "objective_terminal_evidence": {
+    "blocking_failure": false,
+    "end_utc": "2026-07-21T09:07:12.389Z",
+    "exit_code": 0,
+    "external_request_count": 0,
+    "failed_gate_ids": [],
+    "gate_states": {
+      "content-fidelity": "pass",
+      "error-recovery-gate": "pass",
+      "keyboard-completion-gate": "pass",
+      "mobile-touch-gate": "pass",
+      "offline-safety-gate": "pass",
+      "resilience-gate": "pass",
+      "semantic-accessibility-gate": "pass"
+    },
+    "pid": 53728,
+    "rerun_authorized": false,
+    "terminal_state": "completed"
+  },
+  "reboot_provenance": {
+    "active_background_agents_after_reboot": 0,
+    "active_shell_sessions_after_reboot": 0,
+    "agent_handle": "synthesis-loop-01",
+    "agent_handle_after_reboot": "not_found",
+    "persisted_status_heartbeat": "2026-07-21T09:02:38.916Z",
+    "persisted_status_state": "running",
+    "recorded_objective_pid_alive_after_reboot": false,
+    "writes_outside_generated_synthesis_after_launch": []
+  },
+  "recovery_classification": "agent_interrupted_after_terminal_objective_pass",
+  "schema_version": "1.0"
+}

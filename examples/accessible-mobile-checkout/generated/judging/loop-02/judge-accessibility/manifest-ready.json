@@ -1,0 +1,371 @@
+{
+  "human_use": {
+    "applicability": "applicable",
+    "rationale": "The Artifact is a human-operated mobile checkout. Its success depends on discoverability, navigation, input burden, error recovery, feedback, accessibility, touch ergonomics, interruption recovery, perceived latency, destructive-action safety, and cognitive load across cross-disability use."
+  },
+  "records": [
+    {
+      "candidate": "candidate-a",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 4.181818181818182,
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+        "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png"
+      ],
+      "lens_findings": [
+        {
+          "lens": "discoverability",
+          "score": 4,
+          "finding": "The labelled sections and persistent review make required work apparent, although the full single-page length delays the lower sections.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-a/initial.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "navigation",
+          "score": 4,
+          "finding": "Skip navigation, section edit controls, and reverse traversal worked; the compacted sections remained recoverable.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "input_burden",
+          "score": 4,
+          "finding": "All inputs are reachable in one flow with autocomplete-oriented field types, but address and payment remain a long sequential form.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "error_prevention_recovery",
+          "score": 4,
+          "finding": "An empty explicit submission reached the error state and the completed correction path retained values.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-a/error.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "feedback_status",
+          "score": 4,
+          "finding": "Completion, restored-progress, and single-confirmation messages were observed, but status is less directive before the user reaches review.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "accessibility",
+          "score": 5,
+          "finding": "First Tab exposed a skip link; compacted-body traversal found no hidden focus target; no console/runtime errors were recorded.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "responsive_touch_ergonomics",
+          "score": 4,
+          "finding": "All three operated widths had scrollWidth equal to clientWidth; controls retain visible spacing, though the long page increases scrolling.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "interruption_resumption",
+          "score": 4,
+          "finding": "Reload restored Alex Morgan while payment fields were empty.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "latency_perception",
+          "score": 4,
+          "finding": "Reduced motion reported no duration over 10 ms; repeated activation gave exactly one confirmation, with a clear local completion status.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "destructive_actions",
+          "score": 4,
+          "finding": "Review edit and duplicate-submit behavior were safe, but no clear-progress confirmation affordance was discoverable to test.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        },
+        {
+          "lens": "cognitive_load",
+          "score": 5,
+          "finding": "Optional compact summaries, section completion state, and persistent review reduce memory load without concealing completed details.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-a.json"
+          ]
+        }
+      ],
+      "visual-information-clarity": {
+        "score": 4,
+        "evidence_refs": [
+          "judging/loop-02/judge-accessibility/screenshots/candidate-a/initial.png",
+          "judging/loop-02/judge-accessibility/screenshots/candidate-a/review.png"
+        ]
+      },
+      "synthesis_feedback": "Adopt the optional compact-completed pattern only: it preserved keyboard exclusion from hidden bodies (supplemental hidden-focus count 0). Reject copying the absence of a discoverable clear-progress confirmation affordance."
+    },
+    {
+      "candidate": "candidate-b",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 4.545454545454546,
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+        "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png"
+      ],
+      "lens_findings": [
+        {
+          "lens": "discoverability",
+          "score": 4,
+          "finding": "The step labels, active stage, and direct skip target orient the user, though the next requirement is intentionally deferred.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-b/initial.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "navigation",
+          "score": 4,
+          "finding": "The keyboard run reached no hidden content; Back and review Edit were exercised, but returning through a multi-stage path requires more navigation than a single page.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "input_burden",
+          "score": 4,
+          "finding": "Progressive disclosure limits the active fields, offset by Continue and Back activations.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "error_prevention_recovery",
+          "score": 5,
+          "finding": "Empty-step validation was exercised; errors are step-local and the completed route corrected to confirmation.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-b/error.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "feedback_status",
+          "score": 5,
+          "finding": "Status clearly reports save, restore, cancellation, and local confirmation; completed cards say what was retained.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "accessibility",
+          "score": 5,
+          "finding": "Skip focus, keyboard exposure check, reduced motion, and no console/runtime errors were observed; later steps stayed out of the tested initial tab order.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "responsive_touch_ergonomics",
+          "score": 4,
+          "finding": "All frozen widths had no horizontal overflow; the long review is readable but requires scrolling around the sticky summary.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "interruption_resumption",
+          "score": 5,
+          "finding": "A reload restored contact values while payment was empty, and Save progress was explicitly operated.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "latency_perception",
+          "score": 4,
+          "finding": "Reduced motion had no long duration and duplicate activation yielded one confirmation; the final confirmation is clear but the busy interval is brief.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "destructive_actions",
+          "score": 5,
+          "finding": "Clear saved progress opens a dedicated confirmation and Cancel was exercised before proceeding; duplicate submit gave one confirmation.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-b/clear-progress-confirmation.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        },
+        {
+          "lens": "cognitive_load",
+          "score": 5,
+          "finding": "One active task, concise completed summaries, progress labels, and review edits minimize working-memory demand.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-b.json"
+          ]
+        }
+      ],
+      "visual-information-clarity": {
+        "score": 5,
+        "evidence_refs": [
+          "judging/loop-02/judge-accessibility/screenshots/candidate-b/initial.png",
+          "judging/loop-02/judge-accessibility/screenshots/candidate-b/review.png"
+        ]
+      },
+      "synthesis_feedback": "Adopt the explicit clear-progress confirmation/cancel treatment and step-local validation; retain this candidate as the strongest qualitative synthesis starting point. Reject copying its extra step transitions when they do not lower cognitive load."
+    },
+    {
+      "candidate": "candidate-c",
+      "criterion_id": "human-use-quality",
+      "scorer_id": "blind-human-use-panel",
+      "kind": "qualitative_rubric",
+      "objective_gate": false,
+      "score": 3.1818181818181817,
+      "evidence_refs": [
+        "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+        "judging/loop-02/judge-accessibility/screenshots/candidate-c/review.png"
+      ],
+      "lens_findings": [
+        {
+          "lens": "discoverability",
+          "score": 3,
+          "finding": "Numbered accordion headers show a broad task outline, but the relationship between collapsed cards and the review action is less immediate.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-c/initial.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "navigation",
+          "score": 2,
+          "finding": "The Tab sequence entered address, shipping, and payment descendants while their headers reported aria-expanded=false, creating invisible navigation stops.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "input_burden",
+          "score": 3,
+          "finding": "Task grouping is useful, but keyboard traversal through collapsed sections adds avoidable effort.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "error_prevention_recovery",
+          "score": 4,
+          "finding": "The empty submit produced an error state and the operated correction path completed successfully.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-c/error.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "feedback_status",
+          "score": 4,
+          "finding": "Section completion and confirmation feedback are present, though collapsed status does not match keyboard exposure.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-c/review.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "accessibility",
+          "score": 1,
+          "finding": "Direct supplemental evidence shows focus on address-line1, shipping controls, and card-expiry inside `.hidden` ancestors after their headers were collapsed.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-c/collapsed-focus-defect.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "responsive_touch_ergonomics",
+          "score": 4,
+          "finding": "The three viewport checks reported no horizontal overflow and the controls were visually spaced.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "interruption_resumption",
+          "score": 4,
+          "finding": "Reload restored contact while payment remained empty.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "latency_perception",
+          "score": 4,
+          "finding": "Reduced motion had no duration above 10 ms and duplicate Place order produced one confirmation.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "destructive_actions",
+          "score": 3,
+          "finding": "Review edit and duplicate-submit are safe, but no discoverable clear-progress confirmation control was available.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        },
+        {
+          "lens": "cognitive_load",
+          "score": 3,
+          "finding": "The card headings help chunk work, but mismatch between collapsed presentation and tab order makes the interaction mentally unstable.",
+          "evidence_refs": [
+            "judging/loop-02/judge-accessibility/screenshots/candidate-c/collapsed-focus-defect.png",
+            "judging/loop-02/judge-accessibility/navigation-transcript-c.json"
+          ]
+        }
+      ],
+      "visual-information-clarity": {
+        "score": 3,
+        "evidence_refs": [
+          "judging/loop-02/judge-accessibility/screenshots/candidate-c/initial.png",
+          "judging/loop-02/judge-accessibility/screenshots/candidate-c/review.png"
+        ]
+      },
+      "synthesis_feedback": "Reject this accordion implementation for synthesis until collapsed panels remove descendants from keyboard and screen-reader exposure and a safe clear-progress path is provided. A labelled section-status pattern may be adopted only after that repair."
+    }
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "record_kind": "process_ledger_reconciliation_event_sidecar",
+  "intended_consumer": "orchestrator",
+  "append_target": "global process ledger",
+  "handling_note": "This is a sidecar for the orchestrator to append to the global process ledger. This recovery task did NOT edit, create, or write the global process ledger or any file outside .experiments/accessible-mobile-checkout/generated/synthesis/**.",
+  "experiment_id": "accessible-mobile-checkout",
+  "brief_revision": 1,
+  "loop_id": "synthesis-loop-01",
+  "track_id": "synthesis",
+  "model_role": "synthesizer",
+  "model_id": "claude-opus-4.8",
+  "original_agent_handle": "synthesis-loop-01",
+  "continuation_task_identity": "synthesis-loop-01-recovery",
+  "authorization": {
+    "type": "explicit_owner_authorization",
+    "scope": "single continuation after PC reboot",
+    "writable_scope": ".experiments/accessible-mobile-checkout/generated/synthesis/**",
+    "objective_rerun_authorized": false,
+    "approval_source_records": [
+      "setup/approval.json"
+    ]
+  },
+  "interruption_classification": "agent_interrupted_after_terminal_objective_pass",
+  "interruption_detail": "The original synthesis-loop-01 agent was interrupted by a PC reboot while authoring the required records, after the terminal objective pass and after both adoption/rejection matrices were written. After reboot the agent handle was not registered, no background agents or shell sessions survived, and the recorded objective PID was not alive. The persisted status.json was stale (state=running, heartbeat 2026-07-21T09:02:38.916Z, objective_status=not_started) despite the completed objective run.",
+  "immutable_inventory": {
+    "path": "synthesis/recovery/recovery-inventory.json",
+    "launch_sha256": "74d30090793837c19b3e22bec442dba26d07a0c3cbba4b1ccc40b719f071ded0",
+    "immutable_functional_output_count": 14,
+    "verified_before_writing": true,
+    "verified_after_writing": true
+  },
+  "objective_run": {
+    "role": "terminal-objective-run",
+    "command": "python .experiments\\accessible-mobile-checkout\\generated\\harness\\run_checkout_gates.py --candidate .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-01 --out .experiments\\accessible-mobile-checkout\\generated\\synthesis\\loop-01\\evidence",
+    "command_provenance": "Copied verbatim from synthesis/loop-01/process.json objective_runs[0].command.",
+    "working_directory": "<skill-repository>",
+    "shell": "powershell",
+    "process_pid": 53728,
+    "start_utc": "2026-07-21T09:07:03.705Z",
+    "heartbeat_utc": "2026-07-21T09:07:12.389Z",
+    "end_utc": "2026-07-21T09:07:12.389Z",
+    "exit_code": 0,
+    "terminal_state": "completed",
+    "blocking_failure": false,
+    "failed_gate_ids": [],
+    "gate_states": {
+      "content-fidelity": "pass",
+      "semantic-accessibility-gate": "pass",
+      "keyboard-completion-gate": "pass",
+      "error-recovery-gate": "pass",
+      "mobile-touch-gate": "pass",
+      "resilience-gate": "pass",
+      "offline-safety-gate": "pass"
+    },
+    "external_request_count": 0,
+    "repair_attempts": 0,
+    "reran_during_recovery": false,
+    "rerun_authorized": false,
+    "fixture_sha256": "e6622cd3f97964aad041603f53ffe2b1f9360a4bcee7bb6624e0d662e8b5b894",
+    "harness_sha256": "de51a917b14aa9e0d003efb5e84fc98cf42b089e31448bcaf9f4889d3b060563",
+    "metrics": {
+      "activations": 20,
+      "completion_interactions": 1,
+      "corrections": 4,
+      "focusable_controls_traversed": 28
+    }
+  },
+  "reboot_provenance": {
+    "agent_handle": "synthesis-loop-01",
+    "agent_handle_after_reboot": "not_found",
+    "active_background_agents_after_reboot": 0,
+    "active_shell_sessions_after_reboot": 0,
+    "recorded_objective_pid_alive_after_reboot": false,
+    "persisted_status_state_before_recovery": "running",
+    "persisted_status_heartbeat_before_recovery": "2026-07-21T09:02:38.916Z",
+    "persisted_status_objective_status_before_recovery": "not_started",
+    "last_persisted_write_before_recovery": {
+      "path": "synthesis/loop-01/adoption-rejection-matrix.md",
+      "utc": "2026-07-21T09:09:50.2394534Z"
+    },
+    "writes_outside_generated_synthesis_after_launch": []
+  },
+  "recovery_window": {
+    "start_utc": "2026-07-21T21:16:51.523Z",
+    "heartbeat_utc": "2026-07-21T21:27:00.000Z",
+    "end_utc": "2026-07-21T21:27:00.000Z",
+    "objective_command_rerun": false,
+    "chronology_note": "Status chronology was reconciled from process.json and filesystem evidence rather than from the stale pre-reboot heartbeat."
+  },
+  "outputs_completed_during_recovery": [
+    { "path": "synthesis/loop-01/metadata.json", "sha256": "ae13d675495e1167c8878b828380149291ec8fe5e59a36aa71cb3f41c8f335b0" },
+    { "path": "synthesis/loop-01/synthesis-report.md", "sha256": "226a9a3a4d84eec4caebd52d45147580761801aa9e96ca963419d8903b64cf8b" },
+    { "path": "synthesis/loop-01/status.json", "sha256": "537174a7d299a860afd0af7f44a30b9b4f9a85d6ad7b5065d052de34b7d1c101" },
+    { "path": "synthesis/manifest-fragment.json", "sha256": "cd847abb4de5bef8a0192613edcc6d4b4dbad63c7f09fb7e5a1b0aa3ea54c553" },
+    {
+      "path": "synthesis/recovery/post-recovery-verification.json",
+      "sha256": null,
+      "sha256_note": "Finalized after this sidecar; its exact SHA-256 is self-excluded and its content hashes every other output. Not listed here to avoid circular hashing."
+    }
+  ],
+  "immutable_output_hashes": {
+    "synthesis/loop-01/index.html": "0b94c3e512ec293dc1a8c9a013ddd4408f698e7d97bfa3ce66e052546f97a37e",
+    "synthesis/loop-01/styles.css": "9e1dfcf492fb28a358d4720cc3e5a7c0a18a625e17fcb549cdb94307f32b850d",
+    "synthesis/loop-01/app.js": "9bbe3f43035a2f88cf749c0299f4ac6275a97f9420694aa4c5d9646697d22ef1",
+    "synthesis/loop-01/process.json": "71c2997367302c951005ecb03e0b5d769c195a7e7658862e1cae3dcd90f7f04f",
+    "synthesis/loop-01/evidence/objective-report.json": "512eb60c830cc663a66061b2fbe128c5679adc5bb75a41f69b63bbd70f4f8cc8",
+    "synthesis/loop-01/evidence/objective-report.txt": "2246f845be24decb6ca2ec174692d2aef734a3487638e716cf605ea64213c7ae",
+    "synthesis/loop-01/evidence/initial.png": "e1c910f208aa18a8a43d3cca2927581705f66c33947f5c7db7ef4207568e3a93",
+    "synthesis/loop-01/evidence/keyboard-completion.png": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b",
+    "synthesis/loop-01/evidence/final.png": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b",
+    "synthesis/loop-01/evidence/viewport-320x568.png": "ef0891c83646f03c553dcc0781db18460625150b6d7b408b4a525adec92d6313",
+    "synthesis/loop-01/evidence/viewport-360x800.png": "0bd146688840a43ba8bfce1bc1876ec687dc0d6a28efd484f6854f7bfc9b362c",
+    "synthesis/loop-01/evidence/viewport-390x844.png": "d3ce3a76debb8622ed6f810751da37c6e14cd5bd70d1f709b45aead2eb2d9b5b",
+    "synthesis/loop-01/adoption-rejection-matrix.json": "3f6c9fc01cb5629738a71a58851e4f0e174427bdf70edafbdcb05db861557630",
+    "synthesis/loop-01/adoption-rejection-matrix.md": "034c3e68b9a00f0d69f4b36e1a1b25da485ed2432cd99a6f4b610e62efd4429b"
+  },
+  "terminal_status": "completed_after_reboot_reconciliation",
+  "state": "completed",
+  "objective_status": "pass",
+  "decision": "keep_for_synthesis",
+  "stop_reason": null,
+  "blockers": [],
+  "claims_withheld": {
+    "champion": false,
+    "new_best": false,
+    "qualitative_scores": false,
+    "note": "No Champion, new_best, promotion, or qualitative score is claimed; independent qualitative synthesis judging is pending."
+  }
+}

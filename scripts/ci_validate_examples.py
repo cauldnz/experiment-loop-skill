@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import argparse
 import json
 import subprocess
 import sys
@@ -16,11 +17,26 @@ sys.path.insert(0, str(ROOT))
 from references.evidence_gate import validate_experiment  # noqa: E402
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "examples",
+        nargs="*",
+        help="optional Example names to validate; the default validates every Example",
+    )
+    args = parser.parse_args(argv)
     failures = 0
     judge = ROOT / "references" / "navigation_judge" / "cli.mjs"
-    for prompt in sorted((ROOT / "examples").glob("*/prompt.md")):
+    if args.examples:
+        prompts = [ROOT / "examples" / name / "prompt.md" for name in args.examples]
+    else:
+        prompts = sorted((ROOT / "examples").glob("*/prompt.md"))
+    for prompt in prompts:
         name = prompt.parent.name
+        if not prompt.is_file():
+            print(f"[FAIL] {name}: prompt.md is missing")
+            failures += 1
+            continue
         generated = prompt.parent / "generated"
         viewer = generated / "viewer.html"
         with tempfile.TemporaryDirectory(prefix=f"navigation-{name}-") as temp_dir:
